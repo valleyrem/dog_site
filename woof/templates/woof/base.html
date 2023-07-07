@@ -1,0 +1,117 @@
+{% load static %}
+{% load woof_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'woof/css/styles.css' %}" rel="stylesheet" />
+
+
+</head>
+<body>
+
+{% block mainmenu %}
+    <div class="header">
+        <ul id="mainmenu" class="mainmenu">
+            <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+            {% for m in menu %}
+                {% if m.url_name == 'about' or m.url_name == 'contact' %}
+                    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% elif request.user.is_authenticated %}
+                    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if request.user.is_authenticated %}
+
+                <li class="last">Добро пожаловать, {{ user.username }}! ☺ <a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+                <li class="last"><a href="{% url 'register' %}">Регистрация</a> ☺ <a href="{% url 'login' %}">Войти</a></li>
+            {% endif %}
+        </ul>
+        <div class="clear"></div>
+    </div>
+{% endblock mainmenu %}
+
+
+
+
+
+
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+<!-- Sidebar слева -->
+<td valign="top" class="left-chapters">
+    <ul id="leftchapters">
+        {% if cat_selected == 0 %}
+            <li class="selected">Все категории𓃩</li>
+        {% else %}
+            <li><a href="{% url 'home' %}">Все категории𓃩</a></li>
+        {% endif %}
+
+        {% for category in cats %}
+            {% if category.pk == cat_selected %}
+                <li class="selected">{{ category.name }}</li>
+            {% else %}
+                <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</td>
+<!-- Конец Sidebar'а -->
+
+
+<td valign="top" class="content">
+	<!-- Хлебные крошки -->
+	{% block breadcrumbs %}
+	{% endblock %}
+
+<!-- Блок контента -->
+
+	<div class="content-text">
+{% block content %}
+{% endblock %}
+{% if page_obj.has_other_pages %}
+<nav class="list-pages">
+    <ul>
+{% if page_obj.has_previous %}
+<li class="page-num">
+         <a href="?page={{ page_obj.previous_page_number }}">ᐊ</a>
+</li>
+{% endif %}
+
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li class="page-num page-num-selected">{{ p }}</li>
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+        <li class="page-num">
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+
+
+{% if page_obj.has_next %}
+<li class="page-num">
+         <a href="?page={{ page_obj.next_page_number }}">ᐅ</a>
+</li>
+{% endif %}
+    </ul>
+</nav>
+{% endif %}
+	</div>
+<!-- Конец блока контента -->
+
+</td></tr></table>
+</td></tr>
+<!-- Footer -->
+<tr><td valign=top>
+	<div id="footer">
+		<p>&copy; 2023. All rights reserved</p>
+
+	</div>
+</td></tr></table>
+<!-- Конец footer'а и страницы -->
+</body>
+</html>

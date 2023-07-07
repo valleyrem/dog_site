@@ -1,0 +1,25 @@
+{% extends 'woof/base.html' %}
+{% block content %}
+<p>Свяжитесь с нами, eсли у вас есть вопросы, предложения или просто хочется поделиться своим мнением. Мы всегда рады общению с нашими читателями и готовы помочь вам в любом вопросе.</p>
+
+<h1>{{title}}</h1>
+ 
+<form method="post">
+    {% csrf_token %}
+ 
+    <div class="form-error">{{ form.non_field_errors }}</div>
+ 
+{% for f in form %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+ 
+    <button type="submit">Отправить</button>
+ 
+</form>
+<p>✉ Наши контакты:</p>
+<p><a href="https://t.me/...">Telegram</a></p>
+<p><a href="https://www.instagram.com/">Instagram</a></p>
+<p><a href="https://twitter.com/">Twitter</a></p>
+<p><a href="https://www.youtube.com/">YouTube</a></p>
+{% endblock %}

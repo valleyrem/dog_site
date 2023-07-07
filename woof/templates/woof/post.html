@@ -1,0 +1,14 @@
+{% extends 'woof/base.html' %}
+ 
+{% block content %}
+
+<a href="javascript:void(0);" onclick="history.back();">Назад</a>
+
+<h1>{{post.title}}</h1>
+ 
+{% if post.photo %}
+<p><img class="img-article-left" src="{{post.photo.url}}"></p>
+{% endif %}
+
+{{post.content|linebreaks}}
+{% endblock %}

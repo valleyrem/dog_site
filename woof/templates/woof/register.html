@@ -1,0 +1,18 @@
+{% extends 'woof/base.html' %}
+
+{% block content %}
+<p>Заполните форму регистрации, чтобы присоединиться к нашему онлайн-сообществу и получить возможность добавлять статьи и оставлять комментарии.</p>
+<h1>{{title}}</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+{% for f in form %}
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+
+    <button type="submit">Регистрация</button>
+</form>
+ 
+{% endblock %}
