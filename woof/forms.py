@@ -9,6 +9,7 @@ from django.views import View
 from django.contrib.auth import get_user_model
 from .models import *
 
+
 class AddPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

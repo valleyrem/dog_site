@@ -80,13 +80,22 @@ WSGI_APPLICATION = 'dogsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'doggy',
+        'USER': 'doggy_user',
+        'PASSWORD': 'zLSE105aHn9weita',
+        'HOST': '10.10.20.40',   # или IP-адрес вашего сервера PostgreSQL
+        'PORT': '5432',        # порт PostgreSQL
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
