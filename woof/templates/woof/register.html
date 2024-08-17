@@ -1,8 +1,9 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<p>Заполните форму регистрации, чтобы присоединиться к нашему онлайн-сообществу и получить возможность добавлять статьи и оставлять комментарии.</p>
 <h1>{{title}}</h1>
+<p>Fill out the registration form to join our <strong>Dog Lovers'</strong> community and gain the ability to post articles.</p>
+
 
 <form method="post">
     {% csrf_token %}
@@ -12,7 +13,7 @@
 <div class="form-error">{{ f.errors }}</div>
 {% endfor %}
 
-    <button type="submit">Регистрация</button>
+    <button type="submit">Registration</button>
 </form>
  
 {% endblock %}

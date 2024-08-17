@@ -1,18 +1,23 @@
 {% extends 'woof/base.html' %}
 {% load static %}
 {% block content %}
-    <p>Добро пожаловать на наш сайт о собаках!</p>
-
+    <h1>Dog Lovers' Site</h1>
 
     <p>
-        Погрузитесь в мир четвероногих друзей, узнайте о их истории, характеристиках и уходе, чтобы лучше понять, какая порода подходит именно вам.
-        Каждая порода уникальна и обладает своими особенностями. Мы предлагаем полезные советы и рекомендации по уходу за собаками каждой породы. Узнайте, как обеспечить своему питомцу здоровую и счастливую жизнь, правильное питание, физическую активность и уход за шерстью.
+        Join our community of Dog Lovers and discover more information about your Favorite Pets. Our site offers simple advice on dog health, training tips and general breed profiles.
     </p>
-    <p>Мы надеемся, что наш сайт будет источником вдохновения, знаний и радости для всех любителей собак!</p>
+    <p>Enjoy beautiful dog pictures :)</p>
 
-
+<!--    {% for contact in page_obj %}-->
+<!--        <p><a href="{{ contact.get_absolute_url }}">{{ contact.title }}</a></p>-->
+<!--    {% endfor %}-->
+     <div class="dog-list">
     {% for contact in page_obj %}
-        <p><a href="{{ contact.get_absolute_url }}">{{ contact.title }}</a></p>
+        <div class="dog-item">
+            <a href="{{ contact.get_absolute_url }}">{{ contact.title }}</a>
+        </div>
     {% endfor %}
+</div>
+
 
 {% endblock %}

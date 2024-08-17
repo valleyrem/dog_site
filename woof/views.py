@@ -22,7 +22,7 @@ class DogsHome(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Главная страница")
+        c_def = self.get_user_context(title="Dog Lovers' Site")
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
@@ -42,7 +42,7 @@ class DogsHome(DataMixin, ListView):
 #     return render(request, 'woof/index.html', context=context)
 
 def about(request):
-    contact_list = Dogs.objects.all()
+    contact_list = Dogs.objects.all().order_by('title')
     paginator = Paginator(contact_list, len(contact_list))
 
     page_number = request.GET.get('page')
@@ -50,8 +50,7 @@ def about(request):
 
     cats = Category.objects.all()  # Получаем все категории
 
-    return render(request, 'woof/about.html', {'page_obj': page_obj, 'menu': menu, 'title': 'О сайте', 'cats': cats})
-
+    return render(request, 'woof/about.html', {'page_obj': page_obj, 'menu': menu, 'title': 'About Site', 'cats': cats})
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
@@ -62,7 +61,7 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Добавление статьи")
+        c_def = self.get_user_context(title="Add an article")
         return dict(list(context.items()) + list(c_def.items()))
 # def addpage(request):
 #     if request.method == 'POST':
@@ -84,7 +83,7 @@ class ContactFormView(DataMixin, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Обратная связь")
+        c_def = self.get_user_context(title="Feedback")
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
@@ -103,7 +102,7 @@ class ContactFormView(DataMixin, FormView):
 #     return HttpResponse(f"<h1>Статьи по категориям</h1>{cat}</p>")
 
 def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+    return HttpResponseNotFound('<h1>Page not found</h1>')
 
 
 class ShowPost(DataMixin, DetailView):
@@ -141,7 +140,7 @@ class DogsCategory(DataMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
-        c_def = self.get_user_context(title='Категория - ' + str(c.name),
+        c_def = self.get_user_context(title='Category - ' + str(c.name),
                                       cat_selected=c.pk)
         return dict(list(context.items()) + list(c_def.items()))
 # def show_category(request, cat_slug):
@@ -171,7 +170,7 @@ class RegisterUser(DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Регистрация")
+        c_def = self.get_user_context(title="Registration")
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
@@ -186,7 +185,7 @@ class LoginUser(DataMixin, LoginView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Авторизация")
+        c_def = self.get_user_context(title="Authorization")
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_success_url(self):
@@ -196,5 +195,4 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
-
 

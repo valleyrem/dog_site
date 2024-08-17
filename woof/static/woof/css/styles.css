@@ -1,14 +1,12 @@
 /* фон текста статьей и других страниц */
 
 
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@100;200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 
 html, body {
-	font-family: 'Neucha', cursive;
+    font-family: 'Montserrat', sans-serif;
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -242,7 +240,7 @@ ul.breadcrumbs {
 	padding: 0;
 	list-style: none;
 	font-size: 20px;
-	font-family: 'Neucha', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 ul.breadcrumbs li {
 	display: inline-block;
@@ -262,7 +260,7 @@ ul.control {
 	margin: 0;
 	padding: 60px 0 0 0;
 	list-style: none;
-	font-family: 'Cormorant Infant', serif;
+    font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	width: 100%;
 }
@@ -277,7 +275,7 @@ ul.content-table {
 	margin: 0;
 	padding: 60px 0 0 30px;
 	list-style: none;
-	font-family: 'Neucha', cursive;
+    font-family: 'Montserrat', sans-serif;
 	font-size: 28px;
 }
 ul.content-table li {
@@ -293,12 +291,12 @@ ul.content-table li a:hover {color: #F0711C;}
 	margin: 30px 0 0 30px;
 	color: #000;
 	font-size: 20px;
-	font-family: 'Ysabeau Infant', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .content-text h1 {font-size: 32px;}
 
 h2 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -312,7 +310,7 @@ ul.lang-list {
 	border-top: 1px solid #959A82;
 	box-sizing: border-box;
 	font-size: 18px;
-	font-family: 'Cormorant Infant', serif;
+    font-family: 'Montserrat', sans-serif;
 }
 ul.lang-list li {
 	display: inline-block;
@@ -337,12 +335,12 @@ ul.lang-list li a:hover {color: #fdc073;}
 	padding: 0 10px 0 10px;
 	margin-left: 30px;
 	background: #fff;
-	font-family: 'Neucha', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .list-topic {
 	margin: 40px 0 60px 0;
-	font-family: 'Neucha', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 .list-topic p {
 	margin: 0;
@@ -382,7 +380,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 .quote {
 	background: url('../images/blockquote.png') no-repeat 0 10px;
 	padding: 5px 5px 5px 70px;
-	font-family: 'Cormorant Infant', serif;
+    font-family: 'Montserrat', sans-serif;
 	font-style: italic;
 }
 /* фон футера */
@@ -392,7 +390,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 	padding: 5px;
 	color: #aaa;
 	font-size: 14px;
-	font-family: 'Cormorant Infant', serif;
+    font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	overflow: hidden;
 }
@@ -430,7 +428,7 @@ ul.lang-list li a:hover {color: #fdc073;}
   height: 30px;
   border-radius: 50%;
   background-color: #8CBAA0;
-  font-family: 'Cormorant Infant', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   line-height: 30px;
 }
@@ -439,4 +437,18 @@ ul.lang-list li a:hover {color: #fdc073;}
   background-color: #8CBAA0;
 }
 
+.dog-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Расстояние между столбиками */
+}
+
+.dog-item {
+    /* Дополнительные стили для элементов, если нужно */
+}
+
+.dog-item a {
+    text-decoration: none;
+    color: #000; /* Цвет текста, измените по необходимости */
+}
 
