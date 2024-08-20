@@ -1,16 +1,18 @@
 {% extends 'woof/base.html' %}
- 
+
 {% block content %}
 
-<h1>{{post.title}}</h1>
-
+<h1>{{ post.title }}</h1>
 
 {% if post.photo %}
-<p><img class="img-article-left" src="{{post.photo.url}}"></p>
+<p><img class="img-article-left" src="{{ post.photo.url }}"></p>
 {% endif %}
 
-{{post.content|linebreaks}}
-<a href="javascript:void(0);" onclick="history.back();" style="font-size: 25px;">Back</a>
+<p><strong>Size:</strong> {{ post.size }}</p>
+<p><strong>Coat Type:</strong> {{ post.coat_type }}</p>
+<p><strong>Care Requirements:</strong> {{ post.care|linebreaks }}</p>
+<p><strong>Living Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
 
+<a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>
 
 {% endblock %}

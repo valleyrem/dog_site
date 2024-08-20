@@ -1,4 +1,5 @@
-/* фон текста статьей и других страниц */
+/* фон текста статьей и других страниц *//*
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
@@ -27,11 +28,15 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* фотографии */
+*/
+/* фотографии *//*
+
 img {
   max-width: 600px;
   height: auto;
-  border-radius: 0%; /* Задайте 50% для закругления всех углов */
+  border-radius: 0%; */
+/* Задайте 50% для закругления всех углов *//*
+
   transition: transform 0.7s;
 }
 
@@ -47,7 +52,9 @@ img.img-article-left.thumb {
   height: auto;
 }
 
-/* Добавление эффекта увеличения и значка лупы */
+*/
+/* Добавление эффекта увеличения и значка лупы *//*
+
 img:hover {
   transform: scale(1.5);
   cursor: zoom-in;
@@ -55,12 +62,16 @@ img:hover {
 }
 
 
-/* кнопка читать пост */
+*/
+/* кнопка читать пост *//*
+
 p.link-read-post {
 	text-align: right;
 }
 
-/* кнопка читать пост */
+*/
+/* кнопка читать пост *//*
+
 p.link-read-post a {
 	padding: 10px;
 	min-width: 100px;
@@ -70,7 +81,9 @@ p.link-read-post a {
 	border-radius: 10px;
 }
 
-/* панель с категорями статей, фон */
+*/
+/* панель с категорями статей, фон *//*
+
 div.article-panel {
     background: #FDECAF;
     padding: 5px 10px 5px 10px;
@@ -106,7 +119,9 @@ ul.list-articles li {
 
 .clear {clear: both;}
 
-/* фон главного меню */
+*/
+/* фон главного меню *//*
+
 .header {
 	background:#8CBAA0;
 	height: 60px;
@@ -197,7 +212,9 @@ div.button {
 	min-height: 100%;
 	height: 100%;
 }
-/*панель слева*/
+*/
+/*панель слева*//*
+
 .left-chapters {
 	margin: 0;
 	background: #E1B588;
@@ -395,7 +412,9 @@ ul.lang-list li a:hover {color: #fdc073;}
 	font-family: 'Cormorant Infant', serif;
 	font-style: italic;
 }
-/* фон футера */
+*/
+/* фон футера *//*
+
 #footer {
 	box-sizing: border-box;
 	background: #69516B;
@@ -449,3 +468,4 @@ ul.lang-list li a:hover {color: #fdc073;}
   background-color: #8CBAA0;
 }
 
+*/

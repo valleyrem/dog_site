@@ -7,15 +7,18 @@
 <ul class="list-articles">
 	{% for p in posts %}
 			<li><div class="article-panel">
-         <p class="first">Category: {{p.cat}}</p>
-<p class="last">Published: {{ p.time_update|date:"d-m-Y H:i:s" }}</p>
+         <p class="first">{{p.cat}}</p>
+<p class="last">{{ p.time_update|date:"d-F-Y H:i:s" }}</p>
 </div>
 {% if p.photo %}
          <p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
 {% endif %}
 				<h2>{{p.title}}</h2>
 	{% autoescape on %}
-	{{p.content|linebreaks|truncatewords:50}}
+<p class="index-descr">Size: {{ p.size }}</p>
+<p class="index-descr">Coat Type: {{ p.coat_type }}</p>
+<p class="index-descr">{{ p.content|linebreaks }}</p>
+
 	{% endautoescape %}
 			<div class="clear"></div>
 			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Read more</a></p>

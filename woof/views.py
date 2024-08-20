@@ -22,35 +22,29 @@ class DogsHome(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Dog Lovers' Site")
+        c_def = self.get_user_context(title="Paws & Tails")
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
         return Dogs.objects.filter(is_published=True).select_related('cat')
-# def index(request):
-#     posts = Dogs.objects.all()
-#     cats = Category.objects.all()
-#
-#     context = {
-#         'posts': posts,
-#         'cats': cats,
-#         'menu': menu,
-#         'title': 'Главная страница',
-#         'cat_selected': 0,
-#     }
-#
-#     return render(request, 'woof/index.html', context=context)
 
-def about(request):
-    contact_list = Dogs.objects.all().order_by('title')
-    paginator = Paginator(contact_list, len(contact_list))
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+class AboutView(DataMixin, ListView):
+    model = Dogs
+    template_name = 'woof/about.html'
+    context_object_name = 'dogs'
 
-    cats = Category.objects.all()  # Получаем все категории
+    def get_queryset(self):
+        return Dogs.objects.all().order_by('title')
 
-    return render(request, 'woof/about.html', {'page_obj': page_obj, 'menu': menu, 'title': 'About Site', 'cats': cats})
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cats = Category.objects.all().order_by('name')
+        c_def = self.get_user_context(title='About Site', cats=cats, menu=menu)
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
@@ -63,17 +57,6 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Add an article")
         return dict(list(context.items()) + list(c_def.items()))
-# def addpage(request):
-#     if request.method == 'POST':
-#         form = AddPostForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             #print(form.cleaned_data)
-#             form.save()
-#             return redirect('home')
-#     else:
-#         form = AddPostForm()
-#
-#     return render(request, 'woof/addpage.html', {'menu': menu, 'title': 'Добавление статьи', 'form': form})
 
 
 class ContactFormView(DataMixin, FormView):
@@ -91,15 +74,7 @@ class ContactFormView(DataMixin, FormView):
         return redirect('home')
 
 
-# def login(request):
-#     return HttpResponse("Авторизация")
 
-
-# def categories(request, cat):
-#     if (request.POST):
-#         print(request.POST)
-#
-#     return HttpResponse(f"<h1>Статьи по категориям</h1>{cat}</p>")
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page not found</h1>')
@@ -115,17 +90,6 @@ class ShowPost(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
-# def show_post(request, post_id):
-#     post = get_object_or_404(Dogs, pk=post_id)
-#
-#     context = {
-#         'post': post,
-#         'menu': menu,
-#         'title': post.title,
-#         'cat_selected': post.cat_id,
-#     }
-#
-#     return render(request, 'woof/post.html', context=context)
 
 
 class DogsCategory(DataMixin, ListView):
@@ -141,26 +105,8 @@ class DogsCategory(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
         c_def = self.get_user_context(title='Category - ' + str(c.name),
-                                      cat_selected=c.pk)
+                                      cat_selected=c.pk,)
         return dict(list(context.items()) + list(c_def.items()))
-# def show_category(request, cat_slug):
-#     cat = Category.objects.get(slug=cat_slug)
-#     posts = Dogs.objects.filter(cat_id=cat.id)
-#
-#     if len(posts) == 0:
-#         raise Http404
-#
-#     context = {
-#         'posts': posts,
-#         'menu': menu,
-#         'title': 'Отображение по рубрикам',
-#         'cat_selected': cat.id,
-#     }
-#
-#     return render(request, 'woof/index.html', context=context)
-
-
-
 
 
 class RegisterUser(DataMixin, CreateView):
@@ -195,4 +141,5 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
 

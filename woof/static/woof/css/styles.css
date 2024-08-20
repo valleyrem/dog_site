@@ -41,34 +41,118 @@ img.img-article-left {
 }
 
 img.img-article-left.thumb {
-  max-width: 150px;
-  height: auto;
+  width: 150px;
+  height: 200px;
+  border-radius: 40px; /* Делает изображение круглым */
+  object-fit: cover; /* Убедитесь, что изображение заполняет круг, не искажая пропорции */
 }
 
 
-/* кнопка читать пост */
+/* Кнопка "читать пост" */
 p.link-read-post {
-	text-align: right;
+    position: absolute; /* Позиционирование элемента абсолютно относительно родительского контейнера */
+    bottom: 0px; /* Расстояние от нижнего края */
+    right: 10px; /* Расстояние от правого края */
+    text-align: right; /* Выравнивание кнопки по правому краю родительского контейнера */
 }
 
-/* кнопка читать пост */
 p.link-read-post a {
-	padding: 10px;
-	min-width: 100px;
-	background: #99BDB0;
-	color: #fff;
-	text-decoration: none;
-	border-radius: 10px;
+    /* reset */
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    /* styles */
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    background-size: 200% 100%;
+    padding: 0.6rem 0.9rem;
+    color: #4444444;
+    border-radius: 50px;
+    font-size: 0.9rem; /* Уменьшен размер шрифта */
+    font-family: 'Montserrat', sans-serif;
+    transition: .3s;
+    text-decoration: none;
+    text-align: center;
+    bottom: -8px;
+    right: 0px;
+
+    &:hover {
+        animation: bruh 3s linear infinite;
+        color: #444444; /* Убедитесь, что цвет текста остается таким же при наведении */
+    }
 }
+
+@keyframes bruh {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/*кнопка вернуться назад*/
+.btn-back {
+    /* Reset */
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    /* Styles */
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    background-size: 200% 100%;
+    padding: 0.6rem 0.9rem;
+    color: #444444; /* Цвет текста */
+    border-radius: 50px;
+    font-size: 0.9rem; /* Размер шрифта */
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s;
+    cursor: pointer; /* Указывает, что элемент кликабельный */
+
+    /* Анимация при наведении */
+    &:hover {
+        animation: bruh 3s linear infinite;
+        color: #444444; /* Цвет текста при наведении */
+        text-decoration: none; /* Убирает подчеркивание при наведении */
+
+    }
+}
+
+/* Анимация градиента */
+@keyframes bruh {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
 
 /* панель с категорями статей, фон */
 div.article-panel {
-    background: #FDECAF;
-    padding: 5px 10px 5px 10px;
+    background: #FFFFFF;
+    padding: 5px 0px 5px 0px;
     box-sizing: border-box;
     overflow: hidden;
-    color: #38454B;
-    border-radius: 10px
+    color: #444444;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    font-size: 14px;
 }
 div.article-panel p.first {
     margin: 0;
@@ -79,13 +163,44 @@ div.article-panel p.last {
     float: right;
 }
 
+.list-articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0;
+    list-style-type: none;
+}
+
+/*.article-item {
+    border: 1px solid #d600ff;
+}*/
+
+.article-panel img {
+    max-width: 100%;
+    height: auto;
+}
+
+
 ul.list-articles {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 ul.list-articles li {
-	border-bottom: 0px solid #f0e9e9;
+  position: relative; /* Позиционирование дочерних элементов относительно li */
+  flex: 1 1 calc(50% - 10px);
+  box-sizing: border-box; /* Учитываем границы и отступы в ширине элемента */
+  border: 1px solid #f0e9e9;
+  border-radius: 10px;
+  padding: 10px; /* Увеличен отступ для улучшенного внешнего вида */
+  background-color: #FFFFFF; /* Убедитесь, что фон соответствует вашему дизайну */
+  height: 320px; /* Задайте фиксированную высоту для всех элементов */
+  overflow: hidden; /* Чтобы лишний контент не выходил за пределы */
+}
+
+.index-descr {
+    color: #444444;
+    font-size: 14px;
 }
 
 .table-page {
@@ -99,17 +214,15 @@ ul.list-articles li {
 
 /* фон главного меню */
 .header {
-	background:#8CBAA0;
+	background:#ffffff;
 	height: 60px;
 }
 
 .logo {
-	background: url('../images/logo.png') no-repeat 10px 5px;
-	width: 75px;
+	background: url('../images/logo3.png') no-repeat 19px 5px;
+	width: 95px;
 	height: 60px;
 }
-
-
 
 
 ul.mainmenu {
@@ -117,13 +230,13 @@ ul.mainmenu {
 	margin: 0;
 	padding: 0;
 	height: 60px;
-	color: #fdc073;
-	font-size: 25px;
+	color: #d600ff;
+	font-size: 17px;
 	overflow: hidden;
 }
 ul.mainmenu li {
 	float: left;
-	margin: 18px 40px 0 30px;
+	margin: 18px 20px 0 40px;
 }
 ul.mainmenu li.logo {margin: 0;}
 ul.mainmenu li.last {float: right;}
@@ -133,8 +246,15 @@ ul.mainmenu li a {
 	text-decoration: none;
 }
 ul.mainmenu li a:hover {
-	color: #FDA83D;
+	color: #d600ff;
 }
+
+/* Стиль для активной страницы */
+.mainmenu .selected a {
+    color: #d600ff; /* Цвет выделения для активной страницы */
+}
+
+
 
 .panelitems {
 	text-align: center;
@@ -164,21 +284,21 @@ ul.langitem li.descr {
 	overflow: hidden;
 }
 ul.langitem li a {
-	color: #fdc073;
+	color:#d600ff;
 	text-decoration: none;
 	font-size: 20px;
 }
 ul.langitem li a:hover {
 	color: #FDA83D;
 }
-div.button {
+/*div.button {
 	background: #3F4137;
 	max-width: 200px;
 	margin: 0 auto;
 	padding: 5px 20px 5px 20px;
 	border-radius: 10px;
 	font-size: 20px;
-}
+}*/
 
 .table-content {
 	width: 100%;
@@ -188,28 +308,28 @@ div.button {
 /*панель слева*/
 .left-chapters {
 	margin: 0;
-	background: #E1B588;
-	border-right: 1px solid #ccc;
+	background: #ffffff;
+	border-right: 0px solid #efe3ff;
 	min-height: 100%;
 }
 .left-chapters ul {
-	width: 200px;
+	width: 230px;
 	min-height: 100%;
 	margin: 0;
-	padding: 20px 10px 10px 20px;
+	padding: 10px 10px 10px 135px;
 	list-style: none;
-	font-size: 22px;
+	font-size: 16px;
 }
 .left-chapters ul li {
-	margin: 30px 0 0 0;
+	margin: 20px 0 0 0;
 	color: #999;
 }
-.left-chapters ul li.selected {color: #0D2433; }
+.left-chapters ul li.selected {color: #d600ff; }
 .left-chapters ul li a {
 	color: #444;
 	text-decoration: none;
 }
-.left-chapters ul li a:hover { color: #979E78; }
+.left-chapters ul li a:hover { color: #d600ff; }
 .left-chapters ul li.share {margin: 60px 0 0 0;}
 .left-chapters ul li.share p {margin: 30px 0 30px 0;}
 .left-chapters ul li.share a {
@@ -226,11 +346,11 @@ div.button {
 .left-chapters ul li.share a.share-yt:hover {
 	width: 100%;
 	height: 30px;
-	background: url('../images/share_yt.png') no-repeat 0 -30px
+	background: url('../images/share_ytsng') no-repeat 0 -30px
 }
 
 .content {
-	padding: 40px 20px 20px 40px;
+    padding: 0px 150px 20px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -239,7 +359,7 @@ ul.breadcrumbs {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: 20px;
+	font-size: 10px;
     font-family: 'Montserrat', sans-serif;
 }
 ul.breadcrumbs li {
@@ -276,7 +396,7 @@ ul.content-table {
 	padding: 60px 0 0 30px;
 	list-style: none;
     font-family: 'Montserrat', sans-serif;
-	font-size: 28px;
+	font-size: 17px;
 }
 ul.content-table li {
 	margin: 0 0 40px 0;
@@ -290,13 +410,14 @@ ul.content-table li a:hover {color: #F0711C;}
 .content-text {
 	margin: 30px 0 0 30px;
 	color: #000;
-	font-size: 20px;
+	font-size: 15px;
     font-family: 'Montserrat', sans-serif;
 }
-.content-text h1 {font-size: 32px;}
+.content-text h1 {font-size: 27px;}
 
 h2 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
 }
 
 
@@ -316,12 +437,12 @@ ul.lang-list li {
 	display: inline-block;
 	margin-left: 40px;
 }
-ul.lang-list li.selected {color: #fdc073; border-bottom: 1px solid #fdc073;}
+ul.lang-list li.selected {color: #d600ff; border-bottom: 1px solid #d600ff;}
 ul.lang-list li a {
 	color: #eee;
 	text-decoration: none;
 }
-ul.lang-list li a:hover {color: #fdc073;}
+ul.lang-list li a:hover {color: #d600ff;}
 
 .topic-subject .topic-line {
 	border-bottom: 1px solid #CC0000;
@@ -386,7 +507,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 /* фон футера */
 #footer {
 	box-sizing: border-box;
-	background: #69516B;
+	background: #FFFFFF;
 	padding: 5px;
 	color: #aaa;
 	font-size: 14px;
@@ -401,54 +522,149 @@ ul.lang-list li a:hover {color: #fdc073;}
 }
 
 .form-input {
-    width: 300px;
-    font-size: 20px;
+    width: 250px;
+    font-size: 12px;
+    height: 30px; /* Установите желаемую высоту */
+    border-radius: 5px; /* Установите желаемое значение закругления */
+    border: 1px solid #444444;
 }
 
 .form-label {
     display: inline-block;
     min-width: 170px;
     vertical-align: top;
+    height: 30px; /* Установите ту же высоту, что и для .form-input */
+    line-height: 30px; /* Выравнивание по вертикали */
+    font-size: 17px;
 }
+
+/* Применение шрифта Montserrat к элементам select */
+#id_content,
+#id_slug,
+#id_care,
+#id_living_conditions,
+#id_name,
+#id_email,
+#id_captcha_1,
+#id_cat{
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px; /* Установите желаемое значение закругления */
+    border: 1px solid #444444;
+}
+
+#id_cat,
+#id_coat_type,
+#id_size {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px; /* Установите желаемое значение закругления */
+    border: 1px solid #fcf7fc;
+    background: #fcf7fc;
+}
+
+#id_photo {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+/* Применение цвета #d600ff к кнопке */
+#id_is_published {
+    accent-color: #d600ff; /* Меняет цвет чекбокса */
+}
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Для обеспечения корректного отображения шрифта на всех элементах */
+select {
+    font-family: inherit; /* Наследование шрифта от родителя */
+}
+
 
 .form-error ul {
     list-style: none;
     padding: 0;
     color: #CC0000;
 }
+.article-content {
+     font-size: 16px; /* Примерный размер шрифта */
 
-.form-button {
-    min-width: 200px;
-    font-size: 16px;
+}
+
+
+.list-pages {
+    display: flex;
+    justify-content: left; /* Центрирование пагинации */
+    margin: 20px 0; /* Отступ сверху и снизу */
+}
+
+.list-pages ul {
+    list-style: none; /* Убирает стандартные маркеры списка */
+    padding: 0; /* Убирает стандартные отступы */
+    margin: 0; /* Убирает стандартные отступы */
+    display: flex; /* Выстраивает элементы в ряд */
+}
+
+.list-pages li {
+    display: inline-block;
+    margin: 0 5px; /* Отступы между элементами */
 }
 
 .page-num {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #8CBAA0;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  line-height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    background-size: 200% 100%;
+    color: #444444;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и текста */
+    text-decoration: none; /* Убирает подчеркивание */
+    font-size: 15px;
+}
+
+.page-num a {
+    color: inherit; /* Наследует цвет родителя */
+    text-decoration: none; /* Убирает подчеркивание */
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px; /* Выравнивание текста по центру */
+}
+
+.page-num:hover {
+    background-color: #76a08b; /* Цвет фона при наведении */
+    color: #000000; /* Цвет текста для выбранной страницы */
 }
 
 .page-num.page-num-selected {
-  background-color: #8CBAA0;
+    background-color: #6f9a79; /* Цвет фона для выбранной страницы */
+    color: #000000; /* Цвет текста для выбранной страницы */
 }
+
 
 .dog-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Расстояние между столбиками */
-}
+    gap: 20px; /* Расстояние между столбиками *//*
+}*/
 
-.dog-item {
-    /* Дополнительные стили для элементов, если нужно */
-}
 
 .dog-item a {
     text-decoration: none;
     color: #000; /* Цвет текста, измените по необходимости */
 }
+
+
+/*кнопки на формах*/
+input, textarea, select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+ }
 

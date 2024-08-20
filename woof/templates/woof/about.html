@@ -1,23 +1,19 @@
 {% extends 'woof/base.html' %}
-{% load static %}
+
 {% block content %}
-    <h1>Dog Lovers' Site</h1>
+<h1>Paws & Tails</h1>
 
-    <p>
-        Join our community of Dog Lovers and discover more information about your Favorite Pets. Our site offers simple advice on dog health, training tips and general breed profiles.
-    </p>
-    <p>Enjoy beautiful dog pictures :)</p>
+<p>
+    Join our community of Dog Lovers and discover more information about your Favorite Pets. Our site offers simple advice on dog health, training tips, and general breed profiles.
+</p>
+<p>Enjoy beautiful dog pictures :)</p>
 
-<!--    {% for contact in page_obj %}-->
-<!--        <p><a href="{{ contact.get_absolute_url }}">{{ contact.title }}</a></p>-->
-<!--    {% endfor %}-->
-     <div class="dog-list">
-    {% for contact in page_obj %}
-        <div class="dog-item">
-            <a href="{{ contact.get_absolute_url }}">{{ contact.title }}</a>
+<div class="dog-list">
+    {% for dog in dogs %}
+        <div>
+            <a href="{{ dog.get_absolute_url }}">{{ dog.title }}</a>
         </div>
     {% endfor %}
 </div>
-
 
 {% endblock %}

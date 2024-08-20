@@ -16,6 +16,52 @@
 <!-- End Google tag (gtag.js) -->
     <title>{{title}}</title>
     <link type="text/css" href="{% static 'woof/css/styles.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'woof/css/mobile.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+#btn-custom{
+    -webkit-appearance: none;
+    border: none; /* Убирает границу */
+    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    background-size: 200% 100%;
+    color: #444444;
+    padding: 0.6rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#btn-custom:hover {
+    animation: bruh 3s linear infinite;
+    color: #444444;
+    text-decoration: none;
+}
+
+@keyframes bruh {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#btn-custom i{
+    margin-left: 0.5rem;
+}
+
+</style>
 
 </head>
 <body>
@@ -26,26 +72,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NJCSC592');</script>
 <!-- End Google Tag Manager -->
+
 {% block mainmenu %}
-    <div class="header">
-        <ul id="mainmenu" class="mainmenu">
-            <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
-            {% for m in menu %}
-                {% if m.url_name == 'about' or m.url_name == 'contact' %}
-                    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
-                {% elif request.user.is_authenticated %}
+<div class="header">
+    <ul id="mainmenu" class="mainmenu">
+        <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+
+        {% for m in menu %}
+            {% if m.url_name == 'about' or m.url_name == 'contact' %}
+                {% if request.resolver_match.url_name == m.url_name %}
+                    <li class="selected"><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% else %}
                     <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
                 {% endif %}
-            {% endfor %}
-            {% if request.user.is_authenticated %}
-
-                <li class="last">Добро пожаловать, {{ user.username }}! ☺ <a href="{% url 'logout' %}">Выйти</a></li>
-            {% else %}
-                <li class="last"><a href="{% url 'register' %}">Регистрация</a> ☺ <a href="{% url 'login' %}">Войти</a></li>
+            {% elif request.user.is_authenticated %}
+                {% if request.resolver_match.url_name == m.url_name %}
+                    <li class="selected"><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% else %}
+                    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                {% endif %}
             {% endif %}
-        </ul>
-        <div class="clear"></div>
-    </div>
+        {% endfor %}
+
+        {% if request.user.is_authenticated %}
+            <li class="last">Welcome back, {{ user.username }}! <i class="bi bi-emoji-smile"></i> <a href="{% url 'logout' %}">Log out</i> </a></li>
+        {% else %}
+            <li class="last"><a href="{% url 'register' %}">Registration</a> <i class="bi bi-emoji-smile"></i> <a href="{% url 'login' %}">Log in </a></li>
+        {% endif %}
+    </ul>
+    <div class="clear"></div>
+</div>
+
+
 {% endblock mainmenu %}
 
 
@@ -59,9 +117,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <td valign="top" class="left-chapters">
     <ul id="leftchapters">
         {% if cat_selected == 0 %}
-            <li class="selected">All𓃩</li>
+            <li class="selected">All</li>
         {% else %}
-            <li><a href="{% url 'home' %}">All𓃩</a></li>
+            <li><a href="{% url 'home' %}">All</a></li>
         {% endif %}
 
         {% for category in cats %}
@@ -84,38 +142,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Блок контента -->
 
 	<div class="content-text">
-{% block content %}
-{% endblock %}
-{% if page_obj.has_other_pages %}
-<nav class="list-pages">
-    <ul>
-{% if page_obj.has_previous %}
-<li class="page-num">
-         <a href="?page={{ page_obj.previous_page_number }}"><</a>
-</li>
-{% endif %}
+    {% block content %}
+    {% endblock %}
+    {% if page_obj.has_other_pages %}
+    <nav class="list-pages">
+        <ul>
+            {% if page_obj.has_previous %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-arrow-left-circle"></i></a>
+            </li>
+            {% endif %}
 
-        {% for p in paginator.page_range %}
-        {% if page_obj.number == p %}
-        <li class="page-num page-num-selected">{{ p }}</li>
-        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
-        <li class="page-num">
-            <a href="?page={{ p }}">{{ p }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
+            {% for p in paginator.page_range %}
+            {% if page_obj.number == p %}
+            <li class="page-num page-num-selected">{{ p }}</li>
+            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+            <li class="page-num">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
 
+            {% if page_obj.has_next %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.next_page_number }}"><i class="bi bi-arrow-right-circle"></i></a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
 
-
-{% if page_obj.has_next %}
-<li class="page-num">
-         <a href="?page={{ page_obj.next_page_number }}">></a>
-</li>
-{% endif %}
-    </ul>
-</nav>
-{% endif %}
-	</div>
 <!-- Конец блока контента -->
 
 </td></tr></table>

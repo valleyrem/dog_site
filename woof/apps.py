@@ -4,4 +4,4 @@ from django.apps import AppConfig
 class WoofConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'woof'
-    verbose_name = 'Породы собак'
+    verbose_name = 'Dog breeds'
