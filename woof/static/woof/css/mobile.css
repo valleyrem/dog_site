@@ -7,21 +7,72 @@
 	    float: left;
 	    margin: 18px 10px 0 10px;
     }
+    ul.mainmenu li.last {float: right;
+        margin-right: 15px; /* Измените значение по вашему усмотрению */
+    }
+
     ul.mainmenu {
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+
+    ul.list-articles li {
+        flex: 1 1 100%;
+    margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 12px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+
+    div.article-panel p.first {
+        margin-bottom: 5px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 16px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }
 /* Медиа-запросы для мобильных устройств */
@@ -38,17 +89,63 @@
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+
+    ul.list-articles li {
+        flex: 1 1 100%;
+        margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 12px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+    div.article-panel p.first {
+        margin-bottom: 5px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 14px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }
 
@@ -65,17 +162,64 @@
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+
+    ul.list-articles li {
+        flex: 1 1 100%;
+        margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 12px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+
+    div.article-panel p.first {
+        margin-bottom: 5px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 14px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }
 
@@ -92,17 +236,63 @@
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+    ul.list-articles li {
+        flex: 1 1 100%;
+        margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 12px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+
+    div.article-panel p.first {
+        margin-bottom: 5px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 14px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }
 
@@ -119,17 +309,64 @@
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+
+    ul.list-articles li {
+        flex: 1 1 100%;
+        margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 12px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+
+    div.article-panel p.first {
+        margin-bottom: 5px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 14px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }
 
@@ -146,16 +383,61 @@
 	    font-size: 12px;
 	}
 	.left-chapters ul {
-	    width: 130px;
+	    width: 100px;
 	    padding: 5px 5px 5px 5px;
 	    font-size: 12px;
     }
     .content {
-        padding: 0px 10px 20px 10px;
+        padding: 0px 10px 20px 0px;
     }
     .logo {
 	    background: url('../images/logo4.png') no-repeat 5px 5px;
 	    width: 65px;
 	    height: 50px;
+    }
+    .content-text {
+	    margin: 10px 0 0 10px;
+	    font-size: 12px;
+    }
+    ul.list-articles {
+        flex-direction: column;
+    }
+    ul.list-articles li {
+        flex: 1 1 100%;
+        margin-bottom: 10px; /* Расстояние между статьями на мобильных устройствах */
+    }
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px; /* Делает изображение круглым */
+    }
+    div.article-panel {
+        display: block;
+        text-align: left; /* Выравнивание текста по центру для мобильных устройств */
+        font-size: 10px; /* Уменьшенный размер шрифта для мобильных устройств */
+    }
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%; /* Ширина 100% для каждого элемента */
+    }
+
+    div.article-panel p.first {
+        margin-bottom: 1px; /* Отступ снизу для .first */
+    }
+    .content-text h1, h2 {
+        font-size: 14px;
+        margin: 5px 0px;
+    }
+    .index-descr {
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%; /* Занимает всю доступную ширину */
+        text-align: justify; /* Выравнивание текста по ширине */
     }
 }

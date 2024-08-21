@@ -40,7 +40,7 @@ class AboutView(DataMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         cats = Category.objects.all().order_by('name')
-        c_def = self.get_user_context(title='About Site', cats=cats, menu=menu)
+        c_def = self.get_user_context(title='About', cats=cats, menu=menu)
         return dict(list(context.items()) + list(c_def.items()))
 
 
@@ -55,7 +55,7 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Add an article")
+        c_def = self.get_user_context(title="Add a Post")
         return dict(list(context.items()) + list(c_def.items()))
 
 
@@ -66,7 +66,7 @@ class ContactFormView(DataMixin, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Feedback")
+        c_def = self.get_user_context(title="Contact")
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):

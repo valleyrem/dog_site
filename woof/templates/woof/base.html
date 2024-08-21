@@ -95,9 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% endfor %}
 
         {% if request.user.is_authenticated %}
-            <li class="last">Welcome back, {{ user.username }}! <i class="bi bi-emoji-smile"></i> <a href="{% url 'logout' %}">Log out</i> </a></li>
+            <li class="last"></i> <a href="{% url 'logout' %}">Log out</i> </a></li>
         {% else %}
-            <li class="last"><a href="{% url 'register' %}">Registration</a> <i class="bi bi-emoji-smile"></i> <a href="{% url 'login' %}">Log in </a></li>
+            <li class="last"><a href="{% url 'register' %}">Registration</a> | </i> <a href="{% url 'login' %}">Log in </a></li>
         {% endif %}
     </ul>
     <div class="clear"></div>
@@ -180,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Footer -->
 <tr><td valign=top>
 	<div id="footer">
-		<p>&copy; 2024 Dogs Lovers' Site. All rights reserved</p>
+		<p>&copy; 2024 Paws & Tails. All rights reserved</p>
 
 	</div>
 </td></tr></table>
