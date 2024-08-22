@@ -10,7 +10,7 @@ from django.views import View
 
 from .forms import AddPostForm, RegisterUserForm, LoginUserForm, ContactForm
 from .models import *
-from django.views.generic import ListView, DetailView, CreateView, FormView
+from django.views.generic import ListView, DetailView, CreateView, FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .utils import *
 
@@ -142,4 +142,29 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
+class CookiePolicyView(DataMixin, TemplateView):
+    template_name = 'woof/cookie_policy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Cookie Policy")
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class TermsAndConditionsView(DataMixin, TemplateView):
+    template_name = 'woof/terms_and_conditions.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Terms and Conditions")
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class PrivacyPolicyView(DataMixin, TemplateView):
+    template_name = 'woof/privacy_policy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Privacy Policy")
+        return dict(list(context.items()) + list(c_def.items()))
 

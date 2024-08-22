@@ -354,6 +354,10 @@ ul.langitem li a:hover {
 	background: url('../images/share_ytsng') no-repeat 0 -30px
 }
 
+#menu__toggle {
+  display: none;
+}
+
 .content {
     padding: 0px 150px 20px 10px;
 	width: 100%;
@@ -511,19 +515,24 @@ ul.lang-list li a:hover {color: #d600ff;}
 }
 /* фон футера */
 #footer {
-	box-sizing: border-box;
-	background: #FFFFFF;
-	padding: 5px;
-	color: #aaa;
-	font-size: 14px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    padding: 5px;
+    color: #aaa;
+    font-size: 14px;
     font-family: 'Montserrat', sans-serif;
-	text-align: center;
-	overflow: hidden;
+    text-align: center;
+    overflow: hidden;
+    width: 100%; /* Убедитесь, что футер занимает всю ширину */
+    margin: 0 auto; /* Центрирование футера */
 }
+
 
 #footer a {
 	text-decoration: underline;
-	color: #aaa;
+	color: #444444;
+	display: inline-block; /* Добавьте, если это поможет */
+
 }
 
 .form-input {
@@ -657,13 +666,61 @@ select {
 .dog-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Расстояние между столбиками *//*
+    gap: 20px;
+     }/* Расстояние между столбиками *//*
 }*/
 
 
 .dog-item a {
     text-decoration: none;
     color: #000; /* Цвет текста, измените по необходимости */
+}
+
+.policy-container {
+    max-width: 800px; /* Можно отрегулировать по необходимости */
+    margin: 0 auto; /* Центрирует блок */
+    padding: 20px; /* Добавляет отступы внутри блока */
+    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    border: 1px solid #d600ff; /* Легкая рамка */
+    border-radius: 8px; /* Скругленные углы */
+}
+
+.last-updated {
+    color: #A9A9A9
+}
+
+/* Стили для ссылок внутри элементов с классом .links-policies */
+.links-policies a {
+  color: inherit; /* Наследовать цвет от родительского элемента */
+  text-decoration: none; /* Убирает подчеркивание текста */
+}
+
+.links-policies a:hover {
+  color: #d600ff; /* Цвет текста при наведении */
+  text-decoration: none; /* Убирает подчеркивание текста при наведении */
+}
+
+.link-site {
+  color: inherit; /* Наследовать цвет от родительского элемента */
+  text-decoration: none; /* Убирает подчеркивание текста */
+}
+
+.link-site:hover {
+  color: #d600ff; /* Цвет текста при наведении */
+  text-decoration: none; /* Убирает подчеркивание текста при наведении */
+}
+
+.table-of-contents {
+  color: inherit; /* Наследовать цвет от родительского элемента */
+  text-decoration: none; /* Убирает подчеркивание текста */
+  display: block; /* Устанавливает каждый элемент как блок для переноса */
+  margin-bottom: 5px; /* Отступ между элементами */
+  margin-left: 20px;
+}
+
+.table-of-contents:hover {
+  color: #d600ff; /* Цвет текста при наведении */
+  text-decoration: none; /* Убирает подчеркивание текста при наведении */
 }
 
 

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-#btn-custom{
+#btn-custom {
     -webkit-appearance: none;
     border: none; /* Убирает границу */
     background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
@@ -57,9 +57,37 @@
     }
 }
 
-#btn-custom i{
+#btn-custom i {
     margin-left: 0.5rem;
 }
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    #btn-custom {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        border-radius: 30px;
+    }
+}
+</style>
+<style>
+/* Стили для таблицы с классом .cookie-table */
+.cookie-table {
+  border-collapse: collapse; /* Убирает двойные границы между ячейками */
+  width: 100%; /* Ширина таблицы на всю доступную ширину */
+  }
+
+.cookie-table th, .cookie-table td {
+  border: 1px solid #000; /* Граница ячеек */
+  padding: 8px; /* Отступы внутри ячеек */
+  font-size: 12px; /* Размер шрифта */
+  text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.cookie-table th {
+  background-color: #f4f4f4; /* Цвет фона для заголовков */
+}
+
 
 </style>
 
@@ -115,21 +143,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <tr>
 <!-- Sidebar слева -->
 <td valign="top" class="left-chapters">
-    <ul id="leftchapters">
-        {% if cat_selected == 0 %}
-            <li class="selected">All</li>
-        {% else %}
-            <li><a href="{% url 'home' %}">All</a></li>
-        {% endif %}
+    <div class="hamburger-menu">
+  <input id="menu__toggle" type="checkbox" />
+  <label class="menu__btn" for="menu__toggle">
+    <span></span>
+  </label>
+  <ul class="menu__box">
+    {% if cat_selected == 0 %}
+      <li class="menu__item selected">All</li>
+    {% else %}
+      <li class="menu__item"><a href="{% url 'home' %}">All</a></li>
+    {% endif %}
 
-        {% for category in cats %}
-            {% if category.pk == cat_selected %}
-                <li class="selected">{{ category.name }}</li>
-            {% else %}
-                <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    {% for category in cats %}
+      {% if category.pk == cat_selected %}
+        <li class="menu__item selected">{{ category.name }}</li>
+      {% else %}
+        <li class="menu__item"><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
 </td>
 <!-- Конец Sidebar'а -->
 
@@ -180,11 +214,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Footer -->
 <tr><td valign=top>
 	<div id="footer">
-		<p>&copy; 2024 Paws & Tails. All rights reserved</p>
-
+		<p>&copy; 2024 Paws & Tails. All rights reserved.</p>
+		<p>
+			<a href="{% url 'cookie-policy' %}">Cookie Policy</a> |
+			<a href="{% url 'terms-and-conditions' %}">Terms and Conditions</a> |
+			<a href="{% url 'privacy-policy' %}">Privacy Policy</a>
+		</p>
 	</div>
 </td></tr></table>
 <!-- Конец footer'а и страницы -->
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
