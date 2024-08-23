@@ -17,11 +17,12 @@ class WoofAdmin(admin.ModelAdmin):
     readonly_fields = ('time_create', 'time_update', 'get_html_photo')
     save_on_top = True
 
+    ordering = ('-time_create',)
     def get_html_photo(self, object):
         if object.photo:
             return mark_safe(f"<img src='{object.photo.url}' width=50>")
 
-    get_html_photo.short_description = "Миниатюра"
+    get_html_photo.short_description = "Miniature"
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -33,5 +34,5 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Dogs, WoofAdmin)
 admin.site.register(Category, CategoryAdmin)
 
-admin.site.site_title = 'Админ-панель сайта о собаках'
-admin.site.site_header = 'Админ-панель сайта о собаках'
+admin.site.site_title = 'Paws & Tails admin'
+admin.site.site_header = 'Paws & Tails admin'

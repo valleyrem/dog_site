@@ -2,21 +2,22 @@
 
 {% block content %}
 <h1>{{title}}</h1>
-<p>Fill out the registration form to join our <strong>Paws & Tails</strong> community and gain the ability to post articles.</p>
+<p class="form-decs">Fill out the registration form to join our <strong>Paws & Tails</strong> community and gain the ability to post articles.</p>
 
 
 <form method="post">
     {% csrf_token %}
 
 {% for f in form %}
-<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-<div class="form-error">{{ f.errors }}</div>
-
+    {% if f.name != 'usable_password' %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+    {% endif %}
 {% endfor %}
 
 <button id="btn-custom" type="submit">Sign up</i></button>
 
 
 </form>
- 
+
 {% endblock %}

@@ -44,6 +44,12 @@
         height: 130px;
         border-radius: 0px;
     }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
     div.article-panel {
         display: block;
         text-align: left;
@@ -60,28 +66,62 @@
         margin-bottom: 5px;
     }
     .content-text h1, h2 {
-        font-size: 16px;
+        font-size: 18px;
         margin: 5px 0px;
+        text-align: center;
     }
-    .index-descr {
+    . {
         font-size: 12px;
         margin: 10px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
     }
     p {
         margin: 10px 0px;
         width: 100%;
         text-align: justify;
     }
+
     #footer {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
     }
     .cookie-table th, .cookie-table td {
         font-size: 10px;
         padding: 5px;
-  }
+    }
     .policy-container {
         width: 300px; /* Ширина с отступами 10px с каждой стороны */
         margin: 0 auto; /* Центрирование */
+    }
+    .form-input {
+        width: 220px;
+        font-size: 10px;
+        height: 20px; /* Установите желаемую высоту */
+        border-radius: 5px; /* Установите желаемое значение закругления */
+        border: 1px solid #444444;
+    }
+    #id_content, #id_care, #id_living_conditions{
+        height: 40px; /* Установите желаемую высоту */
+        width: 220px;
+    }
+    #id_photo {
+        width: 240px;
+        font-size: 12px;
+    }
+    #id_captcha_1 {
+        height: 40px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    .form-label {
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        height: 20px; /* Установите ту же высоту, что и для .form-input */
+        line-height: 20px; /* Выравнивание по вертикали */
+        font-size: 12px;
     }
 }
 
@@ -130,6 +170,12 @@
         height: 130px;
         border-radius: 0px;
     }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
     div.article-panel {
         display: block;
         text-align: left;
@@ -147,12 +193,16 @@
         margin-bottom: 5px;
     }
     .content-text h1, h2 {
-        font-size: 14px;
+        font-size: 18px;
         margin: 5px 0px;
+        text-align: center;
     }
     .index-descr {
         font-size: 12px;
         margin: 10px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
     }
     p {
         margin: 10px 0px;
@@ -160,16 +210,46 @@
         text-align: justify;
     }
     #footer {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
     }
     .cookie-table th, .cookie-table td {
-    font-size: 10px;
-    padding: 5px;
-  }
-  .policy-container {
+        font-size: 10px;
+        padding: 5px;
+    }
+    .policy-container {
         width: 300px;
         margin: 0 auto;
     }
+    .form-input {
+        width: 220px;
+        font-size: 10px;
+        height: 20px; /* Установите желаемую высоту */
+        border-radius: 5px; /* Установите желаемое значение закругления */
+        border: 1px solid #444444;
+    }
+    #id_content, #id_care, #id_living_conditions{
+        height: 40px; /* Установите желаемую высоту */
+        width: 220px;
+    }
+    #id_photo {
+        width: 240px;
+        font-size: 12px;
+    }
+    #id_captcha_1 {
+        height: 40px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    .form-label {
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        height: 20px; /* Установите ту же высоту, что и для .form-input */
+        line-height: 20px; /* Выравнивание по вертикали */
+        font-size: 12px;
+    }
+
 }
 
 @media screen and (max-width: 360px) {
@@ -215,6 +295,12 @@
         height: 130px;
         border-radius: 0px;
     }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
     div.article-panel {
         display: block;
         text-align: left;
@@ -233,12 +319,16 @@
         margin-bottom: 5px;
     }
     .content-text h1, h2 {
-        font-size: 14px;
+        font-size: 18px;
         margin: 5px 0px;
+        text-align: center;
     }
     .index-descr {
         font-size: 12px;
         margin: 10px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
     }
     p {
         margin: 10px 0px;
@@ -246,16 +336,46 @@
         text-align: justify;
     }
     #footer {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
     }
     .cookie-table th, .cookie-table td {
-    font-size: 10px;
-    padding: 5px;
-  }
-  .policy-container {
+        font-size: 10px;
+        padding: 5px;
+    }
+    .policy-container {
         width: 300px;
         margin: 0 auto;
     }
+    .form-input {
+        width: 220px;
+        font-size: 10px;
+        height: 20px; /* Установите желаемую высоту */
+        border-radius: 5px; /* Установите желаемое значение закругления */
+        border: 1px solid #444444;
+    }
+    #id_content, #id_care, #id_living_conditions{
+        height: 40px; /* Установите желаемую высоту */
+        width: 220px;
+    }
+    #id_photo {
+        width: 240px;
+        font-size: 12px;
+    }
+    #id_captcha_1 {
+        height: 40px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    .form-label {
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        height: 20px; /* Установите ту же высоту, что и для .form-input */
+        line-height: 20px; /* Выравнивание по вертикали */
+        font-size: 12px;
+    }
+
 }
 
 @media screen and (max-width: 399px) {
@@ -301,6 +421,12 @@
         height: 130px;
         border-radius: 0px;
     }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
     div.article-panel {
         display: block;
         text-align: left;
@@ -319,12 +445,16 @@
         margin-bottom: 5px;
     }
     .content-text h1, h2 {
-        font-size: 14px;
+        font-size: 18px;
         margin: 5px 0px;
+        text-align: center;
     }
     .index-descr {
         font-size: 12px;
         margin: 10px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
     }
     p {
         margin: 10px 0px;
@@ -332,16 +462,46 @@
         text-align: justify;
     }
     #footer {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
     }
     .cookie-table th, .cookie-table td {
-    font-size: 10px;
-    padding: 5px;
-  }
-  .policy-container {
+        font-size: 10px;
+        padding: 5px;
+    }
+    .policy-container {
         width: 300px;
         margin: 0 auto;
     }
+    .form-input{
+        width: 220px;
+        font-size: 10px;
+        height: 20px; /* Установите желаемую высоту */
+        border-radius: 5px; /* Установите желаемое значение закругления */
+        border: 1px solid #444444;
+    }
+    #id_content, #id_care, #id_living_conditions{
+        height: 40px; /* Установите желаемую высоту */
+        width: 220px;
+    }
+    #id_photo {
+        width: 240px;
+        font-size: 12px;
+    }
+    #id_captcha_1 {
+        height: 40px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    .form-label {
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
 }
 
 @media screen and (max-width: 499px) {
@@ -387,6 +547,12 @@
         height: 130px;
         border-radius: 0px;
     }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
     div.article-panel {
         display: block;
         text-align: left;
@@ -405,12 +571,16 @@
         margin-bottom: 5px;
     }
     .content-text h1, h2 {
-        font-size: 14px;
+        font-size: 18px;
         margin: 5px 0px;
+        text-align: center;
     }
     .index-descr {
         font-size: 8px;
         margin: 5px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
     }
     p {
         margin: 5px 0px;
@@ -418,57 +588,54 @@
         text-align: justify;
     }
     #footer {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
     }
     .cookie-table {
-    display: block;
-  }
+        display: block;
+    }
 
-  .cookie-table thead {
-    display: none;
-  }
+    .cookie-table thead {
+        display: none;
+    }
 
-  .cookie-table tbody {
-    display: flex;
-    flex-direction: column;
-  }
+    .cookie-table tbody {
+        display: flex;
+        flex-direction: column;
+    }
 
-  .cookie-table tr {
-    display: block;
-    margin-bottom: 5px;
+    .cookie-table tr {
+        display: block;
+        margin-bottom: 5px;
 /*
-    border: 1px solid #4444; */
-/* Граница вокруг каждой строки *//*
+        border: 1px solid #4444; */
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 4px;
+    }
+    .cookie-table td {
+        display: block;
+        padding: 8px 0;
+        text-align: right;
+        position: relative;
+    }
 
-    padding: 10px; /* Внутренние отступы для строки */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 4px;
-  }
+    .cookie-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 5px;
+        font-weight: bold;
+        background-color: #f4f4f4;
+        border-right: 1px solid #444444;
+        top: 0;
+        text-align: left;
+    }
+    .cookie-table td {
+        padding-left: 50%;
+    }
 
-  .cookie-table td {
-    display: block;
-    padding: 8px 0;
-    text-align: right;
-    position: relative;
-  }
-
-  .cookie-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 45%;
-    padding-left: 5px;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    border-right: 1px solid #444444;
-    top: 0;
-    text-align: left;
-}
-
-
-  .cookie-table td {
-    padding-left: 50%;
-  }
 }
 
 @media screen and (max-width: 820px) {
@@ -504,100 +671,131 @@
         flex-direction: row;
     }
     ul.list-articles li {
-    flex: 1 1 100%;
-    margin-bottom: 10px;
-    height: 240px;
-}
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+        height: 240px;
+    }
 
-img.img-article-left.thumb {
-    width: 80px;
-    height: 130px;
-    border-radius: 0px;
-}
+    img.img-article-left.thumb {
+        width: 80px;
+        height: 130px;
+        border-radius: 0px;
+    }
+    img.img-article-left {
+        max-width: 200px;
+        height: auto;
+        float: left;
+        padding: 0 10px 10px 0;
+    }
+    div.article-panel {
+        display: block;
+        text-align: left;
+        font-size: 10px;
+    }
 
-div.article-panel {
-    display: block;
-    text-align: left;
-    font-size: 10px;
-}
+    div.article-panel p.first,
+    div.article-panel p.last {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
 
-div.article-panel p.first,
-div.article-panel p.last {
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
+    div.article-panel p.first {
+        margin-bottom: 1px;
+    }
 
-div.article-panel p.first {
-    margin-bottom: 1px;
-}
+    .content-text h1, h2 {
+        font-size: 18px;
+        margin: 5px 0px;
+        text-align: center;
+    }
 
-.content-text h1, h2 {
-    font-size: 14px;
-    margin: 5px 0px;
-}
+    .index-descr {
+        font-size: 10px;
+        margin: 10px 0px;
+    }
+    .form-decs {
+        font-size: 13px;
+    }
+    p {
+        margin: 10px 0px;
+        width: 100%;
+        text-align: justify;
+        font-size: 10px;
+    }
+    #footer {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cookie-table {
+        display: block;
+    }
+    .cookie-table thead {
+        display: none;
+    }
+    .cookie-table tbody {
+        display: flex;
+        flex-direction: column;
+    }
+    .cookie-table tr {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 4px;
+    }
 
-.index-descr {
-    font-size: 10px;
-    margin: 10px 0px;
-}
+    .cookie-table td {
+        display: block;
+        padding: 8px 0;
+        text-align: right;
+        position: relative;
+    }
+    .cookie-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        background-color: #f4f4f4;
+        border-right: 1px solid #444444;
+        top: 0;
+        text-align: left;
+    }
+    .cookie-table td {
+        padding-left: 50%;
+    }
+    .form-input {
+        width: 220px;
+        font-size: 10px;
+        height: 20px;
+        border-radius: 5px;
+        border: 1px solid #444444;
+    }
+    #id_content, #id_care, #id_living_conditions{
+        height: 40px;
+        width: 220px;
+    }
+    #id_photo {
+        width: 240px;
+        font-size: 12px;
+    }
+    #id_captcha_1 {
+        height: 40px;
+        width: 80px;
+        margin-left: 5px;
+    }
+    .form-label {
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+    }
 
-p {
-    margin: 10px 0px;
-    width: 100%;
-    text-align: justify;
-    font-size: 10px;
-}
-
-#footer {
-    text-align: center;
-}
-
-.cookie-table {
-    display: block;
-}
-
-.cookie-table thead {
-    display: none;
-}
-
-.cookie-table tbody {
-    display: flex;
-    flex-direction: column;
-}
-
-.cookie-table tr {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 4px;
-}
-
-.cookie-table td {
-    display: block;
-    padding: 8px 0;
-    text-align: right;
-    position: relative;
-}
-
-.cookie-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 45%;
-    padding-left: 10px;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    border-right: 1px solid #444444;
-    top: 0;
-    text-align: left;
-}
-
-.cookie-table td {
-    padding-left: 50%;
-}
 
 .menu__btn {
     display: flex;

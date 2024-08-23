@@ -43,8 +43,6 @@ img.img-article-left {
 img.img-article-left.thumb {
   width: 150px;
   height: 200px;
-  border-radius: 40px; /* Делает изображение круглым */
-  object-fit: cover;
 }
 
 
@@ -184,26 +182,48 @@ div.article-panel p.last {
 
 
 ul.list-articles {
-  list-style: none;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* расстояние между элементами */
   padding: 0;
+  margin: 0;
+  list-style-type: none; /* Убирает маркеры списка */
+  align-items: flex-start; /* Выровнять элементы по верхнему краю */
+
 }
+
+
 ul.list-articles li {
-  position: relative; /* Позиционирование дочерних элементов относительно li */
-  flex: 1 1 calc(50% - 10px);
-  box-sizing: border-box; /* Учитываем границы и отступы в ширине элемента */
-  border: 1px solid #f0e9e9;
+  position: relative;
+  flex: 1 1 calc(50% - 10px); /* Отнимаем 10px для отступов */
+  box-sizing: border-box;
+  border: 2px solid #f9f2fa;
   border-radius: 10px;
-  padding: 10px; /* Увеличен отступ для улучшенного внешнего вида */
-  background-color: #FFFFFF; /* Убедитесь, что фон соответствует вашему дизайну */
-  height: 320px; /* Задайте фиксированную высоту для всех элементов */
-  overflow: hidden; /* Чтобы лишний контент не выходил за пределы */
+  padding: 10px;
+  background-color: #FFFFFF;
+  height: 320px;
+  overflow: hidden;
+  text-align: left; /* Выровнять текст слева */
 }
+
+
+/* Для одиночного элемента */
+/* Для одиночного элемента на второй строке */
+ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+  flex: 1 1 100%; /* Ширина 100% */
+  max-width: 565px; /* Фиксированная максимальная ширина */
+  width: 100%; /* Занимает всю доступную ширину контейнера */
+  margin: 0; /* Убираем отступы для центрирования */
+  box-sizing: border-box; /* Учитывать padding и border в ширину */
+  text-align: left; /* Выровнять текст слева */
+}
+
+
 
 .index-descr {
     color: #444444;
     font-size: 14px;
-    margin: 5px 0px;
+    margin: 1px 0px;
 }
 
 .table-page {
@@ -227,6 +247,9 @@ ul.list-articles li {
 	height: 60px;
 }
 
+.form-decs {
+    font-size: 17px;
+}
 
 ul.mainmenu {
 	list-style: none;
@@ -417,10 +440,12 @@ ul.content-table li a {
 ul.content-table li a:hover {color: #F0711C;}
 
 .content-text {
-	margin: 30px 0 0 30px;
-	color: #444444;
-	font-size: 15px;
+    margin: 0px 0 0 20px;
+    color: #444444;
+    font-size: 14px;
     font-family: 'Montserrat', sans-serif;
+    text-align: justify; /* Выравнивание текста по ширине */
+    width: 100%; /* Убедитесь, что элемент занимает 100% ширины родителя */
 }
 .content-text h1 {font-size: 27px;}
 
@@ -518,7 +543,7 @@ ul.lang-list li a:hover {color: #d600ff;}
     box-sizing: border-box;
     background: #FFFFFF;
     padding: 5px;
-    color: #aaa;
+    color: #444444;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -532,8 +557,26 @@ ul.lang-list li a:hover {color: #d600ff;}
 	text-decoration: underline;
 	color: #444444;
 	display: inline-block; /* Добавьте, если это поможет */
-
 }
+
+#confirmation-message {
+    color: #d600ff;
+    position: relative;
+    opacity: 0;
+    animation: slide-in 1s forwards, pop 1s 1s forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 2;
+    }
+}
+
 
 .form-input {
     width: 250px;
@@ -585,6 +628,7 @@ ul.lang-list li a:hover {color: #d600ff;}
 #id_is_published {
     accent-color: #d600ff; /* Меняет цвет чекбокса */
 }
+
 input {
     font-family: 'Montserrat', sans-serif;
 }
@@ -663,12 +707,11 @@ select {
 }
 
 
-.dog-list {
+..dog-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;  /* Один столбец */
     gap: 20px;
-     }/* Расстояние между столбиками *//*
-}*/
+}
 
 
 .dog-item a {
@@ -685,28 +728,41 @@ select {
     border-radius: 8px; /* Скругленные углы */
 }
 
+.post-container {
+    height: 500px; /* Можно отрегулировать по необходимости */
+    max-width: 800px;
+    margin: 0 auto; /* Центрирует блок */
+    padding: 20px; /* Добавляет отступы внутри блока */
+    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    border: 2px solid #f9f2fa; /* Легкая рамка */
+    border-radius: 8px; /* Скругленные углы */
+}
+
 .last-updated {
     color: #A9A9A9
 }
 
 /* Стили для ссылок внутри элементов с классом .links-policies */
 .links-policies a {
-  color: inherit; /* Наследовать цвет от родительского элемента */
-  text-decoration: none; /* Убирает подчеркивание текста */
+  color: inherit !important; /* Наследовать цвет от родительского элемента */
+  text-decoration: none !important; /* Убирает подчеркивание текста */
+  color: #d600ff;
 }
 
 .links-policies a:hover {
-  color: #d600ff; /* Цвет текста при наведении */
-  text-decoration: none; /* Убирает подчеркивание текста при наведении */
+  color: #9802b5 !important; /* Цвет текста при наведении */
+  text-decoration: none !important; /* Убирает подчеркивание текста при наведении */
 }
+
 
 .link-site {
   color: inherit; /* Наследовать цвет от родительского элемента */
   text-decoration: none; /* Убирает подчеркивание текста */
+  color: #d600ff;
 }
 
 .link-site:hover {
-  color: #d600ff; /* Цвет текста при наведении */
+  color: #9802b5; /* Цвет текста при наведении */
   text-decoration: none; /* Убирает подчеркивание текста при наведении */
 }
 
@@ -729,4 +785,42 @@ input, textarea, select {
    -webkit-appearance: none;
    -moz-appearance: none;
  }
+.form-help-text {
+    display: block;
+    margin-right: 5px;
+    margin-left: 0px;
+    font-size: 0.8em;
+    color: #444444;
+    width: 60%;
+}
 
+.bulleted-list {
+    padding: 10px; /* Внутренний отступ вокруг всего списка */
+    list-style-type: circle;
+    padding-left: 30px; /* Увеличивает отступ слева у всего списка */
+}
+
+.bulleted-list li {
+    padding: 5px; /* Внутренний отступ вокруг текста элемента списка */
+    margin-bottom: 2px; /* Отступ между элементами списка */
+}
+
+.num-list {
+    padding: 0px; /* Внутренний отступ вокруг всего списка */
+    list-style-type: none;
+    padding-left: 0px; /* Увеличивает отступ слева у всего списка */
+}
+
+.num-list a {
+    padding: 0px; /* Внутренний отступ вокруг текста элемента списка */
+    margin-bottom: 10px; /* Отступ между элементами списка */
+}
+
+.about-container {
+    max-width: 100%; /* Можно отрегулировать по необходимости */
+    margin: 0 auto; /* Центрирует блок */
+    padding: 20px; /* Добавляет отступы внутри блока */
+    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    border: 1px solid #d600ff; /* Легкая рамка */
+    border-radius: 8px; /* Скругленные углы */
+}

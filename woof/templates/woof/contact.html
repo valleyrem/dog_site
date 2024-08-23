@@ -1,26 +1,19 @@
 {% extends 'woof/base.html' %}
+
 {% block content %}
+<h1>{{ title }}</h1>
+<p class="form-decs">Feel free to reach out with any questions, suggestions, or feedback.</p>
 
-<h1>{{title}}</h1>
-<p>Feel free to reach out with any questions, suggestions, or feedback.</p>
-
-<form method="post">
+<form id="contactForm" method="post">
     {% csrf_token %}
- 
+
     <div class="form-error">{{ form.non_field_errors }}</div>
- 
-{% for f in form %}
-<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-<div class="form-error">{{ f.errors }}</div>
 
-{% endfor %}
- 
-<button id="btn-custom" type="submit">Send a message</i></button>
+    {% for f in form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
 
+    <button id="btn-custom" type="submit">Send a message</button>
 </form>
-<!--<p>✉ Наши контакты:</p>-->
-<!--<p><a href="https://t.me/...">Telegram</a></p>-->
-<!--<p><a href="https://www.instagram.com/">Instagram</a></p>-->
-<!--<p><a href="https://twitter.com/">Twitter</a></p>-->
-<!--<p><a href="https://www.youtube.com/">YouTube</a></p>-->
 {% endblock %}

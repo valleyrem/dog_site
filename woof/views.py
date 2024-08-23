@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.core.paginator import Paginator
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound, Http404, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
@@ -46,6 +46,7 @@ class AboutView(DataMixin, ListView):
 
 
 
+
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
     template_name = 'woof/addpage.html'
@@ -55,9 +56,22 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Add a Post")
+        c_def = self.get_user_context(title="New Article")
         return dict(list(context.items()) + list(c_def.items()))
 
+    def form_valid(self, form):
+        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return JsonResponse({'success': True, 'message': 'Form submitted successfully!'})
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            response_data = {
+                'success': False,
+                'errors': form.errors.get_json_data()  # Преобразуйте ошибки формы в формат JSON
+            }
+            return JsonResponse(response_data)
+        return super().form_invalid(form)
 
 class ContactFormView(DataMixin, FormView):
     form_class = ContactForm
@@ -70,11 +84,12 @@ class ContactFormView(DataMixin, FormView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
-        print(form.cleaned_data)
-        return redirect('home')
+        # Просто возвращаем успешный JSON ответ
+        return JsonResponse({'success': True})
 
-
-
+    def form_invalid(self, form):
+        # Возвращаем ошибки формы, если они есть
+        return JsonResponse({'success': False, 'errors': form.errors}, status=400)
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page not found</h1>')
@@ -168,3 +183,15 @@ class PrivacyPolicyView(DataMixin, TemplateView):
         c_def = self.get_user_context(title="Privacy Policy")
         return dict(list(context.items()) + list(c_def.items()))
 
+class MyDogs(LoginRequiredMixin, DataMixin, ListView):
+    model = Dogs
+    template_name = 'woof/my_dogs.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Dogs.objects.filter(user=self.request.user).select_related('cat')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="My Dogs")
+        return dict(list(context.items()) + list(c_def.items()))

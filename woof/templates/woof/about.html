@@ -1,19 +1,48 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="about-container">
 <h1>Paws & Tails</h1>
 
-<p>
-    Join our community of Dog Lovers and discover more information about your Favorite Pets. Our site offers simple advice on dog health, training tips, and general breed profiles.
+<p class="form-decs">
+    Welcome to <strong>Paws & Tails</strong>, your ultimate resource for dog breeds! Our site is dedicated to providing detailed information about various dog breeds, classified into distinct groups based on their characteristics and historical uses.
 </p>
-<p>Enjoy beautiful dog pictures :)</p>
 
-<div class="dog-list">
-    {% for dog in dogs %}
-        <div>
-            <a href="{{ dog.get_absolute_url }}">{{ dog.title }}</a>
-        </div>
-    {% endfor %}
+<p class="form-decs">
+    The classification of dog breeds on our site is based on the system established by major kennel clubs and breed associations. This system categorizes breeds according to their traits, purposes, and origins. You can find more information about these classifications on the <a href="https://www.akc.org/dog-breeds/" target="_blank" class="link-site">American Kennel Club (AKC)</a> official website.
+</p>
+
+<p class="form-decs">
+    Each breed group on our site has a unique history and purpose. From ancient hunting dogs to modern companions, understanding these categories helps you appreciate the diverse roles dogs play in our lives. For example, sighthounds are known for their exceptional speed and keen eyesight, making them superb hunters, while companion dogs bring joy and comfort with their affectionate nature.
+</p>
+
+<p class="form-decs">
+    Here is a brief overview of the main breed groups:
+</p>
+
+<ul class="bulleted-list">
+    <li><strong>Dachshunds:</strong> Breeds with elongated bodies and short legs, originally bred for hunting. Their unique physique allows them to dig into burrows to flush out game.</li>
+    <li><strong>Sighthounds:</strong> Breeds specialized in hunting by sight, known for their speed and agility. They use their incredible vision to track and chase game over long distances.</li>
+    <li><strong>Scent Hounds and Related Breeds:</strong> Breeds with a keen sense of smell, used for tracking and hunting by scent. They excel in search and rescue missions and tracking lost animals.</li>
+    <li><strong>Pinscher and Schnauzer:</strong> Breeds with distinctive characteristics and historical roles, often used for guarding and companionship. Their bold and confident demeanor makes them excellent watchdogs.</li>
+    <li><strong>Companion and Toy Dogs:</strong> Small breeds kept primarily as pets and companions, known for their affectionate nature. These dogs are perfect for city living and can provide endless joy in a small package.</li>
+    <li><strong>Pointing Dogs:</strong> Breeds used to indicate the location of game, known for their excellent tracking abilities. Their instinctive behavior helps hunters locate game birds with precision.</li>
+    <li><strong>Terriers:</strong> Breeds originally used for hunting and controlling pests, known for their tenacity and courage. Terriers are energetic and fearless, making them great family pets.</li>
+    <li><strong>Sheepdogs and Cattledogs:</strong> Breeds used for herding and managing livestock, valued for their intelligence and work ethic. They are skilled in guiding and protecting herds and flocks.</li>
+    <li><strong>Spitz and Primitive Types:</strong> Ancient breeds with distinctive physical features and primitive traits, known for their resilience and versatility. These dogs have retained many traits from their ancestors, making them hardy and adaptable.</li>
+    <li><strong>Retrievers - Flushing Dogs - Water Dogs:</strong> Breeds used for retrieving game, flushing out birds, and working in water environments. They are versatile working dogs with skills in tracking, retrieving, and swimming.</li>
+</ul>
+
+<p class="form-decs">
+    Explore our breed profiles to learn more about each group and find the perfect dog for you! Whether you're looking for a loyal companion, a working dog, or a breed with specific traits, you'll find comprehensive information to help you make an informed choice.
+</p>
+
+<!--<div class="dog-list">-->
+<!--    {% for dog in dogs %}-->
+<!--        <div>-->
+<!--            <a href="{{ dog.get_absolute_url }}">{{ dog.title }}</a>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
 </div>
-
 {% endblock %}
