@@ -824,3 +824,15 @@ input, textarea, select {
     border: 1px solid #d600ff; /* Легкая рамка */
     border-radius: 8px; /* Скругленные углы */
 }
+
+
+.circle-link::before {
+    content: " "; /* добавить контент для кружка */
+}
+
+.circle-link.selected,
+.logout-link.selected,
+.register-link.selected,
+.login-link.selected {
+    color: #d600ff; /* Цвет для выделенной ссылки */
+}

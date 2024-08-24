@@ -26,7 +26,7 @@ class Dogs(models.Model):
         ('smooth', 'Smooth-haired'),
         ('wire', 'Wire-haired')
     ]
-
+    user_email = models.EmailField(blank=True, default='', verbose_name="User Email")
     title = models.CharField(max_length=255, verbose_name="Вreed")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     content = models.TextField(blank=True, verbose_name="Summary")

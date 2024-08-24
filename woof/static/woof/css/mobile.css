@@ -119,9 +119,13 @@
         display: inline-block;
         min-width: 100px;
         vertical-align: top;
-        height: 20px; /* Установите ту же высоту, что и для .form-input */
-        line-height: 20px; /* Выравнивание по вертикали */
+        height: 20px;
+        line-height: 20px;
         font-size: 12px;
+    }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
     }
 }
 
@@ -249,6 +253,10 @@
         line-height: 20px; /* Выравнивание по вертикали */
         font-size: 12px;
     }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
+    }
 
 }
 
@@ -375,6 +383,10 @@
         line-height: 20px; /* Выравнивание по вертикали */
         font-size: 12px;
     }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
+    }
 
 }
 
@@ -500,6 +512,10 @@
         height: 20px;
         line-height: 20px;
         font-size: 12px;
+    }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
     }
 
 }
@@ -634,6 +650,10 @@
     }
     .cookie-table td {
         padding-left: 50%;
+    }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
     }
 
 }
@@ -794,6 +814,10 @@
         height: 20px;
         line-height: 20px;
         font-size: 12px;
+    }
+    .about-container {
+        width: 300px;
+        margin: 0 auto;
     }
 
 

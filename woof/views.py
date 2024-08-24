@@ -183,15 +183,16 @@ class PrivacyPolicyView(DataMixin, TemplateView):
         c_def = self.get_user_context(title="Privacy Policy")
         return dict(list(context.items()) + list(c_def.items()))
 
-class MyDogs(LoginRequiredMixin, DataMixin, ListView):
+class UserPosts(DataMixin, ListView):
     model = Dogs
-    template_name = 'woof/my_dogs.html'
+    template_name = 'woof/my_posts.html'
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return Dogs.objects.filter(user=self.request.user).select_related('cat')
+        user_email = self.request.user.email
+        return Dogs.objects.filter(user_email=user_email, is_published=True)
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="My Dogs")
+        c_def = self.get_user_context(title='My Posts')  # Добавьте title или другой контекст
         return dict(list(context.items()) + list(c_def.items()))

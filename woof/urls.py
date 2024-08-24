@@ -17,4 +17,6 @@ urlpatterns = [
     path('cookie-policy/', CookiePolicyView.as_view(), name='cookie-policy'),
     path('terms-and-conditions/', TermsAndConditionsView.as_view(), name='terms-and-conditions'),
     path('privacy-policy/', PrivacyPolicyView.as_view(), name='privacy-policy'),
+    path('my-posts/', UserPosts.as_view(), name='my_posts')
+
 ]
