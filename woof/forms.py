@@ -13,12 +13,12 @@ from .models import *
 class AddPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['cat'].empty_label = "Not selected"
+        self.fields['cat'].empty_label = "Select a group"
 
         self.fields['slug'].help_text = (
-            "This is a unique link to find the dog. If the name consists of one word, "
-            "use it as is (e.g., dachshund). If it consists of two or more words, use a hyphen between words (e.g., 'golden-retriever'). "
-            "The slug should be written in lowercase without quotes."
+            "Use a hyphen for multi-word names (e.g., 'golden-retriever').\n"
+            "For single-word names, use it as is (e.g., 'dachshund').\n"
+            "The slug should be lowercase without quotes."
         )
 
         # Add placeholders for each field
@@ -54,7 +54,7 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Dogs
-        fields = ['title', 'slug', 'content', 'photo', 'cat', 'size', 'coat_type', 'care', 'living_conditions']
+        fields = ['title', 'slug', 'cat', 'photo', 'size', 'coat_type', 'trainability', 'activity_level', 'content', 'care', 'living_conditions']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
             'slug': forms.TextInput(attrs={'class': 'form-input'}),

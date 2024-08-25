@@ -3,21 +3,27 @@ from django.utils.safestring import mark_safe
 
 from .models import *
 
+
 class WoofAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'size', 'coat_type', 'time_create', 'get_html_photo', 'is_published')
+    list_display = (
+    'id', 'title', 'size', 'coat_type', 'trainability', 'activity_level', 'time_create', 'get_html_photo',
+    'is_published')
     list_display_links = ('id', 'title')
-    search_fields = ('title', 'content', 'size', 'coat_type', 'care', 'living_conditions')
+    search_fields = (
+    'title', 'content', 'size', 'coat_type', 'care', 'living_conditions', 'trainability', 'activity_level')
     list_editable = ('is_published',)
-    list_filter = ('is_published', 'time_create', 'size', 'coat_type')
+    list_filter = ('is_published', 'time_create', 'size', 'coat_type', 'trainability', 'activity_level')
     prepopulated_fields = {"slug": ("title",)}
     fields = (
-        'title', 'slug', 'cat', 'content', 'size', 'coat_type', 'care', 'living_conditions', 'photo', 'get_html_photo',
-        'is_published', 'time_create', 'time_update'
+        'title', 'slug', 'cat', 'content', 'size', 'coat_type', 'care', 'living_conditions',
+        'trainability', 'activity_level', 'photo', 'get_html_photo', 'is_published',
+        'time_create', 'time_update'
     )
     readonly_fields = ('time_create', 'time_update', 'get_html_photo')
     save_on_top = True
 
     ordering = ('-time_create',)
+
     def get_html_photo(self, object):
         if object.photo:
             return mark_safe(f"<img src='{object.photo.url}' width=50>")
@@ -30,6 +36,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
+
 @admin.register(Dogs)
 class DogsAdmin(admin.ModelAdmin):
     list_display = ('title', 'user_email', 'slug', 'size', 'coat_type', 'is_published')  # Выберите поля для отображения
@@ -38,5 +45,5 @@ class DogsAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 
-admin.site.site_title = 'Paws & Tails admin'
-admin.site.site_header = 'Paws & Tails admin'
+admin.site.site_title = 'Woof Dogs admin'
+admin.site.site_header = 'Woof Dogs admin'

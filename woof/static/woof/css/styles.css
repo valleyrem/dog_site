@@ -16,6 +16,7 @@ html, body {
 	text-align: justify;
 }
 
+
 a {
 	color: #69516B;
 	text-decoration: none;
@@ -115,6 +116,8 @@ p.link-read-post a {
     text-align: center;
     transition: .3s;
     cursor: pointer; /* Указывает, что элемент кликабельный */
+    top: 10px;
+    left: 120px;
 
     /* Анимация при наведении */
     &:hover {
@@ -201,7 +204,7 @@ ul.list-articles li {
   border-radius: 10px;
   padding: 10px;
   background-color: #FFFFFF;
-  height: 320px;
+  height: 280px;
   overflow: hidden;
   text-align: left; /* Выровнять текст слева */
 }
@@ -242,9 +245,9 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 }
 
 .logo {
-	background: url('../images/logo3.png') no-repeat 19px 5px;
-	width: 95px;
-	height: 60px;
+	background: url('../images/logo.png') no-repeat 15px 5px;
+	width: 85px;
+	height: 65px;
 }
 
 .form-decs {
@@ -255,7 +258,7 @@ ul.mainmenu {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	height: 60px;
+	height: 65px;
 	color: #d600ff;
 	font-size: 17px;
 	overflow: hidden;
@@ -543,20 +546,30 @@ ul.lang-list li a:hover {color: #d600ff;}
     box-sizing: border-box;
     background: #FFFFFF;
     padding: 5px;
+    border-top: 2px solid #f9f2fa;
     color: #444444;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     overflow: hidden;
-    width: 100%; /* Убедитесь, что футер занимает всю ширину */
-    margin: 0 auto; /* Центрирование футера */
+    width: 100%;
+    margin: 0 auto;
 }
-
-
-#footer a {
-	text-decoration: underline;
-	color: #444444;
-	display: inline-block; /* Добавьте, если это поможет */
+.policies {
+     top: 30px;
+}
+.policies a {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+}
+.links-policies {
+     top: 30px;
+}
+.links-policies a {
+    display: block;
+    margin: 5px 0;
+    text-align: left;
 }
 
 #confirmation-message {
@@ -602,8 +615,7 @@ ul.lang-list li a:hover {color: #d600ff;}
 #id_living_conditions,
 #id_name,
 #id_email,
-#id_captcha_1,
-#id_cat{
+#id_captcha_1 {
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px; /* Установите желаемое значение закругления */
     border: 1px solid #444444;
@@ -611,22 +623,41 @@ ul.lang-list li a:hover {color: #d600ff;}
 
 #id_cat,
 #id_coat_type,
-#id_size {
+#id_size,
+#id_trainability,
+#id_activity_level,
+#file-upload-button {
     font-family: 'Montserrat', sans-serif;
-    border-radius: 5px; /* Установите желаемое значение закругления */
-    border: 1px solid #fcf7fc;
-    background: #fcf7fc;
+    border-radius: 5px;
+    border: 1px solid #444444;
+    background: #fafafa;
+    padding: 5px;
+    cursor: pointer;
+    max-width: calc(100% + 20px);
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 25px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23444444" d="M2 3L0 0h4L2 3z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 8px 8px;
+    width: auto;
 }
 
 #id_photo {
     font-family: 'Montserrat', sans-serif;
-
+    border: 1px solid #444444;
+    background: #ffffff;
+    padding: 2px;
+    border-radius: 5px; /* Установите желаемое значение закругления */
 }
-
 
 /* Применение цвета #d600ff к кнопке */
 #id_is_published {
     accent-color: #d600ff; /* Меняет цвет чекбокса */
+}
+#beloved-pets {
+    color: #d600ff; /* Меняет цвет чекбокса */
 }
 
 input {
@@ -652,15 +683,15 @@ select {
 
 .list-pages {
     display: flex;
-    justify-content: left; /* Центрирование пагинации */
-    margin: 20px 0; /* Отступ сверху и снизу */
+    justify-content: left;
+    margin: 20px 0;
 }
 
 .list-pages ul {
-    list-style: none; /* Убирает стандартные маркеры списка */
-    padding: 0; /* Убирает стандартные отступы */
-    margin: 0; /* Убирает стандартные отступы */
-    display: flex; /* Выстраивает элементы в ряд */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 .list-pages li {
@@ -729,8 +760,8 @@ select {
 }
 
 .post-container {
-    height: 500px; /* Можно отрегулировать по необходимости */
-    max-width: 800px;
+    height: auto; /* Можно отрегулировать по необходимости */
+    max-width: 900px;
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
@@ -738,8 +769,16 @@ select {
     border-radius: 8px; /* Скругленные углы */
 }
 
+.form-container {
+        margin: 10px 10px 10px 10px;
+        border: 1px solid #ffffff;
+    }
+.my-posts-container {
+    margin: 10px 10px 10px 10px;
+        border: 1px solid #ffffff;
+}
 .last-updated {
-    color: #A9A9A9
+    color: #444444;
 }
 
 /* Стили для ссылок внутри элементов с классом .links-policies */
@@ -785,6 +824,7 @@ input, textarea, select {
    -webkit-appearance: none;
    -moz-appearance: none;
  }
+
 .form-help-text {
     display: block;
     margin-right: 5px;
@@ -798,6 +838,7 @@ input, textarea, select {
     padding: 10px; /* Внутренний отступ вокруг всего списка */
     list-style-type: circle;
     padding-left: 30px; /* Увеличивает отступ слева у всего списка */
+    justify-content: left;
 }
 
 .bulleted-list li {
@@ -836,3 +877,29 @@ input, textarea, select {
 .login-link.selected {
     color: #d600ff; /* Цвет для выделенной ссылки */
 }
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 2rem;
+    color: #444444;
+    display: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#scroll-to-top:hover {
+    color: #000;
+}
+
+/* Сброс стилей кнопки */
+#theme-toggle {
+    all: unset; /* Убирает все стили, включая отступы, границы, фон и т.д. */
+    display: inline-flex; /* Используем flexbox для центрирования и выравнивания значка */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Добавляет указатель для кликабельности */
+    color: #444444;
+}
+

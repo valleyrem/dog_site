@@ -8,32 +8,51 @@ from django.dispatch import receiver
 
 class Dogs(models.Model):
     SIZE_CHOICES = [
-        ('tiny', 'Tiny'),
+        ('xsmall', 'XSmall'),
         ('small', 'Small'),
         ('medium', 'Medium'),
         ('large', 'Large'),
-        ('giant', 'Giant'),
+        ('xlarge', 'XLarge'),
     ]
 
     COAT_CHOICES = [
         ('curly', 'Curly'),
-        ('double', 'Double Coat'),
-        ('fluffy', 'Fluffy'),
-        ('hairless', 'Hairless'),
-        ('long', 'Long-haired'),
+        ('wavy', 'Wavy'),
         ('rough', 'Rough-haired'),
-        ('silky', 'Silky'),
+        ('corded', 'Corded'),
+        ('hairless', 'Hairless'),
+        ('short', 'Short-haired'),
+        ('medium', 'Medium-haired'),
+        ('long', 'Long-haired'),
         ('smooth', 'Smooth-haired'),
-        ('wire', 'Wire-haired')
+        ('wiry', 'Wiry'),
+        ('silky', 'Silky'),
+        ('double', 'Double Coat')
     ]
+    TRAINABILITY_CHOICES = [
+        ('easy', 'Easy Training'),
+        ('stubborn', 'May Be Stubborn'),
+        ('agreeable', 'Agreeable'),
+        ('eager', 'Eager To Please'),
+        ('independent', 'Independent'),
+    ]
+    ACTIVITY_CHOICES = [
+        ('regular', 'Regular Exercise'),
+        ('calm', 'Calm'),
+        ('high', 'Needs Lots Of Activity'),
+        ('energetic', 'Energetic'),
+    ]
+
     user_email = models.EmailField(blank=True, default='', verbose_name="User Email")
     title = models.CharField(max_length=255, verbose_name="Вreed")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     content = models.TextField(blank=True, verbose_name="Summary")
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, verbose_name="Size", default='small')
-    coat_type = models.CharField(max_length=10, choices=COAT_CHOICES, verbose_name="Coat type", default='smooth')
+    coat_type = models.CharField(max_length=10, choices=COAT_CHOICES, verbose_name="Coat type", default='cirly')
     care = models.TextField(blank=True, verbose_name="Care")
     living_conditions = models.TextField(blank=True, verbose_name="Conditions")
+    trainability = models.CharField(max_length=11, choices=TRAINABILITY_CHOICES,verbose_name="Trainability", default='easy')
+    activity_level = models.CharField(max_length=10, choices=ACTIVITY_CHOICES, verbose_name="Activity Level", default='regular')
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Photo")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Time created")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Time update")
@@ -72,14 +91,17 @@ class Category(models.Model):
 class CoatType(models.Model):
     name = models.CharField(max_length=20, choices=[
         ('curly', 'Curly'),
-        ('double', 'Double Coat'),
-        ('fluffy', 'Fluffy'),
-        ('hairless', 'Hairless'),
-        ('long', 'Long-haired'),
+        ('wavy', 'Wavy'),
         ('rough', 'Rough-haired'),
-        ('silky', 'Silky'),
+        ('corded', 'Corded'),
+        ('hairless', 'Hairless'),
+        ('short', 'Short-haired'),
+        ('medium', 'Medium-haired'),
+        ('long', 'Long-haired'),
         ('smooth', 'Smooth-haired'),
-        ('wire', 'Wire-haired')
+        ('wiry', 'Wiry'),
+        ('silky', 'Silky'),
+        ('double', 'Double Coat')
     ])
 
     def __str__(self):

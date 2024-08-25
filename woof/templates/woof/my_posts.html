@@ -1,27 +1,27 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-
+<div class="post-container">
 <h1>My Posts</h1>
 
 {% if posts %}
-    <p>These are the published posts created by you, using the email address "{{ request.user.email }}".</p>
+    <p class="form-decs">These are the published posts created by you, using the email address "{{ request.user.email }}".</p>
     <ul class="bulleted-list">
         {% for post in posts %}
         <li>
             <div>
-                <p><a href="{{ post.get_absolute_url }}" class="link-site">{{ post.title }}</a></p>
+                <p class="form-decs"><a href="{{ post.get_absolute_url }}" class="link-site">{{ post.title }}</a></p>
             </div>
-            <p><strong>Date published:</strong> {{ post.time_create|date:"F j, Y" }}</p>
+            <p class="form-decs"><strong>Date published:</strong> {{ post.time_create|date:"F j, Y" }}</p>
         </li>
         {% endfor %}
     </ul>
-    <p>If you believe you did not create these posts or have any concerns, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
+    <p class="form-decs">If you believe you did not create these posts or have any concerns, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
 {% else %}
-    <p>You have no published posts. If you believe this is an error or need assistance, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
-    <p>You can <a href="https://doggy.remrem.world/addpage/" class="link-site">create your first post here</a>.</p>
+    <p class="form-decs">You have no published posts. If you believe this is an error or need assistance, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
+    <p class="form-decs">You can <a href="https://doggy.remrem.world/addpage/" class="link-site">create your first post here</a>.</p>
 {% endif %}
-
+    </div>
 <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>
 
 {% endblock %}
