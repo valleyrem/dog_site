@@ -13,12 +13,14 @@
 {% if p.photo %}
          <p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
 {% endif %}
-				<h2>{{p.title}}</h2>
+				 <h2><a href="{{ p.get_absolute_url }}" class="title-link">{{ p.title }}</a></h2>
 	{% autoescape on %}
-<p class="index-descr">Size: {{ p.size }}</p>
-<p class="index-descr">Coat type: {{ p.coat_type }}</p>
-<p class="index-descr">Trainability: {{ p.trainability }}</p>
-<p class="index-descr">Activity level: {{ p.activity_level }}</p>
+<p class="index-descr"><span class="label">Size:</span> {{ p.size }}</p>
+<p class="index-descr"><span class="label">Coat Type:</span> {{ p.coat_type }}</p>
+<p class="index-descr"><span class="label">Coat Length:</span> {{ p.coat_length }}</p>
+<p class="index-descr"><span class="label">Trainability:</span> {{ p.trainability }}</p>
+<p class="index-descr"><span class="label">Activity Level:</span> {{ p.activity_level }}</p>
+<p class="index-descr"><span class="label">Barking Level:</span> {{ p.barking_level }}</p>
 
 
 	{% endautoescape %}

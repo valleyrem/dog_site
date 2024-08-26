@@ -36,13 +36,13 @@ img {
 
 img.img-article-left {
   max-width: 300px;
-  height: auto;
+  height: 300px;
   float: left;
   padding: 0 10px 10px 0;
 }
 
 img.img-article-left.thumb {
-  width: 150px;
+  width: auto;
   height: 200px;
 }
 
@@ -117,7 +117,7 @@ p.link-read-post a {
     transition: .3s;
     cursor: pointer; /* Указывает, что элемент кликабельный */
     top: 10px;
-    left: 120px;
+    left: 40px;
 
     /* Анимация при наведении */
     &:hover {
@@ -214,20 +214,23 @@ ul.list-articles li {
 /* Для одиночного элемента на второй строке */
 ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
   flex: 1 1 100%; /* Ширина 100% */
-  max-width: 565px; /* Фиксированная максимальная ширина */
+  max-width: 513px; /* Фиксированная максимальная ширина */
   width: 100%; /* Занимает всю доступную ширину контейнера */
   margin: 0; /* Убираем отступы для центрирования */
   box-sizing: border-box; /* Учитывать padding и border в ширину */
   text-align: left; /* Выровнять текст слева */
 }
 
-
-
 .index-descr {
     color: #444444;
     font-size: 14px;
     margin: 1px 0px;
 }
+
+.index-descr .label {
+    font-weight: 600; /* Легкий жирный текст для первой части */
+}
+
 
 .table-page {
 	width: 100%;
@@ -385,7 +388,7 @@ ul.langitem li a:hover {
 }
 
 .content {
-    padding: 0px 150px 20px 10px;
+    padding: 0px 150px 100px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -454,7 +457,7 @@ ul.content-table li a:hover {color: #F0711C;}
 
 h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 
@@ -563,14 +566,7 @@ ul.lang-list li a:hover {color: #d600ff;}
     margin: 5px 0;
     text-align: center;
 }
-.links-policies {
-     top: 30px;
-}
-.links-policies a {
-    display: block;
-    margin: 5px 0;
-    text-align: left;
-}
+
 
 #confirmation-message {
     color: #d600ff;
@@ -787,7 +783,14 @@ select {
   text-decoration: none !important; /* Убирает подчеркивание текста */
   color: #d600ff;
 }
-
+.links-policies {
+     top: 30px;
+}
+.links-policies a {
+    display: block;
+    margin: 5px 0;
+    text-align: left;
+}
 .links-policies a:hover {
   color: #9802b5 !important; /* Цвет текста при наведении */
   text-decoration: none !important; /* Убирает подчеркивание текста при наведении */
@@ -903,3 +906,30 @@ input, textarea, select {
     color: #444444;
 }
 
+.policies a {
+  color: inherit !important; /* Наследовать цвет от родительского элемента */
+  text-decoration: none !important; /* Убирает подчеркивание текста */
+  color: #d600ff;
+}
+.policies {
+     top: 30px;
+}
+.policies a {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+}
+.policies a:hover {
+  color: #9802b5 !important; /* Цвет текста при наведении */
+  text-decoration: none !important; /* Убирает подчеркивание текста при наведении */
+}
+
+.title-link {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: #444444; /* Цвет ссылки */
+}
+
+.title-link:hover {
+    text-decoration: none; /* Убирает подчеркивание при наведении */
+    color: #d600ff; /* Цвет ссылки при наведении */
+}

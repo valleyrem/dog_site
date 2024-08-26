@@ -11,12 +11,13 @@
 
     <p class="form-decs"><strong>Size:</strong> {{ post.size }}</p>
     <p class="form-decs"><strong>Coat Type:</strong> {{ post.coat_type }}</p>
+    <p class="form-decs"><strong>Coat length:</strong> {{ post.coat_length }}</p>
     <p class="form-decs"><strong>Trainability:</strong> {{ post.trainability }}</p>
-    <p class="form-decs"><strong>Activity level</strong>: {{ post.activity_level }}</p>
+    <p class="form-decs"><strong>Activity level:</strong> {{ post.activity_level }}</p>
+    <p class="form-decs"><strong>Barking Level:</strong> {{ post.barking_level }}</p>
     <p class="form-decs"><strong>Summary:</strong>{{ post.content|linebreaks }}</p>
-    <p class="form-decs"><strong>Care Requirements:</strong> {{ post.care|linebreaks }}</p>
-    <p class="form-decs"><strong>Living Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
-
+    <p class="form-decs"><strong>Care:</strong> {{ post.care|linebreaks }}</p>
+    <p class="form-decs"><strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
 
 </div>
 <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>

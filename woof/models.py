@@ -7,6 +7,13 @@ from django.dispatch import receiver
 
 
 class Dogs(models.Model):
+    BARKING_CHOICES = [
+        ('necessary', 'When Necessary'),
+        ('infrequent', 'Infrequent'),
+        ('medium', 'Medium'),
+        ('frequent', 'Frequent'),
+        ('vocal', 'Likes To Be Vocal'),
+    ]
     SIZE_CHOICES = [
         ('xsmall', 'XSmall'),
         ('small', 'Small'),
@@ -14,7 +21,11 @@ class Dogs(models.Model):
         ('large', 'Large'),
         ('xlarge', 'XLarge'),
     ]
-
+    COAT_LENGTH_CHOICES = [
+        ('short', 'Short'),
+        ('medium', 'Medium'),
+        ('long', 'Long'),
+    ]
     COAT_CHOICES = [
         ('curly', 'Curly'),
         ('wavy', 'Wavy'),
@@ -30,15 +41,15 @@ class Dogs(models.Model):
         ('double', 'Double Coat')
     ]
     TRAINABILITY_CHOICES = [
-        ('easy', 'Easy Training'),
-        ('stubborn', 'May Be Stubborn'),
-        ('agreeable', 'Agreeable'),
-        ('eager', 'Eager To Please'),
         ('independent', 'Independent'),
+        ('eager', 'Eager To Please'),
+        ('agreeable', 'Agreeable'),
+        ('stubborn', 'May Be Stubborn'),
+        ('easy', 'Easy Training'),
     ]
     ACTIVITY_CHOICES = [
-        ('regular', 'Regular Exercise'),
         ('calm', 'Calm'),
+        ('regular', 'Regular Exercise'),
         ('high', 'Needs Lots Of Activity'),
         ('energetic', 'Energetic'),
     ]
@@ -51,8 +62,10 @@ class Dogs(models.Model):
     coat_type = models.CharField(max_length=10, choices=COAT_CHOICES, verbose_name="Coat type", default='cirly')
     care = models.TextField(blank=True, verbose_name="Care")
     living_conditions = models.TextField(blank=True, verbose_name="Conditions")
-    trainability = models.CharField(max_length=11, choices=TRAINABILITY_CHOICES,verbose_name="Trainability", default='easy')
-    activity_level = models.CharField(max_length=10, choices=ACTIVITY_CHOICES, verbose_name="Activity Level", default='regular')
+    trainability = models.CharField(max_length=11, choices=TRAINABILITY_CHOICES,verbose_name="Trainability", default='independent')
+    activity_level = models.CharField(max_length=10, choices=ACTIVITY_CHOICES, verbose_name="Activity Level", default='calm')
+    coat_length = models.CharField(max_length=10, choices=COAT_LENGTH_CHOICES, verbose_name="Coat length", default='short')
+    barking_level = models.CharField(max_length=20, choices=BARKING_CHOICES, verbose_name="Barking level", default='necessary')
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Photo")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Time created")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Time update")
@@ -88,21 +101,21 @@ class Category(models.Model):
         ordering = ['id']
 
 
-class CoatType(models.Model):
-    name = models.CharField(max_length=20, choices=[
-        ('curly', 'Curly'),
-        ('wavy', 'Wavy'),
-        ('rough', 'Rough-haired'),
-        ('corded', 'Corded'),
-        ('hairless', 'Hairless'),
-        ('short', 'Short-haired'),
-        ('medium', 'Medium-haired'),
-        ('long', 'Long-haired'),
-        ('smooth', 'Smooth-haired'),
-        ('wiry', 'Wiry'),
-        ('silky', 'Silky'),
-        ('double', 'Double Coat')
-    ])
-
-    def __str__(self):
-        return self.get_name_display()
+# class CoatType(models.Model):
+#     name = models.CharField(max_length=20, choices=[
+#         ('curly', 'Curly'),
+#         ('wavy', 'Wavy'),
+#         ('rough', 'Rough-haired'),
+#         ('corded', 'Corded'),
+#         ('hairless', 'Hairless'),
+#         ('short', 'Short-haired'),
+#         ('medium', 'Medium-haired'),
+#         ('long', 'Long-haired'),
+#         ('smooth', 'Smooth-haired'),
+#         ('wiry', 'Wiry'),
+#         ('silky', 'Silky'),
+#         ('double', 'Double Coat')
+#     ])
+#
+#     def __str__(self):
+#         return self.get_name_display()

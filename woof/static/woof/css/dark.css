@@ -115,7 +115,15 @@ body.dark-theme .logo {
 body.dark-theme #theme-toggle {
     color: #d1cfcf;
 }
+body.dark-theme .title-link {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: #d1cfcf; /* Цвет ссылки */
+}
 
+body.dark-theme .title-link:hover {
+    text-decoration: none; /* Убирает подчеркивание при наведении */
+    color: #d600ff; /* Цвет ссылки при наведении */
+}
 
 
 @media screen and (max-width: 767px) {
