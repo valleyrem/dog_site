@@ -92,6 +92,8 @@ body.dark-theme #id_coat_type,
 body.dark-theme #id_size,
 body.dark-theme #id_trainability,
 body.dark-theme #id_activity_level,
+body.dark-theme #id_coat_length,
+body.dark-theme #id_barking_level,
 body.dark-theme #file-upload-button {
     background: #e8e7e7;
     border: 1px solid #333333;
@@ -124,7 +126,17 @@ body.dark-theme .title-link:hover {
     text-decoration: none; /* Убирает подчеркивание при наведении */
     color: #d600ff; /* Цвет ссылки при наведении */
 }
+body.dark-theme .consent-label a {
+    color: #d1cfcf; /* Установите начальный цвет, если он задан */
+    text-decoration: none; /* Удаляет подчеркивание ссылок, если это нужно */
+}
 
+body.dark-theme .consent-label a:hover {
+    color: #d600ff; /* Цвет при наведении */
+}
+body.dark-theme #id_confirm_privacy {
+    background: #e8e7e7;
+}
 
 @media screen and (max-width: 767px) {
     body.dark-theme .logo {
@@ -139,7 +151,6 @@ body.dark-theme .title-link:hover {
         background-color: #d600ff;
     }
     body.dark-theme .menu__box {
-        box-shadow: 1px 0px 10px #707070;
         border: 1px solid #d1cfcf;
         background-color: #333333;
     }

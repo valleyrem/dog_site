@@ -117,16 +117,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 });
 </script>
-<script>
-    window.addEventListener('scroll', function() {
-    const scrollToTopBtn = document.getElementById('scroll-to-top');
-    if (window.pageYOffset > 300) { // Показывать кнопку при прокрутке на 300px вниз
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-});
-</script>
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Проверка на наличие сохраненного выбора темы
@@ -166,32 +158,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {% if request.user.is_authenticated %}
     <li class="last">
-        <button id="theme-toggle"><i class="bi bi-circle-half"></i></button>
+
         <a href="http://0.0.0.0:8000/my-posts/" class="circle-link{% if request.path == '/my-posts/' %} selected{% endif %}">
             <i class="bi bi-suit-heart"></i>
         </a> |
         <a href="{% url 'logout' %}" class="logout-link{% if request.path == '/logout/' %} selected{% endif %}">Log out</a>
+        <button id="theme-toggle"><i class="bi bi-circle-half"></i></button>
     </li>
 {% else %}
     <li class="last">
-        <button id="theme-toggle"><i class="bi bi-circle-half"></i></button>
         <a href="{% url 'register' %}" class="register-link{% if request.path == '/register/' %} selected{% endif %}">Registration</a> |
         <a href="{% url 'login' %}" class="login-link{% if request.path == '/login/' %} selected{% endif %}">Log in</a>
+        <button id="theme-toggle"><i class="bi bi-circle-half"></i></button>
     </li>
 {% endif %}
 
     </ul>
     <div class="clear"></div>
 </div>
-
-
-
 {% endblock mainmenu %}
-
-
-
-
-
 
 <table class="table-content" border="0" cellpadding="0" cellspacing="0">
 <tr>
@@ -272,10 +257,11 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 </td></tr></table>
 </td></tr>
+
 <!-- Footer -->
 <tr><td valign="top">
     <div id="footer">
-
+    <button id="scroll-to-top"><i class="bi bi-arrow-up-circle"></i></button>
     <div class="footer-section">
         <p class="rights">&copy; 2024 Woof Dogs. All rights reserved</p>
     </div><div class="footer-section">
@@ -287,13 +273,37 @@ document.addEventListener("DOMContentLoaded", function() {
         <p class="policies">
             <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
             <a href="{% url 'cookie-policy' %}">Cookie Policy</a>
-            <a href="{% url 'terms-and-conditions' %}">Terms and Conditions</a>
+            <a href="{% url 'terms-of-use' %}">Terms of Use</a>
         </p>
     </div>
 
 </div>
 </td></tr>
 </table>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    console.log(scrollToTopBtn); // Проверка, найден ли элемент
+
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 600) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
+</script>
 <!-- Конец footer'а и страницы -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"

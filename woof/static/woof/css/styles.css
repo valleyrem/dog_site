@@ -44,6 +44,7 @@ img.img-article-left {
 img.img-article-left.thumb {
   width: auto;
   height: 200px;
+  padding: 0 25px 10px 0;
 }
 
 
@@ -117,7 +118,7 @@ p.link-read-post a {
     transition: .3s;
     cursor: pointer; /* Указывает, что элемент кликабельный */
     top: 10px;
-    left: 40px;
+    left: 120px;
 
     /* Анимация при наведении */
     &:hover {
@@ -214,7 +215,7 @@ ul.list-articles li {
 /* Для одиночного элемента на второй строке */
 ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
   flex: 1 1 100%; /* Ширина 100% */
-  max-width: 513px; /* Фиксированная максимальная ширина */
+  max-width: 584px; /* Фиксированная максимальная ширина */
   width: 100%; /* Занимает всю доступную ширину контейнера */
   margin: 0; /* Убираем отступы для центрирования */
   box-sizing: border-box; /* Учитывать padding и border в ширину */
@@ -224,7 +225,7 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 .index-descr {
     color: #444444;
     font-size: 14px;
-    margin: 1px 0px;
+    margin: 5px 0px;
 }
 
 .index-descr .label {
@@ -622,6 +623,8 @@ ul.lang-list li a:hover {color: #d600ff;}
 #id_size,
 #id_trainability,
 #id_activity_level,
+#id_coat_length,
+#id_barking_level,
 #file-upload-button {
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
@@ -751,7 +754,7 @@ select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 1px solid #d600ff; /* Легкая рамка */
+    border: 2px solid #f9f2fa;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -761,7 +764,7 @@ select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 2px solid #f9f2fa; /* Легкая рамка */
+    border: 2px solid #f9f2fa;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -771,7 +774,7 @@ select {
     }
 .my-posts-container {
     margin: 10px 10px 10px 10px;
-        border: 1px solid #ffffff;
+    border: 1px solid #ffffff;
 }
 .last-updated {
     color: #444444;
@@ -865,7 +868,7 @@ input, textarea, select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 1px solid #d600ff; /* Легкая рамка */
+    border: 2px solid #f9f2fa;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -890,10 +893,12 @@ input, textarea, select {
     display: none;
     cursor: pointer;
     transition: opacity 0.3s;
+    background: none;
+    border: none;
 }
 
 #scroll-to-top:hover {
-    color: #000;
+    color: #d600ff;
 }
 
 /* Сброс стилей кнопки */
@@ -933,3 +938,69 @@ input, textarea, select {
     text-decoration: none; /* Убирает подчеркивание при наведении */
     color: #d600ff; /* Цвет ссылки при наведении */
 }
+
+/*.privacy-label {
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #444444;
+}
+
+.privacy-label a {
+    color: #d600ff; *//* Цвет ссылок *//*
+    text-decoration: none; *//* Убираем подчеркивание *//*
+}
+
+.privacy-label a:hover {
+    text-decoration: underline; *//* Подчеркивание при наведении *//*
+}*/
+
+.form-check-wrapper {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание элементов по центру */
+    margin-bottom: 10px; /* Расстояние между строками, если нужно */
+}
+
+#id_confirm_privacy {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white; /* Белый фон */
+    border: 1px solid #444444; /* Цвет границы */
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 10px; /* Расстояние между галочкой и текстом */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Для абсолютного позиционирования галочки */
+}
+
+#id_confirm_privacy:checked::before {
+    content: '✓'; /* Галочка в виде символа */
+    position: absolute;
+    font-size: 18px; /* Размер галочки */
+    color: #d600ff; /* Цвет галочки */
+}
+
+#id_confirm_privacy:checked {
+    border-color: #444444; /* Цвет границы для активного состояния */
+}
+
+.consent-label {
+    font-size: 12px;
+    margin: 0; /* Уберите возможные отступы у метки */
+}
+.consent-label a {
+    color: initial; /* Установите начальный цвет, если он задан */
+    text-decoration: none; /* Удаляет подчеркивание ссылок, если это нужно */
+}
+
+.consent-label a:hover {
+    color: #d600ff; /* Цвет при наведении */
+}
+
+

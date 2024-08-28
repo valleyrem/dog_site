@@ -15,7 +15,7 @@ urlpatterns = [
     path('post/<slug:post_slug>/', ShowPost.as_view(), name='post'),
     path('category/<slug:cat_slug>/', DogsCategory.as_view(), name='category'),
     path('cookie-policy/', CookiePolicyView.as_view(), name='cookie-policy'),
-    path('terms-and-conditions/', TermsAndConditionsView.as_view(), name='terms-and-conditions'),
+    path('terms-of-use/', TermsAndConditionsView.as_view(), name='terms-of-use'),
     path('privacy-policy/', PrivacyPolicyView.as_view(), name='privacy-policy'),
     path('my-posts/', UserPosts.as_view(), name='my_posts')
 

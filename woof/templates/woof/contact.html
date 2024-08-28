@@ -2,20 +2,31 @@
 
 {% block content %}
 <div class="form-container">
-<h1>{{ title }}</h1>
-<p class="form-decs">Feel free to reach out with any questions, suggestions, or feedback.</p>
+    <h1>{{ title }}</h1>
+    <p class="form-decs">Feel free to reach out with any questions, suggestions, or feedback.</p>
 
-<form id="contactForm" method="post">
-    {% csrf_token %}
+    <form id="contactForm" method="post">
+        {% csrf_token %}
 
-    <div class="form-error">{{ form.non_field_errors }}</div>
+        <div class="form-error">{{ form.non_field_errors }}</div>
 
-    {% for f in form %}
-    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+        {% for f in form %}
+    {% if f.name == 'confirm_privacy' %}
+        <div class="form-check-wrapper">
+            {{ f }}
+            <label class="consent-label" for="{{ f.id_for_label }}">
+                {{ f.label }}
+            </label>
+        </div>
+    {% else %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    {% endif %}
     <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
+{% endfor %}
 
-    <button id="btn-custom" type="submit">Send a message</button>
-</form>
+
+        <button id="btn-custom" type="submit">Send a message</button>
+    </form>
 </div>
+
 {% endblock %}

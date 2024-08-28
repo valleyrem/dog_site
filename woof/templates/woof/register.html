@@ -2,23 +2,30 @@
 
 {% block content %}
 <div class="form-container">
-<h1>{{title}}</h1>
-<p class="form-decs">Fill out the registration form to join our <strong>Woof Dogs</strong> community and gain the ability to post articles.</p>
+    <h1>{{title}}</h1>
+    <p class="form-decs">Fill out the registration form to join our <strong>Woof Dogs</strong> community and gain the ability to post articles.</p>
 
+    <form method="post">
+        {% csrf_token %}
 
-<form method="post">
-    {% csrf_token %}
+        {% for f in form %}
+            {% if f.name != 'usable_password' %}
+                {% if f.name == 'confirm_privacy' %}
+                    <div class="form-check-wrapper">
+                        {{ f }}
+                        <label class="consent-label" for="{{ f.id_for_label }}">
+                            {{ f.label }}
+                        </label>
+                    </div>
+                {% else %}
+                    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                {% endif %}
+                <div class="form-error">{{ f.errors }}</div>
+            {% endif %}
+        {% endfor %}
 
-{% for f in form %}
-    {% if f.name != 'usable_password' %}
-        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
-    {% endif %}
-{% endfor %}
-
-<button id="btn-custom" type="submit">Sign up</i></button>
-
-
-</form>
+        <button id="btn-custom" type="submit">Sign up</button>
+    </form>
 </div>
+
 {% endblock %}

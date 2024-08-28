@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import get_user_model
 from .models import *
-
+from django.utils.safestring import mark_safe
 
 class AddPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -54,7 +54,7 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Dogs
-        fields = ['title', 'slug', 'cat', 'photo', 'size', 'coat_type', 'trainability', 'activity_level', 'content', 'care', 'living_conditions']
+        fields = ['title', 'slug', 'photo', 'cat', 'size', 'coat_type', 'coat_length', 'trainability', 'activity_level', 'barking_level', 'content', 'care', 'living_conditions']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
             'slug': forms.TextInput(attrs={'class': 'form-input'}),
@@ -83,10 +83,15 @@ class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Repeat pass', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    confirm_privacy = forms.BooleanField(
+        label=mark_safe(
+            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://woofdogs.world/cookie-policy/" target="_blank">Terms of Use</a></span>'),
+        required=True
+    )
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2', 'confirm_privacy')
 
 
 class LoginUserForm(AuthenticationForm):
@@ -99,6 +104,9 @@ class ContactForm(forms.Form):
     name = forms.CharField(label='Name', max_length=255, widget=forms.TextInput(attrs={'class': 'form-input'}))
     email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     content = forms.CharField(label='Message', widget=forms.Textarea(attrs={'cols': 60, 'rows': 3}))
-    # captcha = CaptchaField(label='Enter the letters')
-
+    confirm_privacy = forms.BooleanField(
+        label=mark_safe(
+            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://woofdogs.world/cookie-policy/" target="_blank">Terms of Use</a></span>'),
+        required=True
+    )
 
