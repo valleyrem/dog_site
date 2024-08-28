@@ -6,7 +6,7 @@
     <h1 id="about-title">{{ post.title }}</h1>
 
     {% if post.photo %}
-    <p><img class="img-article-left" src="{{ post.photo.url }}"></p>
+    <p><img class="img-article-left" src="{{ post.photo.url }}" alt="{{ post.title }}"></p>
     {% endif %}
 
     <p class="form-decs"><strong>Size:</strong> {{ post.size }}</p>
@@ -18,7 +18,38 @@
     <p class="form-decs"><strong>Summary:</strong>{{ post.content|linebreaks }}</p>
     <p class="form-decs"><strong>Care:</strong> {{ post.care|linebreaks }}</p>
     <p class="form-decs"><strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
-
 </div>
+
+<!-- Модальное окно для увеличенного изображения -->
+<div id="image-modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img-expanded">
+</div>
+
 <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById("image-modal");
+    const img = document.querySelector(".img-article-left");
+    const modalImg = document.getElementById("img-expanded");
+    const closeBtn = document.querySelector(".close");
+
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Закрыть модальное окно при клике вне изображения
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+</script>
+
 {% endblock %}

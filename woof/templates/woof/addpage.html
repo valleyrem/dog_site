@@ -1,9 +1,13 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+
+
 <div class="form-container">
 <h1>{{title}}</h1>
-
+<p class="form-decs">
+    If you're unsure about any information, feel free to visit the <a href="https://www.akc.org/dog-breeds/" target="_blank" class="link-site">American Kennel Club (AKC)</a> website for reliable details.
+</p>
 <form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 

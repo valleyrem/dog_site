@@ -10,7 +10,10 @@ body.dark-theme .article-panel  {
 body.dark-theme .list-articles li {
     background-color: #333333;
     color: #d1cfcf;
-    border: 1px solid #929090;
+/*
+    border: 1px solid #4a4949;
+*/
+    box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
 body.dark-theme .index-descr {
     color: #d1cfcf;
@@ -52,22 +55,23 @@ body.dark-theme .content {
 }
 body.dark-theme .post-container {
     background-color: #333333;
-    border: 1px solid #929090;
+    box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
+
 }
 body.dark-theme .my-posts-container {
     background-color: #333333;
-    border: 1px solid #333333;
+    box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
 body.dark-theme .form-container {
     border: 1px solid #333333;
 }
 body.dark-theme .about-container {
-    border: 1px solid #929090;
     background-color: #333333;
+    box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
 body.dark-theme .policy-container {
     background-color: #333333;
-    border: 1px solid #929090;
+    box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
 body.dark-theme .form-help-text {
     color: #d1cfcf;
@@ -136,6 +140,10 @@ body.dark-theme .consent-label a:hover {
 }
 body.dark-theme #id_confirm_privacy {
     background: #e8e7e7;
+}
+
+.last-updated {
+    color: #7d7c7c;
 }
 
 @media screen and (max-width: 767px) {

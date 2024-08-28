@@ -35,18 +35,20 @@ img {
 }
 
 img.img-article-left {
-  max-width: 300px;
-  height: 300px;
-  float: left;
-  padding: 0 10px 10px 0;
+  max-width: 350px;
+  height: 350px;
+  float: inline-start;
+  padding: 0px 10px 10px 10px;
+  cursor: pointer;
 }
 
-img.img-article-left.thumb {
+img.thumb {
   width: auto;
   height: 200px;
   padding: 0 25px 10px 0;
+  cursor: auto;
+  float: left;
 }
-
 
 /* Кнопка "читать пост" */
 p.link-read-post {
@@ -67,6 +69,7 @@ p.link-read-post a {
     background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
     background-size: 200% 100%;
     padding: 0.6rem 0.9rem;
+
     color: #4444444;
     border-radius: 50px;
     font-size: 0.9rem; /* Уменьшен размер шрифта */
@@ -201,8 +204,8 @@ ul.list-articles li {
   position: relative;
   flex: 1 1 calc(50% - 10px); /* Отнимаем 10px для отступов */
   box-sizing: border-box;
-  border: 2px solid #f9f2fa;
-  border-radius: 10px;
+  border: 0px solid #7d7c7c;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  border-radius: 10px;
   padding: 10px;
   background-color: #FFFFFF;
   height: 280px;
@@ -215,7 +218,7 @@ ul.list-articles li {
 /* Для одиночного элемента на второй строке */
 ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
   flex: 1 1 100%; /* Ширина 100% */
-  max-width: 584px; /* Фиксированная максимальная ширина */
+  max-width: 578px; /* Фиксированная максимальная ширина */
   width: 100%; /* Занимает всю доступную ширину контейнера */
   margin: 0; /* Убираем отступы для центрирования */
   box-sizing: border-box; /* Учитывать padding и border в ширину */
@@ -224,7 +227,7 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 
 .index-descr {
     color: #444444;
-    font-size: 14px;
+    font-size: 13px;
     margin: 5px 0px;
 }
 
@@ -682,7 +685,7 @@ select {
 
 .list-pages {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     margin: 20px 0;
 }
 
@@ -754,7 +757,7 @@ select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 2px solid #f9f2fa;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -764,7 +767,7 @@ select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 2px solid #f9f2fa;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -774,7 +777,7 @@ select {
     }
 .my-posts-container {
     margin: 10px 10px 10px 10px;
-    border: 1px solid #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .last-updated {
     color: #444444;
@@ -868,7 +871,7 @@ input, textarea, select {
     margin: 0 auto; /* Центрирует блок */
     padding: 20px; /* Добавляет отступы внутри блока */
     background-color: #FFFFFF; /* Легкий фон для выделения блока */
-    border: 2px solid #f9f2fa;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     border-radius: 8px; /* Скругленные углы */
 }
 
@@ -1004,3 +1007,39 @@ input, textarea, select {
 }
 
 
+/* Стили для модального окна */
+.modal {
+  display: none; /* Скрыть модальное окно по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}

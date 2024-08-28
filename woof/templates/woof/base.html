@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <ul>
                 {% if page_obj.has_previous %}
                 <li class="page-num">
-                    <a href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-arrow-left-circle"></i></a>
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-arrow-left"></i></a>
                 </li>
                 {% endif %}
 
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 {% if page_obj.has_next %}
                 <li class="page-num">
-                    <a href="?page={{ page_obj.next_page_number }}"><i class="bi bi-arrow-right-circle"></i></a>
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="bi bi-arrow-right"></i></a>
                 </li>
                 {% endif %}
             </ul>
@@ -281,17 +281,23 @@ document.addEventListener("DOMContentLoaded", function() {
 </td></tr>
 </table>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.getElementById('scroll-to-top');
-    console.log(scrollToTopBtn); // Проверка, найден ли элемент
+    let lastScrollTop = window.pageYOffset;
 
     if (scrollToTopBtn) {
+        scrollToTopBtn.style.display = 'none'; // Убедитесь, что кнопка скрыта при загрузке
+
         window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 600) {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 600) {
                 scrollToTopBtn.style.display = 'block';
             } else {
                 scrollToTopBtn.style.display = 'none';
             }
+
+            lastScrollTop = currentScroll;
         });
 
         scrollToTopBtn.addEventListener('click', function() {
@@ -302,8 +308,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
 </script>
+
 <!-- Конец footer'а и страницы -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"
