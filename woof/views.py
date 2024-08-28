@@ -1,3 +1,4 @@
+import requests
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -59,10 +60,21 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         c_def = self.get_user_context(title="New Article")
         return dict(list(context.items()) + list(c_def.items()))
 
+    def send_post_notification(self, title):
+        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
+        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        message = f"New post added: {title}"
+
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = {'chat_id': chat_id, 'text': message}
+
+        response = requests.post(url, data=data)
+        return response
+
     def form_valid(self, form):
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            return JsonResponse({'success': True, 'message': 'Form submitted successfully!'})
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        self.send_post_notification(form.cleaned_data['title'])
+        return response
 
     def form_invalid(self, form):
         if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -84,12 +96,13 @@ class ContactFormView(DataMixin, FormView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
-        # Просто возвращаем успешный JSON ответ
-        return JsonResponse({'success': True})
+        # Отправляем сообщение в Telegram
+        form.process_form()
+        return super().form_valid(form)
 
     def form_invalid(self, form):
-        # Возвращаем ошибки формы, если они есть
         return JsonResponse({'success': False, 'errors': form.errors}, status=400)
+
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page not found</h1>')
@@ -134,9 +147,21 @@ class RegisterUser(DataMixin, CreateView):
         c_def = self.get_user_context(title="Registration")
         return dict(list(context.items()) + list(c_def.items()))
 
+    def send_registration_notification(self, username):
+        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
+        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        message = f"New user registered: {username}"
+
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = {'chat_id': chat_id, 'text': message}
+
+        response = requests.post(url, data=data)
+        return response
+
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
+        self.send_registration_notification(user.username)
         return redirect('home')
 
 
@@ -151,6 +176,22 @@ class LoginUser(DataMixin, LoginView):
 
     def get_success_url(self):
         return reverse_lazy('home')
+
+    def send_login_notification(self, username):
+        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
+        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        message = f"User {username} logged in."
+
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = {'chat_id': chat_id, 'text': message}
+
+        response = requests.post(url, data=data)
+        return response
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.send_login_notification(form.cleaned_data['username'])
+        return response
 
 
 def logout_user(request):
@@ -196,3 +237,15 @@ class UserPosts(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='My Posts')  # Добавьте title или другой контекст
         return dict(list(context.items()) + list(c_def.items()))
+
+
+# def contact_view(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             form.process_form()
+#             return redirect('home')  # Перенаправление на главную страницу после успешной отправки
+#     else:
+#         form = ContactForm()
+#
+#     return render(request, 'contact.html', {'form': form})

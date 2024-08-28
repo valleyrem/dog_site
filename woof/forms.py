@@ -2,13 +2,16 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib.sites import requests
 from django.core.exceptions import ValidationError
 from captcha.fields import CaptchaField
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import get_user_model
 from .models import *
 from django.utils.safestring import mark_safe
+import requests
 
 class AddPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -109,4 +112,17 @@ class ContactForm(forms.Form):
             '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://woofdogs.world/cookie-policy/" target="_blank">Terms of Use</a></span>'),
         required=True
     )
+    def send_message_to_telegram(self):
+        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
+        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        message = f"Contact:\n\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
 
+        url = f"https://api.telegram.org/bot{token}/sendMessage"
+        data = {'chat_id': chat_id, 'text': message}
+
+        response = requests.post(url, data=data)
+        return response
+
+    def process_form(self):
+        # Отправка сообщения в Telegram
+        self.send_message_to_telegram()
