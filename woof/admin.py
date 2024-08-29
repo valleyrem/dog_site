@@ -41,9 +41,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Dogs)
 class DogsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'user_email', 'is_published')  # Выберите поля для отображения
-    search_fields = ('title', 'user_email')  # Поля для поиска
-    list_filter = ('size', 'coat_type', 'is_published')  # Фильтрация по полям
+    list_display = ('title', 'slug', 'user_email', 'is_published')
+    search_fields = ('title', 'user_email')
+    list_filter = ('size', 'coat_type', 'is_published')
 
 admin.site.register(Category, CategoryAdmin)
 

@@ -50,27 +50,25 @@
         padding: 10px 0 0 10px;
     }
     div.article-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+    }
 
-div.article-panel p.first,
-div.article-panel p.last {
-    margin: 0;
-    padding: 0;
-    width: auto;
-}
+    div.article-panel p.first,
+    div.article-panel p.last {
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+    div.article-panel p.first {
+        margin-bottom: 0;
+    }
 
-div.article-panel p.first {
-    margin-bottom: 0;
-}
-
-div.article-panel p.last {
-    margin-bottom: 0;
-}
-
+    div.article-panel p.last {
+        margin-bottom: 0;
+    }
     .content-text h1, h2 {
         font-size: 16px;
         margin: 5px 0px;
@@ -90,13 +88,13 @@ div.article-panel p.last {
     }
 
     #scroll-to-top {
-        display: block; /* Показываем кнопку прокрутки вверх на мобильных устройствах */
-        margin-top: 10px; /* Добавляем отступ сверху */
-        text-align: center; /* Центрируем кнопку прокрутки вверх */
+        display: block;
+        margin-top: 10px;
+        text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 12px;
         text-align: left;
     }
@@ -144,24 +142,24 @@ div.article-panel p.last {
         padding-left: 50%;
     }
     .policy-container {
-        width: 300px; /* Ширина с отступами 10px с каждой стороны */
-        margin: 0 auto; /* Центрирование */
+        width: 300px;
+        margin: 0 auto;
     }
     .form-input {
         width: 220px;
         font-size: 10px;
-        height: 20px; /* Установите желаемую высоту */
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        height: 20px;
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
-        height: 40px; /* Установите желаемую высоту */
+        height: 40px;
         width: 220px;
     }
     #id_photo {
         width: 230px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_confirm_privacy {
@@ -218,9 +216,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logomini.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -246,7 +244,7 @@ div.article-panel p.last {
   width: 100%;
   height: 1px;
   background-color: #444444;
-  transition: transform 0.25s, background-color 0.25s; /* Анимация */
+  transition: transform 0.25s, background-color 0.25s;
 }
 
 .menu__btn > span::before {
@@ -281,7 +279,7 @@ div.article-panel p.last {
 }
 
 
-/* Стили элементов меню */
+/* Menu */
 .menu__item {
   padding: 2px 2px;
   color: #444444;
@@ -336,8 +334,8 @@ div.article-panel p.last {
         right: 10px;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 12px;
         text-align: left;
     }
@@ -346,8 +344,8 @@ div.article-panel p.last {
         text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 12px;
         text-align: left;
     }
@@ -361,11 +359,11 @@ div.article-panel p.last {
     }
 }
 
-/* Медиа-запросы для мобильных устройств */
+
 @media screen and (max-width: 344px) {
   html, body {
-        font-size: 14px; /* Уменьшите размер шрифта для мобильных устройств */
-        text-align: left; /* Выравнивание текста по левому краю для лучшей читаемости */
+        font-size: 14px;
+        text-align: left;
     }
 
     ul.mainmenu li {
@@ -517,13 +515,13 @@ div.article-panel p.last {
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
-        height: 40px; /* Установите желаемую высоту */
+        height: 40px;
         width: 220px;
     }
     #id_photo {
         width: 230px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_confirm_privacy {
@@ -546,6 +544,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 10px;
     }
@@ -553,8 +553,8 @@ div.article-panel p.last {
         display: inline-block;
         min-width: 100px;
         vertical-align: top;
-        height: 20px; /* Установите ту же высоту, что и для .form-input */
-        line-height: 20px; /* Выравнивание по вертикали */
+        height: 20px;
+        line-height: 20px;
         font-size: 12px;
     }
     .about-container {
@@ -578,9 +578,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -676,13 +676,13 @@ div.article-panel p.last {
     }
 
     #scroll-to-top {
-        display: block; /* Показываем кнопку прокрутки вверх на мобильных устройствах */
-        margin-top: 10px; /* Добавляем отступ сверху */
-        text-align: center; /* Центрируем кнопку прокрутки вверх */
+        display: block;
+        margin-top: 10px;
+        text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 12px;
         text-align: left;
     }
@@ -736,18 +736,18 @@ div.article-panel p.last {
     .form-input {
         width: 220px;
         font-size: 10px;
-        height: 20px; /* Установите желаемую высоту */
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        height: 20px;
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
-        height: 40px; /* Установите желаемую высоту */
+        height: 40px;
         width: 220px;
     }
     #id_photo {
         width: 230px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_confirm_privacy {
@@ -765,6 +765,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 12px;
     }
@@ -777,8 +779,8 @@ div.article-panel p.last {
         display: inline-block;
         min-width: 100px;
         vertical-align: top;
-        height: 20px; /* Установите ту же высоту, что и для .form-input */
-        line-height: 20px; /* Выравнивание по вертикали */
+        height: 20px;
+        line-height: 20px;
         font-size: 12px;
     }
     .about-container {
@@ -802,9 +804,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -902,13 +904,13 @@ div.article-panel p.last {
     }
 
     #scroll-to-top {
-        display: block; /* Показываем кнопку прокрутки вверх на мобильных устройствах */
-        margin-top: 10px; /* Добавляем отступ сверху */
-        text-align: center; /* Центрируем кнопку прокрутки вверх */
+        display: block;
+        margin-top: 10px;
+        text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 12px;
         text-align: left;
     }
@@ -962,18 +964,18 @@ div.article-panel p.last {
     .form-input{
         width: 220px;
         font-size: 10px;
-        height: 20px; /* Установите желаемую высоту */
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        height: 20px;
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
-        height: 40px; /* Установите желаемую высоту */
+        height: 40px;
         width: 220px;
     }
     #id_photo {
         width: 230px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_confirm_privacy {
@@ -991,6 +993,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 10px;
     }
@@ -1028,9 +1032,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -1132,13 +1136,13 @@ div.article-panel p.last {
     }
 
     #scroll-to-top {
-        display: block; /* Показываем кнопку прокрутки вверх на мобильных устройствах */
-        margin-top: 10px; /* Добавляем отступ сверху */
-        text-align: center; /* Центрируем кнопку прокрутки вверх */
+        display: block;
+        margin-top: 10px;
+        text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 10px;
         text-align: left;
     }
@@ -1162,8 +1166,6 @@ div.article-panel p.last {
     .cookie-table tr {
         display: block;
         margin-bottom: 5px;
-/*
-        border: 1px solid #4444; */
         padding: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         border-radius: 1px;
@@ -1211,9 +1213,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -1224,6 +1226,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 12px;
     }
@@ -1248,10 +1252,6 @@ div.article-panel p.last {
 	    padding: 5px 5px 5px 5px;
 	    font-size: 15px;
     }
-/*    .content {
-        padding: 10px 0px 50px 0px;
-    }*/
-
     .content-text {
 	    margin: 10px 0 0 0px;
 	    font-size: 15px;
@@ -1325,23 +1325,23 @@ div.article-panel p.last {
     }
 
     .links-policies {
-        display: block; /* Показываем ссылки в блочном режиме */
-        margin-top: 10px; /* Добавляем отступ сверху для ссылок */
+        display: block;
+        margin-top: 10px;
     }
 
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
     }
 
     #scroll-to-top {
-        display: block; /* Показываем кнопку прокрутки вверх на мобильных устройствах */
-        margin-top: 10px; /* Добавляем отступ сверху */
-        text-align: center; /* Центрируем кнопку прокрутки вверх */
+        display: block;
+        margin-top: 10px;
+        text-align: center;
     }
     .links-policies a {
-        display: block; /* Каждая ссылка на отдельной строке */
-        margin: 5px 0; /* Отступы между ссылками */
+        display: block;
+        margin: 5px 0;
         font-size: 13px;
         text-align: left;
     }
@@ -1364,7 +1364,7 @@ div.article-panel p.last {
     #id_photo {
         width: 230px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_confirm_privacy {
@@ -1421,9 +1421,9 @@ div.article-panel p.last {
     }
     .logo {
 	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+	    width: 50px;
+        height: 50px;
+        background-size: contain;
     }
 
     #about-title {
@@ -1443,6 +1443,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 15px;
     }
@@ -1551,18 +1553,18 @@ div.article-panel p.last {
    .form-input {
         width: 190px;
         font-size: 10px;
-        height: 20px; /* Установите желаемую высоту */
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        height: 20px;
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
-        height: 40px; /* Установите желаемую высоту */
+        height: 40px;
         width: 190px;
     }
     #id_photo {
         width: 190px;
         font-size: 12px;
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        border-radius: 5px;
         border: 1px solid #444444;
         font-size: 10px;
     }
@@ -1586,6 +1588,8 @@ div.article-panel p.last {
     #id_size,
     #id_trainability,
     #id_activity_level,
+    #id_barking_level,
+    #id_coat_length,
     #file-upload-button {
         font-size: 10px;
     }

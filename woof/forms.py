@@ -9,6 +9,8 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import get_user_model
+
+from dogsite.settings import env
 from .models import *
 from django.utils.safestring import mark_safe
 import requests
@@ -80,7 +82,6 @@ class AddPostForm(forms.ModelForm):
         return post
 
 
-
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Login', widget=forms.TextInput(attrs={'class': 'form-input'}))
     email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
@@ -113,9 +114,9 @@ class ContactForm(forms.Form):
         required=True
     )
     def send_message_to_telegram(self):
-        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
-        chat_id = '765288028'  # Используйте ваш реальный chat_id
-        message = f"Contact:\n\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
+        token = env('TOKEN')
+        chat_id = env('CHAT_ID')
+        message = f"Contact:\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         data = {'chat_id': chat_id, 'text': message}
@@ -124,5 +125,4 @@ class ContactForm(forms.Form):
         return response
 
     def process_form(self):
-        # Отправка сообщения в Telegram
         self.send_message_to_telegram()

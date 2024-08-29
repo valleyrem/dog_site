@@ -1,7 +1,3 @@
-/* фон текста статьей и других страниц */
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 
@@ -26,12 +22,10 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* фотографии */
 img {
   max-width: 600px;
   height: auto;
-  border-radius: 0%; /* Задайте 50% для закругления всех углов */
-
+  border-radius: 0%;
 }
 
 img.img-article-left {
@@ -50,20 +44,17 @@ img.thumb {
   float: left;
 }
 
-/* Кнопка "читать пост" */
 p.link-read-post {
-    position: absolute; /* Позиционирование элемента абсолютно относительно родительского контейнера */
-    bottom: 0px; /* Расстояние от нижнего края */
-    right: 10px; /* Расстояние от правого края */
-    text-align: right; /* Выравнивание кнопки по правому краю родительского контейнера */
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    text-align: right;
 }
 
 p.link-read-post a {
-    /* reset */
     -webkit-appearance: none;
     border: 0;
     outline: 0;
-    /* styles */
     display: inline-block;
     position: relative;
     background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
@@ -72,7 +63,7 @@ p.link-read-post a {
 
     color: #4444444;
     border-radius: 50px;
-    font-size: 0.9rem; /* Уменьшен размер шрифта */
+    font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     transition: .3s;
     text-decoration: none;
@@ -82,7 +73,7 @@ p.link-read-post a {
 
     &:hover {
         animation: bruh 3s linear infinite;
-        color: #444444; /* Убедитесь, что цвет текста остается таким же при наведении */
+        color: #444444;
     }
 }
 
@@ -100,39 +91,34 @@ p.link-read-post a {
     }
 }
 
-/*кнопка вернуться назад*/
 .btn-back {
-    /* Reset */
     -webkit-appearance: none;
     border: 0;
     outline: 0;
-    /* Styles */
     display: inline-block;
     position: relative;
     background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
     background-size: 200% 100%;
     padding: 0.6rem 0.9rem;
-    color: #444444; /* Цвет текста */
+    color: #444444;
     border-radius: 50px;
-    font-size: 0.9rem; /* Размер шрифта */
+    font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     text-align: center;
     transition: .3s;
-    cursor: pointer; /* Указывает, что элемент кликабельный */
+    cursor: pointer;
     top: 10px;
     left: 120px;
 
-    /* Анимация при наведении */
     &:hover {
         animation: bruh 3s linear infinite;
-        color: #444444; /* Цвет текста при наведении */
-        text-decoration: none; /* Убирает подчеркивание при наведении */
+        color: #444444;
+        text-decoration: none;
 
     }
 }
 
-/* Анимация градиента */
 @keyframes bruh {
     0% {
         background-position: 0 0;
@@ -148,7 +134,6 @@ p.link-read-post a {
 }
 
 
-/* панель с категорями статей, фон */
 div.article-panel {
     background: #FFFFFF;
     padding: 5px 0;
@@ -178,9 +163,6 @@ div.article-panel p.last {
     list-style-type: none;
 }
 
-/*.article-item {
-    border: 1px solid #d600ff;
-}*/
 
 .article-panel img {
     max-width: 100%;
@@ -191,18 +173,18 @@ div.article-panel p.last {
 ul.list-articles {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; /* расстояние между элементами */
+  gap: 10px;
   padding: 0;
   margin: 0;
-  list-style-type: none; /* Убирает маркеры списка */
-  align-items: flex-start; /* Выровнять элементы по верхнему краю */
+  list-style-type: none;
+  align-items: flex-start;
 
 }
 
 
 ul.list-articles li {
   position: relative;
-  flex: 1 1 calc(50% - 10px); /* Отнимаем 10px для отступов */
+  flex: 1 1 calc(50% - 10px);
   box-sizing: border-box;
   border: 0px solid #7d7c7c;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  border-radius: 10px;
@@ -210,19 +192,16 @@ ul.list-articles li {
   background-color: #FFFFFF;
   height: 280px;
   overflow: hidden;
-  text-align: left; /* Выровнять текст слева */
+  text-align: left;
 }
 
-
-/* Для одиночного элемента */
-/* Для одиночного элемента на второй строке */
 ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
-  flex: 1 1 100%; /* Ширина 100% */
-  max-width: 578px; /* Фиксированная максимальная ширина */
-  width: 100%; /* Занимает всю доступную ширину контейнера */
-  margin: 0; /* Убираем отступы для центрирования */
-  box-sizing: border-box; /* Учитывать padding и border в ширину */
-  text-align: left; /* Выровнять текст слева */
+  flex: 1 1 100%;
+  max-width: 578px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .index-descr {
@@ -232,7 +211,7 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 }
 
 .index-descr .label {
-    font-weight: 600; /* Легкий жирный текст для первой части */
+    font-weight: 600;
 }
 
 
@@ -276,7 +255,7 @@ ul.mainmenu li {
 }
 ul.mainmenu li.logo {margin: 0;}
 ul.mainmenu li.last {float: right;
-    margin-right: 40px; /* Измените значение по вашему усмотрению */
+    margin-right: 40px;
 }
 
 ul.mainmenu li a {
@@ -287,12 +266,9 @@ ul.mainmenu li a:hover {
 	color: #d600ff;
 }
 
-/* Стиль для активной страницы */
 .mainmenu .selected a {
-    color: #d600ff; /* Цвет выделения для активной страницы */
+    color: #d600ff;
 }
-
-
 
 .panelitems {
 	text-align: center;
@@ -329,21 +305,13 @@ ul.langitem li a {
 ul.langitem li a:hover {
 	color: #FDA83D;
 }
-/*div.button {
-	background: #3F4137;
-	max-width: 200px;
-	margin: 0 auto;
-	padding: 5px 20px 5px 20px;
-	border-radius: 10px;
-	font-size: 20px;
-}*/
 
 .table-content {
 	width: 100%;
 	min-height: 100%;
 	height: 100%;
 }
-/*панель слева*/
+
 .left-chapters {
 	margin: 0;
 	background: #ffffff;
@@ -454,8 +422,8 @@ ul.content-table li a:hover {color: #F0711C;}
     color: #444444;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
-    text-align: justify; /* Выравнивание текста по ширине */
-    width: 100%; /* Убедитесь, что элемент занимает 100% ширины родителя */
+    text-align: justify;
+    width: 100%;
 }
 .content-text h1 {font-size: 27px;}
 
@@ -594,8 +562,8 @@ ul.lang-list li a:hover {color: #d600ff;}
 .form-input {
     width: 250px;
     font-size: 12px;
-    height: 30px; /* Установите желаемую высоту */
-    border-radius: 5px; /* Установите желаемое значение закругления */
+    height: 30px;
+    border-radius: 5px;
     border: 1px solid #444444;
 }
 
@@ -603,12 +571,11 @@ ul.lang-list li a:hover {color: #d600ff;}
     display: inline-block;
     min-width: 170px;
     vertical-align: top;
-    height: 30px; /* Установите ту же высоту, что и для .form-input */
-    line-height: 30px; /* Выравнивание по вертикали */
+    height: 30px;
+    line-height: 30px;
     font-size: 17px;
 }
 
-/* Применение шрифта Montserrat к элементам select */
 #id_content,
 #id_slug,
 #id_care,
@@ -617,7 +584,7 @@ ul.lang-list li a:hover {color: #d600ff;}
 #id_email,
 #id_captcha_1 {
     font-family: 'Montserrat', sans-serif;
-    border-radius: 5px; /* Установите желаемое значение закругления */
+    border-radius: 5px;
     border: 1px solid #444444;
 }
 
@@ -651,24 +618,22 @@ ul.lang-list li a:hover {color: #d600ff;}
     border: 1px solid #444444;
     background: #ffffff;
     padding: 2px;
-    border-radius: 5px; /* Установите желаемое значение закругления */
+    border-radius: 5px;
 }
 
-/* Применение цвета #d600ff к кнопке */
 #id_is_published {
-    accent-color: #d600ff; /* Меняет цвет чекбокса */
+    accent-color: #d600ff;
 }
 #beloved-pets {
-    color: #d600ff; /* Меняет цвет чекбокса */
+    color: #d600ff;
 }
 
 input {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Для обеспечения корректного отображения шрифта на всех элементах */
 select {
-    font-family: inherit; /* Наследование шрифта от родителя */
+    font-family: inherit;
 }
 
 
@@ -678,7 +643,7 @@ select {
     color: #CC0000;
 }
 .article-content {
-     font-size: 16px; /* Примерный размер шрифта */
+     font-size: 16px;
 
 }
 
@@ -698,7 +663,7 @@ select {
 
 .list-pages li {
     display: inline-block;
-    margin: 0 5px; /* Отступы между элементами */
+    margin: 0 5px;
 }
 
 .page-num {
@@ -715,60 +680,60 @@ select {
     text-align: center;
     line-height: 30px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; /* Плавный переход для фона и текста */
-    text-decoration: none; /* Убирает подчеркивание */
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
     font-size: 15px;
 }
 
 .page-num a {
-    color: inherit; /* Наследует цвет родителя */
-    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit;
+    text-decoration: none;
     display: block;
     width: 100%;
     height: 100%;
-    line-height: 30px; /* Выравнивание текста по центру */
+    line-height: 30px;
 }
 
 .page-num:hover {
-    background-color: #76a08b; /* Цвет фона при наведении */
-    color: #000000; /* Цвет текста для выбранной страницы */
+    background-color: #76a08b;
+    color: #000000;
 }
 
 .page-num.page-num-selected {
-    background-color: #6f9a79; /* Цвет фона для выбранной страницы */
-    color: #000000; /* Цвет текста для выбранной страницы */
+    background-color: #6f9a79;
+    color: #000000;
 }
 
 
 ..dog-list {
     display: grid;
-    grid-template-columns: 1fr;  /* Один столбец */
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
 
 .dog-item a {
     text-decoration: none;
-    color: #000; /* Цвет текста, измените по необходимости */
+    color: #000;
 }
 
 .policy-container {
-    max-width: 800px; /* Можно отрегулировать по необходимости */
-    margin: 0 auto; /* Центрирует блок */
-    padding: 20px; /* Добавляет отступы внутри блока */
-    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    border-radius: 8px; /* Скругленные углы */
+    border-radius: 8px;
 }
 
 .post-container {
-    height: auto; /* Можно отрегулировать по необходимости */
+    height: auto;
     max-width: 900px;
-    margin: 0 auto; /* Центрирует блок */
-    padding: 20px; /* Добавляет отступы внутри блока */
-    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    border-radius: 8px; /* Скругленные углы */
+    border-radius: 8px;
 }
 
 .form-container {
@@ -783,10 +748,9 @@ select {
     color: #444444;
 }
 
-/* Стили для ссылок внутри элементов с классом .links-policies */
 .links-policies a {
-  color: inherit !important; /* Наследовать цвет от родительского элемента */
-  text-decoration: none !important; /* Убирает подчеркивание текста */
+  color: inherit !important;
+  text-decoration: none !important;
   color: #d600ff;
 }
 .links-policies {
@@ -798,33 +762,33 @@ select {
     text-align: left;
 }
 .links-policies a:hover {
-  color: #9802b5 !important; /* Цвет текста при наведении */
-  text-decoration: none !important; /* Убирает подчеркивание текста при наведении */
+  color: #9802b5 !important;
+  text-decoration: none !important;
 }
 
 
 .link-site {
-  color: inherit; /* Наследовать цвет от родительского элемента */
-  text-decoration: none; /* Убирает подчеркивание текста */
+  color: inherit;
+  text-decoration: none;
   color: #d600ff;
 }
 
 .link-site:hover {
-  color: #9802b5; /* Цвет текста при наведении */
-  text-decoration: none; /* Убирает подчеркивание текста при наведении */
+  color: #9802b5;
+  text-decoration: none;
 }
 
 .table-of-contents {
-  color: inherit; /* Наследовать цвет от родительского элемента */
-  text-decoration: none; /* Убирает подчеркивание текста */
-  display: block; /* Устанавливает каждый элемент как блок для переноса */
-  margin-bottom: 5px; /* Отступ между элементами */
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
   margin-left: 20px;
 }
 
 .table-of-contents:hover {
-  color: #d600ff; /* Цвет текста при наведении */
-  text-decoration: none; /* Убирает подчеркивание текста при наведении */
+  color: #d600ff;
+  text-decoration: none;
 }
 
 
@@ -844,47 +808,47 @@ input, textarea, select {
 }
 
 .bulleted-list {
-    padding: 10px; /* Внутренний отступ вокруг всего списка */
+    padding: 10px;
     list-style-type: circle;
-    padding-left: 30px; /* Увеличивает отступ слева у всего списка */
+    padding-left: 30px;
     justify-content: left;
 }
 
 .bulleted-list li {
-    padding: 5px; /* Внутренний отступ вокруг текста элемента списка */
-    margin-bottom: 2px; /* Отступ между элементами списка */
+    padding: 5px;
+    margin-bottom: 2px;
 }
 
 .num-list {
-    padding: 0px; /* Внутренний отступ вокруг всего списка */
+    padding: 0px;
     list-style-type: none;
-    padding-left: 0px; /* Увеличивает отступ слева у всего списка */
+    padding-left: 0px;
 }
 
 .num-list a {
-    padding: 0px; /* Внутренний отступ вокруг текста элемента списка */
-    margin-bottom: 10px; /* Отступ между элементами списка */
+    padding: 0px;
+    margin-bottom: 10px;
 }
 
 .about-container {
-    max-width: 100%; /* Можно отрегулировать по необходимости */
-    margin: 0 auto; /* Центрирует блок */
-    padding: 20px; /* Добавляет отступы внутри блока */
-    background-color: #FFFFFF; /* Легкий фон для выделения блока */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    border-radius: 8px; /* Скругленные углы */
+    border-radius: 8px;
 }
 
 
 .circle-link::before {
-    content: " "; /* добавить контент для кружка */
+    content: " ";
 }
 
 .circle-link.selected,
 .logout-link.selected,
 .register-link.selected,
 .login-link.selected {
-    color: #d600ff; /* Цвет для выделенной ссылки */
+    color: #d600ff;
 }
 
 #scroll-to-top {
@@ -904,19 +868,18 @@ input, textarea, select {
     color: #d600ff;
 }
 
-/* Сброс стилей кнопки */
 #theme-toggle {
-    all: unset; /* Убирает все стили, включая отступы, границы, фон и т.д. */
-    display: inline-flex; /* Используем flexbox для центрирования и выравнивания значка */
+    all: unset;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer; /* Добавляет указатель для кликабельности */
+    cursor: pointer;
     color: #444444;
 }
 
 .policies a {
-  color: inherit !important; /* Наследовать цвет от родительского элемента */
-  text-decoration: none !important; /* Убирает подчеркивание текста */
+  color: inherit !important;
+  text-decoration: none !important;
   color: #d600ff;
 }
 .policies {
@@ -928,88 +891,72 @@ input, textarea, select {
     text-align: center;
 }
 .policies a:hover {
-  color: #9802b5 !important; /* Цвет текста при наведении */
-  text-decoration: none !important; /* Убирает подчеркивание текста при наведении */
+  color: #9802b5 !important;
+  text-decoration: none !important;
 }
 
 .title-link {
-    text-decoration: none; /* Убирает подчеркивание */
-    color: #444444; /* Цвет ссылки */
-}
-
-.title-link:hover {
-    text-decoration: none; /* Убирает подчеркивание при наведении */
-    color: #d600ff; /* Цвет ссылки при наведении */
-}
-
-/*.privacy-label {
-    display: flex;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    text-decoration: none;
     color: #444444;
 }
 
-.privacy-label a {
-    color: #d600ff; *//* Цвет ссылок *//*
-    text-decoration: none; *//* Убираем подчеркивание *//*
+.title-link:hover {
+    text-decoration: none;
+    color: #d600ff;
 }
 
-.privacy-label a:hover {
-    text-decoration: underline; *//* Подчеркивание при наведении *//*
-}*/
 
 .form-check-wrapper {
     display: flex;
-    align-items: center; /* Вертикальное выравнивание элементов по центру */
-    margin-bottom: 10px; /* Расстояние между строками, если нужно */
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 #id_confirm_privacy {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: white; /* Белый фон */
-    border: 1px solid #444444; /* Цвет границы */
+    background-color: white;
+    border: 1px solid #444444;
     border-radius: 5px;
     width: 20px;
     height: 20px;
     cursor: pointer;
-    margin-right: 10px; /* Расстояние между галочкой и текстом */
+    margin-right: 10px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Для абсолютного позиционирования галочки */
+    position: relative;
 }
 
 #id_confirm_privacy:checked::before {
-    content: '✓'; /* Галочка в виде символа */
+    content: '✓';
     position: absolute;
-    font-size: 18px; /* Размер галочки */
-    color: #d600ff; /* Цвет галочки */
+    font-size: 18px;
+    color: #d600ff;
 }
 
 #id_confirm_privacy:checked {
-    border-color: #444444; /* Цвет границы для активного состояния */
+    border-color: #444444;
 }
 
 .consent-label {
     font-size: 12px;
-    margin: 0; /* Уберите возможные отступы у метки */
+    margin: 0;
 }
 .consent-label a {
-    color: initial; /* Установите начальный цвет, если он задан */
-    text-decoration: none; /* Удаляет подчеркивание ссылок, если это нужно */
+    color: initial;
+    text-decoration: none;
 }
 
 .consent-label a:hover {
-    color: #d600ff; /* Цвет при наведении */
+    color: #d600ff;
 }
 
 
-/* Стили для модального окна */
+/* Modal window */
 .modal {
-  display: none; /* Скрыть модальное окно по умолчанию */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -1017,7 +964,7 @@ input, textarea, select {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {

@@ -20,13 +20,13 @@
     <p class="form-decs"><strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
 </div>
 
-<!-- Модальное окно для увеличенного изображения -->
 <div id="image-modal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img-expanded">
 </div>
 
 <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById("image-modal");
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = "none";
     }
 
-    // Закрыть модальное окно при клике вне изображения
+
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";

@@ -9,6 +9,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
 
+from dogsite.settings import env
 from .forms import AddPostForm, RegisterUserForm, LoginUserForm, ContactForm
 from .models import *
 from django.views.generic import ListView, DetailView, CreateView, FormView, TemplateView
@@ -45,9 +46,6 @@ class AboutView(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-
-
-
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
     template_name = 'woof/addpage.html'
@@ -61,8 +59,8 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def send_post_notification(self, title):
-        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
-        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        token = env('TOKEN')
+        chat_id = env('CHAT_ID')
         message = f"New post added: {title}"
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -80,7 +78,7 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
             response_data = {
                 'success': False,
-                'errors': form.errors.get_json_data()  # Преобразуйте ошибки формы в формат JSON
+                'errors': form.errors.get_json_data()
             }
             return JsonResponse(response_data)
         return super().form_invalid(form)
@@ -148,8 +146,8 @@ class RegisterUser(DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def send_registration_notification(self, username):
-        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
-        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        token = env('TOKEN')
+        chat_id = env('CHAT_ID')
         message = f"New user registered: {username}"
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -178,8 +176,8 @@ class LoginUser(DataMixin, LoginView):
         return reverse_lazy('home')
 
     def send_login_notification(self, username):
-        token = '7045143153:AAGuzBDnv0_TYsHuoOdXnwPQ-iJZ3pwrwMo'  # Используйте ваш реальный токен
-        chat_id = '765288028'  # Используйте ваш реальный chat_id
+        token = env('TOKEN')
+        chat_id = env('CHAT_ID')
         message = f"User {username} logged in."
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
@@ -197,6 +195,7 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
 
 class CookiePolicyView(DataMixin, TemplateView):
     template_name = 'woof/cookie_policy.html'
@@ -224,6 +223,7 @@ class PrivacyPolicyView(DataMixin, TemplateView):
         c_def = self.get_user_context(title="Privacy Policy")
         return dict(list(context.items()) + list(c_def.items()))
 
+
 class UserPosts(DataMixin, ListView):
     model = Dogs
     template_name = 'woof/my_posts.html'
@@ -235,17 +235,5 @@ class UserPosts(DataMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='My Posts')  # Добавьте title или другой контекст
+        c_def = self.get_user_context(title='My Posts')
         return dict(list(context.items()) + list(c_def.items()))
-
-
-# def contact_view(request):
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             form.process_form()
-#             return redirect('home')  # Перенаправление на главную страницу после успешной отправки
-#     else:
-#         form = ContactForm()
-#
-#     return render(request, 'contact.html', {'form': form})

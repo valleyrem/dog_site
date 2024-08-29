@@ -10,9 +10,6 @@ body.dark-theme .article-panel  {
 body.dark-theme .list-articles li {
     background-color: #333333;
     color: #d1cfcf;
-/*
-    border: 1px solid #4a4949;
-*/
     box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px -3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
 body.dark-theme .index-descr {
@@ -122,21 +119,21 @@ body.dark-theme #theme-toggle {
     color: #d1cfcf;
 }
 body.dark-theme .title-link {
-    text-decoration: none; /* Убирает подчеркивание */
-    color: #d1cfcf; /* Цвет ссылки */
+    text-decoration: none;
+    color: #d1cfcf;
 }
 
 body.dark-theme .title-link:hover {
-    text-decoration: none; /* Убирает подчеркивание при наведении */
-    color: #d600ff; /* Цвет ссылки при наведении */
+    text-decoration: none;
+    color: #d600ff;
 }
 body.dark-theme .consent-label a {
-    color: #d1cfcf; /* Установите начальный цвет, если он задан */
-    text-decoration: none; /* Удаляет подчеркивание ссылок, если это нужно */
+    color: #d1cfcf;
+    text-decoration: none;
 }
 
 body.dark-theme .consent-label a:hover {
-    color: #d600ff; /* Цвет при наведении */
+    color: #d600ff;
 }
 body.dark-theme #id_confirm_privacy {
     background: #e8e7e7;
@@ -149,9 +146,9 @@ body.dark-theme #id_confirm_privacy {
 @media screen and (max-width: 767px) {
     body.dark-theme .logo {
         background: url('../images/logo-darkmini.png') no-repeat 2px 2px;
-        width: 50px;  /* Уменьшаем ширину логотипа */
-        height: 50px; /* Уменьшаем высоту логотипа */
-        background-size: contain; /* Подгоняем размер фона под новый размер */
+        width: 50px;
+        height: 50px;
+        background-size: contain;
     }
     body.dark-theme  .menu__btn > span,
     body.dark-theme  .menu__btn > span::before,

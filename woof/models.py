@@ -99,23 +99,3 @@ class Category(models.Model):
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
         ordering = ['id']
-
-
-# class CoatType(models.Model):
-#     name = models.CharField(max_length=20, choices=[
-#         ('curly', 'Curly'),
-#         ('wavy', 'Wavy'),
-#         ('rough', 'Rough-haired'),
-#         ('corded', 'Corded'),
-#         ('hairless', 'Hairless'),
-#         ('short', 'Short-haired'),
-#         ('medium', 'Medium-haired'),
-#         ('long', 'Long-haired'),
-#         ('smooth', 'Smooth-haired'),
-#         ('wiry', 'Wiry'),
-#         ('silky', 'Silky'),
-#         ('double', 'Double Coat')
-#     ])
-#
-#     def __str__(self):
-#         return self.get_name_display()
