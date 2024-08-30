@@ -112,8 +112,8 @@ body.dark-theme #id_photo {
 body.dark-theme #scroll-to-top {
     color: #d1cfcf;
 }
-body.dark-theme .logo {
-	background: url('../images/logo-dark.png') no-repeat 15px 5px;
+body.dark-theme .letter-d {
+    color: #d1cfcf; /* Замените на нужный цвет для буквы D */
 }
 body.dark-theme #theme-toggle {
     color: #d1cfcf;
@@ -144,12 +144,7 @@ body.dark-theme #id_confirm_privacy {
 }
 
 @media screen and (max-width: 767px) {
-    body.dark-theme .logo {
-        background: url('../images/logo-darkmini.png') no-repeat 2px 2px;
-        width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
     body.dark-theme  .menu__btn > span,
     body.dark-theme  .menu__btn > span::before,
     body.dark-theme  .menu__btn > span::after {

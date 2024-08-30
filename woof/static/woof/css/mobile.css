@@ -1,4 +1,21 @@
 @media screen and (max-width: 767px) {
+    .logo-text {
+        text-align: left; /* Центрируем текст по горизонтали */
+        margin: 10px 0px 0px 10px;
+    }
+
+    .letter {
+        display: block; /* Каждая буква будет отображаться в отдельной строке */
+    }
+
+    .letter-w {
+        font-size: 24px; /* Размер текста для буквы W */
+        margin-bottom: -7px; /* Немного поднимем букву W над буквой D */
+    }
+
+    .letter-d {
+        font-size: 19px; /* Размер текста для буквы D */
+    }
     html, body {
         font-size: 14px;
         text-align: left;
@@ -11,6 +28,10 @@
         float: right;
         margin-right: 15px;
     }
+    ul.mainmenu li.logo {margin-right: 10px;}
+    ul.mainmenu li.last {float: right;
+        margin-right: 20px;
+    }
     ul.mainmenu {
 	    font-size: 14px;
 	}
@@ -20,7 +41,7 @@
 	    font-size: 12px;
     }
     .content {
-        padding: 10px 0px 50px 0px;
+        padding: 20px 0px 50px 0px;
     }
 
     .content-text {
@@ -214,12 +235,7 @@
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logomini.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
 
     #about-title {
         text-align: center;
@@ -228,9 +244,9 @@
     display: flex;
     align-items: center;
     position: absolute;
-    top: 55px;
+    top: 60px;
     left: 15px;
-    width: 20px;
+    width: 25px;
     height: 20px;
     cursor: pointer;
     z-index: 1000;
@@ -242,7 +258,7 @@
   display: block;
   position: absolute;
   width: 100%;
-  height: 1px;
+  height: 1.5px;
   background-color: #444444;
   transition: transform 0.25s, background-color 0.25s;
 }
@@ -379,7 +395,7 @@
 	    font-size: 12px;
     }
     .content {
-        padding: 10px 0px 50px 0px;
+        padding: 20px 0px 50px 0px;
     }
 
     .content-text {
@@ -576,12 +592,6 @@ div.article-panel p.last {
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
 
     #about-title {
         text-align: center;
@@ -608,7 +618,7 @@ div.article-panel p.last {
 	    font-size: 12px;
     }
     .content {
-        padding: 10px 0px 50px 0px;
+        padding: 20px 0px 50px 0px;
     }
 
     .content-text {
@@ -802,12 +812,7 @@ div.article-panel p.last {
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
 
     #about-title {
         text-align: center;
@@ -834,7 +839,7 @@ div.article-panel p.last {
 	    font-size: 12px;
     }
     .content {
-        padding: 10px 0px 50px 0px;
+        padding: 20px 0px 50px 0px;
     }
 
     .content-text {
@@ -1030,12 +1035,7 @@ div.article-panel p.last {
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
 
     #about-title {
         text-align: center;
@@ -1065,7 +1065,7 @@ div.article-panel p.last {
 	    font-size: 12px;
     }
     .content {
-        padding: 10px 0px 50px 0px;
+        padding: 20px 0px 50px 0px;
     }
 
     .content-text {
@@ -1211,12 +1211,7 @@ div.article-panel p.last {
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
 
     #about-title {
         text-align: center;
@@ -1235,6 +1230,10 @@ div.article-panel p.last {
 }
 
 @media screen and (min-width: 712px) and (max-width: 912px) {
+    .logo-text {
+        text-align: left; /* Центрируем текст по горизонтали */
+        margin: 10px 0px 0px 5px;
+    }
   html, body {
         font-size: 15px;
         text-align: left;
@@ -1419,12 +1418,7 @@ div.article-panel p.last {
     .form-help-text {
         width: 340px;
     }
-    .logo {
-	    background: url('../images/logo.png') no-repeat 2px 2px;
-	    width: 50px;
-        height: 50px;
-        background-size: contain;
-    }
+
 
     #about-title {
         text-align: center;
@@ -1436,7 +1430,7 @@ div.article-panel p.last {
         font-size: 15px;
     }
     .content {
-        padding: 0px 80px 20px 10px;
+        padding: 20px 80px 20px 10px;
     }
     #id_cat,
     #id_coat_type,
@@ -1492,6 +1486,10 @@ div.article-panel p.last {
 }
 
 @media screen and (min-width: 768px) and (max-width: 768px) {
+    .logo-text {
+        text-align: left; /* Центрируем текст по горизонтали */
+        margin: 10px 0px 0px 5px;
+    }
     ul.list-articles li {
         flex: 1 1 100%;
         margin-bottom: 10px;
@@ -1525,8 +1523,9 @@ div.article-panel p.last {
 	    margin: 18px 15px 0 15px;
     }
     .content {
-        padding: 0px 80px 20px 10px;
+        padding: 20px 80px 20px 10px;
     }
+
 }
 
 @media screen and (max-width: 320px) {

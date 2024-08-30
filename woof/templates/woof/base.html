@@ -117,23 +117,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.body.classList.add(currentTheme + '-theme');
+        document.addEventListener("DOMContentLoaded", function() {
+            // При начальной загрузке добавить класс темы из localStorage
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(currentTheme + '-theme');
 
-    document.querySelector('#theme-toggle').addEventListener('click', function() {
-        let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
-        document.body.classList.remove('light-theme', 'dark-theme');
-        document.body.classList.add(newTheme + '-theme');
-        localStorage.setItem('theme', newTheme);
-    });
-});
+            // Удалить класс .hidden после применения темы
+            document.body.classList.remove('hidden');
+
+            document.querySelector('#theme-toggle').addEventListener('click', function() {
+                let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+                document.body.classList.remove('light-theme', 'dark-theme');
+                document.body.classList.add(newTheme + '-theme');
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+
+        // Скрыть контент до применения темы
+        document.body.classList.add('hidden');
 </script>
 
 {% block mainmenu %}
 <div class="header">
     <ul id="mainmenu" class="mainmenu">
-        <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+        <li class="logo">
+            <a href="{% url 'home' %}">
+                <div class="logo-text">
+                    <span class="letter letter-w">Woof</span>
+                    <span class="letter letter-d">Dogs</span>
+                </div>
+            </a>
+        </li>
 
         {% for m in menu %}
             {% if m.url_name == 'about' or m.url_name == 'contact' %}

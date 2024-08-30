@@ -1,18 +1,27 @@
+/*
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+*/
 
-
-html, body {
-    font-family: 'Montserrat', sans-serif;
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	color: #444;
-	background: #FFFFFF;
-	text-align: justify;
+@font-face {
+    font-family: 'Blackberry';
+    src: url("/static/woof/css/blackberry.otf") format('opentype');
 }
 
-
+html, body {
+/*
+    font-family: 'Montserrat', sans-serif;
+*/
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: #444;
+    background: #FFFFFF;
+    text-align: justify;
+}
+.hidden {
+    display: none;
+}
 a {
 	color: #69516B;
 	text-decoration: none;
@@ -230,10 +239,31 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 	height: 60px;
 }
 
-.logo {
+/*.logo {
 	background: url('../images/logo.png') no-repeat 15px 5px;
-	width: 85px;
-	height: 65px;
+	width: 75px;
+	height: 60px;
+}*/
+
+.logo-text {
+    font-family: 'Blackberry', sans-serif; /* Замените на выбранный вами шрифт */
+    /*font-weight: bold;  Или любой другой нужный стиль */
+    margin: 10px 0px 0px 15px;;
+    opacity: 70%;
+}
+
+.letter {
+    display: inline-block;
+}
+
+.letter-w {
+    color: #87199c; /* Замените на нужный цвет для буквы W */
+    font-size: 40px; /* Задайте нужный размер текста */
+}
+
+.letter-d {
+    color: #444444; /* Замените на нужный цвет для буквы D */
+    font-size: 30px; /* Задайте нужный размер текста */
 }
 
 .form-decs {
@@ -248,6 +278,7 @@ ul.mainmenu {
 	color: #d600ff;
 	font-size: 17px;
 	overflow: hidden;
+
 }
 ul.mainmenu li {
 	float: left;
@@ -360,7 +391,7 @@ ul.langitem li a:hover {
 }
 
 .content {
-    padding: 0px 150px 100px 10px;
+    padding: 30px 150px 100px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -990,3 +1021,4 @@ input, textarea, select {
   text-decoration: none;
   cursor: pointer;
 }
+
