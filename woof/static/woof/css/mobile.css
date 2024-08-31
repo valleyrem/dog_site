@@ -57,18 +57,21 @@
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 180px;
+        height: 300px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
         display: flex;
@@ -412,18 +415,21 @@
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 180px;
+        height: 450px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
     display: flex;
@@ -635,18 +641,21 @@ div.article-panel p.last {
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 180px;
+        height: 450px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
     display: flex;
@@ -855,18 +864,21 @@ div.article-panel p.last {
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
     display: flex;
@@ -1082,18 +1094,21 @@ div.article-panel p.last {
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 180px;
+        height: 450px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
     display: flex;
@@ -1265,18 +1280,21 @@ div.article-panel p.last {
         margin: 0px 10px 10px 10px;
     }
 
-    img.img-article-left.thumb {
-        width: 150px;
-        height: auto;
-        border-radius: 0px;
-        float: left;
-        padding: 0 20px 10px 0;
-    }
     img.img-article-left {
-        max-width: auto;
-        height: 200px;
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
         float: right;
-        padding: 10px 0 0 10px;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
     div.article-panel {
     display: flex;
@@ -1483,6 +1501,22 @@ div.article-panel p.last {
         width: 220px;
         font-size: 10px;
     }
+    img.img-article-left {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+        float: right;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 768px) {
@@ -1525,16 +1559,41 @@ div.article-panel p.last {
     .content {
         padding: 20px 80px 20px 10px;
     }
+    img.img-article-left {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+        float: right;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
+    }
 
 }
 
 @media screen and (max-width: 320px) {
-    img.img-article-left.thumb {
-        width: 110px;
-        height: auto;
-        border-radius: 0px;
+    img.img-article-left {
+        width: 180px;
+        height: 450px;
+        object-fit: cover;
+        float: right;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 140px;
+        height: 190px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
         float: left;
-        padding: 0 20px 10px 0;
     }
     ul.mainmenu {
         font-size: 10px;
@@ -1618,5 +1677,21 @@ div.article-panel p.last {
     }
     .index-descr {
         font-size: 8px;
+    }
+    img.img-article-left {
+        width: 180px;
+        height: 230px;
+        object-fit: cover;
+        float: right;
+        padding: 0px 0px 10px 10px;
+        cursor: pointer;
+    }
+    img.thumb {
+        width: 130px;
+        height: 160px;
+        object-fit: cover;
+        padding: 0 10px 10px 0;
+        cursor: auto;
+        float: left;
     }
 }

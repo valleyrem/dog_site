@@ -139,8 +139,16 @@ body.dark-theme #id_confirm_privacy {
     background: #e8e7e7;
 }
 
-.last-updated {
+body.dark-theme .last-updated {
     color: #7d7c7c;
+}
+
+body.dark-theme .cookie-table th, body.dark-theme .cookie-table td {
+  border: 1px solid #000;
+  padding: 8px;
+  font-size: 12px;
+  text-align: left;
+  color: #a19d9d;
 }
 
 @media screen and (max-width: 767px) {
