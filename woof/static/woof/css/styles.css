@@ -5,7 +5,9 @@
 @font-face {
     font-family: 'Blackberry';
     src: url("/static/woof/css/blackberry.otf") format('opentype');
+    font-display: swap;
 }
+
 
 html, body {
 /*
@@ -31,11 +33,11 @@ a:hover {
 	text-decoration: underline;
 }
 
-img {
-  max-width: 600px;
-  height: auto;
+/*img {
+  max-width: 100%;
+  height: 350px;
   border-radius: 0%;
-}
+}*/
 
 img.img-article-left {
   max-width: 350px;
@@ -46,8 +48,8 @@ img.img-article-left {
 }
 
 img.thumb {
-  width: auto;
-  height: 200px;
+  width: 150px;
+  height: auto;
   padding: 0 25px 10px 0;
   cursor: auto;
   float: left;
@@ -233,20 +235,13 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 
 .clear {clear: both;}
 
-/* фон главного меню */
 .header {
 	background:#ffffff;
 	height: 60px;
 }
 
-/*.logo {
-	background: url('../images/logo.png') no-repeat 15px 5px;
-	width: 75px;
-	height: 60px;
-}*/
-
 .logo-text {
-    font-family: 'Blackberry', sans-serif; /* Замените на выбранный вами шрифт */
+    font-family: 'Blackberry', sans-serif;
     /*font-weight: bold;  Или любой другой нужный стиль */
     margin: 10px 0px 0px 15px;;
     opacity: 70%;
@@ -257,13 +252,13 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 }
 
 .letter-w {
-    color: #87199c; /* Замените на нужный цвет для буквы W */
-    font-size: 40px; /* Задайте нужный размер текста */
+    color: #87199c;
+    font-size: 40px;
 }
 
 .letter-d {
-    color: #444444; /* Замените на нужный цвет для буквы D */
-    font-size: 30px; /* Задайте нужный размер текста */
+    color: #444444;
+    font-size: 30px;
 }
 
 .form-decs {
@@ -732,6 +727,7 @@ select {
 
 .page-num.page-num-selected {
     background-color: #6f9a79;
+    font-weight: bold;
     color: #000000;
 }
 

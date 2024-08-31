@@ -11,9 +11,9 @@
 <p class="last">{{ p.time_update|date:"d/m/Y" }}</p>
 </div>
 {% if p.photo %}
-         <p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+         <p><img class="img-article-left thumb" src="{{p.photo.url}}" alt="{{ p.title }}"></p>
 {% endif %}
-				 <h2><a href="{{ p.get_absolute_url }}" class="title-link">{{ p.title }}</a></h2>
+				 <h2><a href="{{ p.get_absolute_url }}" aria-label="{{ p.title }}" class="title-link">{{ p.title }}</a></h2>
 	{% autoescape on %}
 <p class="index-descr"><span class="label">Size:</span> {{ p.size }}</p>
 <p class="index-descr"><span class="label">Coat Type:</span> {{ p.coat_type }}</p>
@@ -25,7 +25,7 @@
 
 	{% endautoescape %}
 			<div class="clear"></div>
-			<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Read more</a></p>
+			<p class="link-read-post"><a href="{{ p.get_absolute_url }}" aria-label="Read more about this breed">Read more</a></p>
 			</li>
 	{% endfor %}
 </ul>

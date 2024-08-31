@@ -58,8 +58,8 @@
         margin: 0px 10px 10px 10px;
     }
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -413,8 +413,8 @@
         margin: 0px 10px 10px 10px;
     }
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -636,8 +636,8 @@ div.article-panel p.last {
         margin: 0px 10px 10px 10px;
     }
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -856,8 +856,8 @@ div.article-panel p.last {
         margin: 0px 10px 10px 10px;
     }
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -1083,8 +1083,8 @@ div.article-panel p.last {
         margin: 0px 10px 10px 10px;
     }
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -1266,8 +1266,8 @@ div.article-panel p.last {
     }
 
     img.img-article-left.thumb {
-        width: auto;
-        height: 150px;
+        width: 150px;
+        height: auto;
         border-radius: 0px;
         float: left;
         padding: 0 20px 10px 0;
@@ -1529,6 +1529,13 @@ div.article-panel p.last {
 }
 
 @media screen and (max-width: 320px) {
+    img.img-article-left.thumb {
+        width: 110px;
+        height: auto;
+        border-radius: 0px;
+        float: left;
+        padding: 0 20px 10px 0;
+    }
     ul.mainmenu {
         font-size: 10px;
 	}
