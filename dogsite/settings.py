@@ -174,5 +174,5 @@ CACHES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://doggy.thurisaz.tech']
+CSRF_TRUSTED_ORIGINS = ['https://woofdogs.world']
 
