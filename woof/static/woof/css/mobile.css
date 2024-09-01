@@ -388,6 +388,15 @@
         font-size: 12px;
         text-align: center;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
 }
 
 
@@ -618,6 +627,15 @@ div.article-panel p.last {
     #about-title {
         text-align: center;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
 
 }
 
@@ -845,6 +863,15 @@ div.article-panel p.last {
 
     #about-title {
         text-align: center;
+    }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
     }
 
 }
@@ -1079,9 +1106,18 @@ div.article-panel p.last {
     .title-link {
         font-size: 12px;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
 
 }
-}
+
 @media screen and (max-width: 499px) {
   html, body {
         font-size: 14px;
@@ -1124,7 +1160,7 @@ div.article-panel p.last {
     }
     img.img-article-left {
         width: 180px;
-        height: 450px;
+        height: 250px;
         object-fit: cover;
         float: left;
         padding: 0 10px 10px 10px;
@@ -1269,6 +1305,15 @@ div.article-panel p.last {
     #file-upload-button {
         font-size: 12px;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
 
 }
 
@@ -1322,7 +1367,7 @@ div.article-panel p.last {
     }
     img.thumb {
         width: 140px;
-        height: 190px;
+        height: 180px;
         object-fit: cover;
         padding: 0 10px 10px 0;
         cursor: auto;
@@ -1495,6 +1540,15 @@ div.article-panel p.last {
     #file-upload-button {
         font-size: 15px;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
     }
 
 @media screen and (min-width: 1024px) and (max-width: 1024px) {
@@ -1541,7 +1595,7 @@ div.article-panel p.last {
     }
     img.img-article-left {
         width: 160px;
-        height: 250px;
+        height: 220px;
         object-fit: cover;
         float: left;
         padding: 0 10px 10px 10px;
@@ -1549,11 +1603,20 @@ div.article-panel p.last {
     }
     img.thumb {
         width: 140px;
-        height: 190px;
+        height: 160px;
         object-fit: cover;
         padding: 0 10px 10px 0;
         cursor: auto;
         float: left;
+    }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
     }
 }
 
@@ -1611,11 +1674,20 @@ div.article-panel p.last {
     }
     img.thumb {
         width: 140px;
-        height: 190px;
+        height: 180px;
         object-fit: cover;
         padding: 0 10px 10px 0;
         cursor: auto;
         float: left;
+    }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
     }
 
 }
@@ -1713,6 +1785,15 @@ div.article-panel p.last {
     .index-descr {
         font-size: 11px;
     }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
+    }
 }
 @media screen and (max-width: 280px) {
     html, body {
@@ -1746,5 +1827,14 @@ div.article-panel p.last {
         padding: 0 10px 10px 0;
         cursor: auto;
         float: left;
+    }
+    ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: left;
+        margin: 0px 10px 10px 10px;
     }
 }
