@@ -100,8 +100,8 @@ DATABASES = {
         'NAME': env('DATABASE_NAME'),
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASS'),
-        'HOST': '10.10.20.40',   # или IP-адрес вашего сервера PostgreSQL
-        'PORT': '5432',        # порт PostgreSQL
+        'HOST': '10.10.20.40',
+        'PORT': '5432',
     }
 }
 
@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Belgrade'
 
 USE_I18N = True
 
@@ -173,11 +173,6 @@ CACHES = {
         'LOCATION': '/var/tmp/django_cache',
     }
 }
-CAPTCHA_LENGTH = 4
-CAPTCHA_FONT_SIZE = 25
-CAPTCHA_BACKGROUND_COLOR = '#F9FFFF'
-CAPTCHA_FOREGROUND_COLOR = '#7D646A'
-CAPTCHA_LETTER_ROTATION = (-40, 40)
 
 CSRF_TRUSTED_ORIGINS = ['https://doggy.thurisaz.tech']
 

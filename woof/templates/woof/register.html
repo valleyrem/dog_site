@@ -3,7 +3,7 @@
 {% block content %}
 <div class="form-container">
     <h1 id="about-title">{{title}}</h1>
-<p class="form-decs">You can browse the site without registering. To post your own article, fill out the registration form to join the <strong>Woof Dogs</strong> community. Otherwise, enjoy your time here!</p>    <form method="post">
+<p class="form-decs">You can use the site without registering. To post your own article, fill out the registration form to join the <strong>Woof Dogs</strong> community. Otherwise, enjoy your time here!</p>    <form method="post">
         {% csrf_token %}
 
         {% for f in form %}

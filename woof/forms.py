@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -89,7 +91,7 @@ class RegisterUserForm(UserCreationForm):
     password2 = forms.CharField(label='Repeat pass', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     confirm_privacy = forms.BooleanField(
         label=mark_safe(
-            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://woofdogs.world/cookie-policy/" target="_blank">Terms of Use</a></span>'),
+            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank" title="Privacy Policy">Privacy Policy</a> and <a href="https://woofdogs.world/terms-of-use/" target="_blank" title="Terms of Use">Terms of Use</a></span>'),
         required=True
     )
 
@@ -110,13 +112,14 @@ class ContactForm(forms.Form):
     content = forms.CharField(label='Message', widget=forms.Textarea(attrs={'cols': 60, 'rows': 3}))
     confirm_privacy = forms.BooleanField(
         label=mark_safe(
-            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://woofdogs.world/cookie-policy/" target="_blank">Terms of Use</a></span>'),
+            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank" title="Privacy Policy">Privacy Policy</a> and <a href="https://woofdogs.world/terms-of-use/" target="_blank" title="Terms of Use">Terms of Use</a></span>'),
         required=True
     )
     def send_message_to_telegram(self):
         token = env('TOKEN')
         chat_id = env('CHAT_ID')
-        message = f"Contact:\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
+        current_time = datetime.now().strftime("%H:%M, %d %b %Y")
+        message = f"{current_time}\nContact:\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         data = {'chat_id': chat_id, 'text': message}

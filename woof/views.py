@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -24,6 +25,8 @@ class DogsHome(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Woof Dogs")
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -41,6 +44,8 @@ class AboutView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         cats = Category.objects.all().order_by('name')
         c_def = self.get_user_context(title='About', cats=cats, menu=menu)
         return dict(list(context.items()) + list(c_def.items()))
@@ -55,13 +60,16 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="New Article")
         return dict(list(context.items()) + list(c_def.items()))
 
     def send_post_notification(self, title):
         token = env('TOKEN')
         chat_id = env('CHAT_ID')
-        message = f"New post added: {title}"
+        current_time = datetime.now().strftime("%H:%M, %d %b %Y")
+        message = f"New post added: {title} at {current_time}."
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         data = {'chat_id': chat_id, 'text': message}
@@ -90,11 +98,12 @@ class ContactFormView(DataMixin, FormView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Contact")
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
-        # Отправляем сообщение в Telegram
         form.process_form()
         return super().form_valid(form)
 
@@ -105,7 +114,6 @@ class ContactFormView(DataMixin, FormView):
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Page not found</h1>')
 
-
 class ShowPost(DataMixin, DetailView):
     model = Dogs
     template_name = 'woof/post.html'
@@ -114,6 +122,8 @@ class ShowPost(DataMixin, DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -129,6 +139,8 @@ class DogsCategory(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
         c_def = self.get_user_context(title='Category - ' + str(c.name),
                                       cat_selected=c.pk,)
@@ -142,13 +154,16 @@ class RegisterUser(DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Registration")
         return dict(list(context.items()) + list(c_def.items()))
 
     def send_registration_notification(self, username):
         token = env('TOKEN')
         chat_id = env('CHAT_ID')
-        message = f"New user registered: {username}"
+        current_time = datetime.now().strftime("%H:%M, %d %b %Y")
+        message = f"New user registered: {username}.\nDate: {current_time}."
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         data = {'chat_id': chat_id, 'text': message}
@@ -169,6 +184,8 @@ class LoginUser(DataMixin, LoginView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Authorization")
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -178,7 +195,8 @@ class LoginUser(DataMixin, LoginView):
     def send_login_notification(self, username):
         token = env('TOKEN')
         chat_id = env('CHAT_ID')
-        message = f"User {username} logged in."
+        current_time = datetime.now().strftime("%H:%M, %d %b %Y")
+        message = f"User {username} logged in at {current_time}."
 
         url = f"https://api.telegram.org/bot{token}/sendMessage"
         data = {'chat_id': chat_id, 'text': message}
@@ -202,6 +220,8 @@ class CookiePolicyView(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Cookie Policy")
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -211,7 +231,9 @@ class TermsAndConditionsView(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Terms and Conditions")
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
+        c_def = self.get_user_context(title="Terms of Use")
         return dict(list(context.items()) + list(c_def.items()))
 
 
@@ -220,6 +242,8 @@ class PrivacyPolicyView(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title="Privacy Policy")
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -235,5 +259,8 @@ class UserPosts(DataMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
+        context['all_breeds'] = all_breeds
         c_def = self.get_user_context(title='My Posts')
         return dict(list(context.items()) + list(c_def.items()))
+

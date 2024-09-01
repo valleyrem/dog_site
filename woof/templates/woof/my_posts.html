@@ -5,7 +5,7 @@
 <h1>My Posts</h1>
 
 {% if posts %}
-    <p class="form-decs">These are the published posts created by you, using the email address "{{ request.user.email }}".</p>
+<p class="form-decs">Here are your published posts, using the email "{{ request.user.email }}".</p>
     <ul class="bulleted-list">
         {% for post in posts %}
         <li>
@@ -16,10 +16,10 @@
         </li>
         {% endfor %}
     </ul>
-    <p class="form-decs">If you believe you did not create these posts or have any concerns, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
+    <p class="form-decs">If you believe you did not create these posts or have any concerns, please <a href="mailto:woofdogs23@gmail.com" class="link-site" title="woofdogs23@gmail.com">contact us</a>.</p>
 {% else %}
-    <p class="form-decs">You have no published posts. If you believe this is an error or need assistance, please <a href="mailto:remrem2310@gmail.com" class="link-site">contact us</a>.</p>
-    <p class="form-decs">You can <a href="https://doggy.remrem.world/addpage/" class="link-site">create your first post here</a>.</p>
+    <p class="form-decs">You have no published posts. If you believe this is an error or need assistance, please <a href="mailto:woofdogs23@gmail.com" class="link-site" title="woofdogs23@gmail.com">contact us</a>.</p>
+    <p class="form-decs">You can <a href="https://woofdogs.world/addpage/" class="link-site" title="New Post">create your first post here</a>.</p>
 {% endif %}
     </div>
 <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Go back</a>

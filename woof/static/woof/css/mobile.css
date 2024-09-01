@@ -1,20 +1,20 @@
 @media screen and (max-width: 767px) {
     .logo-text {
-        text-align: left; /* Центрируем текст по горизонтали */
+        text-align: left;
         margin: 10px 0px 0px 10px;
     }
 
     .letter {
-        display: block; /* Каждая буква будет отображаться в отдельной строке */
+        display: block;
     }
 
     .letter-w {
-        font-size: 24px; /* Размер текста для буквы W */
-        margin-bottom: -7px; /* Немного поднимем букву W над буквой D */
+        font-size: 24px;
+        margin-bottom: -7px;
     }
 
     .letter-d {
-        font-size: 19px; /* Размер текста для буквы D */
+        font-size: 19px;
     }
     html, body {
         font-size: 14px;
@@ -23,10 +23,14 @@
     ul.mainmenu li {
 	    float: left;
 	    margin: 18px 6px 0 6px;
+/*	    display: flex;
+        flex-direction: column;*/
+        text-align: right;
     }
     ul.mainmenu li.last {
         float: right;
         margin-right: 15px;
+        margin: 18px 6px 0 6px;
     }
     ul.mainmenu li.logo {margin-right: 10px;}
     ul.mainmenu li.last {float: right;
@@ -35,6 +39,10 @@
     ul.mainmenu {
 	    font-size: 14px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -46,7 +54,7 @@
 
     .content-text {
 	    margin: 10px 0 0 0px;
-	    font-size: 12px;
+	    font-size: 13px;
     }
     ul.list-articles {
         flex-direction: row;
@@ -61,13 +69,13 @@
         width: 180px;
         height: 300px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
-        width: 140px;
-        height: 190px;
+        width: 130px;
+        height: 160px;
         object-fit: cover;
         padding: 0 10px 10px 0;
         cursor: auto;
@@ -147,7 +155,7 @@
     .cookie-table td {
         display: block;
         padding: 8px 0;
-        text-align: right;
+        text-align: left;
         position: relative;
     }
     .cookie-table td::before {
@@ -163,7 +171,7 @@
         text-align: left;
     }
     .cookie-table td {
-        padding-left: 50%;
+        padding-left: 10%;
     }
     .policy-container {
         width: 300px;
@@ -175,6 +183,10 @@
         height: 20px;
         border-radius: 5px;
         border: 1px solid #444444;
+    }
+    #breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
     }
     #id_content, #id_care, #id_living_conditions{
         height: 40px;
@@ -249,7 +261,7 @@
     position: absolute;
     top: 60px;
     left: 15px;
-    width: 25px;
+    width: 20px;
     height: 20px;
     cursor: pointer;
     z-index: 1000;
@@ -337,7 +349,7 @@
 }
 
 #btn-custom, p.link-read-post a {
-        padding: 8px 10px;
+        padding: 9.5px 16px;
         font-size: 12px;
         border-radius: 30px;
         bottom: 2px;
@@ -345,7 +357,7 @@
     .btn-back {
         border-radius: 30px;
         left: 10px;
-        padding: 8px 10px;
+        padding: 10px 16px;
         font-size: 12px;
     }
     #scroll-to-top {
@@ -392,6 +404,10 @@
     ul.mainmenu {
 	    font-size: 14px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -403,7 +419,7 @@
 
     .content-text {
 	    margin: 10px 0 0 0px;
-	    font-size: 12px;
+	    font-size: 13px;
     }
     ul.list-articles {
         flex-direction: row;
@@ -419,8 +435,8 @@
         width: 180px;
         height: 450px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -459,7 +475,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .index-descr {
-        font-size: 12px;
+        font-size: 13px;
         margin: 10px 0px;
     }
     .form-decs {
@@ -507,7 +523,7 @@ div.article-panel p.last {
     .cookie-table td {
         display: block;
         padding: 8px 0;
-        text-align: right;
+        text-align: left;
         position: relative;
     }
     .cookie-table td::before {
@@ -523,7 +539,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .cookie-table td {
-        padding-left: 50%;
+        padding-left: 10%;
     }
     .policy-container {
         width: 300px;
@@ -532,8 +548,8 @@ div.article-panel p.last {
     .form-input {
         width: 220px;
         font-size: 10px;
-        height: 20px; /* Установите желаемую высоту */
-        border-radius: 5px; /* Установите желаемое значение закругления */
+        height: 20px;
+        border-radius: 5px;
         border: 1px solid #444444;
     }
     #id_content, #id_care, #id_living_conditions{
@@ -618,6 +634,10 @@ div.article-panel p.last {
     ul.mainmenu {
 	    font-size: 12px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -629,7 +649,7 @@ div.article-panel p.last {
 
     .content-text {
 	    margin: 10px 0 0 0px;
-	    font-size: 12px;
+	    font-size: 13px;
     }
     ul.list-articles {
         flex-direction: row;
@@ -645,8 +665,8 @@ div.article-panel p.last {
         width: 180px;
         height: 450px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -730,7 +750,7 @@ div.article-panel p.last {
     .cookie-table td {
         display: block;
         padding: 8px 0;
-        text-align: right;
+        text-align: left;
         position: relative;
     }
     .cookie-table td::before {
@@ -746,7 +766,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .cookie-table td {
-        padding-left: 50%;
+        padding-left: 10%;
     }
     .policy-container {
         width: 300px;
@@ -842,6 +862,10 @@ div.article-panel p.last {
     ul.mainmenu {
 	    font-size: 13px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -853,7 +877,7 @@ div.article-panel p.last {
 
     .content-text {
 	    margin: 10px 0 0 0px;
-	    font-size: 12px;
+	    font-size: 13px;
     }
     ul.list-articles {
         flex-direction: row;
@@ -868,8 +892,8 @@ div.article-panel p.last {
         width: 200px;
         height: 300px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -956,7 +980,7 @@ div.article-panel p.last {
     .cookie-table td {
         display: block;
         padding: 8px 0;
-        text-align: right;
+        text-align: left;
         position: relative;
     }
     .cookie-table td::before {
@@ -972,7 +996,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .cookie-table td {
-        padding-left: 50%;
+        padding-left: 10%;
     }
     .policy-container {
         width: 300px;
@@ -1071,6 +1095,10 @@ div.article-panel p.last {
     ul.mainmenu {
 	    font-size: 14px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 12px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -1082,7 +1110,7 @@ div.article-panel p.last {
 
     .content-text {
 	    margin: 10px 0 0 0px;
-	    font-size: 12px;
+	    font-size: 13px;
     }
     ul.list-articles {
         flex-direction: row;
@@ -1098,8 +1126,8 @@ div.article-panel p.last {
         width: 180px;
         height: 450px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -1138,7 +1166,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .index-descr {
-        font-size: 12px;
+        font-size: 13px;
         margin: 5px 0px;
     }
     .form-decs {
@@ -1188,7 +1216,7 @@ div.article-panel p.last {
     .cookie-table td {
         display: block;
         padding: 8px 0;
-        text-align: right;
+        text-align: left;
         position: relative;
     }
 
@@ -1205,7 +1233,7 @@ div.article-panel p.last {
         text-align: left;
     }
     .cookie-table td {
-        padding-left: 50%;
+        padding-left: 10%;
     }
     .about-container {
         width: 300px;
@@ -1261,6 +1289,10 @@ div.article-panel p.last {
     ul.mainmenu {
 	    font-size: 17px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 15px;
+    }
 	.left-chapters ul {
 	    width: 100px;
 	    padding: 5px 5px 5px 5px;
@@ -1284,8 +1316,8 @@ div.article-panel p.last {
         width: 200px;
         height: 300px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -1295,6 +1327,9 @@ div.article-panel p.last {
         padding: 0 10px 10px 0;
         cursor: auto;
         float: left;
+    }
+    #btn-custom, p.link-read-post a {
+        bottom: 2px;
     }
     div.article-panel {
     display: flex;
@@ -1325,7 +1360,7 @@ div.article-panel p.last {
     }
 
     .index-descr {
-        font-size: 11px;
+        font-size: 12px;
         margin: 10px 0px;
     }
     .form-decs {
@@ -1469,7 +1504,10 @@ div.article-panel p.last {
         height: 270px;
         margin: 0px 10px 10px 10px;
     }
-
+    #breed-search {
+        max-width: calc(50% - 10px);
+        font-size: 16px;
+    }
     .about-container {
         width: 630px;
     }
@@ -1502,11 +1540,11 @@ div.article-panel p.last {
         font-size: 10px;
     }
     img.img-article-left {
-        width: 200px;
-        height: 300px;
+        width: 160px;
+        height: 250px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -1540,11 +1578,15 @@ div.article-panel p.last {
     ul.mainmenu {
 	    font-size: 16px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 16px;
+    }
 	#btn-custom, p.link-read-post a {
         padding: 8px 10px;
         font-size: 12px;
         border-radius: 30px;
-        bottom: -2px;
+        bottom: 2px;
     }
     .btn-back {
         border-radius: 30px;
@@ -1563,8 +1605,8 @@ div.article-panel p.last {
         width: 200px;
         height: 300px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
@@ -1580,16 +1622,16 @@ div.article-panel p.last {
 
 @media screen and (max-width: 320px) {
     img.img-article-left {
-        width: 180px;
-        height: 450px;
+        width: 160px;
+        height: 190px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {
-        width: 140px;
-        height: 190px;
+        width: 130px;
+        height: 170px;
         object-fit: cover;
         padding: 0 10px 10px 0;
         cursor: auto;
@@ -1598,6 +1640,10 @@ div.article-panel p.last {
     ul.mainmenu {
         font-size: 10px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 10px;
+    }
 	.about-container {
         width: 230px;
         margin: 0 auto;
@@ -1662,16 +1708,23 @@ div.article-panel p.last {
         font-size: 10px;
     }
     .btn-back {
-        left: 20px;;
+        left: 20px;
+    }
+    .index-descr {
+        font-size: 11px;
     }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 280px) {
     html, body {
         font-size: 12px;
     }
     ul.mainmenu {
-	    font-size: 11px;
+	    font-size: 10px;
 	}
+	#breed-search {
+        max-width: calc(80% - 10px);
+        font-size: 10px;
+    }
 	.policy-container {
         width: 220px;
     }
@@ -1679,11 +1732,11 @@ div.article-panel p.last {
         font-size: 8px;
     }
     img.img-article-left {
-        width: 180px;
-        height: 230px;
+        width: 160px;
+        height: 200px;
         object-fit: cover;
-        float: right;
-        padding: 0px 0px 10px 10px;
+        float: left;
+        padding: 0 10px 10px 10px;
         cursor: pointer;
     }
     img.thumb {

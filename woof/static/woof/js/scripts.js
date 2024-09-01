@@ -1,4 +1,3 @@
-// Скрипт для закрытия меню при клике вне его
 document.addEventListener('click', function(event) {
     const menuToggle = document.querySelector('#menu__toggle');
     const menuBox = document.querySelector('.menu__box');
@@ -11,9 +10,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-
-
-// Скрипт для кнопки "Прокрутить наверх"
 document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopBtn = document.getElementById('scroll-to-top');
     let lastScrollTop = window.pageYOffset;
@@ -41,3 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.getElementById('breed-search').addEventListener('change', function() {
+            const selectedValue = this.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        });
