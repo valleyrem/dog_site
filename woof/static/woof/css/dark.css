@@ -172,6 +172,30 @@ body.dark-theme #breed-search {
     width: auto;
 }
 
+body.dark-theme p.link-read-post a, body.dark-theme .btn-back, body.dark-theme #btn-custom {
+    background: #ab00cc;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+body.dark-theme .page-num {
+    border: 1px solid #333;
+    background: #333;
+    color: #d1cfcf;
+}
+body.dark-theme .page-num:hover {
+    border: 1px solid #d600ff;
+    background-color: #333;
+    color: #d1cfcf;
+}
+
+body.dark-theme .page-num.page-num-selected {
+    border: 1px solid #d600ff;
+    background-color: #333;
+    font-weight: bold;
+    color: #d1cfcf;
+}
+
 @media screen and (max-width: 767px) {
 
     body.dark-theme  .menu__btn > span,
