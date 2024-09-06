@@ -4,7 +4,7 @@
 <ul class="list-articles">
 	{% for p in posts %}
 			<li><div class="article-panel">
-         <p class="first">{{p.cat}}</p>
+    <p class="first"><a href="{{ p.cat.get_absolute_url }}" class="link-cat" title="{{ p.cat.name }}">{{ p.cat.name }}</a></p>
 <p class="last">{{ p.time_update|date:"F j, Y" }}</p>
 </div>
 				<h2><a href="{{ p.get_absolute_url }}" title="{{ p.title }}" class="title-link">{{ p.title }}</a></h2>
