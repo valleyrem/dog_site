@@ -63,12 +63,12 @@ p.link-read-post a {
     outline: 0;
     display: inline-block;
     position: relative;
-    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    border: 1px solid #fff;
+    background: #ea7fff;
     background-size: 200% 100%;
-    padding: 0.7rem 1.6rem;
-
-    color: #4444444;
-    border-radius: 50px;
+    padding: 0.6rem 1.4rem;
+    color: #fff;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     transition: .3s;
@@ -78,8 +78,7 @@ p.link-read-post a {
     right: 0px;
 
     &:hover {
-        animation: bruh 3s linear infinite;
-        color: #444444;
+        font-weight: bold;
     }
 }
 
@@ -103,11 +102,12 @@ p.link-read-post a {
     outline: 0;
     display: inline-block;
     position: relative;
-    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
+    border: 1px solid #fff;
+    background: #ea7fff;
     background-size: 200% 100%;
-    padding: 0.7rem 1.6rem;
-    color: #444444;
-    border-radius: 50px;
+    padding: 0.6rem 1.4rem;
+    color: #fff;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
@@ -115,7 +115,6 @@ p.link-read-post a {
     transition: .3s;
     cursor: pointer;
     top: 10px;
-    left: 120px;
 
     &:hover {
         animation: bruh 3s linear infinite;
@@ -196,7 +195,7 @@ ul.list-articles li {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  border-radius: 10px;
   padding: 10px;
   background-color: #FFFFFF;
-  height: 280px;
+  height: 320px;
   overflow: hidden;
   text-align: left;
 }
@@ -213,7 +212,7 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 .index-descr {
     color: #444444;
     font-size: 15px;
-    margin: 5px 0px;
+    margin: 15px 0px;
 }
 
 .index-descr .label {
@@ -349,7 +348,7 @@ ul.langitem li a:hover {
 	font-size: 16px;
 }
 .left-chapters ul li {
-	margin: 20px 0 0 0;
+	margin: 30px 0 0 0;
 	color: #999;
 }
 .left-chapters ul li.selected {color: #d600ff; }
@@ -382,7 +381,7 @@ ul.langitem li a:hover {
 }
 
 .content {
-    padding: 30px 150px 100px 10px;
+    padding: 30px 150px 60px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -552,18 +551,9 @@ ul.lang-list li a:hover {color: #d600ff;}
     width: 100%;
     margin: 0 auto;
 }
-.policies {
-     top: 30px;
-}
-.policies a {
-    display: block;
-    margin: 5px 0;
-    text-align: center;
-}
-
 
 #confirmation-message {
-    color: #d600ff;
+    color: 444444;
     position: relative;
     opacity: 0;
     animation: slide-in 1s forwards, pop 1s 1s forwards;
@@ -642,7 +632,7 @@ ul.lang-list li a:hover {color: #d600ff;}
     border: 1px solid #ffffff;
     background: #ffffff;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     padding-left: 0px;
     cursor: pointer;
     max-width: calc(40% - 10px);
@@ -718,14 +708,14 @@ select {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #ffd7e0 20%, #e0c8ff 50%, #fdecec 80%);
     background-size: 200% 100%;
-    color: #444444;
+    border: 2px solid #fff;
+    background: #fff;
+    color: #444;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
     text-decoration: none;
     font-size: 15px;
 }
@@ -740,18 +730,20 @@ select {
 }
 
 .page-num:hover {
-    background-color: #76a08b;
-    color: #000000;
+    border: 2px solid #ea7fff;
+    background-color: #fff;
+    color: #444;
 }
 
 .page-num.page-num-selected {
-    background-color: #6f9a79;
+    border: 2px solid #ea7fff;
+    background-color: #fff;
     font-weight: bold;
-    color: #000000;
+    color: #444;
 }
 
 
-..dog-list {
+.dog-list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -791,7 +783,7 @@ select {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .last-updated {
-    color: #444444;
+    color: #a1a1a1;
 }
 
 .links-policies a {
@@ -822,6 +814,17 @@ select {
 .link-site:hover {
   color: #d600ff;
   text-decoration: underline;
+}
+
+.link-cat {
+  color: inherit;
+  text-decoration: none;
+  color: #444444;
+}
+
+.link-cat:hover {
+  color: #d600ff;
+  text-decoration: none;
 }
 
 .table-of-contents {
@@ -902,7 +905,7 @@ input, textarea, select {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    font-size: 2rem;
+    font-size: 35px;;
     color: #444444;
     display: none;
     cursor: pointer;
@@ -922,7 +925,8 @@ input, textarea, select {
     justify-content: center;
     cursor: pointer;
     color: #636262;
-    font-size: 30px;
+    font-size: 35px;
+    margin-top: 10px;
 }
 
 .policies a {
@@ -935,12 +939,12 @@ input, textarea, select {
 }
 .policies a {
     display: block;
-    margin: 5px 0;
+    margin: 15px 0;
     text-align: center;
 }
 .policies a:hover {
-  color: #9802b5 !important;
-  text-decoration: none !important;
+  color: #d600ff !important;
+  text-decoration: underline !important;
 }
 
 .title-link {
@@ -951,7 +955,7 @@ input, textarea, select {
 }
 
 .title-link:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #d600ff;
 }
 
@@ -983,7 +987,7 @@ input, textarea, select {
     content: '✓';
     position: absolute;
     font-size: 18px;
-    color: #d600ff;
+    color: #444444;
 }
 
 #id_confirm_privacy:checked {
@@ -1044,12 +1048,12 @@ input, textarea, select {
 
 #btn-custom {
     -webkit-appearance: none;
-    border: none;
-    background: linear-gradient(45deg, #fdd1d0 20%, #d1aaff 50%, #fbe8e0 80%);
+    border: 1px solid #fff;
+    background: #ea7fff;
     background-size: 200% 100%;
-    color: #444444;
+    color: #fff;
     padding: 0.6rem 1.4rem;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
