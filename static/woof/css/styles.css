@@ -816,6 +816,18 @@ select {
   text-decoration: underline;
 }
 
+#CookieDeclarationChangeConsentChange, #CookieDeclarationChangeConsentWithdraw {
+  color: inherit;
+  text-decoration: none;
+  color: #d600ff;
+}
+
+#CookieDeclarationChangeConsentChange:hover, #CookieDeclarationChangeConsentWithdraw:hover {
+  color: inherit;
+  text-decoration: none;
+  color: #d600ff;
+}
+
 .link-cat {
   color: inherit;
   text-decoration: none;
