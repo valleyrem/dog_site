@@ -7,7 +7,7 @@
     <p class="first"><a href="{{ p.cat.get_absolute_url }}" class="link-cat" title="{{ p.cat.name }}">{{ p.cat.name }}</a></p>
 <p class="last">{{ p.time_update|date:"F j, Y" }}</p>
 </div>
-				<h2><a href="{{ p.get_absolute_url }}" title="{{ p.title }}" class="title-link">{{ p.title }}</a></h2>
+				<h1><a href="{{ p.get_absolute_url }}" title="{{ p.title }}" class="title-link">{{ p.title }}</a></h1>
 {% if p.photo %}
          <p><img class="img-article-left thumb" src="{{p.photo.url}}" alt="{{ p.title }}"></p>
 {% endif %}
