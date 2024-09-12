@@ -247,6 +247,26 @@ body.dark-theme .left-chapters ul li.selected {color: #ea7fff; text-decoration: 
 body.dark-theme .left-chapters ul li a:hover { color: #ea7fff; text-decoration: none;}
 body.dark-theme ul.mainmenu li.last { color: #ea7fff; }
 
+body.dark-theme #CookieDeclarationChangeConsentWithdraw {
+    color: #ea7fff;
+    text-decoration: none;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentWithdraw:hover {
+    color: #ea7fff;
+    text-decoration: underline;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentChange {
+    color: #ea7fff;
+    text-decoration: none;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentChange:hover {
+    color: #ea7fff;
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 767px) {
 
