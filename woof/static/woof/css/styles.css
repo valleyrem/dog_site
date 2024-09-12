@@ -91,9 +91,9 @@ p.link-read-post a {
     bottom: -8px;
     right: 0px;
 
-    &:hover {
+/*    &:hover {
         font-weight: bold;
-    }
+    }*/
 }
 
 @keyframes bruh {
@@ -131,10 +131,8 @@ p.link-read-post a {
     top: 10px;
 
     &:hover {
-        animation: bruh 3s linear infinite;
-        color: #444444;
+        color: #fff;
         text-decoration: none;
-
     }
 }
 
@@ -742,6 +740,8 @@ select {
     width: 100%;
     height: 100%;
     line-height: 30px;
+    color: #444;
+    text-decoration: none !important;
 }
 
 .page-num:hover {
@@ -756,7 +756,6 @@ select {
     font-weight: bold;
     color: #444;
 }
-
 
 .dog-list {
     display: grid;
@@ -855,6 +854,14 @@ select {
   text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: #d600ff;
+}
+a:hover {
+	color: #d600ff;
+    text-decoration: underline;
+}
 
 /*кнопки на формах*/
 input, textarea, select {
@@ -1082,8 +1089,7 @@ input, textarea, select {
 }
 
 #btn-custom:hover {
-    animation: bruh 3s linear infinite;
-    color: #444444;
+    color: #fff;
     text-decoration: none;
 }
 
