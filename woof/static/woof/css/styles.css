@@ -16,15 +16,29 @@ html, body {
     background: #FFFFFF;
     text-align: justify;
 }
-.hidden {
-    display: none;
+#CookieDeclarationChangeConsentWithdraw {
+    color: #d600ff;
+    text-decoration: none;
 }
-a {
-	color: #69516B;
-	text-decoration: none;
+
+#CookieDeclarationChangeConsentWithdraw:hover {
+    color: #d600ff;
+    text-decoration: underline;
 }
+
+#CookieDeclarationChangeConsentChange {
+    color: #d600ff;
+    text-decoration: none;
+}
+
+#CookieDeclarationChangeConsentChange:hover {
+    color: #d600ff;
+    text-decoration: underline;
+}
+
+
 a:hover {
-	color: #99BDB0;
+	color: #d600ff;
 	text-decoration: underline;
 }
 
