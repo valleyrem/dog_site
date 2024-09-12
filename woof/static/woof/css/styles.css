@@ -206,7 +206,8 @@ ul.list-articles li {
   flex: 1 1 calc(50% - 10px);
   box-sizing: border-box;
   border: 0px solid #7d7c7c;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
+  border-radius: 8px;
   padding: 10px;
   background-color: #FFFFFF;
   height: 320px;
@@ -362,7 +363,7 @@ ul.langitem li a:hover {
 	font-size: 16px;
 }
 .left-chapters ul li {
-	margin: 30px 0 0 0;
+	margin: 40px 0 0 0;
 	color: #999;
 }
 .left-chapters ul li.selected {color: #d600ff; }
@@ -774,7 +775,7 @@ select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
@@ -784,7 +785,7 @@ select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
@@ -794,7 +795,7 @@ select {
     }
 .my-posts-container {
     margin: 10px 10px 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
 }
 .last-updated {
     color: #a1a1a1;
@@ -898,7 +899,7 @@ input, textarea, select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
