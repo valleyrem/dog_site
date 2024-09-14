@@ -26,4 +26,38 @@
     <button id="btn-custom" type="submit" title="Add an article">Add an article</i></button>
 </form>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var form = document.getElementById('contactForm');
+    var formData = new FormData(form);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', form.action, true);
+    xhr.setRequestHeader('X-CSRFToken', form.querySelector('[name="csrfmiddlewaretoken"]').value);
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            Swal.fire({
+                text: 'Thank you. Message has been sent.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
+
+            form.reset();
+        } else {
+            Swal.fire({
+                text: 'Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    };
+
+    xhr.send(formData);
+});
+</script>
 {% endblock %}
