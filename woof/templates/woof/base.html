@@ -99,7 +99,7 @@
     <ul id="mainmenu" class="mainmenu">
         <li class="logo">
             <a href="{% url 'home' %}">
-                <div class="logo-text" translate="no" title="Logo">
+                <div class="logo-text" translate="no" title="Woof Dogs">
                     <span class="letter letter-w">Woof</span>
                     <span class="letter letter-d">Dogs</span>
                 </div>
@@ -197,11 +197,11 @@
 
 <td valign="top" class="content">
     <div class="content-text">
+
         {% block content %}
         {% endblock %}
         {% if request.resolver_match.url_name != 'about' %}
         {% if page_obj.has_other_pages %}
-
         <nav class="list-pages">
             <ul>
                 {% if page_obj.has_previous %}

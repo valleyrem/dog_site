@@ -7,6 +7,10 @@
     src: url("/static/woof/css/blackberry.otf") format('opentype');
     font-display: swap;
 }
+body, html {
+            font-family: 'Montserrat', sans-serif;
+            font-display: swap;
+        }
 html, body {
     margin: 0;
     padding: 0;
@@ -16,17 +20,30 @@ html, body {
     background: #FFFFFF;
     text-align: justify;
 }
-.hidden {
-    display: none;
-}
-a {
-    color: inherit;
-    text-decoration: none;
+#CookieDeclarationChangeConsentWithdraw {
     color: #d600ff;
+    text-decoration: none;
 }
+
+#CookieDeclarationChangeConsentWithdraw:hover {
+    color: #d600ff;
+    text-decoration: underline;
+}
+
+#CookieDeclarationChangeConsentChange {
+    color: #d600ff;
+    text-decoration: none;
+}
+
+#CookieDeclarationChangeConsentChange:hover {
+    color: #d600ff;
+    text-decoration: underline;
+}
+
+
 a:hover {
 	color: #d600ff;
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 img.img-article-left {
@@ -78,9 +95,9 @@ p.link-read-post a {
     bottom: -8px;
     right: 0px;
 
-    &:hover {
+/*    &:hover {
         font-weight: bold;
-    }
+    }*/
 }
 
 @keyframes bruh {
@@ -118,10 +135,8 @@ p.link-read-post a {
     top: 10px;
 
     &:hover {
-        animation: bruh 3s linear infinite;
-        color: #444444;
+        color: #fff;
         text-decoration: none;
-
     }
 }
 
@@ -193,7 +208,8 @@ ul.list-articles li {
   flex: 1 1 calc(50% - 10px);
   box-sizing: border-box;
   border: 0px solid #7d7c7c;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
+  border-radius: 8px;
   padding: 10px;
   background-color: #FFFFFF;
   height: 320px;
@@ -219,7 +235,6 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
 .index-descr .label {
     font-weight: 600;
 }
-
 
 .table-page {
 	width: 100%;
@@ -349,7 +364,7 @@ ul.langitem li a:hover {
 	font-size: 16px;
 }
 .left-chapters ul li {
-	margin: 30px 0 0 0;
+	margin: 40px 0 0 0;
 	color: #999;
 }
 .left-chapters ul li.selected {color: #d600ff; }
@@ -382,7 +397,7 @@ ul.langitem li a:hover {
 }
 
 .content {
-    padding: 30px 150px 60px 10px;
+    padding: 0px 150px 60px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -728,6 +743,8 @@ select {
     width: 100%;
     height: 100%;
     line-height: 30px;
+    color: #444;
+    text-decoration: none !important;
 }
 
 .page-num:hover {
@@ -742,7 +759,6 @@ select {
     font-weight: bold;
     color: #444;
 }
-
 
 .dog-list {
     display: grid;
@@ -761,7 +777,7 @@ select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
@@ -771,7 +787,7 @@ select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
@@ -781,7 +797,7 @@ select {
     }
 .my-posts-container {
     margin: 10px 10px 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
 }
 .last-updated {
     color: #a1a1a1;
@@ -817,18 +833,6 @@ select {
   text-decoration: underline;
 }
 
-#CookieDeclarationChangeConsentChange, #CookieDeclarationChangeConsentWithdraw {
-  color: inherit;
-  text-decoration: none;
-  color: #d600ff;
-}
-
-#CookieDeclarationChangeConsentChange:hover, #CookieDeclarationChangeConsentWithdraw:hover {
-  color: inherit;
-  text-decoration: none;
-  color: #d600ff;
-}
-
 .link-cat {
   color: inherit;
   text-decoration: none;
@@ -853,6 +857,14 @@ select {
   text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: #d600ff;
+}
+a:hover {
+	color: #d600ff;
+    text-decoration: underline;
+}
 
 /*кнопки на формах*/
 input, textarea, select {
@@ -897,7 +909,7 @@ input, textarea, select {
     margin: 0 auto;
     padding: 20px;
     background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px 3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 6px, rgba(0, 0, 0, 0.03) 0px 2px 4px;
     border-radius: 8px;
 }
 
@@ -1080,8 +1092,7 @@ input, textarea, select {
 }
 
 #btn-custom:hover {
-    animation: bruh 3s linear infinite;
-    color: #444444;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -1125,6 +1136,7 @@ input, textarea, select {
 .cookie-table th {
   background-color: #f4f4f4;
 }
+
 
 
 

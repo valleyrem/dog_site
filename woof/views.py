@@ -112,7 +112,8 @@ class ContactFormView(DataMixin, FormView):
 
 
 def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Page not found</h1>')
+    return render(request, 'woof/404.html', status=404)
+
 
 class ShowPost(DataMixin, DetailView):
     model = Dogs
@@ -142,6 +143,7 @@ class DogsCategory(DataMixin, ListView):
         all_breeds = Dogs.objects.filter(is_published=True).order_by('title')
         context['all_breeds'] = all_breeds
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
+        context['current_category'] = c
         c_def = self.get_user_context(title='Category - ' + str(c.name),
                                       cat_selected=c.pk,)
         return dict(list(context.items()) + list(c_def.items()))

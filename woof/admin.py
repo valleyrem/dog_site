@@ -33,7 +33,7 @@ class WoofAdmin(admin.ModelAdmin):
     get_html_photo.short_description = "Miniature"
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name', 'desc')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}

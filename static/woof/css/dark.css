@@ -21,13 +21,14 @@ body.dark-theme .header {
 body.dark-theme ul.mainmenu li a {
     color: #d1cfcf;
 }
-body.dark-theme ul.mainmenu li a:hover { color: #d600ff; }
+body.dark-theme ul.mainmenu li a:hover { color: #ea7fff; text-decoration: none;}
 
 body.dark-theme .ul.mainmenu {
     background: #333333;
+    text-decoration: none;
 }
 body.dark-theme .mainmenu .selected a {
-    color: #d600ff;
+    color: #ea7fff;
 }
 
 body.dark-theme .left-chapters {
@@ -37,7 +38,7 @@ body.dark-theme .left-chapters ul li a {
     color: #d1cfcf;
 }
 
-body.dark-theme .left-chapters ul li a:hover { color: #d600ff; }
+body.dark-theme .left-chapters ul li a:hover { color: #ea7fff; }
 
 body.dark-theme .content-text {
     color: #d1cfcf;
@@ -70,6 +71,19 @@ body.dark-theme .policy-container {
     background-color: #333333;
     box-shadow: rgba(150, 150, 150, 0.15) 0px 10px 15px 3px, rgba(150, 150, 150, 0.1) 0px 4px 6px -2px;
 }
+
+
+body.dark-theme .policies a {
+  color: inherit !important;
+  text-decoration: none !important;
+  color: #ea7fff;
+}
+body.dark-theme .policies a:hover {
+  color: #ea7fff !important;
+  text-decoration: underline !important;
+}
+
+
 body.dark-theme .form-help-text {
     color: #d1cfcf;
 }
@@ -113,7 +127,7 @@ body.dark-theme #scroll-to-top {
     color: #d1cfcf;
 }
 body.dark-theme #scroll-to-top:hover {
-    color: #d600ff;
+    color: #ea7fff;
 }
 body.dark-theme .letter-d {
     color: #d1cfcf;
@@ -128,7 +142,7 @@ body.dark-theme .title-link {
 
 body.dark-theme .title-link:hover {
     text-decoration: none;
-    color: #d600ff;
+    color: #ea7fff;
 }
 body.dark-theme .consent-label a {
     color: #d1cfcf;
@@ -136,7 +150,7 @@ body.dark-theme .consent-label a {
 }
 
 body.dark-theme .consent-label a:hover {
-    color: #d600ff;
+    color: #ea7fff;
 }
 body.dark-theme #id_confirm_privacy {
     background: #e8e7e7;
@@ -158,7 +172,7 @@ body.dark-theme .circle-link.selected,
 body.dark-theme .logout-link.selected,
 body.dark-theme .register-link.selected,
 body.dark-theme .login-link.selected {
-    color: #d600ff;
+    color: #ea7fff;
 }
 
 body.dark-theme #breed-search {
@@ -173,20 +187,33 @@ body.dark-theme #breed-search {
 }
 
 body.dark-theme p.link-read-post a, body.dark-theme .btn-back, body.dark-theme #btn-custom {
-    background: #ab00cc;
+    background: #b460c4;
     color: #fff;
     border: 1px solid #333;
+}
+body.dark-theme p.link-read-post a:hover,
+body.dark-theme .btn-back:hover,
+body.dark-theme #btn-custom:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
 body.dark-theme .page-num {
     border: 2px solid #333;
     background: #333;
+    color: #d1cfcf !important;
+    text-decoration: none;
+}
+
+body.dark-theme .page-num a {
     color: #d1cfcf;
+    text-decoration: none;
 }
 body.dark-theme .page-num:hover {
     border: 2px solid #ea7fff;
     background-color: #333;
-    color: #d1cfcf;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 body.dark-theme .page-num.page-num-selected {
@@ -203,16 +230,50 @@ body.dark-theme .link-cat {
 }
 
 body.dark-theme .link-cat:hover {
-  color: #d600ff;
-  text-decoration: underline;
+  color: #ea7fff;
+  text-decoration: none;
 }
+
+body.dark-theme a {
+    color: #ea7fff;
+    text-decoration: none;
+}
+
+body.dark-theme a:hover {
+    color: #ea7fff;
+    text-decoration: underline;
+}
+body.dark-theme .left-chapters ul li.selected {color: #ea7fff; text-decoration: none;}
+body.dark-theme .left-chapters ul li a:hover { color: #ea7fff; text-decoration: none;}
+body.dark-theme ul.mainmenu li.last { color: #ea7fff; }
+
+body.dark-theme #CookieDeclarationChangeConsentWithdraw {
+    color: #ea7fff;
+    text-decoration: none;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentWithdraw:hover {
+    color: #ea7fff;
+    text-decoration: underline;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentChange {
+    color: #ea7fff;
+    text-decoration: none;
+}
+
+body.dark-theme #CookieDeclarationChangeConsentChange:hover {
+    color: #ea7fff;
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 767px) {
 
     body.dark-theme  .menu__btn > span,
     body.dark-theme  .menu__btn > span::before,
     body.dark-theme  .menu__btn > span::after {
-        background-color: #d600ff;
+        background-color: #ea7fff;
     }
     body.dark-theme .menu__box {
         border: 1px solid #d1cfcf;
@@ -223,8 +284,10 @@ body.dark-theme .link-cat:hover {
     }
     body.dark-theme .menu__item:hover {
         background-color: #333333;
+        text-decoration: none;
     }
     body.dark-theme .menu__item.selected {
         background-color: #333333;
+        text-decoration: none;
     }
 }

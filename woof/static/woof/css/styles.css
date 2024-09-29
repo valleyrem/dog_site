@@ -7,6 +7,10 @@
     src: url("/static/woof/css/blackberry.otf") format('opentype');
     font-display: swap;
 }
+body, html {
+            font-family: 'Montserrat', sans-serif;
+            font-display: swap;
+        }
 html, body {
     margin: 0;
     padding: 0;
@@ -232,7 +236,6 @@ ul.list-articles li:nth-of-type(odd):nth-last-of-type(1) {
     font-weight: 600;
 }
 
-
 .table-page {
 	width: 100%;
 	height: 100%;
@@ -394,7 +397,7 @@ ul.langitem li a:hover {
 }
 
 .content {
-    padding: 30px 150px 60px 10px;
+    padding: 0px 150px 60px 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -1133,6 +1136,7 @@ input, textarea, select {
 .cookie-table th {
   background-color: #f4f4f4;
 }
+
 
 
 

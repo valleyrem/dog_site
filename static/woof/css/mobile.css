@@ -1327,9 +1327,9 @@ div.article-panel p.last {
 
 }
 
-@media screen and (min-width: 712px) and (max-width: 1000px) {
+@media screen and (min-width: 712px) and (max-width: 912px) {
     .logo-text {
-        text-align: left;
+        text-align: left; /* Центрируем текст по горизонтали */
         margin: 10px 0px 0px 5px;
     }
   html, body {
@@ -1428,7 +1428,7 @@ div.article-panel p.last {
         font-size: 15px;
     }
     .form-decs, .links-policies {
-        margin: 0;
+        margin: 0; /* Убираем отступы */
     }
 
     .links-policies {
@@ -1565,7 +1565,7 @@ div.article-panel p.last {
     }
     }
 
-@media screen and (min-width: 1000px) and (max-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1024px) {
     ul.list-articles li {
         flex: 1 1 100%;
         margin-bottom: 10px;

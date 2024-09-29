@@ -245,7 +245,7 @@ body.dark-theme a:hover {
 }
 body.dark-theme .left-chapters ul li.selected {color: #ea7fff; text-decoration: none;}
 body.dark-theme .left-chapters ul li a:hover { color: #ea7fff; text-decoration: none;}
-body.dark-theme ul.mainmenu li.last { color: #ea7fff; }
+body.dark-theme ul.mainmenu li.last { color: #z; }
 
 body.dark-theme #CookieDeclarationChangeConsentWithdraw {
     color: #ea7fff;

@@ -89,15 +89,10 @@ class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Repeat pass', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    confirm_privacy = forms.BooleanField(
-        label=mark_safe(
-            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank" title="Privacy Policy">Privacy Policy</a> and <a href="https://woofdogs.world/terms-of-use/" target="_blank" title="Terms of Use">Terms of Use</a></span>'),
-        required=True
-    )
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'confirm_privacy')
+        fields = ('username', 'email', 'password1', 'password2')
 
 
 class LoginUserForm(AuthenticationForm):
@@ -110,11 +105,7 @@ class ContactForm(forms.Form):
     name = forms.CharField(label='Name', max_length=255, widget=forms.TextInput(attrs={'class': 'form-input'}))
     email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     content = forms.CharField(label='Message', widget=forms.Textarea(attrs={'cols': 60, 'rows': 3}))
-    confirm_privacy = forms.BooleanField(
-        label=mark_safe(
-            '<span class="consent-label">I agree to the <a href="https://woofdogs.world/privacy-policy/" target="_blank" title="Privacy Policy">Privacy Policy</a> and <a href="https://woofdogs.world/terms-of-use/" target="_blank" title="Terms of Use">Terms of Use</a></span>'),
-        required=True
-    )
+
     def send_message_to_telegram(self):
         token = env('TOKEN')
         chat_id = env('CHAT_ID')
