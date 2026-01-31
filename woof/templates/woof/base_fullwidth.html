@@ -1,0 +1,143 @@
+{% load static %}
+{% load woof_tags %}
+{% load filters %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NJCSC592');</script>
+
+    <meta name="description" content="Woof Dogs. Website about dog breeds categorizes by American Kennel Club (AKC).">
+    <meta name="google-site-verification" content="HPWwmIldc9XdWosMjDEekOApMJHKtsHUea5lkzhx4u0">
+    <title>{{ title }}</title>
+
+    {% compress css %}
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'woof/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'woof/css/mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'woof/css/dark.css' %}">
+    {% endcompress %}
+
+    <link rel="preload"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </noscript>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{% static 'woof/js/scripts.js' %}" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.8.5" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+</head>
+
+<body class="layout-root is-hidden">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeIcon = document.querySelector('#theme-switch__icon');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.body.classList.add(currentTheme + '-theme');
+        updateIcon(currentTheme);
+        document.body.classList.remove('is-hidden');
+
+        document.querySelector('#theme-switch').addEventListener('click', function() {
+            let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+            document.body.classList.remove('light-theme', 'dark-theme');
+            document.body.classList.add(newTheme + '-theme');
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('bi-toggle-off');
+                themeIcon.classList.add('bi-toggle-on');
+            } else {
+                themeIcon.classList.remove('bi-toggle-on');
+                themeIcon.classList.add('bi-toggle-off');
+            }
+        }
+    });
+</script>
+
+<!-- HEADER — тот же самый -->
+{% block mainmenu %}
+<header class="site-header">
+    <ul id="nav-main" class="nav-main">
+        <!-- left nav items: about, contact -->
+        <div class="nav-left">
+            {% for m in menu %}
+                {% if m.url_name == 'about' or m.url_name == 'contact' %}
+                    <li class="{% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                        <a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- logo -->
+        <li class="nav-logo">
+            <a href="{% url 'home' %}">
+                <div class="logo-text" translate="no" title="Woof Dogs">
+                    <span class="logo-letter logo-letter--primary">Woof</span>
+                    <span class="logo-letter logo-letter--secondary">Dogs</span>
+                </div>
+            </a>
+        </li>
+
+        <!-- right nav: theme switch -->
+        <div class="nav-right">
+            <li>
+                <button id="theme-switch" title="Change theme">
+                    <i id="theme-switch__icon" class="bi"></i>
+                </button>
+            </li>
+        </div>
+    </ul>
+</header>
+{% endblock %}
+
+<!-- 🔥 ГЛАВНОЕ ОТЛИЧИЕ -->
+<main class="fullwidth-content">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER — тот же самый -->
+<footer class="site-footer">
+    <button id="scroll-top-button">
+        <i class="bi bi-arrow-up-circle"></i>
+    </button>
+
+    <div class="footer-block">
+        <p>&copy; <span id="current-year"></span> Woof Dogs. All rights reserved</p>
+    </div>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <div class="footer-block">
+        <p class="footer-links">
+            <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
+            <a href="{% url 'cookie-policy' %}">Cookie Policy</a>
+            <a href="{% url 'terms-of-use' %}">Terms of Use</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'woof/base.html' %}
+
+{% block content %}
+<div class="dogs-container">
+    {% for p in posts %}
+        <a href="{{ p.get_absolute_url }}" class="dog-card-link">
+            <div class="dog-card">
+                {% if p.photo %}
+                    <img src="{{ p.photo.url }}" class="dog-card__image" alt="{{ p.title }}" title="{{ p.title }}">
+                {% endif %}
+
+                <div class="dog-card__content">
+                    <h2 class="dog-card__title">{{ p.title }}</h2>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

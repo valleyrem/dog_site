@@ -1,55 +1,83 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<h1 id="about-title-post">{{ post.title }}</h1>
 <div class="post-container">
 
+    <h1 class="post-title" title="{{ post.title }}">{{ post.title }}</h1>
 
+    <div class="post-params">
+        <p><i class="bi bi-arrows-fullscreen"></i> <strong>Size:</strong> {{ post.get_size_display }}</p>
+        <p><i class="bi bi-brush"></i> <strong>Coat:</strong> {{ post.get_coat_type_display }}, {{ post.get_coat_length_display }}</p>
+        <p><i class="bi bi-journal-check"></i> <strong>Trainability:</strong> {{ post.get_trainability_display }}</p>
+        <p><i class="bi bi-lightning"></i> <strong>Activity:</strong> {{ post.get_activity_level_display }}</p>
+        <p><i class="bi bi-volume-up"></i> <strong>Barking:</strong> {{ post.get_barking_level_display }}</p>
+    </div>
+
+    <div class="post-main">
     {% if post.photo %}
-    <p><img class="img-article-left" src="{{ post.photo.url }}" alt="{{ post.title }}"></p>
+    <div class="post-image-wrapper">
+        <img class="post-image" src="{{ post.photo.url }}" alt="{{ post.title }}" title="{{ post.title }}">
+    </div>
     {% endif %}
 
-    <p class="form-decs"><strong>Size:</strong> {{ post.get_size_display }}</p>
-    <p class="form-decs"><strong>Coat:</strong> {{ post.get_coat_type_display }}, {{ post.get_coat_length_display }}</p>
-    <p class="form-decs"><strong>Trainability:</strong> {{ post.get_trainability_display }}</p>
-    <p class="form-decs"><strong>Activity:</strong> {{ post.get_activity_level_display }}</p>
-    <p class="form-decs"><strong>Barking:</strong> {{ post.get_barking_level_display }}</p>
-    <p class="form-decs"><strong>Summary:</strong>{{ post.content|linebreaks }}</p>
-    <p class="form-decs"><strong>Care:</strong> {{ post.care|linebreaks }}</p>
-    <p class="form-decs"><strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
-<a href="javascript:void(0);" onclick="history.back();" class="btn-back" title="Back">Back</a>
+    <div class="post-text">
+        <p><i class="bi bi-file-text"></i> <strong>Summary:</strong> {{ post.content|linebreaks }}</p>
+        <p><i class="bi bi-heart"></i> <strong>Care:</strong> {{ post.care|linebreaks }}</p>
+        <p><i class="bi bi-house"></i> <strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
+    </div>
 </div>
 
 <div id="image-modal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img-expanded">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img-expanded">
+</div>
+    <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Back</a>
 </div>
 
+{% if related_dogs %}
+<div class="home-showcase-left">
+    <h2 class="section-title">
+        Other dogs from "{{ post.cat.name }}"
+    </h2>
 
+    <div class="dog-slider">
+        {% for dog in related_dogs %}
+            <a href="{{ dog.get_absolute_url }}" class="dog-card">
+                {% if dog.photo %}
+                    <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
+                {% endif %}
+                <div class="dog-card-title">{{ dog.title }}</div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById("image-modal");
-    const img = document.querySelector(".img-article-left");
+    const img = document.querySelector(".post-image");
     const modalImg = document.getElementById("img-expanded");
     const closeBtn = document.querySelector(".close");
 
-    img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-    }
+    if (img && modal && modalImg && closeBtn) {
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        };
 
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        closeBtn.onclick = function () {
             modal.style.display = "none";
-        }
+        };
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
     }
 });
 </script>
+
 
 {% endblock %}

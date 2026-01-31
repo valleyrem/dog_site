@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 SECURE_PROXY_SSL_HEADER = None
@@ -150,17 +150,17 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 COMPRESS_ENABLED = not DEBUG
-# COMPRESS_OFFLINE = not DEBUG
 COMPRESS_OFFLINE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/static/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+# Media files (user uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # LOGIN_REDIRECT_URL = '/'
 

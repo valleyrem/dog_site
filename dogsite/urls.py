@@ -18,7 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from dogsite import settings
-from woof.views import *
+from woof.views import pageNotFound
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

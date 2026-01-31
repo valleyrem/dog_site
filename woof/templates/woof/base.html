@@ -15,61 +15,54 @@
     <!-- End Google Tag Manager -->
 
     <meta name="description" content="Woof Dogs. Website about dog breeds categorizes by American Kennel Club (AKC).">
-    <meta name="google-site-verification" content="HPWwmIldc9XdWosMjDEekOApMJHKtsHUea5lkzhx4u0" />    <title>{{title}}</title>
+    <meta name="google-site-verification" content="HPWwmIldc9XdWosMjDEekOApMJHKtsHUea5lkzhx4u0">
+    <title>{{ title }}</title>
 
-    <!-- Compress local stylesheets -->
     {% compress css %}
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'woof/css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'woof/css/mobile.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'woof/css/dark.css' %}">
+    <link rel="stylesheet" href="{% static 'woof/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'woof/css/mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'woof/css/dark.css' %}">
     {% endcompress %}
 
-    <!-- Preload external stylesheets -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
+    <link rel="preload"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </noscript>
 
-    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload and use swap for fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="{% static 'woof/js/scripts.js' %}" defer></script>
     <script src="https://unpkg.com/htmx.org@1.8.5" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-
-    <!-- Apply fonts with font-display: swap -->
-    <style>
-        body, html {
-            font-family: 'Montserrat', sans-serif;
-            font-display: swap;
-        }
-    </style>
 </head>
 
-<body>
+<body class="layout-root is-hidden">
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const themeIcon = document.querySelector('#theme-icon');
+        const themeIcon = document.querySelector('#theme-switch__icon');
         const currentTheme = localStorage.getItem('theme') || 'light';
 
         document.body.classList.add(currentTheme + '-theme');
         updateIcon(currentTheme);
+        document.body.classList.remove('is-hidden');
 
-        document.body.classList.remove('hidden');
-
-        document.querySelector('#theme-toggle').addEventListener('click', function() {
+        document.querySelector('#theme-switch').addEventListener('click', function() {
             let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
             document.body.classList.remove('light-theme', 'dark-theme');
             document.body.classList.add(newTheme + '-theme');
             localStorage.setItem('theme', newTheme);
-
             updateIcon(newTheme);
         });
 
@@ -83,183 +76,112 @@
             }
         }
     });
-
-    document.body.classList.add('hidden');
 </script>
-<!--<script>
-    var Weglot = Weglot || {};
-    Weglot.initialize({
-        api_key: 'YOUR_API_KEY'
-    });
-</script>
-<script src="https://cdn.weglot.com/weglot.min.js"></script>-->
 
 {% block mainmenu %}
-<div class="header">
-    <ul id="mainmenu" class="mainmenu">
-        <li class="logo">
+<header class="site-header">
+    <ul id="nav-main" class="nav-main">
+        <!-- left nav items: about, contact -->
+        <div class="nav-left">
+            {% for m in menu %}
+                {% if m.url_name == 'about' or m.url_name == 'contact' %}
+                    <li class="{% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                        <a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- logo -->
+        <li class="nav-logo">
             <a href="{% url 'home' %}">
                 <div class="logo-text" translate="no" title="Woof Dogs">
-                    <span class="letter letter-w">Woof</span>
-                    <span class="letter letter-d">Dogs</span>
+                    <span class="logo-letter logo-letter--primary">Woof</span>
+                    <span class="logo-letter logo-letter--secondary">Dogs</span>
                 </div>
             </a>
         </li>
-        {% for m in menu %}
-            {% if m.url_name == 'about' or m.url_name == 'contact' %}
-                {% if request.resolver_match.url_name == m.url_name %}
-                    <li class="selected"><a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a></li>
-                {% else %}
-                    <li><a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a></li>
-                {% endif %}
-            {% elif request.user.is_authenticated %}
-                {% if request.resolver_match.url_name == m.url_name %}
-                    <li class="selected"><a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a></li>
-                {% else %}
-                    <li><a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a></li>
-                {% endif %}
-            {% endif %}
-        {% endfor %}
 
-        {% if request.user.is_authenticated %}
-    <li class="last">
-        <a href="http://woofdogs.world/my-posts/" class="circle-link{% if request.path == '/my-posts/' %} selected{% endif %}" title="My Posts">
-            <i class="bi bi-person-circle"></i></i> |
-        </a>
-        <a href="{% url 'logout' %}" class="logout-link{% if request.path == '/logout/' %} selected{% endif %}" title="Log out">Log out</a>
-
-    </li>
-{% else %}
-    <li class="last">
-        <a href="{% url 'register' %}" class="register-link{% if request.path == '/register/' %} selected{% endif %}" title="Registration">Registration</a> |
-        <a href="{% url 'login' %}" class="login-link{% if request.path == '/login/' %} selected{% endif %}" title="Log in">Log in</a>
-    </li>
-{% endif %}
+        <!-- right nav: theme switch -->
+        <div class="nav-right">
+            <li>
+                <button id="theme-switch" title="Change theme">
+                    <i id="theme-switch__icon" class="bi"></i>
+                </button>
+            </li>
+        </div>
     </ul>
-    <div class="clear"></div>
-</div>
-{% endblock mainmenu %}
-
-<table class="table-content" border="0" cellpadding="0" cellspacing="0">
-<tr>
-<!-- Sidebar left -->
-<td valign="top" class="left-chapters">
-    <div class="hamburger-menu">
-  <input id="menu__toggle" type="checkbox" />
-  <label class="menu__btn" for="menu__toggle">
-    <span></span>
-  </label>
-  <ul class="menu__box">
-
-      <div class="search-container">
-          <select class="custom-select__select" name="breed-search" id="breed-search" title="Breed-search">
-            <option value="">Breed</option>
-                {% for breed in all_breeds %}
-            <option value="{{ breed.get_absolute_url }}">{{ breed.title }}</option>
-            {% endfor %}
-          </select>
-      </div>
-
-    {% if request.resolver_match.url_name == 'home' and cat_selected == 0 %}
-  <li class="menu__item selected">All</li>
-{% else %}
-  <li class="menu__item"><a href="{% url 'home' %}" title="All Breeds">All</a></li>
-{% endif %}
-
-    {% for category in cats %}
-      {% if category.pk != 10 %}
-        {% if category.pk == cat_selected %}
-          <li class="menu__item selected">{{ category.name }}</li>
-        {% else %}
-          <li class="menu__item"><a href="{{ category.get_absolute_url }}" title="{{ category.name }}">{{ category.name }}</a></li>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% with last_category=cats|get_item_by_id:10 %}
-      {% if last_category %}
-        {% if last_category.pk == cat_selected %}
-          <li class="menu__item selected">{{ last_category.name }}</li>
-        {% else %}
-          <li class="menu__item"><a href="{{ last_category.get_absolute_url }}" title="{{ last_category.name }}">{{ last_category.name }}</a></li>
-        {% endif %}
-      {% endif %}
-    {% endwith %}
-      <button id="theme-toggle" title="Change theme">
-            <i id="theme-icon" class="bi"></i>
-        </button>
-  </ul>
-
-</div>
-</td>
-<!-- End Sidebar -->
+</header>
+{% endblock %}
 
 
-<td valign="top" class="content">
-    <div class="content-text">
 
-        {% block content %}
-        {% endblock %}
-        {% if request.resolver_match.url_name != 'about' %}
-        {% if page_obj.has_other_pages %}
-        <nav class="list-pages">
-            <ul>
-                {% if page_obj.has_previous %}
-                <li class="page-num">
-                    <a href="?page={{ page_obj.previous_page_number }}"><i class="bi bi-arrow-left" title="Previous"></i></a>
-                </li>
-                {% endif %}
+<div class="layout-container">
+    {% if not is_home %}
+    <aside class="sidebar-nav">
+        <div class="mobile-menu">
 
-                {% for p in paginator.page_range %}
-                {% if page_obj.number == p %}
-                <li class="page-num page-num-selected">{{ p }}</li>
-                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-                <li class="page-num">
-                    <a href="?page={{ p }}" title="{{ p }}">{{ p }}</a>
-                </li>
-                {% endif %}
+            <ul class="mobile-menu__list">
+
+                {% for category in cats %}
+                    {% if category.pk != 10 %}
+                        <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
+                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                        </li>
+                    {% endif %}
                 {% endfor %}
 
-                {% if page_obj.has_next %}
-                <li class="page-num">
-                    <a href="?page={{ page_obj.next_page_number }}"><i class="bi bi-arrow-right" title="Next"></i></a>
-                </li>
-                {% endif %}
+                {% with last_category=cats|get_item_by_id:10 %}
+                    {% if last_category %}
+                        <li class="mobile-menu__item {% if last_category.pk == cat_selected %}is-active{% endif %}">
+                            <a href="{{ last_category.get_absolute_url }}">{{ last_category.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endwith %}
+
+
+
             </ul>
-        </nav>
-        {% endif %}
-        {% endif %}
-    </div>
-</td></tr></table>
-</td></tr>
+        </div>
+    </aside>
+    {% endif %}
 
-<!-- Footer -->
-<tr><td valign="top">
-    <div id="footer">
+    <main class="layout-content">
+        {% block content %}{% endblock %}
+    </main>
+</div>
 
-    <button id="scroll-to-top" title="Go to top"><i class="bi bi-arrow-up-circle"></i></button>
-    <div class="footer-section">
-        <p class="rights">&copy; 2024 Woof Dogs. All rights reserved</p>
 
-    <div class="footer-section">
-        <p class="policies">
-            <a href="{% url 'privacy-policy' %}" title="Privacy Policy">Privacy Policy</a>
-            <a href="{% url 'cookie-policy' %}" title="Cookie Policy">Cookie Policy</a>
-            <a href="{% url 'terms-of-use' %}" title="Terms of Use">Terms of Use</a>
+<footer class="site-footer">
+    <button id="scroll-top-button" title="Go to top">
+        <i class="bi bi-arrow-up-circle"></i>
+    </button>
+
+ <div class="footer-block">
+    <p class="footer-copyright">
+        &copy; <span id="current-year"></span> Woof Dogs. All rights reserved
+    </p>
+</div>
+
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+
+    <div class="footer-block">
+        <p class="footer-links">
+            <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
+            <a href="{% url 'cookie-policy' %}">Cookie Policy</a>
+            <a href="{% url 'terms-of-use' %}">Terms of Use</a>
         </p>
     </div>
-<!--
-    <div id="weglot_here"></div>
--->
+</footer>
 
-</div>
-</td></tr>
-</table>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
 
-<!-- End footer and page -->
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>

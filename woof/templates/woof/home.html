@@ -1,0 +1,67 @@
+{% extends 'woof/base_fullwidth.html' %}
+{% load static %}
+
+{% block content %}
+<div class="homepage">
+<p class="homepage-text">
+    Fur on your clothes <span class="highlight">means</span> you're truly loved
+</p>
+
+    <div class="homepage-left">
+
+        <i class="bi bi-chevron-double-down chevron-icon"></i>
+        <div class="homepage-search">
+            <label for="breed-select">Search </label>
+            <select id="breed-select" onchange="if(this.value) window.location.href=this.value;">
+                <option value="">select a group</option>
+                <i class="bi bi-hand-index"></i>
+                {% for group in cats %}
+                    <option value="{{ group.get_absolute_url }}">{{ group.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <p class="homepage-left-text">
+            Begin with breed groups to narrow your search and better understand which dogs suit your way of life.
+        </p>
+    </div>
+
+<div class="homepage-right">
+    <i class="bi bi-pin-angle-fill"></i>
+    <div class="wave-wrapper">
+        <img src="{% static 'woof/waves_V3 copy.jpg' %}" alt="Waves" class="homepage-wave">
+    </div>
+</div>
+
+
+</div>
+
+<div class="home-showcase">
+            <p class="homepage-text">
+            The breed that fits you <span class="highlight">best</span></p>
+
+    <div class="home-showcase-right">
+     <p>
+            Each breed has its own character, energy level and needs.<br>
+            Explore, compare and choose the one that truly matches your lifestyle.
+        </p>
+    </div>
+
+    <div class="home-showcase-left">
+        <div class="dog-slider">
+            {% for dog in posts %}
+            <a href="{{ dog.get_absolute_url }}" class="dog-card">
+                {% if dog.photo %}
+                    <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
+                {% endif %}
+                <div class="dog-card-title">{{ dog.title }}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}
