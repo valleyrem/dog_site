@@ -111,15 +111,13 @@
 </header>
 {% endblock %}
 
-<!-- 🔥 ГЛАВНОЕ ОТЛИЧИЕ -->
 <main class="fullwidth-content">
     {% block content %}{% endblock %}
 </main>
 
-<!-- FOOTER — тот же самый -->
 <footer class="site-footer">
-    <button id="scroll-top-button">
-        <i class="bi bi-arrow-up-circle"></i>
+    <button id="scroll-top-button" title="back to top">
+        <i class="bi bi-arrow-up"></i> back to top
     </button>
 
     <div class="footer-block">
@@ -132,12 +130,23 @@
 
     <div class="footer-block">
         <p class="footer-links">
-            <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
-            <a href="{% url 'cookie-policy' %}">Cookie Policy</a>
-            <a href="{% url 'terms-of-use' %}">Terms of Use</a>
+            <a href="{% url 'privacy-policy' %}" title="Privacy Policy">Privacy Policy</a>
+            <a href="{% url 'cookie-policy' %}" title="Cookie Policy">Cookie Policy</a>
+            <a href="{% url 'terms-of-use' %}" title="Terms of Use">Terms of Use</a>
         </p>
     </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollBtn = document.getElementById('scroll-top-button');
 
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
 </body>
 </html>

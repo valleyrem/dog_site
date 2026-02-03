@@ -43,7 +43,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class DogsAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'user_email', 'is_published')
     search_fields = ('title', 'user_email')
-    list_filter = ('size', 'coat_type', 'is_published')
+    list_filter = ('cat', 'size', 'coat_type', 'is_published')
 
 admin.site.register(Category, CategoryAdmin)
 

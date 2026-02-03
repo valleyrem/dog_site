@@ -1,6 +1,13 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="breadcrumbs-wrapper">
+    <div class="breadcrumbs">
+        <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+        <span>/</span>
+        <span>contact</span>
+    </div>
+</div>
 <div class="policy-container">
     <h1 id="about-title">{{ title }}</h1>
     <p class="form-decs">Feel free to reach out with any questions, suggestions, or feedback.</p>

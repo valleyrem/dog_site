@@ -1,14 +1,20 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<p class="breadcrumbs">
+    <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+    <span>/</span>
+    <span title="{{ current_category.name }}">{{ current_category.name }}</span>
+</p>
+<h1 class="post-title" title="{{ current_category.name }}">{{ current_category.name }}</h1>
 <div class="dogs-container">
+
     {% for p in posts %}
-        <a href="{{ p.get_absolute_url }}" class="dog-card-link">
+        <a href="{{ p.get_absolute_url }}" class="dog-card-link" title="{{ p.title }}">
             <div class="dog-card">
                 {% if p.photo %}
-                    <img src="{{ p.photo.url }}" class="dog-card__image" alt="{{ p.title }}" title="{{ p.title }}">
+                    <img src="{{ p.photo.url }}" class="dog-card__image" alt="{{ p.title }}">
                 {% endif %}
-
                 <div class="dog-card__content">
                     <h2 class="dog-card__title">{{ p.title }}</h2>
                 </div>

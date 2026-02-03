@@ -13,9 +13,6 @@ from .models import Dogs, Category
 from .utils import DataMixin, menu
 
 
-# --------------------
-# HOME (главная)
-# --------------------
 class DogsHome(DataMixin, TemplateView):
     template_name = 'woof/home.html'
 
@@ -34,18 +31,29 @@ class DogsHome(DataMixin, TemplateView):
             title='Woof Dogs'
         )
 
-# --------------------
-# LIST OF ALL DOGS
-# --------------------
+
 class DogsList(DataMixin, ListView):
     model = Dogs
     template_name = 'woof/dogs_list.html'
     context_object_name = 'posts'
+    paginate_by = None
 
     def get_queryset(self):
-        return Dogs.objects.filter(
-            is_published=True
-        ).select_related('cat')
+        qs = Dogs.objects.filter(is_published=True).select_related('cat')
+
+        # фильтры из GET-параметров
+        size = self.request.GET.get('size')
+        trainability = self.request.GET.get('trainability')
+        coat = self.request.GET.get('coat')
+
+        if size:
+            qs = qs.filter(size=size)
+        if trainability:
+            qs = qs.filter(trainability=trainability)
+        if coat:
+            qs = qs.filter(coat_type=coat)
+
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -60,20 +68,32 @@ class DogsList(DataMixin, ListView):
         )
 
 
-# --------------------
-# CATEGORY
-# --------------------
 class DogsCategory(DataMixin, ListView):
     model = Dogs
     template_name = 'woof/dogs_list.html'
     context_object_name = 'posts'
     allow_empty = False
+    paginate_by = None
 
     def get_queryset(self):
-        return Dogs.objects.filter(
+        qs = Dogs.objects.filter(
             cat__slug=self.kwargs['cat_slug'],
             is_published=True
         ).select_related('cat')
+
+        # фильтры из GET-параметров
+        size = self.request.GET.get('size')
+        trainability = self.request.GET.get('trainability')
+        coat = self.request.GET.get('coat')
+
+        if size:
+            qs = qs.filter(size=size)
+        if trainability:
+            qs = qs.filter(trainability=trainability)
+        if coat:
+            qs = qs.filter(coat_type=coat)
+
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -91,15 +111,10 @@ class DogsCategory(DataMixin, ListView):
             **context,
             title=f'Category — {category.name}',
             cat_selected=category.pk
+
         )
 
 
-# --------------------
-# SINGLE DOG
-# --------------------
-# --------------------
-# SINGLE DOG
-# --------------------
 class ShowPost(DataMixin, DetailView):
     model = Dogs
     template_name = 'woof/post.html'
@@ -108,17 +123,27 @@ class ShowPost(DataMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         post = context['post']
 
-        context['related_dogs'] = Dogs.objects.filter(
-            is_published=True,
-            cat=post.cat
-        ).exclude(pk=post.pk).order_by('title')
+        dogs_qs = Dogs.objects.filter(is_published=True).order_by('id')
 
-        context['all_breeds'] = Dogs.objects.filter(
+        # previous
+        prev_post = dogs_qs.filter(id__lt=post.id).last()
+        if not prev_post:
+            prev_post = dogs_qs.last()
+
+        # next
+        next_post = dogs_qs.filter(id__gt=post.id).first()
+        if not next_post:
+            next_post = dogs_qs.first()
+
+        context['prev_post'] = prev_post
+        context['next_post'] = next_post
+
+        context['related_dogs'] = Dogs.objects.filter(
+            cat=post.cat,
             is_published=True
-        ).order_by('title')
+        ).exclude(pk=post.pk).order_by('title')
 
         return self.get_user_context(
             **context,
@@ -126,10 +151,6 @@ class ShowPost(DataMixin, DetailView):
             cat_selected=post.cat_id
         )
 
-
-# --------------------
-# ABOUT
-# --------------------
 class AboutView(DataMixin, TemplateView):
     template_name = 'woof/about.html'
 
@@ -148,9 +169,6 @@ class AboutView(DataMixin, TemplateView):
         )
 
 
-# --------------------
-# CONTACT
-# --------------------
 class ContactFormView(DataMixin, FormView):
     form_class = ContactForm
     template_name = 'woof/contact.html'
@@ -181,9 +199,6 @@ class ContactFormView(DataMixin, FormView):
         )
 
 
-# --------------------
-# STATIC PAGES
-# --------------------
 class CookiePolicyView(DataMixin, TemplateView):
     template_name = 'woof/cookie_policy.html'
 
@@ -220,8 +235,5 @@ class PrivacyPolicyView(DataMixin, TemplateView):
         )
 
 
-# --------------------
-# 404
-# --------------------
 def pageNotFound(request, exception):
     return render(request, 'woof/404.html', status=404)

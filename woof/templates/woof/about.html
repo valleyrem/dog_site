@@ -1,42 +1,133 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+
+<div class="breadcrumbs-wrapper">
+    <div class="breadcrumbs">
+        <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+        <span>/</span>
+        <span>about</span>
+    </div>
+</div>
+
 <div class="policy-container">
-<h1 id="about-title">About</h1>
+    <h1 id="post-title">About</h1>
 
-<p class="form-decs">
-     <strong>Welcome!</i></strong>
-</p>
+    <p class="form-decs">
+        <strong>Welcome!</strong>
+    </p>
 
-<p class="form-decs">
-    This site is created for fun and gives brief information about dog breeds, categorized by American Kennel Club (AKC) - one of the oldest and most respected dog breed registries in the world (founded in 1884). AKC sets breed standards, organizes shows and events, and offers various resources for dog owners.
-</p>
-<p class="form-decs">
-    So, currently, AKC identifies the following breed groups:
-</p>
+    <p class="form-decs">
+        This website was created for fun and learning. It provides short, structured information about dog breeds,
+        grouped according to the classification of the American Kennel Club (AKC) —
+        one of the oldest and most respected dog breed organizations in the world, founded in 1884.
+    </p>
 
-<ul class="bulleted-list">
-    <li><strong>Sporting Group:</strong> Breeds for hunting and retrieving, known for agility and tracking abilities.</li>
-    <li><strong>Hound Group:</strong> Breeds for hunting by sight and scent, including sighthounds and scent hounds.</li>
-    <li><strong>Working Group:</strong> Breeds used for guarding, sledding, and rescues, known for strength and intelligence.</li>
-    <li><strong>Terrier Group:</strong> Energetic breeds originally for hunting and pest control.</li>
-    <li><strong>Toy Group:</strong> Small companion breeds, perfect for city living.</li>
-    <li><strong>Non-Sporting Group:</strong> Diverse breeds with unique traits and personalities.</li>
-    <li><strong>Herding Group:</strong> Breeds skilled in managing livestock, intelligent and energetic.</li>
-    <li><strong>Miscellaneous Class:</strong> Breeds on their way to full AKC recognition.</li>
-    <li><strong>Foundation Stock Service:</strong> Breeds in the early stages of AKC recognition.</li>
-</ul>
-<p class="form-decs">
-    <strong>Breeds:</strong> The list of breeds here isn’t complete. If you want to help and add missing breeds, please register and check the list to make sure the breed isn’t already included. If you need more details, please visit the official <a href="https://www.akc.org/dog-breeds/" target="_blank" class="link-site" title="AKC Site">AKC</a> website to find more information about any breed.
-</p>
+    <p class="form-decs">
+        AKC defines breed standards, organizes dog shows and sporting events, and serves as a reliable reference
+        for breeders and dog owners. On this site, breeds are grouped following the same system for easier navigation
+        and comparison.
+    </p>
 
-<p class="form-decs">
-    <strong>Our Beloved Pets:</strong> Love animals? Whether it's a dog, cat, bird, or any other pet, share their pictures and details with us and other users here. You can register and fill out New Article form to add your pet to <a href="http://woofdogs.world/group/our-beloved-pets/" class="link-site" title="Our Beloved Pets Page">Our Beloved Pets</a> group.
-</p>
+    <p class="form-decs">
+        Currently, the AKC recognizes the following breed groups:
+    </p>
 
+    <ul class="bulleted-list">
+        <li>
+            <strong>
+                <a href="{% url 'category' 'sporting-group' %}" class="link-site">
+                    Sporting Group
+                </a>:
+            </strong>
+            Breeds originally developed for hunting and retrieving, known for stamina, intelligence, and cooperation with humans.
+        </li>
 
-<p class="form-decs">
-    Enjoy!
-</p>
+        <li>
+            <strong>
+                <a href="{% url 'category' 'hound-group' %}" class="link-site">
+                    Hound Group
+                </a>:
+            </strong>
+            Breeds that hunt by sight or scent. Independent, determined, and often very vocal.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'working-group' %}" class="link-site">
+                    Working Group
+                </a>:
+            </strong>
+            Strong and confident dogs bred for guarding, pulling, rescue work, and other demanding tasks.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'terrier-group' %}" class="link-site">
+                    Terrier Group
+                </a>:
+            </strong>
+            Energetic and fearless breeds originally used for hunting vermin and small game.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'toy-group' %}" class="link-site">
+                    Toy Group
+                </a>:
+            </strong>
+            Small companion dogs, bred mainly for affection and adaptability to city life.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'non-sporting-group' %}" class="link-site">
+                    Non-Sporting Group
+                </a>:
+            </strong>
+            A diverse group of breeds with very different sizes, coats, and personalities.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'herding-group' %}" class="link-site">
+                    Herding Group
+                </a>:
+            </strong>
+            Intelligent and active dogs bred to control livestock, known for focus and trainability.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'miscellaneous-class' %}" class="link-site">
+                    Miscellaneous Class
+                </a>:
+            </strong>
+            Breeds that are in the process of gaining full AKC recognition.
+        </li>
+
+        <li>
+            <strong>
+                <a href="{% url 'category' 'foundation-stock-service' %}" class="link-site">
+                    Foundation Stock Service
+                </a>:
+            </strong>
+            Rare breeds whose populations are being documented and developed toward official recognition.
+        </li>
+    </ul>
+
+    <p class="form-decs">
+        <strong>Breeds:</strong> The list of breeds on this website is not complete.
+        If you would like to help expand it, you can register and add a new breed,
+        making sure it is not already listed.
+        For official and detailed information, we always recommend visiting the
+        <a href="https://www.akc.org/dog-breeds/" target="_blank" class="link-site" title="AKC Site">
+            AKC website
+        </a>.
+    </p>
+
+    <p class="form-decs">
+        Enjoy exploring, learning, and sharing!
+    </p>
 </div>
 {% endblock %}

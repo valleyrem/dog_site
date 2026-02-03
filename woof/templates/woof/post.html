@@ -1,8 +1,35 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<div class="post-container">
 
+<div class="breadcrumbs-wrapper">
+
+    <div class="breadcrumbs">
+        <a href="{% url 'home' %}" title="Home">Home</a>
+        <span>/</span>
+        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">{{ post.cat.name }}</a>
+        <span>/</span>
+        <span class="current">{{ post.title }}</span>
+    </div>
+
+    <div class="post-navigation">
+        {% if prev_post %}
+            <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev">
+                <i class="bi bi-arrow-left-short"></i> {{ prev_post.title }}
+            </a>
+        {% endif %}
+        <i class="bi bi-dot"></i>
+        {% if next_post %}
+            <a href="{{ next_post.get_absolute_url }}" class="nav-link next">
+                {{ next_post.title }} <i class="bi bi-arrow-right-short"></i>
+            </a>
+        {% endif %}
+    </div>
+
+</div>
+
+
+<div class="post-container">
     <h1 class="post-title" title="{{ post.title }}">{{ post.title }}</h1>
 
     <div class="post-params">
@@ -21,7 +48,7 @@
     {% endif %}
 
     <div class="post-text">
-        <p><i class="bi bi-file-text"></i> <strong>Summary:</strong> {{ post.content|linebreaks }}</p>
+        <p><i class="bi bi-file-text"></i> <strong>Summary:</strong> Belongs to the {{ post.cat.name }}. {{ post.content|linebreaks }}</p>
         <p><i class="bi bi-heart"></i> <strong>Care:</strong> {{ post.care|linebreaks }}</p>
         <p><i class="bi bi-house"></i> <strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
     </div>
@@ -31,7 +58,7 @@
     <span class="close">&times;</span>
     <img class="modal-content" id="img-expanded">
 </div>
-    <a href="javascript:void(0);" onclick="history.back();" class="btn-back">Back</a>
+    <a href="javascript:void(0);" onclick="history.back();" class="btn-back"><i class="bi bi-arrow-left-short"></i> Back</a>
 </div>
 
 {% if related_dogs %}
@@ -40,7 +67,7 @@
         Other dogs from "{{ post.cat.name }}"
     </h2>
 
-    <div class="dog-slider">
+    <div class="dog-grid">
         {% for dog in related_dogs %}
             <a href="{{ dog.get_absolute_url }}" class="dog-card">
                 {% if dog.photo %}
@@ -52,6 +79,7 @@
     </div>
 </div>
 {% endif %}
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

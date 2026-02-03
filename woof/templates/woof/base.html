@@ -81,7 +81,7 @@
 {% block mainmenu %}
 <header class="site-header">
     <ul id="nav-main" class="nav-main">
-        <!-- left nav items: about, contact -->
+
         <div class="nav-left">
             {% for m in menu %}
                 {% if m.url_name == 'about' or m.url_name == 'contact' %}
@@ -92,7 +92,6 @@
             {% endfor %}
         </div>
 
-        <!-- logo -->
         <li class="nav-logo">
             <a href="{% url 'home' %}">
                 <div class="logo-text" translate="no" title="Woof Dogs">
@@ -102,7 +101,6 @@
             </a>
         </li>
 
-        <!-- right nav: theme switch -->
         <div class="nav-right">
             <li>
                 <button id="theme-switch" title="Change theme">
@@ -120,27 +118,14 @@
     {% if not is_home %}
     <aside class="sidebar-nav">
         <div class="mobile-menu">
-
             <ul class="mobile-menu__list">
-
                 {% for category in cats %}
                     {% if category.pk != 10 %}
                         <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
-                            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                            <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">{{ category.name }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
-
-                {% with last_category=cats|get_item_by_id:10 %}
-                    {% if last_category %}
-                        <li class="mobile-menu__item {% if last_category.pk == cat_selected %}is-active{% endif %}">
-                            <a href="{{ last_category.get_absolute_url }}">{{ last_category.name }}</a>
-                        </li>
-                    {% endif %}
-                {% endwith %}
-
-
-
             </ul>
         </div>
     </aside>
@@ -153,8 +138,8 @@
 
 
 <footer class="site-footer">
-    <button id="scroll-top-button" title="Go to top">
-        <i class="bi bi-arrow-up-circle"></i>
+    <button id="scroll-top-button" title="back to top">
+        <i class="bi bi-arrow-up"></i> back to top
     </button>
 
  <div class="footer-block">
@@ -170,9 +155,9 @@
 
     <div class="footer-block">
         <p class="footer-links">
-            <a href="{% url 'privacy-policy' %}">Privacy Policy</a>
-            <a href="{% url 'cookie-policy' %}">Cookie Policy</a>
-            <a href="{% url 'terms-of-use' %}">Terms of Use</a>
+            <a href="{% url 'privacy-policy' %}" title="Privacy Policy">Privacy Policy</a>
+            <a href="{% url 'cookie-policy' %}" title="Cookie Policy">Cookie Policy</a>
+            <a href="{% url 'terms-of-use' %}" title="Terms of Use">Terms of Use</a>
         </p>
     </div>
 </footer>
@@ -182,6 +167,19 @@
             height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
 </noscript>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollBtn = document.getElementById('scroll-top-button');
+
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
 
 </body>
 </html>
