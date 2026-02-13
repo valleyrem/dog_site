@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -41,7 +42,6 @@ class DogsList(DataMixin, ListView):
     def get_queryset(self):
         qs = Dogs.objects.filter(is_published=True).select_related('cat')
 
-        # фильтры из GET-параметров
         size = self.request.GET.get('size')
         trainability = self.request.GET.get('trainability')
         coat = self.request.GET.get('coat')
@@ -81,7 +81,6 @@ class DogsCategory(DataMixin, ListView):
             is_published=True
         ).select_related('cat')
 
-        # фильтры из GET-параметров
         size = self.request.GET.get('size')
         trainability = self.request.GET.get('trainability')
         coat = self.request.GET.get('coat')
@@ -125,21 +124,22 @@ class ShowPost(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         post = context['post']
 
+        size_icons = []
+        base_size = 0.9
+        step = 0.2
+        for i in range(1, 6):
+            size_icons.append({
+                "active": i == post.size_index,
+                "size": base_size + step*(i-1)
+            })
+        context['size_icons'] = size_icons
+
+        # previous/next posts
         dogs_qs = Dogs.objects.filter(is_published=True).order_by('id')
+        context['prev_post'] = dogs_qs.filter(id__lt=post.id).last() or dogs_qs.last()
+        context['next_post'] = dogs_qs.filter(id__gt=post.id).first() or dogs_qs.first()
 
-        # previous
-        prev_post = dogs_qs.filter(id__lt=post.id).last()
-        if not prev_post:
-            prev_post = dogs_qs.last()
-
-        # next
-        next_post = dogs_qs.filter(id__gt=post.id).first()
-        if not next_post:
-            next_post = dogs_qs.first()
-
-        context['prev_post'] = prev_post
-        context['next_post'] = next_post
-
+        # related dogs
         context['related_dogs'] = Dogs.objects.filter(
             cat=post.cat,
             is_published=True
@@ -150,6 +150,7 @@ class ShowPost(DataMixin, DetailView):
             title=post.title,
             cat_selected=post.cat_id
         )
+
 
 class AboutView(DataMixin, TemplateView):
     template_name = 'woof/about.html'
@@ -196,6 +197,65 @@ class ContactFormView(DataMixin, FormView):
         return JsonResponse(
             {'success': False, 'errors': form.errors},
             status=400
+        )
+
+
+class DogFilterView(DataMixin, ListView):
+    model = Dogs
+    template_name = 'woof/filter.html'
+    context_object_name = 'dogs'
+    paginate_by = None
+
+    def get_queryset(self):
+        queryset = Dogs.objects.filter(is_published=True)
+
+        sizes = self.request.GET.getlist('size')
+        family = self.request.GET.getlist('family')
+        hypo = self.request.GET.getlist('hypo')
+        activity = self.request.GET.getlist('activity')
+
+        if sizes:
+            queryset = queryset.filter(size__in=sizes)
+
+        if family:
+            queryset = queryset.filter(family_friendliness__in=family)
+
+        if hypo:
+            queryset = queryset.filter(hypoallergenic__in=hypo)
+
+        if activity:
+            queryset = queryset.filter(activity_level__in=activity)
+
+        return queryset
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            html = render_to_string(
+                'woof/dog_cards.html',
+                context,
+                request=self.request
+            )
+            return JsonResponse({'html': html})
+
+        return super().render_to_response(context, **response_kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['size_choices'] = Dogs.SIZE_CHOICES
+        context['family_choices'] = Dogs.FAMILY_FRIENDLINESS_CHOICES
+        context['hypo_choices'] = Dogs.HYPOALLERGENIC_CHOICES
+        context['activity_choices'] = Dogs.ACTIVITY_CHOICES
+
+        context['all_breeds'] = Dogs.objects.filter(
+            is_published=True
+        ).order_by('title')
+
+        context['is_home'] = False
+
+        return self.get_user_context(
+            **context,
+            title='Find Your Perfect Dog'
         )
 
 

@@ -1,0 +1,12 @@
+<div class="dog-grid">
+    {% for dog in dogs %}
+        <div class="dog-card">
+            <a href="{{ dog.get_absolute_url }}">
+                <img src="{{ dog.photo.url }}" alt="{{ dog.title }}">
+                <div class="dog-card-title">{{ dog.title }}</div>
+            </a>
+        </div>
+    {% empty %}
+        <p>No dogs found.</p>
+    {% endfor %}
+</div>

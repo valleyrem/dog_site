@@ -1,22 +1,33 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+
+<!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>contact</span>
+        <span>Contact</span>
     </div>
 </div>
-<div class="policy-container">
-    <h1 id="about-title">{{ title }}</h1>
-    <p class="form-decs">Feel free to reach out with any questions, suggestions, or feedback.</p>
 
+<!-- Contact container -->
+<div class="policy-container">
+
+    <!-- Page title -->
+    <h1 id="about-title">{{ title }}</h1>
+
+    <!-- Intro text -->
+    <p>Feel free to reach out with any questions, suggestions, or feedback.</p>
+
+    <!-- Contact form -->
     <form id="contactForm" method="post">
         {% csrf_token %}
 
+        <!-- Non-field errors -->
         <div class="form-error">{{ form.non_field_errors }}</div>
 
+        <!-- Form fields -->
         {% for f in form %}
             {% if f.name == 'confirm_privacy' %}
                 <div class="form-check-wrapper">
@@ -26,21 +37,32 @@
                     </label>
                 </div>
             {% else %}
-                <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                <p>
+                    <label class="form-label" for="{{ f.id_for_label }}">
+                        {{ f.label }}:
+                    </label>
+                    {{ f }}
+                </p>
             {% endif %}
             <div class="form-error">{{ f.errors }}</div>
         {% endfor %}
+
+        <!-- Privacy notice -->
         <p class="form-oferta" style="font-size: 12px; font-family: 'Montserrat', sans-serif; text-align: justify;">
-            By clicking "Send" button, you allow WoofDogs to process your information in accordance with our <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a>.
+            By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
+            <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a>.
         </p>
 
-
-
+        <!-- Submit button -->
         <button id="btn-custom" type="submit" title="Send a message">Send</button>
+
     </form>
 </div>
 
+<!-- SweetAlert CDN -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- AJAX submit script -->
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -74,4 +96,5 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     xhr.send(formData);
 });
 </script>
+
 {% endblock %}

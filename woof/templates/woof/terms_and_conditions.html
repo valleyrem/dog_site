@@ -1,191 +1,122 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+
+<!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>terms of use</span>
+        <span>Terms of Use</span>
     </div>
 </div>
+
+<!-- Main content -->
 <div>
-<h1><strong>Terms of Use</strong></h1>
-<p class="last-updated"><strong>Last updated: February 2, 2026</strong></p>
+    <h1><strong>Terms of Use</strong></h1>
+    <p class="last-updated"><strong>Last updated: February 2, 2026</strong></p>
 
-<h2>Table of Contents</h2>
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <div class="num-list">
+        <a href="#consent-to-terms" title="Consent to Terms">1. Consent to Terms</a>
+        <a href="#intellectual-property-rights" title="Intellectual Property Rights">2. Intellectual Property Rights</a>
+        <a href="#user-representations" title="User Representations">3. User Representations</a>
+        <a href="#prohibited-activities" title="Prohibited Activities">4. Prohibited Activities</a>
+        <a href="#user-contributions" title="User Contributions">5. User Contributions</a>
+        <a href="#license-to-use" title="License to Use">6. License to Use</a>
+        <a href="#provided-materials" title="Provided Materials">7. Provided Materials</a>
+        <a href="#site-management" title="Website Management">8. Website Management</a>
+        <a href="#privacy-policy" title="Privacy Policy">9. Privacy Policy</a>
+        <a href="#term-and-termination" title="Term and Termination">10. Term and Termination</a>
+        <a href="#modifications-and-interruptions" title="Modifications and Interruptions">11. Modifications and Interruptions</a>
+        <a href="#governing-law" title="Governing Law">12. Governing Law</a>
+        <a href="#dispute-resolution" title="Dispute Resolution">13. Dispute Resolution</a>
+        <a href="#corrections" title="Corrections">14. Corrections</a>
+        <a href="#disclaimer" title="Disclaimer">15. Disclaimer</a>
+        <a href="#limitation-of-liability" title="Limitation of Liability">16. Limitation of Liability</a>
+        <a href="#indemnification" title="Indemnification">17. Indemnification</a>
+        <a href="#user-data" title="User Data">18. User Data</a>
+        <a href="#electronic-communications" title="Electronic Communications">19. Electronic Communications</a>
+        <a href="#california-users-and-residents" title="California Residents">20. California Residents</a>
+        <a href="#miscellaneous" title="Miscellaneous">21. Miscellaneous</a>
+        <a href="#contact-us" title="Contact Us">22. Contact Us</a>
+    </div>
 
-<div class="num-list">
-    <a href="#consent-to-terms">1. Consent to Terms</a>
-    <a href="#intellectual-property-rights">2. Intellectual Property Rights</a>
-    <a href="#user-representations">3. User Representations</a>
-    <a href="#prohibited-activities">4. Prohibited Activities</a>
-    <a href="#user-contributions">5. User Contributions</a>
-    <a href="#license-to-use">6. License to Use</a>
-    <a href="#provided-materials">7. Provided Materials</a>
-    <a href="#site-management">8. Website Management</a>
-    <a href="#privacy-policy">9. Privacy Policy</a>
-    <a href="#term-and-termination">10. Term and Termination</a>
-    <a href="#modifications-and-interruptions">11. Modifications and Interruptions</a>
-    <a href="#governing-law">12. Governing Law</a>
-    <a href="#dispute-resolution">13. Dispute Resolution</a>
-    <a href="#corrections">14. Corrections</a>
-    <a href="#disclaimer">15. Disclaimer</a>
-    <a href="#limitation-of-liability">16. Limitation of Liability</a>
-    <a href="#indemnification">17. Indemnification</a>
-    <a href="#user-data">18. User Data</a>
-    <a href="#electronic-communications">19. Electronic Communications</a>
-    <a href="#california-users-and-residents">20. California Residents</a>
-    <a href="#miscellaneous">21. Miscellaneous</a>
-    <a href="#contact-us">22. Contact Us</a>
-</div>
+    <!-- Sections -->
+    <h2 id="consent-to-terms">1. Consent to Terms</h2>
+    <p>These Terms of Use constitute a legally binding agreement between you («you») and <strong>Woof Dogs</strong> regarding your access to and use of <a href="https://woofdogs.world/" target="_blank" class="link-policies">https://woofdogs.world/</a>.</p>
+    <p>IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
 
-<h2 id="consent-to-terms">1. Consent to Terms</h2>
+    <h2 id="intellectual-property-rights">2. Intellectual Property Rights</h2>
+    <p>Unless otherwise stated, the Website and all content are owned or licensed by us and protected by intellectual property laws.</p>
 
-<p>
-These Terms of Use constitute a legally binding agreement between you («you») and
-<strong>Woof Dogs</strong> regarding your access to and use of
-<a href="https://woofdogs.world/" target="_blank" class="link-policies">https://woofdogs.world/</a>.
-</p>
+    <h2 id="user-representations">3. User Representations</h2>
+    <p>By using the Website, you represent and warrant that you comply with all applicable laws and these Terms.</p>
 
-<p>
-IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, YOU MUST DISCONTINUE USE IMMEDIATELY.
-</p>
+    <h2 id="prohibited-activities">4. Prohibited Activities</h2>
+    <p>You agree not to engage in prohibited activities, including but not limited to:</p>
+    <ul class="bulleted-list">
+        <li>Unauthorized data extraction</li>
+        <li>Fraud, abuse, or harassment</li>
+        <li>Security circumvention</li>
+        <li>Illegal or unauthorized use</li>
+    </ul>
 
-<h2 id="intellectual-property-rights">2. Intellectual Property Rights</h2>
+    <h2 id="user-contributions">5. User Contributions</h2>
+    <p>User contributions are governed by our <a href="{% url 'privacy-policy' %}" target="_blank" class="link-policies">Privacy Policy</a>.</p>
 
-<p>
-Unless otherwise stated, the Website and all content are owned or licensed by us and
-are protected by intellectual property laws.
-</p>
+    <h2 id="license-to-use">6. License to Use</h2>
+    <p>You are granted a limited, non-commercial license to use the Website.</p>
 
-<h2 id="user-representations">3. User Representations</h2>
+    <h2 id="provided-materials">7. Provided Materials</h2>
+    <p>Any materials you submit become our property and may be used without compensation.</p>
 
-<p>
-By using the Website, you represent and warrant that you comply with all applicable laws
-and these Terms.
-</p>
+    <h2 id="site-management">8. Website Management</h2>
+    <p>We reserve the right to manage, restrict, or remove content at our discretion.</p>
 
-<h2 id="prohibited-activities">4. Prohibited Activities</h2>
+    <h2 id="privacy-policy">9. Privacy Policy</h2>
+    <p>Your use of the Website is also governed by our <a href="{% url 'privacy-policy' %}" target="_blank" class="link-policies">Privacy Policy</a>.</p>
 
-<p>You agree not to engage in prohibited activities, including but not limited to:</p>
+    <h2 id="term-and-termination">10. Term and Termination</h2>
+    <p>We may terminate access to the Website at any time without notice.</p>
 
-<ul class="bulleted-list">
-    <li>Unauthorized data extraction</li>
-    <li>Fraud, abuse, or harassment</li>
-    <li>Security circumvention</li>
-    <li>Illegal or unauthorized use</li>
-</ul>
+    <h2 id="modifications-and-interruptions">11. Modifications and Interruptions</h2>
+    <p>We reserve the right to modify or discontinue the Website without liability.</p>
 
-<h2 id="user-contributions">5. User Contributions</h2>
+    <h2 id="governing-law">12. Governing Law</h2>
+    <p>These Terms are governed by the laws of Serbia.</p>
 
-<p>
-User contributions are governed by our
-<a href="{% url 'privacy-policy' %}" target="_blank" class="link-policies">Privacy Policy</a>.
-</p>
+    <h2 id="dispute-resolution">13. Dispute Resolution</h2>
+    <p>Disputes shall be resolved through arbitration in Serbia.</p>
 
-<h2 id="license-to-use">6. License to Use</h2>
+    <h2 id="corrections">14. Corrections</h2>
+    <p>We may correct errors or update content at any time.</p>
 
-<p>
-You are granted a limited, non-commercial license to use the Website.
-</p>
+    <h2 id="disclaimer">15. Disclaimer</h2>
+    <p>The Website is provided “AS IS” without warranties.</p>
 
-<h2 id="provided-materials">7. Provided Materials</h2>
+    <h2 id="limitation-of-liability">16. Limitation of Liability</h2>
+    <p>Our liability is limited to the maximum extent permitted by law.</p>
 
-<p>
-Any materials you submit become our property and may be used without compensation.
-</p>
+    <h2 id="indemnification">17. Indemnification</h2>
+    <p>You agree to indemnify and hold us harmless.</p>
 
-<h2 id="site-management">8. Website Management</h2>
+    <h2 id="user-data">18. User Data</h2>
+    <p>You are responsible for any data you submit.</p>
 
-<p>
-We reserve the right to manage, restrict, or remove content at our discretion.
-</p>
+    <h2 id="electronic-communications">19. Electronic Communications</h2>
+    <p>Electronic communications satisfy legal requirements.</p>
 
-<h2 id="privacy-policy">9. Privacy Policy</h2>
+    <h2 id="california-users-and-residents">20. California Residents</h2>
+    <p>California residents may contact the appropriate authorities as required by law.</p>
 
-<p>
-Your use of the Website is also governed by our
-<a href="{% url 'privacy-policy' %}" target="_blank" class="link-policies">Privacy Policy</a>.
-</p>
+    <h2 id="miscellaneous">21. Miscellaneous</h2>
+    <p>These Terms constitute the entire agreement between you and us.</p>
 
-<h2 id="term-and-termination">10. Term and Termination</h2>
-
-<p>
-We may terminate access to the Website at any time without notice.
-</p>
-
-<h2 id="modifications-and-interruptions">11. Modifications and Interruptions</h2>
-
-<p>
-We reserve the right to modify or discontinue the Website without liability.
-</p>
-
-<h2 id="governing-law">12. Governing Law</h2>
-
-<p>
-These Terms are governed by the laws of Serbia.
-</p>
-
-<h2 id="dispute-resolution">13. Dispute Resolution</h2>
-
-<p>
-Disputes shall be resolved through arbitration in Serbia.
-</p>
-
-<h2 id="corrections">14. Corrections</h2>
-
-<p>
-We may correct errors or update content at any time.
-</p>
-
-<h2 id="disclaimer">15. Disclaimer</h2>
-
-<p>
-The Website is provided “AS IS” without warranties.
-</p>
-
-<h2 id="limitation-of-liability">16. Limitation of Liability</h2>
-
-<p>
-Our liability is limited to the maximum extent permitted by law.
-</p>
-
-<h2 id="indemnification">17. Indemnification</h2>
-
-<p>
-You agree to indemnify and hold us harmless.
-</p>
-
-<h2 id="user-data">18. User Data</h2>
-
-<p>
-You are responsible for any data you submit.
-</p>
-
-<h2 id="electronic-communications">19. Electronic Communications</h2>
-
-<p>
-Electronic communications satisfy legal requirements.
-</p>
-
-<h2 id="california-users-and-residents">20. California Residents</h2>
-
-<p>
-California residents may contact the appropriate authorities as required by law.
-</p>
-
-<h2 id="miscellaneous">21. Miscellaneous</h2>
-
-<p>
-These Terms constitute the entire agreement between you and us.
-</p>
-
-<h2 id="contact-us">22. Contact Us</h2>
-
-<p>
-Questions may be sent to
-<a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a>.
-</p>
+    <h2 id="contact-us">22. Contact Us</h2>
+    <p>Questions may be sent to <a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a>.</p>
 
 </div>
+
 {% endblock %}

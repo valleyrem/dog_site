@@ -3,60 +3,137 @@
 
 {% block content %}
 <div class="homepage">
-<p class="homepage-text">
-    Fur on your clothes <span class="highlight">means</span> you're truly loved
-</p>
+
+    <!-- Hero section with dog stacks and main text -->
+    <div class="hero-block">
+
+        <div class="dog-stack left">
+            <div class="dog-img"></div>
+            <div class="dog-img"></div>
+        </div>
+
+        <div class="dog-stack right">
+            <div class="dog-img"></div>
+            <div class="dog-img"></div>
+        </div>
+
+        <p class="homepage-text">
+            Fur on your Clothes
+            <span class="highlight">means</span>
+            You're Truly
+            <span class="highlight">Loved</span>
+        </p>
+
+    </div>
+
+    <!-- Search by group and breed -->
     <div class="homepage-left">
-        <i class="bi bi-chevron-double-down chevron-icon"></i>
-        <div class="homepage-search">
-            <label for="breed-select">Search </label>
+        <p class="homepage-left-text">
+            Start by exploring breed groups or selecting a specific breed to refine your search and discover which dogs align most naturally with your home and lifestyle.
+        </p>
+
+        <div class="homepage-search" title="Select a group">
+            <label for="breed-select">Explore by Group</label>
             <select id="breed-select" onchange="if(this.value) window.location.href=this.value;">
-                <option value="">select a group</option>
-                <i class="bi bi-hand-index"></i>
+                <option value="">Select a group</option>
                 {% for group in cats %}
                     <option value="{{ group.get_absolute_url }}">{{ group.name }}</option>
                 {% endfor %}
             </select>
         </div>
-        <p class="homepage-left-text">
-            Begin with breed groups to narrow your search and better understand which dogs suit your way of life.
-        </p>
+
+        <div class="homepage-search hero-search">
+            <label for="breed-select-1">Find by Breed</label>
+            <select id="breed-select-1">
+                <option value="">Select a breed</option>
+                {% for dog in posts %}
+                    <option value="{{ dog.get_absolute_url }}">{{ dog.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
     </div>
 
-<div class="homepage-right">
-    <i class="bi bi-pin-angle-fill"></i>
-    <div class="wave-wrapper">
-        <img src="{% static 'woof/waves_V3 copy.jpg' %}" alt="Waves" class="homepage-wave">
-    </div>
-</div>
+    <!-- Secondary text -->
+    <p class="homepage-text">
+        Meet the Breeds <span class="highlight">Up Close</span>
+    </p>
 
+    <!-- Showcase section with breed cards and description -->
+    <div class="home-showcase">
+        <div class="home-showcase-right">
+            <p>
+                From calm companions to energetic explorers, each breed brings its own rhythm and personality.<br>
+                Take your time to explore and compare.
+            </p>
+        </div>
 
-</div>
-
-<div class="home-showcase">
-            <p class="homepage-text">
-            The breed that fits you <span class="highlight">best</span></p>
-
-    <div class="home-showcase-right">
-     <p>
-            Each breed has its own character, energy level and needs.<br>
-            Explore, compare and choose the one that truly matches your lifestyle.
-        </p>
-    </div>
-
-    <div class="home-showcase-left">
-        <div class="dog-slider">
-            {% for dog in posts %}
-            <a href="{{ dog.get_absolute_url }}" class="dog-card">
-                {% if dog.photo %}
-                    <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
-                {% endif %}
-                <div class="dog-card-title">{{ dog.title }}</div>
-            </a>
-            {% endfor %}
+        <div class="home-showcase-left">
+            <div class="dog-slider">
+                {% for dog in posts %}
+                    <a href="{{ dog.get_absolute_url }}" class="dog-card" title="{{ dog.title }}">
+                        {% if dog.photo %}
+                            <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
+                        {% endif %}
+                        <div class="dog-card-title">{{ dog.title }}</div>
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
+
 </div>
 
+<!-- Redirect to selected breed page -->
+<script>
+const breedSelect = document.getElementById('breed-select-1');
+breedSelect.addEventListener('change', function() {
+    if (this.value) {
+        window.location.href = this.value;
+    }
+});
+</script>
+
+<!-- Dog stack slider logic -->
+<script>
+const dogs = [
+    "{% static 'woof/1.png' %}",
+    "{% static 'woof/2.png' %}",
+    "{% static 'woof/31.png' %}",
+    "{% static 'woof/44.png' %}",
+    "{% static 'woof/5.png' %}",
+    "{% static 'woof/61.png' %}"
+];
+
+const leftStack = document.querySelector('.dog-stack.left').children;
+const rightStack = document.querySelector('.dog-stack.right').children;
+
+let pairIndex = 0;
+let activeLayer = 0;
+
+function showDogs() {
+    const leftIndex = pairIndex * 2;
+    const rightIndex = pairIndex * 2 + 1;
+
+    const nextLayer = 1 - activeLayer;
+
+    // Set next layer images and fade in
+    leftStack[nextLayer].style.backgroundImage = `url(${dogs[leftIndex]})`;
+    rightStack[nextLayer].style.backgroundImage = `url(${dogs[rightIndex]})`;
+    leftStack[nextLayer].style.opacity = 1;
+    rightStack[nextLayer].style.opacity = 1;
+
+    // Fade out current layer
+    leftStack[activeLayer].style.opacity = 0;
+    rightStack[activeLayer].style.opacity = 0;
+
+    activeLayer = nextLayer;
+    pairIndex = (pairIndex + 1) % (dogs.length / 2);
+}
+
+// Initial display and interval
+showDogs();
+setInterval(showDogs, 3000);
+</script>
 
 {% endblock %}

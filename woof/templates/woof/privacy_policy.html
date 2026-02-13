@@ -1,237 +1,146 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+
+<!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>privacy policy</span>
+        <span>Privacy Policy</span>
     </div>
 </div>
+
+<!-- Main content -->
 <div>
-<h1><strong>Privacy Policy</strong></h1>
-<p class="last-updated"><strong>Last updated: February 2, 2026</strong></p>
+    <h1><strong>Privacy Policy</strong></h1>
+    <p class="last-updated"><strong>Last updated: February 2, 2026</strong></p>
 
-<p>
-This Privacy Policy describes how <strong>Woof Dogs</strong> («Website», «we», «us») collects, uses, and protects information when you visit our website
-<a href="https://woofdogs.world/" target="_blank" class="link-policies">https://woofdogs.world/</a>.
-</p>
+    <p>
+        This Privacy Policy describes how <strong>Woof Dogs</strong> («Website», «we», «us») collects, uses, and protects information when you visit our website
+        <a href="https://woofdogs.world/" target="_blank" class="link-policies" title="Woof Dogs">https://woofdogs.world/</a>.
+    </p>
 
-<p>
-By using this Website, you agree to the collection and use of information in accordance with this Privacy Policy.
-</p>
+    <p>
+        By using this Website, you agree to the collection and use of information in accordance with this Privacy Policy.
+    </p>
 
-<h2>Table of Contents</h2>
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <div class="num-list">
+        <a href="#who-we-are" title="Who we are">1. Who we are</a>
+        <a href="#no-direct-data" title="Personal data you provide">2. Personal data you provide</a>
+        <a href="#auto-data" title="Automatically collected information">3. Automatically collected information</a>
+        <a href="#purposes" title="Purposes of processing">4. Purposes of processing</a>
+        <a href="#legal-bases" title="Legal bases and regional laws">5. Legal bases and regional laws</a>
+        <a href="#cookies" title="Cookies and tracking technologies">6. Cookies and tracking technologies</a>
+        <a href="#sharing" title="Sharing of information">7. Sharing of information</a>
+        <a href="#international" title="International data transfers">8. International data transfers</a>
+        <a href="#retention" title="Data retention">9. Data retention</a>
+        <a href="#rights" title="Your privacy rights">10. Your privacy rights</a>
+        <a href="#children" title="Children’s privacy">11. Children’s privacy</a>
+        <a href="#updates" title="Updates to this policy">12. Updates to this policy</a>
+        <a href="#contact" title="Contact information">13. Contact information</a>
+    </div>
 
-<div class="num-list">
-    <a href="#who-we-are">1. Who we are</a>
-    <a href="#no-direct-data">2. Personal data you provide</a>
-    <a href="#auto-data">3. Automatically collected information</a>
-    <a href="#purposes">4. Purposes of processing</a>
-    <a href="#legal-bases">5. Legal bases and regional laws</a>
-    <a href="#cookies">6. Cookies and tracking technologies</a>
-    <a href="#sharing">7. Sharing of information</a>
-    <a href="#international">8. International data transfers</a>
-    <a href="#retention">9. Data retention</a>
-    <a href="#rights">10. Your privacy rights</a>
-    <a href="#children">11. Children’s privacy</a>
-    <a href="#updates">12. Updates to this policy</a>
-    <a href="#contact">13. Contact information</a>
+    <!-- Who we are -->
+    <h2 id="who-we-are">1. Who we are</h2>
+    <p>Woof Dogs is an informational website dedicated to dog breeds and related content. We do not provide user accounts, registration, or login functionality.</p>
+
+    <!-- Personal data -->
+    <h2 id="no-direct-data">2. Personal data you provide</h2>
+    <p><em>In short:</em> We only process the personal data you voluntarily provide.</p>
+    <p>The Website does not require registration and does not request names, usernames, passwords, or email addresses by default. However, if you contact us through the <strong>Contact Form</strong>, we collect:</p>
+    <ul class="bulleted-list">
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Message or inquiry content</li>
+    </ul>
+    <p>We use this information solely to respond to your inquiry and do not share it with third parties except where required by law.</p>
+
+    <!-- Automatically collected information -->
+    <h2 id="auto-data">3. Automatically collected information</h2>
+    <p>When you visit the Website, certain information may be collected automatically, including:</p>
+    <ul class="bulleted-list">
+        <li>IP address</li>
+        <li>Browser type and version</li>
+        <li>Device and operating system information</li>
+        <li>Pages visited and time spent on the site</li>
+        <li>Referring URLs</li>
+    </ul>
+    <p>This information does not directly identify you and is used for analytics, security, and performance improvement.</p>
+
+    <!-- Purposes of processing -->
+    <h2 id="purposes">4. Purposes of processing</h2>
+    <ul class="bulleted-list">
+        <li>Ensuring proper functioning of the Website</li>
+        <li>Analyzing usage to improve content and structure</li>
+        <li>Maintaining Website security and preventing abuse</li>
+        <li>Complying with legal obligations</li>
+    </ul>
+
+    <!-- Legal bases -->
+    <h2 id="legal-bases">5. Legal bases and regional laws</h2>
+    <p>Depending on your location, your data is processed in accordance with applicable data protection laws.</p>
+
+    <h3>European Union (GDPR)</h3>
+    <p>If you are in the EEA, data is processed under the <a href="https://gdpr.eu/" target="_blank" title="GDPR" class="link-policies">GDPR</a>, based on legitimate interests, consent, or legal obligations.</p>
+
+    <h3>United Kingdom (UK GDPR)</h3>
+    <p>For UK users, data is processed under the <a href="https://www.legislation.gov.uk/ukpga/2018/12/contents/enacted" title="UK DPA 2018" target="_blank" class="link-policies">UK Data Protection Act 2018</a> and UK GDPR.</p>
+
+    <h3>United States</h3>
+    <p>US residents may have privacy rights under state laws, including:</p>
+    <ul class="bulleted-list">
+        <li><a href="https://oag.ca.gov/privacy/ccpa" target="_blank" class="link-policies">California Consumer Privacy Act (CCPA/CPRA)</a></li>
+        <li><a href="https://law.lis.virginia.gov/vacode/title59.1/chapter53/" target="_blank" class="link-policies">Virginia Consumer Data Protection Act (VCDPA)</a></li>
+        <li><a href="https://coag.gov/resources/colorado-privacy-act/" target="_blank" class="link-policies">Colorado Privacy Act (CPA)</a></li>
+        <li><a href="https://www.legis.state.ut.us/xcode/Title13/Chapter61/C13-61_2022050420220504.pdf" target="_blank" class="link-policies">Utah Consumer Privacy Act (UCPA)</a></li>
+        <li><a href="https://www.tn.gov/content/dam/tn/attorneygeneral/documents/pr/2023/privacy-act.pdf" target="_blank" class="link-policies">Tennessee Information Protection Act (TIPA)</a></li>
+    </ul>
+
+    <h3>Canada</h3>
+    <p>Handled in accordance with <a href="https://laws-lois.justice.gc.ca/eng/acts/p-8.6/" target="_blank" class="link-policies">PIPEDA</a>.</p>
+
+    <h3>Australia</h3>
+    <p>Processed under the <a href="https://www.oaic.gov.au/privacy/the-privacy-act" target="_blank" class="link-policies">Privacy Act 1988</a>.</p>
+
+    <h3>Other countries</h3>
+    <p>We follow generally accepted international data protection principles.</p>
+
+    <!-- Cookies -->
+    <h2 id="cookies">6. Cookies and tracking technologies</h2>
+    <p>The Website uses cookies to ensure proper operation and analyze traffic. Manage cookies in your browser settings.</p>
+    <p>More details in our <a href="https://woofdogs.world/cookie-policy/" target="_blank" class="link-policies">Cookie Policy</a>.</p>
+
+    <!-- Sharing -->
+    <h2 id="sharing">7. Sharing of information</h2>
+    <p>We do not sell or rent personal data. Information may be shared with analytics providers or as required by law.</p>
+
+    <!-- International transfers -->
+    <h2 id="international">8. International data transfers</h2>
+    <p>Data may be processed outside your country. Appropriate safeguards are applied when needed.</p>
+
+    <!-- Retention -->
+    <h2 id="retention">9. Data retention</h2>
+    <p>Data is retained only as long as necessary for the purposes described in this policy.</p>
+
+    <!-- Privacy rights -->
+    <h2 id="rights">10. Your privacy rights</h2>
+    <p>Depending on your location, you may have the right to access, correct, delete, or restrict your data.</p>
+    <p>Requests: <a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a></p>
+
+    <!-- Children -->
+    <h2 id="children">11. Children’s privacy</h2>
+    <p>The Website is not intended for children under 18. We do not knowingly collect data from minors.</p>
+
+    <!-- Updates -->
+    <h2 id="updates">12. Updates to this policy</h2>
+    <p>This Privacy Policy may be updated periodically. Updated versions will be posted on this page.</p>
+
+    <!-- Contact -->
+    <h2 id="contact">13. Contact information</h2>
+    <p>Questions? Contact: <a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a></p>
 </div>
 
-<h2 id="who-we-are">1. Who we are</h2>
-
-<p>
-Woof Dogs is an informational website dedicated to dog breeds and related content.
-We do not provide user accounts, registration, or login functionality.
-</p>
-
-<h2 id="no-direct-data">2. Personal data you provide</h2>
-
-<p><em>In short:</em> We only process the personal data you voluntarily provide.</p>
-
-<p>
-The Website does not require registration and does not request names, usernames, passwords, or email addresses by default.
-However, if you choose to contact us through the <strong>Contact Form</strong>, we will collect the information you provide, including:
-</p>
-
-<ul class="bulleted-list">
-    <li>Name</li>
-    <li>Email address</li>
-    <li>Message or inquiry content</li>
-</ul>
-
-<p>
-We use this information solely to respond to your inquiry and will not share it with third parties except where required by law.
-</p>
-
-<h2 id="auto-data">3. Automatically collected information</h2>
-
-<p>
-When you visit the Website, certain information may be collected automatically, including:
-</p>
-
-<ul class="bulleted-list">
-    <li>IP address</li>
-    <li>Browser type and version</li>
-    <li>Device and operating system information</li>
-    <li>Pages visited and time spent on the site</li>
-    <li>Referring URLs</li>
-</ul>
-
-<p>
-This information does not directly identify you and is used for analytics, security, and performance improvement.
-</p>
-
-<h2 id="purposes">4. Purposes of processing</h2>
-
-<ul class="bulleted-list">
-    <li>Ensuring proper functioning of the Website</li>
-    <li>Analyzing usage to improve content and structure</li>
-    <li>Maintaining Website security and preventing abuse</li>
-    <li>Complying with legal obligations</li>
-</ul>
-
-<h2 id="legal-bases">5. Legal bases and regional laws</h2>
-
-<p>
-Depending on your location, your data is processed in accordance with applicable data protection laws.
-</p>
-
-<h3>European Union (GDPR)</h3>
-<p>
-If you are located in the European Economic Area (EEA), data is processed under the
-<a href="https://gdpr.eu/" target="_blank" class="link-policies">General Data Protection Regulation (GDPR)</a>,
-based on legitimate interests, consent (where applicable), or legal obligations.
-</p>
-
-<h3>United Kingdom (UK GDPR)</h3>
-<p>
-For users in the United Kingdom, data is processed in accordance with the
-<a href="https://www.legislation.gov.uk/ukpga/2018/12/contents/enacted" target="_blank" class="link-policies">
-UK Data Protection Act 2018
-</a>
-and UK GDPR.
-</p>
-
-<h3>United States</h3>
-<p>
-If you are a resident of the United States, privacy rights may apply under state laws, including:
-</p>
-
-<ul class="bulleted-list">
-    <li>
-        <a href="https://oag.ca.gov/privacy/ccpa" target="_blank" class="link-policies">
-        California Consumer Privacy Act (CCPA/CPRA)
-        </a>
-    </li>
-    <li>
-        <a href="https://law.lis.virginia.gov/vacode/title59.1/chapter53/" target="_blank" class="link-policies">
-        Virginia Consumer Data Protection Act (VCDPA)
-        </a>
-    </li>
-    <li>
-        <a href="https://coag.gov/resources/colorado-privacy-act/" target="_blank" class="link-policies">
-        Colorado Privacy Act (CPA)
-        </a>
-    </li>
-    <li>
-        <a href="https://www.legis.state.ut.us/xcode/Title13/Chapter61/C13-61_2022050420220504.pdf" target="_blank" class="link-policies">
-        Utah Consumer Privacy Act (UCPA)
-        </a>
-    </li>
-    <li>
-        <a href="https://www.tn.gov/content/dam/tn/attorneygeneral/documents/pr/2023/privacy-act.pdf" target="_blank" class="link-policies">
-        Tennessee Information Protection Act (TIPA)
-        </a>
-    </li>
-</ul>
-
-<h3>Canada</h3>
-<p>
-For users in Canada, personal information is handled in accordance with
-<a href="https://laws-lois.justice.gc.ca/eng/acts/p-8.6/" target="_blank" class="link-policies">
-PIPEDA
-</a>.
-</p>
-
-<h3>Australia</h3>
-<p>
-For users in Australia, data is processed under the
-<a href="https://www.oaic.gov.au/privacy/the-privacy-act" target="_blank" class="link-policies">
-Privacy Act 1988
-</a>.
-</p>
-
-<h3>Other countries</h3>
-<p>
-If you are located outside the regions listed above, we process information in accordance with generally accepted international data protection principles.
-</p>
-
-<h2 id="cookies">6. Cookies and tracking technologies</h2>
-
-<p>
-The Website uses cookies to ensure proper operation and to analyze traffic.
-You can manage cookies through your browser settings.
-</p>
-
-<p>
-More details are available in our
-<a href="https://woofdogs.world/cookie-policy/" target="_blank" class="link-policies">Cookie Policy</a>.
-</p>
-
-<h2 id="sharing">7. Sharing of information</h2>
-
-<p>
-We do not sell or rent personal data.
-Information may be shared only with analytics providers or when required by law.
-</p>
-
-<h2 id="international">8. International data transfers</h2>
-
-<p>
-Data may be processed outside your country of residence.
-Where required, appropriate safeguards are applied.
-</p>
-
-<h2 id="retention">9. Data retention</h2>
-
-<p>
-We retain data only for as long as necessary to fulfill the purposes described in this policy.
-</p>
-
-<h2 id="rights">10. Your privacy rights</h2>
-
-<p>
-Depending on your location, you may have the right to access, correct, delete, or restrict the processing of your data.
-</p>
-
-<p>
-Requests can be sent to:
-<a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a>
-</p>
-
-<h2 id="children">11. Children’s privacy</h2>
-
-<p>
-The Website is not intended for children under 18.
-We do not knowingly collect personal data from minors.
-</p>
-
-<h2 id="updates">12. Updates to this policy</h2>
-
-<p>
-This Privacy Policy may be updated from time to time.
-The updated version will be posted on this page.
-</p>
-
-<h2 id="contact">13. Contact information</h2>
-
-<p>
-If you have any questions about this Privacy Policy, please contact us at:
-<br>
-<a href="mailto:woofdogs23@gmail.com" class="link-policies">woofdogs23@gmail.com</a>
-</p>
-
-</div>
 {% endblock %}

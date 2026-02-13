@@ -2,38 +2,46 @@
 
 {% block content %}
 
+<!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>about</span>
+        <span>About</span>
     </div>
 </div>
 
+<!-- About container -->
 <div class="policy-container">
+
+    <!-- Page title -->
     <h1 id="post-title">About</h1>
 
-    <p class="form-decs">
+    <!-- Intro -->
+    <p>
         <strong>Welcome!</strong>
     </p>
 
-    <p class="form-decs">
+    <p>
         This website was created for fun and learning. It provides short, structured information about dog breeds,
         grouped according to the classification of the American Kennel Club (AKC) —
         one of the oldest and most respected dog breed organizations in the world, founded in 1884.
     </p>
 
-    <p class="form-decs">
+    <p>
         AKC defines breed standards, organizes dog shows and sporting events, and serves as a reliable reference
         for breeders and dog owners. On this site, breeds are grouped following the same system for easier navigation
         and comparison.
     </p>
 
-    <p class="form-decs">
+    <!-- Group intro -->
+    <p>
         Currently, the AKC recognizes the following breed groups:
     </p>
 
+    <!-- Breed groups list -->
     <ul class="bulleted-list">
+
         <li>
             <strong>
                 <a href="{% url 'category' 'sporting-group' %}" class="link-site">
@@ -114,9 +122,11 @@
             </strong>
             Rare breeds whose populations are being documented and developed toward official recognition.
         </li>
+
     </ul>
 
-    <p class="form-decs">
+    <!-- Breeds note -->
+    <p>
         <strong>Breeds:</strong> The list of breeds on this website is not complete.
         If you would like to help expand it, you can register and add a new breed,
         making sure it is not already listed.
@@ -126,8 +136,11 @@
         </a>.
     </p>
 
-    <p class="form-decs">
+    <!-- Closing -->
+    <p>
         Enjoy exploring, learning, and sharing!
     </p>
+
 </div>
+
 {% endblock %}

@@ -32,7 +32,6 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 SECURE_PROXY_SSL_HEADER = None
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'woof.apps.WoofConfig',
     'compressor',
     'whitenoise.runserver_nostatic',
+    'imagekit',
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

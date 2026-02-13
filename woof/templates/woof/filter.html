@@ -1,0 +1,114 @@
+{% extends 'woof/base.html' %}
+{% block content %}
+
+<section class="filter-section">
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs-wrapper">
+    <div class="breadcrumbs">
+        <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+        <span>/</span>
+        <span>Filters</span>
+    </div>
+</div>
+
+<h1 class="page-title-filters">
+    Find Your Dog <i class="bi bi-search"></i>
+</h1>
+
+
+<!-- Filters -->
+<form id="filter-form" class="filter-form">
+
+    <div class="filter-group">
+        <p><i class="bi bi-arrows-angle-expand"></i> Size</p>
+        {% for value, label in size_choices %}
+            <label>
+                <input type="checkbox" name="size" value="{{ value }}">
+                {{ label }}
+            </label>
+        {% endfor %}
+    </div>
+
+    <div class="filter-group">
+        <p><i class="bi bi-people"></i> Family Friendly</p>
+        {% for value, label in family_choices %}
+            <label>
+                <input type="checkbox" name="family" value="{{ value }}">
+                {{ label }}
+            </label>
+        {% endfor %}
+    </div>
+
+    <div class="filter-group">
+        <p><i class="bi bi-shield-check"></i> Hypoallergenic</p>
+        {% for value, label in hypo_choices %}
+            <label>
+                <input type="checkbox" name="hypo" value="{{ value }}">
+                {{ label }}
+            </label>
+        {% endfor %}
+    </div>
+
+    <div class="filter-group">
+        <p><i class="bi bi-lightning"></i> Activity</p>
+        {% for value, label in activity_choices %}
+            <label>
+                <input type="checkbox" name="activity" value="{{ value }}">
+                {{ label }}
+            </label>
+        {% endfor %}
+    </div>
+
+    <div class="filter-group clear-filters-group">
+        <button type="button" id="clear-filters" class="btn-filter">
+            Clear All Filters <i class="bi bi-x-square"></i>
+        </button>
+    </div>
+
+</form>
+
+<!-- Results -->
+<div id="dog-results">
+    {% include 'woof/dog_cards.html' %}
+</div>
+
+</section>
+
+<!-- AJAX filtering -->
+<script>
+const form = document.getElementById('filter-form');
+const results = document.getElementById('dog-results');
+
+form.addEventListener('change', function() {
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData);
+
+    fetch("{% url 'filters' %}?" + params.toString(), {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        results.innerHTML = data.html;
+    });
+});
+</script>
+
+<!-- Clear filters -->
+<script>
+const clearBtn = document.getElementById('clear-filters');
+
+clearBtn.addEventListener('click', function() {
+    form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+    fetch("{% url 'filters' %}", {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        results.innerHTML = data.html;
+    });
+});
+</script>
+
+{% endblock %}

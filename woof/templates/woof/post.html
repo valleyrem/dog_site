@@ -2,76 +2,148 @@
 
 {% block content %}
 
+<!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
 
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home">Home</a>
         <span>/</span>
-        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">{{ post.cat.name }}</a>
+        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">
+            {{ post.cat.name }}
+        </a>
         <span>/</span>
         <span class="current">{{ post.title }}</span>
     </div>
 
+<!-- Navigation between posts -->
     <div class="post-navigation">
         {% if prev_post %}
-            <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev">
+            <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev" title="{{ prev_post.title }}">
                 <i class="bi bi-arrow-left-short"></i> {{ prev_post.title }}
             </a>
         {% endif %}
+
         <i class="bi bi-dot"></i>
+
         {% if next_post %}
-            <a href="{{ next_post.get_absolute_url }}" class="nav-link next">
-                {{ next_post.title }} <i class="bi bi-arrow-right-short"></i>
+            <a href="{{ next_post.get_absolute_url }}" class="nav-link next" title="{{ next_post.title }}">
+                {{ next_post.title }}
+                <i class="bi bi-arrow-right-short"></i>
             </a>
         {% endif %}
     </div>
 
 </div>
 
-
+<!-- Main post content -->
 <div class="post-container">
-    <h1 class="post-title" title="{{ post.title }}">{{ post.title }}</h1>
 
-    <div class="post-params">
-        <p><i class="bi bi-arrows-fullscreen"></i> <strong>Size:</strong> {{ post.get_size_display }}</p>
-        <p><i class="bi bi-brush"></i> <strong>Coat:</strong> {{ post.get_coat_type_display }}, {{ post.get_coat_length_display }}</p>
-        <p><i class="bi bi-journal-check"></i> <strong>Trainability:</strong> {{ post.get_trainability_display }}</p>
-        <p><i class="bi bi-lightning"></i> <strong>Activity:</strong> {{ post.get_activity_level_display }}</p>
-        <p><i class="bi bi-volume-up"></i> <strong>Barking:</strong> {{ post.get_barking_level_display }}</p>
+    <h1 class="post-title">{{ post.title }}</h1>
+
+    <div class="post-media">
+
+        {% if post.photo %}
+        <div class="post-main-image">
+            <img class="post-image"
+                 src="{{ post.photo.url }}"
+                 alt="{{ post.title }}"
+                 title="{{ post.title }}"
+                 data-author="Photo: {{ post.photo_author|escapejs }}"
+            >
+            {% if post.photo_author %}
+                <div class="photo-author">Photo: {{ post.photo_author }}</div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Breed characteristics panel -->
+        <div class="post-right">
+            <h2 class="breed-char">Breed Characteristics</h2>
+
+            <div class="post-params-grid">
+                <p>
+                    <i class="bi bi-arrows-angle-expand"></i>
+                    Size:
+                    {% for icon in size_icons %}
+                        <i class="fa-solid fa-dog {% if icon.active %}dog-active{% else %}dog-muted{% endif %}"
+                           style="font-size: {{ icon.size }}rem; padding-left: 5px;"></i>
+                    {% endfor %}  <strong>({{ post.get_size_display }})</strong>
+                </p>
+                <p><i class="bi bi-hourglass-split"></i>
+                    Life expectancy: <strong>{{ post.life_expectancy }} years</strong></p>
+                <p><i class="bi bi-rulers"></i>
+                    Height & weight: <strong>{{ post.height }} cm</strong>,
+                                     <strong>{{ post.weight }} kg</strong>
+                </p>
+                <p><i class="bi bi-lightbulb"></i>
+                    Trainability: <strong>{{ post.get_trainability_display }}</strong></p>
+                <p><i class="bi bi-brush"></i>
+                    Coat length & type: <strong>{{ post.get_coat_length_display }}</strong>,
+                                        <strong>{{ post.get_coat_type_display }}</strong>
+                </p>
+                <p><i class="bi bi-lightning"></i>
+                    Activity: <strong>{{ post.get_activity_level_display }}</strong></p>
+                <p><i class="bi bi-volume-up"></i>
+                    Barking: <strong>{{ post.get_barking_level_display }}</strong></p>
+                <p><i class="bi bi-shield-check"></i>
+                    Hypoallergenic: <strong>{{ post.get_hypoallergenic_display }}</strong></p>
+                <p><i class="bi bi-palette"></i>
+                    Colors: <strong>{{ post.colors }}</strong></p>
+                <p><i class="bi bi-people"></i>
+                    Family friendliness: <strong>{{ post.get_family_friendliness_display }}</strong></p>
+            </div>
+
+            <!-- Gallery images -->
+            {% if post.gallery.all %}
+            <p class="images-rule">
+                This website is non-commercial. All images are used with attribution.
+                If you believe any content violates your rights, please contact
+                <a href="mailto:woofdogs23@gmail.com" class="link-policies">this email</a>.
+            </p>
+
+            <div class="mini-gallery">
+                {% for photo in post.gallery.all|slice:":4" %}
+                    <img src="{{ photo.image.url }}" class="gallery-image" alt="{{ post.title }}" title="{{ post.title }}"
+                         data-author="Photo: {{ photo.author|escapejs }}">
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
     </div>
 
-    <div class="post-main">
-    {% if post.photo %}
-    <div class="post-image-wrapper">
-        <img class="post-image" src="{{ post.photo.url }}" alt="{{ post.title }}" title="{{ post.title }}">
-    </div>
-    {% endif %}
-
+    <!-- About the breed -->
+    <h2 class="section-title">About the Breed</h2>
     <div class="post-text">
-        <p><i class="bi bi-file-text"></i> <strong>Summary:</strong> Belongs to the {{ post.cat.name }}. {{ post.content|linebreaks }}</p>
-        <p><i class="bi bi-heart"></i> <strong>Care:</strong> {{ post.care|linebreaks }}</p>
-        <p><i class="bi bi-house"></i> <strong>Conditions:</strong> {{ post.living_conditions|linebreaks }}</p>
+        <p><strong>Summary:</strong> {{ post.summary }}</p>
+        <p><strong>Care:</strong> {{ post.care }}</p>
+        <p><strong>Conditions:</strong> {{ post.living_conditions }}</p>
+        <p class="updated">updated: {{ post.time_update }}</p>
     </div>
 </div>
 
-<div id="image-modal" class="modal">
+<!-- Image modal -->
+<div id="modal" class="modal">
     <span class="close">&times;</span>
-    <img class="modal-content" id="img-expanded">
-</div>
-    <a href="javascript:void(0);" onclick="history.back();" class="btn-back"><i class="bi bi-arrow-left-short"></i> Back</a>
+    <span class="modal-arrow prev">&#10094;</span>
+
+    <div class="modal-content-wrapper">
+        <img class="modal-content" id="modal-img">
+        <div class="modal-author" id="modal-author"></div>
+    </div>
+
+    <span class="modal-arrow next">&#10095;</span>
 </div>
 
+<!-- Related dogs -->
 {% if related_dogs %}
 <div class="home-showcase-left">
-    <h2 class="section-title">
-        Other dogs from "{{ post.cat.name }}"
-    </h2>
+    <h2 class="section-title">Other dogs from "{{ post.cat.name }}"</h2>
 
     <div class="dog-grid">
         {% for dog in related_dogs %}
-            <a href="{{ dog.get_absolute_url }}" class="dog-card">
+            <a href="{{ dog.get_absolute_url }}" class="dog-card" title="{{ dog.title }}">
                 {% if dog.photo %}
-                    <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
+                    <img src="{{ dog.photo.url }}" width="250" height="250" alt="{{ dog.title }}" class="dog-card-img">
                 {% endif %}
                 <div class="dog-card-title">{{ dog.title }}</div>
             </a>
@@ -80,32 +152,52 @@
 </div>
 {% endif %}
 
-
+<!-- Modal logic -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById("image-modal");
-    const img = document.querySelector(".post-image");
-    const modalImg = document.getElementById("img-expanded");
-    const closeBtn = document.querySelector(".close");
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalAuthor = document.getElementById('modal-author');
+    const closeBtn = modal.querySelector('.close');
+    const prevBtn = modal.querySelector('.modal-arrow.prev');
+    const nextBtn = modal.querySelector('.modal-arrow.next');
 
-    if (img && modal && modalImg && closeBtn) {
-        img.onclick = function () {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        };
+    const mainImage = document.querySelector('.post-image');
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
+    const allImages = [...(mainImage ? [mainImage] : []), ...galleryImages];
 
-        closeBtn.onclick = function () {
-            modal.style.display = "none";
-        };
+    let currentIndex = 0;
 
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
+    function showImage(index) {
+        currentIndex = index;
+        const img = allImages[currentIndex];
+        modalImg.src = img.src;
+        modalAuthor.textContent = img.dataset.author || '';
     }
+
+    function openModal(index) {
+        showImage(index);
+        modal.classList.add('active');
+        const showArrows = allImages.length > 1;
+        prevBtn.style.display = showArrows ? 'block' : 'none';
+        nextBtn.style.display = showArrows ? 'block' : 'none';
+    }
+
+    if (mainImage) mainImage.addEventListener('click', () => openModal(0));
+    galleryImages.forEach((img, i) => img.addEventListener('click', () => openModal(i + 1)));
+
+    prevBtn.onclick = () => showImage((currentIndex - 1 + allImages.length) % allImages.length);
+    nextBtn.onclick = () => showImage((currentIndex + 1) % allImages.length);
+    closeBtn.onclick = () => modal.classList.remove('active');
+    modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
+
+    document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') showImage((currentIndex - 1 + allImages.length) % allImages.length);
+        if (e.key === 'ArrowRight') showImage((currentIndex + 1) % allImages.length);
+        if (e.key === 'Escape') modal.classList.remove('active');
+    });
 });
 </script>
-
 
 {% endblock %}
