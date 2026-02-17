@@ -373,7 +373,7 @@ a:hover { color: var(--color-rust); }
 /* POST.HTML */
 .post-container { color: var(--color-text-primary); }
 
-.post-title { font-size: 2.4rem; margin-bottom: 10px; font-family: "Bebas Neue", sans-serif;}
+.post-title { font-size: 2.6rem; margin-bottom: 10px; font-family: "Bebas Neue", sans-serif;}
 
 .post-media {
     display: grid;
