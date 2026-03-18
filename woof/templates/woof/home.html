@@ -55,7 +55,7 @@
     </div>
 
     <!-- Secondary text -->
-    <div>
+    <div class="homepage-text-wrapper">
     <p class="homepage-text-2">
         Meet the Breeds <span class="highlight">Up Close</span>
     </p>
@@ -73,12 +73,24 @@
         <div class="home-showcase-left">
             <div class="dog-slider">
                 {% for dog in posts %}
-                    <a href="{{ dog.get_absolute_url }}" class="dog-card" title="{{ dog.title }}">
-                        {% if dog.photo %}
-                            <img src="{{ dog.photo.url }}" alt="{{ dog.title }}" class="dog-card-img">
-                        {% endif %}
-                        <div class="dog-card-title">{{ dog.title }}</div>
+                    <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
+                        <div class="dog-card">
+
+                            {% if dog.photo %}
+                                <img src="{{ dog.photo_medium.url }}"
+                                    alt="{{ dog.title }}"
+                                    class="dog-card__image"
+                                    loading="lazy"
+                                    decoding="async"
+                                     height="300"
+                                    >
+                            {% endif %}
+
+                            <h2 class="dog-card__title">{{ dog.title }}</h2>
+
+                        </div>
                     </a>
+
                 {% endfor %}
             </div>
         </div>

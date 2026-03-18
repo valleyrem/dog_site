@@ -3,11 +3,13 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
-<p class="breadcrumbs">
+<div class="breadcrumbs">
+    <div class="breadcrumbs">
     <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
     <span>/</span>
     <span title="{{ current_category.name }}">{{ current_category.name }}</span>
-</p>
+    </div>
+</div>
 
 <!-- Page title -->
 <h1 class="post-title" title="{{ current_category.name }}">
@@ -23,23 +25,19 @@
 
     {% for p in posts %}
 
-        <!-- Dog card -->
         <a href="{{ p.get_absolute_url }}" class="dog-card-link" title="{{ p.title }}">
             <div class="dog-card">
 
-                <!-- Dog image -->
                 {% if p.photo %}
-                    <img src="{{ p.photo.url }}"
-                         width="250"
-                         height="250"
-                         loading="lazy"
+                    <img src="{{ p.photo_medium.url }}"
                          class="dog-card__image"
-                         alt="{{ p.title }}">
+                         alt="{{ p.title }}"
+                         loading="lazy"
+                         decoding="async"
+                         height="300">
                 {% endif %}
 
-                <div class="dog-card__content">
-                    <h2 class="dog-card__title">{{ p.title }}</h2>
-                </div>
+                <h2 class="dog-card__title">{{ p.title }}</h2>
 
             </div>
         </a>

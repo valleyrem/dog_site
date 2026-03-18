@@ -64,7 +64,7 @@ class DogsList(DataMixin, ListView):
 
         return self.get_user_context(
             **context,
-            title='Dog Breeds'
+            title='Dog Breeds - Woof Dogs'
         )
 
 
@@ -108,7 +108,7 @@ class DogsCategory(DataMixin, ListView):
 
         return self.get_user_context(
             **context,
-            title=f'Category — {category.name}',
+            title=f'{category.name} - Woof Dogs',
             cat_selected=category.pk
 
         )
@@ -147,7 +147,7 @@ class ShowPost(DataMixin, DetailView):
 
         return self.get_user_context(
             **context,
-            title=post.title,
+            title=f'{post.title} - Woof Dogs',
             cat_selected=post.cat_id
         )
 
@@ -166,7 +166,7 @@ class AboutView(DataMixin, TemplateView):
 
         return self.get_user_context(
             **context,
-            title='About'
+            title='About - Woof Dogs'
         )
 
 
@@ -186,7 +186,7 @@ class ContactFormView(DataMixin, FormView):
 
         return self.get_user_context(
             **context,
-            title='Contact'
+            title='Contact - Woof Dogs'
         )
 
     def form_valid(self, form):
@@ -255,7 +255,7 @@ class DogFilterView(DataMixin, ListView):
 
         return self.get_user_context(
             **context,
-            title='Find Your Perfect Dog'
+            title='Find Your Dog - Woof Dogs'
         )
 
 
@@ -267,7 +267,7 @@ class CookiePolicyView(DataMixin, TemplateView):
         context['is_home'] = False
         return self.get_user_context(
             **context,
-            title='Cookie Policy'
+            title='Cookie Policy - Woof Dogs'
         )
 
 
@@ -279,7 +279,7 @@ class TermsAndConditionsView(DataMixin, TemplateView):
         context['is_home'] = False
         return self.get_user_context(
             **context,
-            title='Terms of Use'
+            title='Terms of Use - Woof Dogs'
         )
 
 
@@ -291,7 +291,7 @@ class PrivacyPolicyView(DataMixin, TemplateView):
         context['is_home'] = False
         return self.get_user_context(
             **context,
-            title='Privacy Policy'
+            title='Privacy Policy - Woof Dogs'
         )
 
 

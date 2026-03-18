@@ -40,15 +40,10 @@
     </noscript>
 
     <!-- Fonts -->
-    <link rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Bebas+Neue&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Bebas+Neue&display=swap"
-      rel="stylesheet">
-    </noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 
     <!-- Favicon -->
@@ -135,13 +130,9 @@
     {% block content %}{% endblock %}
 </main>
 
+
 <!-- Footer -->
 <footer class="site-footer">
-
-    <!-- Scroll to top -->
-    <button id="scroll-top-button" title="back to top">
-        <i class="bi bi-arrow-up"></i> back to top
-    </button>
 
     <!-- Copyright -->
     <div class="footer-block">
@@ -167,10 +158,26 @@
     </div>
 </footer>
 
+    <!-- Scroll to top -->
+    <button id="scroll-top-button" title="back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
 <!-- Scroll to top script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
     const scrollBtn = document.getElementById('scroll-top-button');
+
+    function toggleButton() {
+        if (window.scrollY > 190) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    }
+
+    window.addEventListener('scroll', toggleButton);
 
     scrollBtn.addEventListener('click', function() {
         window.scrollTo({
@@ -178,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
 });
 </script>
 

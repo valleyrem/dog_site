@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<!--    <div class="breadcrumbs-mobile">
+        <a href="{% url 'home' %}" title="Home">Home</a>
+        <span>/</span>
+        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">
+            {{ post.cat.name }}
+        </a>
+        <span>/</span>
+        <span class="current">{{ post.title }}</span>
+    </div>-->
+
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
 
@@ -45,10 +55,12 @@
         {% if post.photo %}
         <div class="post-main-image">
             <img class="post-image"
-                 src="{{ post.photo.url }}"
+                 src="{{ post.photo_medium.url }}"
                  alt="{{ post.title }}"
                  title="{{ post.title }}"
                  data-author="Photo: {{ post.photo_author|escapejs }}"
+                 loading="lazy"
+                 decoding="async"
             >
             {% if post.photo_author %}
                 <div class="photo-author">Photo: {{ post.photo_author }}</div>
@@ -97,14 +109,18 @@
             {% if post.gallery.all %}
             <p class="images-rule">
                 This website is non-commercial. All images are used with attribution.
-                If you believe any content violates your rights, please contact
-                <a href="mailto:woofdogs23@gmail.com" class="link-policies">this email</a>.
+                If you believe any content violates your rights, please
+                <a href="mailto:woofdogs23@gmail.com" class="link-policies">contact us</a>.
             </p>
 
             <div class="mini-gallery">
                 {% for photo in post.gallery.all|slice:":4" %}
-                    <img src="{{ photo.image.url }}" class="gallery-image" alt="{{ post.title }}" title="{{ post.title }}"
-                         data-author="Photo: {{ photo.author|escapejs }}">
+                    <img src="{{ photo.image_large.url }}" class="gallery-image" alt="{{ post.title }}" title="{{ post.title }}"
+                         data-author="Photo: {{ photo.author|escapejs }}"
+                         loading="lazy"
+                         decoding="async"
+                         width="160"
+                         height="160">
                 {% endfor %}
             </div>
             {% endif %}
@@ -141,20 +157,31 @@
 
     <div class="dog-grid">
         {% for dog in related_dogs %}
-            <a href="{{ dog.get_absolute_url }}" class="dog-card" title="{{ dog.title }}">
-                {% if dog.photo %}
-                    <img src="{{ dog.photo.url }}" width="250" height="250" alt="{{ dog.title }}" class="dog-card-img">
-                {% endif %}
-                <div class="dog-card-title">{{ dog.title }}</div>
+            <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
+                <div class="dog-card">
+
+                    {% if dog.photo %}
+                        <img src="{{ dog.photo_medium.url }}"
+                             alt="{{ dog.title }}"
+                            class="dog-card__image"
+                            loading="lazy"
+                            decoding="async"
+                            height="300">
+                    {% endif %}
+
+                <h2 class="dog-card__title">{{ dog.title }}</h2>
+
+                </div>
             </a>
+
         {% endfor %}
     </div>
 </div>
 {% endif %}
 
-<!-- Modal logic -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
     const modalAuthor = document.getElementById('modal-author');
@@ -171,16 +198,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function showImage(index) {
         currentIndex = index;
         const img = allImages[currentIndex];
-        modalImg.src = img.src;
-        modalAuthor.textContent = img.dataset.author || '';
+
+        modalImg.style.opacity = 0;
+
+        setTimeout(() => {
+            modalImg.src = img.src;
+            modalAuthor.textContent = img.dataset.author || '';
+            modalImg.style.opacity = 1;
+        }, 120);
     }
 
     function openModal(index) {
         showImage(index);
         modal.classList.add('active');
+
+        document.body.classList.add('modal-open');
+
         const showArrows = allImages.length > 1;
         prevBtn.style.display = showArrows ? 'block' : 'none';
         nextBtn.style.display = showArrows ? 'block' : 'none';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
     }
 
     if (mainImage) mainImage.addEventListener('click', () => openModal(0));
@@ -188,15 +229,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
     prevBtn.onclick = () => showImage((currentIndex - 1 + allImages.length) % allImages.length);
     nextBtn.onclick = () => showImage((currentIndex + 1) % allImages.length);
-    closeBtn.onclick = () => modal.classList.remove('active');
-    modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
+
+    closeBtn.onclick = closeModal;
+
+    modal.onclick = e => {
+        if (e.target === modal) closeModal();
+    };
 
     document.addEventListener('keydown', e => {
         if (!modal.classList.contains('active')) return;
+
         if (e.key === 'ArrowLeft') showImage((currentIndex - 1 + allImages.length) % allImages.length);
         if (e.key === 'ArrowRight') showImage((currentIndex + 1) % allImages.length);
-        if (e.key === 'Escape') modal.classList.remove('active');
+        if (e.key === 'Escape') closeModal();
     });
+
+    /* swipe gestures */
+
+    let startX = 0;
+    let startY = 0;
+
+    modal.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    modal.addEventListener('touchmove', e => {
+        if (modal.classList.contains('active')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    modal.addEventListener('touchend', e => {
+
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    showImage((currentIndex - 1 + allImages.length) % allImages.length);
+                } else {
+                    showImage((currentIndex + 1) % allImages.length);
+                }
+            }
+
+        } else {
+
+            if (diffY > 80) {
+                closeModal();
+            }
+
+        }
+
+    });
+
 });
 </script>
 

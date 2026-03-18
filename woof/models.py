@@ -91,6 +91,21 @@ class Dogs(models.Model):
 
     # photo
     photo = models.ImageField( upload_to="photos/%Y/%m/%d/",verbose_name="Main photo")
+
+    photo_thumb = ImageSpecField(
+        source='photo',
+        processors=[ResizeToFill(400, 300)],
+        format='WEBP',
+        options={'quality': 90}
+    )
+
+    photo_medium = ImageSpecField(
+        source='photo',
+        processors=[ResizeToFit(1200, 800)],
+        format='WEBP',
+        options={'quality': 90}
+    )
+
     photo_author = models.CharField(
         max_length=255,
         blank=True,
@@ -210,6 +225,21 @@ class DogImage(models.Model):
         on_delete=models.CASCADE
     )
     image = models.ImageField(upload_to='photos/dogs/gallery/')
+
+    image_thumb = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(160, 160)],
+        format='WEBP',
+        options={'quality': 90}
+    )
+
+    image_large = ImageSpecField(
+        source='image',
+        processors=[ResizeToFit(1200, 900)],
+        format='WEBP',
+        options={'quality': 90}
+    )
+
     author = models.CharField(max_length=255, blank=True, verbose_name="Photo Author")
     order = models.PositiveIntegerField(default=0)
 

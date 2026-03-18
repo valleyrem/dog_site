@@ -44,3 +44,5 @@ document.getElementById('breed-search').addEventListener('change', function() {
                 window.location.href = selectedValue;
             }
         });
+
+

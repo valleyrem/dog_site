@@ -1,15 +1,15 @@
 /* Dark theme */
 body.dark-theme {
-    --color-bg: #121212;
+    --color-bg: #242424;
     --color-surface: #1e1e1e;
     --color-text-primary: #b0b0b0;
     --color-text-secondary: #b0b0b0;
 
     --color-pistachio-soft: #2b2b2b;
-    --color-pistachio: #3c5a48;
+    --color-pistachio: #2f7f72;
     --color-pistachio-dark: #6e8b7a;
 
-    --color-rust: #ff865a;
+    --color-rust: #e85d2a;
     --color-rust-soft: #d46e43;
 
     --color-border: #2a2a2a;
@@ -29,6 +29,10 @@ body.dark-theme a {
 
 body.dark-theme .nav-main li a {
     color: var(--color-text-primary);
+}
+
+body.dark-theme .nav-main li a:hover {
+    color: var(--color-rust);
 }
 
 body.dark-theme .nav-main li.is-active a {
@@ -117,6 +121,7 @@ body.dark-theme .site-header {
 
 body.dark-theme #scroll-top-button {
     color: var(--color-rust);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 body.dark-theme .site-footer {
@@ -140,6 +145,9 @@ body.dark-theme .form-label,
 body.dark-theme .consent-label {
     color: var(--color-text-primary);
 }
+
+body.dark-theme .homepage-text-1 .highlight { color: var(--color-rust); }
+body.dark-theme .homepage-text-2 .highlight { color: var(--color-rust); }
 
 body.dark-theme .homepage-left {
     border-bottom: 32px solid #2B2B2B;
@@ -247,4 +255,6 @@ body.dark-theme .clear-filters-group .btn-filter {
     background: #1E1E1E;
     color: #fff;
 }
+
+
 
