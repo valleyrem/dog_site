@@ -153,7 +153,7 @@ STATICFILES_FINDERS = [
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-COMPRESS_ENABLED = not DEBUG
+COMPRESS_ENABLED = False
 COMPRESS_OFFLINE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
