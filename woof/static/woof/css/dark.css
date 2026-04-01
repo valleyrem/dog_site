@@ -1,6 +1,6 @@
 /* Dark theme */
 body.dark-theme {
-    --color-bg: #242424;
+    --color-bg: #161616;
     --color-surface: #1e1e1e;
     --color-text-primary: #b0b0b0;
     --color-text-secondary: #b0b0b0;
@@ -9,8 +9,8 @@ body.dark-theme {
     --color-pistachio: #2f7f72;
     --color-pistachio-dark: #6e8b7a;
 
-/*    --color-rust: #e85d2a;
-    --color-rust-soft: #d46e43;*/
+    --color-accent: #7670fa;
+    --color-accent-soft: #d46e43;
 
     --color-border: #2a2a2a;
     --color-shadow: rgba(0, 0, 0, 0.5);
@@ -21,10 +21,34 @@ body.dark-theme,
 body.dark-theme html {
     background-color: var(--color-bg);
     color: var(--color-text-primary);
+    background-image:
+    /* мелкие звезды */
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 25% 80%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 40% 40%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 75% 65%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,0.7), transparent),
+
+    /* средние звезды */
+    radial-gradient(2px 2px at 15% 60%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 35% 15%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 55% 75%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 80% 50%, rgba(255,255,255,0.85), transparent),
+
+    /* крупные редкие звезды */
+    radial-gradient(3px 3px at 20% 90%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(3px 3px at 70% 25%, rgba(255,255,255,0.8), transparent);
+
+    background-repeat: repeat;
+    background-size:
+    400px 400px,
+    350px 350px,
+    300px 300px;
 }
 
 body.dark-theme a {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .nav-main li a {
@@ -32,37 +56,59 @@ body.dark-theme .nav-main li a {
 }
 
 body.dark-theme .nav-main li a:hover {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .nav-main li.is-active a {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme a:hover {
-    color: var(--color-rust-soft);
+    color: var(--color-accent-soft);
 }
 
 body.dark-theme .layout-content {
-    background: var(--color-surface);
+    background-color: var(--color-bg);
     color: var(--color-text-primary);
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 40% 60%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 10% 90%, rgba(255,255,255,0.8), transparent);
+
+    background-repeat: repeat;
+    background-size: 300px 300px;
 }
 
 body.dark-theme .sidebar-nav {
-    background: var(--color-surface);
-    box-shadow: 0 12px 30px var(--color-shadow);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 40% 60%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 10% 90%, rgba(255,255,255,0.8), transparent);
+
+    background-repeat: repeat;
+    background-size: 300px 300px;
 }
 
 body.dark-theme .mobile-menu__item a {
     color: var(--color-text-secondary);
 }
 
+body.dark-theme .mobile-menu__item a:hover {
+    color: var(--color-accent);
+}
+
 body.dark-theme .mobile-menu__item.is-active a {
-    color: var(--color-text-primary);
+    color: var(--color-accent);
 }
 
 body.dark-theme .mobile-menu__item a::before {
-    background: var(--color-rust);
+    background: var(--color-accent);
 }
 
 body.dark-theme .pagination__item a,
@@ -72,7 +118,7 @@ body.dark-theme .pagination__item {
 }
 
 body.dark-theme .pagination__item--active {
-    background: var(--color-rust);
+    background: var(--color-accent);
     color: #fff;
 }
 
@@ -88,7 +134,7 @@ body.dark-theme .dog-card__info {
 
 body.dark-theme .dog-card-link:hover .dog-card__title,
 body.dark-theme .dog-card-title:hover {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .post-container,
@@ -104,15 +150,7 @@ body.dark-theme .post-date {
 }
 
 body.dark-theme .btn-back:hover {
-    background-color: var(--color-rust-soft);
-}
-
-body.dark-theme .site-header {
-    background: linear-gradient(
-        120deg,
-        var(--color-pistachio-soft),
-        var(--color-bg)
-    );
+    background-color: var(--color-accent-soft);
 }
 
 .dark-theme #theme-switch__icon {
@@ -120,17 +158,17 @@ body.dark-theme .site-header {
 }
 
 body.dark-theme #scroll-top-button {
-    color: var(--color-rust);
+    color: var(--color-accent);
     background: rgba(0, 0, 0, 0.2);
 }
 
 body.dark-theme .site-footer {
-    background: var(--color-surface);
+    background: var(--color-pink);
     color: var(--color-text-secondary);
 }
 
 body.dark-theme .footer-links a {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .homepage-left,
@@ -146,12 +184,9 @@ body.dark-theme .consent-label {
     color: var(--color-text-primary);
 }
 
-body.dark-theme .homepage-text-1 .highlight { color: var(--color-rust); }
-body.dark-theme .homepage-text-2 .highlight { color: var(--color-rust); }
+body.dark-theme .homepage-text-1 .highlight { color: var(--color-accent); }
+body.dark-theme .homepage-text-2 .highlight { color: var(--color-accent); }
 
-body.dark-theme .homepage-left {
-    border-bottom: 32px solid #2B2B2B;
-}
 
 body.dark-theme .homepage-wave {
     opacity: 0.8;
@@ -169,7 +204,7 @@ body.dark-theme .policy-container textarea {
 
 
 body.dark-theme .homepage-search label {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .homepage select {
@@ -222,7 +257,7 @@ body.dark-theme textarea {
 
 body.dark-theme input:focus,
 body.dark-theme textarea:focus {
-    border-color: var(--color-rust);
+    border-color: var(--color-accent);
 }
 
 /* Modals */
@@ -232,11 +267,11 @@ body.dark-theme .modal-content {
 
 /* Policies / lists */
 body.dark-theme .num-list a {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .bulleted-list li::marker {
-    color: var(--color-rust);
+    color: var(--color-accent);
 }
 
 body.dark-theme .dog-muted {
@@ -248,7 +283,7 @@ body.dark-theme .images-rule {
 }
 
 body.dark-theme .dog-active {
-    color: var(--color-rust) !important;
+    color: var(--color-accent) !important;
 }
 
 body.dark-theme .clear-filters-group .btn-filter {

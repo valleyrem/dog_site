@@ -1,39 +1,3 @@
-:root {
-/* Base */
---color-bg: #f6f8f6;
---color-white: #ffffff;
---color-text-primary: #1c2b27;
---color-text-secondary: #3f5b53;
---color-grey: #8a9a94;
---modal-author: #ccd6d1;
-
-/* Pistachio → нефрит */
---color-pistachio-soft: #cfdad6;
---color-pistachio: #2f7f72;
---color-pistachio-dark: #1a4d44;
-
-/* Rust → цвет хурмы */
---color-rust: #e85d2a;
---color-rust-soft: #ffb199;
-
-  /* Accents */
-  --shadow-offset-y: 2px;
-  --shadow-blur: 3px;
-  --shadow-color: rgba(0, 0, 0, 0.03);
-
-  /* Radius */
-  --radius-buttons: 8px;
-  --radius-photos: 10px;
-  --radius-container: 14px;
-  --radius-lg: 22px;
-  --radius-circle: 50%;
-
-  /* Motion */
-  --transition-base: transform 1s ease;
-  --transform-base: scale(1.03);
-}
-
-
 @media (min-width: 300px) and (max-width: 819px) {
     .site-footer {
         padding: 15px;
@@ -56,27 +20,25 @@
 
     .logo-text { font-size: 20px; }
 
-    .homepage { flex-direction: column; padding: 20px 0 0 0; }
+    .homepage { flex-direction: column; padding: 0; }
 
     .homepage-text-1 {
-        font-size: 3.6rem;
-        height: 340px;
-        padding: 30px 20px;
-        line-height: 1.1;
-        background: linear-gradient(to right,
-                var(--color-pistachio-soft) 40%,
-                transparent 60%);
-        text-align: end;
+        font-size: 3.8rem;
+/*        padding: 30px 20px;*/
+        line-height: 1.5;
+        text-align: center;
     }
 
-    .hero-block { background: none; height: 340px;}
+    .hero-block { background: none; }
+
+    .hero-content { gap: 65px; }
 
     .homepage-left { padding: 20px 20px 40px; }
 
-    .homepage-left-text {
-        font-size: 1.2rem;
-        margin: 0 0 20px 0;
-        padding: 0;
+    .homepage-left-text, .home-showcase-right p {
+        font-size: 2rem;;
+        padding: 50px 0 0 0;
+        margin: 0;
     }
 
     .homepage-search label { font-size: 26px; }
@@ -88,11 +50,16 @@
     }
 
     .homepage-text-2 {
-        font-size: 2.5rem;
-        padding: 20px 0;
-        background: linear-gradient(to right,
-                var(--color-pistachio-soft) 40%,
-                transparent 60%);
+        font-size: 3.4rem;
+        padding: 0;
+        white-space: normal;
+        word-break: break-word;
+        overflow: visible;
+        text-align: center;
+    }
+
+    .homepage-text-wrapper {
+        padding: 0;
     }
 
     .home-showcase {
@@ -103,8 +70,6 @@
     }
 
     .home-showcase-right { order: -1; }
-
-    .home-showcase-right p { font-size: 1.2rem; }
 
 .dog-slider {
         display: flex;

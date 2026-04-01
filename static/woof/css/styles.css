@@ -13,8 +13,8 @@
 --color-pistachio-dark: #1a4d44;
 
 /* Rust → цвет хурмы */
---color-rust: #61212C;
---color-rust-soft: #ffb199;
+--color-accent: #61212C;
+--color-accent-soft: #ffb199;
 
   /* Accents */
   --shadow-offset-y: 1px;
@@ -56,7 +56,7 @@ a {
     transition: var(--transition-base);
 }
 
-a:hover { color: var(--color-rust); }
+a:hover { color: var(--color-accent); }
 
 .layout-root {
     min-height: 100vh;
@@ -88,13 +88,13 @@ a:hover { color: var(--color-rust); }
     padding-top: 14.4px;
 }
 
-.breadcrumbs a { color: var(--color-rust); transition: var(--transition-base); }
+.breadcrumbs a { color: var(--color-accent); transition: var(--transition-base); }
 
 .breadcrumbs a:hover { text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
-    text-decoration-color: var(--color-rust);
-    color: var(--color-rust);
+    text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
     transform: var(--transform-base); }
 
 .breadcrumbs .current { color: var(--color-text-primary); }
@@ -119,13 +119,13 @@ a:hover { color: var(--color-rust); }
 }
 
 .post-navigation .nav-link {
-    color: var(--color-rust);
+    color: var(--color-accent);
     text-decoration: none;
     white-space: nowrap;
     transition: var(--transition-base);
 }
 
-.post-navigation .nav-link:hover { color: var(--color-rust); transform: var(--transform-base); }
+.post-navigation .nav-link:hover { color: var(--color-accent); transform: var(--transform-base); }
 
 .post-navigation i, .btn-back i { position: relative; top: 2px; }
 
@@ -171,7 +171,7 @@ a:hover { color: var(--color-rust); }
     font-family: "Bebas Neue", sans-serif;
 }
 
-.logo-letter--primary { color: var(--color-rust); }
+.logo-letter--primary { color: var(--color-accent); }
 
 .logo-letter--secondary { color: var(--color-pistachio-dark); }
 
@@ -188,14 +188,14 @@ a:hover { color: var(--color-rust); }
 }
 
 .nav-left-list li a:hover {
-    color: var(--color-rust);
+    color: var(--color-accent);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
     }
 
 .nav-left-list li.is-active a {
-    color: var(--color-rust);
+    color: var(--color-accent);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px; }
@@ -225,7 +225,7 @@ a:hover { color: var(--color-rust); }
     transition: var(--transition-base);
 }
 
-#theme-switch__icon:hover { color: var(--color-rust); }
+#theme-switch__icon:hover { color: var(--color-accent); }
 
 /* SIDEBAR */
 .sidebar-nav {
@@ -258,16 +258,16 @@ a:hover { color: var(--color-rust); }
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
-    text-decoration-color: var(--color-rust);
-    color: var(--color-rust);
+    text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .mobile-menu__item.is-active a {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
-    text-decoration-color: var(--color-rust);
-    color: var(--color-rust);
+    text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .burger {
@@ -299,7 +299,7 @@ a:hover { color: var(--color-rust); }
     transition: var(--transition-base);
 }
 
-.pagination__item--active { background: var(--color-rust); color: var(--color-white); }
+.pagination__item--active { background: var(--color-accent); color: var(--color-white); }
 
 
 /* FOOTER */
@@ -317,10 +317,10 @@ a:hover { color: var(--color-rust); }
     right: 30px;
     bottom: 30px;
     background: rgba(255,255,255,0.8);
-    border: 1px solid var(--color-rust);
+    border: 1px solid var(--color-accent);
     border-radius: 10px;
     font-size: 16px;
-    color: var(--color-rust);
+    color: var(--color-accent);
     cursor: pointer;
     font-family: 'Baloo 2', cursive;
     padding: 10px 25px;
@@ -350,7 +350,7 @@ a:hover { color: var(--color-rust); }
 
 .dog-card-link {
     text-decoration: none;
-    color: var(--color-rust);
+    color: var(--color-accent);
     display: block;
     transition: var(--transition-base);
 }
@@ -464,7 +464,7 @@ a:hover { color: var(--color-rust); }
 
 .post-params-grid p { margin: 0; }
 
-.post-params-grid i { color: var(--color-rust); }
+.post-params-grid i { color: var(--color-accent); }
 
 .images-rule {
     font-size: 12px;
@@ -538,7 +538,7 @@ body.modal-open {
     cursor: pointer;
 }
 
-.close:hover { color: var(--color-rust); }
+.close:hover { color: var(--color-accent); }
 
 .modal-arrow {
     position: absolute;
@@ -548,15 +548,15 @@ body.modal-open {
     cursor: pointer;
 }
 
-.modal-arrow:hover { color: var(--color-rust); }
+.modal-arrow:hover { color: var(--color-accent); }
 
 .modal-arrow.prev { left: 30px; }
 .modal-arrow.next { right: 30px; }
 
 .updated { text-align: end; }
 
-.dog-muted { color: var( --color-rust-soft) !important; }
-.dog-active { color: var(--color-rust) !important; }
+.dog-muted { color: var( --color-accent-soft) !important; }
+.dog-active { color: var(--color-accent) !important; }
 
 
 /* HOME.HTML */
@@ -601,7 +601,7 @@ body.modal-open {
                 transparent 60%);
 }
 
-.homepage-text-1 .highlight { color: var(--color-rust); }
+.homepage-text-1 .highlight { color: var(--color-accent); }
 
 .homepage-text-wrapper {
     width: 100%;
@@ -624,7 +624,7 @@ body.modal-open {
 }
 
 
-.homepage-text-2 .highlight { color: var(--color-rust); }
+.homepage-text-2 .highlight { color: var(--color-accent); }
 
 .chevron-icon { font-size: 2.5rem; }
 
@@ -670,8 +670,8 @@ body.modal-open {
 
 .homepage select {
     background-image:
-        linear-gradient(45deg, transparent 50%, var(--color-rust) 50%),
-        linear-gradient(135deg, var(--color-rust) 50%, transparent 50%);
+        linear-gradient(45deg, transparent 50%, var(--color-accent) 50%),
+        linear-gradient(135deg, var(--color-accent) 50%, transparent 50%);
     background-position:
         calc(100% - 18px) calc(50% + 3px),
         calc(100% - 11px) calc(50% + 3px);
@@ -726,7 +726,7 @@ body.modal-open {
     top: -20px;
     transform: translateX(-50%);
     font-size: 2rem;
-    color: var(--color-rust);
+    color: var(--color-accent);
     z-index: 2;
 }
 
@@ -786,14 +786,14 @@ body.modal-open {
 .dog-slider::-webkit-scrollbar { height: 14px; }
 
 .dog-slider::-webkit-scrollbar-thumb {
-    background: var(--color-rust);
+    background: var(--color-accent);
     border-radius: var(--radius-photos);
     border: 2px solid transparent;
     background-clip: padding-box;
 }
 
 .dog-slider::-webkit-scrollbar-thumb:hover {
-    border: 10px solid var(--color-rust);
+    border: 10px solid var(--color-accent);
     border-radius: var(--radius-container);
     cursor: pointer;
 }
@@ -851,7 +851,7 @@ body.modal-open {
 }
 
 .policy-container input:focus,
-.policy-container textarea:focus { outline: none; border-color: var(--color-rust); }
+.policy-container textarea:focus { outline: none; border-color: var(--color-accent); }
 
 .form-check-wrapper {
     display: flex;
@@ -867,7 +867,7 @@ body.modal-open {
     margin: 20px 0 0;
     padding: 10px 36px;
     font-size: 14px;
-    background-color: var(--color-rust);
+    background-color: var(--color-accent);
     color: var(--color-white);
     border: none;
     border-radius: var(--radius-buttons);
@@ -875,7 +875,7 @@ body.modal-open {
     transition: var(--transition-base);
 }
 
-#btn-custom:hover { background-color: var(--color-rust); transform: translateY(-1px); }
+#btn-custom:hover { background-color: var(--color-accent); transform: translateY(-1px); }
 
 /* POLICIES */
 .num-list {
@@ -886,17 +886,17 @@ body.modal-open {
 
 .num-list a { display: block; }
 
-.link-policies { color: var(--color-rust); }
+.link-policies { color: var(--color-accent); }
 
 .link-policies:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
-    text-decoration-color: var(--color-rust);
-    color: var(--color-rust);
+    text-decoration-color: var(--color-accent);
+    color: var(--color-accent);
     }
 
-.bulleted-list li::marker { color: var(--color-rust); }
+.bulleted-list li::marker { color: var(--color-accent); }
 
 
 /* FILTER.HTML */
@@ -940,7 +940,7 @@ body.modal-open {
 
 .filter-group p { font-weight: 600; margin-bottom: 10px; }
 
-.filter-group i { color: var(--color-rust); }
+.filter-group i { color: var(--color-accent); }
 
 .filter-group label {
     display: block;
@@ -957,7 +957,7 @@ body.modal-open {
     font-weight: 600;
     font-size: 16px;
     background: var(--color-white);
-    color: var(--color-rust);
+    color: var(--color-accent);
     border-radius: var(--radius-buttons);
     border: none;
     cursor: pointer;

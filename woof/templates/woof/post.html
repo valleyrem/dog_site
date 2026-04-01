@@ -33,7 +33,6 @@
             </a>
         {% endif %}
 
-        <i class="bi bi-dot"></i>
 
         {% if next_post %}
             <a href="{{ next_post.get_absolute_url }}" class="nav-link next" title="{{ next_post.title }}">
@@ -133,7 +132,7 @@
         <p><strong>Summary:</strong> {{ post.summary }}</p>
         <p><strong>Care:</strong> {{ post.care }}</p>
         <p><strong>Conditions:</strong> {{ post.living_conditions }}</p>
-        <p class="updated">updated: {{ post.time_update }}</p>
+        <p class="updated">Updated: {{ post.time_update }}</p>
     </div>
 </div>
 

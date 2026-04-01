@@ -13,8 +13,8 @@
 --color-pistachio-dark: #1a4d44;
 
 /* Rust → цвет хурмы */
---color-rust: #e85d2a;
---color-rust-soft: #ffb199;
+--color-accent: #e85d2a;
+--color-accent-soft: #ffb199;
 
   /* Accents */
   --shadow-offset-y: 2px;

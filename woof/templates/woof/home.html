@@ -4,33 +4,34 @@
 {% block content %}
 <div class="homepage">
 
-    <!-- Hero section with dog stacks and main text -->
     <div class="hero-block">
 
-        <div class="dog-stack left">
-            <div class="dog-img"></div>
-            <div class="dog-img"></div>
+    <div class="hero-left">
+        <div class="dog-decor">
+            <img src="{% static 'woof/1.png' %}" class="dog dog-1">
+            <img src="{% static 'woof/2.png' %}" class="dog dog-2">
         </div>
-
-        <div class="dog-stack right">
-            <div class="dog-img"></div>
-            <div class="dog-img"></div>
-        </div>
-
+    <div class="hero-content">
         <p class="homepage-text-1">
-            FUR ON YOUR CLOTHES
-            <span class="highlight">MEANS</span>
-            YOU'RE TRULY
-            <span class="highlight">LOVED</span>
+            Fur On Your Clothes
+            Means
+            You're Truly
+            Loved
         </p>
 
+        <a href="#explore" class="hero-icon-link">
+            <i class="bi bi-chevron-down hero-icon"></i>
+        </a>
     </div>
+</div>
+
+</div>
+<!--    <div class="hero-right" id="hero-right">
+        <div class="hero-image"></div>
+    </div>-->
 
     <!-- Search by group and breed -->
-    <div class="homepage-left">
-        <p class="homepage-left-text">
-            Start by exploring breed groups or selecting a specific breed to refine your search and discover which dogs align most naturally with your home and lifestyle.
-        </p>
+    <div class="homepage-left" id="explore">
 
         <div class="homepage-search" title="Select a group">
             <label for="breed-select">Explore by Group</label>
@@ -52,20 +53,33 @@
             </select>
         </div>
 
+
+
     </div>
+
+        <div class="home-showcase-right">
+
+            <div class="dog-decor">
+                <img src="{% static 'woof/31.png' %}" class="dog dog-3">
+            </div>
+            <p>
+            Start by exploring breed groups or selecting<br> a specific breed to refine your search and discover<br> which dogs align most naturally<br> with your home and lifestyle.
+            </p>
+        </div>
 
     <!-- Secondary text -->
     <div class="homepage-text-wrapper">
-    <p class="homepage-text-2">
-        Meet the Breeds <span class="highlight">Up Close</span>
-    </p>
-    </div>
+    <p class="homepage-text-2" id="animated-text">Dog Breeds Up Close</p>
+</div>
 
     <!-- Showcase section with breed cards and description -->
     <div class="home-showcase">
         <div class="home-showcase-right">
+            <div class="dog-decor">
+        <img src="{% static 'woof/5.png' %}" class="dog dog-4">
+        </div>
             <p>
-                From calm companions to energetic explorers, each breed brings its own rhythm and personality.<br>
+                From calm companions to energetic explorers, <br>each breed brings its own rhythm and personality.<br>
                 Take your time to explore and compare.
             </p>
         </div>
@@ -108,46 +122,51 @@ breedSelect.addEventListener('change', function() {
 });
 </script>
 
-<!-- Dog stack slider logic -->
 <script>
-const dogs = [
-    "{% static 'woof/1.png' %}",
-    "{% static 'woof/2.png' %}",
-    "{% static 'woof/31.png' %}",
-    "{% static 'woof/44.png' %}",
-    "{% static 'woof/5.png' %}",
-    "{% static 'woof/61.png' %}"
-];
+const textBlock = document.getElementById('animated-text');
+const wrapper = document.querySelector('.homepage-text-wrapper');
 
-const leftStack = document.querySelector('.dog-stack.left').children;
-const rightStack = document.querySelector('.dog-stack.right').children;
-
-let pairIndex = 0;
-let activeLayer = 0;
-
-function showDogs() {
-    const leftIndex = pairIndex * 2;
-    const rightIndex = pairIndex * 2 + 1;
-
-    const nextLayer = 1 - activeLayer;
-
-    // Set next layer images and fade in
-    leftStack[nextLayer].style.backgroundImage = `url(${dogs[leftIndex]})`;
-    rightStack[nextLayer].style.backgroundImage = `url(${dogs[rightIndex]})`;
-    leftStack[nextLayer].style.opacity = 1;
-    rightStack[nextLayer].style.opacity = 1;
-
-    // Fade out current layer
-    leftStack[activeLayer].style.opacity = 0;
-    rightStack[activeLayer].style.opacity = 0;
-
-    activeLayer = nextLayer;
-    pairIndex = (pairIndex + 1) % (dogs.length / 2);
+function splitText(el) {
+    const nodes = Array.from(el.childNodes);
+    nodes.forEach(node => {
+        if(node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            node.textContent = '';
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                node.parentNode.insertBefore(span, node);
+            });
+        } else if(node.nodeType === Node.ELEMENT_NODE) {
+            const text = node.textContent;
+            node.innerHTML = '';
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.className = node.className;
+                span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                node.appendChild(span);
+            });
+        }
+    });
 }
 
-// Initial display and interval
-showDogs();
-setInterval(showDogs, 3000);
+splitText(textBlock);
+
+const spans = textBlock.querySelectorAll('span');
+
+function revealText() {
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if(wrapperRect.top < windowHeight && wrapperRect.bottom > 0) {
+        spans.forEach((span, i) => {
+            setTimeout(() => span.classList.add('visible'), i * 50);
+        });
+        window.removeEventListener('scroll', revealText);
+    }
+}
+
+window.addEventListener('scroll', revealText);
 </script>
 
 {% endblock %}
