@@ -121,9 +121,46 @@
             </button>
         </li>
 
+        <li class="nav-right">
+        <button class="burger" id="burger-btn">
+            <i class="bi bi-list" id="burger-icon"></i>
+        </button>
+        </li>
+
     </ul>
 </header>
 {% endblock %}
+
+
+<aside class="sidebar-nav nav-2">
+        <div class="mobile-menu">
+
+        <!-- Main menu -->
+        <ul class="mobile-menu__list--top">
+            {% for m in menu %}
+                <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                    <a href="{% url m.url_name %}" title="{{ m.title }}">
+                        <!--<i class="bi bi-record-circle-fill list-icon"></i>--> {{ m.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Категории -->
+        <ul class="mobile-menu__list">
+            {% for category in cats %}
+                {% if category.pk != 10 %}
+                    <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
+                        <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </div>
+</aside>
 
 <!-- Main content -->
 <main class="fullwidth-content">
@@ -160,7 +197,7 @@
 
     <!-- Scroll to top -->
     <button id="scroll-top-button" title="back to top">
-        <i class="bi bi-chevron-up"></i>
+        <i class="bi bi-arrow-up-square"></i>
     </button>
 
 <!-- Scroll to top script -->
@@ -187,6 +224,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+</script>
+
+<script>
+    const burger = document.getElementById("burger-btn");
+    const icon = document.getElementById("burger-icon");
+    const sidebar = document.querySelector(".sidebar-nav");
+    const body = document.body;
+
+    burger.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isActive = sidebar.classList.toggle("active");
+        body.classList.toggle("sidebar-open");
+
+        icon.classList.toggle("bi-list", !isActive);
+        icon.classList.toggle("bi-x-lg", isActive);
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !burger.contains(e.target)) {
+            sidebar.classList.remove("active");
+            body.classList.remove("sidebar-open");
+
+            icon.classList.remove("bi-x-lg");
+            icon.classList.add("bi-list");
+        }
+    });
 </script>
 
 </body>

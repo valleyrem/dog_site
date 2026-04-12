@@ -7,10 +7,7 @@
     <div class="hero-block">
 
     <div class="hero-left">
-        <div class="dog-decor">
-            <img src="{% static 'woof/1.png' %}" class="dog dog-1">
-            <img src="{% static 'woof/2.png' %}" class="dog dog-2">
-        </div>
+
     <div class="hero-content">
         <p class="homepage-text-1">
             Fur On Your Clothes
@@ -18,9 +15,18 @@
             You're Truly
             Loved
         </p>
+        <div class="dog-decor">
+            <img src="{% static 'woof/1.png' %}" class="dog dog-1">
+            <img src="{% static 'woof/2.png' %}" class="dog dog-2">
+        </div>
+        <div class="memphis-circle circle-1"></div>
+        <div class="memphis-star star-1"></div>
+        <div class="memphis-cloud cloud-1"></div>
+        <div class="memphis-triangle triangle-1"></div>
+        <div class="memphis-heart heart-1"></div>
 
-        <a href="#explore" class="hero-icon-link">
-            <i class="bi bi-chevron-down hero-icon"></i>
+        <a href="#explore">
+            <div class="arrow-icon"></div>
         </a>
     </div>
 </div>
@@ -58,6 +64,9 @@
     </div>
 
         <div class="home-showcase-right">
+            <div class="memphis-circle circle-2"></div>
+            <div class="memphis-half-circle half-2"></div>
+            <div class="memphis-star star-2"></div>
 
             <div class="dog-decor">
                 <img src="{% static 'woof/31.png' %}" class="dog dog-3">
@@ -69,15 +78,18 @@
 
     <!-- Secondary text -->
     <div class="homepage-text-wrapper">
-    <p class="homepage-text-2" id="animated-text">Dog Breeds Up Close</p>
+    <p class="homepage-text-2" id="animated-text">Dog Breeds<br> Up Close</p>
 </div>
 
     <!-- Showcase section with breed cards and description -->
     <div class="home-showcase">
         <div class="home-showcase-right">
+            <div class="memphis-heart heart-2"></div>
+            <div class="memphis-cloud cloud-2"></div>
+            <div class="memphis-triangle triangle-2"></div>
             <div class="dog-decor">
-        <img src="{% static 'woof/5.png' %}" class="dog dog-4">
-        </div>
+                <img src="{% static 'woof/5.png' %}" class="dog dog-4">
+            </div>
             <p>
                 From calm companions to energetic explorers, <br>each breed brings its own rhythm and personality.<br>
                 Take your time to explore and compare.
@@ -114,59 +126,28 @@
 
 <!-- Redirect to selected breed page -->
 <script>
-const breedSelect = document.getElementById('breed-select-1');
-breedSelect.addEventListener('change', function() {
-    if (this.value) {
-        window.location.href = this.value;
-    }
-});
-</script>
+document.addEventListener('DOMContentLoaded', function () {
 
-<script>
-const textBlock = document.getElementById('animated-text');
-const wrapper = document.querySelector('.homepage-text-wrapper');
+    const breedSelect = document.getElementById('breed-select-1');
+    if (!breedSelect) return;
 
-function splitText(el) {
-    const nodes = Array.from(el.childNodes);
-    nodes.forEach(node => {
-        if(node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            node.textContent = '';
-            text.split('').forEach(char => {
-                const span = document.createElement('span');
-                span.innerHTML = char === ' ' ? '&nbsp;' : char;
-                node.parentNode.insertBefore(span, node);
-            });
-        } else if(node.nodeType === Node.ELEMENT_NODE) {
-            const text = node.textContent;
-            node.innerHTML = '';
-            text.split('').forEach(char => {
-                const span = document.createElement('span');
-                span.className = node.className;
-                span.innerHTML = char === ' ' ? '&nbsp;' : char;
-                node.appendChild(span);
-            });
+    function go(value) {
+        if (value && value !== '') {
+            window.location.href = value;
         }
-    });
-}
-
-splitText(textBlock);
-
-const spans = textBlock.querySelectorAll('span');
-
-function revealText() {
-    const wrapperRect = wrapper.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    if(wrapperRect.top < windowHeight && wrapperRect.bottom > 0) {
-        spans.forEach((span, i) => {
-            setTimeout(() => span.classList.add('visible'), i * 50);
-        });
-        window.removeEventListener('scroll', revealText);
     }
-}
 
-window.addEventListener('scroll', revealText);
+    breedSelect.addEventListener('change', function () {
+        go(this.value);
+    });
+
+    breedSelect.addEventListener('pointerup', function () {
+        setTimeout(() => {
+            go(this.value);
+        }, 50);
+    });
+
+});
 </script>
 
 {% endblock %}

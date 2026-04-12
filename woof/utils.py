@@ -4,7 +4,7 @@ from .models import *
 
 menu = [
     {'title': "About", 'url_name': 'about'},
-    {'title': "Explore", 'url_name': 'filters'},
+    {'title': "Explore", 'url_name': 'dog-explore'},
     {'title': "Contact", 'url_name': 'contact'},
 ]
 

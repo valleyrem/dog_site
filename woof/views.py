@@ -200,64 +200,87 @@ class ContactFormView(DataMixin, FormView):
         )
 
 
-class DogFilterView(DataMixin, ListView):
-    model = Dogs
-    template_name = 'woof/filter.html'
-    context_object_name = 'dogs'
-    paginate_by = None
 
-    def get_queryset(self):
-        queryset = Dogs.objects.filter(is_published=True)
-
-        sizes = self.request.GET.getlist('size')
-        family = self.request.GET.getlist('family')
-        hypo = self.request.GET.getlist('hypo')
-        activity = self.request.GET.getlist('activity')
-
-        if sizes:
-            queryset = queryset.filter(size__in=sizes)
-
-        if family:
-            queryset = queryset.filter(family_friendliness__in=family)
-
-        if hypo:
-            queryset = queryset.filter(hypoallergenic__in=hypo)
-
-        if activity:
-            queryset = queryset.filter(activity_level__in=activity)
-
-        return queryset
-
-    def render_to_response(self, context, **response_kwargs):
-        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            html = render_to_string(
-                'woof/dog_cards.html',
-                context,
-                request=self.request
-            )
-            return JsonResponse({'html': html})
-
-        return super().render_to_response(context, **response_kwargs)
+class DogGroupsView(DataMixin, TemplateView):
+    template_name = 'woof/dog_groups.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context['size_choices'] = Dogs.SIZE_CHOICES
-        context['family_choices'] = Dogs.FAMILY_FRIENDLINESS_CHOICES
-        context['hypo_choices'] = Dogs.HYPOALLERGENIC_CHOICES
-        context['activity_choices'] = Dogs.ACTIVITY_CHOICES
+        dogs = Dogs.objects.filter(is_published=True)
 
-        context['all_breeds'] = Dogs.objects.filter(
-            is_published=True
-        ).order_by('title')
+        context['groups'] = [
+            # 1. Best family dogs
+            {
+                'title': '🐶  Best family dogs',
+                'dogs': dogs.filter(
+                    family_friendliness__in=['high', 'excellent'],
+                    barking_level__in=['necessary', 'infrequent'],
+                    activity_level__in=['calm', 'regular']
 
-        context['is_home'] = False
+            )
+            },
+            # 2. Great for first-time owners
+            {
+                'title': '🆕  Great for first-time owners',
+                'dogs': dogs.filter(
+                    trainability__in=['agreeable', 'easy', 'eager'],
+                    activity_level__in=['calm', 'regular'],
+                )
+            },
+            # 3. For experienced owners
+            {
+                'title': '💪  For experienced owners',
+                'dogs': dogs.filter(
+                    activity_level__in=['high', 'energetic'],
+                    trainability__in=['independent', 'stubborn'],
+                )
+            },
+            # 4. Hypoallergenic breeds
+            {
+                'title': '🌿  Hypoallergenic breeds',
+                'dogs': dogs.filter(hypoallergenic__in=['moderate', 'high'])
+            },
+            # 5. Small dogs
+            {
+                'title': '🐾  Small dogs',
+                'dogs': dogs.filter(size__in=['xsmall', 'small'])
+            },
+            # 6. Medium dogs
+            {
+                'title': '🔹  Medium dogs',
+                'dogs': dogs.filter(size='medium')
+            },
+            # 7. Large dogs
+            {
+                'title': '🐕  Large dogs',
+                'dogs': dogs.filter(size__in=['large', 'xlarge'])
+            },
+            # 8. Apartment-friendly dogs
+            {
+                'title': '🏢  Apartment-friendly dogs',
+                'dogs': dogs.filter(
+                    size__in=['xsmall', 'small', 'medium'],
+                    activity_level__in=['calm', 'regular'],
+                    barking_level__in=['necessary', 'infrequent'],
+                    coat_length__in=['short', 'medium']
+                )
+            },
+            # 9. Best for houses with yard
+            {
+                'title': '🏡  Best for houses with yard',
+                'dogs': dogs.filter(
+                    size__in=['medium', 'large', 'xlarge'],
+                    activity_level__in=['high', 'energetic'],
+                    barking_level__in = ['vocal', 'frequent']
+                )
+            },
+        ]
 
         return self.get_user_context(
             **context,
-            title='Find Your Dog - Woof Dogs'
+            title='Dog Groups - Woof Dogs'
         )
-
 
 class CookiePolicyView(DataMixin, TemplateView):
     template_name = 'woof/cookie_policy.html'
@@ -297,3 +320,65 @@ class PrivacyPolicyView(DataMixin, TemplateView):
 
 def pageNotFound(request, exception):
     return render(request, 'woof/404.html', status=404)
+
+
+
+
+
+#class DogFilterView(DataMixin, ListView):
+#     model = Dogs
+#     template_name = 'woof/filter.html'
+#     context_object_name = 'dogs'
+#     paginate_by = None
+#
+#     def get_queryset(self):
+#         queryset = Dogs.objects.filter(is_published=True)
+#
+#         sizes = self.request.GET.getlist('size')
+#         family = self.request.GET.getlist('family')
+#         hypo = self.request.GET.getlist('hypo')
+#         activity = self.request.GET.getlist('activity')
+#
+#         if sizes:
+#             queryset = queryset.filter(size__in=sizes)
+#
+#         if family:
+#             queryset = queryset.filter(family_friendliness__in=family)
+#
+#         if hypo:
+#             queryset = queryset.filter(hypoallergenic__in=hypo)
+#
+#         if activity:
+#             queryset = queryset.filter(activity_level__in=activity)
+#
+#         return queryset
+#
+#     def render_to_response(self, context, **response_kwargs):
+#         if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+#             html = render_to_string(
+#                 'woof/dog_cards.html',
+#                 context,
+#                 request=self.request
+#             )
+#             return JsonResponse({'html': html})
+#
+#         return super().render_to_response(context, **response_kwargs)
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#
+#         context['size_choices'] = Dogs.SIZE_CHOICES
+#         context['family_choices'] = Dogs.FAMILY_FRIENDLINESS_CHOICES
+#         context['hypo_choices'] = Dogs.HYPOALLERGENIC_CHOICES
+#         context['activity_choices'] = Dogs.ACTIVITY_CHOICES
+#
+#         context['all_breeds'] = Dogs.objects.filter(
+#             is_published=True
+#         ).order_by('title')
+#
+#         context['is_home'] = False
+#
+#         return self.get_user_context(
+#             **context,
+#             title='Find Your Dog - Woof Dogs'
+#         )

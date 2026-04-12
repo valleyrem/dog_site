@@ -129,33 +129,53 @@
             </button>
         </li>
 
+        <li class="nav-right">
+        <button class="burger" id="burger-btn">
+            <i class="bi bi-list" id="burger-icon"></i>
+        </button>
+        </li>
+
     </ul>
 </header>
 {% endblock %}
 
-<button class="burger" id="burger-btn">
-    <i class="bi bi-list" id="burger-icon"></i>
-</button>
+
 
 <!-- Layout -->
 <div class="layout-container">
 
     <!-- Sidebar -->
-    {% if not is_home %}
-    <aside class="sidebar-nav">
-        <div class="mobile-menu">
-            <ul class="mobile-menu__list">
-                {% for category in cats %}
-                    {% if category.pk != 10 %}
-                        <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
-                            <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">{{ category.name }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </aside>
-    {% endif %}
+{% if not is_home %}
+<aside class="sidebar-nav">
+    <div class="mobile-menu">
+
+        <!-- Main menu -->
+        <ul class="mobile-menu__list--top">
+            {% for m in menu %}
+                <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                    <a href="{% url m.url_name %}" title="{{ m.title }}">
+                        {{ m.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Categories -->
+        <ul class="mobile-menu__list">
+            {% for category in cats %}
+                {% if category.pk != 10 %}
+                    <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
+                        <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </div>
+</aside>
+{% endif %}
 
     <!-- Main content -->
     <main class="layout-content">
@@ -195,7 +215,7 @@
 </footer>
 
     <button id="scroll-top-button" title="back to top">
-        <i class="bi bi-chevron-up"></i>
+        <i class="bi bi-arrow-up-square"></i>
     </button>
 
 <!-- GTM noscript -->

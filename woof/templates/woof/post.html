@@ -11,6 +11,14 @@
         <span>/</span>
         <span class="current">{{ post.title }}</span>
     </div>-->
+    <div class="memphis-circle circle-3"></div>
+    <div class="memphis-triangle triangle-3"></div>
+    <div class="memphis-star star-3"></div>
+    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-heart heart-3"></div>
+
+
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
@@ -77,7 +85,7 @@
                     Size:
                     {% for icon in size_icons %}
                         <i class="fa-solid fa-dog {% if icon.active %}dog-active{% else %}dog-muted{% endif %}"
-                           style="font-size: {{ icon.size }}rem; padding-left: 5px;"></i>
+                           style="font-size: {{ icon.size }}rem; "></i>
                     {% endfor %}  <strong>({{ post.get_size_display }})</strong>
                 </p>
                 <p><i class="bi bi-hourglass-split"></i>
@@ -132,7 +140,7 @@
         <p><strong>Summary:</strong> {{ post.summary }}</p>
         <p><strong>Care:</strong> {{ post.care }}</p>
         <p><strong>Conditions:</strong> {{ post.living_conditions }}</p>
-        <p class="updated">Updated: {{ post.time_update }}</p>
+        <p class="updated"> Updated: {{ post.time_update }}</p>
     </div>
 </div>
 
@@ -154,7 +162,7 @@
 <div class="home-showcase-left">
     <h2 class="section-title">Other dogs from "{{ post.cat.name }}"</h2>
 
-    <div class="dog-grid">
+    <div class="dog-slider">
         {% for dog in related_dogs %}
             <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
                 <div class="dog-card">
@@ -184,16 +192,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
     const modalAuthor = document.getElementById('modal-author');
+
     const closeBtn = modal.querySelector('.close');
     const prevBtn = modal.querySelector('.modal-arrow.prev');
     const nextBtn = modal.querySelector('.modal-arrow.next');
 
     const mainImage = document.querySelector('.post-image');
     const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
+
     const allImages = [...(mainImage ? [mainImage] : []), ...galleryImages];
 
     let currentIndex = 0;
+    let scrollY = 0;
 
+    // --- preload / show ---
     function showImage(index) {
         currentIndex = index;
         const img = allImages[currentIndex];
@@ -204,62 +216,100 @@ document.addEventListener('DOMContentLoaded', function () {
             modalImg.src = img.src;
             modalAuthor.textContent = img.dataset.author || '';
             modalImg.style.opacity = 1;
-        }, 120);
+        }, 100);
     }
 
+    // --- open ---
     function openModal(index) {
+        scrollY = window.scrollY;
+
         showImage(index);
         modal.classList.add('active');
 
-        document.body.classList.add('modal-open');
+        document.documentElement.classList.add('no-scroll');
+        document.body.classList.add('no-scroll');
 
         const showArrows = allImages.length > 1;
         prevBtn.style.display = showArrows ? 'block' : 'none';
         nextBtn.style.display = showArrows ? 'block' : 'none';
     }
 
+    // --- close ---
     function closeModal() {
         modal.classList.remove('active');
-        document.body.classList.remove('modal-open');
+
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+
+        window.scrollTo({ top: scrollY, behavior: 'auto' });
     }
 
-    if (mainImage) mainImage.addEventListener('click', () => openModal(0));
-    galleryImages.forEach((img, i) => img.addEventListener('click', () => openModal(i + 1)));
+    // --- OPEN EVENTS ---
+    if (mainImage) {
+        mainImage.addEventListener('click', () => openModal(0));
+    }
 
-    prevBtn.onclick = () => showImage((currentIndex - 1 + allImages.length) % allImages.length);
-    nextBtn.onclick = () => showImage((currentIndex + 1) % allImages.length);
-
-    closeBtn.onclick = closeModal;
-
-    modal.onclick = e => {
-        if (e.target === modal) closeModal();
-    };
-
-    document.addEventListener('keydown', e => {
-        if (!modal.classList.contains('active')) return;
-
-        if (e.key === 'ArrowLeft') showImage((currentIndex - 1 + allImages.length) % allImages.length);
-        if (e.key === 'ArrowRight') showImage((currentIndex + 1) % allImages.length);
-        if (e.key === 'Escape') closeModal();
+    galleryImages.forEach((img, i) => {
+        img.addEventListener('click', () => openModal(i + 1));
     });
 
-    /* swipe gestures */
+    // --- CLOSE ---
+    closeBtn.addEventListener('click', closeModal);
 
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // --- ARROWS  ---
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage((currentIndex - 1 + allImages.length) % allImages.length);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage((currentIndex + 1) % allImages.length);
+    });
+
+    // --- KEYBOARD ---
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+
+        if (e.key === 'ArrowLeft') {
+            showImage((currentIndex - 1 + allImages.length) % allImages.length);
+        }
+
+        if (e.key === 'ArrowRight') {
+            showImage((currentIndex + 1) % allImages.length);
+        }
+
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // --- SWIPE ---
     let startX = 0;
     let startY = 0;
 
-    modal.addEventListener('touchstart', e => {
+    modal.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
     }, { passive: true });
 
-    modal.addEventListener('touchmove', e => {
-        if (modal.classList.contains('active')) {
+    modal.addEventListener('touchmove', (e) => {
+        if (!modal.classList.contains('active')) return;
+
+        const dx = Math.abs(e.touches[0].clientX - startX);
+        const dy = Math.abs(e.touches[0].clientY - startY);
+
+        if (dy > dx) {
             e.preventDefault();
         }
     }, { passive: false });
 
-    modal.addEventListener('touchend', e => {
+    modal.addEventListener('touchend', (e) => {
+        if (!modal.classList.contains('active')) return;
 
         const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
@@ -268,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const diffY = endY - startY;
 
         if (Math.abs(diffX) > Math.abs(diffY)) {
-
             if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
                     showImage((currentIndex - 1 + allImages.length) % allImages.length);
@@ -276,15 +325,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     showImage((currentIndex + 1) % allImages.length);
                 }
             }
-
         } else {
-
             if (diffY > 80) {
                 closeModal();
             }
-
         }
-
     });
 
 });
