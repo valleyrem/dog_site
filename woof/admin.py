@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Dogs, Category, DogImage
+from .models import Dogs, Category, DogImage, Section
 
 
 class DogImageInline(admin.TabularInline):
@@ -64,6 +64,8 @@ class DogsAdmin(admin.ModelAdmin):
         'title',
         'slug',
         'cat',
+        'section',
+        'country',
 
         # photo
         'photo',
@@ -116,6 +118,18 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
+
+
+@admin.register(Section)
+class SectionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'category')
+    list_display_links = ('id', 'name')
+    list_filter = ('category',)
+    search_fields = ('name',)
+
+
+def __str__(self):
+    return self.name
 
 admin.site.site_title = 'Woof Dogs admin'
 admin.site.site_header = 'Woof Dogs admin'

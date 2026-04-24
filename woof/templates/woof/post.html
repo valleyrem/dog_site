@@ -77,9 +77,25 @@
 
         <!-- Breed characteristics panel -->
         <div class="post-right">
-            <h2 class="breed-char">Breed Characteristics</h2>
+            <!--<h2 class="breed-char">Breed Characteristics</h2>-->
+         <p>
+            <strong>{{ post.cat }}</strong>
+        </p>
+
+
+
+
 
             <div class="post-params-grid">
+         <p>🧩 Section:
+            <strong>{{ post.section }}</strong>
+        </p>
+
+        <p>
+            🌍 Country of origin:
+            <strong>{{ post.country }}</strong>
+        </p>
+
 <p>
     🐕 Size:
     <span class="size-paws">
@@ -157,7 +173,6 @@
     <!-- About the breed -->
     <h2 class="section-title">About the Breed</h2>
     <div class="post-text">
-        <p><strong>Group.</strong> {{ post.cat }}</p>
         <p><strong>Summary.</strong> {{ post.summary }}</p>
         <p><strong>Care.</strong> {{ post.care }}</p>
         <p><strong>Conditions.</strong> {{ post.living_conditions }}</p>

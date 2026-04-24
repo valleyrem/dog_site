@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, ResizeToFit
+from django.core.exceptions import ValidationError
+from smart_selects.db_fields import ChainedForeignKey
 
 
 class Dogs(models.Model):
@@ -87,6 +89,24 @@ class Dogs(models.Model):
         'Category',
         on_delete=models.PROTECT,
         verbose_name="Group"
+    )
+
+    section = ChainedForeignKey(
+        'Section',
+        chained_field="cat",
+        chained_model_field="category",
+        show_all=False,
+        auto_choose=True,
+        sort=True,
+        null=True,
+        blank=True,
+        verbose_name="Section"
+    )
+
+    country = models.CharField(
+        max_length=100,
+        blank=True,
+        verbose_name="Country / Region of origin"
     )
 
     # photo
@@ -201,6 +221,7 @@ class Dogs(models.Model):
         ordering = ['title']
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Category")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
@@ -216,6 +237,30 @@ class Category(models.Model):
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
         ordering = ['id']
+
+
+class Section(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Section")
+
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.CASCADE,
+        related_name='sections',
+        verbose_name="Category"
+    )
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def clean(self):
+        if not self.pk and self.category.sections.count() >= 11:
+            raise ValidationError("Maximum 10 sections per category.")
+
+    class Meta:
+        verbose_name = "Section"
+        verbose_name_plural = "Sections"
+        ordering = ['name']
+
 
 
 class DogImage(models.Model):

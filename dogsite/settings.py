@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "captcha",
     "woof.apps.WoofConfig",
+    'smart_selects',
     "compressor",
     "whitenoise.runserver_nostatic",
     "imagekit",
@@ -177,4 +178,4 @@ CACHES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = ["https://woofdogs.world"]
+CSRF_TRUSTED_ORIGINS = ["https://woofdogs.world","https://dev.woofdogs.world"]

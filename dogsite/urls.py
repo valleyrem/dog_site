@@ -25,6 +25,7 @@ from woof.views import pageNotFound
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("woof.urls")),
+    path('chaining/', include('smart_selects.urls')),
     re_path(
         r"^media/(?P<path>.*)$", serve, kwargs={"document_root": settings.MEDIA_ROOT}
     ),
