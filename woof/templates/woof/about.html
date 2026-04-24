@@ -1,44 +1,52 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+               title="{{ category.name }}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!--<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
         <span>About</span>
     </div>
-</div>
+</div>-->
 
 <!-- About container -->
-<div class="policy-container">
+<div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title-cat">About</h1>
 <div class="post-text-explore">
-        <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
+<div class="memphis-circle circle-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
     <!-- Intro -->
-    <p>
+    <p class="cat-desc">
         <strong>Welcome!</strong>
     </p>
 
     <p>
-        This website was created for fun and learning. It provides short, structured information about dog breeds,
-        grouped according to the classification of the American Kennel Club (AKC) —
-        one of the oldest and most respected dog breed organizations in the world, founded in 1884.
+        This is a simple catalog of dog breeds, focused on clear structure and essential information for quick comparison and easy browsing.
+        <br>It was created for fun and learning, and provides short, structured information about dog breeds grouped according to the classification of the <strong>American Kennel Club (AKC)</strong> — one of the oldest and most respected dog breed organizations in the world, founded in 1884.
     </p>
 
     <p>
-        AKC defines breed standards, organizes dog shows and sporting events, and serves as a reliable reference
-        for breeders and dog owners. On this site, breeds are grouped following the same system for easier navigation
-        and comparison.
+        *If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
+        or that we haven’t found suitable images with clear attribution or free usage rights 😊
     </p>
 
     <!-- Group intro -->

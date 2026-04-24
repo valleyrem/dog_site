@@ -1,37 +1,49 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 
-<div class="breadcrumbs">
+
+<!--<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
-        <span>/</span>
+        <span></span>
         <span>Explore</span>
     </div>
-</div>
+</div>-->
 
 <div class="post-container">
 
-    <h1 class="post-title">Explore</h1>
+    <h1 class="post-title-cat">Explore</h1>
     <div class="post-text-explore">
-        <p>
-        <strong>Choosing a dog is a long-term decision</strong> that affects both your life and the life of the animal.
-        Each breed has its own temperament, energy level, and care needs, and ignoring these differences can lead to frustration.
-        A dog that does not match your lifestyle may struggle, even if it is naturally a great companion.
-    </p>
-     <p>
-        <strong>Live in apartment?</strong> → check apartment-friendly<br>
-        <strong>First dog?</strong> → start with beginner-friendly<br>
-        <strong>Allergies?</strong> → go to hypoallergenic
-    </p>
+        <p class="cat-desc">
+            <strong>Choosing a dog is a long-term decision</strong> that affects both your life and the life of the animal.
+            Each breed has its own temperament, energy level, and care needs, and ignoring these differences can lead to frustration.
+            A dog that does not match your lifestyle may struggle, even if it is naturally a great companion.
+        </p>
+<!--        <p>
+            <strong>Live in apartment?</strong> → check apartment-friendly<br>
+            <strong>First dog?</strong> → start with beginner-friendly<br>
+            <strong>Allergies?</strong> → go to hypoallergenic
+        </p>-->
     </div>
+
 <div class="dog-groups">
-    <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
+<div class="memphis-circle circle-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
 
   {% for group in groups %}
@@ -55,8 +67,6 @@
   {% endfor %}
 
     <div class="post-text-explore">
-
-
 
     <p>
         It is important to realistically consider how much time you can dedicate to walks, training, and interaction.

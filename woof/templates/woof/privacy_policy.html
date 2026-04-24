@@ -1,37 +1,41 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+               title="{{ category.name }}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!--<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
         <span>Privacy Policy</span>
     </div>
-</div>
+</div>-->
 
 <!-- Main content -->
-<div>
-    <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
+<div class="policy-container">
+<div class="memphis-circle circle-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
 
-    <h1 class="post-title"><strong>Privacy Policy</strong></h1>
-    <p class="last-updated"><strong>Last updated: February 2, 2026</strong></p>
+    <h1 class="post-title-cat"><strong>Privacy Policy</strong></h1>
+    <p class="last-updated cat-desc">Last updated: February 2, 2026</p>
 
-    <p>
-        This Privacy Policy describes how <strong>Woof Dogs</strong> («Website», «we», «us») collects, uses, and protects information when you visit our website
-        <a href="https://woofdogs.world/" target="_blank" class="link-policies" title="Woof Dogs">https://woofdogs.world/</a>.
-    </p>
 
-    <p>
-        By using this Website, you agree to the collection and use of information in accordance with this Privacy Policy.
-    </p>
 
     <!-- Table of Contents -->
     <h2>Table of Contents</h2>
@@ -53,6 +57,14 @@
 
     <!-- Who we are -->
     <h2 id="who-we-are">1. Who we are</h2>
+        <p>
+        This Privacy Policy describes how <strong>Woof Dogs</strong> («Website», «we», «us») collects, uses, and protects information when you visit our website
+        <a href="https://woofdogs.world/" target="_blank" class="link-policies" title="Woof Dogs">https://woofdogs.world/</a>.
+    </p>
+
+    <p>
+        By using this Website, you agree to the collection and use of information in accordance with this Privacy Policy.
+    </p>
     <p>Woof Dogs is an informational website dedicated to dog breeds and related content. We do not provide user accounts, registration, or login functionality.</p>
 
     <!-- Personal data -->

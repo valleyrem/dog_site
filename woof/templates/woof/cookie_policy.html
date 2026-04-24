@@ -1,38 +1,44 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+               title="{{ category.name }}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!--<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" class="link-policies">Home</a>
         <span>/</span>
         <span>Cookie Policy</span>
     </div>
-</div>
+</div>-->
 
 <!-- Policy container -->
 <div class="policy-container">
-    <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
+<div class="memphis-circle circle-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
 
     <!-- Page title -->
-    <h1 class="post-title"><strong>Cookie Policy</strong></h1>
+    <h1 class="post-title-cat"><strong>Cookie Policy</strong></h1>
 
     <!-- Cookie declaration -->
-    <h2><strong>Cookie Declaration</strong></h2>
+    <p class="cat-desc"><strong>Cookie Declaration</strong></p>
 
-    <script
-        id="CookieDeclaration"
-        src="https://consent.cookiebot.com/2098e3f8-43ce-455f-a84c-91d9f2224575/cd.js"
-        type="text/javascript"
-        async>
-    </script>
+    <div class="cky-audit-table-element"></div>
 
     <!-- Browser controls -->
     <h2><strong>How can I control cookies in my browser?</strong></h2>

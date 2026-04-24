@@ -1,30 +1,43 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+               title="{{ category.name }}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<!--<div class="breadcrumbs">
     <div class="breadcrumbs">
     <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
     <span>/</span>
     <span title="{{ current_category.name }}">{{ current_category.name }}</span>
     </div>
-</div>
+</div>-->
 
+
+<div class="post-container">
 <!-- Page title -->
-<h1 class="post-title" title="{{ current_category.name }}">
+<h1 class="post-title-cat" title="{{ current_category.name }}">
     {{ current_category.name }}
 </h1>
-<div class="post-text-explore">
-            <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
+<div class="post-text-explore" >
+<div class="memphis-circle circle-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
 <p class="cat-desc">
-    {{ current_category.desc }}
+    <strong>In short.</strong> {{ current_category.desc }}
 </p>
 </div>
 <!-- Dogs grid -->
@@ -44,7 +57,10 @@
                          height="300">
                 {% endif %}
 
-                <h2 class="dog-card__title">{{ p.title }}</h2>
+                <div class="dog-card__info">
+                     <p class="dog-card__title">{{ p.title }}</p>
+                      <p class="dog-card__group">{{ p.cat }}</p>
+                 </div>
 
             </div>
         </a>
@@ -52,5 +68,27 @@
     {% endfor %}
 
 </div>
+
+
+    <p style="font-size: 16px;">
+        *If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
+        or that we haven’t found suitable images with clear attribution or free usage rights 😊
+    </p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth > 768) return;
+
+    const active = document.querySelector(".category-chip.active");
+
+    if (!active) return;
+
+    active.scrollIntoView({
+        behavior: "auto",
+        inline: "center",
+        block: "nearest"
+    });
+});
+</script>
 
 {% endblock %}

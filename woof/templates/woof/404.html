@@ -4,85 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Paytone+One&display=swap" rel="stylesheet">
+
     <style>
     :root {
-        --color-bg: #f6f3f7;
-        --color-white: #ffffff;
-        --color-text-primary: #2e2430;
-        --color-text-secondary: #5c4a61;
-        --color-grey: #8c7a90;
-        --modal-author: #cbbccc;
-        --color-yellow: #FFC621;
+        --color-bg: #FFFFFF;
+        --color-text-primary: #1c2b27;
+        --color-text-secondary: #5a6a65;
 
-        --color-pistachio-soft: #e1c6e4;
-        --color-pistachio: #E85D2B;
-        --color-pistachio-dark: #5c1f5e;
+        --color-accent: #FF8EED;
+        --color-accent-deep: #e96fd8;
+        --color-yellow: #FDDA0A;
 
-        --color-accent: #f0b400;
-        --color-accent-soft: #ffd84d;
-
-        --color-accent-deep: #d18f00;
+        --color-button-background: #FFFFFF;
+        --color-frame: #45494D;
+        --color-white: #FFFFFF;
     }
 
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Baloo 2", system-ui, sans-serif;
+        background: var(--color-bg);
+        color: var(--color-text-primary);
+
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: var(--color-bg);
-        color: var(--color-text-primary);
+        overflow: hidden;
     }
 
     .container {
         text-align: center;
         padding: 40px;
+        position: relative;
+        z-index: 2;
+        max-width: 500px;
     }
 
     h1 {
         font-size: 110px;
         margin: 0;
-        color: #FF8EED;
-    -webkit-text-stroke: 2.5px #1c2b27;
-    text-shadow: 6px 6px 0 var(--color-yellow);
+        color: var(--color-accent);
+        -webkit-text-stroke: 2.5px var(--color-text-primary);
+        text-shadow: 6px 6px 0 var(--color-yellow);
         letter-spacing: 4px;
         line-height: 1;
+        font-family: "Baloo 2", system-ui, sans-serif;
     }
 
     p {
-        font-size: 20px;
-        margin: 20px 0 60px;
+        font-size: 24px;
+        margin: 20px 0 20px;
         color: var(--color-text-secondary);
+        line-height: 1.5;
+    }
+
+    .hint {
+        font-size: 14px;
+        opacity: 0.7;
+        margin-bottom: 40px;
     }
 
     a {
         display: inline-block;
-        color: var(--color-text-primary);
+        color: #161616;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
-        border: 2px solid var(--color-accent);
-        padding: 12px 28px;
-        border-radius: 30px;
-        transition: all 0.3s ease;
+        background-color: var(--color-button-background);
+        border: 1px solid var(--color-frame);
+        border-right-width: 3px;
+        border-bottom-width: 3px;
+        padding: 10px 25px;
+        border-radius: 20px;
+        transition: all 0.2s ease;
     }
 
     a:hover {
         background-color: var(--color-accent);
         color: var(--color-white);
-        border-color: var(--color-accent-deep);
+        border-color: var(--color-frame);
         transform: translateY(-2px);
     }
-</style>
 
+    </style>
 </head>
+
 <body>
+
     <div class="container">
         <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
+
+        <p>
+            ¯\_(ツ)_/¯<br>
+            The page you’re looking for doesn’t exist<br>
+            or may have been moved.
+        </p>
+
+        <p class="hint">
+            You can return to the homepage and continue exploring dog breeds.
+        </p>
+
         <a href="{% url 'home' %}">Go Back Home</a>
     </div>
+
 </body>
 </html>

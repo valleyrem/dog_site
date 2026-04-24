@@ -2,27 +2,28 @@
 
 {% block content %}
 
-<!--    <div class="breadcrumbs-mobile">
-        <a href="{% url 'home' %}" title="Home">Home</a>
-        <span>/</span>
-        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">
-            {{ post.cat.name }}
-        </a>
-        <span>/</span>
-        <span class="current">{{ post.title }}</span>
-    </div>-->
     <div class="memphis-circle circle-3"></div>
-    <div class="memphis-triangle triangle-3"></div>
-    <div class="memphis-star star-3"></div>
-    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
     <div class="memphis-heart heart-3"></div>
+    <div class="memphis-star star-3"></div>
+<!--    <div class="memphis-cloud cloud-3"></div>
+    <div class="memphis-half-circle half-3"></div>
+    <div class="memphis-triangle triangle-3"></div>-->
 
 
+<div class="category-scroll">
+    {% for category in cats %}
+        {% if category.pk != 10 %}
+            <a href="{{ category.get_absolute_url }}"
+               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+               title="{{ category.name }}">
+                 {{ category.name }}
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs-wrapper">
-
+<!--<div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home">Home</a>
         <span>/</span>
@@ -32,30 +33,30 @@
         <span>/</span>
         <span class="current">{{ post.title }}</span>
     </div>
-
-<!-- Navigation between posts -->
-    <div class="post-navigation">
-        {% if prev_post %}
-            <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev" title="{{ prev_post.title }}">
-                <i class="bi bi-arrow-left-short"></i> {{ prev_post.title }}
-            </a>
-        {% endif %}
-
-
-        {% if next_post %}
-            <a href="{{ next_post.get_absolute_url }}" class="nav-link next" title="{{ next_post.title }}">
-                {{ next_post.title }}
-                <i class="bi bi-arrow-right-short"></i>
-            </a>
-        {% endif %}
-    </div>
-
-</div>
+</div>-->
 
 <!-- Main post content -->
 <div class="post-container">
 
-    <h1 class="post-title">{{ post.title }}</h1>
+    <div class="post-header">
+        <h1 class="post-title">{{ post.title }}</h1>
+
+        <div class="post-navigation">
+            {% if prev_post %}
+                <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev" title="{{ prev_post.title }}">
+                    <i class="bi bi-arrow-left-short"></i>
+                    <span>{{ prev_post.title }}</span>
+                </a>
+            {% endif %}
+
+            {% if next_post %}
+                <a href="{{ next_post.get_absolute_url }}" class="nav-link next" title="{{ next_post.title }}">
+                    <span>{{ next_post.title }}</span>
+                    <i class="bi bi-arrow-right-short"></i>
+                </a>
+            {% endif %}
+        </div>
+    </div>
 
     <div class="post-media">
 
@@ -68,10 +69,9 @@
                  data-author="Photo: {{ post.photo_author|escapejs }}"
                  loading="lazy"
                  decoding="async"
+                 width="420"
+                 height="520"
             >
-            {% if post.photo_author %}
-                <div class="photo-author">Photo: {{ post.photo_author }}</div>
-            {% endif %}
         </div>
         {% endif %}
 
@@ -80,43 +80,63 @@
             <h2 class="breed-char">Breed Characteristics</h2>
 
             <div class="post-params-grid">
-                <p>
-                    <i class="bi bi-arrows-angle-expand"></i>
-                    Size:
-                    {% for icon in size_icons %}
-                        <i class="fa-solid fa-dog {% if icon.active %}dog-active{% else %}dog-muted{% endif %}"
-                           style="font-size: {{ icon.size }}rem; "></i>
-                    {% endfor %}  <strong>({{ post.get_size_display }})</strong>
-                </p>
-                <p><i class="bi bi-hourglass-split"></i>
-                    Life expectancy: <strong>{{ post.life_expectancy }} years</strong></p>
-                <p><i class="bi bi-rulers"></i>
-                    Height & weight: <strong>{{ post.height }} cm</strong>,
-                                     <strong>{{ post.weight }} kg</strong>
-                </p>
-                <p><i class="bi bi-lightbulb"></i>
-                    Trainability: <strong>{{ post.get_trainability_display }}</strong></p>
-                <p><i class="bi bi-brush"></i>
-                    Coat length & type: <strong>{{ post.get_coat_length_display }}</strong>,
-                                        <strong>{{ post.get_coat_type_display }}</strong>
-                </p>
-                <p><i class="bi bi-lightning"></i>
-                    Activity: <strong>{{ post.get_activity_level_display }}</strong></p>
-                <p><i class="bi bi-volume-up"></i>
-                    Barking: <strong>{{ post.get_barking_level_display }}</strong></p>
-                <p><i class="bi bi-shield-check"></i>
-                    Hypoallergenic: <strong>{{ post.get_hypoallergenic_display }}</strong></p>
-                <p><i class="bi bi-palette"></i>
-                    Colors: <strong>{{ post.colors }}</strong></p>
-                <p><i class="bi bi-people"></i>
-                    Family friendliness: <strong>{{ post.get_family_friendliness_display }}</strong></p>
-            </div>
+<p>
+    🐕 Size:
+    <span class="size-paws">
+        {% for icon in size_icons %}
+            <span class="{% if icon.active %}dog-active{% else %}dog-muted{% endif %}"
+                  style="font-size: calc({{ icon.size }}rem * 0.8);">
+                🐾
+            </span>
+        {% endfor %}
+    </span>
+    <strong>({{ post.get_size_display }})</strong>
+</p>
+
+    <p>❣️ Life expectancy:
+        <strong>{{ post.life_expectancy }} years</strong>
+    </p>
+
+    <p>↕️ Height & weight:
+        <strong>{{ post.height }} cm</strong>,
+        <strong>{{ post.weight }} kg</strong>
+    </p>
+
+    <p>💡 Trainability:
+        <strong>{{ post.get_trainability_display }}</strong>
+    </p>
+
+    <p>🐩 Coat:
+        <strong>{{ post.get_coat_length_display }}</strong>,
+        <strong>{{ post.get_coat_type_display }}</strong>
+    </p>
+
+    <p>🚀 Activity:
+        <strong>{{ post.get_activity_level_display }}</strong>
+    </p>
+
+    <p>🔊 Barking:
+        <strong>{{ post.get_barking_level_display }}</strong>
+    </p>
+
+    <p>🌿 Hypoallergenic:
+        <strong>{{ post.get_hypoallergenic_display }}</strong>
+    </p>
+
+    <p>🎨 Colors:
+        <strong>{{ post.colors }}</strong>
+    </p>
+
+    <p>👨‍👩‍👧‍👦 Family friendliness:
+        <strong>{{ post.get_family_friendliness_display }}</strong>
+    </p>
+</div>
 
             <!-- Gallery images -->
             {% if post.gallery.all %}
             <p class="images-rule">
                 This website is non-commercial. All images are used with attribution.
-                If you believe any content violates your rights, please
+                If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
                 <a href="mailto:woofdogs23@gmail.com" class="link-policies">contact us</a>.
             </p>
 
@@ -126,8 +146,8 @@
                          data-author="Photo: {{ photo.author|escapejs }}"
                          loading="lazy"
                          decoding="async"
-                         width="160"
-                         height="160">
+                         width="170"
+                         height="170">
                 {% endfor %}
             </div>
             {% endif %}
@@ -137,10 +157,11 @@
     <!-- About the breed -->
     <h2 class="section-title">About the Breed</h2>
     <div class="post-text">
-        <p><strong>Summary:</strong> {{ post.summary }}</p>
-        <p><strong>Care:</strong> {{ post.care }}</p>
-        <p><strong>Conditions:</strong> {{ post.living_conditions }}</p>
-        <p class="updated"> Updated: {{ post.time_update }}</p>
+        <p><strong>Group.</strong> {{ post.cat }}</p>
+        <p><strong>Summary.</strong> {{ post.summary }}</p>
+        <p><strong>Care.</strong> {{ post.care }}</p>
+        <p><strong>Conditions.</strong> {{ post.living_conditions }}</p>
+        <p class="updated"> {{ post.time_update }}</p>
     </div>
 </div>
 
@@ -157,11 +178,11 @@
     <span class="modal-arrow next">&#10095;</span>
 </div>
 
-<!-- Related dogs -->
-{% if related_dogs %}
-<div class="home-showcase-left">
-    <h2 class="section-title">Other dogs from "{{ post.cat.name }}"</h2>
 
+<!-- Related dogs -->
+<h2 class="section-title">Other dogs from "{{ post.cat.name }}"</h2>
+{% if related_dogs %}
+<div class="slider-block">
     <div class="dog-slider">
         {% for dog in related_dogs %}
             <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
@@ -176,7 +197,10 @@
                             height="300">
                     {% endif %}
 
-                <h2 class="dog-card__title">{{ dog.title }}</h2>
+                <div class="dog-card__info">
+                     <p class="dog-card__title">{{ dog.title }}</p>
+                      <p class="dog-card__group">{{ dog.cat }}</p>
+                 </div>
 
                 </div>
             </a>
@@ -332,6 +356,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth > 768) return;
+
+    const active = document.querySelector(".category-chip.active");
+
+    if (!active) return;
+
+    active.scrollIntoView({
+        behavior: "auto",
+        inline: "center",
+        block: "nearest"
+    });
 });
 </script>
 
