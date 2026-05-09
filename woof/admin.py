@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Dogs, Category, DogImage, Section
+from .models import Dogs, Category, DogImage, Section, CoatType, CoatLength
 
 
 class DogImageInline(admin.TabularInline):
@@ -25,13 +25,13 @@ class DogsAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'get_html_photo',
-        'size',
-        'time_create',
+        'country',
         'is_published',
         'id',
     )
 
     list_display_links = ('id', 'title')
+    filter_horizontal = ('coat_length', 'coat_type' )
 
     search_fields = (
         'title',
@@ -65,6 +65,7 @@ class DogsAdmin(admin.ModelAdmin):
         'slug',
         'cat',
         'section',
+        'varieties',
         'country',
 
         # photo
@@ -77,8 +78,8 @@ class DogsAdmin(admin.ModelAdmin):
         'size',
         'height',
         'weight',
-        'coat_type',
         'coat_length',
+        'coat_type',
         'colors',
         'trainability',
         'activity_level',
@@ -113,11 +114,21 @@ class DogsAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'desc')
+    list_display = ('id', 'name', 'group_preview', 'desc')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
 
+    readonly_fields = ('group_preview',)
+
+    def group_preview(self, obj):
+        if obj.group_image:
+            return mark_safe(
+                f'<img src="{obj.group_image.url}" width="120" style="object-fit: cover;">'
+            )
+        return "—"
+
+    group_preview.short_description = 'Preview'
 
 
 @admin.register(Section)
@@ -130,6 +141,19 @@ class SectionAdmin(admin.ModelAdmin):
 
 def __str__(self):
     return self.name
+
+
+@admin.register(CoatType)
+class CoatTypeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    search_fields = ('name',)
+
+
+@admin.register(CoatLength)
+class CoatLengthAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    search_fields = ('name',)
+
 
 admin.site.site_title = 'Woof Dogs admin'
 admin.site.site_header = 'Woof Dogs admin'

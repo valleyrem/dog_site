@@ -2,48 +2,63 @@
 {% load static %}
 
 {% block content %}
-<div class="category-scroll">
+<!--<div class="category-scroll">
     {% for category in cats %}
         {% if category.pk != 10 %}
             <a href="{{ category.get_absolute_url }}"
-               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-               title="{{ category.name }}">
-                 {{ category.name }}
+                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+                    title="{{ category.name }}">
+                <span class="category-chip__text">
+                {{ category.name }}
+                </span>
             </a>
         {% endif %}
     {% endfor %}
-</div>
+</div>-->
 <!-- Breadcrumbs -->
-<!--<div class="breadcrumbs">
+<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>Contact</span>
+        <span class="current">Contact</span>
     </div>
-</div>-->
+</div>
 
 <!-- Contact container -->
 <div class="policy-container">
 
     <!-- Page title -->
     <h1 class="post-title-cat">Contact</h1>
+    <p class="cat-desc">
+        <strong>Feel free</strong> to reach out with any questions, suggestions, or feedback. ✉️
+    </p>
+        <p class="cat-desc">
+        Thank you for helping improve this project. Your feedback helps keep the information accurate and reliable.
+    </p>
+    <div class="hero-inner-contact">
+
+    <div class="hero-left">
 
     <!-- Intro text -->
     <div class="post-text-explore">
-    <p class="cat-desc">✉️ Feel free to reach out with any questions, suggestions, or feedback.</p>
+
+
+    <ul class="contact-list">
+        <li>If you notice any inaccuracies in breed descriptions, characteristics, or data.</li>
+        <li>If you would like to suggest a dog breed that is not yet listed on the website.</li>
+        <li>If you have ideas or suggestions to improve the content or structure.</li>
+        <li>If you are the author of a photograph and would like it to be removed.</li>
+        <li>If you would like your authorship to be corrected or credited differently.</li>
+        <li>Please include a link or any relevant details to help process your request.</li>
+    </ul>
+
+</div>
     </div>
+        <div class="hero-right-contact">
     <!-- Contact form -->
     <div class="contact-layout">
 
         <form id="contactForm" method="post">
-
-<div class="memphis-circle circle-3"></div>
-    <div class="memphis-heart heart-3"></div>
-    <div class="memphis-star star-3"></div>
-<!--    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
-    <div class="memphis-triangle triangle-3"></div>-->
-
 
             {% csrf_token %}
 
@@ -76,7 +91,8 @@
             <button id="btn-custom" type="submit" title="Send a message">Send</button>
         </form>
 
-
+    </div>
+</div>
 </div>
 </div>
 

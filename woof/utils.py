@@ -3,7 +3,8 @@ from django.core.cache import cache
 from .models import Category
 
 menu = [
-    {"title": "About", "url_name": "about"},
+    {"title": "About us", "url_name": "about"},
+    {"title": "Groups", "url_name": "groups"},
     {"title": "Explore", "url_name": "dog-explore"},
     {"title": "Contact", "url_name": "contact"},
 ]

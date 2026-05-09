@@ -6,6 +6,21 @@ from django.core.exceptions import ValidationError
 from smart_selects.db_fields import ChainedForeignKey
 
 
+
+class CoatType(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class CoatLength(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Dogs(models.Model):
     BARKING_CHOICES = [
         ('necessary', 'When necessary (rare, purposeful)'),
@@ -18,7 +33,10 @@ class Dogs(models.Model):
     SIZE_CHOICES = [
         ('xsmall', 'XSmall'),
         ('small', 'Small'),
+        ('small_medium', 'Small to Medium'),
+        ('small_large', 'Small to Large'),
         ('medium', 'Medium'),
+        ('medium_large', 'Medium to Large'),
         ('large', 'Large'),
         ('xlarge', 'XLarge'),
     ]
@@ -103,6 +121,12 @@ class Dogs(models.Model):
         verbose_name="Section"
     )
 
+    varieties = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Varieties"
+    )
+
     country = models.CharField(
         max_length=100,
         blank=True,
@@ -134,23 +158,21 @@ class Dogs(models.Model):
 
     # characteristics
     size = models.CharField(
-        max_length=10,
+        max_length=30,
         choices=SIZE_CHOICES,
         default='small',
         verbose_name="Size"
     )
 
-    coat_type = models.CharField(
-        max_length=15,
-        choices=COAT_CHOICES,
-        default='short',
+    coat_type = models.ManyToManyField(
+        CoatType,
+        blank=True,
         verbose_name="Coat type"
     )
 
-    coat_length = models.CharField(
-        max_length=10,
-        choices=COAT_LENGTH_CHOICES,
-        default='short',
+    coat_length = models.ManyToManyField(
+        CoatLength,
+        blank=True,
         verbose_name="Coat length"
     )
 
@@ -222,10 +244,20 @@ class Dogs(models.Model):
 
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Category")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     desc = models.TextField(blank=True, verbose_name="Description")
+
+    group_image = models.ImageField(upload_to='groups/', blank=True, null=True)
+
+    group_image_thumb = ImageSpecField(
+        source='group_image',
+        processors=[ResizeToFit(300, 300)],
+        format='WEBP',
+        options={'quality': 85}
+    )
 
     def __str__(self):
         return self.name
@@ -250,7 +282,7 @@ class Section(models.Model):
     )
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
 
     def clean(self):
         if not self.pk and self.category.sections.count() >= 11:

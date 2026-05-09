@@ -218,7 +218,7 @@
 </footer>
 
     <button id="scroll-top-button" title="back to top">
-        <i class="bi bi-arrow-up-square"></i>
+        <i class="bi bi-arrow-up-short"></i>
     </button>
 
 <!-- GTM noscript -->
@@ -227,6 +227,63 @@
             height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
 </noscript>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('.js-slider').forEach(slider => {
+
+        const range = slider.parentElement.querySelector('.slider-range');
+        if (!range) return;
+
+        const cards = slider.querySelectorAll('.dog-card-link');
+
+        // если карточек 4 или меньше → скрываем range
+        if (cards.length <= 4) {
+            range.style.display = 'none';
+            return;
+        }
+
+        function updateMax() {
+            range.max = Math.max(
+                0,
+                slider.scrollWidth - slider.clientWidth
+            );
+        }
+
+        updateMax();
+        window.addEventListener('resize', updateMax);
+
+        let ticking = false;
+        let isDragging = false;
+
+        // скролл → слайдер (сглаживание)
+        slider.addEventListener('scroll', () => {
+            if (isDragging) return;
+
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    range.value = slider.scrollLeft;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // слайдер → скролл
+        range.addEventListener('input', () => {
+            isDragging = true;
+            slider.scrollLeft = range.value;
+        });
+
+        range.addEventListener('change', () => {
+            isDragging = false;
+        });
+
+    });
+
+});
+</script>
 
 <!-- Scroll to top script -->
 <script>

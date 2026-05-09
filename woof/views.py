@@ -178,7 +178,7 @@ class DogGroupsView(DataMixin, TemplateView):
         context["groups"] = [
             # 1. Best family dogs
             {
-                "title": "🐶  Best family dogs",
+                "title": "  Best family dogs  🐶",
                 "dogs": dogs.filter(
                     family_friendliness__in=["high", "excellent"],
                     barking_level__in=["necessary", "infrequent"],
@@ -187,7 +187,7 @@ class DogGroupsView(DataMixin, TemplateView):
             },
             # 2. Great for first-time owners
             {
-                "title": "🆕  Great for first-time owners",
+                "title": "  Great for first-time owners  🆕",
                 "dogs": dogs.filter(
                     trainability__in=["agreeable", "easy", "eager"],
                     activity_level__in=["calm", "regular"],
@@ -195,7 +195,7 @@ class DogGroupsView(DataMixin, TemplateView):
             },
             # 3. For experienced owners
             {
-                "title": "💪  For experienced owners",
+                "title": "  For experienced owners  💪",
                 "dogs": dogs.filter(
                     activity_level__in=["high", "energetic"],
                     trainability__in=["independent", "stubborn"],
@@ -203,34 +203,34 @@ class DogGroupsView(DataMixin, TemplateView):
             },
             # 4. Hypoallergenic breeds
             {
-                "title": "🌿  Hypoallergenic breeds",
+                "title": "  Hypoallergenic breeds  🌿",
                 "dogs": dogs.filter(hypoallergenic__in=["moderate", "high"]),
             },
             # 5. Small dogs
             {
-                "title": "🐾  Small dogs",
+                "title": "  Small dogs  🐾",
                 "dogs": dogs.filter(size__in=["xsmall", "small"]),
             },
             # 6. Medium dogs
-            {"title": "🔹  Medium dogs", "dogs": dogs.filter(size="medium")},
+            {"title": "  Medium dogs  🔹", "dogs": dogs.filter(size="medium")},
             # 7. Large dogs
             {
-                "title": "🐕  Large dogs",
+                "title": "  Large dogs  🐕",
                 "dogs": dogs.filter(size__in=["large", "xlarge"]),
             },
             # 8. Apartment-friendly dogs
             {
-                "title": "🏢  Apartment-friendly dogs",
+                "title": "  Apartment-friendly dogs  🏢",
                 "dogs": dogs.filter(
                     size__in=["xsmall", "small", "medium"],
                     activity_level__in=["calm", "regular"],
                     barking_level__in=["necessary", "infrequent"],
-                    coat_length__in=["short", "medium"],
+                    coat_length__name__in=["Short", "Medium"],
                 ),
             },
             # 9. Best for houses with yard
             {
-                "title": "🏡  Best for houses with yard",
+                "title": "  Best for houses with yard  🏡",
                 "dogs": dogs.filter(
                     size__in=["medium", "large", "xlarge"],
                     activity_level__in=["high", "energetic"],
@@ -241,6 +241,14 @@ class DogGroupsView(DataMixin, TemplateView):
 
         return self.get_user_context(**context, title="Dog Groups - Woof Dogs")
 
+
+class GroupsPageView(DataMixin, TemplateView):
+    template_name = 'woof/groups.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cats'] = Category.objects.prefetch_related('sections').all()
+        return self.get_user_context(**context, title="FCI Groups - Woof Dogs")
 
 class CookiePolicyView(DataMixin, TemplateView):
     template_name = "woof/cookie_policy.html"
@@ -271,3 +279,4 @@ class PrivacyPolicyView(DataMixin, TemplateView):
 
 def pageNotFound(request, exception):
     return render(request, "woof/404.html", status=404)
+

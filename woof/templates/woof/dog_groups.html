@@ -1,25 +1,28 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<div class="category-scroll">
+<!--<div class="category-scroll">
     {% for category in cats %}
         {% if category.pk != 10 %}
             <a href="{{ category.get_absolute_url }}"
-               class="category-chip {% if category.pk == cat_selected %}active{% endif %}">
-                 {{ category.name }}
+                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+                    title="{{ category.name }}">
+                <span class="category-chip__text">
+                {{ category.name }}
+                </span>
             </a>
         {% endif %}
     {% endfor %}
-</div>
+</div>-->
 
 
-<!--<div class="breadcrumbs">
+<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
-        <span></span>
-        <span>Explore</span>
+        <span>/</span>
+        <span class="current">Explore</span>
     </div>
-</div>-->
+</div>
 
 <div class="post-container">
 
@@ -38,13 +41,6 @@
     </div>
 
 <div class="dog-groups">
-<div class="memphis-circle circle-3"></div>
-    <div class="memphis-heart heart-3"></div>
-    <div class="memphis-star star-3"></div>
-<!--    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
-    <div class="memphis-triangle triangle-3"></div>-->
-
 
   {% for group in groups %}
     <div class="group-item">

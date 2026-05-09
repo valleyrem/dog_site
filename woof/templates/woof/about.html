@@ -1,161 +1,66 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<div class="category-scroll">
-    {% for category in cats %}
-        {% if category.pk != 10 %}
-            <a href="{{ category.get_absolute_url }}"
-               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-               title="{{ category.name }}">
-                 {{ category.name }}
-            </a>
-        {% endif %}
-    {% endfor %}
-</div>
+
 <!-- Breadcrumbs -->
-<!--<div class="breadcrumbs">
+<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <span>About</span>
+        <span class="current">About us</span>
     </div>
-</div>-->
+</div>
 
-<!-- About container -->
 <div class="post-container">
 
-    <!-- Page title -->
-    <h1 class="post-title-cat">About</h1>
-<div class="post-text-explore">
-<div class="memphis-circle circle-3"></div>
-    <div class="memphis-heart heart-3"></div>
-    <div class="memphis-star star-3"></div>
-<!--    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
-    <div class="memphis-triangle triangle-3"></div>-->
+    <h1 class="post-title-cat">About us</h1>
 
-    <!-- Intro -->
-    <p class="cat-desc">
-        <strong>Welcome!</strong>
-    </p>
+    <div class="post-text-explore">
 
-    <p>
-        This is a simple catalog of dog breeds, focused on clear structure and essential information for quick comparison and easy browsing.
-        <br>It was created for fun and learning, and provides short, structured information about dog breeds grouped according to the classification of the <strong>American Kennel Club (AKC)</strong> — one of the oldest and most respected dog breed organizations in the world, founded in 1884.
-    </p>
+        <p class="cat-desc">
+            <strong>Welcome!</strong> This project is created for fun and designed as a structured catalog of dog breeds, focused on clarity, comparison, and easy navigation.
+            The main classification system follows the <strong>FCI (Fédération Cynologique Internationale)</strong> — the largest international federation of kennel clubs, which defines official breed standards and group structures worldwide.
+        </p>
 
-    <p>
-        *If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
-        or that we haven’t found suitable images with clear attribution or free usage rights 😊
-    </p>
+        <p>
+            To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.
+            As a result, the database includes not only officially recognized breeds, but also less common and developing ones.
+        </p>
 
-    <!-- Group intro -->
-    <p>
-        Currently, the AKC recognizes the following breed groups:
-    </p>
+        <p>
+            This means the catalog combines:
+            <br>— officially recognized FCI breeds and groups
+            <br>— breeds recognized by other kennel clubs
+            <br>— rare or developing breeds not yet formally classified
+        </p>
 
-    <!-- Breed groups list -->
-    <ul class="bulleted-list">
+        <p>
+            If a breed is missing, it may not yet be added or sufficient reference material is still being collected.
+        </p>
 
-        <li>
+        <p class="section-title">
+            About classification
+        </p>
+
+        <p>
+            Breed classification may vary between kennel organizations.
+            The same breed can be assigned to different groups depending on the standard used.
+        </p>
+
+        <p>
+            For official FCI standards, you can visit the
             <strong>
-                <a href="{% url 'category' 'sporting-group' %}" class="link-site">
-                    Sporting Group
-                </a>:
-            </strong>
-            Breeds originally developed for hunting and retrieving, known for stamina, intelligence, and cooperation with humans.
-        </li>
+                <a href="https://www.fci.be" target="_blank" class="link-site">
+                    FCI website
+                </a>
+            </strong>.
+        </p>
 
-        <li>
-            <strong>
-                <a href="{% url 'category' 'hound-group' %}" class="link-site">
-                    Hound Group
-                </a>:
-            </strong>
-            Breeds that hunt by sight or scent. Independent, determined, and often very vocal.
-        </li>
+        <p class="section-title">
+            Enjoy exploring, learning, and discovering dog breeds.
+        </p>
 
-        <li>
-            <strong>
-                <a href="{% url 'category' 'working-group' %}" class="link-site">
-                    Working Group
-                </a>:
-            </strong>
-            Strong and confident dogs bred for guarding, pulling, rescue work, and other demanding tasks.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'terrier-group' %}" class="link-site">
-                    Terrier Group
-                </a>:
-            </strong>
-            Energetic and fearless breeds originally used for hunting vermin and small game.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'toy-group' %}" class="link-site">
-                    Toy Group
-                </a>:
-            </strong>
-            Small companion dogs, bred mainly for affection and adaptability to city life.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'non-sporting-group' %}" class="link-site">
-                    Non-Sporting Group
-                </a>:
-            </strong>
-            A diverse group of breeds with very different sizes, coats, and personalities.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'herding-group' %}" class="link-site">
-                    Herding Group
-                </a>:
-            </strong>
-            Intelligent and active dogs bred to control livestock, known for focus and trainability.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'miscellaneous-class' %}" class="link-site">
-                    Miscellaneous Class
-                </a>:
-            </strong>
-            Breeds that are in the process of gaining full AKC recognition.
-        </li>
-
-        <li>
-            <strong>
-                <a href="{% url 'category' 'foundation-stock-service' %}" class="link-site">
-                    Foundation Stock Service
-                </a>:
-            </strong>
-            Rare breeds whose populations are being documented and developed toward official recognition.
-        </li>
-
-    </ul>
-
-    <!-- Breeds note -->
-    <p>
-        <strong>Breeds:</strong> The list of breeds on this website is not complete.
-        If you would like to help expand it, you can register and add a new breed,
-        making sure it is not already listed.
-        For official and detailed information, we always recommend visiting the
-        <a href="https://www.akc.org/dog-breeds/" target="_blank" class="link-site" title="AKC Site">
-            AKC website
-        </a>.
-    </p>
-
-    <!-- Closing -->
-    <p>
-        Enjoy exploring, learning, and sharing!
-    </p>
-
+    </div>
 </div>
-</div>
+
 {% endblock %}

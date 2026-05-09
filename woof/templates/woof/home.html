@@ -9,32 +9,24 @@
         <div class="hero-center">
             <div class="hero-content">
                 <div class="hero-inner">
+                    <div class="hero-left">
                 <p class="homepage-title-1">
-                    Fur on your clothes<br> means you're truly <br>loved
+                    woof dogs
                 </p>
-                <p class="homepage-subtitle">
-                    A simple way to find a dog that really fits your lifestyle, your home,
-                    and your everyday rhythm — and feels like it belongs there.</p>
+                <p class="homepage-subtitle"> fur on your clothes means you're truly loved
+                    </p>
+                    </div>
+                    <div class="hero-right">
+                        <!-- сюда потом фото / иллюстрация / карточка -->
+                    </div>
 
-                <div class="dog-decor">
-                    <img src="{% static 'woof/1.png' %}"
-                         class="dog dog-1"
-                         loading="lazy"
-                         decoding="async"
-                         width="200">
-
-                    <img src="{% static 'woof/2.png' %}"
-                         class="dog dog-2"
-                         loading="lazy"
-                         decoding="async">
-                </div>
 
                 <!-- memphis decor -->
-                <div class="memphis-circle circle-1"></div>
+<!--                <div class="memphis-circle circle-1"></div>
                 <div class="memphis-star star-1"></div>
                 <div class="memphis-cloud cloud-1"></div>
                 <div class="memphis-triangle triangle-1"></div>
-                <div class="memphis-heart heart-1"></div>
+                <div class="memphis-heart heart-1"></div>-->
                 </div>
 
                 <a href="#explore" class="hero-arrow">
@@ -47,22 +39,45 @@
 
     <!-- HOME-TEXT-1 -->
     <div class="home-text-block" id="explore">
+<!--        <div class="dog-decor">
+                    <img src="{% static 'woof/1.png' %}"
+                         class="dog dog-1"
+                         loading="lazy"
+                         decoding="async">
 
-        <div class="memphis-circle circle-2"></div>
-        <div class="memphis-half-circle half-2"></div>
-        <div class="memphis-star star-2"></div>
-
-        <div class="dog-decor">
-            <img src="{% static 'woof/31.png' %}"
-                 class="dog dog-3"
-                 loading="lazy"
-                 decoding="async"
-                 width="250">
+                    <img src="{% static 'woof/2.png' %}"
+                         class="dog dog-2"
+                         loading="lazy"
+                         decoding="async">
+         </div>-->
+        <!--<div class="flags-desktop">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
         </div>
+
+        <div class="flags-mobile">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>-->
+
+
+<!--        <div class="memphis-circle circle-2"></div>
+        <div class="memphis-half-circle half-2"></div>
+        <div class="memphis-star star-2"></div>-->
+
+
+
 
         <h1 class="home-text-block-title">Explore breeds</h1>
             <p class="home-text-block-text">
-                Find the perfect match for your lifestyle.
+                A simple way to find a dog that really fits your lifestyle, your home,
+                    and your everyday rhythm — and feels like it belongs there.
             </p>
 
     </div>
@@ -122,17 +137,21 @@
         <!-- HOME-TEXT-2 -->
         <div class="home-text-block">
 
-            <div class="memphis-heart heart-2"></div>
+<!--            <div class="memphis-heart heart-2"></div>
             <div class="memphis-cloud cloud-2"></div>
-            <div class="memphis-triangle triangle-2"></div>
+            <div class="memphis-triangle triangle-2"></div>-->
 
-            <div class="dog-decor">
+<!--            <div class="dog-decor">
+                <img src="{% static 'woof/31.png' %}"
+                    class="dog dog-3"
+                    loading="lazy"
+                    decoding="async">
+
                 <img src="{% static 'woof/5.png' %}"
                      class="dog dog-4"
                      loading="lazy"
-                     decoding="async"
-                     width="290">
-            </div>
+                     decoding="async">
+            </div>-->
 
             <h1 class="home-text-block-title">Breed profiles</h1>
                 <p class="home-text-block-text">
@@ -146,7 +165,7 @@
     <!-- SLIDER -->
         <div class="slider-block">
             <div class="slider-inner">
-            <div class="dog-slider">
+            <div class="dog-slider js-slider">
 
                 {% for dog in posts %}
                     <a href="{{ dog.get_absolute_url }}"
@@ -167,13 +186,15 @@
                             <div class="dog-card__info">
                                 <p class="dog-card__title">{{ dog.title }}</p>
                                 <p class="dog-card__group">{{ dog.cat }}</p>
-                            </div>
+                                <p class="dog-card__section">{{ dog.section }}</p>
+                                </div>
 
                         </div>
                     </a>
                 {% endfor %}
 
             </div>
+                <input type="range" class="slider-range" min="0" value="0">
                 </div>
         </div>
 
@@ -181,6 +202,8 @@
 
 
 <!-- SCRIPT -->
+
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 

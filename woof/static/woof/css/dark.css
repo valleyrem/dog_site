@@ -86,20 +86,37 @@ body.dark-theme .layout-container::before {
     );
 }
 
-body.dark-theme .dog-slider::after,
+body.dark-theme .dog-slider::after {
+    background: linear-gradient(
+        to left,
+        rgba(30, 30, 30, 0.95),
+        rgba(30, 30, 30, 0)
+    );
+    right: -3px;
+    top: 30px;
+    width: 80px;
+    height: 322px;
+}
+
 body.dark-theme .layout-content .dog-slider::after {
     background: linear-gradient(
         to left,
         rgba(30, 30, 30, 0.95),
         rgba(30, 30, 30, 0)
     );
+    right: -3px;
+    top: 19px;
+    width: 80px;
+    height: 323px;
 }
-
 
 body.dark-theme .dogs-container {
     border-top: 1px solid rgba(146, 146, 146, 0.1);
     border-bottom: 1px solid rgba(146, 146, 146, 0.1);
 }
+
+body.dark-theme .tooltip-text { background: #161616; border-color: #f8f8f8;}
+
 body.dark-theme .layout-content {
     background-color: var(--color-bg);
     color: var(--color-text-primary);
@@ -155,10 +172,6 @@ body.dark-theme .pagination__item--active {
     color: #fff;
 }
 
-body.dark-theme .dog-card {
-    background: var(--color-surface);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
 
 body.dark-theme .dog-card-title,
 body.dark-theme .dog-card__info {
@@ -173,14 +186,13 @@ body.dark-theme .gallery-image {
 
 body.dark-theme .dog-card-link:hover .dog-card__title,
 body.dark-theme .dog-card-title:hover {
-    color: var(--color-bg);
+    color: #F8F8F8;
 }
 
-body.dark-theme .dog-card__title {
-    color: var(--color-bg);
-}
+body.dark-theme .dog-card-link { background: #292828; }
+body.dark-theme .slider-block { background: transparent; }
 
-body.dark-theme #theme-switch:hover{ background: #CC71BD; }
+body.dark-theme .group-row:hover { background: #292828; }
 
 body.dark-theme .post-container,
 body.dark-theme .post-text,
@@ -243,22 +255,22 @@ body.dark-theme .homepage-text-1  { color: #CC71BD; }
 body.dark-theme .homepage-text-2  { color: #CC71BD; }
 
 
-body.dark-theme .homepage-wave {
-    opacity: 0.8;
+body.dark-theme .hero-center { background: transparent; }
+body.dark-theme .homepage-search-block {
+    background: transparent;
+    background-image: radial-gradient(#fff 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
-body.dark-theme .dog-card-img, body.dark-theme .dog-card__image {
-    opacity: 0.8;
+body.dark-theme .dog-slider::-webkit-scrollbar,
+body.dark-theme .dog-slider::-webkit-scrollbar-thumb {
+
 }
 
 body.dark-theme .policy-container input[type="text"],
 body.dark-theme .policy-container input[type="email"],
 body.dark-theme .policy-container textarea {
     background: var(--color-surface);
-    border: 1px solid var(--color-frame);
-    border-right-width: 3px;
-    border-bottom-width: 3px;
-    border-radius: 10px;
 }
 
 body.dark-theme .modal-arrow,

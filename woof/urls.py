@@ -10,6 +10,7 @@ from .views import (
     TermsAndConditionsView,
     PrivacyPolicyView,
     DogGroupsView,
+    GroupsPageView,
 )
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path("terms-of-use/", TermsAndConditionsView.as_view(), name="terms-of-use"),
     path("privacy-policy/", PrivacyPolicyView.as_view(), name="privacy-policy"),
     path("explore/", DogGroupsView.as_view(), name="dog-explore"),
+    path('groups/', GroupsPageView.as_view(), name='groups'),
 ]

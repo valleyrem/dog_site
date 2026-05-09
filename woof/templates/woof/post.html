@@ -2,38 +2,37 @@
 
 {% block content %}
 
-    <div class="memphis-circle circle-3"></div>
-    <div class="memphis-heart heart-3"></div>
-    <div class="memphis-star star-3"></div>
-<!--    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
-    <div class="memphis-triangle triangle-3"></div>-->
-
-
-<div class="category-scroll">
+<!--<div class="category-scroll">
     {% for category in cats %}
         {% if category.pk != 10 %}
             <a href="{{ category.get_absolute_url }}"
-               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-               title="{{ category.name }}">
-                 {{ category.name }}
+                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+                    title="{{ category.name }}">
+                <span class="category-chip__text">
+                {{ category.name }}
+                </span>
             </a>
         {% endif %}
     {% endfor %}
-</div>
+</div>-->
 
 <!-- Breadcrumbs -->
-<!--<div class="breadcrumbs-wrapper">
+<div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home">Home</a>
+        <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
         <span>/</span>
-        <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat.name }}">
-            {{ post.cat.name }}
+        <a href="{% url 'groups' %}" title="Groups" class="link-policies">Groups</a>
+        <span>/</span>
+        <a href="{{ post.cat.get_absolute_url }}"
+            title="{{ post.cat.name }}"
+            class="link-policies">
+                <span class="desktop-text">{{ post.cat.name }}</span>
+                <span class="mobile-text">{{ post.cat.name|truncatechars:25 }}</span>
         </a>
         <span>/</span>
         <span class="current">{{ post.title }}</span>
     </div>
-</div>-->
+</div>
 
 <!-- Main post content -->
 <div class="post-container">
@@ -69,8 +68,8 @@
                  data-author="Photo: {{ post.photo_author|escapejs }}"
                  loading="lazy"
                  decoding="async"
-                 width="420"
-                 height="520"
+                 width="440"
+                 height="540"
             >
         </div>
         {% endif %}
@@ -78,9 +77,13 @@
         <!-- Breed characteristics panel -->
         <div class="post-right">
             <!--<h2 class="breed-char">Breed Characteristics</h2>-->
-         <p>
-            <strong>{{ post.cat }}</strong>
-        </p>
+         <p class="breed-char">
+    <strong>
+        📒 <a href="{{ post.cat.get_absolute_url }}">
+            {{ post.cat }}
+        </a>
+    </strong>
+</p>
 
 
 
@@ -89,6 +92,10 @@
             <div class="post-params-grid">
          <p>🧩 Section:
             <strong>{{ post.section }}</strong>
+             </p>
+        <p>
+    🧬 Varieties:
+    <strong>{{ post.varieties }}</strong>
         </p>
 
         <p>
@@ -98,63 +105,60 @@
 
 <p>
     🐕 Size:
-    <span class="size-paws">
-        {% for icon in size_icons %}
-            <span class="{% if icon.active %}dog-active{% else %}dog-muted{% endif %}"
-                  style="font-size: calc({{ icon.size }}rem * 0.8);">
-                🐾
-            </span>
-        {% endfor %}
-    </span>
-    <strong>({{ post.get_size_display }})</strong>
+    <strong>{{ post.get_size_display }}</strong>
 </p>
 
-    <p>❣️ Life expectancy:
+    <p>❤️️ Life expectancy:
         <strong>{{ post.life_expectancy }} years</strong>
     </p>
 
-    <p>↕️ Height & weight:
-        <strong>{{ post.height }} cm</strong>,
-        <strong>{{ post.weight }} kg</strong>
-    </p>
+<p>
+    ↕️ Height & weight:
+    <strong>{{ post.height }} cm</strong>,
+    <strong>
+        {{ post.weight }} kg
+        <span class="tooltip">
+            <span class="tooltip-icon">i</span>
+                <span class="tooltip-text">
+                    Approximate values for adult dogs.
+                    Includes <strong>both males and females</strong> and may vary
+                    depending on <strong>size varieties</strong> (miniature, standard, toy etc.) and individual build.
+                </span>
+        </span>
+    </strong>
+</p>
 
     <p>💡 Trainability:
         <strong>{{ post.get_trainability_display }}</strong>
     </p>
 
     <p>🐩 Coat:
-        <strong>{{ post.get_coat_length_display }}</strong>,
-        <strong>{{ post.get_coat_type_display }}</strong>
-    </p>
+    <strong>{% if post.coat_length.all %}{{ post.coat_length.all|join:"/" }}{% endif %}{% if post.coat_type.all %}{% if post.coat_length.all %}, {% endif %}{{ post.coat_type.all|join:"/" }}{% endif %}</strong>
+</p>
 
     <p>🚀 Activity:
         <strong>{{ post.get_activity_level_display }}</strong>
     </p>
 
-    <p>🔊 Barking:
+    <p>📢 Barking:
         <strong>{{ post.get_barking_level_display }}</strong>
     </p>
 
-    <p>🌿 Hypoallergenic:
+                    <p>🌱 Hypoallergenic:
         <strong>{{ post.get_hypoallergenic_display }}</strong>
     </p>
 
-    <p>🎨 Colors:
-        <strong>{{ post.colors }}</strong>
-    </p>
-
-    <p>👨‍👩‍👧‍👦 Family friendliness:
+    <p>🏡 Family:
         <strong>{{ post.get_family_friendliness_display }}</strong>
     </p>
 </div>
 
+    <p class="post-colors">🎨 Colors:
+        <strong>{{ post.colors }}</strong>
+    </p>
             <!-- Gallery images -->
             {% if post.gallery.all %}
-            <p class="images-rule">
-                This website is non-commercial. All images are used with attribution.
-                If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
-                <a href="mailto:woofdogs23@gmail.com" class="link-policies">contact us</a>.
-            </p>
+
 
             <div class="mini-gallery">
                 {% for photo in post.gallery.all|slice:":4" %}
@@ -170,15 +174,49 @@
         </div>
     </div>
 
+             <p class="images-rule">
+                This website is non-commercial. All images are used with attribution.
+                If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
+                <a href="mailto:woofdogs23@gmail.com" class="link-policies">contact us</a>.
+            </p>
+
     <!-- About the breed -->
     <h2 class="section-title">About the Breed</h2>
     <div class="post-text">
+
+        {% if post.slug == "german-spitz" %}
+            <p class="varieties-note">
+                Varieties of German Spitz (links to breeds):
+                <strong>
+                    <a href="{% url 'post' 'keeshond-wolfspitz' %}"
+                       style="text-decoration: underline;">Keeshond (Wolfspitz)</a>,
+                    <a href="{% url 'post' 'pomeranian' %}"
+                       style="text-decoration: underline;">Pomeranian</a>
+                </strong><br>
+
+                Varieties of German Spitz by size:
+                <strong>Miniature, Medium, Giant</strong><br>
+            </p>
+        {% endif %}
+
+        {% if post.slug == "keeshond-wolfspitz" or post.slug == "pomeranian" %}
+            <p class="varieties-note">
+                German Spitz link:
+                <strong>
+                    <a href="{% url 'post' 'german-spitz' %}"
+                       style="text-decoration: underline;">German Spitz</a>
+                </strong><br>
+            </p>
+        {% endif %}
+
         <p><strong>Summary.</strong> {{ post.summary }}</p>
         <p><strong>Care.</strong> {{ post.care }}</p>
         <p><strong>Conditions.</strong> {{ post.living_conditions }}</p>
-        <p class="updated"> {{ post.time_update }}</p>
+        <p class="updated last-updated">{{ post.time_update|date:"d F Y" }}</p>
     </div>
 </div>
+
+
 
 <!-- Image modal -->
 <div id="modal" class="modal">
@@ -195,10 +233,10 @@
 
 
 <!-- Related dogs -->
-<h2 class="section-title">Other dogs from "{{ post.cat.name }}"</h2>
-{% if related_dogs %}
+{% if related_dogs and post.slug != 'dachshund' %}
+<h2 class="section-title">Other «{{ post.cat.name }}»</h2>
 <div class="slider-block">
-    <div class="dog-slider">
+    <div class="dog-slider js-slider">
         {% for dog in related_dogs %}
             <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
                 <div class="dog-card">
@@ -215,6 +253,7 @@
                 <div class="dog-card__info">
                      <p class="dog-card__title">{{ dog.title }}</p>
                       <p class="dog-card__group">{{ dog.cat }}</p>
+                    <p class="dog-card__section">{{ dog.section }}</p>
                  </div>
 
                 </div>
@@ -222,6 +261,7 @@
 
         {% endfor %}
     </div>
+    <input type="range" class="slider-range" min="0" value="0">
 </div>
 {% endif %}
 
@@ -386,6 +426,28 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "auto",
         inline: "center",
         block: "nearest"
+    });
+});
+</script>
+
+<script>
+document.querySelectorAll('.tooltip-icon').forEach(icon => {
+    icon.addEventListener('click', (e) => {
+        const tooltip = icon.nextElementSibling;
+
+        tooltip.style.visibility =
+            tooltip.style.visibility === 'visible' ? 'hidden' : 'visible';
+        tooltip.style.opacity =
+            tooltip.style.opacity === '1' ? '0' : '1';
+
+        e.stopPropagation();
+    });
+});
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.tooltip-text').forEach(t => {
+        t.style.visibility = 'hidden';
+        t.style.opacity = '0';
     });
 });
 </script>

@@ -1,0 +1,126 @@
+{% extends 'woof/base.html' %}
+
+{% block content %}
+
+<div class="breadcrumbs">
+    <a href="{% url 'home' %}" class="link-policies">Home</a>
+    <span>/</span>
+    <span class="current">Groups</span>
+</div>
+
+<div class="post-container">
+
+    <h1 class="post-title-cat">FCI Groups</h1>
+
+    <div class="post-text-explore">
+
+        <p class="cat-desc">
+            Explore the <strong>FCI groups</strong> below — each row is clickable and opens a detailed page with breeds and sections. 🐾
+        </p>
+
+        <!-- MAIN GROUPS -->
+        <div class="catalog-structure">
+
+            {% for category in cats %}
+                {% if category.pk != 10 and category.slug != 'breeds-outside-fci-classification' %}
+
+                <a href="{{ category.get_absolute_url }}" class="group-row">
+
+                    <!-- LEFT IMAGE -->
+                    {% if category.group_image_thumb %}
+                        <img src="{{ category.group_image_thumb.url }}"
+                             alt="{{ category.name }}"
+                             loading="lazy"
+                             decoding="async"
+                             class="group-cover"
+                             height="100"
+                             width="100">
+                    {% endif %}
+
+                    <!-- RIGHT -->
+                    <div class="group-sections">
+
+                        <div class="group-name">
+    Group {{ forloop.counter }}
+</div>
+
+                        <strong class="groups-link">
+                            {{ category.name }}
+                        </strong>
+
+                        <br>
+
+                        <span class="groups-sections">
+                            {% for section in category.sections.all %}
+                                {{ section.name }}{% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                                —
+                            {% endfor %}
+                        </span>
+
+                    </div>
+
+                </a>
+
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <p>
+            Other breeds. Due to a previous version of the site structure, some breeds do not belong to the current FCI groups. They are collected here so you can still easily find them.
+        </p>
+
+        <!-- OTHER BREEDS -->
+        <div class="catalog-structure">
+
+            {% for category in cats %}
+                {% if category.slug == 'breeds-outside-fci-classification' %}
+
+                <a href="{{ category.get_absolute_url }}" class="group-row">
+
+                    <!-- LEFT IMAGE -->
+                    {% if category.group_image_thumb %}
+                        <img src="{{ category.group_image_thumb.url }}"
+                             alt="{{ category.name }}"
+                             loading="lazy"
+                             decoding="async"
+                             class="group-cover"
+                             height="100"
+                             width="100">
+                    {% endif %}
+
+                    <!-- RIGHT -->
+                    <div class="group-sections">
+
+                        <div class="group-name">
+                            Other Breeds
+                        </div>
+
+                        <strong class="groups-link">
+                            {{ category.name }}
+                        </strong>
+
+                        <br>
+
+                        <span class="groups-sections">
+                            {% for section in category.sections.all %}
+                                {{ section.name }}{% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                                —
+                            {% endfor %}
+                        </span>
+
+                    </div>
+
+                </a>
+
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

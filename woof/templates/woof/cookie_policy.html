@@ -1,42 +1,38 @@
 {% extends 'woof/base.html' %}
 
 {% block content %}
-<div class="category-scroll">
+<!--<div class="category-scroll">
     {% for category in cats %}
         {% if category.pk != 10 %}
             <a href="{{ category.get_absolute_url }}"
-               class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-               title="{{ category.name }}">
-                 {{ category.name }}
+                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
+                    title="{{ category.name }}">
+                <span class="category-chip__text">
+                {{ category.name }}
+                </span>
             </a>
         {% endif %}
     {% endfor %}
-</div>
+</div>-->
 
 <!-- Breadcrumbs -->
-<!--<div class="breadcrumbs">
+<div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}" class="link-policies">Home</a>
         <span>/</span>
-        <span>Cookie Policy</span>
+        <span class="current">Cookie Policy</span>
     </div>
-</div>-->
+</div>
 
 <!-- Policy container -->
 <div class="policy-container">
-<div class="memphis-circle circle-3"></div>
-    <div class="memphis-heart heart-3"></div>
-    <div class="memphis-star star-3"></div>
-<!--    <div class="memphis-cloud cloud-3"></div>
-    <div class="memphis-half-circle half-3"></div>
-    <div class="memphis-triangle triangle-3"></div>-->
-
 
     <!-- Page title -->
     <h1 class="post-title-cat"><strong>Cookie Policy</strong></h1>
+    <p class="last-updated cat-desc">Last updated: April 26, 2026</p>
 
     <!-- Cookie declaration -->
-    <p class="cat-desc"><strong>Cookie Declaration</strong></p>
+    <h2>Cookie Declaration</h2>
 
     <div class="cky-audit-table-element"></div>
 
