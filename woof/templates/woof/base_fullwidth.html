@@ -46,7 +46,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'favicon.ico' %}">
@@ -110,17 +109,17 @@
         <li class="nav-logo">
             <a href="{% url 'home' %}">
                 <div class="logo-text" translate="no" title="Woof Dogs">
-                    <span class="logo-letter logo-letter--primary">Woof</span>
-                    <span class="logo-letter logo-letter--secondary">Dogs</span>
+                    <span class="logo-letter logo-letter--primary">w</span>
+                    <span class="logo-letter logo-letter--secondary">d</span>
                 </div>
             </a>
         </li>
 
-        <!-- Theme button -->
-        <li class="nav-right">
-            <button id="theme-switch" title="Change theme">
-                <i id="theme-switch__icon" class="bi"></i>
-            </button>
+        <!-- Guides link -->
+        <li class="nav-guides">
+            <a href="{% url 'guides' %}" class="nav-guides-link" title="Dog guides">
+                Guides
+            </a>
         </li>
 
         <li class="nav-right">
@@ -173,32 +172,63 @@
 <!-- Footer -->
 <footer class="site-footer">
 
-    <!-- Copyright -->
-    <div class="footer-block">
-        <p>© <span id="current-year"></span> Woof Dogs.<br>
-            All rights reserved for original content.<br>
-            This website is non-commercial and created for informational purposes only.<br>
-            Images are used under their respective licenses with attribution.
-        </p>
+    <div class="footer-grid">
+
+        <!-- Navigation -->
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                {% for m in menu %}
+                    <li>
+                        <a href="{% url m.url_name %}">{{ m.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Guides -->
+        <div class="footer-col">
+        <h4>Guides</h4>
+
+        <ul>
+            <li><a href="{% url 'guides' %}">All Guides</a></li>
+            <li><a href="{% url 'guide-choosing-dog' %}">Choosing the right dog</a></li>
+            <li><a href="{% url 'guide-training' %}">Dog training fundamentals</a></li>
+            <li><a href="{% url 'guide-health' %}">Dog health & care</a></li>
+            <li><a href="{% url 'guide-behavior' %}">Dog behavior & communication</a></li>
+            <li><a href="{% url 'guide-living' %}">Living with a dog</a></li>
+        </ul>
+        </div>
+
+        <!-- Info -->
+        <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+                <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                <li><a href="{% url 'cookie-policy' %}">Cookie Policy</a></li>
+                <li><a href="{% url 'terms-of-use' %}">Terms of Use</a></li>
+            </ul>
+        </div>
+
+        <!-- About -->
+        <div class="footer-col">
+            <h4>Woof Dogs</h4>
+            <p class="footer-text">
+                Dog breeds catalog.<br>
+                Non-commercial informational project.
+            </p>
+        </div>
+
     </div>
 
-    <!-- Current year script -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-
-    <!-- Legal links -->
-    <div class="footer-block">
-        <p class="footer-links">
-            <a href="{% url 'privacy-policy' %}" title="Privacy Policy">Privacy Policy</a>
-            <a href="{% url 'cookie-policy' %}" title="Cookie Policy">Cookie Policy</a>
-            <a href="{% url 'terms-of-use' %}" title="Terms of Use">Terms of Use</a>
-        </p>
+    <div class="footer-bottom">
+        <p>© {% now "Y" %} Woof Dogs</p>
     </div>
+
 </footer>
 
     <!-- Scroll to top -->
-    <button id="scroll-top-button" title="back to top">
+    <button id="scroll-top-button" title="Back to top">
         <i class="bi bi-arrow-up-short"></i>
     </button>
 
@@ -213,17 +243,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const cards = slider.querySelectorAll('.dog-card-link');
 
-        // если карточек 4 или меньше → скрываем range
+        if (cards.length === 1) {
+            slider.classList.add('single-card');
+        }
+
         if (cards.length <= 4) {
             range.style.display = 'none';
-            return;
         }
 
         function updateMax() {
-            range.max = Math.max(
-                0,
-                slider.scrollWidth - slider.clientWidth
-            );
+            range.max = Math.max(0, slider.scrollWidth - slider.clientWidth);
         }
 
         updateMax();
@@ -232,28 +261,56 @@ document.addEventListener('DOMContentLoaded', function () {
         let ticking = false;
         let isDragging = false;
 
-        // скролл → слайдер (сглаживание)
+        // --- центр активной карточки ---
+        function setActiveCard() {
+            const sliderCenter = slider.scrollLeft + slider.clientWidth / 2;
+
+            let closest = null;
+            let minDist = Infinity;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + rect.width / 2 + slider.scrollLeft;
+
+                const dist = Math.abs(sliderCenter - cardCenter);
+
+                if (dist < minDist) {
+                    minDist = dist;
+                    closest = card;
+                }
+            });
+
+            cards.forEach(c => c.classList.remove('is-active'));
+            if (closest) closest.classList.add('is-active');
+        }
+
+        // --- scroll sync range ---
         slider.addEventListener('scroll', () => {
             if (isDragging) return;
 
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     range.value = slider.scrollLeft;
+                    setActiveCard();
                     ticking = false;
                 });
                 ticking = true;
             }
         }, { passive: true });
 
-        // слайдер → скролл
+        // --- range → scroll ---
         range.addEventListener('input', () => {
             isDragging = true;
             slider.scrollLeft = range.value;
+            setActiveCard();
         });
 
         range.addEventListener('change', () => {
             isDragging = false;
         });
+
+        // init state
+        setActiveCard();
 
     });
 

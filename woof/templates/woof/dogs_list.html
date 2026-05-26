@@ -44,9 +44,6 @@
     <div class="memphis-half-circle half-3"></div>
     <div class="memphis-triangle triangle-3"></div>-->
 
-<p class="cat-desc">
-    <strong>In short.</strong> {{ current_category.desc }}
-</p>
 </div>
 <!-- Dogs grid -->
     <div class="slider-block">
@@ -79,8 +76,13 @@
     {% endfor %}
 
 </div>
-
+<div class="slider-wrapper">
     <input type="range" class="slider-range" min="0" value="0">
+</div>
+
+                <p class="cat-desc">
+    <strong style="font-family: 'Clash Display';">In short.</strong> {{ current_category.desc }}
+</p>
 
  </div>
         </div>

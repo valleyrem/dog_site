@@ -11,6 +11,13 @@ from .views import (
     PrivacyPolicyView,
     DogGroupsView,
     GroupsPageView,
+    ChoosingDogView,
+    TrainingView,
+    HealthView,
+    BehaviorView,
+    LivingWithDogView,
+    GuidesView,
+    PuppyGuideView, breed_api,
 )
 
 urlpatterns = [
@@ -18,11 +25,19 @@ urlpatterns = [
     path("dogs/", DogsList.as_view(), name="dogs_list"),
     path("about/", AboutView.as_view(), name="about"),
     path("contact/", ContactFormView.as_view(), name="contact"),
-    path("post/<slug:post_slug>/", ShowPost.as_view(), name="post"),
-    path("category/<slug:cat_slug>/", DogsCategory.as_view(), name="category"),
+    path("groups/<slug:cat_slug>/<slug:post_slug>/", ShowPost.as_view(), name="post"),
+    path("groups/<slug:cat_slug>/", DogsCategory.as_view(), name="category"),
     path("cookie-policy/", CookiePolicyView.as_view(), name="cookie-policy"),
     path("terms-of-use/", TermsAndConditionsView.as_view(), name="terms-of-use"),
     path("privacy-policy/", PrivacyPolicyView.as_view(), name="privacy-policy"),
     path("explore/", DogGroupsView.as_view(), name="dog-explore"),
-    path('groups/', GroupsPageView.as_view(), name='groups'),
+    path("groups/", GroupsPageView.as_view(), name="groups"),
+    path("guides/", GuidesView.as_view(), name="guides"),
+    path("guides/choosing_dog/", ChoosingDogView.as_view(), name="guide-choosing-dog"),
+    path("guides/training/", TrainingView.as_view(), name="guide-training"),
+    path("guides/health/", HealthView.as_view(), name="guide-health"),
+    path("guides/behavior/", BehaviorView.as_view(), name="guide-behavior"),
+    path("guides/living-with-dog/", LivingWithDogView.as_view(), name="guide-living"),
+    path("guides/puppy/", PuppyGuideView.as_view(), name="guide-puppy"),
+    path("api/breed/<int:pk>/", breed_api)
 ]

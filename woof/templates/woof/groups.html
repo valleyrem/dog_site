@@ -10,21 +10,26 @@
 
 <div class="post-container">
 
-    <h1 class="post-title-cat">FCI Groups</h1>
+    <h1 class="post-title-cat">Groups</h1>
+
+    <p class="section-title">
+        Explore all FCI dog groups and their sections
+    </p>
 
     <div class="post-text-explore">
 
         <p class="cat-desc">
-            Explore the <strong>FCI groups</strong> below — each row is clickable and opens a detailed page with breeds and sections. 🐾
+            Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics.
+            Open any row to view detailed sections and discover individual breeds. 🐾
         </p>
 
         <!-- MAIN GROUPS -->
         <div class="catalog-structure">
 
-            {% for category in cats %}
+            {% for category in cats|dictsort:"fci_number" %}
                 {% if category.pk != 10 and category.slug != 'breeds-outside-fci-classification' %}
 
-                <a href="{{ category.get_absolute_url }}" class="group-row">
+                <a href="{{ category.get_absolute_url }}" class="group-row" title="{{ category.name }}">
 
                     <!-- LEFT IMAGE -->
                     {% if category.group_image_thumb %}
@@ -41,8 +46,8 @@
                     <div class="group-sections">
 
                         <div class="group-name">
-    Group {{ forloop.counter }}
-</div>
+                            Group {{ category.fci_number }}
+                        </div>
 
                         <strong class="groups-link">
                             {{ category.name }}
@@ -67,17 +72,23 @@
 
         </div>
 
-        <p>
-            Other breeds. Due to a previous version of the site structure, some breeds do not belong to the current FCI groups. They are collected here so you can still easily find them.
+        <!-- OTHER BREEDS -->
+
+        <p class="section-title">
+            Breeds outside the current FCI structure
         </p>
 
-        <!-- OTHER BREEDS -->
+        <p>
+            Some breeds on the site are not currently placed inside the official FCI classification.
+            They are collected in a separate category so you can still browse and compare them easily.
+        </p>
+
         <div class="catalog-structure">
 
             {% for category in cats %}
                 {% if category.slug == 'breeds-outside-fci-classification' %}
 
-                <a href="{{ category.get_absolute_url }}" class="group-row">
+                <a href="{{ category.get_absolute_url }}" class="group-row" title="{{ category.name }}">
 
                     <!-- LEFT IMAGE -->
                     {% if category.group_image_thumb %}

@@ -5,20 +5,26 @@
 <div class="homepage">
 
     <!-- HERO -->
-    <div class="hero-block-1">
+    <div class="hero-block-1 wave">
         <div class="hero-center">
             <div class="hero-content">
 
                 <div class="hero-inner">
+                    <div class="hero-shape hero-shape-1"></div>
+                    <div class="hero-shape hero-shape-2"></div>
 
                     <div class="hero-left">
 
                         <p class="homepage-title-1">
-                            woof dogs
+                            woof dogs.
                         </p>
 
                         <p class="homepage-subtitle">
-                            fur on your clothes means you're truly loved
+                            Fur on your clothes means you're truly loved.
+                        </p>
+                        <p class="homepage-subsubtitle">
+            A simple way to find a dog that really fits your lifestyle,
+            your home, and your everyday rhythm — and feels like it belongs there.
                         </p>
 
                     </div>
@@ -27,7 +33,7 @@
 
                         <div class="homepage-search-block">
 
-                            <div class="homepage-search" title="Select a group">
+                            <div class="homepage-search" title="Find by group">
 
                                 <label for="breed-select">
 
@@ -48,7 +54,7 @@
 
                             </div>
 
-                            <div class="homepage-search">
+                            <div class="homepage-search" title="Find by breed">
 
                                 <label for="breed-select-1">
 
@@ -74,33 +80,30 @@
 
                 </div>
 
-                <a href="#explore" class="hero-arrow">
+                <a href="#explore" class="hero-arrow" title="Scroll down">
                     <div class="arrow-icon"></div>
                 </a>
 
             </div>
         </div>
+        <!-- WAVE BOTTOM -->
+    <div class="hero-wave">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60
+         C240,120 480,0 720,60
+         C960,120 1200,0 1440,60
+         L1440,120 L0,120 Z"
+      fill="currentColor"/>
+    </svg>
+</div>
     </div>
 
-<!--    &lt;!&ndash; HOME TEXT &ndash;&gt;
-    <div class="home-text-block" id="explore">
-
-        <h1 class="home-text-block-title">
-            Explore breeds
-        </h1>
-
-        <p class="home-text-block-text">
-            A simple way to find a dog that really fits your lifestyle,
-            your home, and your everyday rhythm — and feels like it belongs there.
-        </p>
-
-    </div>-->
 
     <!-- BREED PROFILES -->
     <div class="home-text-block" id="explore">
 
         <h1 class="home-text-block-title">
-            Breed profiles
+            Breed profiles.
         </h1>
 
         <p class="home-text-block-text">
@@ -157,10 +160,12 @@
 
             </div>
 
-            <input type="range"
-                   class="slider-range"
-                   min="0"
-                   value="0">
+            <div class="slider-wrapper">
+                <input type="range"
+                       class="slider-range"
+                       min="0"
+                       value="0">
+            </div>
 
         </div>
 

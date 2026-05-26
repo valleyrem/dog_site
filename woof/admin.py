@@ -114,7 +114,7 @@ class DogsAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'group_preview', 'desc')
+    list_display = ('id','fci_number' ,'name', 'group_preview', 'desc')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}

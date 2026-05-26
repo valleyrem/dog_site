@@ -43,7 +43,7 @@
         <div class="post-navigation">
             {% if prev_post %}
                 <a href="{{ prev_post.get_absolute_url }}" class="nav-link prev" title="{{ prev_post.title }}">
-                    <i class="bi bi-arrow-left-short"></i>
+                    <i class="bi bi-arrow-left"></i>
                     <span>{{ prev_post.title }}</span>
                 </a>
             {% endif %}
@@ -51,7 +51,7 @@
             {% if next_post %}
                 <a href="{{ next_post.get_absolute_url }}" class="nav-link next" title="{{ next_post.title }}">
                     <span>{{ next_post.title }}</span>
-                    <i class="bi bi-arrow-right-short"></i>
+                    <i class="bi bi-arrow-right"></i>
                 </a>
             {% endif %}
         </div>
@@ -61,6 +61,7 @@
 
         {% if post.photo %}
         <div class="post-main-image">
+
             <img class="post-image"
                  src="{{ post.photo_medium.url }}"
                  alt="{{ post.title }}"
@@ -68,110 +69,155 @@
                  data-author="Photo: {{ post.photo_author|escapejs }}"
                  loading="lazy"
                  decoding="async"
-                 width="440"
-                 height="540"
+                 width="490"
+                 height="600"
             >
         </div>
         {% endif %}
 
         <!-- Breed characteristics panel -->
         <div class="post-right">
-            <!--<h2 class="breed-char">Breed Characteristics</h2>-->
-         <p class="breed-char">
-    <strong>
-        📒 <a href="{{ post.cat.get_absolute_url }}">
-            {{ post.cat }}
-        </a>
-    </strong>
-</p>
 
-
-
-
-
-            <div class="post-params-grid">
-         <p>🧩 Section:
-            <strong>{{ post.section }}</strong>
-             </p>
-        <p>
-    🧬 Varieties:
-    <strong>{{ post.varieties }}</strong>
-        </p>
-
-        <p>
-            🌍 Country of origin:
-            <strong>{{ post.country }}</strong>
-        </p>
-
-<p>
-    🐕 Size:
-    <strong>{{ post.get_size_display }}</strong>
-</p>
-
-    <p>❤️️ Life expectancy:
-        <strong>{{ post.life_expectancy }} years</strong>
-    </p>
-
-<p>
-    ↕️ Height & weight:
-    <strong>{{ post.height }} cm</strong>,
-    <strong>
-        {{ post.weight }} kg
-        <span class="tooltip">
-            <span class="tooltip-icon">i</span>
-                <span class="tooltip-text">
-                    Approximate values for adult dogs.
-                    Includes <strong>both males and females</strong> and may vary
-                    depending on <strong>size varieties</strong> (miniature, standard, toy etc.) and individual build.
-                </span>
+    <div class="breed-header">
+        <span class="breed-tag">
+             <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat }}"> {{ post.cat }} </a>
         </span>
-    </strong>
-</p>
+    </div>
 
-    <p>💡 Trainability:
+    <div class="post-params-grid">
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🧩</span>
+            <span>Section</span>
+        </div>
+        <strong>{{ post.section }}</strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🧬</span>
+            <span>Varieties</span>
+        </div>
+        <strong>{{ post.varieties }}</strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🌍</span>
+            <span>Origin</span>
+        </div>
+        <strong>{{ post.country }}</strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🐕</span>
+            <span>Size</span>
+        </div>
+        <strong>{{ post.get_size_display }}</strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">❤️</span>
+            <span>Life expectancy</span>
+        </div>
+        <strong>{{ post.life_expectancy }} years</strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">↕️</span>
+            <span>Height & Weight</span>
+        </div>
+        <strong>
+            {{ post.height }} cm / {{ post.weight }} kg
+        </strong>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">💡</span>
+            <span>Trainability</span>
+        </div>
         <strong>{{ post.get_trainability_display }}</strong>
-    </p>
+    </div>
 
-    <p>🐩 Coat:
-    <strong>{% if post.coat_length.all %}{{ post.coat_length.all|join:"/" }}{% endif %}{% if post.coat_type.all %}{% if post.coat_length.all %}, {% endif %}{{ post.coat_type.all|join:"/" }}{% endif %}</strong>
-</p>
-
-    <p>🚀 Activity:
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🚀</span>
+            <span>Activity level</span>
+        </div>
         <strong>{{ post.get_activity_level_display }}</strong>
-    </p>
+    </div>
 
-    <p>📢 Barking:
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">📢</span>
+            <span>Barking</span>
+        </div>
         <strong>{{ post.get_barking_level_display }}</strong>
-    </p>
+    </div>
 
-                    <p>🌱 Hypoallergenic:
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🌱</span>
+            <span>Hypoallergenic</span>
+        </div>
         <strong>{{ post.get_hypoallergenic_display }}</strong>
-    </p>
+    </div>
 
-    <p>🏡 Family:
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🏡</span>
+            <span>Family friendly</span>
+        </div>
         <strong>{{ post.get_family_friendliness_display }}</strong>
-    </p>
+    </div>
+
+    <div class="param-card">
+        <div class="top">
+            <span class="icon">🐩</span>
+            <span>Coat</span>
+        </div>
+        <strong>
+            {% if post.coat_length.all %}
+                {{ post.coat_length.all|join:" / " }}
+            {% endif %}
+
+            {% if post.coat_type.all %}
+                {% if post.coat_length.all %}, {% endif %}
+                {{ post.coat_type.all|join:" / " }}
+            {% endif %}
+        </strong>
+    </div>
+
+
+        <div class="param-card wide">
+    <div class="top">
+        <span class="icon">🎨</span>
+        <span>Colors</span>
+    </div>
+    <strong>{{ post.colors }}</strong>
 </div>
 
-    <p class="post-colors">🎨 Colors:
-        <strong>{{ post.colors }}</strong>
-    </p>
-            <!-- Gallery images -->
-            {% if post.gallery.all %}
+</div>
 
 
-            <div class="mini-gallery">
-                {% for photo in post.gallery.all|slice:":4" %}
-                    <img src="{{ photo.image_large.url }}" class="gallery-image" alt="{{ post.title }}" title="{{ post.title }}"
-                         data-author="Photo: {{ photo.author|escapejs }}"
-                         loading="lazy"
-                         decoding="async"
-                         width="170"
-                         height="170">
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
+
+    {% if post.gallery.all %}
+    <div class="mini-gallery">
+        {% for photo in post.gallery.all|slice:":4" %}
+            <img src="{{ photo.image_large.url }}"
+                 class="gallery-image"
+                 alt="{{ post.title }}"
+                 data-author="Photo: {{ photo.author|escapejs }}">
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
     </div>
 
              <p class="images-rule">
@@ -188,9 +234,9 @@
             <p class="varieties-note">
                 Varieties of German Spitz (links to breeds):
                 <strong>
-                    <a href="{% url 'post' 'keeshond-wolfspitz' %}"
+                    <a href="{% url 'post' post.cat.slug 'keeshond-wolfspitz' %}"
                        style="text-decoration: underline;">Keeshond (Wolfspitz)</a>,
-                    <a href="{% url 'post' 'pomeranian' %}"
+                    <a href="{% url 'post' post.cat.slug 'pomeranian' %}"
                        style="text-decoration: underline;">Pomeranian</a>
                 </strong><br>
 
@@ -203,16 +249,25 @@
             <p class="varieties-note">
                 German Spitz link:
                 <strong>
-                    <a href="{% url 'post' 'german-spitz' %}"
+                    <a href="{% url 'post' post.cat.slug 'german-spitz' %}"
                        style="text-decoration: underline;">German Spitz</a>
                 </strong><br>
             </p>
         {% endif %}
 
-        <p><strong>Summary.</strong> {{ post.summary }}</p>
+        <p><strong> Summary.</strong> {{ post.summary }}</p>
         <p><strong>Care.</strong> {{ post.care }}</p>
         <p><strong>Conditions.</strong> {{ post.living_conditions }}</p>
-        <p class="updated last-updated">{{ post.time_update|date:"d F Y" }}</p>
+        <div class="post-meta-bottom">
+<!--            <p class="updated last-updated">
+                {{ post.time_update|date:"d F Y" }}
+            </p>-->
+
+            <button class="share-btn" id="shareBtn">
+                <span class="share-text" data-default="Copy link" title="Copy link">Copy link</span>
+                <span class="share-icon" data-default="🔗">🔗</span>
+            </button>
+        </div>
     </div>
 </div>
 
@@ -221,16 +276,58 @@
 <!-- Image modal -->
 <div id="modal" class="modal">
     <span class="close">&times;</span>
-    <span class="modal-arrow prev">&#10094;</span>
+
+    <span class="modal-arrow prev">
+        <i class="bi bi-arrow-left"></i>
+    </span>
 
     <div class="modal-content-wrapper">
         <img class="modal-content" id="modal-img">
         <div class="modal-author" id="modal-author"></div>
     </div>
 
-    <span class="modal-arrow next">&#10095;</span>
+    <span class="modal-arrow next">
+        <i class="bi bi-arrow-right"></i>
+    </span>
 </div>
 
+
+<!-- Compare dogs -->
+<div class="compare-section">
+
+    <h2 class="section-title">Compare breeds</h2>
+
+    <div id="comparePanel" class="compare-panel hidden">
+
+        <div class="compare-controls">
+
+            <div id="breedA"
+                 class="current-post-dog"
+                 data-id="{{ post.id }}">
+                {{ post.title }}
+            </div>
+
+            <span class="vs">vs</span>
+
+            <select id="breedB" class="compare-select" title="Select breed">
+                <option value="">Select breed</option>
+
+                {% for dog in all_dogs %}
+                    {% if dog.id != post.id %}
+                        <option value="{{ dog.id }}">
+                            {{ dog.title }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div id="compareTableWrapper"></div>
+
+    </div>
+
+</div>
 
 <!-- Related dogs -->
 {% if related_dogs and post.slug != 'dachshund' %}
@@ -261,7 +358,9 @@
 
         {% endfor %}
     </div>
+    <div class="slider-wrapper">
     <input type="range" class="slider-range" min="0" value="0">
+    </div>
 </div>
 {% endif %}
 
@@ -449,6 +548,293 @@ document.addEventListener('click', () => {
         t.style.visibility = 'hidden';
         t.style.opacity = '0';
     });
+});
+</script>
+
+
+<!-- Post share script -->
+<script>
+const btn = document.getElementById('shareBtn');
+
+btn.addEventListener('click', async () => {
+    try {
+        await navigator.clipboard.writeText(window.location.href);
+
+        const text = btn.querySelector('.share-text');
+        const icon = btn.querySelector('.share-icon');
+
+        text.textContent = 'Copied';
+        icon.textContent = '✔';
+
+        setTimeout(() => {
+            text.textContent = text.dataset.default;
+            icon.textContent = icon.dataset.default;
+        }, 1500);
+
+    } catch (err) {
+        console.error(err);
+    }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const panel = document.getElementById("comparePanel");
+    const selectA = document.getElementById("breedA");
+    const selectB = document.getElementById("breedB");
+    const wrapper = document.getElementById("compareTableWrapper");
+
+    let breedA = null;
+    let breedB = null;
+
+    async function loadBreed(id) {
+        const res = await fetch(`/api/breed/${id}/`);
+        return await res.json();
+    }
+
+    function row(icon, label) {
+        return `
+            <tr class="param-row">
+                <td colspan="2" class="param-name">
+                    <span class="param-title">
+                        <span class="param-icon">${icon}</span>
+                        ${label}
+                    </span>
+                </td>
+            </tr>
+
+            <tr class="value-row">
+                <td class="value-a">-</td>
+                <td class="value-b">-</td>
+            </tr>
+        `;
+    }
+
+    function createTable() {
+
+        wrapper.innerHTML = `
+            <div class="compare-table-header">
+                <button id="compareCloseBtn"
+                        class="compare-close-btn">
+                    ✕
+                </button>
+            </div>
+
+            <table class="compare-table">
+
+                <tr class="header-row">
+
+                    <th>
+                        <div class="compare-breed-head">
+
+                            <img
+                                class="compare-breed-image breed-a-image"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                            <div class="compare-breed-info">
+
+                                <a class="compare-breed-link breed-a-link"></a>
+
+                                <span class="breed-meta breed-a-meta"></span>
+
+                            </div>
+
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="compare-breed-head">
+
+                            <img
+                                class="compare-breed-image breed-b-image"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                            <div class="compare-breed-info">
+
+                                <a class="compare-breed-link breed-b-link"></a>
+
+                                <span class="breed-meta breed-b-meta"></span>
+
+                            </div>
+
+                        </div>
+                    </th>
+
+                </tr>
+
+                ${row("🧬", "Varieties")}
+                ${row("🌍", "Origin")}
+                ${row("🐕", "Size")}
+                ${row("📏", "Height / Weight")}
+                ${row("🐩", "Coat")}
+                ${row("❤️", "Life expectancy")}
+                ${row("💡", "Trainability")}
+                ${row("🚀", "Activity")}
+                ${row("📢", "Barking")}
+                ${row("🌱", "Hypoallergenic")}
+                ${row("🏡", "Family friendly")}
+
+            </table>
+        `;
+
+        document.getElementById("compareCloseBtn")
+            .addEventListener("click", () => {
+
+                wrapper.classList.add("is-changing");
+
+                setTimeout(() => {
+                    wrapper.innerHTML = "";
+                    selectB.value = "";
+                }, 180);
+            });
+    }
+
+    function updateTable() {
+
+        wrapper.classList.add("is-changing");
+
+        setTimeout(() => {
+
+            // HEADER
+
+            document.querySelector(".breed-a-image").src =
+                breedA.photo;
+
+            document.querySelector(".breed-a-image").alt =
+                breedA.title;
+
+            document.querySelector(".breed-b-image").src =
+                breedB.photo;
+
+            document.querySelector(".breed-b-image").alt =
+                breedB.title;
+
+            document.querySelector(".breed-a-link").textContent =
+                breedA.title;
+
+            document.querySelector(".breed-a-link").href =
+                breedA.url;
+
+            document.querySelector(".breed-b-link").textContent =
+                breedB.title;
+
+            document.querySelector(".breed-b-link").href =
+                breedB.url;
+
+            document.querySelector(".breed-a-meta").innerHTML =
+                `(${breedA.cat}${breedA.section ? `, ${breedA.section}` : ""})`;
+
+            document.querySelector(".breed-b-meta").innerHTML =
+                `(${breedB.cat}${breedB.section ? `, ${breedB.section}` : ""})`;
+
+            // VALUES
+
+            const rows = document.querySelectorAll(".value-row");
+
+            const values = [
+
+                [breedA.varieties, breedB.varieties],
+
+                [breedA.country, breedB.country],
+
+                [breedA.size, breedB.size],
+
+                [
+                    `${breedA.height || "-"} cm / ${breedA.weight || "-"} kg`,
+                    `${breedB.height || "-"} cm / ${breedB.weight || "-"} kg`
+                ],
+
+                [
+                    `${(breedA.coat_length || "").replaceAll(",", "/")}${
+                        breedA.coat_length && breedA.coat_type ? ", " : ""
+                    }${(breedA.coat_type || "").replaceAll(",", "/")}`.trim() || "-",
+
+                    `${(breedB.coat_length || "").replaceAll(",", "/")}${
+                        breedB.coat_length && breedB.coat_type ? ", " : ""
+                    }${(breedB.coat_type || "").replaceAll(",", "/")}`.trim() || "-"
+                ],
+
+                [
+                    `${breedA.life} years`,
+                    `${breedB.life} years`
+                ],
+
+                [
+                    breedA.trainability,
+                    breedB.trainability
+                ],
+
+                [
+                    breedA.activity,
+                    breedB.activity
+                ],
+
+                [
+                    breedA.barking || "-",
+                    breedB.barking || "-"
+                ],
+
+                [
+                    breedA.hypoallergenic || "-",
+                    breedB.hypoallergenic || "-"
+                ],
+
+                [
+                    breedA.family_friendliness || "-",
+                    breedB.family_friendliness || "-"
+                ]
+            ];
+
+            rows.forEach((row, index) => {
+
+                row.querySelector(".value-a").textContent =
+                    values[index][0];
+
+                row.querySelector(".value-b").textContent =
+                    values[index][1];
+            });
+
+            wrapper.classList.remove("is-changing");
+
+        }, 120);
+    }
+
+    selectB.addEventListener("change", async () => {
+
+        const idA = selectA.dataset.id;
+        const idB = selectB.value;
+
+        if (!idA || !idB) {
+
+            wrapper.classList.add("is-changing");
+
+            setTimeout(() => {
+                wrapper.innerHTML = "";
+            }, 180);
+
+            return;
+        }
+
+        if (!wrapper.querySelector(".compare-table")) {
+            createTable();
+        }
+
+        const [a, b] = await Promise.all([
+            loadBreed(idA),
+            loadBreed(idB)
+        ]);
+
+        breedA = a;
+        breedB = b;
+
+        updateTable();
+    });
+
 });
 </script>
 

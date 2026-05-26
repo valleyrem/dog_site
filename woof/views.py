@@ -8,7 +8,7 @@ from django.views.generic import (
     FormView,
     TemplateView,
 )
-
+from django.views.decorators.http import require_GET
 from .forms import ContactForm
 from .models import Dogs, Category
 from .utils import DataMixin, menu
@@ -102,6 +102,13 @@ class ShowPost(DataMixin, DetailView):
     slug_url_kwarg = "post_slug"
     context_object_name = "post"
 
+    def get_queryset(self):
+        return Dogs.objects.filter(
+            slug=self.kwargs["post_slug"],
+            cat__slug=self.kwargs["cat_slug"],
+            is_published=True
+        )
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = context["post"]
@@ -127,6 +134,12 @@ class ShowPost(DataMixin, DetailView):
             .order_by("title")
         )
 
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["all_dogs"] = Dogs.objects.filter(is_published=True).order_by("title")
+
         return self.get_user_context(
             **context, title=f"{post.title} - Woof Dogs", cat_selected=post.cat_id
         )
@@ -142,7 +155,163 @@ class AboutView(DataMixin, TemplateView):
 
         context["is_home"] = False
 
-        return self.get_user_context(**context, title="About - Woof Dogs")
+        return self.get_user_context(**context, title="About us - Woof Dogs")
+
+
+class GuidesView(DataMixin, TemplateView):
+    template_name = "woof/guides.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Dog Guides - Woof Dogs"
+        )
+
+class ChoosingDogView(DataMixin, TemplateView):
+    template_name = "woof/choosing_dog.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(is_published=True).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(**context, title="Choosing the right dog - Woof Dogs")
+
+
+class TrainingView(DataMixin, TemplateView):
+    template_name = "woof/training.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Dog Training Fundamentals - Woof Dogs"
+        )
+
+
+class HealthView(DataMixin, TemplateView):
+    template_name = "woof/health.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Dog Health & Care - Woof Dogs"
+        )
+
+
+class BehaviorView(DataMixin, TemplateView):
+    template_name = "woof/behavior.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Dog Behavior & Communication - Woof Dogs"
+        )
+
+
+class LivingWithDogView(DataMixin, TemplateView):
+    template_name = "woof/living_with_dog.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Living with a Dog - Woof Dogs"
+        )
+
+
+@require_GET
+def breed_api(request, pk):
+    dog = get_object_or_404(Dogs, pk=pk)
+
+    return JsonResponse({
+        "id": dog.id,
+        "title": dog.title,
+        "url": dog.get_absolute_url(),
+
+        "photo": dog.photo_medium.url if dog.photo else "",
+
+        "section": dog.section.name if dog.section else "",
+        "varieties": dog.varieties,
+        "country": dog.country,
+        "size": dog.get_size_display(),
+        "life": dog.life_expectancy,
+        "height": dog.height,
+        "weight": dog.weight,
+        "trainability": dog.get_trainability_display(),
+        "activity": dog.get_activity_level_display(),
+        "colors": dog.colors,
+        "cat": dog.cat.name if dog.cat else "",
+        "barking": dog.get_barking_level_display(),
+        "hypoallergenic": dog.get_hypoallergenic_display(),
+        "family_friendliness": dog.get_family_friendliness_display(),
+
+        "coat_length": ", ".join(
+            [c.name for c in dog.coat_length.all()]
+        ) if hasattr(dog, "coat_length") else "",
+
+        "coat_type": ", ".join(
+            [c.name for c in dog.coat_type.all()]
+        ) if hasattr(dog, "coat_type") else "",
+    })
+
+class PuppyGuideView(DataMixin, TemplateView):
+    template_name = "woof/puppy.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["all_breeds"] = Dogs.objects.filter(
+            is_published=True
+        ).order_by("title")
+
+        context["is_home"] = False
+
+        return self.get_user_context(
+            **context,
+            title="Raising a Puppy - Woof Dogs"
+        )
+
 
 
 class ContactFormView(DataMixin, FormView):
@@ -239,7 +408,7 @@ class DogGroupsView(DataMixin, TemplateView):
             },
         ]
 
-        return self.get_user_context(**context, title="Dog Groups - Woof Dogs")
+        return self.get_user_context(**context, title="Explore - Woof Dogs")
 
 
 class GroupsPageView(DataMixin, TemplateView):
@@ -247,8 +416,10 @@ class GroupsPageView(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cats'] = Category.objects.prefetch_related('sections').all()
-        return self.get_user_context(**context, title="FCI Groups - Woof Dogs")
+
+        context['cats'] = Category.objects.prefetch_related('sections').order_by('fci_number')
+
+        return self.get_user_context(**context, title="Groups - Woof Dogs")
 
 class CookiePolicyView(DataMixin, TemplateView):
     template_name = "woof/cookie_policy.html"

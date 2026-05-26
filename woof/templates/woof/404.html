@@ -3,92 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
+    <title>404 — Page Not Found</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Paytone+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
+
     :root {
-        --color-bg: #FFFFFF;
-        --color-text-primary: #1c2b27;
-        --color-text-secondary: #5a6a65;
+        --bg: #fffdf8;
 
-        --color-accent: #FF8EED;
-        --color-accent-deep: #e96fd8;
-        --color-yellow: #FDDA0A;
+        --text: #1c2b27;
+        --text-soft: #5d6764;
 
-        --color-button-background: #FFFFFF;
-        --color-frame: #45494D;
-        --color-white: #FFFFFF;
+        --pink: #ff8eed;
+        --yellow: #fdda0a;
+        --blue: #6ea8ff;
+        --mint: #d7ffd9;
+        --lavender: #efe6ff;
+
+        --border: #161616;
+        --white: #ffffff;
+    }
+
+    * {
+        box-sizing: border-box;
     }
 
     body {
         margin: 0;
-        padding: 0;
-        font-family: "Baloo 2", system-ui, sans-serif;
-        background: var(--color-bg);
-        color: var(--color-text-primary);
+        min-height: 100vh;
+
+        font-family: "Baloo 2", sans-serif;
+        color: var(--text);
+
+        background:
+            radial-gradient(circle at top left, var(--lavender) 0%, transparent 30%),
+            radial-gradient(circle at bottom right, var(--mint) 0%, transparent 30%),
+            var(--bg);
+
+        overflow: hidden;
 
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+
+        padding: 20px;
+    }
+
+    /* сетка */
+
+    body::before {
+        content: "";
+
+        position: fixed;
+        inset: 0;
+
+        background-image:
+            linear-gradient(rgba(28,43,39,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(28,43,39,0.06) 1px, transparent 1px);
+
+        background-size: 38px 38px;
+
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 720px;
+    }
+
+    .card {
+        position: relative;
+
+        background: var(--white);
+
+        border: 3px solid var(--border);
+        border-radius: 36px;
+
+        padding: 50px 40px;
+
+        box-shadow:
+            10px 10px 0 var(--border),
+            0 0 0 6px rgba(255,255,255,0.7);
+
+        text-align: center;
+
         overflow: hidden;
     }
 
-    .container {
-        text-align: center;
-        padding: 40px;
-        position: relative;
-        z-index: 2;
-        max-width: 500px;
+    /* декоративные штуки */
+
+    .blob {
+        position: absolute;
+        border: 3px solid var(--border);
+        z-index: -1;
+    }
+
+    .blob-1 {
+        width: 90px;
+        height: 90px;
+
+        background: var(--pink);
+
+        border-radius: 32px;
+
+        top: -20px;
+        right: -15px;
+
+        transform: rotate(12deg);
+    }
+
+    .blob-2 {
+        width: 65px;
+        height: 65px;
+
+        background: var(--yellow);
+
+        border-radius: 50%;
+
+        bottom: 25px;
+        left: -15px;
+    }
+
+    .blob-3 {
+        width: 45px;
+        height: 45px;
+
+        background: var(--blue);
+
+        border-radius: 16px;
+
+        bottom: -10px;
+        right: 90px;
+
+        transform: rotate(-15deg);
     }
 
     h1 {
-        font-size: 110px;
         margin: 0;
-        color: var(--color-accent);
-        -webkit-text-stroke: 2.5px var(--color-text-primary);
-        text-shadow: 6px 6px 0 var(--color-yellow);
-        letter-spacing: 4px;
-        line-height: 1;
-        font-family: "Baloo 2", system-ui, sans-serif;
+
+        font-size: clamp(90px, 18vw, 160px);
+        line-height: 0.9;
+
+        font-family: "Clash Display", sans-serif;
+        font-weight: 700;
+
+        color: var(--pink);
+
+        -webkit-text-stroke: 3px var(--border);
+
+        text-shadow:
+            6px 6px 0 var(--yellow);
     }
 
-    p {
-        font-size: 24px;
-        margin: 20px 0 20px;
-        color: var(--color-text-secondary);
+    .paw {
+        font-size: 38px;
+        margin: 15px 0 10px;
+        display: inline-block;
+        transform: rotate(-12deg);
+    }
+
+    .title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.1;
+
+        margin: 0 0 18px;
+
+        font-family: "Clash Display", sans-serif;
+    }
+
+    .description {
+        font-size: 21px;
         line-height: 1.5;
+
+        color: var(--text-soft);
+
+        margin: 0 auto 18px;
+
+        max-width: 520px;
     }
 
     .hint {
-        font-size: 14px;
-        opacity: 0.7;
-        margin-bottom: 40px;
-    }
-
-    a {
-        display: inline-block;
-        color: #161616;
-        text-decoration: none;
         font-size: 15px;
-        font-weight: 600;
-        background-color: var(--color-button-background);
-        border: 1px solid var(--color-frame);
-        border-right-width: 3px;
-        border-bottom-width: 3px;
-        padding: 10px 25px;
-        border-radius: 20px;
-        transition: all 0.2s ease;
+        line-height: 1.5;
+
+        color: var(--text-soft);
+
+        opacity: 0.85;
+
+        margin-bottom: 35px;
     }
 
-    a:hover {
-        background-color: var(--color-accent);
-        color: var(--color-white);
-        border-color: var(--color-frame);
-        transform: translateY(-2px);
+    .home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+
+        text-decoration: none;
+
+        background: var(--white);
+
+        border: 3px solid var(--border);
+        border-radius: 999px;
+
+        padding: 12px 26px;
+
+        font-family: "Clash Display", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+
+        color: var(--text);
+
+        box-shadow: 4px 4px 0 var(--border);
+
+        transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease,
+            background 0.18s ease;
+    }
+
+    .home-btn:hover {
+        transform: translate(-2px, -2px);
+
+        box-shadow: 7px 7px 0 var(--border);
+
+        background: var(--pink);
+    }
+
+    .dog-face {
+        margin-top: 30px;
+
+        font-size: 52px;
+        line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+
+        .card {
+            padding: 38px 24px;
+            border-radius: 28px;
+
+            box-shadow: 7px 7px 0 var(--border);
+        }
+
+        .title {
+            font-size: 25px;
+        }
+
+        .description {
+            font-size: 18px;
+        }
+
+        .hint {
+            font-size: 14px;
+        }
+
+        .home-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .blob-1 {
+            width: 70px;
+            height: 70px;
+        }
+
+        .blob-2 {
+            width: 50px;
+            height: 50px;
+        }
+
+        .blob-3 {
+            width: 35px;
+            height: 35px;
+        }
     }
 
     </style>
@@ -96,21 +289,43 @@
 
 <body>
 
-    <div class="container">
+<div class="wrapper">
+
+    <div class="card">
+
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
         <h1>404</h1>
 
-        <p>
-            ¯\_(ツ)_/¯<br>
-            The page you’re looking for doesn’t exist<br>
-            or may have been moved.
+        <div class="paw">🐾</div>
+
+        <h2 class="title">
+            This page ran away.
+        </h2>
+
+        <p class="description">
+            The page you’re looking for doesn’t exist,
+            may have been moved,
+            or is still chasing squirrels somewhere else.
         </p>
 
         <p class="hint">
-            You can return to the homepage and continue exploring dog breeds.
+            Return to the homepage and continue exploring dog breeds.
         </p>
 
-        <a href="{% url 'home' %}">Go Back Home</a>
+        <a href="{% url 'home' %}" class="home-btn">
+            ← Back Home
+        </a>
+
+        <div class="dog-face">
+            UᵔᴥᵔU
+        </div>
+
     </div>
+
+</div>
 
 </body>
 </html>

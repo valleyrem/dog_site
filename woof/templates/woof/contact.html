@@ -29,70 +29,77 @@
 
     <!-- Page title -->
     <h1 class="post-title-cat">Contact</h1>
-    <p class="cat-desc">
-        <strong>Feel free</strong> to reach out with any questions, suggestions, or feedback. ✉️
-    </p>
-        <p class="cat-desc">
-        Thank you for helping improve this project. Your feedback helps keep the information accurate and reliable.
-    </p>
+
     <div class="hero-inner-contact">
 
     <div class="hero-left">
+        <!-- Contact form -->
+        <div class="contact-layout">
 
-    <!-- Intro text -->
-    <div class="post-text-explore">
+            <form id="contactForm" method="post">
 
+                {% csrf_token %}
 
-    <ul class="contact-list">
-        <li>If you notice any inaccuracies in breed descriptions, characteristics, or data.</li>
-        <li>If you would like to suggest a dog breed that is not yet listed on the website.</li>
-        <li>If you have ideas or suggestions to improve the content or structure.</li>
-        <li>If you are the author of a photograph and would like it to be removed.</li>
-        <li>If you would like your authorship to be corrected or credited differently.</li>
-        <li>Please include a link or any relevant details to help process your request.</li>
-    </ul>
+                <div class="form-error">{{ form.non_field_errors }}</div>
 
-</div>
+                {% for f in form %}
+                    {% if f.name == 'confirm_privacy' %}
+                        <div class="form-check-wrapper">
+                            {{ f }}
+                            <label class="consent-label" for="{{ f.id_for_label }}">
+                                {{ f.label }}
+                            </label>
+                        </div>
+                    {% else %}
+                        <p>
+                            <label class="form-label" for="{{ f.id_for_label }}">
+                                {{ f.label }}:
+                            </label>
+                            {{ f }}
+                        </p>
+                    {% endif %}
+                    <div class="form-error">{{ f.errors }}</div>
+                {% endfor %}
+
+                <p class="form-oferta">
+                    By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
+                    <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a>.
+                </p>
+
+                <button id="btn-custom" type="submit" title="Send a message">Send</button>
+            </form>
+
+        </div>
     </div>
-        <div class="hero-right-contact">
-    <!-- Contact form -->
-    <div class="contact-layout">
 
-        <form id="contactForm" method="post">
+    <div class="hero-right-contact">
+        <p class="cat-desc">
+        <strong>Feel free</strong> to reach out with any questions, suggestions, or feedback. ✉️
+    </p>
 
-            {% csrf_token %}
 
-            <div class="form-error">{{ form.non_field_errors }}</div>
+        <div class="post-text-explore">
 
-            {% for f in form %}
-                {% if f.name == 'confirm_privacy' %}
-                    <div class="form-check-wrapper">
-                        {{ f }}
-                        <label class="consent-label" for="{{ f.id_for_label }}">
-                            {{ f.label }}
-                        </label>
-                    </div>
-                {% else %}
-                    <p>
-                        <label class="form-label" for="{{ f.id_for_label }}">
-                            {{ f.label }}:
-                        </label>
-                        {{ f }}
-                    </p>
-                {% endif %}
-                <div class="form-error">{{ f.errors }}</div>
-            {% endfor %}
+            <ul class="contact-list">
+                <li>If you notice any inaccuracies in breed descriptions, characteristics, or data.</li>
+                <li>If you would like to suggest a dog breed that is not yet listed on the website.</li>
+                <li>If you have ideas or suggestions to improve the content or structure.</li>
+                <li>If you are the author of a photograph and would like it to be removed.</li>
+                <li>If you would like your authorship to be corrected or credited differently.</li>
+                <li>Please include a link or any relevant details to help process your request.</li>
+            </ul>
 
-            <p class="form-oferta">
-                By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
-                <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a>.
-            </p>
+        </div>
+        <p class="cat-desc">
+            Thank you for helping improve this project.
+        </p>
+        <p class="cat-desc">
+            Your feedback helps keep the information accurate and reliable.
+        </p>
 
-            <button id="btn-custom" type="submit" title="Send a message">Send</button>
-        </form>
 
     </div>
-</div>
+
 </div>
 </div>
 

@@ -1,0 +1,113 @@
+{% extends 'woof/base.html' %}
+
+{% block content %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs-wrapper">
+    <div class="breadcrumbs">
+        <a href="{% url 'home' %}"
+           title="Home"
+           class="link-policies">
+            Home
+        </a>
+
+        <span>/</span>
+
+        <span class="current">
+            Dog guides
+        </span>
+    </div>
+</div>
+
+<div class="post-container">
+
+    <h1 class="post-title-cat">
+        Dog guides
+    </h1>
+
+    <div class="post-text-explore">
+
+        <p class="section-title">
+            Learn more about dogs
+        </p>
+
+        <p class="cat-desc">
+            Explore essential <strong>short</strong> guides about choosing, training,
+            understanding and caring for dogs.
+            These pages are designed to help both new and experienced owners.
+        </p>
+
+        <div class="guides-list">
+
+            <a href="{% url 'guide-choosing-dog' %}" class="guide-card">
+                <span class="guide-title">
+                    Choosing the right dog
+                </span>
+
+                <p>
+                    Learn how to choose a breed that matches your lifestyle,
+                    activity level and living space.
+                </p>
+            </a>
+
+            <a href="{% url 'guide-puppy' %}" class="guide-card">
+                <span class="guide-title">
+                    Raising a puppy
+                </span>
+
+                <p>
+                    Learn about early puppy development,
+                    socialization, routines and first-life stages.
+                </p>
+            </a>
+
+            <a href="{% url 'guide-training' %}" class="guide-card">
+                <span class="guide-title">
+                    Dog training fundamentals
+                </span>
+
+                <p>
+                    Understand basic training principles,
+                    communication and learning consistency.
+                </p>
+            </a>
+
+            <a href="{% url 'guide-health' %}" class="guide-card">
+                <span class="guide-title">
+                    Dog health & care
+                </span>
+
+                <p>
+                    Learn about grooming, nutrition,
+                    preventive care and general health basics.
+                </p>
+            </a>
+
+            <a href="{% url 'guide-behavior' %}" class="guide-card">
+                <span class="guide-title">
+                    Dog behavior & communication
+                </span>
+
+                <p>
+                    Discover how dogs communicate,
+                    express emotions and react to the world around them.
+                </p>
+            </a>
+
+            <a href="{% url 'guide-living' %}" class="guide-card">
+                <span class="guide-title">
+                    Living with a dog
+                </span>
+
+                <p>
+                    Daily routines, home adaptation
+                    and long-term lifestyle organization with a dog.
+                </p>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -235,7 +235,13 @@ class Dogs(models.Model):
         return self.SIZE_INDEX.get(self.size, 1)
 
     def get_absolute_url(self):
-        return reverse('post', kwargs={'post_slug': self.slug})
+        return reverse(
+            "post",
+            kwargs={
+                "cat_slug": self.cat.slug,
+                "post_slug": self.slug
+            }
+        )
 
     class Meta:
         verbose_name = 'Dog breed'
@@ -249,6 +255,7 @@ class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Category")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     desc = models.TextField(blank=True, verbose_name="Description")
+    fci_number = models.PositiveIntegerField(default=0)
 
     group_image = models.ImageField(upload_to='groups/', blank=True, null=True)
 
@@ -268,7 +275,8 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
-        ordering = ['id']
+        ordering = ["fci_number"]
+
 
 
 class Section(models.Model):
