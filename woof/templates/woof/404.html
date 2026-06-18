@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 — Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
@@ -15,7 +16,7 @@
         --text: #1c2b27;
         --text-soft: #5d6764;
 
-        --pink: #ff8eed;
+        --pink: #C4A1FF;
         --yellow: #fdda0a;
         --blue: #6ea8ff;
         --mint: #d7ffd9;
@@ -50,8 +51,6 @@
         padding: 20px;
     }
 
-    /* сетка */
-
     body::before {
         content: "";
 
@@ -62,7 +61,7 @@
             linear-gradient(rgba(28,43,39,0.06) 1px, transparent 1px),
             linear-gradient(90deg, rgba(28,43,39,0.06) 1px, transparent 1px);
 
-        background-size: 38px 38px;
+        background-size: 100px 100px;
 
         pointer-events: none;
         z-index: 0;
@@ -78,78 +77,19 @@
 
     .card {
         position: relative;
-
-        background: var(--white);
-
-        border: 3px solid var(--border);
-        border-radius: 36px;
-
         padding: 50px 40px;
-
-        box-shadow:
-            10px 10px 0 var(--border),
-            0 0 0 6px rgba(255,255,255,0.7);
-
         text-align: center;
-
         overflow: hidden;
     }
 
-    /* декоративные штуки */
-
-    .blob {
-        position: absolute;
-        border: 3px solid var(--border);
-        z-index: -1;
-    }
-
-    .blob-1 {
-        width: 90px;
-        height: 90px;
-
-        background: var(--pink);
-
-        border-radius: 32px;
-
-        top: -20px;
-        right: -15px;
-
-        transform: rotate(12deg);
-    }
-
-    .blob-2 {
-        width: 65px;
-        height: 65px;
-
-        background: var(--yellow);
-
-        border-radius: 50%;
-
-        bottom: 25px;
-        left: -15px;
-    }
-
-    .blob-3 {
-        width: 45px;
-        height: 45px;
-
-        background: var(--blue);
-
-        border-radius: 16px;
-
-        bottom: -10px;
-        right: 90px;
-
-        transform: rotate(-15deg);
-    }
 
     h1 {
         margin: 0;
 
-        font-size: clamp(90px, 18vw, 160px);
+        font-size: clamp(130px, 18vw, 160px);
         line-height: 0.9;
 
-        font-family: "Clash Display", sans-serif;
+        font-family: "Space Grotesk", sans-serif;
         font-weight: 700;
 
         color: var(--pink);
@@ -174,7 +114,7 @@
 
         margin: 0 0 18px;
 
-        font-family: "Clash Display", sans-serif;
+        font-family: "Space Grotesk", sans-serif;
     }
 
     .description {
@@ -182,6 +122,7 @@
         line-height: 1.5;
 
         color: var(--text-soft);
+        font-family: "Space Grotesk", sans-serif;
 
         margin: 0 auto 18px;
 
@@ -193,6 +134,7 @@
         line-height: 1.5;
 
         color: var(--text-soft);
+        font-family: "Space Grotesk", sans-serif;
 
         opacity: 0.85;
 
@@ -209,11 +151,10 @@
         background: var(--white);
 
         border: 3px solid var(--border);
-        border-radius: 999px;
 
         padding: 12px 26px;
 
-        font-family: "Clash Display", sans-serif;
+        font-family: "Space Grotesk", sans-serif;
         font-size: 16px;
         font-weight: 600;
 
@@ -228,9 +169,6 @@
     }
 
     .home-btn:hover {
-        transform: translate(-2px, -2px);
-
-        box-shadow: 7px 7px 0 var(--border);
 
         background: var(--pink);
     }
@@ -246,9 +184,6 @@
 
         .card {
             padding: 38px 24px;
-            border-radius: 28px;
-
-            box-shadow: 7px 7px 0 var(--border);
         }
 
         .title {
@@ -267,21 +202,6 @@
             width: 100%;
             justify-content: center;
         }
-
-        .blob-1 {
-            width: 70px;
-            height: 70px;
-        }
-
-        .blob-2 {
-            width: 50px;
-            height: 50px;
-        }
-
-        .blob-3 {
-            width: 35px;
-            height: 35px;
-        }
     }
 
     </style>
@@ -292,10 +212,6 @@
 <div class="wrapper">
 
     <div class="card">
-
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
 
         <h1>404</h1>
 

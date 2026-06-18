@@ -26,10 +26,12 @@
 <div class="post-container">
 
     <h1 class="post-title-cat">Explore</h1>
+    <div class="guide-image image-guides"></div>
 
     <p class="section-title">How to use this page</p>
 
     <div class="post-text-explore">
+
 
         <p class="cat-desc">
             This page helps you navigate dog breeds based on real-life needs rather than appearance alone.
@@ -53,7 +55,7 @@
         {% for group in groups %}
             <div class="group-item">
                 <button class="group-title" title="{{ group.title }}">
-                    <strong>{{ group.title }}</strong>
+                    {{ group.title }}
                 </button>
 
                 <div class="group-content">

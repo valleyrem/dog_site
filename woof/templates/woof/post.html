@@ -69,8 +69,8 @@
                  data-author="Photo: {{ post.photo_author|escapejs }}"
                  loading="lazy"
                  decoding="async"
-                 width="490"
-                 height="600"
+                 width="450"
+                 height="570"
             >
         </div>
         {% endif %}
@@ -255,9 +255,9 @@
             </p>
         {% endif %}
 
-        <p><strong> Summary.</strong> {{ post.summary }}</p>
-        <p><strong>Care.</strong> {{ post.care }}</p>
-        <p><strong>Conditions.</strong> {{ post.living_conditions }}</p>
+        <p><strong> Summary.</strong><br> {{ post.summary }}</p>
+        <p><strong>Care.</strong><br> {{ post.care }}</p>
+        <p><strong>Conditions.</strong><br> {{ post.living_conditions }}</p>
         <div class="post-meta-bottom">
 <!--            <p class="updated last-updated">
                 {{ post.time_update|date:"d F Y" }}
@@ -304,7 +304,7 @@
             <div id="breedA"
                  class="current-post-dog"
                  data-id="{{ post.id }}">
-                {{ post.title }}
+                 {{ post.title }}
             </div>
 
             <span class="vs">vs</span>

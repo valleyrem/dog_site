@@ -65,6 +65,22 @@
     <script src="https://unpkg.com/htmx.org@1.8.5" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
+    <meta property="og:type" content="website">
+
+<meta property="og:title"
+      content="{{ title }}">
+
+<meta property="og:description"
+      content="{{ post.summary|truncatechars:140 }}">
+
+<meta property="og:url"
+      content="{{ request.build_absolute_uri }}">
+
+{% if post.photo %}
+<meta property="og:image"
+      content="{{ request.scheme }}://{{ request.get_host }}{{ post.photo_large.url }}">
+{% endif %}
+
 </head>
 
 <body class="layout-root is-hidden">
@@ -212,6 +228,7 @@
         <ul>
             <li><a href="{% url 'guides' %}" title="All Guides">All Guides</a></li>
             <li><a href="{% url 'guide-choosing-dog' %}" title="Choosing the right dog">Choosing the right dog</a></li>
+            <li><a href="{% url 'guide-puppy' %}" title="Raising a puppy">Raising a puppy</a></li>
             <li><a href="{% url 'guide-training' %}" title="Dog training fundamentals">Dog training fundamentals</a></li>
             <li><a href="{% url 'guide-health' %}" title="Dog health & care">Dog health & care</a></li>
             <li><a href="{% url 'guide-behavior' %}" title="Dog behavior & communication">Dog behavior & communication</a></li>
