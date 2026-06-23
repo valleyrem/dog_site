@@ -566,6 +566,9 @@
 .policy-container form p,
 .form-check-wrapper { width: 100%; }
 #btn-custom { margin: 0 0 10px; }
+.slider-next, .slider-prev { color: #000; font-size: 20px; }
+.slider-nav { padding: 0 0 15px; }
+
 
 
 
@@ -589,12 +592,6 @@
     .num-list { grid-template-columns: 1fr; }
 
     /* post */
-
-
-
-
-
-
 
 
     .catalog-structure { grid-template-columns: 1fr; }
@@ -712,6 +709,7 @@
     .homepage-subsubtitle { max-width: 700px; margin: 0 auto;}
     .homepage select { color: var(--color-text-primary); }
     .gallery-grid { grid-template-columns: repeat(2, 1fr);  }
+    .hero-content::before {  }
 
     .hero-block { min-height: calc(60vh - 10px); }
 
@@ -735,8 +733,8 @@
     p { font-size: 16px; }
     .slider-inner { margin: 0 auto; width: 96vw; }
     .slider-wrapper { width: 99%;  }
-    .dog-slider { gap: 15px; }
-    .dog-slider .dog-card-link { flex: 0 0 250px; }
+    .dog-slider { gap: 15px; scroll-snap-type: x proximity; }
+    .dog-slider .dog-card-link { flex: 0 0 240px; }
     .dog-card__title { font-size: 23px; }
     .post-navigation { font-size: 1rem; justify-content: center; order: -1;}
     .post-navigation .nav-link {
@@ -792,6 +790,8 @@
     .footer-grid { margin: 40px 20px 40px; }
     .guides-list, .catalog-structure { gap: 20px; }
     .param-card strong { font-size: 15px; }
+    .num-list { display: grid; grid-template-columns: 1fr 1fr; }
+
 }
 
 

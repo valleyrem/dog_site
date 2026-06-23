@@ -244,9 +244,8 @@
         border-top: 0px solid #333;
         border-left: 0px solid #333;
         border-right: 0px solid #333;
-
-
-        }
+        padding: 10px 14px 10px 0;
+    }
 
     .group-content { margin: 0; }
 
@@ -269,7 +268,7 @@
 
     .homepage .slider-block { padding: 0 10px 30px; }
 
-    .slider-wrapper { padding: 0 5px 20px 0; width: 98%; }
+    .slider-wrapper { padding: 0 5px 20px 0; width: 100%; }
     .post-container .slider-wrapper { display: none; }
     .layout-content .slider-wrapper { display: none; }
     .js-slider { -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; }
@@ -567,6 +566,9 @@
 .policy-container form p,
 .form-check-wrapper { width: 100%; }
 #btn-custom { margin: 0 0 10px; }
+.slider-next, .slider-prev { color: #000; font-size: 20px; }
+.slider-nav { padding: 0 0 15px; }
+
 
 
 

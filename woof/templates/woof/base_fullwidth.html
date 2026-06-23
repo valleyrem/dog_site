@@ -239,8 +239,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.js-slider').forEach(slider => {
 
-        const range = slider.parentElement.querySelector('.slider-range');
-        if (!range) return;
+        const prevBtn = slider.parentElement.querySelector('.slider-prev');
+        const nextBtn = slider.parentElement.querySelector('.slider-next');
 
         const cards = slider.querySelectorAll('.dog-card-link');
 
@@ -248,32 +248,22 @@ document.addEventListener('DOMContentLoaded', function () {
             slider.classList.add('single-card');
         }
 
-        if (cards.length <= 4) {
-            range.style.display = 'none';
-        }
-
-        function updateMax() {
-            range.max = Math.max(0, slider.scrollWidth - slider.clientWidth);
-        }
-
-        updateMax();
-        window.addEventListener('resize', updateMax);
-
-        let ticking = false;
-        let isDragging = false;
-
-        // --- центр активной карточки ---
         function setActiveCard() {
-            const sliderCenter = slider.scrollLeft + slider.clientWidth / 2;
+
+            const sliderCenter =
+                slider.scrollLeft + slider.clientWidth / 2;
 
             let closest = null;
             let minDist = Infinity;
 
             cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const cardCenter = rect.left + rect.width / 2 + slider.scrollLeft;
 
-                const dist = Math.abs(sliderCenter - cardCenter);
+                const cardCenter =
+                    card.offsetLeft + card.offsetWidth / 2;
+
+                const dist = Math.abs(
+                    sliderCenter - cardCenter
+                );
 
                 if (dist < minDist) {
                     minDist = dist;
@@ -281,37 +271,121 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            cards.forEach(c => c.classList.remove('is-active'));
-            if (closest) closest.classList.add('is-active');
+            cards.forEach(card =>
+                card.classList.remove('is-active')
+            );
+
+            if (closest) {
+                closest.classList.add('is-active');
+            }
         }
 
-        // --- scroll sync range ---
-        slider.addEventListener('scroll', () => {
-            if (isDragging) return;
+        function getScrollAmount() {
 
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    range.value = slider.scrollLeft;
-                    setActiveCard();
-                    ticking = false;
-                });
-                ticking = true;
+            const firstCard =
+                slider.querySelector('.dog-card-link');
+
+            if (!firstCard) return 1200;
+
+            const gap =
+                parseInt(getComputedStyle(slider).gap) || 19;
+
+            return (firstCard.offsetWidth + gap) * 4;
+        }
+
+        function scrollToCard(direction) {
+
+    const currentScroll = slider.scrollLeft;
+
+    const currentIndex = [...cards].findIndex(card => {
+        return card.offsetLeft >= currentScroll - 5;
+    });
+
+    let targetIndex;
+
+    if (direction === 'next') {
+        targetIndex = currentIndex + 1;
+    } else {
+        targetIndex = currentIndex - 1;
+    }
+
+    targetIndex = Math.max(0, Math.min(targetIndex, cards.length - 1));
+
+    const targetCard = cards[targetIndex];
+
+    if (targetCard) {
+        slider.scrollTo({
+            left: targetCard.offsetLeft,
+            behavior: 'smooth'
+        });
+    }
+}
+
+        function updateButtons() {
+
+            const hasOverflow =
+                slider.scrollWidth > slider.clientWidth + 5;
+
+            if (!hasOverflow) {
+                prevBtn?.classList.add('is-hidden');
+                nextBtn?.classList.add('is-hidden');
+                return;
             }
+
+            prevBtn?.classList.remove('is-hidden');
+            nextBtn?.classList.remove('is-hidden');
+
+            const maxScroll =
+                slider.scrollWidth - slider.clientWidth;
+
+            prevBtn?.classList.toggle(
+                'is-disabled',
+                slider.scrollLeft <= 5
+            );
+
+            nextBtn?.classList.toggle(
+                'is-disabled',
+                slider.scrollLeft >= maxScroll - 5
+            );
+        }
+
+        prevBtn?.addEventListener('click', () => {
+
+            if (window.innerWidth <= 768) {
+                scrollToCard('prev');
+                return;
+            }
+
+            slider.scrollBy({
+                left: -getScrollAmount(),
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn?.addEventListener('click', () => {
+
+            if (window.innerWidth <= 768) {
+                scrollToCard('next');
+                return;
+            }
+
+            slider.scrollBy({
+                left: getScrollAmount(),
+                behavior: 'smooth'
+            });
+        });
+
+        slider.addEventListener('scroll', () => {
+            requestAnimationFrame(() => {
+                setActiveCard();
+                updateButtons();
+            });
         }, { passive: true });
 
-        // --- range → scroll ---
-        range.addEventListener('input', () => {
-            isDragging = true;
-            slider.scrollLeft = range.value;
-            setActiveCard();
-        });
+        window.addEventListener('resize', updateButtons);
 
-        range.addEventListener('change', () => {
-            isDragging = false;
-        });
-
-        // init state
         setActiveCard();
+        updateButtons();
 
     });
 

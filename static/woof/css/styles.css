@@ -1,6 +1,7 @@
 :root {
     --color-bg: #fefefe;
     --color-text-primary: #1c2b27;
+    --btn-back: #FFFFF0;
     --white: #fff;
     --purple: #C4A1FF;
     --dark-purple: #9722C9;
@@ -396,7 +397,7 @@ a:hover { }
     overflow-x: auto;
     padding: 0 5px 15px 0;
     margin: 10px 0;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     flex-wrap: nowrap;
     scroll-behavior: auto;
     scrollbar-width: none;
@@ -421,93 +422,44 @@ a:hover { }
 .slider-inner {
     width: 1300px;
     margin: 0 auto;
-
 }
-.slider-wrapper {
-    width: 99.5%;
-    padding: 12px 0;
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 15px 0;
+    position: relative;
+    z-index: 50;
 }
 
-.slider-range {
-    width: 100%;
-    height: 20px;
+.slider-arrow {
+    width: 52px;
+    height: 52px;
+    position: relative;
+    z-index: 60;
+    pointer-events: auto;
 
-    appearance: none;
     border: 2px solid var(--color-text-primary);
-/*    border-radius: 999px;*/
 
-    background: linear-gradient(
-        90deg,
-        var(--lavender),
-        var(--purple)
-    );
+    background: var(--btn-back);
 
     box-shadow: 3px 3px 0 #000;
 
     cursor: pointer;
-}
 
-/* Track */
-.slider-range::-webkit-slider-runnable-track {
-    height: 12px;
-    background: transparent;
-}
-
-/* Thumb */
-.slider-range::-webkit-slider-thumb {
-    appearance: none;
-
-    width: 35px;
-    height: 35px;
-
-    margin-top: -10px;
-
-    border: 2px solid var(--color-text-primary);
-/*    border-radius: 50%;*/
-
-    background: white;
-
-    box-shadow: 3px 3px 0 #000;
-
-    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
 
     transition: transform .15s ease;
 }
 
-.slider-range::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
+.slider-arrow:hover {
+    transform: translateY(-2px);
 }
 
-.slider-range::-webkit-slider-thumb:active {
-    transform: scale(.95);
-}
-
-/* Firefox */
-.slider-range::-moz-range-track {
-    height: 12px;
-
-    border: 2px solid var(--color-text-primary);
-    border-radius: 999px;
-
-    background: linear-gradient(
-        90deg,
-        var(--lavender),
-        var(--purple)
-    );
-}
-
-.slider-range::-moz-range-thumb {
-    width: 35px;
-    height: 35px;
-
-    border: 2px solid var(--color-text-primary);
-/*    border-radius: 50%;*/
-
-    background: white;
-
-    box-shadow: 2px 2px 0 #000;
-
-    cursor: pointer;
+.slider-arrow:active {
+    transform: translateY(1px);
 }
 
 
@@ -518,7 +470,7 @@ a:hover { }
 
     padding: 10px;
 
-    background: #fff;
+    background: var(--btn-back);
 
     border: 2px solid #000;
     box-shadow: 3px 5px 0 0 #000;
@@ -535,8 +487,8 @@ a:hover { }
     content: "↗︎";
 
     position: absolute;
-    right: 12px;
-    bottom: 12px;
+    right: 7px;
+    bottom: 7px;
 
     width: 22px;
     height: 22px;
@@ -599,15 +551,15 @@ a:hover { }
 .dog-card {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     width: 285px;
-    height: 430px;
+    height: 390px;
     overflow: hidden;
 }
 
 .dog-card__image {
     width: 100%;
-    height: 320px;
+    height: 300px;
     object-fit: cover;
     display: block;
 /*    border-radius: 20px;*/
@@ -690,7 +642,7 @@ a:hover { }
 
 .post-title {
     margin: 15px 0 20px;
-    font-size: 50px;
+    font-size: 49px;
     font-family: 'Clash Display';
     line-height: 1.2;
     color: var(--blue);
@@ -698,7 +650,7 @@ a:hover { }
 
 .post-title-cat {
     margin: 0;
-    font-size: 50px;
+    font-size: 49px;
     font-family: 'Clash Display';
     margin: 20px 0;
     line-height: 1.2;
@@ -723,7 +675,7 @@ a:hover { }
     border: 2px solid #000;
     box-shadow: 2px 4px 0 0 #000;
 
-    background: var(--white);
+    background: var(--btn-back);
 /*    border-radius: 999px;*/
 
     display: inline-flex;
@@ -763,7 +715,7 @@ a:hover { }
     align-items: start;
     weight: 600px;
     gap: 10px 30px;
-    background-image:
+    /*background-image:
         url("/static/8.png"),
         url("/static/16.png"),
         url("/static/12.png");
@@ -778,7 +730,7 @@ a:hover { }
         45px,
         50px;
 
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 
 }
 
@@ -1159,7 +1111,7 @@ a:hover { }
 
     border: 2px solid #000;
     box-shadow: 2px 4px 0 0 #000;
-    background: var(--white);
+    background: var(--btn-back);
     cursor: pointer;
 
     transition:
@@ -1245,7 +1197,7 @@ a:hover { }
     box-shadow: 2px 4px 0 0 #000;
     width: 220px;
 
-    background: var(--white);
+    background: var(--btn-back);
 
     appearance: none;
     -webkit-appearance: none;
@@ -1712,6 +1664,36 @@ a:hover { }
     animation: rotateFloatRight 45s linear infinite;
 }
 
+/*.hero-inner::after {
+    left: 30px;
+    bottom: 18px;
+
+    width: 80px;
+    height: 80px;
+
+    background-image: url("/static/logo.png");
+
+animation: pulseScale 3s ease-in-out infinite;
+}*/
+
+.slider-prev.is-disabled,
+.slider-next.is-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+.slider-prev.is-hidden,
+.slider-next.is-hidden {
+    display: none;
+}
+
+@keyframes pulseScale {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 /* CLOCKWISE */
 @keyframes rotateFloatLeft {
 
@@ -1862,7 +1844,7 @@ a:hover { }
 }
 
 .homepage select:hover {
-    background: var(--white);
+    background: var(--btn-back);
     background-image:
         linear-gradient(45deg, transparent 50%, #000 50%),
         linear-gradient(135deg, #000 50%, transparent 50%);
@@ -2672,5 +2654,51 @@ a:hover { }
     line-height: 1.4;
 }
 
+.guide-image {
+    width: 100%;
+    height: 250px;
 
+    margin: 30px 0 40px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.guide-image-1 {
+    background-image: url("/static/guides1.png");
+}
+
+.guide-image-2 {
+    background-image: url("/static/guides2.png");
+}
+
+.guide-image-3 {
+    background-image: url("/static/guides3.png");
+}
+
+.guide-image-4 {
+    background-image: url("/static/guides4.png");
+}
+
+.guide-image-5 {
+    background-image: url("/static/guides5.png");
+}
+
+.guide-image-6 {
+    background-image: url("/static/guides6.png");
+}
+
+.image-aboutus {
+    background-image: url("/static/aboutus.png");
+}
+.image-contact {
+    background-image: url("/static/contact.png");
+}
+.image-guides {
+    background-image: url("/static/guides.png");
+}
+.image-logo {
+    background-image: url("/static/logo.png");
+}
 
