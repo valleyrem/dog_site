@@ -42,7 +42,7 @@
                                 <select id="breed-select"
                                         onchange="if(this.value) window.location.href=this.value;">
 
-                                    <option value="">Find by group</option>
+                                    <option value="">Groups</option>
 
                                     {% for group in cats %}
                                         <option value="{{ group.get_absolute_url }}">
@@ -62,7 +62,7 @@
 
                                 <select id="breed-select-1">
 
-                                    <option value="">Find by breed</option>
+                                    <option value="">Breeds</option>
 
                                     {% for dog in posts %}
                                         <option value="{{ dog.get_absolute_url }}">
@@ -116,8 +116,20 @@
     <div class="slider-block">
 
         <div class="slider-inner">
+            <div class="slider-nav">
+                <button class="slider-arrow slider-prev">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
 
-            <div class="dog-slider js-slider">
+                <button class="slider-arrow slider-next">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+
+            <div class="dog-slider">
+                <div class="dog-slider-viewport">
+                <div class="dog-slider-track">
 
                 {% for dog in posts %}
 
@@ -157,18 +169,13 @@
                     </a>
 
                 {% endfor %}
+           </div>
+</div>
 
             </div>
+            <div class="slider-dots"></div>
 
-            <div class="slider-nav">
-    <button class="slider-arrow slider-prev">
-        ←
-    </button>
 
-    <button class="slider-arrow slider-next">
-        →
-    </button>
-</div>
 
         </div>
 

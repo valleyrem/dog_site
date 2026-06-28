@@ -274,7 +274,80 @@
             style="display:none;visibility:hidden"></iframe>
 </noscript>
 
-<!-- Slider script -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".dog-slider-track");
+    const items = document.querySelectorAll(".dog-card-link");
+
+    const prev = document.querySelector(".slider-prev");
+    const next = document.querySelector(".slider-next");
+    const dotsContainer = document.querySelector(".slider-dots");
+
+    const perPage = 4;
+    const pages = Math.ceil(items.length / perPage);
+
+    let page = 0;
+
+    /* DOTS */
+    const dots = [];
+
+    for (let i = 0; i < pages; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("slider-dot");
+
+        dot.addEventListener("click", () => {
+            page = i;
+            update();
+        });
+
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+    }
+
+    function updateDots() {
+        dots.forEach((d, i) => {
+            d.classList.toggle("active", i === page);
+        });
+    }
+
+    function updateArrows() {
+        prev.classList.toggle("disabled", page === 0);
+        next.classList.toggle("disabled", page === pages - 1);
+    }
+
+    function update() {
+        const itemWidth = items[0].getBoundingClientRect().width + 19;
+        const shift = page * perPage * itemWidth;
+
+        track.style.transform = `translateX(-${shift}px)`;
+
+        updateDots();
+        updateArrows();
+    }
+
+    next.addEventListener("click", () => {
+        if (page < pages - 1) {
+            page++;
+            update();
+        }
+    });
+
+    prev.addEventListener("click", () => {
+        if (page > 0) {
+            page--;
+            update();
+        }
+    });
+
+    window.addEventListener("resize", update);
+
+    update();
+});
+</script>
+
+<!-- Slider script
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -331,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const gap =
                 parseInt(getComputedStyle(slider).gap) || 19;
 
-            return (firstCard.offsetWidth + gap) * 4;
+            return (firstCard.offsetWidth + gap) * 3;
         }
 
         function scrollToCard(direction) {
@@ -431,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-</script>
+</script>-->
 
 <!-- Scroll to top script -->
 <script>

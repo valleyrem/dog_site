@@ -86,7 +86,7 @@
     align-self: center;
     width: 22px;
     background-color: var(--selected-bg);
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 0;
     padding: 0;
     transform: translateY(-17px);
@@ -223,7 +223,7 @@ a.active.selector-clearall:focus, a.active.selector-clearall:hover {
     width: 50px;
     margin: 0 0 10px 40%;
     background-color: #eee;
-    border-radius: 10px;
+    border-radius: 7px;
     transform: none;
 }
 

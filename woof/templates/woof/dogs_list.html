@@ -48,7 +48,18 @@
 <!-- Dogs grid -->
     <div class="slider-block">
             <div class="slider-inner">
-<div class="dog-slider js-slider">
+                <div class="slider-nav">
+                <button class="slider-arrow slider-prev">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <button class="slider-arrow slider-next">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+<div class="dog-slider">
+    <div class="dog-slider-viewport">
+    <div class="dog-slider-track">
 
     {% for p in posts %}
 
@@ -76,22 +87,18 @@
     {% endfor %}
 
 </div>
-<div class="slider-nav">
-    <button class="slider-arrow slider-prev">
-        ←
-    </button>
 
-    <button class="slider-arrow slider-next">
-        →
-    </button>
-</div>
-
-                <p class="cat-desc">
-    <strong style="font-family: 'Clash Display';">In short.</strong> {{ current_category.desc }}
-</p>
 
  </div>
         </div>
+                    <div class="slider-dots"></div>
+                </div>
+        </div>
+
+
+    <p>
+    <strong style="font-family: 'Clash Display';">In short.</strong> {{ current_category.desc }}
+</p>
     <p class="if-you-dont-see">
         *If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
         or that we haven’t found suitable images with clear attribution or free usage rights 😊
