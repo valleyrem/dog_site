@@ -4,7 +4,7 @@ from .models import Category
 
 menu = [
     {"title": "About us", "url_name": "about"},
-    {"title": "Groups", "url_name": "groups"},
+    {"title": "Guides", "url_name": "guides"},
     {"title": "Explore", "url_name": "dog-explore"},
     {"title": "Contact", "url_name": "contact"},
 ]

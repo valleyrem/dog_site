@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="breadcrumbs">
-    <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+    <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
     <span>/</span>
     <span class="current">Groups</span>
 </div>
@@ -20,7 +20,7 @@
 
         <p class="cat-desc">
             Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics.
-            Open any row to view detailed sections and discover individual breeds. 🐾
+            Discover individual breeds.
         </p>
 
         <!-- MAIN GROUPS -->
@@ -49,21 +49,17 @@
                             Group {{ category.fci_number }}
                         </div>
 
-                        <strong class="groups-link">
+                        <span class="groups-link">
                             {{ category.name }}
-                        </strong>
-
-                        <br>
-
-                        <span class="groups-sections">
-                            {% for section in category.sections.all %}
-                                {{ section.name }}{% if not forloop.last %}, {% endif %}
-                            {% empty %}
-                                —
-                            {% endfor %}
                         </span>
 
+
+
+
                     </div>
+                    <span class="group-open-icon">
+        <i class="bi bi-box-arrow-up-right"></i>
+    </span>
 
                 </a>
 
@@ -108,21 +104,15 @@
                             Other Breeds
                         </div>
 
-                        <strong class="groups-link">
+                        <span class="groups-link">
                             {{ category.name }}
-                        </strong>
-
-                        <br>
-
-                        <span class="groups-sections">
-                            {% for section in category.sections.all %}
-                                {{ section.name }}{% if not forloop.last %}, {% endif %}
-                            {% empty %}
-                                —
-                            {% endfor %}
                         </span>
 
+
                     </div>
+                    <span class="group-open-icon">
+        <i class="bi bi-box-arrow-up-right"></i>
+    </span>
 
                 </a>
 

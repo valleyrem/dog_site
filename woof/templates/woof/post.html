@@ -19,7 +19,7 @@
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+        <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
         <span>/</span>
         <a href="{% url 'groups' %}" title="Groups" class="link-policies">Groups</a>
         <span>/</span>
@@ -37,25 +37,27 @@
 <!-- Main post content -->
 <div class="post-container">
 
+<!--
     <div class="post-header">
         <h1 class="post-title">{{ post.title }}</h1>
     </div>
+-->
 
     <div class="post-media">
         <div class="post-media-nav">
 
     {% if prev_post %}
         <a href="{{ prev_post.get_absolute_url }}"
-           class="post-media-arrow"
-           title="{{ prev_post.title }}">
+           class="post-media-arrow post-media-prev">
             <i class="bi bi-chevron-left"></i>
+            <span>{{ prev_post.title }}</span>
         </a>
     {% endif %}
 
     {% if next_post %}
         <a href="{{ next_post.get_absolute_url }}"
-           class="post-media-arrow"
-           title="{{ next_post.title }}">
+           class="post-media-arrow post-media-next">
+            <span>{{ next_post.title }}</span>
             <i class="bi bi-chevron-right"></i>
         </a>
     {% endif %}
@@ -65,21 +67,30 @@
         {% if post.photo %}
         <div class="post-main-image">
 
-            <img class="post-image"
-                 src="{{ post.photo_medium.url }}"
-                 alt="{{ post.title }}"
-                 title="{{ post.title }}"
-                 data-author="Photo: {{ post.photo_author|escapejs }}"
-                 loading="lazy"
-                 decoding="async"
-                 width="350"
-                 height="450"
-            >
-        </div>
+    <button class="main-img-arrow prev" type="button"><i class="bi bi-chevron-left"></i></button>
+
+    <div class="main-img-viewport">
+    <img class="post-image"
+         src="{{ post.photo_medium.url }}"
+         alt="{{ post.title }}"
+         data-index="0"
+         data-author="by {{ post.photo_author|escapejs }}">
+</div>
+
+
+
+    <button class="main-img-arrow next" type="button"><i class="bi bi-chevron-right"></i></button>
+<div class="post-photo-author" id="post-photo-author">
+    {% if post.photo_author %}
+        by {{ post.photo_author }}
+    {% endif %}
+</div>
+</div>
         {% endif %}
 
         <!-- Breed characteristics panel -->
         <div class="post-right">
+            <h1 class="post-title">{{ post.title }}</h1>
 
     <div class="breed-header">
         <span class="breed-tag">
@@ -129,15 +140,25 @@
         <strong>{{ post.life_expectancy }} years</strong>
     </div>
 
-    <div class="param-card">
-        <div class="top">
-            <span class="icon">↕️</span>
-            <span>Height & Weight</span>
-        </div>
-        <strong>
-            {{ post.height }} cm / {{ post.weight }} kg
-        </strong>
+<div class="param-card">
+    <div class="top">
+        <span class="icon">↕️</span>
+
+        <span>
+            Height & Weight
+
+        </span>
     </div>
+
+    <strong>
+        {{ post.height }} cm / {{ post.weight }} kg <span class="param-info">
+                i
+                <span class="param-tooltip">
+                    Range includes values for both males and females. Individual values may vary by sex.
+                </span>
+            </span>
+    </strong>
+</div>
 
     <div class="param-card">
         <div class="top">
@@ -215,7 +236,7 @@
             <img src="{{ photo.image_large.url }}"
                  class="gallery-image"
                  alt="{{ post.title }}"
-                 data-author="Photo: {{ photo.author|escapejs }}">
+                 data-author="by {{ photo.author|escapejs }}">
         {% endfor %}
     </div>
     {% endif %}
@@ -340,11 +361,11 @@
     <div class="slider-inner">
         <div class="slider-nav">
                 <button class="slider-arrow slider-prev">
-                    <i class="bi bi-chevron-left"></i>
+                    <i class="bi bi-chevron-left"></i> prev
                 </button>
 
                 <button class="slider-arrow slider-next">
-                    <i class="bi bi-chevron-right"></i>
+                    next <i class="bi bi-chevron-right"></i>
                 </button>
             </div>
     <div class="dog-slider">
@@ -377,7 +398,11 @@
         </div>
 
 </div>
-        <div class="slider-dots"></div>
+        <div class="slider-pagination">
+    <span class="slider-current">1</span>
+    <span class="slider-separator">/</span>
+    <span class="slider-total">1</span>
+</div>
         </div>
     </div>
 
@@ -391,47 +416,71 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalAuthor = document.getElementById('modal-author');
 
     const closeBtn = modal.querySelector('.close');
-    const prevBtn = modal.querySelector('.modal-arrow.prev');
-    const nextBtn = modal.querySelector('.modal-arrow.next');
+    const prevModalBtn = modal.querySelector('.modal-arrow.prev');
+    const nextModalBtn = modal.querySelector('.modal-arrow.next');
 
     const mainImage = document.querySelector('.post-image');
     const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
 
-    const allImages = [...(mainImage ? [mainImage] : []), ...galleryImages];
+    const images = [
+        {
+            src: mainImage.src,
+            author: mainImage.dataset.author || ''
+        },
+        ...galleryImages.map(img => ({
+            src: img.src,
+            author: img.dataset.author || ''
+        }))
+    ];
 
     let currentIndex = 0;
     let scrollY = 0;
 
-    // --- preload / show ---
-    function showImage(index) {
+    function updateMainImage() {
+    mainImage.style.opacity = 0;
+
+    setTimeout(() => {
+        mainImage.src = images[currentIndex].src;
+        mainImage.dataset.author = images[currentIndex].author || '';
+
+        const postAuthor = document.getElementById('post-photo-author');
+        postAuthor.textContent = images[currentIndex].author || '';
+
+        mainImage.style.opacity = 1;
+    }, 120);
+}
+
+    const prevMain = document.querySelector('.main-img-arrow.prev');
+    const nextMain = document.querySelector('.main-img-arrow.next');
+
+    prevMain?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateMainImage();
+    });
+
+    nextMain?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateMainImage();
+    });
+
+    // ===== MODAL OPEN =====
+    function showModal(index) {
         currentIndex = index;
-        const img = allImages[currentIndex];
 
-        modalImg.style.opacity = 0;
+        const img = images[currentIndex];
 
-        setTimeout(() => {
-            modalImg.src = img.src;
-            modalAuthor.textContent = img.dataset.author || '';
-            modalImg.style.opacity = 1;
-        }, 100);
-    }
-
-    // --- open ---
-    function openModal(index) {
         scrollY = window.scrollY;
-
-        showImage(index);
         modal.classList.add('active');
+
+        modalImg.src = img.src;
+        modalAuthor.textContent = img.author || '';
 
         document.documentElement.classList.add('no-scroll');
         document.body.classList.add('no-scroll');
-
-        const showArrows = allImages.length > 1;
-        prevBtn.style.display = showArrows ? 'block' : 'none';
-        nextBtn.style.display = showArrows ? 'block' : 'none';
     }
 
-    // --- close ---
     function closeModal() {
         modal.classList.remove('active');
 
@@ -441,43 +490,39 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: scrollY, behavior: 'auto' });
     }
 
-    // --- OPEN EVENTS ---
-    if (mainImage) {
-        mainImage.addEventListener('click', () => openModal(0));
-    }
+    mainImage.addEventListener('click', () => showModal(currentIndex));
 
     galleryImages.forEach((img, i) => {
-        img.addEventListener('click', () => openModal(i + 1));
+        img.addEventListener('click', () => {
+            showModal(i + 1);
+        });
     });
 
-    // --- CLOSE ---
+    prevModalBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showModal((currentIndex - 1 + images.length) % images.length);
+    });
+
+    nextModalBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showModal((currentIndex + 1) % images.length);
+    });
+
     closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
 
-    // --- ARROWS  ---
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showImage((currentIndex - 1 + allImages.length) % allImages.length);
-    });
-
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showImage((currentIndex + 1) % allImages.length);
-    });
-
-    // --- KEYBOARD ---
     document.addEventListener('keydown', (e) => {
         if (!modal.classList.contains('active')) return;
 
         if (e.key === 'ArrowLeft') {
-            showImage((currentIndex - 1 + allImages.length) % allImages.length);
+            showModal((currentIndex - 1 + images.length) % images.length);
         }
 
         if (e.key === 'ArrowRight') {
-            showImage((currentIndex + 1) % allImages.length);
+            showModal((currentIndex + 1) % images.length);
         }
 
         if (e.key === 'Escape') {
@@ -485,7 +530,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // --- SWIPE ---
     let startX = 0;
     let startY = 0;
 
@@ -494,20 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
         startY = e.touches[0].clientY;
     }, { passive: true });
 
-    modal.addEventListener('touchmove', (e) => {
-        if (!modal.classList.contains('active')) return;
-
-        const dx = Math.abs(e.touches[0].clientX - startX);
-        const dy = Math.abs(e.touches[0].clientY - startY);
-
-        if (dy > dx) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
     modal.addEventListener('touchend', (e) => {
-        if (!modal.classList.contains('active')) return;
-
         const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
 
@@ -517,17 +548,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (Math.abs(diffX) > Math.abs(diffY)) {
             if (Math.abs(diffX) > 50) {
                 if (diffX > 0) {
-                    showImage((currentIndex - 1 + allImages.length) % allImages.length);
+                    showModal((currentIndex - 1 + images.length) % images.length);
                 } else {
-                    showImage((currentIndex + 1) % allImages.length);
+                    showModal((currentIndex + 1) % images.length);
                 }
             }
         } else {
-            if (diffY > 80) {
-                closeModal();
-            }
+            if (diffY > 80) closeModal();
         }
     });
+
+    currentIndex = 0;
 
 });
 </script>
@@ -852,6 +883,48 @@ document.addEventListener("DOMContentLoaded", () => {
         breedB = b;
 
         updateTable();
+    });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("keydown", function (event) {
+
+        // Игнорируем клавиши, если пользователь что-то вводит
+        if (
+            event.target.tagName === "INPUT" ||
+            event.target.tagName === "TEXTAREA" ||
+            event.target.tagName === "SELECT" ||
+            event.target.isContentEditable
+        ) {
+            return;
+        }
+
+        // ← Previous
+        if (event.key === "ArrowLeft") {
+
+            const prev = document.querySelector(".post-media-prev");
+
+            if (prev) {
+                event.preventDefault();
+                window.location.href = prev.href;
+            }
+        }
+
+        // → Next
+        if (event.key === "ArrowRight") {
+
+            const next = document.querySelector(".post-media-next");
+
+            if (next) {
+                event.preventDefault();
+                window.location.href = next.href;
+            }
+        }
+
     });
 
 });

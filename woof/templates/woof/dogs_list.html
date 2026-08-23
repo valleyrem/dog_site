@@ -18,7 +18,7 @@
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="breadcrumbs">
-    <a href="{% url 'home' %}" title="Home" class="link-policies">Home</a>
+    <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
     <span>/</span>
         <a href="{% url 'groups' %}" title="Groups" class="link-policies">Groups</a>
         <span>/</span>
@@ -30,9 +30,13 @@
 
 <div class="post-container">
 <!-- Page title -->
-<h1 class="post-title-cat" title="{{ current_category.name }}">
-    {{ current_category.name }}
+<h1 class="post-title-cat" >
+    Groups
 </h1>
+    <p class="section-title" title="{{ current_category.name }}">
+        {{ current_category.name }}
+    </p>
+
 
 
 
@@ -50,11 +54,11 @@
             <div class="slider-inner">
                 <div class="slider-nav">
                 <button class="slider-arrow slider-prev">
-                    <i class="bi bi-chevron-left"></i>
+                      <i class="bi bi-chevron-left"></i> prev
                 </button>
 
                 <button class="slider-arrow slider-next">
-                    <i class="bi bi-chevron-right"></i>
+                     next <i class="bi bi-chevron-right"></i>
                 </button>
             </div>
 <div class="dog-slider">
@@ -91,16 +95,26 @@
 
  </div>
         </div>
-                    <div class="slider-dots"></div>
+                    <div class="slider-pagination">
+    <span class="slider-current">1</span>
+    <span class="slider-separator">/</span>
+    <span class="slider-total">1</span>
+</div>
                 </div>
         </div>
 
-
+<p class="group-sections-inline">
+    <strong> Sections. </strong> {% for section in current_category.sections.all %}
+        {{ section.name }}{% if not forloop.last %}; {% endif %}
+    {% empty %}
+        No sections.
+    {% endfor %}
+</p>
     <p>
-    <strong style="font-family: 'Clash Display';">In short.</strong> {{ current_category.desc }}
+    <strong>In short.</strong> {{ current_category.desc }}
 </p>
     <p class="if-you-dont-see">
-        *If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
+        <strong>*</strong>If you don’t see a particular breed on this website, it may simply mean that it hasn’t been added yet,
         or that we haven’t found suitable images with clear attribution or free usage rights 😊
     </p>
 </div>

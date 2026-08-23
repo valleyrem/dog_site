@@ -141,10 +141,10 @@
             </a>
         </li>
 
-        <!-- Guides link -->
-        <li class="nav-guides">
-            <a href="{% url 'guides' %}" class="nav-guides-link" title="Dog guides">
-                Guides
+        <!-- Groups link -->
+        <li class="nav-groups">
+            <a href="{% url 'groups' %}" class="nav-groups-link" title="Groups">
+                Groups
             </a>
         </li>
 
@@ -264,7 +264,7 @@
 </footer>
 
     <button id="scroll-top-button" title="Back to top">
-        <i class="bi bi-arrow-up-short"></i>
+        <i class="bi bi-caret-up"></i>
     </button>
 
 <!-- GTM noscript -->
@@ -275,79 +275,140 @@
 </noscript>
 
 
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+
     const track = document.querySelector(".dog-slider-track");
-    const items = document.querySelectorAll(".dog-card-link");
+    const items = [...document.querySelectorAll(".dog-card-link")];
+
+    if (!track || !items.length) return;
 
     const prev = document.querySelector(".slider-prev");
     const next = document.querySelector(".slider-next");
-    const dotsContainer = document.querySelector(".slider-dots");
 
-    const perPage = 4;
-    const pages = Math.ceil(items.length / perPage);
+    const currentPage = document.querySelector(".slider-current");
+    const totalPages = document.querySelector(".slider-total");
 
     let page = 0;
+    let holdInterval = null;
 
-    /* DOTS */
-    const dots = [];
-
-    for (let i = 0; i < pages; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("slider-dot");
-
-        dot.addEventListener("click", () => {
-            page = i;
-            update();
-        });
-
-        dotsContainer.appendChild(dot);
-        dots.push(dot);
+    function getPerPage() {
+        if (window.innerWidth <= 767) return 1;
+        if (window.innerWidth <= 1024) return 3;
+        return 4;
     }
 
-    function updateDots() {
-        dots.forEach((d, i) => {
-            d.classList.toggle("active", i === page);
-        });
+    function getPages() {
+        return Math.ceil(items.length / getPerPage());
+    }
+
+    function updateCounter() {
+        currentPage.textContent = page + 1;
+        totalPages.textContent = getPages();
     }
 
     function updateArrows() {
         prev.classList.toggle("disabled", page === 0);
-        next.classList.toggle("disabled", page === pages - 1);
+        next.classList.toggle("disabled", page >= getPages() - 1);
     }
 
     function update() {
-        const itemWidth = items[0].getBoundingClientRect().width + 19;
+
+        const perPage = getPerPage();
+
+        page = Math.max(0, Math.min(page, getPages() - 1));
+
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        const itemWidth = items[0].getBoundingClientRect().width + gap;
+
         const shift = page * perPage * itemWidth;
 
         track.style.transform = `translateX(-${shift}px)`;
 
-        updateDots();
+        updateCounter();
         updateArrows();
     }
 
+    function startHold(direction) {
+
+        stopHold();
+
+        holdInterval = setInterval(() => {
+
+            const maxPage = getPages() - 1;
+
+            if (direction === "next" && page < maxPage) {
+                page++;
+                update();
+            }
+
+            if (direction === "prev" && page > 0) {
+                page--;
+                update();
+            }
+
+        }, 180);
+    }
+
+    function stopHold() {
+        if (holdInterval) {
+            clearInterval(holdInterval);
+            holdInterval = null;
+        }
+    }
+
     next.addEventListener("click", () => {
-        if (page < pages - 1) {
+        if (holdInterval) return;
+        if (page < getPages() - 1) {
             page++;
             update();
         }
     });
 
     prev.addEventListener("click", () => {
+        if (holdInterval) return;
         if (page > 0) {
             page--;
             update();
         }
     });
 
-    window.addEventListener("resize", update);
+    // HOLD NEXT
+    next.addEventListener("mousedown", () => startHold("next"));
+    next.addEventListener("touchstart", () => startHold("next"), { passive: true });
+
+    next.addEventListener("mouseup", stopHold);
+    next.addEventListener("mouseleave", stopHold);
+    next.addEventListener("touchend", stopHold);
+    next.addEventListener("touchcancel", stopHold);
+
+    // HOLD PREV
+    prev.addEventListener("mousedown", () => startHold("prev"));
+    prev.addEventListener("touchstart", () => startHold("prev"), { passive: true });
+
+    prev.addEventListener("mouseup", stopHold);
+    prev.addEventListener("mouseleave", stopHold);
+    prev.addEventListener("touchend", stopHold);
+    prev.addEventListener("touchcancel", stopHold);
+
+    let resizeTimeout;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+            update();
+        }, 100);
+
+    });
 
     update();
+
 });
 </script>
 
-<!-- Slider script
+<!--
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 

@@ -18,7 +18,7 @@
 
         --pink: #C4A1FF;
         --yellow: #fdda0a;
-        --blue: #6ea8ff;
+        --blue: #3301FF;
         --mint: #d7ffd9;
         --lavender: #efe6ff;
 
@@ -37,10 +37,6 @@
         font-family: "Baloo 2", sans-serif;
         color: var(--text);
 
-        background:
-            radial-gradient(circle at top left, var(--lavender) 0%, transparent 30%),
-            radial-gradient(circle at bottom right, var(--mint) 0%, transparent 30%),
-            var(--bg);
 
         overflow: hidden;
 
@@ -86,18 +82,13 @@
     h1 {
         margin: 0;
 
-        font-size: clamp(130px, 18vw, 160px);
+        font-size: clamp(80px, 18vw, 100px);
         line-height: 0.9;
 
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Clash Display", sans-serif;
         font-weight: 700;
 
-        color: var(--pink);
-
-        -webkit-text-stroke: 3px var(--border);
-
-        text-shadow:
-            6px 6px 0 var(--yellow);
+        color: var(--blue);
     }
 
     .paw {
@@ -108,7 +99,7 @@
     }
 
     .title {
-        font-size: 32px;
+        font-size: 25px;
         font-weight: 700;
         line-height: 1.1;
 
@@ -118,7 +109,7 @@
     }
 
     .description {
-        font-size: 21px;
+        font-size: 18px;
         line-height: 1.5;
 
         color: var(--text-soft);
@@ -148,24 +139,13 @@
 
         text-decoration: none;
 
-        background: var(--white);
-
-        border: 3px solid var(--border);
-
-        padding: 12px 26px;
-
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-
-        color: var(--text);
-
-        box-shadow: 4px 4px 0 var(--border);
-
-        transition:
-            transform 0.18s ease,
-            box-shadow 0.18s ease,
-            background 0.18s ease;
+        line-height: 1.8;
+    padding: 6px 20px;
+    border: 1.5px solid #1C2B27;
+    border-radius: 999px;
+    box-shadow: 2px 2px 0 #1C2B27, 1px 2px 0 -10px #1C2B27;
+    background: var(--btn-back);
+    cursor: pointer;
     }
 
     .home-btn:hover {

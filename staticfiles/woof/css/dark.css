@@ -172,7 +172,7 @@ body.dark-theme .homepage select:hover {
 body.dark-theme .homepage select:active {
     transform: translateY(0);
     box-shadow:
-        inset 4px 4px 12px rgba(0,0,0,0.7),
+        inset 6px 6px 12px rgba(0,0,0,0.7),
         inset -4px -4px 12px rgba(70,70,70,0.4);
 }
 

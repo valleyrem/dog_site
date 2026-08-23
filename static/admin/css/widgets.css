@@ -21,7 +21,7 @@
 
 .selector-available-title, .selector-chosen-title {
     border: 1px solid var(--border-color);
-    border-radius: 4px 4px 0 0;
+    border-radius: 6px 6px 0 0;
 }
 
 .selector .helptext {
@@ -31,7 +31,7 @@
 .selector-chosen .list-footer-display {
     border: 1px solid var(--border-color);
     border-top: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
     margin: 0 0 10px;
     padding: 8px;
     text-align: center;
@@ -111,7 +111,7 @@
 .selector select {
     padding: 0 10px;
     margin: 0 0 10px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 6px 6px;
 }
 .selector .selector-chosen--with-filtered select {
     margin: 0;

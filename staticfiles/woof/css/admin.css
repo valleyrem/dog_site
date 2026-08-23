@@ -9,7 +9,7 @@ html[data-theme="light"],
     --body-bg: #fbfbfb;
     --body-quiet-color: #666;
     --body-medium-color: #444;
-    --body-loud-color: #000;
+    --body-loud-color: #1C2B27;
 
     --header-color: #fbfbfb;
     --header-branding-color: var(--accent);

@@ -79,7 +79,7 @@ body.dark-theme .slider-range {
 
 body.dark-theme .slider-range::-webkit-slider-thumb {
     border: 3px solid var(--color-bg);
-    box-shadow: 4px 4px 0 var(--color-bg);
+    box-shadow: 6px 6px 0 var(--color-bg);
 }
 
 body.dark-theme .section-title,
