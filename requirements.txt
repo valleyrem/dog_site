@@ -10,7 +10,7 @@ psycopg2-binary==2.9.11
 pillow==12.1.1
 pilkit==3.0
 django-appconf==1.0.6
-django-imagekit==6.0.0
+django-imagekit==6.1.0
 
 # Admin chained selects (Category -> Section)
 django-smart-selects==1.7.2
@@ -29,7 +29,7 @@ idna==3.8
 urllib3==2.6.3
 
 # Development
-django-debug-toolbar==4.4.6
+django-debug-toolbar==7.1.1
 
 # Production server
 gunicorn==26.1.0
