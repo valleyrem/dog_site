@@ -337,7 +337,7 @@
             <select id="breedB" class="compare-select" title="Select breed">
                 <option value="">Select breed</option>
 
-                {% for dog in all_dogs %}
+                {% for dog in all_breeds %}
                     {% if dog.id != post.id %}
                         <option value="{{ dog.id }}">
                             {{ dog.title }}

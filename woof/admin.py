@@ -139,9 +139,6 @@ class SectionAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-def __str__(self):
-    return self.name
-
 
 @admin.register(CoatType)
 class CoatTypeAdmin(admin.ModelAdmin):
