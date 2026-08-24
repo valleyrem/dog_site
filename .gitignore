@@ -12,6 +12,8 @@ db.sqlite3-journal
 
 # Generated at build/deploy time
 # (django file cache; imagekit previews under media/CACHE are regenerated)
+# Media files live in S3; the local media/ dir is a leftover of the FS era.
+media/
 /cache/
 staticfiles/
 static/CACHE/
@@ -26,6 +28,3 @@ static/smart-selects/
 
 # OS
 .DS_Store
-
-# imagekit generated previews
-media/CACHE/

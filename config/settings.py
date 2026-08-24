@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 
 import environ
+from botocore.config import Config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,18 +158,50 @@ if DEBUG:
 else:
     _STATIC_BACKEND = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STORAGES = {
-    "default": {
+# Media files (user uploads)
+# https://docs.djangoproject.com/en/5.1/topics/files/
+#
+# With USE_S3=True files go to an S3-compatible bucket (OCI Object
+# Storage); otherwise the local filesystem is used.
+USE_S3 = env.bool("USE_S3", default=False)
+
+if USE_S3:
+    _DEFAULT_STORAGE = {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "access_key": env("S3_ACCESS_KEY_ID"),
+            "secret_key": env("S3_SECRET_ACCESS_KEY"),
+            "bucket_name": env("S3_BUCKET_NAME"),
+            "region_name": env("S3_REGION", default="eu-milan-1"),
+            "endpoint_url": env("S3_ENDPOINT_URL"),
+            "default_acl": "public-read",
+            "file_overwrite": False,
+            # Public bucket: serve plain permanent URLs instead of
+            # pre-signed ones (which expire after an hour).
+            "querystring_auth": False,
+            "url_protocol": "https:",
+            # OCI Object Storage does not support AWS chunked payloads
+            # (botocore >= 1.36 enables them by default); use unsigned
+            # payloads over HTTPS instead.
+            "client_config": Config(
+                signature_version="s3v4",
+                # botocore >= 1.36 defaults to CRC32 checksums on every Put,
+                # which forces aws-chunked encoding; OCI does not support it.
+                request_checksum_calculation="when_required",
+            ),
+        },
+    }
+else:
+    _DEFAULT_STORAGE = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
+    }
+
+STORAGES = {
+    "default": _DEFAULT_STORAGE,
     "staticfiles": {
         "BACKEND": _STATIC_BACKEND,
     },
 }
-
-
-# Media files (user uploads)
-# https://docs.djangoproject.com/en/5.1/topics/files/
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"

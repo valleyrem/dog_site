@@ -21,6 +21,9 @@ whitenoise==6.7.0
 # Environment / config
 django-environ==0.11.2
 
+# S3-compatible object storage for media (OCI Object Storage)
+django-storages[s3]==1.14.6
+
 # Contact form -> Telegram
 requests==2.32.4
 certifi==2024.7.4
