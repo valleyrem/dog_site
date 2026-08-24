@@ -11,8 +11,8 @@ db.sqlite3-journal
 .env
 
 # Generated at build/deploy time
-media/
-cache/
+# (django file cache; imagekit previews under media/CACHE are regenerated)
+/cache/
 staticfiles/
 static/CACHE/
 static/admin/
@@ -26,3 +26,6 @@ static/smart-selects/
 
 # OS
 .DS_Store
+
+# imagekit generated previews
+media/CACHE/
