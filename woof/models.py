@@ -293,7 +293,7 @@ class Section(models.Model):
         return self.name
 
     def clean(self):
-        if not self.pk and self.category.sections.count() >= 11:
+        if not self.pk and self.category.sections.count() >= 10:
             raise ValidationError("Maximum 10 sections per category.")
 
     class Meta:

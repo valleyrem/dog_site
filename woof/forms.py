@@ -1,7 +1,11 @@
+import logging
 from datetime import datetime
-from django import forms
-from dogsite.settings import env
+
 import requests
+from django import forms
+from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 
 class ContactForm(forms.Form):
@@ -18,16 +22,32 @@ class ContactForm(forms.Form):
     )
 
     def send_message_to_telegram(self):
-        token = env("TOKEN")
-        chat_id = env("CHAT_ID")
         current_time = datetime.now().strftime("%H:%M, %d %b %Y")
-        message = f"{current_time}\nContact:\nName: {self.cleaned_data['name']}\nEmail: {self.cleaned_data['email']}\nMessage: {self.cleaned_data['content']}"
+        message = (
+            f"{current_time}\n"
+            f"Contact:\n"
+            f"Name: {self.cleaned_data['name']}\n"
+            f"Email: {self.cleaned_data['email']}\n"
+            f"Message: {self.cleaned_data['content']}"
+        )
 
-        url = f"https://api.telegram.org/bot{token}/sendMessage"
-        data = {"chat_id": chat_id, "text": message}
-
-        response = requests.post(url, data=data)
-        return response
+        url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
+        response = requests.post(
+            url, data={"chat_id": settings.TELEGRAM_CHAT_ID, "text": message}, timeout=10
+        )
+        response.raise_for_status()
 
     def process_form(self):
-        self.send_message_to_telegram()
+        """Send the message to Telegram. Returns True on success."""
+        if not settings.TELEGRAM_BOT_TOKEN or not settings.TELEGRAM_CHAT_ID:
+            logger.error(
+                "Telegram credentials are not configured (TOKEN/CHAT_ID); "
+                "contact message was not delivered"
+            )
+            return False
+        try:
+            self.send_message_to_telegram()
+        except requests.RequestException:
+            logger.exception("Failed to deliver contact message to Telegram")
+            return False
+        return True

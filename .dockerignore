@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+cache/
+media/
+staticfiles/
+static/CACHE/
+static/admin/
+static/debug_toolbar/
+static/smart-selects/
+.ruff_cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.jenkins/
+azure-pipelines.yml
+cloudbuild.yaml
+netlify.toml
+vercel.json
+
+# Misc
+.eslintrc
+.prettierrc
+.editorconfig

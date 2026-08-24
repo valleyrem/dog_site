@@ -1,7 +1,4 @@
 {% load static %}
-{% load woof_tags %}
-{% load filters %}
-{% load compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +19,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles -->
-    {% compress css %}
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{% static 'woof/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'woof/css/mobile.css' %}">
     <link rel="stylesheet" href="{% static 'woof/css/dark.css' %}">
-    {% endcompress %}
 
     <!-- Icons -->
     <link rel="preload"

@@ -1,3 +1,30 @@
-.idea
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+
+# Environment
 .env
-**/__pycache__
+
+# Generated at build/deploy time
+# (django file cache; imagekit previews under media/CACHE are regenerated)
+# Media files live in S3; the local media/ dir is a leftover of the FS era.
+media/
+/cache/
+staticfiles/
+static/CACHE/
+static/admin/
+static/debug_toolbar/
+static/smart-selects/
+
+# IDE / tools
+.idea/
+.vscode/
+.ruff_cache/
+
+# OS
+.DS_Store
