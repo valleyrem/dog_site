@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -7,7 +8,12 @@
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}" title="Home" class="link-policies">
-            <i class="bi bi-house"></i>
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
 
         <span>/</span>
@@ -25,6 +31,7 @@
     </div>
 </div>
 
+<!-- Puppy guide content -->
 <div class="post-container">
 
     <h1 class="post-title-cat">
@@ -32,7 +39,16 @@
     </h1>
 
     <div class="post-text-explore">
-        <div class="guide-image guide-image-2"></div>
+
+        <img
+            src="{% static 'guides2.webp' %}"
+            alt="Raising a puppy"
+            class="guide-image guide-image-2"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
 
         <p class="section-title">
             What to expect during puppyhood

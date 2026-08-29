@@ -2,149 +2,200 @@
 {% load static %}
 
 {% block content %}
-<!--<div class="category-scroll">
-    {% for category in cats %}
-        {% if category.pk != 10 %}
-            <a href="{{ category.get_absolute_url }}"
-                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-                    title="{{ category.name }}">
-                <span class="category-chip__text">
-                {{ category.name }}
-                </span>
-            </a>
-        {% endif %}
-    {% endfor %}
-</div>-->
+
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
+        <a href="{% url 'home' %}"
+           title="Home"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
         <span>/</span>
+
         <span class="current">Contact</span>
     </div>
 </div>
 
-<!-- Contact container -->
+
+<!-- Contact content -->
 <div class="policy-container">
 
     <!-- Page title -->
     <h1 class="post-title-cat">Contact</h1>
-                    <p class="section-title">
-            Thank you for helping improve this project
-        </p>
-            <p class="cat-desc">
+
+    <p class="section-title">
+        Thank you for helping improve this project
+    </p>
+
+    <p class="cat-desc">
         Feel free to reach out with any questions, suggestions, or feedback.
     </p>
 
     <div class="hero-inner-contact">
-<!--        <div class="guide-image image-contact"></div>-->
 
+        <div class="hero-left">
 
-    <div class="hero-left">
+            <!-- Contact form -->
+            <div class="contact-layout">
 
-        <!-- Contact form -->
-        <div class="contact-layout">
+                <form id="contactForm" method="post">
 
-            <form id="contactForm" method="post">
+                    {% csrf_token %}
 
-                {% csrf_token %}
+                    <div class="form-error">
+                        {{ form.non_field_errors }}
+                    </div>
 
-                <div class="form-error">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
 
-                {% for f in form %}
-                    {% if f.name == 'confirm_privacy' %}
-                        <div class="form-check-wrapper">
-                            {{ f }}
-                            <label class="consent-label" for="{{ f.id_for_label }}">
-                                {{ f.label }}
-                            </label>
+                        {% if f.name == 'confirm_privacy' %}
+
+                            <div class="form-check-wrapper">
+                                {{ f }}
+
+                                <label class="consent-label"
+                                       for="{{ f.id_for_label }}">
+                                    {{ f.label }}
+                                </label>
+                            </div>
+
+                        {% else %}
+
+                            <p>
+                                <label class="form-label"
+                                       for="{{ f.id_for_label }}">
+                                    {{ f.label }}:
+                                </label>
+
+                                {{ f }}
+                            </p>
+
+                        {% endif %}
+
+                        <div class="form-error">
+                            {{ f.errors }}
                         </div>
-                    {% else %}
-                        <p>
-                            <label class="form-label" for="{{ f.id_for_label }}">
-                                {{ f.label }}:
-                            </label>
-                            {{ f }}
-                        </p>
-                    {% endif %}
-                    <div class="form-error">{{ f.errors }}</div>
-                {% endfor %}
 
-                <p class="form-oferta">
-                    By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
-                    <a href="https://woofdogs.world/privacy-policy/" target="_blank">Privacy Policy</a>.
-                </p>
+                    {% endfor %}
 
-                <button id="btn-custom" type="submit" title="Send a message">Send</button>
-            </form>
+                    <p class="form-oferta">
+                        By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
+                        <a href="https://woofdogs.world/privacy-policy/"
+                           target="_blank">
+                            Privacy Policy
+                        </a>.
+                    </p>
 
-        </div>
-    </div>
+                    <button id="btn-custom"
+                            type="submit"
+                            title="Send a message">
+                        Send
+                    </button>
 
-    <div class="hero-right-contact">
+                </form>
 
-
-
-
-        <div class="post-text-explore">
-
-            <ul class="contact-list">
-                <li>If you notice any inaccuracies in breed descriptions, characteristics, or data.</li>
-                <li>If you would like to suggest a dog breed that is not yet listed on the website.</li>
-                <li>If you have ideas or suggestions to improve the content or structure.</li>
-                <li>If you are the author of a photograph and would like it to be removed.</li>
-                <li>If you would like your authorship to be corrected or credited differently.</li>
-                <li>Please include a link or any relevant details to help process your request.</li>
-            </ul>
-
+            </div>
         </div>
 
-        <p class="cat-desc">
-            Your feedback helps keep the information accurate and reliable.
-        </p>
 
+        <div class="hero-right-contact">
+
+            <div class="post-text-explore">
+
+                <ul class="contact-list">
+
+                    <li>
+                        If you notice any inaccuracies in breed descriptions, characteristics, or data.
+                    </li>
+
+                    <li>
+                        If you would like to suggest a dog breed that is not yet listed on the website.
+                    </li>
+
+                    <li>
+                        If you have ideas or suggestions to improve the content or structure.
+                    </li>
+
+                    <li>
+                        If you are the author of a photograph and would like it to be removed.
+                    </li>
+
+                    <li>
+                        If you would like your authorship to be corrected or credited differently.
+                    </li>
+
+                    <li>
+                        Please include a link or any relevant details to help process your request.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <p class="cat-desc">
+                Your feedback helps keep the information accurate and reliable.
+            </p>
+
+        </div>
 
     </div>
+</div>
 
-</div>
-</div>
 
 <!-- SweetAlert CDN -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
 <!-- AJAX submit script -->
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    var form = document.getElementById('contactForm');
-    var formData = new FormData(form);
+        var form = document.getElementById('contactForm');
+        var formData = new FormData(form);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', form.action, true);
-    xhr.setRequestHeader('X-CSRFToken', form.querySelector('[name="csrfmiddlewaretoken"]').value);
+        var xhr = new XMLHttpRequest();
 
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            Swal.fire({
-                text: 'Thank you. Message has been sent.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 2000
-            });
+        xhr.open('POST', form.action, true);
 
-            form.reset();
-        } else {
-            Swal.fire({
-                text: 'Please try again later.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
-    };
+        xhr.setRequestHeader(
+            'X-CSRFToken',
+            form.querySelector('[name="csrfmiddlewaretoken"]').value
+        );
 
-    xhr.send(formData);
-});
+        xhr.onload = function() {
+
+            if (xhr.status === 200) {
+
+                Swal.fire({
+                    text: 'Thank you. Message has been sent.',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+
+                form.reset();
+
+            } else {
+
+                Swal.fire({
+                    text: 'Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+
+            }
+        };
+
+        xhr.send(formData);
+    });
 </script>
 
 {% endblock %}

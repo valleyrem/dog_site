@@ -1,53 +1,116 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
-<!--<div class="category-scroll">
-    {% for category in cats %}
-        {% if category.pk != 10 %}
-            <a href="{{ category.get_absolute_url }}"
-                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-                    title="{{ category.name }}">
-                <span class="category-chip__text">
-                {{ category.name }}
-                </span>
-            </a>
-        {% endif %}
-    {% endfor %}
-</div>-->
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" class="link-policies"><i class="bi bi-house"></i></a>
+        <a href="{% url 'home' %}"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
         <span>/</span>
+
         <span class="current">Cookie Policy</span>
     </div>
 </div>
 
-<!-- Policy container -->
+
+<!-- Cookie policy content -->
 <div class="policy-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat"><strong>Cookie Policy</strong></h1>
-    <p>Last updated: April 26, 2026</p>
+    <h1 class="post-title-cat">
+        <strong>Cookie Policy</strong>
+    </h1>
+
+    <p>
+        Last updated: April 26, 2026
+    </p>
+
 
     <!-- Cookie declaration -->
-    <h2 class="section-title">Cookie Declaration</h2>
+    <h2 class="section-title">
+        Cookie Declaration
+    </h2>
 
     <div class="cky-audit-table-element"></div>
 
+
     <!-- Browser controls -->
-    <h2 class="section-title" >How can I control cookies in my browser?</h2>
-    <p>Here are instructions for managing cookies in popular browsers:</p>
+    <h2 class="section-title">
+        How can I control cookies in my browser?
+    </h2>
+
+    <p>
+        Here are instructions for managing cookies in popular browsers:
+    </p>
 
     <ul class="bulleted-list">
-        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" class="link-policies" title="Chrome">Chrome</a></li>
-        <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" class="link-policies" title="Internet Explorer">Internet Explorer</a></li>
-        <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank" class="link-policies" title="Firefox">Firefox</a></li>
-        <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" class="link-policies" title="Safari">Safari</a></li>
-        <li><a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy" target="_blank" class="link-policies" title="Edge">Edge</a></li>
-        <li><a href="https://help.opera.com/en/latest/web-preferences/" target="_blank" class="link-policies" title="Opera">Opera</a></li>
+
+        <li>
+            <a href="https://support.google.com/chrome/answer/95647"
+               target="_blank"
+               class="link-policies"
+               title="Chrome">
+                Chrome
+            </a>
+        </li>
+
+        <li>
+            <a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies"
+               target="_blank"
+               class="link-policies"
+               title="Internet Explorer">
+                Internet Explorer
+            </a>
+        </li>
+
+        <li>
+            <a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
+               target="_blank"
+               class="link-policies"
+               title="Firefox">
+                Firefox
+            </a>
+        </li>
+
+        <li>
+            <a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+               target="_blank"
+               class="link-policies"
+               title="Safari">
+                Safari
+            </a>
+        </li>
+
+        <li>
+            <a href="https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy"
+               target="_blank"
+               class="link-policies"
+               title="Edge">
+                Edge
+            </a>
+        </li>
+
+        <li>
+            <a href="https://help.opera.com/en/latest/web-preferences/"
+               target="_blank"
+               class="link-policies"
+               title="Opera">
+                Opera
+            </a>
+        </li>
+
     </ul>
+
 
     <!-- Advertising opt-out -->
     <p>
@@ -56,24 +119,62 @@
     </p>
 
     <ul class="bulleted-list">
-        <li><a href="https://optout.aboutads.info/" target="_blank" class="link-policies" title="Digital Advertising Alliance">Digital Advertising Alliance</a></li>
-        <li><a href="https://youradchoices.ca/" target="_blank" class="link-policies" title="Digital Advertising Alliance of Canada">Digital Advertising Alliance of Canada</a></li>
-        <li><a href="https://www.edaa.eu/" target="_blank" class="link-policies" title="European Interactive Digital Advertising Alliance">European Interactive Digital Advertising Alliance</a></li>
+
+        <li>
+            <a href="https://optout.aboutads.info/"
+               target="_blank"
+               class="link-policies"
+               title="Digital Advertising Alliance">
+                Digital Advertising Alliance
+            </a>
+        </li>
+
+        <li>
+            <a href="https://youradchoices.ca/"
+               target="_blank"
+               class="link-policies"
+               title="Digital Advertising Alliance of Canada">
+                Digital Advertising Alliance of Canada
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.edaa.eu/"
+               target="_blank"
+               class="link-policies"
+               title="European Interactive Digital Advertising Alliance">
+                European Interactive Digital Advertising Alliance
+            </a>
+        </li>
+
     </ul>
 
+
     <!-- Updates -->
-    <h2 class="section-title" >How often will you update this Cookie Policy?</h2>
+    <h2 class="section-title">
+        How often will you update this Cookie Policy?
+    </h2>
+
     <p>
         We may update this Cookie Policy periodically to reflect changes to the cookies
         we use or for other operational, legal, or regulatory reasons. Please review
         this policy regularly to stay informed about how we use cookies and related technologies.
     </p>
 
+
     <!-- Contact -->
-    <h2 class="section-title">Where can I get more information?</h2>
+    <h2 class="section-title">
+        Where can I get more information?
+    </h2>
+
     <p>
         If you have any questions about our use of cookies or other technologies,
-        please <a href="mailto:woofdogs23@gmail.com" class="link-policies" title="woofdogs23@gmail.com">contact us</a>.
+        please
+        <a href="mailto:woofdogs23@gmail.com"
+           class="link-policies"
+           title="woofdogs23@gmail.com">
+            contact us
+        </a>.
     </p>
 
 </div>

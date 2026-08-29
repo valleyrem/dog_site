@@ -6,11 +6,14 @@
 <head>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NJCSC592');</script>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js');var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJCSC592');
+    </script>
+
 
     <!-- Meta -->
     <meta name="description" content="Woof Dogs. Website about dog breeds categorizes by American Kennel Club (AKC).">
@@ -18,32 +21,33 @@
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!-- Styles -->
     {% block styles %}{% endblock %}
+
     <link rel="stylesheet" href="{% static 'woof/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'woof/css/mobile.css' %}">
-    <link rel="stylesheet" href="{% static 'woof/css/dark.css' %}">
 
-    <!-- Icons -->
-    <link rel="preload"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </noscript>
+    <link
+        rel="preload"
+        href="{% static 'fonts/ClashDisplay-Variable.woff2' %}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preload"
+        href="{% static 'fonts/SpaceGrotesk-Variable.woff2' %}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'favicon.ico' %}">
+
 
     <!-- Global scripts -->
     <script src="{% static 'woof/js/scripts.js' %}" defer></script>
@@ -52,111 +56,139 @@
 
 </head>
 
-<body class="layout-root is-hidden">
 
-<!-- Theme switch script -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const themeIcon = document.querySelector('#theme-switch__icon');
-        const currentTheme = localStorage.getItem('theme') || 'light';
+<body class="layout-root">
 
-        document.body.classList.add(currentTheme + '-theme');
-        updateIcon(currentTheme);
-        document.body.classList.remove('is-hidden');
+    <!-- Page loader -->
+    <div class="page-loader" id="page-loader">
 
-        document.querySelector('#theme-switch').addEventListener('click', function() {
-            let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
-            document.body.classList.remove('light-theme', 'dark-theme');
-            document.body.classList.add(newTheme + '-theme');
-            localStorage.setItem('theme', newTheme);
-            updateIcon(newTheme);
-        });
+        <div class="loader-logo">
+            <span class="loader-logo-w">w</span><span class="loader-logo-d">d</span>
+        </div>
 
-        function updateIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.classList.remove('bi-toggle-off');
-                themeIcon.classList.add('bi-toggle-on');
-            } else {
-                themeIcon.classList.remove('bi-toggle-on');
-                themeIcon.classList.add('bi-toggle-off');
-            }
-        }
-    });
-</script>
+        <p>woof...</p>
+
+    </div>
 
 <!-- Header -->
 {% block mainmenu %}
+
 <header class="site-header">
+
     <ul class="nav-main">
 
         <!-- Left navigation -->
         <li class="nav-left">
+
             <ul class="nav-left-list">
+
                 {% for m in menu %}
                     <li class="{% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
-                        <a href="{% url m.url_name %}" title="{{ m.title }}">{{ m.title }}</a>
+                        <a href="{% url m.url_name %}" title="{{ m.title }}">
+                            {{ m.title }}
+                        </a>
                     </li>
                 {% endfor %}
+
             </ul>
+
         </li>
+
 
         <!-- Logo -->
         <li class="nav-logo">
+
             <a href="{% url 'home' %}">
                 <div class="logo-text" translate="no" title="Woof Dogs">
                     <span class="logo-letter logo-letter--primary">w</span>
                     <span class="logo-letter logo-letter--secondary">d</span>
                 </div>
             </a>
+
         </li>
+
 
         <!-- Groups link -->
         <li class="nav-groups">
-            <a href="{% url 'groups' %}" class="nav-groups-link" title="Groups">
-                Groups
+
+            <a href="{% url 'groups' %}"
+               class="nav-groups-link"
+               title="Groups">
+                All groups
             </a>
+
         </li>
 
+
+
+        <!-- Right navigation -->
         <li class="nav-right">
-        <button class="burger" id="burger-btn">
-            <i class="bi bi-list" id="burger-icon"></i>
-        </button>
+
+           <!-- Burger -->
+            <button class="burger"
+                id="burger-btn"
+                data-list-icon="{% static 'list.svg' %}"
+                data-close-icon="{% static 'list-close.svg' %}">
+                    <img src="{% static 'list.svg' %}"
+                         alt="Menu"
+                         class="icon-list"
+                         id="burger-icon">
+            </button>
+
         </li>
 
     </ul>
+
 </header>
+
 {% endblock %}
 
 
+<!-- Sidebar -->
 <aside class="sidebar-nav nav-2">
-        <div class="mobile-menu">
+
+    <div class="mobile-menu">
+
 
         <!-- Main menu -->
         <ul class="mobile-menu__list--top">
+
             {% for m in menu %}
+
                 <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
                     <a href="{% url m.url_name %}" title="{{ m.title }}">
-                        <!--<i class="bi bi-record-circle-fill list-icon"></i>--> {{ m.title }}
+                        {{ m.title }}
                     </a>
                 </li>
+
             {% endfor %}
+
         </ul>
 
-        <!-- Категории -->
+
+        <!-- Groups -->
         <ul class="mobile-menu__list">
+
             {% for category in cats %}
+
                 {% if category.pk != 10 %}
+
                     <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
                         <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
                             {{ category.name }}
                         </a>
                     </li>
+
                 {% endif %}
+
             {% endfor %}
+
         </ul>
 
     </div>
+
 </aside>
+
 
 <!-- Main content -->
 <main class="fullwidth-content">
@@ -169,53 +201,126 @@
 
     <div class="footer-grid">
 
+
         <!-- Navigation -->
         <div class="footer-col">
-            <h4>Navigation</h4>
+
+            <p><strong>Navigation</strong></p>
+
             <ul>
+
                 {% for m in menu %}
                     <li>
-                        <a href="{% url m.url_name %}">{{ m.title }}</a>
+                        <a href="{% url m.url_name %}">
+                            {{ m.title }}
+                        </a>
                     </li>
                 {% endfor %}
+
             </ul>
+
         </div>
+
 
         <!-- Guides -->
         <div class="footer-col">
-        <h4>Guides</h4>
 
-        <ul>
-            <li><a href="{% url 'guides' %}" title="All Guides">All Guides</a></li>
-            <li><a href="{% url 'guide-choosing-dog' %}" title="Choosing the right dog">Choosing the right dog</a></li>
-            <li><a href="{% url 'guide-puppy' %}" title="Raising a puppy">Raising a puppy</a></li>
-            <li><a href="{% url 'guide-training' %}" title="Dog training fundamentals">Dog training fundamentals</a></li>
-            <li><a href="{% url 'guide-health' %}" title="Dog health & care">Dog health & care</a></li>
-            <li><a href="{% url 'guide-behavior' %}" title="Dog behavior & communication">Dog behavior & communication</a></li>
-            <li><a href="{% url 'guide-living' %}" title="Living with a dog">Living with a dog</a></li>
-        </ul>
+            <p><strong>Guides</strong></p>
+
+            <ul>
+
+                <li>
+                    <a href="{% url 'guides' %}" title="All Guides">
+                        All Guides
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-choosing-dog' %}" title="Choosing the right dog">
+                        Choosing the right dog
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-puppy' %}" title="Raising a puppy">
+                        Raising a puppy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-training' %}" title="Dog training fundamentals">
+                        Dog training fundamentals
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-health' %}" title="Dog health & care">
+                        Dog health & care
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-behavior' %}" title="Dog behavior & communication">
+                        Dog behavior & communication
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'guide-living' %}" title="Living with a dog">
+                        Living with a dog
+                    </a>
+                </li>
+
+            </ul>
+
         </div>
+
 
         <!-- Info -->
         <div class="footer-col">
-            <h4>Info</h4>
+
+            <p><strong>Info</strong></p>
+
             <ul>
-                <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
-                <li><a href="{% url 'cookie-policy' %}">Cookie Policy</a></li>
-                <li><a href="{% url 'terms-of-use' %}">Terms of Use</a></li>
+
+                <li>
+                    <a href="{% url 'privacy-policy' %}">
+                        Privacy Policy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'cookie-policy' %}">
+                        Cookie Policy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'terms-of-use' %}">
+                        Terms of Use
+                    </a>
+                </li>
+
             </ul>
+
         </div>
+
 
         <!-- About -->
         <div class="footer-col">
-            <h4>Woof Dogs</h4>
+
+            <p><strong>Woof Dogs</strong></p>
+
             <p class="footer-text">
                 Dog breeds catalog.<br>
-                Non-commercial informational project.
+                Non-commercial informational project.<br>
+                Find a dog that fits your life.
             </p>
+
         </div>
 
     </div>
+
 
     <div class="footer-bottom">
         <p>© {% now "Y" %} Woof Dogs</p>
@@ -223,353 +328,32 @@
 
 </footer>
 
-    <!-- Scroll to top -->
-    <button id="scroll-top-button" title="Back to top">
-        <i class="bi bi-caret-up"></i>
-    </button>
+
+<!-- Scroll to top button -->
+<button id="scroll-top-button" title="Back to top">
+    <img src="{% static 'up.svg' %}"
+         alt="go up"
+         class="icon-post"
+         width="16"
+         height="16"
+    >
+</button>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener('load', function () {
 
-    const track = document.querySelector(".dog-slider-track");
-    const items = [...document.querySelectorAll(".dog-card-link")];
+        const loader = document.getElementById('page-loader');
 
-    if (!track || !items.length) return;
-
-    const prev = document.querySelector(".slider-prev");
-    const next = document.querySelector(".slider-next");
-
-    const currentPage = document.querySelector(".slider-current");
-    const totalPages = document.querySelector(".slider-total");
-
-    let page = 0;
-    let holdInterval = null;
-
-    function getPerPage() {
-        if (window.innerWidth <= 767) return 1;
-        if (window.innerWidth <= 1024) return 3;
-        return 4;
-    }
-
-    function getPages() {
-        return Math.ceil(items.length / getPerPage());
-    }
-
-    function updateCounter() {
-        currentPage.textContent = page + 1;
-        totalPages.textContent = getPages();
-    }
-
-    function updateArrows() {
-        prev.classList.toggle("disabled", page === 0);
-        next.classList.toggle("disabled", page >= getPages() - 1);
-    }
-
-    function update() {
-
-        const perPage = getPerPage();
-
-        page = Math.max(0, Math.min(page, getPages() - 1));
-
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        const itemWidth = items[0].getBoundingClientRect().width + gap;
-
-        const shift = page * perPage * itemWidth;
-
-        track.style.transform = `translateX(-${shift}px)`;
-
-        updateCounter();
-        updateArrows();
-    }
-
-    function startHold(direction) {
-
-        stopHold();
-
-        holdInterval = setInterval(() => {
-
-            const maxPage = getPages() - 1;
-
-            if (direction === "next" && page < maxPage) {
-                page++;
-                update();
-            }
-
-            if (direction === "prev" && page > 0) {
-                page--;
-                update();
-            }
-
-        }, 180);
-    }
-
-    function stopHold() {
-        if (holdInterval) {
-            clearInterval(holdInterval);
-            holdInterval = null;
-        }
-    }
-
-    next.addEventListener("click", () => {
-        if (holdInterval) return;
-        if (page < getPages() - 1) {
-            page++;
-            update();
-        }
-    });
-
-    prev.addEventListener("click", () => {
-        if (holdInterval) return;
-        if (page > 0) {
-            page--;
-            update();
-        }
-    });
-
-    // HOLD NEXT
-    next.addEventListener("mousedown", () => startHold("next"));
-    next.addEventListener("touchstart", () => startHold("next"), { passive: true });
-
-    next.addEventListener("mouseup", stopHold);
-    next.addEventListener("mouseleave", stopHold);
-    next.addEventListener("touchend", stopHold);
-    next.addEventListener("touchcancel", stopHold);
-
-    // HOLD PREV
-    prev.addEventListener("mousedown", () => startHold("prev"));
-    prev.addEventListener("touchstart", () => startHold("prev"), { passive: true });
-
-    prev.addEventListener("mouseup", stopHold);
-    prev.addEventListener("mouseleave", stopHold);
-    prev.addEventListener("touchend", stopHold);
-    prev.addEventListener("touchcancel", stopHold);
-
-    let resizeTimeout;
-
-    window.addEventListener("resize", () => {
-
-        clearTimeout(resizeTimeout);
-
-        resizeTimeout = setTimeout(() => {
-            update();
-        }, 100);
-
-    });
-
-    update();
-
-});
-</script>
-
-<!-- Slider script
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    document.querySelectorAll('.js-slider').forEach(slider => {
-
-        const prevBtn = slider.parentElement.querySelector('.slider-prev');
-        const nextBtn = slider.parentElement.querySelector('.slider-next');
-
-        const cards = slider.querySelectorAll('.dog-card-link');
-
-        if (cards.length === 1) {
-            slider.classList.add('single-card');
+        if (!loader) {
+            return;
         }
 
-        function setActiveCard() {
+        loader.classList.add('is-hidden');
 
-            const sliderCenter =
-                slider.scrollLeft + slider.clientWidth / 2;
+        setTimeout(function () {
+            loader.remove();
+        }, 400);
 
-            let closest = null;
-            let minDist = Infinity;
-
-            cards.forEach(card => {
-
-                const cardCenter =
-                    card.offsetLeft + card.offsetWidth / 2;
-
-                const dist = Math.abs(
-                    sliderCenter - cardCenter
-                );
-
-                if (dist < minDist) {
-                    minDist = dist;
-                    closest = card;
-                }
-            });
-
-            cards.forEach(card =>
-                card.classList.remove('is-active')
-            );
-
-            if (closest) {
-                closest.classList.add('is-active');
-            }
-        }
-
-        function getScrollAmount() {
-
-            const firstCard =
-                slider.querySelector('.dog-card-link');
-
-            if (!firstCard) return 1200;
-
-            const gap =
-                parseInt(getComputedStyle(slider).gap) || 19;
-
-            return (firstCard.offsetWidth + gap) * 3;
-        }
-
-        function scrollToCard(direction) {
-
-    const currentScroll = slider.scrollLeft;
-
-    const currentIndex = [...cards].findIndex(card => {
-        return card.offsetLeft >= currentScroll - 5;
-    });
-
-    let targetIndex;
-
-    if (direction === 'next') {
-        targetIndex = currentIndex + 1;
-    } else {
-        targetIndex = currentIndex - 1;
-    }
-
-    targetIndex = Math.max(0, Math.min(targetIndex, cards.length - 1));
-
-    const targetCard = cards[targetIndex];
-
-    if (targetCard) {
-        slider.scrollTo({
-            left: targetCard.offsetLeft,
-            behavior: 'smooth'
-        });
-    }
-}
-
-        function updateButtons() {
-
-            const hasOverflow =
-                slider.scrollWidth > slider.clientWidth + 5;
-
-            if (!hasOverflow) {
-                prevBtn?.classList.add('is-hidden');
-                nextBtn?.classList.add('is-hidden');
-                return;
-            }
-
-            prevBtn?.classList.remove('is-hidden');
-            nextBtn?.classList.remove('is-hidden');
-
-            const maxScroll =
-                slider.scrollWidth - slider.clientWidth;
-
-            prevBtn?.classList.toggle(
-                'is-disabled',
-                slider.scrollLeft <= 5
-            );
-
-            nextBtn?.classList.toggle(
-                'is-disabled',
-                slider.scrollLeft >= maxScroll - 5
-            );
-        }
-
-        prevBtn?.addEventListener('click', () => {
-
-            if (window.innerWidth <= 768) {
-                scrollToCard('prev');
-                return;
-            }
-
-            slider.scrollBy({
-                left: -getScrollAmount(),
-                behavior: 'smooth'
-            });
-        });
-
-        nextBtn?.addEventListener('click', () => {
-
-            if (window.innerWidth <= 768) {
-                scrollToCard('next');
-                return;
-            }
-
-            slider.scrollBy({
-                left: getScrollAmount(),
-                behavior: 'smooth'
-            });
-        });
-
-        slider.addEventListener('scroll', () => {
-            requestAnimationFrame(() => {
-                setActiveCard();
-                updateButtons();
-            });
-        }, { passive: true });
-
-        window.addEventListener('resize', updateButtons);
-
-        setActiveCard();
-        updateButtons();
-
-    });
-
-});
-</script>-->
-
-<!-- Scroll to top script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    const scrollBtn = document.getElementById('scroll-top-button');
-
-    function toggleButton() {
-        if (window.scrollY > 190) {
-            scrollBtn.classList.add('show');
-        } else {
-            scrollBtn.classList.remove('show');
-        }
-    }
-
-    window.addEventListener('scroll', toggleButton);
-
-    scrollBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-});
-</script>
-
-<script>
-    const burger = document.getElementById("burger-btn");
-    const icon = document.getElementById("burger-icon");
-    const sidebar = document.querySelector(".sidebar-nav");
-    const body = document.body;
-
-    burger.addEventListener("click", (e) => {
-        e.stopPropagation();
-
-        const isActive = sidebar.classList.toggle("active");
-        body.classList.toggle("sidebar-open");
-
-        icon.classList.toggle("bi-list", !isActive);
-        icon.classList.toggle("bi-x-lg", isActive);
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!sidebar.contains(e.target) && !burger.contains(e.target)) {
-            sidebar.classList.remove("active");
-            body.classList.remove("sidebar-open");
-
-            icon.classList.remove("bi-x-lg");
-            icon.classList.add("bi-list");
-        }
     });
 </script>
 

@@ -1,33 +1,60 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
+
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}" title="Home" class="link-policies">
-            <i class="bi bi-house"></i>
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
+
         <span>/</span>
+
         <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
             Dog guides
         </a>
+
         <span>/</span>
+
         <span class="current">
             Living with a dog
         </span>
+
     </div>
 </div>
 
+
+<!-- Living with a dog content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">Living with a dog</h1>
+    <h1 class="post-title-cat">
+        Living with a dog
+    </h1>
 
     <div class="post-text-explore">
-        <div class="guide-image guide-image-3"></div>
 
-        <p class="section-title">What “living with a dog” actually means</p>
+        <img
+            src="{% static 'guides3.webp' %}"
+            alt="Living with a dog"
+            class="guide-image guide-image-3"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
+        <p class="section-title">
+            What “living with a dog” actually means
+        </p>
 
         <p class="cat-desc">
             Living with a dog is primarily about organizing your daily life around another living being that depends on structure and consistency.
@@ -40,7 +67,9 @@
         </p>
 
 
-        <p class="section-title">Daily structure and time organization</p>
+        <p class="section-title">
+            Daily structure and time organization
+        </p>
 
         <p class="cat-desc">
             A stable daily rhythm is the foundation of life with a dog.
@@ -58,7 +87,9 @@
         </p>
 
 
-        <p class="section-title">Home organization and shared space</p>
+        <p class="section-title">
+            Home organization and shared space
+        </p>
 
         <p class="cat-desc">
             Living with a dog also means adapting your physical space.
@@ -76,7 +107,9 @@
         </p>
 
 
-        <p class="section-title">Energy management during the day</p>
+        <p class="section-title">
+            Energy management during the day
+        </p>
 
         <p class="cat-desc">
             One of the most important aspects of living with a dog is managing energy levels throughout the day.
@@ -94,7 +127,9 @@
         </p>
 
 
-        <p class="section-title">Time commitment and lifestyle changes</p>
+        <p class="section-title">
+            Time commitment and lifestyle changes
+        </p>
 
         <p class="cat-desc">
             Living with a dog introduces a long-term time commitment that affects daily freedom.
@@ -111,7 +146,9 @@
         </p>
 
 
-        <p class="section-title">Emotional role in everyday life</p>
+        <p class="section-title">
+            Emotional role in everyday life
+        </p>
 
         <p class="cat-desc">
             Beyond physical routines, dogs also influence emotional structure in the household.
@@ -124,7 +161,9 @@
         </p>
 
 
-        <p class="section-title">Conclusion</p>
+        <p class="section-title">
+            Conclusion
+        </p>
 
         <p class="cat-desc">
             Living with a dog is best understood as organizing a shared life system rather than managing separate tasks.

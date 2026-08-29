@@ -1,25 +1,18 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
-
-<!--<div class="category-scroll">
-    {% for category in cats %}
-        {% if category.pk != 10 %}
-            <a href="{{ category.get_absolute_url }}"
-                class="category-chip {% if category.pk == cat_selected %}active{% endif %}"
-                    title="{{ category.name }}">
-                <span class="category-chip__text">
-                {{ category.name }}
-                </span>
-            </a>
-        {% endif %}
-    {% endfor %}
-</div>-->
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
+        <a href="{% url 'home' %}" title="Home" class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            ></a>
         <span>/</span>
         <a href="{% url 'groups' %}" title="Groups" class="link-policies">Groups</a>
         <span>/</span>
@@ -49,7 +42,13 @@
     {% if prev_post %}
         <a href="{{ prev_post.get_absolute_url }}"
            class="post-media-arrow post-media-prev">
-            <i class="bi bi-chevron-left"></i>
+            <img src="{% static 'left.svg' %}"
+                 alt="Previous page"
+title="Previous"
+                 class="icon-post"
+                 width="18"
+                 height="23"
+                 >
             <span>{{ prev_post.title }}</span>
         </a>
     {% endif %}
@@ -58,35 +57,71 @@
         <a href="{{ next_post.get_absolute_url }}"
            class="post-media-arrow post-media-next">
             <span>{{ next_post.title }}</span>
-            <i class="bi bi-chevron-right"></i>
+            <img src="{% static 'right.svg' %}"
+                 alt="Next page"
+title="Next"
+                 class="icon-post"
+                 width="18"
+                 height="23"
+            >
         </a>
     {% endif %}
 
 </div>
 
-        {% if post.photo %}
-        <div class="post-main-image">
+{% if post.photo %}
+<div class="post-main-image">
 
-    <button class="main-img-arrow prev" type="button"><i class="bi bi-chevron-left"></i></button>
+    <button class="main-img-arrow prev" type="button" aria-label="Previous image">
+        <img src="{% static 'left.svg' %}"
+             alt="Previous"
+             class="icon-post"
+             width="18"
+             height="23">
+    </button>
 
     <div class="main-img-viewport">
-    <img class="post-image"
-         src="{{ post.photo_medium.url }}"
-         alt="{{ post.title }}"
-         data-index="0"
-         data-author="by {{ post.photo_author|escapejs }}">
-</div>
+        <img class="post-image"
+             src="{{ post.photo_medium.url }}"
+             alt="{{ post.title }}"
+             width="350"
+             height="450"
+             decoding="async"
+             fetchpriority="high"
+             data-index="0"
+             data-author="{% if post.photo_author %}by {{ post.photo_author|escapejs }}{% endif %}">
+    </div>
 
+    <button class="main-img-arrow next" type="button" aria-label="Next image">
+        <img src="{% static 'right.svg' %}"
+             alt="Next"
+             class="icon-post"
+             width="18"
+             height="23">
+    </button>
 
-
-    <button class="main-img-arrow next" type="button"><i class="bi bi-chevron-right"></i></button>
-<div class="post-photo-author" id="post-photo-author">
-    {% if post.photo_author %}
-        by {{ post.photo_author }}
-    {% endif %}
-</div>
-</div>
+    <div class="post-photo-author" id="post-photo-author">
+        {% if post.photo_author %}
+            by {{ post.photo_author }}
         {% endif %}
+    </div>
+
+</div>
+{% endif %}
+
+
+{% if post.gallery.all %}
+<div class="mini-gallery">
+    {% for photo in post.gallery.all|slice:":4" %}
+        <img src="{{ photo.image_large.url }}"
+             class="gallery-image"
+             alt="{{ post.title }}"
+             loading="lazy"
+             decoding="async"
+             data-author="{% if photo.author %}by {{ photo.author|escapejs }}{% endif %}">
+    {% endfor %}
+</div>
+{% endif %}
 
         <!-- Breed characteristics panel -->
         <div class="post-right">
@@ -151,9 +186,8 @@
     </div>
 
     <strong>
-        {{ post.height }} cm / {{ post.weight }} kg <span class="param-info">
-                i
-                <span class="param-tooltip">
+        {{ post.height }} cm, {{ post.weight }} kg <span class="param-info">
+                ⓘ<span class="param-tooltip">
                     Range includes values for both males and females. Individual values may vary by sex.
                 </span>
             </span>
@@ -187,7 +221,7 @@
     <div class="param-card">
         <div class="top">
             <span class="icon">🌱</span>
-            <span>Hypoallergenic</span>
+            <span>Allergy friendly</span>
         </div>
         <strong>{{ post.get_hypoallergenic_display }}</strong>
     </div>
@@ -236,6 +270,8 @@
             <img src="{{ photo.image_large.url }}"
                  class="gallery-image"
                  alt="{{ post.title }}"
+                 loading="lazy"
+                 decoding="async"
                  data-author="by {{ photo.author|escapejs }}">
         {% endfor %}
     </div>
@@ -303,7 +339,13 @@
     <span class="close">&times;</span>
 
     <span class="modal-arrow prev">
-        <i class="bi bi-arrow-left"></i>
+        <img src="{% static 'left.svg' %}"
+             alt="Previous page"
+title="Previous"
+             class="icon-post"
+             width="18"
+             height="23"
+             >
     </span>
 
     <div class="modal-content-wrapper">
@@ -312,7 +354,13 @@
     </div>
 
     <span class="modal-arrow next">
-        <i class="bi bi-arrow-right"></i>
+        <img src="{% static 'right.svg' %}"
+             alt="Next page"
+title="Next"
+             class="icon-post"
+             width="18"
+             height="23"
+        >
     </span>
 </div>
 
@@ -360,12 +408,26 @@
 <div class="slider-block">
     <div class="slider-inner">
         <div class="slider-nav">
-                <button class="slider-arrow slider-prev">
-                    <i class="bi bi-chevron-left"></i> prev
+                <button class="slider-arrow slider-prev disabled">
+                    <img src="{% static 'left.svg' %}"
+                         alt="Previous page"
+title="Previous"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+                    <span>prev</span>
                 </button>
 
                 <button class="slider-arrow slider-next">
-                    next <i class="bi bi-chevron-right"></i>
+                    <span>next</span>
+                    <img src="{% static 'right.svg' %}"
+                         alt="Next page"
+title="Next"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
                 </button>
             </div>
     <div class="dog-slider">
@@ -407,527 +469,5 @@
     </div>
 
 {% endif %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalAuthor = document.getElementById('modal-author');
-
-    const closeBtn = modal.querySelector('.close');
-    const prevModalBtn = modal.querySelector('.modal-arrow.prev');
-    const nextModalBtn = modal.querySelector('.modal-arrow.next');
-
-    const mainImage = document.querySelector('.post-image');
-    const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
-
-    const images = [
-        {
-            src: mainImage.src,
-            author: mainImage.dataset.author || ''
-        },
-        ...galleryImages.map(img => ({
-            src: img.src,
-            author: img.dataset.author || ''
-        }))
-    ];
-
-    let currentIndex = 0;
-    let scrollY = 0;
-
-    function updateMainImage() {
-    mainImage.style.opacity = 0;
-
-    setTimeout(() => {
-        mainImage.src = images[currentIndex].src;
-        mainImage.dataset.author = images[currentIndex].author || '';
-
-        const postAuthor = document.getElementById('post-photo-author');
-        postAuthor.textContent = images[currentIndex].author || '';
-
-        mainImage.style.opacity = 1;
-    }, 120);
-}
-
-    const prevMain = document.querySelector('.main-img-arrow.prev');
-    const nextMain = document.querySelector('.main-img-arrow.next');
-
-    prevMain?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateMainImage();
-    });
-
-    nextMain?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex + 1) % images.length;
-        updateMainImage();
-    });
-
-    // ===== MODAL OPEN =====
-    function showModal(index) {
-        currentIndex = index;
-
-        const img = images[currentIndex];
-
-        scrollY = window.scrollY;
-        modal.classList.add('active');
-
-        modalImg.src = img.src;
-        modalAuthor.textContent = img.author || '';
-
-        document.documentElement.classList.add('no-scroll');
-        document.body.classList.add('no-scroll');
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-
-        document.documentElement.classList.remove('no-scroll');
-        document.body.classList.remove('no-scroll');
-
-        window.scrollTo({ top: scrollY, behavior: 'auto' });
-    }
-
-    mainImage.addEventListener('click', () => showModal(currentIndex));
-
-    galleryImages.forEach((img, i) => {
-        img.addEventListener('click', () => {
-            showModal(i + 1);
-        });
-    });
-
-    prevModalBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showModal((currentIndex - 1 + images.length) % images.length);
-    });
-
-    nextModalBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showModal((currentIndex + 1) % images.length);
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (!modal.classList.contains('active')) return;
-
-        if (e.key === 'ArrowLeft') {
-            showModal((currentIndex - 1 + images.length) % images.length);
-        }
-
-        if (e.key === 'ArrowRight') {
-            showModal((currentIndex + 1) % images.length);
-        }
-
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-    let startX = 0;
-    let startY = 0;
-
-    modal.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-    }, { passive: true });
-
-    modal.addEventListener('touchend', (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const endY = e.changedTouches[0].clientY;
-
-        const diffX = endX - startX;
-        const diffY = endY - startY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (Math.abs(diffX) > 50) {
-                if (diffX > 0) {
-                    showModal((currentIndex - 1 + images.length) % images.length);
-                } else {
-                    showModal((currentIndex + 1) % images.length);
-                }
-            }
-        } else {
-            if (diffY > 80) closeModal();
-        }
-    });
-
-    currentIndex = 0;
-
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.innerWidth > 768) return;
-
-    const active = document.querySelector(".category-chip.active");
-
-    if (!active) return;
-
-    active.scrollIntoView({
-        behavior: "auto",
-        inline: "center",
-        block: "nearest"
-    });
-});
-</script>
-
-<script>
-document.querySelectorAll('.tooltip-icon').forEach(icon => {
-    icon.addEventListener('click', (e) => {
-        const tooltip = icon.nextElementSibling;
-
-        tooltip.style.visibility =
-            tooltip.style.visibility === 'visible' ? 'hidden' : 'visible';
-        tooltip.style.opacity =
-            tooltip.style.opacity === '1' ? '0' : '1';
-
-        e.stopPropagation();
-    });
-});
-
-document.addEventListener('click', () => {
-    document.querySelectorAll('.tooltip-text').forEach(t => {
-        t.style.visibility = 'hidden';
-        t.style.opacity = '0';
-    });
-});
-</script>
-
-
-<!-- Post share script -->
-<script>
-const btn = document.getElementById('shareBtn');
-
-btn.addEventListener('click', async () => {
-    try {
-        await navigator.clipboard.writeText(window.location.href);
-
-        const text = btn.querySelector('.share-text');
-        const icon = btn.querySelector('.share-icon');
-
-        text.textContent = 'Copied';
-        icon.textContent = '✔';
-
-        setTimeout(() => {
-            text.textContent = text.dataset.default;
-            icon.textContent = icon.dataset.default;
-        }, 1500);
-
-    } catch (err) {
-        console.error(err);
-    }
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const panel = document.getElementById("comparePanel");
-    const selectA = document.getElementById("breedA");
-    const selectB = document.getElementById("breedB");
-    const wrapper = document.getElementById("compareTableWrapper");
-
-    let breedA = null;
-    let breedB = null;
-
-    async function loadBreed(id) {
-        const res = await fetch(`/api/breed/${id}/`);
-        return await res.json();
-    }
-
-    function row(icon, label) {
-        return `
-            <tr class="param-row">
-                <td colspan="2" class="param-name">
-                    <span class="param-title">
-                        <span class="param-icon">${icon}</span>
-                        ${label}
-                    </span>
-                </td>
-            </tr>
-
-            <tr class="value-row">
-                <td class="value-a">-</td>
-                <td class="value-b">-</td>
-            </tr>
-        `;
-    }
-
-    function createTable() {
-
-        wrapper.innerHTML = `
-            <div class="compare-table-header">
-                <button id="compareCloseBtn"
-                        class="compare-close-btn">
-                    ✕
-                </button>
-            </div>
-
-            <table class="compare-table">
-
-                <tr class="header-row">
-
-                    <th>
-                        <div class="compare-breed-head">
-
-                            <img
-                                class="compare-breed-image breed-a-image"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                            <div class="compare-breed-info">
-
-                                <a class="compare-breed-link breed-a-link"></a>
-
-                                <span class="breed-meta breed-a-meta"></span>
-
-                            </div>
-
-                        </div>
-                    </th>
-
-                    <th>
-                        <div class="compare-breed-head">
-
-                            <img
-                                class="compare-breed-image breed-b-image"
-                                loading="lazy"
-                                decoding="async"
-                            >
-
-                            <div class="compare-breed-info">
-
-                                <a class="compare-breed-link breed-b-link"></a>
-
-                                <span class="breed-meta breed-b-meta"></span>
-
-                            </div>
-
-                        </div>
-                    </th>
-
-                </tr>
-
-                ${row("🧬", "Varieties")}
-                ${row("🌍", "Origin")}
-                ${row("🐕", "Size")}
-                ${row("📏", "Height / Weight")}
-                ${row("🐩", "Coat")}
-                ${row("❤️", "Life expectancy")}
-                ${row("💡", "Trainability")}
-                ${row("🚀", "Activity")}
-                ${row("📢", "Barking")}
-                ${row("🌱", "Hypoallergenic")}
-                ${row("🏡", "Family friendly")}
-
-            </table>
-        `;
-
-        document.getElementById("compareCloseBtn")
-            .addEventListener("click", () => {
-
-                wrapper.classList.add("is-changing");
-
-                setTimeout(() => {
-                    wrapper.innerHTML = "";
-                    selectB.value = "";
-                }, 180);
-            });
-    }
-
-    function updateTable() {
-
-        wrapper.classList.add("is-changing");
-
-        setTimeout(() => {
-
-            // HEADER
-
-            document.querySelector(".breed-a-image").src =
-                breedA.photo;
-
-            document.querySelector(".breed-a-image").alt =
-                breedA.title;
-
-            document.querySelector(".breed-b-image").src =
-                breedB.photo;
-
-            document.querySelector(".breed-b-image").alt =
-                breedB.title;
-
-            document.querySelector(".breed-a-link").textContent =
-                breedA.title;
-
-            document.querySelector(".breed-a-link").href =
-                breedA.url;
-
-            document.querySelector(".breed-b-link").textContent =
-                breedB.title;
-
-            document.querySelector(".breed-b-link").href =
-                breedB.url;
-
-            document.querySelector(".breed-a-meta").innerHTML =
-                `(${breedA.cat}${breedA.section ? `, ${breedA.section}` : ""})`;
-
-            document.querySelector(".breed-b-meta").innerHTML =
-                `(${breedB.cat}${breedB.section ? `, ${breedB.section}` : ""})`;
-
-            // VALUES
-
-            const rows = document.querySelectorAll(".value-row");
-
-            const values = [
-
-                [breedA.varieties, breedB.varieties],
-
-                [breedA.country, breedB.country],
-
-                [breedA.size, breedB.size],
-
-                [
-                    `${breedA.height || "-"} cm / ${breedA.weight || "-"} kg`,
-                    `${breedB.height || "-"} cm / ${breedB.weight || "-"} kg`
-                ],
-
-                [
-                    `${(breedA.coat_length || "").replaceAll(",", "/")}${
-                        breedA.coat_length && breedA.coat_type ? ", " : ""
-                    }${(breedA.coat_type || "").replaceAll(",", "/")}`.trim() || "-",
-
-                    `${(breedB.coat_length || "").replaceAll(",", "/")}${
-                        breedB.coat_length && breedB.coat_type ? ", " : ""
-                    }${(breedB.coat_type || "").replaceAll(",", "/")}`.trim() || "-"
-                ],
-
-                [
-                    `${breedA.life} years`,
-                    `${breedB.life} years`
-                ],
-
-                [
-                    breedA.trainability,
-                    breedB.trainability
-                ],
-
-                [
-                    breedA.activity,
-                    breedB.activity
-                ],
-
-                [
-                    breedA.barking || "-",
-                    breedB.barking || "-"
-                ],
-
-                [
-                    breedA.hypoallergenic || "-",
-                    breedB.hypoallergenic || "-"
-                ],
-
-                [
-                    breedA.family_friendliness || "-",
-                    breedB.family_friendliness || "-"
-                ]
-            ];
-
-            rows.forEach((row, index) => {
-
-                row.querySelector(".value-a").textContent =
-                    values[index][0];
-
-                row.querySelector(".value-b").textContent =
-                    values[index][1];
-            });
-
-            wrapper.classList.remove("is-changing");
-
-        }, 120);
-    }
-
-    selectB.addEventListener("change", async () => {
-
-        const idA = selectA.dataset.id;
-        const idB = selectB.value;
-
-        if (!idA || !idB) {
-
-            wrapper.classList.add("is-changing");
-
-            setTimeout(() => {
-                wrapper.innerHTML = "";
-            }, 180);
-
-            return;
-        }
-
-        if (!wrapper.querySelector(".compare-table")) {
-            createTable();
-        }
-
-        const [a, b] = await Promise.all([
-            loadBreed(idA),
-            loadBreed(idB)
-        ]);
-
-        breedA = a;
-        breedB = b;
-
-        updateTable();
-    });
-
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    document.addEventListener("keydown", function (event) {
-
-        // Игнорируем клавиши, если пользователь что-то вводит
-        if (
-            event.target.tagName === "INPUT" ||
-            event.target.tagName === "TEXTAREA" ||
-            event.target.tagName === "SELECT" ||
-            event.target.isContentEditable
-        ) {
-            return;
-        }
-
-        // ← Previous
-        if (event.key === "ArrowLeft") {
-
-            const prev = document.querySelector(".post-media-prev");
-
-            if (prev) {
-                event.preventDefault();
-                window.location.href = prev.href;
-            }
-        }
-
-        // → Next
-        if (event.key === "ArrowRight") {
-
-            const next = document.querySelector(".post-media-next");
-
-            if (next) {
-                event.preventDefault();
-                window.location.href = next.href;
-            }
-        }
-
-    });
-
-});
-</script>
 
 {% endblock %}

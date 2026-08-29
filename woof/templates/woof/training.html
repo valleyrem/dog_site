@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -7,27 +8,51 @@
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}" title="Home" class="link-policies">
-            <i class="bi bi-house"></i>
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
+
         <span>/</span>
+
         <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
             Dog guides
         </a>
+
         <span>/</span>
+
         <span class="current">
             Dog training fundamentals
         </span>
+
     </div>
 </div>
 
+<!-- Dog training guide content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">Dog training fundamentals</h1>
+    <h1 class="post-title-cat">
+        Dog training fundamentals
+    </h1>
 
     <div class="post-text-explore">
-        <div class="guide-image guide-image-6"></div>
 
-        <p class="section-title">What training actually is</p>
+        <img
+            src="{% static 'guides6.webp' %}"
+            alt="Dog training fundamentals"
+            class="guide-image guide-image-6"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
+        <p class="section-title">
+            What training actually is
+        </p>
 
         <p class="cat-desc">
             Dog training is the process of building clear communication between human and dog through consistent signals and predictable outcomes.
@@ -39,7 +64,9 @@
         </p>
 
 
-        <p class="section-title">Consistency and repetition</p>
+        <p class="section-title">
+            Consistency and repetition
+        </p>
 
         <p class="cat-desc">
             Dogs learn through repetition and pattern recognition.
@@ -55,7 +82,9 @@
         </p>
 
 
-        <p class="section-title">Communication signals</p>
+        <p class="section-title">
+            Communication signals
+        </p>
 
         <p class="cat-desc">
             Training relies on clear and simple signals that the dog can associate with specific actions.
@@ -67,7 +96,9 @@
         </p>
 
 
-        <p class="section-title">Common learning mistakes</p>
+        <p class="section-title">
+            Common learning mistakes
+        </p>
 
         <p class="cat-desc">
             One of the most common issues is mixing signals, where different responses are given for the same behavior.
@@ -83,7 +114,9 @@
         </p>
 
 
-        <p class="section-title">Building reliable behavior</p>
+        <p class="section-title">
+            Building reliable behavior
+        </p>
 
         <p class="cat-desc">
             Reliable behavior is achieved through stable routines and predictable outcomes rather than intensity of training.
@@ -94,7 +127,9 @@
         </p>
 
 
-        <p class="section-title">Conclusion</p>
+        <p class="section-title">
+            Conclusion
+        </p>
 
         <p class="cat-desc">
             Training is a communication system that develops over time through consistency and clarity.

@@ -1,14 +1,22 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
+
     <div class="breadcrumbs">
+
         <a href="{% url 'home' %}"
            title="Home"
            class="link-policies">
-            <i class="bi bi-house"></i>
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
 
         <span>/</span>
@@ -16,31 +24,42 @@
         <span class="current">
             Dog guides
         </span>
+
     </div>
+
 </div>
 
+
+<!-- Guides content -->
 <div class="post-container">
 
+    <!-- Page title -->
     <h1 class="post-title-cat">
         Dog guides
     </h1>
 
-    <div class="post-text-explore">
 
+    <div class="post-text-explore">
 
         <p class="section-title">
             Learn more about dogs
         </p>
 
         <p class="cat-desc">
-            Explore  <strong>short</strong> guides about choosing, training,
+            Explore <strong>short</strong> guides about choosing, training,
             understanding and caring for dogs.
             These pages are designed to help both new and experienced owners.
         </p>
 
+
+        <!-- Guides list -->
         <div class="guides-list">
 
-            <a href="{% url 'guide-choosing-dog' %}" title="Choosing the right dog" class="guide-card">
+            <!-- Choosing the right dog -->
+            <a href="{% url 'guide-choosing-dog' %}"
+               title="Choosing the right dog"
+               class="guide-card">
+
                 <span class="guide-title">
                     Choosing the right dog
                 </span>
@@ -49,12 +68,24 @@
                     Learn how to choose a breed that matches your lifestyle,
                     activity level and living space.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
-            <a href="{% url 'guide-puppy' %}" title="Raising a puppy" class="guide-card">
+
+            <!-- Raising a puppy -->
+            <a href="{% url 'guide-puppy' %}"
+               title="Raising a puppy"
+               class="guide-card">
+
                 <span class="guide-title">
                     Raising a puppy
                 </span>
@@ -63,12 +94,24 @@
                     Learn about early puppy development,
                     socialization, routines and first-life stages.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
-            <a href="{% url 'guide-training' %}" title="Dog training fundamentals" class="guide-card">
+
+            <!-- Dog training fundamentals -->
+            <a href="{% url 'guide-training' %}"
+               title="Dog training fundamentals"
+               class="guide-card">
+
                 <span class="guide-title">
                     Dog training fundamentals
                 </span>
@@ -77,12 +120,24 @@
                     Understand basic training principles,
                     communication and learning consistency.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
-            <a href="{% url 'guide-health' %}" title="Dog health & care" class="guide-card">
+
+            <!-- Dog health & care -->
+            <a href="{% url 'guide-health' %}"
+               title="Dog health & care"
+               class="guide-card">
+
                 <span class="guide-title">
                     Dog health & care
                 </span>
@@ -91,12 +146,24 @@
                     Learn about grooming, nutrition,
                     preventive care and general health basics.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
-            <a href="{% url 'guide-behavior' %}" title="Dog behavior & communication" class="guide-card">
+
+            <!-- Dog behavior & communication -->
+            <a href="{% url 'guide-behavior' %}"
+               title="Dog behavior & communication"
+               class="guide-card">
+
                 <span class="guide-title">
                     Dog behavior & communication
                 </span>
@@ -105,12 +172,24 @@
                     Discover how dogs communicate,
                     express emotions and react to the world around them.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
-            <a href="{% url 'guide-living' %}" title="Living with a dog" class="guide-card">
+
+            <!-- Living with a dog -->
+            <a href="{% url 'guide-living' %}"
+               title="Living with a dog"
+               class="guide-card">
+
                 <span class="guide-title">
                     Living with a dog
                 </span>
@@ -119,14 +198,22 @@
                     Daily routines, home adaptation
                     and long-term lifestyle organization with a dog.
                 </p>
+
                 <span class="group-open-icon">
-        <i class="bi bi-box-arrow-up-right"></i>
-    </span>
+                    <img src="{% static 'arrow-up-right.svg' %}"
+                         alt="go"
+                         class="icon-arrow"
+                         width="16"
+                         height="16"
+                    >
+                </span>
+
             </a>
 
         </div>
 
     </div>
+
 </div>
 
 {% endblock %}

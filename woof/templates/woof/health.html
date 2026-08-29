@@ -1,33 +1,70 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
+
     <div class="breadcrumbs">
 
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
-            <i class="bi bi-house"></i>
+        <a href="{% url 'home' %}"
+           title="Home"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
+
         <span>/</span>
-        <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
+
+        <a href="{% url 'guides' %}"
+           title="Dog guides"
+           class="link-policies">
             Dog guides
         </a>
+
         <span>/</span>
+
         <span class="current">
             Dog health & care
         </span>
+
     </div>
+
 </div>
 
+
+<!-- Dog health & care content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">Dog health & care</h1>
+    <!-- Page title -->
+    <h1 class="post-title-cat">
+        Dog health & care
+    </h1>
+
 
     <div class="post-text-explore">
-        <div class="guide-image guide-image-5"></div>
 
-        <p class="section-title">What this guide covers</p>
+        <!-- Guide image -->
+        <img
+            src="{% static 'guides5.webp' %}"
+            alt="Dog health & care"
+            class="guide-image guide-image-5"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
+
+        <!-- What this guide covers -->
+        <p class="section-title">
+            What this guide covers
+        </p>
 
         <p class="cat-desc">
             Dog health is a combination of prevention, observation, and consistent care.
@@ -40,7 +77,10 @@
         </p>
 
 
-        <p class="section-title">Preventive care and routine checks</p>
+        <!-- Preventive care and routine checks -->
+        <p class="section-title">
+            Preventive care and routine checks
+        </p>
 
         <p class="cat-desc">
             Preventive care is the most important aspect of maintaining long-term health.
@@ -57,7 +97,10 @@
         </p>
 
 
-        <p class="section-title">Nutrition and physical condition</p>
+        <!-- Nutrition and physical condition -->
+        <p class="section-title">
+            Nutrition and physical condition
+        </p>
 
         <p class="cat-desc">
             Nutrition directly influences energy levels, coat quality, weight, and immune system stability.
@@ -74,7 +117,10 @@
         </p>
 
 
-        <p class="section-title">Hygiene and grooming</p>
+        <!-- Hygiene and grooming -->
+        <p class="section-title">
+            Hygiene and grooming
+        </p>
 
         <p class="cat-desc">
             Grooming is not only cosmetic but also a health-related necessity.
@@ -90,7 +136,10 @@
         </p>
 
 
-        <p class="section-title">Common health issues</p>
+        <!-- Common health issues -->
+        <p class="section-title">
+            Common health issues
+        </p>
 
         <p class="cat-desc">
             Some health problems are more common across domestic dogs, including skin allergies, digestive issues, and joint stress in larger breeds.
@@ -106,7 +155,10 @@
         </p>
 
 
-        <p class="section-title">Physical activity and body maintenance</p>
+        <!-- Physical activity and body maintenance -->
+        <p class="section-title">
+            Physical activity and body maintenance
+        </p>
 
         <p class="cat-desc">
             Regular physical activity supports cardiovascular health, muscle tone, and joint mobility.
@@ -123,7 +175,10 @@
         </p>
 
 
-        <p class="section-title">Mental health and well-being</p>
+        <!-- Mental health and well-being -->
+        <p class="section-title">
+            Mental health and well-being
+        </p>
 
         <p class="cat-desc">
             Mental health is closely linked to physical health in dogs.
@@ -139,7 +194,10 @@
         </p>
 
 
-        <p class="section-title">Conclusion</p>
+        <!-- Conclusion -->
+        <p class="section-title">
+            Conclusion
+        </p>
 
         <p class="cat-desc">
             Dog health is a continuous process rather than a fixed state.

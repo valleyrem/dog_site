@@ -1,24 +1,39 @@
+<!-- Dog cards grid -->
 <div class="dog-grid">
+
     {% for dog in dogs %}
+
         <div class="dog-card">
-            <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
-                        <div class="dog-card">
 
-                            {% if dog.photo %}
-                                <img src="{{ dog.photo.url }}"
-                                    alt="{{ dog.title }}"
-                                    class="dog-card__image"
-                                    height="300"
-                                    decoding="async"
-                                    loading="lazy">
-                            {% endif %}
+            <a href="{{ dog.get_absolute_url }}"
+               class="dog-card-link"
+               title="{{ dog.title }}">
 
-                            <h2 class="dog-card__title">{{ dog.title }}</h2>
+                <div class="dog-card">
 
-                        </div>
-                    </a>
+                    {% if dog.photo %}
+                        <img src="{{ dog.photo.url }}"
+                             alt="{{ dog.title }}"
+                             class="dog-card__image"
+                             height="300"
+                             decoding="async"
+                             loading="lazy">
+                    {% endif %}
+
+                    <h2 class="dog-card__title">
+                        {{ dog.title }}
+                    </h2>
+
+                </div>
+
+            </a>
+
         </div>
+
     {% empty %}
+
         <p>No dogs found.</p>
+
     {% endfor %}
+
 </div>

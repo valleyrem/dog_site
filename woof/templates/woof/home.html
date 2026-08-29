@@ -2,17 +2,24 @@
 {% load static %}
 
 {% block content %}
+
+<!-- Homepage content -->
 <div class="homepage">
 
-    <!-- HERO -->
+    <!-- Hero -->
     <div class="hero-block-1 wave">
+
         <div class="hero-center">
+
             <div class="hero-content">
 
                 <div class="hero-inner">
+
                     <div class="hero-shape hero-shape-1"></div>
                     <div class="hero-shape hero-shape-2"></div>
 
+
+                    <!-- Hero left -->
                     <div class="hero-left">
 
                         <p class="homepage-title-1">
@@ -20,29 +27,24 @@
                         </p>
 
                         <p class="homepage-subtitle">
-                            Fur on your clothes means you're truly loved
-                        </p>
-                        <p class="homepage-subsubtitle">
-            A simple way to find a dog that really fits your lifestyle,
-            your home, and your everyday rhythm — and feels like it belongs there
+                            A little mess, a lot of <span class="love-word">love</span>
                         </p>
 
-                    </div>
 
-                    <div class="hero-right">
-
+                        <!-- Search -->
                         <div class="homepage-search-block">
 
+                            <!-- Group search -->
                             <div class="homepage-search" title="Find by group">
 
-                                <label for="breed-select">
-
+                                <label for="breed-select" class="visually-hidden">
+                                    Find by group
                                 </label>
 
                                 <select id="breed-select"
                                         onchange="if(this.value) window.location.href=this.value;">
 
-                                    <option value="">Groups</option>
+                                    <option value="">Find by group</option>
 
                                     {% for group in cats %}
                                         <option value="{{ group.get_absolute_url }}">
@@ -54,15 +56,17 @@
 
                             </div>
 
+
+                            <!-- Breed search -->
                             <div class="homepage-search" title="Find by breed">
 
-                                <label for="breed-select-1">
-
+                                <label for="breed-select-1" class="visually-hidden">
+                                    Find by breed
                                 </label>
 
                                 <select id="breed-select-1">
 
-                                    <option value="">Breeds</option>
+                                    <option value="">Find by breed</option>
 
                                     {% for dog in posts %}
                                         <option value="{{ dog.get_absolute_url }}">
@@ -76,120 +80,165 @@
 
                         </div>
 
+
+                        <p class="homepage-subsubtitle">
+                            A simple way to find a dog that really fits your lifestyle,
+                            your home, and your everyday rhythm — and feels like it belongs there
+                        </p>
+
+                    </div>
+
+
+                    <!-- Hero right -->
+                    <div class="hero-right">
                     </div>
 
                 </div>
 
-                <a href="#explore" class="hero-arrow" title="Scroll down">
+
+                <!-- Hero scroll arrow -->
+                <a href="#explore"
+                   class="hero-arrow"
+                   title="Scroll down">
+
                     <div class="arrow-icon"></div>
+
                 </a>
 
             </div>
-        </div>
-        <!-- WAVE BOTTOM -->
-<!--    <div class="hero-wave">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60
-         C240,120 480,0 720,60
-         C960,120 1200,0 1440,60
-         L1440,120 L0,120 Z"
-        fill="currentColor"/>
-    </svg>
-</div>
 
-<div class="hero-wave hero-wave-bottom">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60
-         C240,120 480,0 720,60
-         C960,120 1200,0 1440,60
-         L1440,120 L0,120 Z"
-        fill="currentColor"/>
-    </svg>
-</div>-->
+        </div>
+
     </div>
 
 
-    <!-- BREED PROFILES -->
+    <!-- Breed profiles -->
     <div class="home-text-block" id="explore">
 
         <h1 class="home-text-block-title">
             Breed profiles
         </h1>
 
-<!--        <p class="home-text-block-text">
-            Different energy. Different personality.
-        </p>-->
+        <p class="homepage-subsubtitle">
+            Explore breeds by size, temperament,<br> lifestyle and more.
+        </p>
 
     </div>
 
-    <!-- SLIDER -->
+
+    <!-- Breed slider -->
     <div class="slider-block">
 
         <div class="slider-inner">
+
+            <!-- Slider navigation -->
             <div class="slider-nav">
-                <button class="slider-arrow slider-prev">
-                    <i class="bi bi-chevron-left"></i> prev
+
+                <button class="slider-arrow slider-prev disabled">
+
+                    <img src="{% static 'left.svg' %}"
+                         alt="Previous page"
+                         title="Previous"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+
+                    <span>prev</span>
+
                 </button>
+
 
                 <button class="slider-arrow slider-next">
-                    next <i class="bi bi-chevron-right"></i>
+
+                    <span>next</span>
+
+                    <img src="{% static 'right.svg' %}"
+                         alt="Next page"
+                         title="Next"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+
                 </button>
+
             </div>
 
 
+            <!-- Dog slider -->
             <div class="dog-slider">
+
                 <div class="dog-slider-viewport">
-                <div class="dog-slider-track">
 
-                {% for dog in posts %}
+                    <div class="dog-slider-track">
 
-                    <a href="{{ dog.get_absolute_url }}"
-                       class="dog-card-link"
-                       title="{{ dog.title }}">
+                        {% for dog in posts %}
 
-                        <div class="dog-card">
+                            <a href="{{ dog.get_absolute_url }}"
+                               class="dog-card-link"
+                               title="{{ dog.title }}">
 
-                            {% if dog.photo %}
-                                <img src="{{ dog.photo_medium.url }}"
-                                     alt="{{ dog.title }}"
-                                     class="dog-card__image"
-                                     loading="lazy"
-                                     decoding="async"
-                                     height="300">
-                            {% endif %}
+                                <div class="dog-card">
 
-                            <div class="dog-card__info">
+                                    {% if dog.photo %}
 
-                                <p class="dog-card__title">
-                                    {{ dog.title }}
-                                </p>
+                                        <img src="{{ dog.photo_medium.url }}"
+                                             alt="{{ dog.title }}"
+                                             class="dog-card__image"
+                                             height="300"
+                                             loading="lazy"
+                                             decoding="async"
+                                        >
 
-                                <p class="dog-card__group">
-                                    {{ dog.cat }}
-                                </p>
+                                    {% endif %}
 
-                                <p class="dog-card__section">
-                                    {{ dog.section }}
-                                </p>
 
-                            </div>
+                                    <div class="dog-card__info">
 
-                        </div>
+                                        <p class="dog-card__title">
+                                            {{ dog.title }}
+                                        </p>
 
-                    </a>
+                                        <p class="dog-card__group">
+                                            {{ dog.cat }}
+                                        </p>
 
-                {% endfor %}
-           </div>
-</div>
+                                        <p class="dog-card__section">
+                                            {{ dog.section }}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
 
             </div>
+
+
+            <!-- Slider pagination -->
             <div class="slider-pagination">
-    <span class="slider-current">1</span>
-    <span class="slider-separator">/</span>
-    <span class="slider-total">1</span>
-</div>
 
+                <span class="slider-current">
+                    1
+                </span>
 
+                <span class="slider-separator">
+                    /
+                </span>
+
+                <span class="slider-total">
+                    1
+                </span>
+
+            </div>
 
         </div>
 
@@ -197,31 +246,5 @@
 
 </div>
 
-<!-- SCRIPT -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    const breedSelect = document.getElementById('breed-select-1');
-
-    if (!breedSelect) return;
-
-    function go(value) {
-        if (value && value !== '') {
-            window.location.href = value;
-        }
-    }
-
-    breedSelect.addEventListener('change', function () {
-        go(this.value);
-    });
-
-    breedSelect.addEventListener('pointerup', function () {
-        setTimeout(() => {
-            go(this.value);
-        }, 50);
-    });
-
-});
-</script>
 
 {% endblock %}

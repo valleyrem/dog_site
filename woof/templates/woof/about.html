@@ -1,22 +1,46 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies"><i class="bi bi-house"></i></a>
+        <a href="{% url 'home' %}"
+           title="Home"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
         <span>/</span>
+
         <span class="current">About us</span>
     </div>
 </div>
 
+
+<!-- About us content -->
 <div class="post-container">
 
     <h1 class="post-title-cat">About us</h1>
 
     <div class="post-text-explore">
-        <div class="guide-image image-aboutus"></div>
+
+        <img
+            src="{% static 'aboutus.webp' %}"
+            alt="About us"
+            class="guide-image image-aboutus"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
         <p class="section-title">Welcome!</p>
 
         <p class="cat-desc">
@@ -52,8 +76,16 @@
         <p>
             For official FCI standards, you can visit the
             <strong>
-                <a href="https://www.fci.be" target="_blank" class="link-site" title="FCI website">
-                    FCI website.
+                <a href="https://www.fci.be"
+                   target="_blank"
+                   class="link-site"
+                   title="FCI website">
+                    FCI website <img src="{% static 'arrow-up-right.svg' %}"
+                                 alt="go"
+                                 class="icon-arrow"
+                                 width="16"
+                                 height="16"
+                            >.
                 </a>
             </strong>
         </p>
@@ -61,9 +93,16 @@
         <p>
             You can also find practical and helpful information about dog care, training, behavior, and daily life in the
             <strong>
-                <a href="{% url 'guides' %}" class="link-site" title="Guides section">
-                    Guides section.
-                </a>
+                <a href="{% url 'guides' %}"
+                   class="link-site"
+                   title="Guides section">
+                    Guides section <img src="{% static 'arrow-up-right.svg' %}"
+                                 alt="go"
+                                 class="icon-arrow"
+                                 width="16"
+                                 height="16"
+                            >
+                </a>.
             </strong>
         </p>
 

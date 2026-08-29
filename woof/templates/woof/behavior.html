@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -7,7 +8,12 @@
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}" title="Home" class="link-policies">
-            <i class="bi bi-house"></i>
+            <img src="{% static 'house.svg' %}"
+                 alt="Home"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
         </a>
         <span>/</span>
         <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
@@ -20,12 +26,22 @@
     </div>
 </div>
 
+
+<!-- Behavior content -->
 <div class="post-container">
 
     <h1 class="post-title-cat">Dog behavior & communication</h1>
 
     <div class="post-text-explore">
-        <div class="guide-image guide-image-1"></div>
+        <img
+            src="{% static 'guides1.webp' %}"
+            alt="Dog behavior & communication"
+            class="guide-image guide-image-1"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
 
         <p class="section-title">What this guide is about</p>
 

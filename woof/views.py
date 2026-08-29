@@ -8,7 +8,6 @@ from .forms import ContactForm
 from .models import Category, Dogs
 from .utils import DataMixin
 
-
 class DogFilterMixin:
     """Apply optional ?size=&trainability=&coat= query filters."""
 
@@ -183,6 +182,12 @@ class DogGroupsView(DataMixin, TemplateView):
                 "dogs": dogs.filter(
                     activity_level__in=["high", "energetic"],
                     trainability__in=["independent", "stubborn"],
+                ),
+            },
+            {
+                "title": "  Easy to train dogs  🧠",
+                "dogs": dogs.filter(
+                    trainability__in=["agreeable", "easy", "eager"],
                 ),
             },
             {
