@@ -1,7 +1,8 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
 
@@ -116,20 +117,24 @@
         </li>
 
 
-        <!-- Groups link -->
-        <li class="nav-groups">
-
-            <a href="{% url 'groups' %}"
-               class="nav-groups-link"
-               title="Groups">
-                All groups
-            </a>
-
-        </li>
-
-
-        <!-- Right navigation -->
+        <!-- Right navigation: language + burger -->
         <li class="nav-right">
+
+            <!-- Language selector -->
+            <form action="{% url 'set_language' %}" method="post" class="lang-form">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <select name="language" class="lang-select" onchange="this.form.submit()" aria-label="{% trans 'Language' %}">
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
 
             <!-- Burger -->
             <button class="burger"

@@ -4,6 +4,7 @@ from django.db.models import Count
 from .models import Category, Dogs
 
 menu = [
+    {"title": "All groups", "url_name": "groups"},
     {"title": "About us", "url_name": "about"},
     {"title": "Guides", "url_name": "guides"},
     {"title": "Explore", "url_name": "dog-explore"},
