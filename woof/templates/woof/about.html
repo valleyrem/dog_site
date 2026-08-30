@@ -1,5 +1,6 @@
 {% extends 'woof/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,10 +8,10 @@
 <div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}"
-           title="Home"
+           title="{% trans 'Home' %}"
            class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -19,7 +20,7 @@
 
         <span>/</span>
 
-        <span class="current">About us</span>
+        <span class="current">{% trans "About us" %}</span>
     </div>
 </div>
 
@@ -27,13 +28,13 @@
 <!-- About us content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">About us</h1>
+    <h1 class="post-title-cat">{% trans "About us" %}</h1>
 
     <div class="post-text-explore">
 
         <img
             src="{% static 'aboutus.webp' %}"
-            alt="About us"
+            alt="{% trans 'About us' %}"
             class="guide-image image-aboutus"
             width="260"
             height="230"
@@ -41,47 +42,47 @@
             decoding="async"
         >
 
-        <p class="section-title">Welcome!</p>
+        <p class="section-title">{% trans "Welcome!" %}</p>
 
         <p class="cat-desc">
-            This project is created for fun and designed as a structured catalog of dog breeds, focused on clarity, comparison, and easy navigation.
-            The main classification system follows the <strong>FCI (Fédération Cynologique Internationale)</strong> — the largest international federation of kennel clubs, which defines official breed standards and group structures worldwide.
+            {% blocktranslate %}This project is created for fun and designed as a structured catalog of dog breeds, focused on clarity, comparison, and easy navigation.
+            The main classification system follows the <strong>FCI (Fédération Cynologique Internationale)</strong> — the largest international federation of kennel clubs, which defines official breed standards and group structures worldwide.{% endblocktranslate %}
         </p>
 
         <p>
-            To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.
-            As a result, the database includes not only officially recognized breeds, but also less common and developing ones.
+            {% blocktranslate %}To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.
+            As a result, the database includes not only officially recognized breeds, but also less common and developing ones.{% endblocktranslate %}
         </p>
 
         <p>
-            If a breed is missing, it may not yet be added or sufficient reference material is still being collected.
+            {% blocktranslate %}If a breed is missing, it may not yet be added or sufficient reference material is still being collected.{% endblocktranslate %}
         </p>
 
         <p class="section-title">
-            About classification
+            {% trans "About classification" %}
         </p>
 
         <p>
-            The catalog combines:
-            <br>— officially recognized FCI breeds and groups
-            <br>— breeds recognized by other kennel clubs
-            <br>— rare or developing breeds not yet formally classified
+            {% blocktranslate %}The catalog combines:{% endblocktranslate %}
+            <br>— {% trans "officially recognized FCI breeds and groups" %}
+            <br>— {% trans "breeds recognized by other kennel clubs" %}
+            <br>— {% trans "rare or developing breeds not yet formally classified" %}
         </p>
 
         <p>
-            Breed classification may vary between kennel organizations.
-            The same breed can be assigned to different groups depending on the standard used.
+            {% blocktranslate %}Breed classification may vary between kennel organizations.
+            The same breed can be assigned to different groups depending on the standard used.{% endblocktranslate %}
         </p>
 
         <p>
-            For official FCI standards, you can visit the
+            {% blocktranslate %}For official FCI standards, you can visit the{% endblocktranslate %}
             <strong>
                 <a href="https://www.fci.be"
                    target="_blank"
                    class="link-site"
-                   title="FCI website">
-                    FCI website <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="go"
+                   title="{% trans 'FCI website' %}">
+                    {% trans "FCI website" %} <img src="{% static 'arrow-up-right.svg' %}"
+                                 alt="{% trans 'go' %}"
                                  class="icon-arrow"
                                  width="16"
                                  height="16"
@@ -91,13 +92,13 @@
         </p>
 
         <p>
-            You can also find practical and helpful information about dog care, training, behavior, and daily life in the
+            {% blocktranslate %}You can also find practical and helpful information about dog care, training, behavior, and daily life in the{% endblocktranslate %}
             <strong>
                 <a href="{% url 'guides' %}"
                    class="link-site"
-                   title="Guides section">
-                    Guides section <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="go"
+                   title="{% trans 'Guides section' %}">
+                    {% trans "Guides section" %} <img src="{% static 'arrow-up-right.svg' %}"
+                                 alt="{% trans 'go' %}"
                                  class="icon-arrow"
                                  width="16"
                                  height="16"
@@ -107,7 +108,7 @@
         </p>
 
         <p>
-            Enjoy exploring, learning, and discovering dog breeds :)
+            {% trans "Enjoy exploring, learning, and discovering dog breeds :)" %}
         </p>
 
     </div>

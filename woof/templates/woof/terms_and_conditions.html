@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -6,16 +7,16 @@
 <!-- Breadcrumbs -->
 <div class="breadcrumbs">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
             >
         </a>
         <span>/</span>
-        <span class="current">Terms of Use</span>
+        <span class="current">{% blocktranslate trimmed %}Terms of Use{% endblocktranslate %}</span>
     </div>
 </div>
 
@@ -23,274 +24,183 @@
 <div class="post-container">
 
     <h1 class="post-title-cat">
-        <strong>Terms of Use</strong>
+        <strong>{% blocktranslate trimmed %}Terms of Use{% endblocktranslate %}</strong>
     </h1>
 
     <div class="post-text-explore">
 
-        <p>Last updated: February 2, 2026</p>
+        <p>{% blocktranslate trimmed %}Last updated: February 2, 2026{% endblocktranslate %}</p>
 
         <!-- Table of Contents -->
-        <h2 class="section-title">
-            Table of Contents
-        </h2>
+        <h2 class="section-title">{% blocktranslate trimmed %}Table of Contents{% endblocktranslate %}</h2>
 
         <div class="num-list">
-            <a href="#consent-to-terms">1. Consent to Terms</a>
-            <a href="#intellectual-property-rights">2. Intellectual Property Rights</a>
-            <a href="#user-representations">3. User Representations</a>
-            <a href="#prohibited-activities">4. Prohibited Activities</a>
-            <a href="#user-contributions">5. User Contributions</a>
-            <a href="#license-to-use">6. License to Use</a>
-            <a href="#provided-materials">7. Provided Materials</a>
-            <a href="#site-management">8. Website Management</a>
-            <a href="#privacy-policy">9. Privacy Policy</a>
-            <a href="#term-and-termination">10. Term and Termination</a>
-            <a href="#modifications-and-interruptions">11. Modifications and Interruptions</a>
-            <a href="#governing-law">12. Governing Law</a>
-            <a href="#dispute-resolution">13. Dispute Resolution</a>
-            <a href="#corrections">14. Corrections</a>
-            <a href="#disclaimer">15. Disclaimer</a>
-            <a href="#limitation-of-liability">16. Limitation of Liability</a>
-            <a href="#indemnification">17. Indemnification</a>
-            <a href="#user-data">18. User Data</a>
-            <a href="#electronic-communications">19. Electronic Communications</a>
-            <a href="#california-users-and-residents">20. California Residents</a>
-            <a href="#miscellaneous">21. Miscellaneous</a>
-            <a href="#contact-us">22. Contact Us</a>
+            <a href="#consent-to-terms">{% blocktranslate trimmed %}1. Consent to Terms{% endblocktranslate %}</a>
+            <a href="#intellectual-property-rights">{% blocktranslate trimmed %}2. Intellectual Property Rights{% endblocktranslate %}</a>
+            <a href="#user-representations">{% blocktranslate trimmed %}3. User Representations{% endblocktranslate %}</a>
+            <a href="#prohibited-activities">{% blocktranslate trimmed %}4. Prohibited Activities{% endblocktranslate %}</a>
+            <a href="#user-contributions">{% blocktranslate trimmed %}5. User Contributions{% endblocktranslate %}</a>
+            <a href="#license-to-use">{% blocktranslate trimmed %}6. License to Use{% endblocktranslate %}</a>
+            <a href="#provided-materials">{% blocktranslate trimmed %}7. Provided Materials{% endblocktranslate %}</a>
+            <a href="#site-management">{% blocktranslate trimmed %}8. Website Management{% endblocktranslate %}</a>
+            <a href="#privacy-policy">{% blocktranslate trimmed %}9. Privacy Policy{% endblocktranslate %}</a>
+            <a href="#term-and-termination">{% blocktranslate trimmed %}10. Term and Termination{% endblocktranslate %}</a>
+            <a href="#modifications-and-interruptions">{% blocktranslate trimmed %}11. Modifications and Interruptions{% endblocktranslate %}</a>
+            <a href="#governing-law">{% blocktranslate trimmed %}12. Governing Law{% endblocktranslate %}</a>
+            <a href="#dispute-resolution">{% blocktranslate trimmed %}13. Dispute Resolution{% endblocktranslate %}</a>
+            <a href="#corrections">{% blocktranslate trimmed %}14. Corrections{% endblocktranslate %}</a>
+            <a href="#disclaimer">{% blocktranslate trimmed %}15. Disclaimer{% endblocktranslate %}</a>
+            <a href="#limitation-of-liability">{% blocktranslate trimmed %}16. Limitation of Liability{% endblocktranslate %}</a>
+            <a href="#indemnification">{% blocktranslate trimmed %}17. Indemnification{% endblocktranslate %}</a>
+            <a href="#user-data">{% blocktranslate trimmed %}18. User Data{% endblocktranslate %}</a>
+            <a href="#electronic-communications">{% blocktranslate trimmed %}19. Electronic Communications{% endblocktranslate %}</a>
+            <a href="#california-users-and-residents">{% blocktranslate trimmed %}20. California Residents{% endblocktranslate %}</a>
+            <a href="#miscellaneous">{% blocktranslate trimmed %}21. Miscellaneous{% endblocktranslate %}</a>
+            <a href="#contact-us">{% blocktranslate trimmed %}22. Contact Us{% endblocktranslate %}</a>
         </div>
 
         <!-- Sections -->
 
-        <h2 class="section-title" id="consent-to-terms">
-            1. Consent to Terms
-        </h2>
+        <h2 class="section-title" id="consent-to-terms">{% blocktranslate trimmed %}1. Consent to Terms{% endblocktranslate %}</h2>
 
         <p>
-            These Terms of Use constitute a legally binding agreement between you (“you”)
-            and <strong>Woof Dogs</strong> regarding your access to and use of
+            {% blocktranslate trimmed %}These Terms of Use constitute a legally binding agreement between you («you») and{% endblocktranslate %}
+            <strong>{% blocktranslate trimmed %}Woof Dogs{% endblocktranslate %}</strong>
+            {% blocktranslate trimmed %}regarding your access to and use of{% endblocktranslate %}
             <a href="https://woofdogs.world/"
                target="_blank"
-               class="link-policies">
-                https://woofdogs.world/
-            </a>.
+               class="link-policies">{% blocktranslate trimmed %}https://woofdogs.world/{% endblocktranslate %}</a>.
         </p>
 
-        <p>
-            IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE,
-            YOU MUST DISCONTINUE USE IMMEDIATELY.
-        </p>
+        <p>{% blocktranslate trimmed %}IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE,
+            YOU MUST DISCONTINUE USE IMMEDIATELY.{% endblocktranslate %}</p>
 
 
-        <h2 class="section-title" id="intellectual-property-rights">
-            2. Intellectual Property Rights
-        </h2>
+        <h2 class="section-title" id="intellectual-property-rights">{% blocktranslate trimmed %}2. Intellectual Property Rights{% endblocktranslate %}</h2>
 
-        <p>
-            Unless otherwise stated, the Website and all content are owned or licensed
-            by us and protected by intellectual property laws.
-        </p>
+        <p>{% blocktranslate trimmed %}Unless otherwise stated, the Website and all content are owned or licensed
+            by us and protected by intellectual property laws.{% endblocktranslate %}</p>
 
 
-        <h2 class="section-title" id="user-representations">
-            3. User Representations
-        </h2>
+        <h2 class="section-title" id="user-representations">{% blocktranslate trimmed %}3. User Representations{% endblocktranslate %}</h2>
 
-        <p>
-            By using the Website, you represent and warrant that you comply with all
-            applicable laws and these Terms.
-        </p>
+        <p>{% blocktranslate trimmed %}By using the Website, you represent and warrant that you comply with all
+            applicable laws and these Terms.{% endblocktranslate %}</p>
 
 
-        <h2 class="section-title" id="prohibited-activities">
-            4. Prohibited Activities
-        </h2>
+        <h2 class="section-title" id="prohibited-activities">{% blocktranslate trimmed %}4. Prohibited Activities{% endblocktranslate %}</h2>
 
-        <p>
-            You agree not to engage in prohibited activities, including but not limited to:
-        </p>
+        <p>{% blocktranslate trimmed %}You agree not to engage in prohibited activities, including but not limited to:{% endblocktranslate %}</p>
 
         <ul class="bulleted-list">
-            <li>Unauthorized data extraction</li>
-            <li>Fraud, abuse, or harassment</li>
-            <li>Security circumvention</li>
-            <li>Illegal or unauthorized use</li>
+            <li>{% blocktranslate trimmed %}Unauthorized data extraction{% endblocktranslate %}</li>
+            <li>{% blocktranslate trimmed %}Fraud, abuse, or harassment{% endblocktranslate %}</li>
+            <li>{% blocktranslate trimmed %}Security circumvention{% endblocktranslate %}</li>
+            <li>{% blocktranslate trimmed %}Illegal or unauthorized use{% endblocktranslate %}</li>
         </ul>
 
 
-        <h2 class="section-title" id="user-contributions">
-            5. User Contributions
-        </h2>
+        <h2 class="section-title" id="user-contributions">{% blocktranslate trimmed %}5. User Contributions{% endblocktranslate %}</h2>
 
         <p>
-            User contributions are governed by our
+            {% blocktranslate trimmed %}User contributions are governed by our{% endblocktranslate %}
             <a href="{% url 'privacy-policy' %}"
                target="_blank"
-               class="link-policies">
-                Privacy Policy
-            </a>.
+               class="link-policies">{% blocktranslate trimmed %}Privacy Policy{% endblocktranslate %}</a>.
         </p>
 
 
-        <h2 class="section-title" id="license-to-use">
-            6. License to Use
-        </h2>
+        <h2 class="section-title" id="license-to-use">{% blocktranslate trimmed %}6. License to Use{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}You are granted a limited, non-commercial license to use the Website.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="provided-materials">{% blocktranslate trimmed %}7. Provided Materials{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}Any materials you submit become our property and may be used without compensation.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="site-management">{% blocktranslate trimmed %}8. Website Management{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}We reserve the right to manage, restrict, or remove content at our discretion.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="privacy-policy">{% blocktranslate trimmed %}9. Privacy Policy{% endblocktranslate %}</h2>
 
         <p>
-            You are granted a limited, non-commercial license to use the Website.
-        </p>
-
-
-        <h2 class="section-title" id="provided-materials">
-            7. Provided Materials
-        </h2>
-
-        <p>
-            Any materials you submit become our property and may be used without compensation.
-        </p>
-
-
-        <h2 class="section-title" id="site-management">
-            8. Website Management
-        </h2>
-
-        <p>
-            We reserve the right to manage, restrict, or remove content at our discretion.
-        </p>
-
-
-        <h2 class="section-title" id="privacy-policy">
-            9. Privacy Policy
-        </h2>
-
-        <p>
-            Your use of the Website is also governed by our
+            {% blocktranslate trimmed %}Your use of the Website is also governed by our{% endblocktranslate %}
             <a href="{% url 'privacy-policy' %}"
                target="_blank"
-               class="link-policies">
-                Privacy Policy
-            </a>.
+               class="link-policies">{% blocktranslate trimmed %}Privacy Policy{% endblocktranslate %}</a>.
         </p>
 
 
-        <h2 class="section-title" id="term-and-termination">
-            10. Term and Termination
-        </h2>
+        <h2 class="section-title" id="term-and-termination">{% blocktranslate trimmed %}10. Term and Termination{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}We may terminate access to the Website at any time without notice.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="modifications-and-interruptions">{% blocktranslate trimmed %}11. Modifications and Interruptions{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}We reserve the right to modify or discontinue the Website without liability.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="governing-law">{% blocktranslate trimmed %}12. Governing Law{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}These Terms are governed by the laws of Serbia.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="dispute-resolution">{% blocktranslate trimmed %}13. Dispute Resolution{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}Disputes shall be resolved through arbitration in Serbia.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="corrections">{% blocktranslate trimmed %}14. Corrections{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}We may correct errors or update content at any time.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="disclaimer">{% blocktranslate trimmed %}15. Disclaimer{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}The Website is provided “AS IS” without warranties.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="limitation-of-liability">{% blocktranslate trimmed %}16. Limitation of Liability{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}Our liability is limited to the maximum extent permitted by law.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="indemnification">{% blocktranslate trimmed %}17. Indemnification{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}You agree to indemnify and hold us harmless.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="user-data">{% blocktranslate trimmed %}18. User Data{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}You are responsible for any data you submit.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="electronic-communications">{% blocktranslate trimmed %}19. Electronic Communications{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}Electronic communications satisfy legal requirements.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="california-users-and-residents">{% blocktranslate trimmed %}20. California Residents{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}California residents may contact the appropriate authorities as required by law.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="miscellaneous">{% blocktranslate trimmed %}21. Miscellaneous{% endblocktranslate %}</h2>
+
+        <p>{% blocktranslate trimmed %}These Terms constitute the entire agreement between you and us.{% endblocktranslate %}</p>
+
+
+        <h2 class="section-title" id="contact-us">{% blocktranslate trimmed %}22. Contact Us{% endblocktranslate %}</h2>
 
         <p>
-            We may terminate access to the Website at any time without notice.
-        </p>
-
-
-        <h2 class="section-title" id="modifications-and-interruptions">
-            11. Modifications and Interruptions
-        </h2>
-
-        <p>
-            We reserve the right to modify or discontinue the Website without liability.
-        </p>
-
-
-        <h2 class="section-title" id="governing-law">
-            12. Governing Law
-        </h2>
-
-        <p>
-            These Terms are governed by the laws of Serbia.
-        </p>
-
-
-        <h2 class="section-title" id="dispute-resolution">
-            13. Dispute Resolution
-        </h2>
-
-        <p>
-            Disputes shall be resolved through arbitration in Serbia.
-        </p>
-
-
-        <h2 class="section-title" id="corrections">
-            14. Corrections
-        </h2>
-
-        <p>
-            We may correct errors or update content at any time.
-        </p>
-
-
-        <h2 class="section-title" id="disclaimer">
-            15. Disclaimer
-        </h2>
-
-        <p>
-            The Website is provided “AS IS” without warranties.
-        </p>
-
-
-        <h2 class="section-title" id="limitation-of-liability">
-            16. Limitation of Liability
-        </h2>
-
-        <p>
-            Our liability is limited to the maximum extent permitted by law.
-        </p>
-
-
-        <h2 class="section-title" id="indemnification">
-            17. Indemnification
-        </h2>
-
-        <p>
-            You agree to indemnify and hold us harmless.
-        </p>
-
-
-        <h2 class="section-title" id="user-data">
-            18. User Data
-        </h2>
-
-        <p>
-            You are responsible for any data you submit.
-        </p>
-
-
-        <h2 class="section-title" id="electronic-communications">
-            19. Electronic Communications
-        </h2>
-
-        <p>
-            Electronic communications satisfy legal requirements.
-        </p>
-
-
-        <h2 class="section-title" id="california-users-and-residents">
-            20. California Residents
-        </h2>
-
-        <p>
-            California residents may contact the appropriate authorities as required by law.
-        </p>
-
-
-        <h2 class="section-title" id="miscellaneous">
-            21. Miscellaneous
-        </h2>
-
-        <p>
-            These Terms constitute the entire agreement between you and us.
-        </p>
-
-
-        <h2 class="section-title" id="contact-us">
-            22. Contact Us
-        </h2>
-
-        <p>
-            Questions may be sent to
+            {% blocktranslate trimmed %}Questions may be sent to{% endblocktranslate %}
             <a href="mailto:woofdogs23@gmail.com"
-               class="link-policies">
-                woofdogs23@gmail.com
-            </a>.
+               class="link-policies">{% blocktranslate trimmed %}woofdogs23@gmail.com{% endblocktranslate %}</a>.
         </p>
 
     </div>

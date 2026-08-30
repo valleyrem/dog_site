@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -9,10 +10,10 @@
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}"
-           title="Home"
+           title="{% trans 'Home' %}"
            class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -21,9 +22,7 @@
 
         <span>/</span>
 
-        <span class="current">
-            Dog guides
-        </span>
+        <span class="current">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</span>
 
     </div>
 
@@ -34,21 +33,16 @@
 <div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">
-        Dog guides
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</h1>
 
 
     <div class="post-text-explore">
 
-        <p class="section-title">
-            Learn more about dogs
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Learn more about dogs{% endblocktranslate %}</p>
 
         <p class="cat-desc">
-            Explore <strong>short</strong> guides about choosing, training,
-            understanding and caring for dogs.
-            These pages are designed to help both new and experienced owners.
+            {% blocktranslate trimmed %}Explore <strong>short</strong> guides about choosing, training, understanding and caring for dogs.
+            These pages are designed to help both new and experienced owners.{% endblocktranslate %}
         </p>
 
 
@@ -57,21 +51,19 @@
 
             <!-- Choosing the right dog -->
             <a href="{% url 'guide-choosing-dog' %}"
-               title="Choosing the right dog"
+               title="{% trans 'Choosing the right dog' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Choosing the right dog
+                    {% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Learn how to choose a breed that matches your lifestyle,
-                    activity level and living space.
-                </p>
+                <p>{% blocktranslate trimmed %}Learn how to choose a breed that matches your lifestyle,
+                    activity level and living space.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"
@@ -83,21 +75,19 @@
 
             <!-- Raising a puppy -->
             <a href="{% url 'guide-puppy' %}"
-               title="Raising a puppy"
+               title="{% trans 'Raising a puppy' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Raising a puppy
+                    {% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Learn about early puppy development,
-                    socialization, routines and first-life stages.
-                </p>
+                <p>{% blocktranslate trimmed %}Learn about early puppy development,
+                    socialization, routines and first-life stages.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"
@@ -109,21 +99,19 @@
 
             <!-- Dog training fundamentals -->
             <a href="{% url 'guide-training' %}"
-               title="Dog training fundamentals"
+               title="{% trans 'Dog training fundamentals' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Dog training fundamentals
+                    {% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Understand basic training principles,
-                    communication and learning consistency.
-                </p>
+                <p>{% blocktranslate trimmed %}Understand basic training principles,
+                    communication and learning consistency.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"
@@ -135,21 +123,19 @@
 
             <!-- Dog health & care -->
             <a href="{% url 'guide-health' %}"
-               title="Dog health & care"
+               title="{% trans 'Dog health & care' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Dog health & care
+                    {% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Learn about grooming, nutrition,
-                    preventive care and general health basics.
-                </p>
+                <p>{% blocktranslate trimmed %}Learn about grooming, nutrition,
+                    preventive care and general health basics.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"
@@ -161,21 +147,19 @@
 
             <!-- Dog behavior & communication -->
             <a href="{% url 'guide-behavior' %}"
-               title="Dog behavior & communication"
+               title="{% trans 'Dog behavior & communication' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Dog behavior & communication
+                    {% blocktranslate trimmed %}Dog behavior & communication{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Discover how dogs communicate,
-                    express emotions and react to the world around them.
-                </p>
+                <p>{% blocktranslate trimmed %}Discover how dogs communicate,
+                    express emotions and react to the world around them.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"
@@ -187,21 +171,19 @@
 
             <!-- Living with a dog -->
             <a href="{% url 'guide-living' %}"
-               title="Living with a dog"
+               title="{% trans 'Living with a dog' %}"
                class="guide-card">
 
                 <span class="guide-title">
-                    Living with a dog
+                    {% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}
                 </span>
 
-                <p>
-                    Daily routines, home adaptation
-                    and long-term lifestyle organization with a dog.
-                </p>
+                <p>{% blocktranslate trimmed %}Daily routines, home adaptation
+                    and long-term lifestyle organization with a dog.{% endblocktranslate %}</p>
 
                 <span class="group-open-icon">
                     <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="go"
+                         alt="{% trans 'go' %}"
                          class="icon-arrow"
                          width="16"
                          height="16"

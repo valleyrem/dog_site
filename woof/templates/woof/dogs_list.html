@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,10 +9,10 @@
 <div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}"
-           title="Home"
+           title="{% trans 'Home' %}"
            class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -21,10 +22,8 @@
         <span>/</span>
 
         <a href="{% url 'groups' %}"
-           title="Groups"
-           class="link-policies">
-            Groups
-        </a>
+           title="{% trans 'Groups' %}"
+           class="link-policies">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</a>
 
         <span>/</span>
 
@@ -40,9 +39,7 @@
 <div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">
-        Groups
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</h1>
 
     <p class="section-title"
        title="{{ current_category.name }}">
@@ -59,20 +56,20 @@
 
                 <button class="slider-arrow slider-prev disabled">
                     <img src="{% static 'left.svg' %}"
-                         alt="Previous page"
-                         title="Previous"
+                         alt="{% trans 'Previous page' %}"
+                         title="{% trans 'Previous' %}"
                          class="icon-post"
                          width="18"
                          height="23"
                     >
-                    <span>prev</span>
+                    <span>{% trans "prev" %}</span>
                 </button>
 
                 <button class="slider-arrow slider-next">
-                    <span>next</span>
+                    <span>{% trans "next" %}</span>
                     <img src="{% static 'right.svg' %}"
-                         alt="Next page"
-title="Next"
+                         alt="{% trans 'Next page' %}"
+title="{% trans 'Next' %}"
                          class="icon-post"
                          width="18"
                          height="23"
@@ -155,7 +152,7 @@ title="Next"
     <!-- Group sections -->
     <p class="group-sections-inline">
 
-        <strong>Sections.</strong>
+        <strong>{% blocktranslate trimmed %}Sections.{% endblocktranslate %}</strong>
 
         {% for section in current_category.sections.all %}
 
@@ -163,7 +160,7 @@ title="Next"
 
         {% empty %}
 
-            No sections.
+            {% trans "No sections." %}
 
         {% endfor %}
 
@@ -172,7 +169,7 @@ title="Next"
 
     <!-- Group description -->
     <p>
-        <strong>In short.</strong>
+        <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
         {{ current_category.desc }}
     </p>
 
@@ -180,10 +177,10 @@ title="Next"
     <!-- Missing breed notice -->
     <p class="if-you-dont-see">
 
-        <strong>*</strong>
-        If you don’t see a particular breed on this website, it may simply mean
+        <strong>{% blocktranslate trimmed %}*{% endblocktranslate %}</strong>
+        {% blocktranslate trimmed %}If you don’t see a particular breed on this website, it may simply mean
         that it hasn’t been added yet, or that we haven’t found suitable images
-        with clear attribution or free usage rights 😊
+        with clear attribution or free usage rights 😊{% endblocktranslate %}
 
     </p>
 

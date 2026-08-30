@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.decorators.http import require_GET
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 
@@ -59,7 +60,7 @@ class DogsList(DataMixin, DogFilterMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        return self.get_user_context(**context, title="Dog Breeds - Woof Dogs")
+        return self.get_user_context(**context, title=_("Dog Breeds - Woof Dogs"))
 
 
 class DogsCategory(DataMixin, DogFilterMixin, ListView):
@@ -80,7 +81,7 @@ class DogsCategory(DataMixin, DogFilterMixin, ListView):
         category = get_object_or_404(Category, slug=self.kwargs["cat_slug"])
         context["current_category"] = category
         return self.get_user_context(
-            **context, title=f"{category.name} - Woof Dogs", cat_selected=category.pk
+            **context, title=_("{name} - Woof Dogs").format(name=category.name), cat_selected=category.pk
         )
 
 
@@ -119,7 +120,7 @@ class ShowPost(DataMixin, DetailView):
         ).exclude(pk=post.pk).order_by("title")
 
         return self.get_user_context(
-            **context, title=f"{post.title} - Woof Dogs", cat_selected=post.cat_id
+            **context, title=_("{name} - Woof Dogs").format(name=post.title), cat_selected=post.cat_id
         )
 
 
@@ -130,7 +131,7 @@ class ContactFormView(DataMixin, FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        return self.get_user_context(**context, title="Contact - Woof Dogs")
+        return self.get_user_context(**context, title=_("Contact - Woof Dogs"))
 
     def form_valid(self, form):
         if not form.process_form():
@@ -163,7 +164,7 @@ class DogGroupsView(DataMixin, TemplateView):
 
         context["groups"] = [
             {
-                "title": "  Best family dogs  🐶",
+                "title": _("Best family dogs 🐶"),
                 "dogs": dogs.filter(
                     family_friendliness__in=["high", "excellent"],
                     barking_level__in=["necessary", "infrequent"],
@@ -171,43 +172,43 @@ class DogGroupsView(DataMixin, TemplateView):
                 ),
             },
             {
-                "title": "  Great for first-time owners  🆕",
+                "title": _("Great for first-time owners 🆕"),
                 "dogs": dogs.filter(
                     trainability__in=["agreeable", "easy", "eager"],
                     activity_level__in=["calm", "regular"],
                 ),
             },
             {
-                "title": "  For experienced owners  💪",
+                "title": _("For experienced owners 💪"),
                 "dogs": dogs.filter(
                     activity_level__in=["high", "energetic"],
                     trainability__in=["independent", "stubborn"],
                 ),
             },
             {
-                "title": "  Easy to train dogs  🧠",
+                "title": _("Easy to train dogs 🧠"),
                 "dogs": dogs.filter(
                     trainability__in=["agreeable", "easy", "eager"],
                 ),
             },
             {
-                "title": "  Hypoallergenic breeds  🌿",
+                "title": _("Hypoallergenic breeds 🌿"),
                 "dogs": dogs.filter(hypoallergenic__in=["moderate", "high"]),
             },
             {
-                "title": "  Small dogs  🐾",
+                "title": _("Small dogs 🐾"),
                 "dogs": dogs.filter(size__in=["xsmall", "small"]),
             },
             {
-                "title": "  Medium dogs  🔹",
+                "title": _("Medium dogs 🔹"),
                 "dogs": dogs.filter(size="medium"),
             },
             {
-                "title": "  Large dogs  🐕",
+                "title": _("Large dogs 🐕"),
                 "dogs": dogs.filter(size__in=["large", "xlarge"]),
             },
             {
-                "title": "  Apartment-friendly dogs  🏢",
+                "title": _("Apartment-friendly dogs 🏢"),
                 "dogs": dogs.filter(
                     size__in=["xsmall", "small", "medium"],
                     activity_level__in=["calm", "regular"],
@@ -216,7 +217,7 @@ class DogGroupsView(DataMixin, TemplateView):
                 ),
             },
             {
-                "title": "  Best for houses with yard  🏡",
+                "title": _("Best for houses with yard 🏡"),
                 "dogs": dogs.filter(
                     size__in=["medium", "large", "xlarge"],
                     activity_level__in=["high", "energetic"],
@@ -225,7 +226,7 @@ class DogGroupsView(DataMixin, TemplateView):
             },
         ]
 
-        return self.get_user_context(**context, title="Explore - Woof Dogs")
+        return self.get_user_context(**context, title=_("Explore - Woof Dogs"))
 
 
 class GroupsPageView(DataMixin, TemplateView):
@@ -238,7 +239,7 @@ class GroupsPageView(DataMixin, TemplateView):
         context["cats"] = Category.objects.prefetch_related(
             "sections"
         ).order_by("fci_number")
-        return self.get_user_context(**context, title="Groups - Woof Dogs")
+        return self.get_user_context(**context, title=_("Groups - Woof Dogs"))
 
 
 @require_GET

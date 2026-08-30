@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 16:46+0200\n"
+"POT-Creation-Date: 2026-08-30 13:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: templates/admin/base_site.html:9
 msgid "Django site admin"
 msgstr "Админ-сайт Woof Dogs"
@@ -27,95 +27,2788 @@ msgstr "Админ-сайт Woof Dogs"
 msgid "Django administration"
 msgstr "Администрация Woof Dogs"
 
-#: woof/templates/woof/base.html:130
-#: woof/templates/woof/base_fullwidth.html:122
+#: woof/forms.py:14 woof/templates/woof/privacy_policy.html:104
+msgid "Name"
+msgstr "Имя"
+
+#: woof/forms.py:19
+msgid "E-mail"
+msgstr "E-mail"
+
+#: woof/forms.py:22
+msgid "Message"
+msgstr "Сообщение"
+
+#: woof/templates/woof/404.html:7
+msgid "404 — Page Not Found"
+msgstr "404 — Страница не найдена"
+
+#: woof/templates/woof/404.html:197
+msgid "404"
+msgstr "404"
+
+#: woof/templates/woof/404.html:201
+msgid "This page ran away."
+msgstr "Эта страница сбежала."
+
+#: woof/templates/woof/404.html:203
+msgid ""
+"The page you’re looking for doesn’t exist, may have been moved, or is still "
+"chasing squirrels somewhere else."
+msgstr ""
+"Страница, которую вы ищете, не существует, могла быть перемещена или всё ещё "
+"гоняется за белками где-то ещё."
+
+#: woof/templates/woof/404.html:207
+msgid "Return to the homepage and continue exploring dog breeds."
+msgstr "Вернитесь на главную и продолжайте изучать породы собак."
+
+#: woof/templates/woof/404.html:209
+msgid "← Back Home"
+msgstr "← На главную"
+
+#: woof/templates/woof/about.html:11 woof/templates/woof/about.html:14
+#: woof/templates/woof/behavior.html:11 woof/templates/woof/behavior.html:13
+#: woof/templates/woof/choosing_dog.html:11
+#: woof/templates/woof/choosing_dog.html:13 woof/templates/woof/contact.html:11
+#: woof/templates/woof/contact.html:14
+#: woof/templates/woof/cookie_policy.html:13
+#: woof/templates/woof/dog_groups.html:12
+#: woof/templates/woof/dog_groups.html:15 woof/templates/woof/dogs_list.html:12
+#: woof/templates/woof/dogs_list.html:15 woof/templates/woof/groups.html:11
+#: woof/templates/woof/groups.html:14 woof/templates/woof/guides.html:13
+#: woof/templates/woof/guides.html:16 woof/templates/woof/health.html:13
+#: woof/templates/woof/health.html:16
+#: woof/templates/woof/living_with_dog.html:12
+#: woof/templates/woof/living_with_dog.html:14 woof/templates/woof/post.html:10
+#: woof/templates/woof/post.html:12 woof/templates/woof/privacy_policy.html:13
+#: woof/templates/woof/privacy_policy.html:16 woof/templates/woof/puppy.html:11
+#: woof/templates/woof/puppy.html:13
+#: woof/templates/woof/terms_and_conditions.html:10
+#: woof/templates/woof/terms_and_conditions.html:12
+#: woof/templates/woof/training.html:11 woof/templates/woof/training.html:13
+msgid "Home"
+msgstr "Главная"
+
+#: woof/templates/woof/about.html:23 woof/templates/woof/about.html:31
+#: woof/templates/woof/about.html:37 woof/utils.py:9
+msgid "About us"
+msgstr "О нас"
+
+#: woof/templates/woof/about.html:45
+msgid "Welcome!"
+msgstr "Добро пожаловать!"
+
+#: woof/templates/woof/about.html:48
+msgid ""
+"This project is created for fun and designed as a structured catalog of dog "
+"breeds, focused on clarity, comparison, and easy navigation.\n"
+"            The main classification system follows the <strong>FCI "
+"(Fédération Cynologique Internationale)</strong> — the largest international "
+"federation of kennel clubs, which defines official breed standards and group "
+"structures worldwide."
+msgstr ""
+"Этот проект создан для удовольствия и представляет собой структурированный "
+"каталог пород собак, ориентированный на ясность, сравнение и удобную "
+"навигацию.\n"
+"            Основная система классификации основана на <strong>МКФ "
+"(Fédération Cynologique Internationale)</strong> — крупнейшей международной "
+"федерации кинологических клубов, которая определяет официальные стандарты "
+"пород и структуру групп по всему миру."
+
+#: woof/templates/woof/about.html:53
+msgid ""
+"To provide a broader perspective, the catalog also incorporates data from "
+"other kennel organizations, as well as independent breed sources.\n"
+"            As a result, the database includes not only officially "
+"recognized breeds, but also less common and developing ones."
+msgstr ""
+"Чтобы дать более широкую картину, каталог также включает данные других "
+"кинологических организаций и независимых источников о породах.\n"
+"            В результате в базе представлены не только официально признанные "
+"породы, но и менее распространённые и развивающиеся."
+
+#: woof/templates/woof/about.html:58
+msgid ""
+"If a breed is missing, it may not yet be added or sufficient reference "
+"material is still being collected."
+msgstr ""
+"Если какой-то породы нет, возможно, она ещё не добавлена, или мы пока "
+"собираем достаточно справочных материалов."
+
+#: woof/templates/woof/about.html:62
+msgid "About classification"
+msgstr "О классификации"
+
+#: woof/templates/woof/about.html:66
+msgid "The catalog combines:"
+msgstr "Каталог объединяет:"
+
+#: woof/templates/woof/about.html:67
+msgid "officially recognized FCI breeds and groups"
+msgstr "официально признанные породы и группы FCI"
+
+#: woof/templates/woof/about.html:68
+msgid "breeds recognized by other kennel clubs"
+msgstr "породы, признанные другими кинологическими клубами"
+
+#: woof/templates/woof/about.html:69
+msgid "rare or developing breeds not yet formally classified"
+msgstr ""
+"редкие или формирующиеся породы, ещё не получившие официальной классификации"
+
+#: woof/templates/woof/about.html:73
+msgid ""
+"Breed classification may vary between kennel organizations.\n"
+"            The same breed can be assigned to different groups depending on "
+"the standard used."
+msgstr ""
+"Классификация пород может различаться между кинологическими организациями.\n"
+" Одна и та же порода может быть отнесена к разным группам в зависимости от "
+"используемого стандарта."
+
+#: woof/templates/woof/about.html:78
+msgid "For official FCI standards, you can visit the"
+msgstr "Официальные стандарты FCI можно посмотреть на"
+
+#: woof/templates/woof/about.html:83 woof/templates/woof/about.html:84
+msgid "FCI website"
+msgstr "сайте FCI"
+
+#: woof/templates/woof/about.html:85 woof/templates/woof/about.html:101
+#: woof/templates/woof/dog_groups.html:61 woof/templates/woof/groups.html:87
+#: woof/templates/woof/groups.html:154 woof/templates/woof/guides.html:66
+#: woof/templates/woof/guides.html:90 woof/templates/woof/guides.html:114
+#: woof/templates/woof/guides.html:138 woof/templates/woof/guides.html:162
+#: woof/templates/woof/guides.html:186
+msgid "go"
+msgstr "перейти"
+
+#: woof/templates/woof/about.html:95
+msgid ""
+"You can also find practical and helpful information about dog care, "
+"training, behavior, and daily life in the"
+msgstr ""
+"Также практическую и полезную информацию об уходе за собаками, дрессировке, "
+"поведении и повседневной жизни вы найдёте в разделе"
+
+#: woof/templates/woof/about.html:99 woof/templates/woof/about.html:100
+#: woof/templates/woof/dog_groups.html:60
+msgid "Guides section"
+msgstr "Гайды"
+
+#: woof/templates/woof/about.html:111
+msgid "Enjoy exploring, learning, and discovering dog breeds :)"
+msgstr "Приятного изучения и открытия пород собак :)"
+
+#: woof/templates/woof/base.html:113 woof/templates/woof/privacy_policy.html:78
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:68
+msgid "Woof Dogs"
+msgstr "Woof Dogs"
+
+#: woof/templates/woof/base.html:132
 msgid "Language"
 msgstr "Язык"
 
-#: woof/templates/woof/base.html:228
+#: woof/templates/woof/base.html:147
+msgid "Menu"
+msgstr "Меню"
+
+#: woof/templates/woof/base.html:237
 msgid "Navigation"
 msgstr "Навигация"
 
-#: woof/templates/woof/base.html:253 woof/templates/woof/base.html:254
+#: woof/templates/woof/base.html:257 woof/utils.py:10
+msgid "Guides"
+msgstr "Гайды"
+
+#: woof/templates/woof/base.html:262 woof/templates/woof/base.html:263
 msgid "All Guides"
 msgstr "Все гайды"
 
-#: woof/templates/woof/base.html:259 woof/templates/woof/base.html:260
+#: woof/templates/woof/base.html:268 woof/templates/woof/base.html:269
+#: woof/templates/woof/choosing_dog.html:22
+#: woof/templates/woof/choosing_dog.html:30
+#: woof/templates/woof/choosing_dog.html:36 woof/templates/woof/guides.html:54
+#: woof/templates/woof/guides.html:58
 msgid "Choosing the right dog"
 msgstr "Как выбрать собаку"
 
-#: woof/templates/woof/base.html:265 woof/templates/woof/base.html:266
+#: woof/templates/woof/base.html:274 woof/templates/woof/base.html:275
+#: woof/templates/woof/guides.html:78 woof/templates/woof/guides.html:82
+#: woof/templates/woof/puppy.html:26 woof/templates/woof/puppy.html:34
+#: woof/templates/woof/puppy.html:40
 msgid "Raising a puppy"
 msgstr "Воспитание щенка"
 
-#: woof/templates/woof/base.html:271 woof/templates/woof/base.html:272
+#: woof/templates/woof/base.html:280 woof/templates/woof/base.html:281
+#: woof/templates/woof/guides.html:102 woof/templates/woof/guides.html:106
+#: woof/templates/woof/training.html:26 woof/templates/woof/training.html:34
+#: woof/templates/woof/training.html:40
 msgid "Dog training fundamentals"
 msgstr "Основы дрессировки"
 
-#: woof/templates/woof/base.html:277 woof/templates/woof/base.html:278
+#: woof/templates/woof/base.html:286 woof/templates/woof/base.html:287
+#: woof/templates/woof/guides.html:126 woof/templates/woof/guides.html:130
+#: woof/templates/woof/health.html:31 woof/templates/woof/health.html:42
+#: woof/templates/woof/health.html:50
 msgid "Dog health & care"
 msgstr "Здоровье и уход"
 
-#: woof/templates/woof/base.html:283 woof/templates/woof/base.html:284
+#: woof/templates/woof/base.html:292 woof/templates/woof/base.html:293
+#: woof/templates/woof/behavior.html:22 woof/templates/woof/behavior.html:30
+#: woof/templates/woof/behavior.html:35 woof/templates/woof/guides.html:150
+#: woof/templates/woof/guides.html:154
 msgid "Dog behavior & communication"
 msgstr "Поведение и общение"
 
-#: woof/templates/woof/base.html:289 woof/templates/woof/base.html:290
+#: woof/templates/woof/base.html:298 woof/templates/woof/base.html:299
+#: woof/templates/woof/guides.html:174 woof/templates/woof/guides.html:178
+#: woof/templates/woof/living_with_dog.html:27
+#: woof/templates/woof/living_with_dog.html:36
+#: woof/templates/woof/living_with_dog.html:42
 msgid "Living with a dog"
 msgstr "Жизнь с собакой"
 
-#: woof/templates/woof/base.html:302
+#: woof/templates/woof/base.html:311
 msgid "Info"
 msgstr "Информация"
 
-#: woof/templates/woof/base.html:307 woof/templates/woof/base.html:308
+#: woof/templates/woof/base.html:316 woof/templates/woof/base.html:317
+#: woof/templates/woof/contact.html:88
+#: woof/templates/woof/privacy_policy.html:25
+#: woof/templates/woof/privacy_policy.html:33
+#: woof/templates/woof/terms_and_conditions.html:109
+#: woof/templates/woof/terms_and_conditions.html:134
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
 
-#: woof/templates/woof/base.html:313 woof/templates/woof/base.html:314
+#: woof/templates/woof/base.html:322 woof/templates/woof/base.html:323
+#: woof/templates/woof/cookie_policy.html:22
+#: woof/templates/woof/cookie_policy.html:32
+#: woof/templates/woof/privacy_policy.html:252
 msgid "Cookie Policy"
 msgstr "Политика cookies"
 
-#: woof/templates/woof/base.html:319 woof/templates/woof/base.html:320
+#: woof/templates/woof/base.html:328 woof/templates/woof/base.html:329
+#: woof/templates/woof/terms_and_conditions.html:19
+#: woof/templates/woof/terms_and_conditions.html:27
 msgid "Terms of Use"
 msgstr "Условия использования"
 
-#: woof/templates/woof/base.html:335
+#: woof/templates/woof/base.html:344
 msgid "Dog breeds catalog."
 msgstr "Каталог пород собак."
 
-#: woof/templates/woof/base.html:336
+#: woof/templates/woof/base.html:345
 msgid "Non-commercial informational project."
 msgstr "Некоммерческий информационный проект."
 
-#: woof/templates/woof/base.html:337
+#: woof/templates/woof/base.html:346
 msgid "Find a dog that fits your life."
 msgstr "Найдите собаку, которая подойдёт вам."
 
-#: woof/templates/woof/base.html:353
+#: woof/templates/woof/base.html:362
 msgid "Back to top"
 msgstr "Наверх"
 
-#: woof/templates/woof/base.html:355
+#: woof/templates/woof/base.html:364
 msgid "go up"
 msgstr "наверх"
+
+#: woof/templates/woof/behavior.html:20
+#: woof/templates/woof/choosing_dog.html:20 woof/templates/woof/guides.html:25
+#: woof/templates/woof/guides.html:36 woof/templates/woof/health.html:26
+#: woof/templates/woof/health.html:27
+#: woof/templates/woof/living_with_dog.html:23
+#: woof/templates/woof/puppy.html:22 woof/templates/woof/training.html:22
+msgid "Dog guides"
+msgstr "Гайды"
+
+#: woof/templates/woof/behavior.html:43
+#: woof/templates/woof/choosing_dog.html:44
+msgid "What this guide is about"
+msgstr "О чём этот гайд"
+
+#: woof/templates/woof/behavior.html:45
+msgid ""
+"Dog behavior is not random. It is a structured system of signals, reactions, "
+"and learned responses. Understanding behavior means learning how dogs "
+"interpret the world, how they communicate stress or comfort, and why they "
+"react in certain ways."
+msgstr ""
+"Поведение собаки не случайно. Это структурированная система сигналов, "
+"реакций и заученных ответов.\n"
+"            Понимать поведение — значит знать, как собаки воспринимают мир, "
+"как передают стресс или комфорт и почему реагируют определённым образом."
+
+#: woof/templates/woof/behavior.html:48
+msgid ""
+"This guide focuses on interpretation of behavior, not training methods or "
+"commands. The goal is to understand what the dog is expressing rather than "
+"how to change it."
+msgstr ""
+"Этот гайд посвящён интерпретации поведения, а не методам дрессировки или "
+"командам.\n"
+"            Цель — понять, что выражает собака, а не как это изменить."
+
+#: woof/templates/woof/behavior.html:52
+msgid "Basic principles of dog communication"
+msgstr "Основные принципы общения собак"
+
+#: woof/templates/woof/behavior.html:54
+msgid ""
+"Dogs communicate primarily through body language rather than vocalization. "
+"Posture, tail position, ear movement, and facial tension all carry meaning."
+msgstr ""
+"Собаки общаются в основном через язык тела, а не звуки.\n"
+"            Поза, положение хвоста, движения ушей и напряжение морды — всё "
+"это несёт смысл."
+
+#: woof/templates/woof/behavior.html:57
+msgid ""
+"Unlike humans, dogs rarely exaggerate signals. Their communication is subtle "
+"and often requires context to interpret correctly."
+msgstr ""
+"В отличие от людей, собаки редко преувеличивают сигналы. Их общение тонкое и "
+"часто требует контекста для правильной интерпретации."
+
+#: woof/templates/woof/behavior.html:60
+msgid ""
+"The same behavior can mean different things depending on environment, past "
+"experience, and emotional state."
+msgstr ""
+"Одно и то же поведение может означать разное в зависимости от среды, "
+"прошлого опыта и эмоционального состояния."
+
+#: woof/templates/woof/behavior.html:63
+msgid "Stress and emotional signals"
+msgstr "Стресс и эмоциональные сигналы"
+
+#: woof/templates/woof/behavior.html:65
+msgid ""
+"Stress in dogs is often visible long before it becomes severe. Common "
+"signals include lip licking, yawning, turning away, or avoiding eye contact."
+msgstr ""
+"Стресс у собак часто заметен задолго до того, как становится серьёзным.\n"
+"    Типичные сигналы — облизывание, зевание, отворачивание или избегание "
+"зрительного контакта."
+
+#: woof/templates/woof/behavior.html:68
+msgid ""
+"These behaviors are not “bad habits” but communication attempts. They "
+"indicate discomfort in a situation, even if the dog appears calm externally."
+msgstr ""
+"Это не «вредные привычки», а попытки общения.\n"
+"            Они указывают на дискомфорт в ситуации, даже если внешне собака "
+"кажется спокойной."
+
+#: woof/templates/woof/behavior.html:71
+msgid ""
+"Ignoring early stress signals can lead to escalation, such as barking, "
+"freezing, or defensive reactions."
+msgstr ""
+"Игнорирование ранних сигналов стресса может привести к эскалации: лаю, "
+"замиранию или оборонительным реакциям."
+
+#: woof/templates/woof/behavior.html:74
+msgid "Confidence vs insecurity"
+msgstr "Уверенность против неуверенности"
+
+#: woof/templates/woof/behavior.html:76
+msgid ""
+"A confident dog typically shows relaxed posture, steady movement, and "
+"controlled curiosity toward new environments."
+msgstr ""
+"Уверенная собака обычно демонстрирует расслабленную позу, спокойные движения "
+"и контролируемое любопытство к новым средам."
+
+#: woof/templates/woof/behavior.html:78
+msgid ""
+"An insecure dog may hesitate, stay close to the owner, or avoid unfamiliar "
+"objects and sounds. These reactions are not fixed personality traits but "
+"situational responses."
+msgstr ""
+"Неуверенная собака может колебаться, держаться рядом с владельцем или "
+"избегать незнакомых предметов и звуков. Эти реакции — не фиксированные черты "
+"личности, а ситуативные ответы."
+
+#: woof/templates/woof/behavior.html:81
+msgid ""
+"Understanding the difference helps prevent misinterpretation of behavior as "
+"stubbornness or disobedience."
+msgstr ""
+"Понимание разницы помогает не истолковывать поведение как упрямство или "
+"непослушание."
+
+#: woof/templates/woof/behavior.html:84
+msgid "Social behavior and interaction"
+msgstr "Социальное поведение и взаимодействие"
+
+#: woof/templates/woof/behavior.html:86
+msgid ""
+"Dog-to-dog interaction follows a structured set of signals used to establish "
+"boundaries and intentions. This includes approach speed, body orientation, "
+"and play initiation signals."
+msgstr ""
+"Общение собак между собой подчиняется структурированному набору сигналов для "
+"установления границ и намерений.\n"
+"            Сюда входят скорость приближения, ориентация тела и сигналы "
+"начала игры."
+
+#: woof/templates/woof/behavior.html:89
+msgid ""
+"Not all dogs are equally social. Some prefer direct interaction, while "
+"others require distance and gradual introduction."
+msgstr ""
+"Не все собаки одинаково общительны. Одни предпочитают прямое взаимодействие, "
+"другим нужно расстояние и постепенное знакомство."
+
+#: woof/templates/woof/behavior.html:92
+msgid ""
+"Misreading social signals can lead to unnecessary tension between dogs, even "
+"in non-aggressive situations."
+msgstr ""
+"Неверное прочтение социальных сигналов может привести к ненужному напряжению "
+"между собаками, даже в неагрессивных ситуациях."
+
+#: woof/templates/woof/behavior.html:96
+msgid "Common misunderstandings of behavior"
+msgstr "Частые заблуждения о поведении"
+
+#: woof/templates/woof/behavior.html:98
+msgid ""
+"Many behaviors are incorrectly interpreted from a human perspective. For "
+"example, a dog that avoids eye contact is not necessarily guilty or "
+"submissive—it may simply be showing respect or avoiding conflict."
+msgstr ""
+"Многие поведенческие проявления неправильно истолковываются с человеческой "
+"точки зрения. Например, собака, избегающая зрительного контакта, не "
+"обязательно виновата или покорна — она может просто проявлять уважение или "
+"избегать конфликта."
+
+#: woof/templates/woof/behavior.html:101
+msgid ""
+"Barking is another commonly misunderstood signal. It can indicate "
+"excitement, alertness, fear, or communication rather than aggression."
+msgstr ""
+"Лай — ещё один часто неправильно понимаемый сигнал.\n"
+"            Он может означать возбуждение, настороженность, страх или "
+"коммуникацию, а не агрессию."
+
+#: woof/templates/woof/behavior.html:104
+msgid ""
+"Correct interpretation always depends on context rather than isolated "
+"actions."
+msgstr ""
+"Правильная интерпретация всегда зависит от контекста, а не от отдельных "
+"действий."
+
+#: woof/templates/woof/behavior.html:107
+msgid "Human influence on behavior"
+msgstr "Влияние человека на поведение"
+
+#: woof/templates/woof/behavior.html:109
+msgid ""
+"Dog behavior is shaped significantly by environment and human response. "
+"Consistency, emotional tone, and household structure all influence how a dog "
+"reacts over time."
+msgstr ""
+"На поведение собаки сильно влияют среда и реакция человека. "
+"Последовательность, эмоциональный тон и структура дома влияют на то, как "
+"собака реагирует с течением времени."
+
+#: woof/templates/woof/behavior.html:112
+msgid ""
+"Dogs learn patterns from repetition. If a behavior is consistently "
+"reinforced or ignored, it becomes part of their natural response system."
+msgstr ""
+"Собаки усваивают паттерны через повторение. Если поведение последовательно "
+"подкрепляется или игнорируется, оно становится частью естественной системы "
+"реакций."
+
+#: woof/templates/woof/behavior.html:115
+msgid ""
+"This is why behavior is not fixed—it evolves based on interaction with the "
+"environment."
+msgstr ""
+"Поэтому поведение не статично — оно развивается на основе взаимодействия со "
+"средой."
+
+#: woof/templates/woof/behavior.html:118
+#: woof/templates/woof/choosing_dog.html:90 woof/templates/woof/health.html:139
+#: woof/templates/woof/living_with_dog.html:115
+#: woof/templates/woof/puppy.html:102 woof/templates/woof/training.html:91
+msgid "Conclusion"
+msgstr "Вывод"
+
+#: woof/templates/woof/behavior.html:120
+msgid ""
+"Understanding dog behavior is primarily about interpretation rather than "
+"control. When signals are read correctly, it becomes easier to understand "
+"needs, emotions, and reactions without misjudgment."
+msgstr ""
+"Понимание поведения собаки — это прежде всего интерпретация, а не контроль. "
+"Когда сигналы читаются верно, легче понимать потребности, эмоции и реакции "
+"без ошибочных суждений."
+
+#: woof/templates/woof/behavior.html:123
+msgid ""
+"This creates a more stable and predictable relationship between dog and "
+"owner based on awareness rather than assumption."
+msgstr ""
+"Это создаёт более стабильные и предсказуемые отношения между собакой и "
+"владельцем, основанные на осознанности, а не на предположениях."
+
+#: woof/templates/woof/choosing_dog.html:46
+msgid ""
+"Choosing a dog is a decision about long-term compatibility rather than "
+"appearance or impulse. The right choice depends on how well a dog’s needs "
+"align with your lifestyle, energy level, and living environment."
+msgstr ""
+"Выбор собаки — это решение о долгосрочной совместимости, а не о внешности "
+"или импульсе. Правильный выбор зависит от того, насколько потребности собаки "
+"совпадают с вашим образом жизни, уровнем энергии и жильём."
+
+#: woof/templates/woof/choosing_dog.html:49
+msgid ""
+"This guide focuses on selection logic: how to think before choosing a breed, "
+"not individual breed descriptions or training considerations."
+msgstr ""
+"Этот гайд посвящён логике выбора: как думать перед выбором породы, а не "
+"описаниям отдельных пород или вопросам дрессировки."
+
+#: woof/templates/woof/choosing_dog.html:52
+msgid "Lifestyle compatibility"
+msgstr "Совместимость с образом жизни"
+
+#: woof/templates/woof/choosing_dog.html:54
+msgid ""
+"The most important factor in choosing a dog is daily lifestyle. Time "
+"availability, activity level, work schedule, and home environment all "
+"influence suitability."
+msgstr ""
+"Самый важный фактор при выборе собаки — повседневный образ жизни. Доступное "
+"время, уровень активности, график работы и домашняя среда влияют на "
+"пригодность."
+
+#: woof/templates/woof/choosing_dog.html:57
+msgid ""
+"Active individuals may struggle with low-energy dogs, while calm lifestyles "
+"may not meet the needs of highly energetic breeds. Mismatch often leads to "
+"long-term frustration for both owner and dog."
+msgstr ""
+"Активным людям может быть сложно с малоподвижными собаками, а спокойный "
+"образ жизни может не удовлетворить потребности очень энергичных пород. "
+"Несоответствие часто ведёт к долгосрочному разочарованию и владельца, и "
+"собаки."
+
+#: woof/templates/woof/choosing_dog.html:60
+msgid "The goal is balance, not preference alone."
+msgstr "Цель — баланс, а не только предпочтение."
+
+#: woof/templates/woof/choosing_dog.html:63
+msgid "Experience level of the owner"
+msgstr "Опыт владельца"
+
+#: woof/templates/woof/choosing_dog.html:65
+msgid ""
+"Some dogs require more structured handling, patience, and consistency than "
+"others. First-time owners often benefit from more stable and adaptable "
+"breeds."
+msgstr ""
+"Некоторым собакам нужно больше структурированного обращения, терпения и "
+"последовательности, чем другим.\n"
+"            Начинающим владельцам чаще подходят более стабильные и "
+"адаптивные породы."
+
+#: woof/templates/woof/choosing_dog.html:68
+msgid ""
+"More independent or strong-willed dogs may require prior experience and "
+"clearer leadership consistency."
+msgstr ""
+"Более независимым или своенравным собакам могут требоваться опыт и более "
+"чёткая последовательность лидерства."
+
+#: woof/templates/woof/choosing_dog.html:70
+msgid ""
+"Matching experience level with dog temperament reduces behavioral and "
+"adaptation issues."
+msgstr ""
+"Соответствие уровня опыта темпераменту собаки снижает поведенческие и "
+"адаптационные проблемы."
+
+#: woof/templates/woof/choosing_dog.html:73
+msgid "Living space and environment"
+msgstr "Жильё и окружающая среда"
+
+#: woof/templates/woof/choosing_dog.html:75
+msgid ""
+"Living conditions play a major role in suitability. Apartment living, "
+"suburban homes, and rural environments create very different needs for space "
+"and activity."
+msgstr ""
+"Условия проживания играют большую роль в пригодности. Квартира, загородный "
+"дом и сельская местность создают очень разные потребности в пространстве и "
+"активности."
+
+#: woof/templates/woof/choosing_dog.html:78
+msgid ""
+"Larger or high-energy dogs typically require more space and outdoor access, "
+"while smaller or calmer breeds can adapt more easily to compact environments."
+msgstr ""
+"Крупным или энергичным собакам обычно нужно больше пространства и выхода на "
+"улицу, тогда как мелкие или спокойные породы легче адаптируются к компактным "
+"условиям."
+
+#: woof/templates/woof/choosing_dog.html:82
+msgid "Time and responsibility expectations"
+msgstr "Время и ожидания ответственности"
+
+#: woof/templates/woof/choosing_dog.html:84
+msgid ""
+"Dogs require daily attention for many years. This includes routine care, "
+"time presence, and consistent involvement in their daily life."
+msgstr ""
+"Собакам требуется ежедневное внимание в течение многих лет.\n"
+"            Это включает регулярный уход, присутствие и последовательное "
+"участие в повседневной жизни."
+
+#: woof/templates/woof/choosing_dog.html:87
+msgid ""
+"Underestimating time requirements is one of the most common reasons for poor "
+"adaptation after adoption."
+msgstr ""
+"Недооценка временных затрат — одна из самых частых причин плохой адаптации "
+"после заведения собаки."
+
+#: woof/templates/woof/choosing_dog.html:92
+msgid ""
+"Choosing the right dog is a structured decision based on compatibility, not "
+"preference alone. When lifestyle, experience, and environment are aligned "
+"with the dog’s needs, long-term stability becomes significantly easier to "
+"achieve."
+msgstr ""
+"Выбор правильной собаки — структурированное решение, основанное на "
+"совместимости, а не только на предпочтении. Когда образ жизни, опыт и среда "
+"соответствуют потребностям собаки, долгосрочная стабильность достигается "
+"значительно легче."
+
+#: woof/templates/woof/contact.html:23 woof/templates/woof/contact.html:32
+#: woof/utils.py:12
+msgid "Contact"
+msgstr "Контакты"
+
+#: woof/templates/woof/contact.html:34
+msgid "Thank you for helping improve this project"
+msgstr "Спасибо, что помогаете улучшать этот проект"
+
+#: woof/templates/woof/contact.html:36
+msgid "Feel free to reach out with any questions, suggestions, or feedback."
+msgstr ""
+"Не стесняйтесь обращаться с любыми вопросами, предложениями или отзывами."
+
+#: woof/templates/woof/contact.html:86
+msgid ""
+"By clicking \"Send\" button, you allow WoofDogs to process your information "
+"in accordance with our"
+msgstr ""
+"Нажимая кнопку «Отправить», вы разрешаете WoofDogs обрабатывать вашу "
+"информацию в соответствии с нашей"
+
+#: woof/templates/woof/contact.html:93
+msgid "Send a message"
+msgstr "Отправить сообщение"
+
+#: woof/templates/woof/contact.html:94
+msgid "Send"
+msgstr "Отправить"
+
+#: woof/templates/woof/contact.html:109
+msgid ""
+"If you notice any inaccuracies in breed descriptions, characteristics, or "
+"data."
+msgstr ""
+"Если вы заметили неточности в описаниях пород, характеристиках или данных."
+
+#: woof/templates/woof/contact.html:111
+msgid ""
+"If you would like to suggest a dog breed that is not yet listed on the "
+"website."
+msgstr "Если вы хотите предложить породу собаки, которой ещё нет на сайте."
+
+#: woof/templates/woof/contact.html:113
+msgid "If you have ideas or suggestions to improve the content or structure."
+msgstr ""
+"Если у вас есть идеи или предложения по улучшению контента или структуры."
+
+#: woof/templates/woof/contact.html:115
+msgid "If you are the author of a photograph and would like it to be removed."
+msgstr "Если вы автор фотографии и хотите, чтобы её удалили."
+
+#: woof/templates/woof/contact.html:117
+msgid ""
+"If you would like your authorship to be corrected or credited differently."
+msgstr ""
+"Если вы хотите, чтобы ваше авторство было исправлено или указано иначе."
+
+#: woof/templates/woof/contact.html:119
+msgid ""
+"Please include a link or any relevant details to help process your request."
+msgstr ""
+"Пожалуйста, приложите ссылку или любые важные детали, чтобы мы могли "
+"обработать ваш запрос."
+
+#: woof/templates/woof/contact.html:125
+msgid "Your feedback helps keep the information accurate and reliable."
+msgstr "Ваш отзыв помогает сохранять информацию точной и достоверной."
+
+#: woof/templates/woof/contact.html:159
+msgid "Thank you. Message has been sent."
+msgstr "Спасибо. Сообщение отправлено."
+
+#: woof/templates/woof/contact.html:170
+msgid "Please try again later."
+msgstr "Пожалуйста, попробуйте ещё раз позже."
+
+#: woof/templates/woof/cookie_policy.html:35
+msgid "Last updated: April 26, 2026"
+msgstr "Последнее обновление: 26 апреля 2026 г."
+
+#: woof/templates/woof/cookie_policy.html:39
+msgid "Cookie Declaration"
+msgstr "Декларация о файлах cookie"
+
+#: woof/templates/woof/cookie_policy.html:45
+msgid "How can I control cookies in my browser?"
+msgstr "Как управлять файлами cookie в браузере?"
+
+#: woof/templates/woof/cookie_policy.html:47
+msgid "Here are instructions for managing cookies in popular browsers:"
+msgstr "Вот инструкции по управлению файлами cookie в популярных браузерах:"
+
+#: woof/templates/woof/cookie_policy.html:55
+msgid "Chrome"
+msgstr "Chrome"
+
+#: woof/templates/woof/cookie_policy.html:62
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+#: woof/templates/woof/cookie_policy.html:69
+msgid "Firefox"
+msgstr "Firefox"
+
+#: woof/templates/woof/cookie_policy.html:76
+msgid "Safari"
+msgstr "Safari"
+
+#: woof/templates/woof/cookie_policy.html:83
+msgid "Edge"
+msgstr "Edge"
+
+#: woof/templates/woof/cookie_policy.html:90
+msgid "Opera"
+msgstr "Opera"
+
+#: woof/templates/woof/cookie_policy.html:97
+msgid ""
+"Additionally, most ad networks offer options to opt out of targeted "
+"advertising. For more information, visit:"
+msgstr ""
+"Кроме того, большинство рекламных сетей предлагают возможность отказаться от "
+"таргетированной рекламы.\n"
+"            Для получения дополнительной информации посетите:"
+
+#: woof/templates/woof/cookie_policy.html:106
+msgid "Digital Advertising Alliance"
+msgstr "Digital Advertising Alliance"
+
+#: woof/templates/woof/cookie_policy.html:113
+msgid "Digital Advertising Alliance of Canada"
+msgstr "Digital Advertising Alliance of Canada"
+
+#: woof/templates/woof/cookie_policy.html:120
+msgid "European Interactive Digital Advertising Alliance"
+msgstr "European Interactive Digital Advertising Alliance"
+
+#: woof/templates/woof/cookie_policy.html:127
+msgid "How often will you update this Cookie Policy?"
+msgstr ""
+"Как часто вы будете обновлять эту Политику использования файлов cookie?"
+
+#: woof/templates/woof/cookie_policy.html:129
+msgid ""
+"We may update this Cookie Policy periodically to reflect changes to the "
+"cookies we use or for other operational, legal, or regulatory reasons. "
+"Please review this policy regularly to stay informed about how we use "
+"cookies and related technologies."
+msgstr ""
+"Мы можем периодически обновлять эту Политику использования файлов cookie, "
+"чтобы отражать изменения в используемых файлах cookie или по иным "
+"операционным, юридическим или нормативным причинам. Пожалуйста, регулярно "
+"просматривайте эту политику, чтобы быть в курсе того, как мы используем "
+"файлы cookie и связанные технологии."
+
+#: woof/templates/woof/cookie_policy.html:135
+msgid "Where can I get more information?"
+msgstr "Где можно получить больше информации?"
+
+#: woof/templates/woof/cookie_policy.html:138
+msgid ""
+"If you have any questions about our use of cookies or other technologies, "
+"please"
+msgstr ""
+"Если у вас есть вопросы об использовании файлов cookie или других "
+"технологий, пожалуйста"
+
+#: woof/templates/woof/cookie_policy.html:141
+#: woof/templates/woof/privacy_policy.html:286
+#: woof/templates/woof/privacy_policy.html:310
+#: woof/templates/woof/terms_and_conditions.html:203
+msgid "woofdogs23@gmail.com"
+msgstr "woofdogs23@gmail.com"
+
+#: woof/templates/woof/cookie_policy.html:141 woof/templates/woof/post.html:287
+msgid "contact us"
+msgstr "Контакты"
+
+#: woof/templates/woof/dog_cards.html:35
+msgid "No dogs found."
+msgstr "Собаки не найдены."
+
+#: woof/templates/woof/dog_groups.html:24
+#: woof/templates/woof/dog_groups.html:34
+#: woof/templates/woof/dog_groups.html:38 woof/utils.py:11
+msgid "Explore"
+msgstr "Подборки"
+
+#: woof/templates/woof/dog_groups.html:48
+msgid "How to use this page"
+msgstr "Как пользоваться этой страницей"
+
+#: woof/templates/woof/dog_groups.html:52
+msgid ""
+"This page helps you navigate dog breeds based on real-life needs rather than "
+"appearance alone. You can explore grouped categories and compare dogs by "
+"temperament, energy level, and general suitability."
+msgstr ""
+"Эта страница помогает ориентироваться в породах собак, исходя из реальных "
+"потребностей, а не только внешности.\n"
+"            Вы можете изучать сгруппированные категории и сравнивать собак "
+"по темпераменту, уровню энергии и общей пригодности."
+
+#: woof/templates/woof/dog_groups.html:56
+msgid "For deeper understanding of dog ownership, you can also visit the"
+msgstr "Чтобы глубже понять содержание собак, вы также можете посетить раздел"
+
+#: woof/templates/woof/dog_groups.html:68
+msgid ""
+"where you will find structured information about choosing, training, "
+"behavior, health, and daily life with dogs."
+msgstr ""
+"где вы найдёте структурированную информацию о выборе, дрессировке, "
+"поведении, здоровье и повседневной жизни с собакой."
+
+#: woof/templates/woof/dog_groups.html:79
+msgid "By size"
+msgstr "По размеру"
+
+#: woof/templates/woof/dog_groups.html:96
+#: woof/templates/woof/dog_groups.html:172
+#: woof/templates/woof/dog_groups.html:248
+#: woof/templates/woof/dog_groups.html:324
+msgid "Previous dogs"
+msgstr "Предыдущие собаки"
+
+#: woof/templates/woof/dog_groups.html:99
+#: woof/templates/woof/dog_groups.html:175
+#: woof/templates/woof/dog_groups.html:251
+#: woof/templates/woof/dog_groups.html:327
+#: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:228
+#: woof/templates/woof/post.html:47 woof/templates/woof/post.html:343
+#: woof/templates/woof/post.html:413
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: woof/templates/woof/dog_groups.html:100
+#: woof/templates/woof/dog_groups.html:176
+#: woof/templates/woof/dog_groups.html:252
+#: woof/templates/woof/dog_groups.html:328
+#: woof/templates/woof/dogs_list.html:60 woof/templates/woof/home.html:229
+#: woof/templates/woof/post.html:48 woof/templates/woof/post.html:78
+#: woof/templates/woof/post.html:344 woof/templates/woof/post.html:414
+msgid "Previous"
+msgstr "Назад"
+
+#: woof/templates/woof/dog_groups.html:133
+#: woof/templates/woof/dog_groups.html:209
+#: woof/templates/woof/dog_groups.html:285
+#: woof/templates/woof/dog_groups.html:361
+msgid "Next dogs"
+msgstr "Следующие собаки"
+
+#: woof/templates/woof/dog_groups.html:136
+#: woof/templates/woof/dog_groups.html:212
+#: woof/templates/woof/dog_groups.html:288
+#: woof/templates/woof/dog_groups.html:364
+#: woof/templates/woof/dogs_list.html:71 woof/templates/woof/home.html:245
+#: woof/templates/woof/post.html:62 woof/templates/woof/post.html:358
+#: woof/templates/woof/post.html:425
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: woof/templates/woof/dog_groups.html:137
+#: woof/templates/woof/dog_groups.html:213
+#: woof/templates/woof/dog_groups.html:289
+#: woof/templates/woof/dog_groups.html:365
+#: woof/templates/woof/dogs_list.html:72 woof/templates/woof/home.html:246
+#: woof/templates/woof/post.html:63 woof/templates/woof/post.html:98
+#: woof/templates/woof/post.html:359 woof/templates/woof/post.html:426
+msgid "Next"
+msgstr "Вперёд"
+
+#: woof/templates/woof/dog_groups.html:155
+msgid "Lifestyle & ownership"
+msgstr "Образ жизни и содержание"
+
+#: woof/templates/woof/dog_groups.html:231
+msgid "By living conditions"
+msgstr "По условиям проживания"
+
+#: woof/templates/woof/dog_groups.html:307
+msgid "Other characteristics"
+msgstr "Другие характеристики"
+
+#: woof/templates/woof/dog_groups.html:388
+msgid ""
+"It is important to realistically consider how much time you can dedicate to "
+"walks, training, and interaction. Some dogs require constant activity and "
+"stimulation, while others are calm and adapt to a slower pace.<br> "
+"<strong>Grooming needs also vary significantly</strong> between breeds."
+msgstr ""
+"Важно реалистично оценить, сколько времени вы можете уделять прогулкам, "
+"дрессировке и общению.\n"
+"            Некоторым собакам нужна постоянная активность и стимуляция, "
+"другие спокойны и адаптируются к более медленному темпу.<br>\n"
+"            <strong>Потребности в уходе также сильно различаются</strong> "
+"между породами."
+
+#: woof/templates/woof/dog_groups.html:394
+msgid ""
+"<strong>Living conditions matter.</strong> Not every dog is suited for "
+"apartment life, and barking levels can affect daily comfort. Experience also "
+"plays a role — some breeds are easy for beginners, while others require "
+"patience and confidence."
+msgstr ""
+"<strong>Условия проживания имеют значение.</strong>\n"
+"            Не каждая собака подходит для жизни в квартире, а уровень лая "
+"может влиять на повседневный комфорт.\n"
+"            Опыт тоже играет роль — одни породы подходят новичкам, другим "
+"нужны терпение и уверенность."
+
+#: woof/templates/woof/dog_groups.html:400
+msgid ""
+"<strong>Health and allergies should not be overlooked.</strong> While no dog "
+"is completely hypoallergenic, some are more suitable for sensitive owners."
+msgstr ""
+"<strong>Здоровье и аллергии не стоит упускать из виду.</strong>\n"
+"            Хотя полностью гипоаллергенных собак не существует, некоторые "
+"породы больше подходят чувствительным владельцам."
+
+#: woof/templates/woof/dog_groups.html:404
+msgid ""
+"Taking time to understand these factors helps you make a thoughtful choice."
+"<br> This page is designed to guide you with simple, practical groups — "
+"helping you find a dog that truly fits your lifestyle."
+msgstr ""
+"Время, потраченное на понимание этих факторов, помогает сделать осознанный "
+"выбор.<br>\n"
+"            Эта страница призвана помочь вам простыми практичными группами — "
+"найти собаку, которая действительно подходит вашему образу жизни."
+
+#: woof/templates/woof/dogs_list.html:25 woof/templates/woof/dogs_list.html:26
+#: woof/templates/woof/dogs_list.html:42 woof/templates/woof/groups.html:23
+#: woof/templates/woof/groups.html:32 woof/templates/woof/post.html:18
+msgid "Groups"
+msgstr "Все группы"
+
+#: woof/templates/woof/dogs_list.html:65 woof/templates/woof/home.html:235
+#: woof/templates/woof/post.html:419
+msgid "prev"
+msgstr "назад"
+
+#: woof/templates/woof/dogs_list.html:69 woof/templates/woof/home.html:242
+#: woof/templates/woof/post.html:423
+msgid "next"
+msgstr "вперёд"
+
+#: woof/templates/woof/dogs_list.html:155
+msgid "Sections."
+msgstr "Разделы."
+
+#: woof/templates/woof/dogs_list.html:163
+msgid "No sections."
+msgstr "Разделов нет."
+
+#: woof/templates/woof/dogs_list.html:172
+msgid "In short."
+msgstr "Коротко."
+
+#: woof/templates/woof/dogs_list.html:180
+msgid "*"
+msgstr "*"
+
+#: woof/templates/woof/dogs_list.html:181
+msgid ""
+"If you don’t see a particular breed on this website, it may simply mean that "
+"it hasn’t been added yet, or that we haven’t found suitable images with "
+"clear attribution or free usage rights 😊"
+msgstr ""
+"Если вы не видите конкретную породу на этом сайте, это может означать, что "
+"её ещё не добавили или мы пока не нашли подходящих изображений с ясной "
+"атрибуцией или свободной лицензией 😊"
+
+#: woof/templates/woof/groups.html:34
+msgid "Explore all FCI dog groups and their sections"
+msgstr "Все группы FCI и их разделы"
+
+#: woof/templates/woof/groups.html:40
+msgid ""
+"Explore the official <strong>FCI groups</strong> below — each group contains "
+"breeds with similar history, purpose, and characteristics. Discover "
+"individual breeds."
+msgstr ""
+"Ниже — официальные <strong>группы FCI</strong>: каждая группа содержит "
+"породы со схожей историей, назначением и характеристиками. Открывайте "
+"отдельные породы."
+
+#: woof/templates/woof/groups.html:74
+#, python-format
+msgid "Group %(n)s"
+msgstr "Группа %(n)s"
+
+#: woof/templates/woof/groups.html:104
+msgid "Breeds outside the current FCI structure"
+msgstr "Породы вне текущей структуры FCI"
+
+#: woof/templates/woof/groups.html:106
+msgid ""
+"Some breeds on the site are not currently placed inside the official FCI "
+"classification. They are collected in a separate category so you can still "
+"browse and compare them easily."
+msgstr ""
+"Некоторые породы на сайте сейчас не входят в официальную классификацию FCI.\n"
+"            Они собраны в отдельную категорию, чтобы вы могли легко "
+"просматривать и сравнивать их."
+
+#: woof/templates/woof/groups.html:141
+msgid "Other Breeds"
+msgstr "Другие породы"
+
+#: woof/templates/woof/guides.html:41
+msgid "Learn more about dogs"
+msgstr "Узнайте больше о собаках"
+
+#: woof/templates/woof/guides.html:44
+msgid ""
+"Explore <strong>short</strong> guides about choosing, training, "
+"understanding and caring for dogs. These pages are designed to help both new "
+"and experienced owners."
+msgstr ""
+"Изучайте <strong>короткие</strong> гайды о выборе, дрессировке, понимании и "
+"уходе за собаками.\n"
+"            Эти страницы созданы в помощь как новым, так и опытным "
+"владельцам."
+
+#: woof/templates/woof/guides.html:61
+msgid ""
+"Learn how to choose a breed that matches your lifestyle, activity level and "
+"living space."
+msgstr ""
+"Узнайте, как выбрать породу, подходящую вашему образу жизни, уровню "
+"активности и жилью."
+
+#: woof/templates/woof/guides.html:85
+msgid ""
+"Learn about early puppy development, socialization, routines and first-life "
+"stages."
+msgstr ""
+"Узнайте о раннем развитии щенка, социализации, режиме и первых этапах жизни."
+
+#: woof/templates/woof/guides.html:109
+msgid ""
+"Understand basic training principles, communication and learning consistency."
+msgstr ""
+"Поймите базовые принципы дрессировки, общения и последовательности обучения."
+
+#: woof/templates/woof/guides.html:133
+msgid ""
+"Learn about grooming, nutrition, preventive care and general health basics."
+msgstr ""
+"Узнайте об уходе за шерстью, питании, профилактике и основах общего здоровья."
+
+#: woof/templates/woof/guides.html:157
+msgid ""
+"Discover how dogs communicate, express emotions and react to the world "
+"around them."
+msgstr ""
+"Откройте, как собаки общаются, выражают эмоции и реагируют на окружающий мир."
+
+#: woof/templates/woof/guides.html:181
+msgid ""
+"Daily routines, home adaptation and long-term lifestyle organization with a "
+"dog."
+msgstr ""
+"Повседневные ритуалы, адаптация дома и долгосрочная организация жизни с "
+"собакой."
+
+#: woof/templates/woof/health.html:60
+msgid "What this guide covers"
+msgstr "Что охватывает этот гайд"
+
+#: woof/templates/woof/health.html:62
+msgid ""
+"Dog health is a combination of prevention, observation, and consistent care. "
+"It is not only about treating illness, but about maintaining a stable "
+"physical condition throughout the dog’s life."
+msgstr ""
+"Здоровье собаки — это сочетание профилактики, наблюдения и последовательного "
+"ухода. Речь не только о лечении болезней, но и о поддержании стабильного "
+"физического состояния на протяжении всей жизни собаки."
+
+#: woof/templates/woof/health.html:65
+msgid ""
+"This guide focuses on general principles of health management, not "
+"veterinary diagnosis or treatment. Any medical concerns should always be "
+"handled by a qualified veterinarian."
+msgstr ""
+"Этот гайд посвящён общим принципам поддержания здоровья, а не ветеринарной "
+"диагностике или лечению.\n"
+"            Любые медицинские вопросы всегда должен решать квалифицированный "
+"ветеринар."
+
+#: woof/templates/woof/health.html:70
+msgid "Preventive care and routine checks"
+msgstr "Профилактика и регулярные осмотры"
+
+#: woof/templates/woof/health.html:72
+msgid ""
+"Preventive care is the most important aspect of maintaining long-term "
+"health. Regular veterinary check-ups help detect issues early, often before "
+"symptoms become visible."
+msgstr ""
+"Профилактический уход — самый важный аспект поддержания долгосрочного "
+"здоровья.\n"
+"            Регулярные визиты к ветеринару помогают выявлять проблемы на "
+"ранней стадии, часто до появления симптомов."
+
+#: woof/templates/woof/health.html:75
+msgid ""
+"Vaccinations, parasite prevention, and routine examinations form the "
+"foundation of responsible ownership. These measures reduce the risk of "
+"serious illness and improve overall lifespan quality."
+msgstr ""
+"Вакцинация, профилактика паразитов и регулярные осмотры — основа "
+"ответственного владения.\n"
+"            Эти меры снижают риск серьёзных заболеваний и улучшают качество "
+"жизни в целом."
+
+#: woof/templates/woof/health.html:78
+msgid ""
+"Many health problems develop gradually, which is why consistent monitoring "
+"is more effective than reactive treatment."
+msgstr ""
+"Многие проблемы со здоровьем развиваются постепенно, поэтому регулярное "
+"наблюдение эффективнее реактивного лечения."
+
+#: woof/templates/woof/health.html:82
+msgid "Nutrition and physical condition"
+msgstr "Питание и физическая форма"
+
+#: woof/templates/woof/health.html:84
+msgid ""
+"Nutrition directly influences energy levels, coat quality, weight, and "
+"immune system stability. A balanced diet should be appropriate for the dog’s "
+"age, size, and activity level."
+msgstr ""
+"Питание напрямую влияет на уровень энергии, качество шерсти, вес и "
+"стабильность иммунной системы.\n"
+"            Сбалансированный рацион должен соответствовать возрасту, размеру "
+"и уровню активности собаки."
+
+#: woof/templates/woof/health.html:87
+msgid ""
+"Overfeeding is one of the most common health issues in domestic dogs and can "
+"lead to obesity-related complications. Underfeeding or low-quality diets can "
+"also cause deficiencies and long-term problems."
+msgstr ""
+"Перекармливание — одна из самых частых проблем со здоровьем у домашних собак "
+"и может привести к осложнениям, связанным с ожирением. Недокорм или "
+"некачественные рационы тоже могут вызывать дефициты и долгосрочные проблемы."
+
+#: woof/templates/woof/health.html:90
+msgid ""
+"Consistency in feeding habits helps maintain stable digestion and prevents "
+"sudden metabolic stress."
+msgstr ""
+"Последовательность в кормлении помогает поддерживать стабильное пищеварение "
+"и предотвращает резкий метаболический стресс."
+
+#: woof/templates/woof/health.html:94
+msgid "Hygiene and grooming"
+msgstr "Гигиена и уход за шерстью"
+
+#: woof/templates/woof/health.html:96
+msgid ""
+"Grooming is not only cosmetic but also a health-related necessity. Regular "
+"brushing helps prevent skin irritation, removes dead hair, and improves "
+"blood circulation."
+msgstr ""
+"Уход за шерстью — не только косметика, но и необходимость для здоровья. "
+"Регулярное расчёсывание предотвращает раздражение кожи, убирает отмершую "
+"шерсть и улучшает кровообращение."
+
+#: woof/templates/woof/health.html:99
+msgid ""
+"Nail trimming, ear cleaning, and dental care are often overlooked but "
+"essential for preventing infections and discomfort."
+msgstr ""
+"Стрижка когтей, чистка ушей и уход за зубами часто забываются, но необходимы "
+"для предотвращения инфекций и дискомфорта."
+
+#: woof/templates/woof/health.html:101
+msgid ""
+"The frequency of grooming depends on breed type, coat length, and lifestyle."
+msgstr "Частота ухода зависит от породы, длины шерсти и образа жизни."
+
+#: woof/templates/woof/health.html:105
+msgid "Common health issues"
+msgstr "Частые проблемы со здоровьем"
+
+#: woof/templates/woof/health.html:107
+msgid ""
+"Some health problems are more common across domestic dogs, including skin "
+"allergies, digestive issues, and joint stress in larger breeds."
+msgstr ""
+"Некоторые проблемы со здоровьем чаще встречаются у домашних собак: кожные "
+"аллергии, нарушения пищеварения и нагрузка на суставы у крупных пород."
+
+#: woof/templates/woof/health.html:109
+msgid ""
+"Early signs often include changes in appetite, energy levels, coat "
+"condition, or behavior patterns. These indicators should not be ignored, "
+"even if they appear minor."
+msgstr ""
+"Ранние признаки часто включают изменения аппетита, уровня энергии, состояния "
+"шерсти или поведения.\n"
+"            Эти показатели не стоит игнорировать, даже если они кажутся "
+"незначительными."
+
+#: woof/templates/woof/health.html:112
+msgid ""
+"Timely response to early symptoms significantly improves outcomes and "
+"reduces long-term complications."
+msgstr ""
+"Своевременная реакция на ранние симптомы значительно улучшает прогноз и "
+"снижает долгосрочные осложнения."
+
+#: woof/templates/woof/health.html:116
+msgid "Physical activity and body maintenance"
+msgstr "Физическая активность и поддержание формы"
+
+#: woof/templates/woof/health.html:118
+msgid ""
+"Regular physical activity supports cardiovascular health, muscle tone, and "
+"joint mobility. The required level of activity varies significantly "
+"depending on breed and age."
+msgstr ""
+"Регулярная физическая активность поддерживает здоровье сердца, мышечный "
+"тонус и подвижность суставов.\n"
+"            Требуемый уровень активности сильно зависит от породы и возраста."
+
+#: woof/templates/woof/health.html:121
+msgid ""
+"Insufficient movement can lead to weight gain and reduced overall vitality, "
+"while excessive strain without proper rest can cause injuries."
+msgstr ""
+"Недостаток движения ведёт к набору веса и снижению общей жизненности, а "
+"чрезмерные нагрузки без отдыха могут привести к травмам."
+
+#: woof/templates/woof/health.html:124
+msgid ""
+"A balanced approach to exercise is essential for long-term physical "
+"stability."
+msgstr ""
+"Сбалансированный подход к нагрузкам необходим для долгосрочной физической "
+"стабильности."
+
+#: woof/templates/woof/health.html:128
+msgid "Mental health and well-being"
+msgstr "Психическое здоровье и благополучие"
+
+#: woof/templates/woof/health.html:130
+msgid ""
+"Mental health is closely linked to physical health in dogs. Stress, boredom, "
+"and lack of stimulation can negatively affect the immune system and behavior."
+msgstr ""
+"Психическое здоровье тесно связано с физическим у собак. Стресс, скука и "
+"недостаток стимуляции негативно влияют на иммунную систему и поведение."
+
+#: woof/templates/woof/health.html:133
+msgid ""
+"Environmental stability, interaction, and predictable routines help maintain "
+"emotional balance."
+msgstr ""
+"Стабильная среда, взаимодействие и предсказуемый режим помогают поддерживать "
+"эмоциональный баланс."
+
+#: woof/templates/woof/health.html:135
+msgid ""
+"A mentally healthy dog is generally more stable, responsive, and physically "
+"resilient."
+msgstr ""
+"Психически здоровая собака обычно более стабильна, отзывчива и физически "
+"устойчива."
+
+#: woof/templates/woof/health.html:141
+msgid ""
+"Dog health is a continuous process rather than a fixed state. It requires "
+"consistent attention to nutrition, hygiene, prevention, and lifestyle "
+"balance."
+msgstr ""
+"Здоровье собаки — это непрерывный процесс, а не фиксированное состояние. Оно "
+"требует постоянного внимания к питанию, гигиене, профилактике и балансу "
+"образа жизни."
+
+#: woof/templates/woof/health.html:144
+msgid ""
+"When properly managed, these factors significantly increase both the quality "
+"and length of a dog’s life."
+msgstr ""
+"При правильном управлении эти факторы значительно увеличивают как качество, "
+"так и продолжительность жизни собаки."
+
+#: woof/templates/woof/home.html:118
+msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
+msgstr "Немного хаоса, много <span class=\"love-word\">любви</span>"
+
+#: woof/templates/woof/home.html:126 woof/templates/woof/home.html:129
+#: woof/templates/woof/home.html:135
+msgid "Find by group"
+msgstr "Поиск по группе"
+
+#: woof/templates/woof/home.html:149 woof/templates/woof/home.html:152
+#: woof/templates/woof/home.html:157
+msgid "Find by breed"
+msgstr "Поиск по породе"
+
+#: woof/templates/woof/home.html:173
+msgid ""
+"A simple way to find a dog that really fits your lifestyle, your home, and "
+"your everyday rhythm — and feels like it belongs there"
+msgstr ""
+"Простой способ найти собаку, которая действительно подходит вашему образу "
+"жизни,вашему дому и вашему повседневному ритму — и ощущается как своя дома."
+
+#: woof/templates/woof/home.html:190
+msgid "Scroll down"
+msgstr "Прокрутить вниз"
+
+#: woof/templates/woof/home.html:203 woof/templates/woof/home.html:207
+msgid "Breed profiles"
+msgstr "Профили пород"
+
+#: woof/templates/woof/home.html:211
+msgid "Explore breeds by size, temperament,<br> lifestyle and more."
+msgstr ""
+"Исследуйте породы по размеру, темпераменту,<br> образу жизни и не только."
+
+#: woof/templates/woof/living_with_dog.html:50
+msgid "What “living with a dog” actually means"
+msgstr "Что на самом деле значит «жизнь с собакой»"
+
+#: woof/templates/woof/living_with_dog.html:52
+msgid ""
+"Living with a dog is primarily about organizing your daily life around "
+"another living being that depends on structure and consistency. It is less "
+"about individual tasks like training or feeding, and more about how your "
+"home, time, and routines change as a system."
+msgstr ""
+"Жизнь с собакой — это прежде всего организация повседневной жизни вокруг "
+"другого живого существа, которое зависит от структуры и последовательности. "
+"Речь меньше об отдельных задачах вроде дрессировки или кормления, и больше о "
+"том, как ваш дом, время и ритуалы меняются как система."
+
+#: woof/templates/woof/living_with_dog.html:55
+msgid ""
+"Once a dog becomes part of the household, your lifestyle stops being fully "
+"flexible. Daily planning, free time, and even travel decisions begin to take "
+"the dog’s needs into account."
+msgstr ""
+"Когда собака становится частью дома, ваш образ жизни перестаёт быть "
+"полностью гибким.\n"
+"            Планирование дня, свободное время и даже решения о поездках "
+"начинают учитывать потребности собаки."
+
+#: woof/templates/woof/living_with_dog.html:59
+msgid "Daily structure and time organization"
+msgstr "Дневной распорядок и организация времени"
+
+#: woof/templates/woof/living_with_dog.html:61
+msgid ""
+"A stable daily rhythm is the foundation of life with a dog. Instead of "
+"thinking in isolated tasks, it is better to think in blocks of time: "
+"morning, midday, evening, and rest periods."
+msgstr ""
+"Стабильный дневной ритм — основа жизни с собакой. Вместо отдельных задач "
+"лучше думать блоками времени: утро, день, вечер и периоды отдыха."
+
+#: woof/templates/woof/living_with_dog.html:64
+msgid ""
+"Walks, feeding, and rest are repeated every day at roughly the same times. "
+"This creates predictability, which helps the dog feel secure and reduces "
+"stress in the household."
+msgstr ""
+"Прогулки, кормление и отдых повторяются каждый день примерно в одно и то же "
+"время. Это создаёт предсказуемость, которая помогает собаке чувствовать себя "
+"уверенно и снижает стресс в доме."
+
+#: woof/templates/woof/living_with_dog.html:67
+msgid ""
+"The key point is not the exact schedule, but consistency. Dogs adapt well to "
+"routine, but poorly to frequent unpredictable changes."
+msgstr ""
+"Главное — не точный график, а последовательность.\n"
+"            Собаки хорошо адаптируются к режиму, но плохо — к частым "
+"непредсказуемым изменениям."
+
+#: woof/templates/woof/living_with_dog.html:71
+msgid "Home organization and shared space"
+msgstr "Обустройство дома и общее пространство"
+
+#: woof/templates/woof/living_with_dog.html:73
+msgid ""
+"Living with a dog also means adapting your physical space. The home becomes "
+"a shared environment where both human and dog have defined areas and rules."
+msgstr ""
+"Жизнь с собакой также означает адаптацию физического пространства. Дом "
+"становится общей средой, где у человека и собаки есть свои определённые зоны "
+"и правила."
+
+#: woof/templates/woof/living_with_dog.html:76
+msgid ""
+"A resting zone for the dog is important because it creates predictability "
+"and reduces overstimulation. At the same time, some areas of the home may "
+"need boundaries depending on safety and comfort."
+msgstr ""
+"Зона отдыха для собаки важна, потому что создаёт предсказуемость и снижает "
+"перевозбуждение. В то же время отдельные зоны дома могут требовать "
+"ограничений в зависимости от безопасности и комфорта."
+
+#: woof/templates/woof/living_with_dog.html:79
+msgid ""
+"This is not about restriction, but about structure. Dogs feel more relaxed "
+"when they understand where they can rest, play, or simply observe the "
+"environment."
+msgstr ""
+"Речь не об ограничениях, а о структуре. Собаки чувствуют себя спокойнее, "
+"когда понимают, где можно отдыхать, играть или просто наблюдать за "
+"окружающей средой."
+
+#: woof/templates/woof/living_with_dog.html:83
+msgid "Energy management during the day"
+msgstr "Управление энергией в течение дня"
+
+#: woof/templates/woof/living_with_dog.html:85
+msgid ""
+"One of the most important aspects of living with a dog is managing energy "
+"levels throughout the day. This does not refer to training, but to balancing "
+"activity and rest."
+msgstr ""
+"Один из самых важных аспектов жизни с собакой — управление уровнем энергии в "
+"течение дня. Речь не о дрессировке, а о балансе активности и отдыха."
+
+#: woof/templates/woof/living_with_dog.html:88
+msgid ""
+"Without enough physical activity, dogs often become restless. Without enough "
+"rest, they can become overstimulated and less predictable in behavior."
+msgstr ""
+"Без достаточной физической активности собаки часто становятся беспокойными.\n"
+"            Без достаточного отдыха они перевозбуждаются и становятся менее "
+"предсказуемыми в поведении."
+
+#: woof/templates/woof/living_with_dog.html:91
+msgid ""
+"A stable routine naturally balances both: activity during walks and calm "
+"periods at home."
+msgstr ""
+"Стабильный режим естественно балансирует оба состояния: активность на "
+"прогулках и спокойствие дома."
+
+#: woof/templates/woof/living_with_dog.html:95
+msgid "Time commitment and lifestyle changes"
+msgstr "Затраты времени и изменения образа жизни"
+
+#: woof/templates/woof/living_with_dog.html:97
+msgid ""
+"Living with a dog introduces a long-term time commitment that affects daily "
+"freedom. Spontaneous decisions such as long trips, late evenings out, or "
+"sudden schedule changes become more limited."
+msgstr ""
+"Жизнь с собакой вносит долгосрочные временные обязательства, влияющие на "
+"повседневную свободу. Спонтанные решения — долгие поездки, поздние выходы, "
+"резкие изменения графика — становятся более ограниченными."
+
+#: woof/templates/woof/living_with_dog.html:100
+msgid ""
+"This is not a negative aspect, but a structural change in lifestyle. The "
+"owner shifts from a fully flexible schedule to a shared routine-based system."
+msgstr ""
+"Это не минус, а структурное изменение образа жизни.\n"
+"            Владелец переходит от полностью гибкого графика к общей системе, "
+"основанной на режиме."
+
+#: woof/templates/woof/living_with_dog.html:103
+msgid ""
+"Understanding this early helps avoid frustration and unrealistic "
+"expectations."
+msgstr ""
+"Понимание этого заранее помогает избежать разочарования и нереалистичных "
+"ожиданий."
+
+#: woof/templates/woof/living_with_dog.html:106
+msgid "Emotional role in everyday life"
+msgstr "Эмоциональная роль в повседневной жизни"
+
+#: woof/templates/woof/living_with_dog.html:108
+msgid ""
+"Beyond physical routines, dogs also influence emotional structure in the "
+"household. Their presence creates continuity, attention cycles, and a sense "
+"of shared responsibility."
+msgstr ""
+"Помимо физических ритуалов, собаки влияют и на эмоциональную структуру "
+"дома.\n"
+"            Их присутствие создаёт преемственность, циклы внимания и чувство "
+"общей ответственности."
+
+#: woof/templates/woof/living_with_dog.html:111
+msgid ""
+"This does not replace human relationships, but it adds a stable emotional "
+"layer to daily life. Many owners experience increased routine stability and "
+"reduced isolation."
+msgstr ""
+"Это не заменяет человеческие отношения, но добавляет стабильный "
+"эмоциональный слой в повседневную жизнь.\n"
+"            Многие владельцы отмечают большую стабильность режима и меньшее "
+"ощущение одиночества."
+
+#: woof/templates/woof/living_with_dog.html:117
+msgid ""
+"Living with a dog is best understood as organizing a shared life system "
+"rather than managing separate tasks. When structure, routine, and space are "
+"well balanced, both dog and owner benefit from a stable and predictable "
+"environment."
+msgstr ""
+"Жизнь с собакой лучше всего понимать как организацию общей системы жизни, а "
+"не выполнение отдельных задач. Когда структура, режим и пространство "
+"сбалансированы, и собака, и владелец выигрывают от стабильной и "
+"предсказуемой среды."
+
+#: woof/templates/woof/post.html:142
+msgid "Section"
+msgstr "Раздел"
+
+#: woof/templates/woof/post.html:150
+msgid "Varieties"
+msgstr "Разновидности"
+
+#: woof/templates/woof/post.html:158
+msgid "Origin"
+msgstr "Происхождение"
+
+#: woof/templates/woof/post.html:166
+msgid "Size"
+msgstr "Размер"
+
+#: woof/templates/woof/post.html:174
+msgid "Life expectancy"
+msgstr "Продолжительность жизни"
+
+#: woof/templates/woof/post.html:176
+#, python-format
+msgid "%(years)s years"
+msgstr "%(years)s лет"
+
+#: woof/templates/woof/post.html:184
+msgid "Height & Weight"
+msgstr "Рост и вес"
+
+#: woof/templates/woof/post.html:189
+#, python-format
+msgid "%(h)s cm, %(w)s kg"
+msgstr "%(h)s см, %(w)s кг"
+
+#: woof/templates/woof/post.html:191
+msgid ""
+"Range includes values for both males and females. Individual values may vary "
+"by sex."
+msgstr ""
+"Диапазон включает значения для кобелей и сук.\n"
+"            Индивидуальные значения могут различаться в зависимости от пола."
+
+#: woof/templates/woof/post.html:200
+msgid "Trainability"
+msgstr "Обучаемость"
+
+#: woof/templates/woof/post.html:208
+msgid "Activity level"
+msgstr "Уровень активности"
+
+#: woof/templates/woof/post.html:216
+msgid "Barking"
+msgstr "Лай"
+
+#: woof/templates/woof/post.html:224
+msgid "Allergy friendly"
+msgstr "Гипоаллергенность"
+
+#: woof/templates/woof/post.html:232
+msgid "Family friendly"
+msgstr "Дружелюбность к семье"
+
+#: woof/templates/woof/post.html:240
+msgid "Coat"
+msgstr "Шерсть"
+
+#: woof/templates/woof/post.html:258
+msgid "Colors"
+msgstr "Окрас"
+
+#: woof/templates/woof/post.html:291
+msgid "About the Breed"
+msgstr "О породе"
+
+#: woof/templates/woof/post.html:296
+msgid "Varieties of German Spitz (links to breeds):"
+msgstr "Разновидности немецкого шпица (ссылки на породы):"
+
+#: woof/templates/woof/post.html:299
+msgid "Keeshond (Wolfspitz)"
+msgstr "Кеесхонд (вольфшпиц)"
+
+#: woof/templates/woof/post.html:301
+msgid "Pomeranian"
+msgstr "Померанский шпиц"
+
+#: woof/templates/woof/post.html:304
+msgid "Varieties of German Spitz by size:"
+msgstr "Разновидности немецкого шпица по размеру:"
+
+#: woof/templates/woof/post.html:305
+msgid "Miniature, Medium, Giant"
+msgstr "Малый, средний, большой"
+
+#: woof/templates/woof/post.html:311
+msgid "German Spitz link:"
+msgstr "Ссылка на немецкого шпица:"
+
+#: woof/templates/woof/post.html:314
+msgid "German Spitz"
+msgstr "Немецкий шпиц"
+
+#: woof/templates/woof/post.html:319
+msgid "Summary."
+msgstr "Резюме."
+
+#: woof/templates/woof/post.html:320
+msgid "Care."
+msgstr "Уход."
+
+#: woof/templates/woof/post.html:321
+msgid "Conditions."
+msgstr "Условия."
+
+#: woof/templates/woof/post.html:328
+msgid "Copy link"
+msgstr "Копировать ссылку"
+
+#: woof/templates/woof/post.html:371
+msgid "Compare breeds"
+msgstr "Сравнить породы"
+
+#: woof/templates/woof/post.html:385 woof/templates/woof/post.html:386
+msgid "Select breed"
+msgstr "Выберите породу"
+
+#: woof/templates/woof/post.html:407
+#, python-format
+msgid "Other «%(name)s»"
+msgstr "Другие «%(name)s»"
+
+#: woof/templates/woof/privacy_policy.html:36
+#: woof/templates/woof/terms_and_conditions.html:32
+msgid "Last updated: February 2, 2026"
+msgstr "Последнее обновление: 2 февраля 2026 г."
+
+#: woof/templates/woof/privacy_policy.html:40
+#: woof/templates/woof/terms_and_conditions.html:35
+msgid "Table of Contents"
+msgstr "Содержание"
+
+#: woof/templates/woof/privacy_policy.html:44
+msgid "Who we are"
+msgstr "Кто мы"
+
+#: woof/templates/woof/privacy_policy.html:44
+#: woof/templates/woof/privacy_policy.html:74
+msgid "1. Who we are"
+msgstr "1. Кто мы"
+
+#: woof/templates/woof/privacy_policy.html:46
+msgid "Personal data you provide"
+msgstr "Персональные данные, которые вы предоставляете"
+
+#: woof/templates/woof/privacy_policy.html:46
+#: woof/templates/woof/privacy_policy.html:94
+msgid "2. Personal data you provide"
+msgstr "2. Персональные данные, которые вы предоставляете"
+
+#: woof/templates/woof/privacy_policy.html:48
+msgid "Automatically collected information"
+msgstr "Автоматически собираемая информация"
+
+#: woof/templates/woof/privacy_policy.html:48
+#: woof/templates/woof/privacy_policy.html:114
+msgid "3. Automatically collected information"
+msgstr "3. Автоматически собираемая информация"
+
+#: woof/templates/woof/privacy_policy.html:50
+msgid "Purposes of processing"
+msgstr "Цели обработки"
+
+#: woof/templates/woof/privacy_policy.html:50
+#: woof/templates/woof/privacy_policy.html:132
+msgid "4. Purposes of processing"
+msgstr "4. Цели обработки"
+
+#: woof/templates/woof/privacy_policy.html:52
+msgid "Legal bases and regional laws"
+msgstr "Правовые основания и региональные законы"
+
+#: woof/templates/woof/privacy_policy.html:52
+#: woof/templates/woof/privacy_policy.html:143
+msgid "5. Legal bases and regional laws"
+msgstr "5. Правовые основания и региональные законы"
+
+#: woof/templates/woof/privacy_policy.html:54
+msgid "Cookies and tracking technologies"
+msgstr "Файлы cookie и технологии отслеживания"
+
+#: woof/templates/woof/privacy_policy.html:54
+#: woof/templates/woof/privacy_policy.html:243
+msgid "6. Cookies and tracking technologies"
+msgstr "6. Файлы cookie и технологии отслеживания"
+
+#: woof/templates/woof/privacy_policy.html:56
+msgid "Sharing of information"
+msgstr "Раскрытие информации"
+
+#: woof/templates/woof/privacy_policy.html:56
+#: woof/templates/woof/privacy_policy.html:257
+msgid "7. Sharing of information"
+msgstr "7. Передача информации"
+
+#: woof/templates/woof/privacy_policy.html:58
+#: woof/templates/woof/privacy_policy.html:264
+msgid "8. International data transfers"
+msgstr "8. Международная передача данных"
+
+#: woof/templates/woof/privacy_policy.html:60
+msgid "Data retention"
+msgstr "Хранение данных"
+
+#: woof/templates/woof/privacy_policy.html:60
+#: woof/templates/woof/privacy_policy.html:271
+msgid "9. Data retention"
+msgstr "9. Хранение данных"
+
+#: woof/templates/woof/privacy_policy.html:62
+msgid "Your privacy rights"
+msgstr "Ваши права на конфиденциальность"
+
+#: woof/templates/woof/privacy_policy.html:62
+#: woof/templates/woof/privacy_policy.html:278
+msgid "10. Your privacy rights"
+msgstr "10. Ваши права на конфиденциальность"
+
+#: woof/templates/woof/privacy_policy.html:64
+msgid "Children’s privacy"
+msgstr "Конфиденциальность детей"
+
+#: woof/templates/woof/privacy_policy.html:64
+#: woof/templates/woof/privacy_policy.html:291
+msgid "11. Children’s privacy"
+msgstr "11. Конфиденциальность детей"
+
+#: woof/templates/woof/privacy_policy.html:66
+msgid "Updates to this policy"
+msgstr "Обновления этой политики"
+
+#: woof/templates/woof/privacy_policy.html:66
+#: woof/templates/woof/privacy_policy.html:298
+msgid "12. Updates to this policy"
+msgstr "12. Обновления этой политики"
+
+#: woof/templates/woof/privacy_policy.html:68
+msgid "Contact information"
+msgstr "Контактная информация"
+
+#: woof/templates/woof/privacy_policy.html:68
+#: woof/templates/woof/privacy_policy.html:305
+msgid "13. Contact information"
+msgstr "13. Контактная информация"
+
+#: woof/templates/woof/privacy_policy.html:77
+msgid "This Privacy Policy describes how"
+msgstr "Политика конфиденциальности"
+
+#: woof/templates/woof/privacy_policy.html:79
+msgid ""
+"(«Website», «we», «us») collects, uses, and protects information when you "
+"visit our website"
+msgstr ""
+"(«Сайт», «мы», «нас») собирает, использует и защищает информацию, когда вы "
+"посещаете наш сайт"
+
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:72
+msgid "https://woofdogs.world/"
+msgstr "https://woofdogs.world/"
+
+#: woof/templates/woof/privacy_policy.html:86
+msgid ""
+"By using this Website, you agree to the collection and use of information in "
+"accordance with this Privacy Policy."
+msgstr ""
+"Используя этот сайт, вы соглашаетесь со сбором и использованием информации в "
+"соответствии с настоящей Политикой конфиденциальности."
+
+#: woof/templates/woof/privacy_policy.html:89
+msgid ""
+"Woof Dogs is an informational website dedicated to dog breeds and related "
+"content. We do not provide user accounts, registration, or login "
+"functionality."
+msgstr ""
+"Woof Dogs — информационный сайт, посвящённый породам собак и связанному "
+"контенту.\n"
+"            Мы не предоставляем учётные записи пользователей, регистрацию "
+"или функции входа."
+
+#: woof/templates/woof/privacy_policy.html:96
+msgid ""
+"<em>In short:</em> We only process the personal data you voluntarily provide."
+msgstr ""
+"<em>Коротко:</em> Мы обрабатываем только те персональные данные, которые вы "
+"добровольно предоставляете."
+
+#: woof/templates/woof/privacy_policy.html:99
+msgid ""
+"The Website does not require registration and does not request names, "
+"usernames, passwords, or email addresses by default. However, if you contact "
+"us through the"
+msgstr ""
+"Сайт не требует регистрации и по умолчанию не запрашивает имена, логины, "
+"пароли или адреса электронной почты. Однако если вы связываетесь с нами через"
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid "Contact Form"
+msgstr "Контакты"
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid ", we collect:"
+msgstr ", мы собираем:"
+
+#: woof/templates/woof/privacy_policy.html:105
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: woof/templates/woof/privacy_policy.html:106
+msgid "Message or inquiry content"
+msgstr "Содержание сообщения или запроса"
+
+#: woof/templates/woof/privacy_policy.html:109
+msgid ""
+"We use this information solely to respond to your inquiry and do not share "
+"it with third parties except where required by law."
+msgstr ""
+"Мы используем эту информацию исключительно для ответа на ваш запрос и не "
+"передаём её третьим лицам, за исключением случаев, предусмотренных законом."
+
+#: woof/templates/woof/privacy_policy.html:116
+msgid ""
+"When you visit the Website, certain information may be collected "
+"automatically, including:"
+msgstr ""
+"При посещении сайта некоторая информация может собираться автоматически, "
+"включая:"
+
+#: woof/templates/woof/privacy_policy.html:120
+msgid "IP address"
+msgstr "IP-адрес"
+
+#: woof/templates/woof/privacy_policy.html:121
+msgid "Browser type and version"
+msgstr "Тип и версия браузера"
+
+#: woof/templates/woof/privacy_policy.html:122
+msgid "Device and operating system information"
+msgstr "Информация об устройстве и операционной системе"
+
+#: woof/templates/woof/privacy_policy.html:123
+msgid "Pages visited and time spent on the site"
+msgstr "Посещённые страницы и время на сайте"
+
+#: woof/templates/woof/privacy_policy.html:124
+msgid "Referring URLs"
+msgstr "Реферальные URL"
+
+#: woof/templates/woof/privacy_policy.html:127
+msgid ""
+"This information does not directly identify you and is used for analytics, "
+"security, and performance improvement."
+msgstr ""
+"Эта информация не идентифицирует вас напрямую и используется для аналитики, "
+"безопасности и повышения производительности."
+
+#: woof/templates/woof/privacy_policy.html:135
+msgid "Ensuring proper functioning of the Website"
+msgstr "Обеспечение корректной работы сайта"
+
+#: woof/templates/woof/privacy_policy.html:136
+msgid "Analyzing usage to improve content and structure"
+msgstr "Анализ использования для улучшения контента и структуры"
+
+#: woof/templates/woof/privacy_policy.html:137
+msgid "Maintaining Website security and preventing abuse"
+msgstr "Поддержание безопасности сайта и предотвращение злоупотреблений"
+
+#: woof/templates/woof/privacy_policy.html:138
+msgid "Complying with legal obligations"
+msgstr "Соблюдение юридических обязательств"
+
+#: woof/templates/woof/privacy_policy.html:145
+msgid ""
+"Depending on your location, your data is processed in accordance with "
+"applicable data protection laws."
+msgstr ""
+"В зависимости от вашего местоположения ваши данные обрабатываются в "
+"соответствии с применимыми законами о защите данных."
+
+#: woof/templates/woof/privacy_policy.html:149
+msgid "European Union (GDPR)"
+msgstr "Европейский союз (GDPR)"
+
+#: woof/templates/woof/privacy_policy.html:153
+msgid "If you are in the EEA, data is processed under the"
+msgstr "Если вы находитесь в ЕЭЗ, данные обрабатываются в соответствии с"
+
+#: woof/templates/woof/privacy_policy.html:156
+#: woof/templates/woof/privacy_policy.html:157
+msgid "GDPR"
+msgstr "GDPR"
+
+#: woof/templates/woof/privacy_policy.html:157
+msgid ", based on legitimate interests, consent, or legal obligations."
+msgstr ", на основе законных интересов, согласия или юридических обязательств."
+
+#: woof/templates/woof/privacy_policy.html:161
+msgid "United Kingdom (UK GDPR)"
+msgstr "Великобритания (UK GDPR)"
+
+#: woof/templates/woof/privacy_policy.html:165
+msgid "For UK users, data is processed under the"
+msgstr "Для пользователей из Великобритании данные обрабатываются в соответствии с"
+
+#: woof/templates/woof/privacy_policy.html:167
+msgid "UK DPA 2018"
+msgstr "UK DPA 2018"
+
+#: woof/templates/woof/privacy_policy.html:169
+msgid "UK Data Protection Act 2018"
+msgstr "Закон Великобритании о защите данных 2018 г."
+
+#: woof/templates/woof/privacy_policy.html:170
+msgid "and UK GDPR."
+msgstr "и UK GDPR."
+
+#: woof/templates/woof/privacy_policy.html:174
+msgid "United States"
+msgstr "Соединённые Штаты"
+
+#: woof/templates/woof/privacy_policy.html:177
+msgid "US residents may have privacy rights under state laws, including:"
+msgstr "Жители США могут иметь права на конфиденциальность по законам штатов, включая:"
+
+#: woof/templates/woof/privacy_policy.html:184
+msgid "California Consumer Privacy Act (CCPA/CPRA)"
+msgstr "Закон Калифорнии о конфиденциальности потребителей (CCPA/CPRA)"
+
+#: woof/templates/woof/privacy_policy.html:190
+msgid "Virginia Consumer Data Protection Act (VCDPA)"
+msgstr "Закон Вирджинии о защите данных потребителей (VCDPA)"
+
+#: woof/templates/woof/privacy_policy.html:196
+msgid "Colorado Privacy Act (CPA)"
+msgstr "Закон Колорадо о конфиденциальности (CPA)"
+
+#: woof/templates/woof/privacy_policy.html:202
+msgid "Utah Consumer Privacy Act (UCPA)"
+msgstr "Закон Юты о конфиденциальности потребителей (UCPA)"
+
+#: woof/templates/woof/privacy_policy.html:208
+msgid "Tennessee Information Protection Act (TIPA)"
+msgstr "Закон Теннесси о защите информации (TIPA)"
+
+#: woof/templates/woof/privacy_policy.html:214
+msgid "Canada"
+msgstr "Канада"
+
+#: woof/templates/woof/privacy_policy.html:218
+msgid "Handled in accordance with"
+msgstr "Обрабатывается в соответствии с"
+
+#: woof/templates/woof/privacy_policy.html:221
+msgid "PIPEDA"
+msgstr "PIPEDA"
+
+#: woof/templates/woof/privacy_policy.html:225
+msgid "Australia"
+msgstr "Австралия"
+
+#: woof/templates/woof/privacy_policy.html:229
+msgid "Processed under the"
+msgstr "Обрабатывается в соответствии с"
+
+#: woof/templates/woof/privacy_policy.html:232
+msgid "Privacy Act 1988"
+msgstr "Политика конфиденциальности"
+
+#: woof/templates/woof/privacy_policy.html:236
+msgid "Other countries"
+msgstr "Другие породы"
+
+#: woof/templates/woof/privacy_policy.html:239
+msgid "We follow generally accepted international data protection principles."
+msgstr "Мы следуем общепринятым международным принципам защиты данных."
+
+#: woof/templates/woof/privacy_policy.html:245
+msgid ""
+"The Website uses cookies to ensure proper operation and analyze traffic. "
+"Manage cookies in your browser settings."
+msgstr ""
+"Сайт использует файлы cookie для корректной работы и анализа трафика.\n"
+"      Управляйте файлами cookie в настройках браузера."
+
+#: woof/templates/woof/privacy_policy.html:249
+msgid "More details in our"
+msgstr "Подробнее в нашей"
+
+#: woof/templates/woof/privacy_policy.html:259
+msgid ""
+"We do not sell or rent personal data. Information may be shared with "
+"analytics providers or as required by law."
+msgstr ""
+"Мы не продаём и не сдаём в аренду персональные данные.\n"
+"            Информация может передаваться аналитическим провайдерам или по "
+"требованию закона."
+
+#: woof/templates/woof/privacy_policy.html:266
+msgid ""
+"Data may be processed outside your country. Appropriate safeguards are "
+"applied when needed."
+msgstr ""
+"Данные могут обрабатываться за пределами вашей страны.\n"
+"            При необходимости применяются соответствующие гарантии."
+
+#: woof/templates/woof/privacy_policy.html:273
+msgid ""
+"Data is retained only as long as necessary for the purposes described in "
+"this policy."
+msgstr ""
+"Данные хранятся только так долго, как необходимо для целей, описанных в этой "
+"политике."
+
+#: woof/templates/woof/privacy_policy.html:280
+msgid ""
+"Depending on your location, you may have the right to access, correct, "
+"delete, or restrict your data."
+msgstr ""
+"В зависимости от вашего местоположения вы можете иметь право на доступ, "
+"исправление, удаление или ограничение обработки ваших данных."
+
+#: woof/templates/woof/privacy_policy.html:284
+msgid "Requests:"
+msgstr "Запросы:"
+
+#: woof/templates/woof/privacy_policy.html:293
+msgid ""
+"The Website is not intended for children under 18. We do not knowingly "
+"collect data from minors."
+msgstr ""
+"Сайт не предназначен для детей младше 18 лет.\n"
+"            Мы сознательно не собираем данные несовершеннолетних."
+
+#: woof/templates/woof/privacy_policy.html:300
+msgid ""
+"This Privacy Policy may be updated periodically. Updated versions will be "
+"posted on this page."
+msgstr ""
+"Эта Политика конфиденциальности может периодически обновляться.\n"
+"            Обновлённые версии будут публиковаться на этой странице."
+
+#: woof/templates/woof/privacy_policy.html:308
+msgid "Questions? Contact:"
+msgstr "Вопросы? Свяжитесь:"
+
+#: woof/templates/woof/puppy.html:48
+msgid "What to expect during puppyhood"
+msgstr "Чего ожидать в щенячьем возрасте"
+
+#: woof/templates/woof/puppy.html:50
+msgid ""
+"Puppyhood is the earliest and most formative stage of a dog’s life. During "
+"this period, dogs rapidly develop habits, reactions, confidence, and social "
+"understanding of the world around them."
+msgstr ""
+"Щенячий возраст — самый ранний и важный этап жизни собаки. В этот период "
+"собаки стремительно развивают привычки, реакции, уверенность и социальное "
+"понимание окружающего мира."
+
+#: woof/templates/woof/puppy.html:54
+msgid ""
+"Raising a puppy is not only about care, but about helping the dog adapt "
+"safely and gradually to human environments, routines, sounds, and "
+"interactions."
+msgstr ""
+"Воспитание щенка — это не только уход, но и помощь собаке в безопасной и "
+"постепенной адаптации к человеческой среде, режиму, звукам и взаимодействиям."
+
+#: woof/templates/woof/puppy.html:58
+msgid "The first days at home"
+msgstr "Первые дни дома"
+
+#: woof/templates/woof/puppy.html:60
+msgid ""
+"Moving into a new home can be stressful for a puppy. New smells, unfamiliar "
+"people, and separation from littermates create a major environmental change."
+msgstr ""
+"Переезд в новый дом может быть стрессовым для щенка. Новые запахи, "
+"незнакомые люди и разлука с однопомётниками — это серьёзное изменение среды."
+
+#: woof/templates/woof/puppy.html:64
+msgid ""
+"The first days should remain calm and predictable. A quiet resting space and "
+"stable routine help the puppy adapt more comfortably."
+msgstr ""
+"Первые дни должны быть спокойными и предсказуемыми.\n"
+"            Тихое место для отдыха и стабильный режим помогают щенку "
+"адаптироваться комфортнее."
+
+#: woof/templates/woof/puppy.html:68
+msgid "Early socialization"
+msgstr "Ранняя социализация"
+
+#: woof/templates/woof/puppy.html:70
+msgid ""
+"Early socialization introduces the puppy to different environments, sounds, "
+"surfaces, people, and situations. Positive early experiences help build "
+"confidence and adaptability later in life."
+msgstr ""
+"Ранняя социализация знакомит щенка с разными средами, звуками, "
+"поверхностями, людьми и ситуациями.\n"
+"            Позитивный ранний опыт помогает сформировать уверенность и "
+"адаптивность в дальнейшей жизни."
+
+#: woof/templates/woof/puppy.html:74
+msgid ""
+"Socialization should happen gradually and without overwhelming the puppy. "
+"Too much stimulation at once can create stress instead of confidence."
+msgstr ""
+"Социализация должна проходить постепенно и без перегрузки щенка.\n"
+"           Слишком много стимуляции сразу может создать стресс вместо "
+"уверенности."
+
+#: woof/templates/woof/puppy.html:78
+msgid "Sleep and daily rhythm"
+msgstr "Сон и режим дня"
+
+#: woof/templates/woof/puppy.html:80
+msgid ""
+"Puppies sleep significantly more than adult dogs and require frequent rest "
+"periods. Overtired puppies often become more restless, reactive, or "
+"difficult to calm."
+msgstr ""
+"Щенки спят значительно больше взрослых собак и нуждаются в частом отдыхе.\n"
+"  Переутомлённые щенки чаще становятся беспокойными, реактивными или труднее "
+"успокаиваются."
+
+#: woof/templates/woof/puppy.html:83
+msgid ""
+"A stable daily rhythm helps regulate energy and improves adaptation to home "
+"life."
+msgstr ""
+"Стабильный дневной ритм помогает регулировать энергию и улучшает адаптацию к "
+"домашней жизни."
+
+#: woof/templates/woof/puppy.html:86
+msgid "Teething and chewing phase"
+msgstr "Период смены зубов и жевания"
+
+#: woof/templates/woof/puppy.html:88
+msgid ""
+"During teething, puppies naturally explore objects through chewing. This "
+"stage is temporary but requires patience and proper management of the "
+"environment."
+msgstr ""
+"В период смены зубов щенки естественным образом исследуют предметы через "
+"жевание.\n"
+"            Этот этап временный, но требует терпения и правильной "
+"организации среды."
+
+#: woof/templates/woof/puppy.html:91
+msgid ""
+"Safe chew toys and supervision help redirect destructive chewing behavior."
+msgstr ""
+"Безопасные игрушки для жевания и контроль помогают перенаправить "
+"разрушительное жевание."
+
+#: woof/templates/woof/puppy.html:94
+msgid "Building confidence"
+msgstr "Формирование уверенности"
+
+#: woof/templates/woof/puppy.html:96
+msgid ""
+"Confidence develops through repeated positive experiences and predictable "
+"routines. Gentle exposure to new environments helps puppies learn that "
+"unfamiliar situations are safe."
+msgstr ""
+"Уверенность развивается через повторяющиеся положительные переживания и "
+"предсказуемый режим. Мягкое знакомство с новыми средами помогает щенкам "
+"понять, что незнакомые ситуации безопасны."
+
+#: woof/templates/woof/puppy.html:99
+msgid ""
+"Fearful reactions during puppyhood are normal and should be handled calmly "
+"rather than punished."
+msgstr ""
+"Пугающиеся реакции в щенячьем возрасте нормальны, их нужно обрабатывать "
+"спокойно, а не наказывать."
+
+#: woof/templates/woof/puppy.html:104
+msgid ""
+"Puppyhood is a short but extremely important developmental stage. Stable "
+"routines, gradual socialization, patience, and a safe environment help "
+"create a more confident and adaptable adult dog."
+msgstr ""
+"Щенячий возраст — короткий, но чрезвычайно важный этап развития. Стабильный "
+"режим, постепенная социализация, терпение и безопасная среда помогают "
+"вырастить более уверенную и адаптивную взрослую собаку."
+
+#: woof/templates/woof/terms_and_conditions.html:38
+#: woof/templates/woof/terms_and_conditions.html:64
+msgid "1. Consent to Terms"
+msgstr "1. Согласие с условиями"
+
+#: woof/templates/woof/terms_and_conditions.html:39
+#: woof/templates/woof/terms_and_conditions.html:79
+msgid "2. Intellectual Property Rights"
+msgstr "2. Права интеллектуальной собственности"
+
+#: woof/templates/woof/terms_and_conditions.html:40
+#: woof/templates/woof/terms_and_conditions.html:85
+msgid "3. User Representations"
+msgstr "3. Гарантии пользователя"
+
+#: woof/templates/woof/terms_and_conditions.html:41
+#: woof/templates/woof/terms_and_conditions.html:91
+msgid "4. Prohibited Activities"
+msgstr "4. Запрещённые действия"
+
+#: woof/templates/woof/terms_and_conditions.html:42
+#: woof/templates/woof/terms_and_conditions.html:103
+msgid "5. User Contributions"
+msgstr "5. Материалы пользователей"
+
+#: woof/templates/woof/terms_and_conditions.html:43
+#: woof/templates/woof/terms_and_conditions.html:113
+msgid "6. License to Use"
+msgstr "6. Лицензия на использование"
+
+#: woof/templates/woof/terms_and_conditions.html:44
+#: woof/templates/woof/terms_and_conditions.html:118
+msgid "7. Provided Materials"
+msgstr "7. Предоставленные материалы"
+
+#: woof/templates/woof/terms_and_conditions.html:45
+#: woof/templates/woof/terms_and_conditions.html:123
+msgid "8. Website Management"
+msgstr "8. Управление сайтом"
+
+#: woof/templates/woof/terms_and_conditions.html:46
+#: woof/templates/woof/terms_and_conditions.html:128
+msgid "9. Privacy Policy"
+msgstr "Политика конфиденциальности"
+
+#: woof/templates/woof/terms_and_conditions.html:47
+#: woof/templates/woof/terms_and_conditions.html:138
+msgid "10. Term and Termination"
+msgstr "10. Срок действия и прекращение"
+
+#: woof/templates/woof/terms_and_conditions.html:48
+#: woof/templates/woof/terms_and_conditions.html:143
+msgid "11. Modifications and Interruptions"
+msgstr "11. Изменения и перерывы"
+
+#: woof/templates/woof/terms_and_conditions.html:49
+#: woof/templates/woof/terms_and_conditions.html:148
+msgid "12. Governing Law"
+msgstr "12. Применимое право"
+
+#: woof/templates/woof/terms_and_conditions.html:50
+#: woof/templates/woof/terms_and_conditions.html:153
+msgid "13. Dispute Resolution"
+msgstr "13. Разрешение споров"
+
+#: woof/templates/woof/terms_and_conditions.html:51
+#: woof/templates/woof/terms_and_conditions.html:158
+msgid "14. Corrections"
+msgstr "14. Исправления"
+
+#: woof/templates/woof/terms_and_conditions.html:52
+#: woof/templates/woof/terms_and_conditions.html:163
+msgid "15. Disclaimer"
+msgstr "15. Отказ от гарантий"
+
+#: woof/templates/woof/terms_and_conditions.html:53
+#: woof/templates/woof/terms_and_conditions.html:168
+msgid "16. Limitation of Liability"
+msgstr "16. Ограничение ответственности"
+
+#: woof/templates/woof/terms_and_conditions.html:54
+#: woof/templates/woof/terms_and_conditions.html:173
+msgid "17. Indemnification"
+msgstr "17. Возмещение убытков"
+
+#: woof/templates/woof/terms_and_conditions.html:55
+#: woof/templates/woof/terms_and_conditions.html:178
+msgid "18. User Data"
+msgstr "18. Данные пользователей"
+
+#: woof/templates/woof/terms_and_conditions.html:56
+#: woof/templates/woof/terms_and_conditions.html:183
+msgid "19. Electronic Communications"
+msgstr "19. Электронные коммуникации"
+
+#: woof/templates/woof/terms_and_conditions.html:57
+#: woof/templates/woof/terms_and_conditions.html:188
+msgid "20. California Residents"
+msgstr "20. Жители Калифорнии"
+
+#: woof/templates/woof/terms_and_conditions.html:58
+#: woof/templates/woof/terms_and_conditions.html:193
+msgid "21. Miscellaneous"
+msgstr "21. Прочие положения"
+
+#: woof/templates/woof/terms_and_conditions.html:59
+#: woof/templates/woof/terms_and_conditions.html:198
+msgid "22. Contact Us"
+msgstr "Контакты"
+
+#: woof/templates/woof/terms_and_conditions.html:67
+msgid ""
+"These Terms of Use constitute a legally binding agreement between you "
+"(«you») and"
+msgstr "Настоящие Условия использования представляют собой юридически обязательное соглашение между вами («вы») и"
+
+#: woof/templates/woof/terms_and_conditions.html:69
+msgid "regarding your access to and use of"
+msgstr "в отношении вашего доступа к и использования"
+
+#: woof/templates/woof/terms_and_conditions.html:75
+msgid ""
+"IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, YOU MUST DISCONTINUE USE "
+"IMMEDIATELY."
+msgstr ""
+"ЕСЛИ ВЫ НЕ СОГЛАСНЫ СО ВСЕМИ НАСТОЯЩИМИ УСЛОВИЯМИ ИСПОЛЬЗОВАНИЯ, ВЫ ДОЛЖНЫ "
+"НЕМЕДЛЕННО ПРЕКРАТИТЬ ИСПОЛЬЗОВАНИЕ САЙТА."
+
+#: woof/templates/woof/terms_and_conditions.html:81
+msgid ""
+"Unless otherwise stated, the Website and all content are owned or licensed "
+"by us and protected by intellectual property laws."
+msgstr ""
+"Если не указано иное, сайт и весь контент принадлежат нам или лицензированы "
+"нами и защищены законами об интеллектуальной собственности."
+
+#: woof/templates/woof/terms_and_conditions.html:87
+msgid ""
+"By using the Website, you represent and warrant that you comply with all "
+"applicable laws and these Terms."
+msgstr ""
+"Используя сайт, вы заявляете и гарантируете, что соблюдаете все применимые "
+"законы и настоящие Условия."
+
+#: woof/templates/woof/terms_and_conditions.html:93
+msgid ""
+"You agree not to engage in prohibited activities, including but not limited "
+"to:"
+msgstr ""
+"Вы соглашаетесь не участвовать в запрещённых действиях, включая, но не "
+"ограничиваясь:"
+
+#: woof/templates/woof/terms_and_conditions.html:96
+msgid "Unauthorized data extraction"
+msgstr "Несанкционированный сбор данных"
+
+#: woof/templates/woof/terms_and_conditions.html:97
+msgid "Fraud, abuse, or harassment"
+msgstr "Мошенничество, злоупотребления или домогательства"
+
+#: woof/templates/woof/terms_and_conditions.html:98
+msgid "Security circumvention"
+msgstr "Обход систем безопасности"
+
+#: woof/templates/woof/terms_and_conditions.html:99
+msgid "Illegal or unauthorized use"
+msgstr "Незаконное или несанкционированное использование"
+
+#: woof/templates/woof/terms_and_conditions.html:106
+msgid "User contributions are governed by our"
+msgstr "Материалы пользователей регулируются нашей"
+
+#: woof/templates/woof/terms_and_conditions.html:115
+msgid "You are granted a limited, non-commercial license to use the Website."
+msgstr ""
+"Вам предоставляется ограниченная некоммерческая лицензия на использование "
+"сайта."
+
+#: woof/templates/woof/terms_and_conditions.html:120
+msgid ""
+"Any materials you submit become our property and may be used without "
+"compensation."
+msgstr ""
+"Любые материалы, которые вы отправляете, становятся нашей собственностью и "
+"могут использоваться без вознаграждения."
+
+#: woof/templates/woof/terms_and_conditions.html:125
+msgid ""
+"We reserve the right to manage, restrict, or remove content at our "
+"discretion."
+msgstr ""
+"Мы оставляем за собой право управлять, ограничивать или удалять контент по "
+"своему усмотрению."
+
+#: woof/templates/woof/terms_and_conditions.html:131
+msgid "Your use of the Website is also governed by our"
+msgstr "Ваше использование сайта также регулируется нашей"
+
+#: woof/templates/woof/terms_and_conditions.html:140
+msgid "We may terminate access to the Website at any time without notice."
+msgstr "Мы можем прекратить доступ к сайту в любое время без предупреждения."
+
+#: woof/templates/woof/terms_and_conditions.html:145
+msgid ""
+"We reserve the right to modify or discontinue the Website without liability."
+msgstr ""
+"Мы оставляем за собой право изменять или прекращать работу сайта без "
+"ответственности."
+
+#: woof/templates/woof/terms_and_conditions.html:150
+msgid "These Terms are governed by the laws of Serbia."
+msgstr "Настоящие условия регулируются законодательством Сербии."
+
+#: woof/templates/woof/terms_and_conditions.html:155
+msgid "Disputes shall be resolved through arbitration in Serbia."
+msgstr "Споры разрешаются через арбитраж в Сербии."
+
+#: woof/templates/woof/terms_and_conditions.html:160
+msgid "We may correct errors or update content at any time."
+msgstr "Мы можем исправлять ошибки или обновлять контент в любое время."
+
+#: woof/templates/woof/terms_and_conditions.html:165
+msgid "The Website is provided “AS IS” without warranties."
+msgstr "Сайт предоставляется «КАК ЕСТЬ» без каких-либо гарантий."
+
+#: woof/templates/woof/terms_and_conditions.html:170
+msgid "Our liability is limited to the maximum extent permitted by law."
+msgstr ""
+"Наша ответственность ограничена максимальной степенью, допустимой законом."
+
+#: woof/templates/woof/terms_and_conditions.html:175
+msgid "You agree to indemnify and hold us harmless."
+msgstr ""
+"Вы соглашаетесь возмещать нам убытки и освобождать нас от ответственности."
+
+#: woof/templates/woof/terms_and_conditions.html:180
+msgid "You are responsible for any data you submit."
+msgstr "Вы несёте ответственность за любые данные, которые отправляете."
+
+#: woof/templates/woof/terms_and_conditions.html:185
+msgid "Electronic communications satisfy legal requirements."
+msgstr "Электронные коммуникации удовлетворяют законодательным требованиям."
+
+#: woof/templates/woof/terms_and_conditions.html:190
+msgid ""
+"California residents may contact the appropriate authorities as required by "
+"law."
+msgstr ""
+"Жители Калифорнии могут обращаться в соответствующие органы, как того "
+"требует закон."
+
+#: woof/templates/woof/terms_and_conditions.html:195
+msgid "These Terms constitute the entire agreement between you and us."
+msgstr "Настоящие условия составляют полное соглашение между вами и нами."
+
+#: woof/templates/woof/terms_and_conditions.html:201
+msgid "Questions may be sent to"
+msgstr "Вопросы можно отправлять на"
+
+#: woof/templates/woof/training.html:48
+msgid "What training actually is"
+msgstr "Что такое дрессировка на самом деле"
+
+#: woof/templates/woof/training.html:50
+msgid ""
+"Dog training is the process of building clear communication between human "
+"and dog through consistent signals and predictable outcomes. It is not about "
+"control, but about establishing shared understanding."
+msgstr ""
+"Дрессировка — это процесс выстраивания чёткой коммуникации между человеком и "
+"собакой через последовательные сигналы и предсказуемые результаты.\n"
+"         Речь не о контроле, а о выстраивании общего понимания."
+
+#: woof/templates/woof/training.html:53
+msgid ""
+"Training influences everyday behavior, safety, and the ability of the dog to "
+"function comfortably in human environments."
+msgstr ""
+"Дрессировка влияет на повседневное поведение, безопасность и способность "
+"собаки комфортно функционировать в человеческой среде."
+
+#: woof/templates/woof/training.html:56
+msgid "Consistency and repetition"
+msgstr "Последовательность и повторение"
+
+#: woof/templates/woof/training.html:58
+msgid ""
+"Dogs learn through repetition and pattern recognition. The same action must "
+"lead to the same result in order for learning to stabilize."
+msgstr ""
+"Собаки учатся через повторение и распознавание паттернов.\n"
+"            Одно и то же действие должно приводить к одному результату, "
+"чтобы обучение закрепилось."
+
+#: woof/templates/woof/training.html:61
+msgid ""
+"Inconsistent rules create confusion and slow down behavioral development."
+msgstr ""
+"Непоследовательные правила создают путаницу и замедляют развитие поведения."
+
+#: woof/templates/woof/training.html:63
+msgid ""
+"Clear repetition is more effective than complex commands or frequent changes "
+"in approach."
+msgstr ""
+"Чёткое повторение эффективнее сложных команд или частой смены подходов."
+
+#: woof/templates/woof/training.html:66
+msgid "Communication signals"
+msgstr "Сигналы общения"
+
+#: woof/templates/woof/training.html:68
+msgid ""
+"Training relies on clear and simple signals that the dog can associate with "
+"specific actions. Timing is important because dogs connect behavior and "
+"outcome within a short time window."
+msgstr ""
+"Дрессировка опирается на чёткие и простые сигналы, которые собака может "
+"связать с конкретными действиями.\n"
+"            Тайминг важен, потому что собаки связывают поведение и результат "
+"в коротком временном окне."
+
+#: woof/templates/woof/training.html:71
+msgid ""
+"Emotional tone, body language, and predictability of response all influence "
+"learning speed."
+msgstr ""
+"Эмоциональный тон, язык тела и предсказуемость реакции влияют на скорость "
+"обучения."
+
+#: woof/templates/woof/training.html:74
+msgid "Common learning mistakes"
+msgstr "Частые ошибки в обучении"
+
+#: woof/templates/woof/training.html:76
+msgid ""
+"One of the most common issues is mixing signals, where different responses "
+"are given for the same behavior."
+msgstr ""
+"Одна из самых частых проблем — смешение сигналов, когда на одно и то же "
+"поведение дают разные реакции."
+
+#: woof/templates/woof/training.html:78
+msgid ""
+"Another issue is expecting immediate results. Learning takes time and "
+"depends on repetition rather than single sessions."
+msgstr ""
+"Ещё одна проблема — ожидание немедленных результатов.\n"
+"            Обучение требует времени и зависит от повторения, а не от "
+"отдельных занятий."
+
+#: woof/templates/woof/training.html:81
+msgid ""
+"Overloading with commands or complexity can slow progress significantly."
+msgstr ""
+"Перегрузка командами или сложностью может значительно замедлить прогресс."
+
+#: woof/templates/woof/training.html:84
+msgid "Building reliable behavior"
+msgstr "Формирование устойчивого поведения"
+
+#: woof/templates/woof/training.html:86
+msgid ""
+"Reliable behavior is achieved through stable routines and predictable "
+"outcomes rather than intensity of training."
+msgstr ""
+"Надёжное поведение достигается стабильностью режима и предсказуемыми "
+"результатами, а не интенсивностью дрессировки."
+
+#: woof/templates/woof/training.html:88
+msgid ""
+"Small, repeated successes build stronger long-term behavior than occasional "
+"intensive sessions."
+msgstr ""
+"Маленькие повторяющиеся успехи формируют более устойчивое долгосрочное "
+"поведение, чем редкие интенсивные занятия."
+
+#: woof/templates/woof/training.html:93
+msgid ""
+"Training is a communication system that develops over time through "
+"consistency and clarity. When properly structured, it creates stability and "
+"reduces misunderstandings between dog and owner."
+msgstr ""
+"Дрессировка — это система коммуникации, которая развивается со временем "
+"через последовательность и ясность.\n"
+"            При правильной организации она создаёт стабильность и снижает "
+"недопонимание между собакой и владельцем."
+
+#: woof/urls.py:21
+msgid "About us - Woof Dogs"
+msgstr "О нас - Woof Dogs"
+
+#: woof/urls.py:28
+msgid "Cookie Policy - Woof Dogs"
+msgstr "Политика cookies"
+
+#: woof/urls.py:32
+msgid "Terms of Use - Woof Dogs"
+msgstr "Условия использования"
+
+#: woof/urls.py:36
+msgid "Privacy Policy - Woof Dogs"
+msgstr "Политика конфиденциальности"
+
+#: woof/urls.py:42
+msgid "Dog Guides - Woof Dogs"
+msgstr "Гайды о собаках - Woof Dogs"
+
+#: woof/urls.py:46
+msgid "Choosing the right dog - Woof Dogs"
+msgstr "Как выбрать собаку - Woof Dogs"
+
+#: woof/urls.py:50
+msgid "Dog Training Fundamentals - Woof Dogs"
+msgstr "Основы дрессировки - Woof Dogs"
+
+#: woof/urls.py:54
+msgid "Dog Health & Care - Woof Dogs"
+msgstr "Здоровье и уход за собакой - Woof Dogs"
+
+#: woof/urls.py:58
+msgid "Dog Behavior & Communication - Woof Dogs"
+msgstr "Поведение и общение собак - Woof Dogs"
+
+#: woof/urls.py:62
+msgid "Living with a Dog - Woof Dogs"
+msgstr "Жизнь с собакой - Woof Dogs"
+
+#: woof/urls.py:66
+msgid "Raising a Puppy - Woof Dogs"
+msgstr "Воспитание щенка - Woof Dogs"
 
 #: woof/utils.py:8
 msgid "All groups"
 msgstr "Все группы"
 
-#: woof/utils.py:9
-msgid "About us"
-msgstr "О нас"
+#: woof/views.py:63
+msgid "Dog Breeds - Woof Dogs"
+msgstr "Породы собак - Woof Dogs"
 
-#: woof/utils.py:10
-msgid "Guides"
-msgstr "Гайды"
+#: woof/views.py:84 woof/views.py:123
+#, python-brace-format
+msgid "{name} - Woof Dogs"
+msgstr "{name} - Woof Dogs"
 
-#: woof/utils.py:11
-msgid "Explore"
-msgstr "Подборки"
+#: woof/views.py:134
+msgid "Contact - Woof Dogs"
+msgstr "Контакты - Woof Dogs"
 
-#: woof/utils.py:12
-msgid "Contact"
-msgstr "Контакты"
+#: woof/views.py:167
+msgid "Best family dogs 🐶"
+msgstr "Лучшие семейные собаки 🐶"
+
+#: woof/views.py:175
+msgid "Great for first-time owners 🆕"
+msgstr "Отлично подойдут новичкам 🆕"
+
+#: woof/views.py:182
+msgid "For experienced owners 💪"
+msgstr "Для опытных владельцев 💪"
+
+#: woof/views.py:189
+msgid "Easy to train dogs 🧠"
+msgstr "Легко обучаемые собаки 🧠"
+
+#: woof/views.py:195
+msgid "Hypoallergenic breeds 🌿"
+msgstr "Гипоаллергенные породы 🌿"
+
+#: woof/views.py:199
+msgid "Small dogs 🐾"
+msgstr "Маленькие собаки 🐾"
+
+#: woof/views.py:203
+msgid "Medium dogs 🔹"
+msgstr "Средние собаки 🔹"
+
+#: woof/views.py:207
+msgid "Large dogs 🐕"
+msgstr "Крупные собаки 🐕"
+
+#: woof/views.py:211
+msgid "Apartment-friendly dogs 🏢"
+msgstr "Собаки для квартиры 🏢"
+
+#: woof/views.py:220
+msgid "Best for houses with yard 🏡"
+msgstr "Лучшие для дома с двором 🏡"
+
+#: woof/views.py:229
+msgid "Explore - Woof Dogs"
+msgstr "Подборки - Woof Dogs"
+
+#: woof/views.py:242
+msgid "Groups - Woof Dogs"
+msgstr "Группы - Woof Dogs"

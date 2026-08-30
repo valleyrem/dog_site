@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,10 +9,10 @@
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}"
-           title="Home"
+           title="{% trans 'Home' %}"
            class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -20,7 +21,7 @@
 
         <span>/</span>
 
-        <span class="current">Explore</span>
+        <span class="current">{% blocktranslate trimmed %}Explore{% endblocktranslate %}</span>
 
     </div>
 </div>
@@ -30,11 +31,11 @@
 <div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">Explore</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Explore{% endblocktranslate %}</h1>
 
     <img
         src="{% static 'guides.webp' %}"
-        alt="Explore"
+        alt="{% trans 'Explore' %}"
         class="guide-image image-guides"
         width="260"
         height="230"
@@ -44,31 +45,27 @@
 
 
     <!-- How to use this page -->
-    <p class="section-title">
-        How to use this page
-    </p>
+    <p class="section-title">{% blocktranslate trimmed %}How to use this page{% endblocktranslate %}</p>
 
     <div class="post-text-explore">
 
-        <p class="cat-desc">
-            This page helps you navigate dog breeds based on real-life needs rather than appearance alone.
-            You can explore grouped categories and compare dogs by temperament, energy level, and general suitability.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}This page helps you navigate dog breeds based on real-life needs rather than appearance alone.
+            You can explore grouped categories and compare dogs by temperament, energy level, and general suitability.{% endblocktranslate %}</p>
 
         <p class="cat-desc">
-            For deeper understanding of dog ownership, you can also visit the
+            {% blocktranslate trimmed %}For deeper understanding of dog ownership, you can also visit the{% endblocktranslate %}
             <strong>
                 <a href="{% url 'guides' %}"
                    class="link-site">
-                    Guides section <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="go"
+                    {% blocktranslate trimmed %}Guides section{% endblocktranslate %} <img src="{% static 'arrow-up-right.svg' %}"
+                                 alt="{% trans 'go' %}"
                                  class="icon-arrow"
                                  width="16"
                                  height="16"
                             >
                 </a>
             </strong>
-            where you will find structured information about choosing, training, behavior, health, and daily life with dogs.
+            {% blocktranslate trimmed %}where you will find structured information about choosing, training, behavior, health, and daily life with dogs.{% endblocktranslate %}
         </p>
 
     </div>
@@ -79,9 +76,7 @@
 
 
         <!-- By size -->
-        <p class="section-title">
-            By size
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}By size{% endblocktranslate %}</p>
 
         {% for group in groups %}
 
@@ -98,11 +93,11 @@
                         <!-- Previous -->
                         <button class="group-arrow group-arrow-left"
                                 type="button"
-                                aria-label="Previous dogs">
+                                aria-label="{% trans 'Previous dogs' %}">
 
                             <img src="{% static 'left.svg' %}"
-                                 alt="Previous page"
-                                 title="Previous"
+                                 alt="{% trans 'Previous page' %}"
+                                 title="{% trans 'Previous' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -135,11 +130,11 @@
                         <!-- Next -->
                         <button class="group-arrow group-arrow-right"
                                 type="button"
-                                aria-label="Next dogs">
+                                aria-label="{% trans 'Next dogs' %}">
 
                             <img src="{% static 'right.svg' %}"
-                                 alt="Next page"
-                                 title="Next"
+                                 alt="{% trans 'Next page' %}"
+                                 title="{% trans 'Next' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -157,9 +152,7 @@
 
 
         <!-- Lifestyle & ownership -->
-        <p class="section-title">
-            Lifestyle & ownership
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Lifestyle & ownership{% endblocktranslate %}</p>
 
         {% for group in groups %}
 
@@ -176,11 +169,11 @@
                         <!-- Previous -->
                         <button class="group-arrow group-arrow-left"
                                 type="button"
-                                aria-label="Previous dogs">
+                                aria-label="{% trans 'Previous dogs' %}">
 
                             <img src="{% static 'left.svg' %}"
-                                 alt="Previous page"
-                                 title="Previous"
+                                 alt="{% trans 'Previous page' %}"
+                                 title="{% trans 'Previous' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -213,11 +206,11 @@
                         <!-- Next -->
                         <button class="group-arrow group-arrow-right"
                                 type="button"
-                                aria-label="Next dogs">
+                                aria-label="{% trans 'Next dogs' %}">
 
                             <img src="{% static 'right.svg' %}"
-                                 alt="Next page"
-                                 title="Next"
+                                 alt="{% trans 'Next page' %}"
+                                 title="{% trans 'Next' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -235,9 +228,7 @@
 
 
         <!-- By living conditions -->
-        <p class="section-title">
-            By living conditions
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}By living conditions{% endblocktranslate %}</p>
 
         {% for group in groups %}
 
@@ -254,11 +245,11 @@
                         <!-- Previous -->
                         <button class="group-arrow group-arrow-left"
                                 type="button"
-                                aria-label="Previous dogs">
+                                aria-label="{% trans 'Previous dogs' %}">
 
                             <img src="{% static 'left.svg' %}"
-                                 alt="Previous page"
-                                 title="Previous"
+                                 alt="{% trans 'Previous page' %}"
+                                 title="{% trans 'Previous' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -291,11 +282,11 @@
                         <!-- Next -->
                         <button class="group-arrow group-arrow-right"
                                 type="button"
-                                aria-label="Next dogs">
+                                aria-label="{% trans 'Next dogs' %}">
 
                             <img src="{% static 'right.svg' %}"
-                                 alt="Next page"
-                                 title="Next"
+                                 alt="{% trans 'Next page' %}"
+                                 title="{% trans 'Next' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -313,9 +304,7 @@
 
 
         <!-- Other characteristics -->
-        <p class="section-title">
-            Other characteristics
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Other characteristics{% endblocktranslate %}</p>
 
         {% for group in groups %}
 
@@ -332,11 +321,11 @@
                         <!-- Previous -->
                         <button class="group-arrow group-arrow-left"
                                 type="button"
-                                aria-label="Previous dogs">
+                                aria-label="{% trans 'Previous dogs' %}">
 
                             <img src="{% static 'left.svg' %}"
-                                 alt="Previous page"
-                                 title="Previous"
+                                 alt="{% trans 'Previous page' %}"
+                                 title="{% trans 'Previous' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -369,11 +358,11 @@
                         <!-- Next -->
                         <button class="group-arrow group-arrow-right"
                                 type="button"
-                                aria-label="Next dogs">
+                                aria-label="{% trans 'Next dogs' %}">
 
                             <img src="{% static 'right.svg' %}"
-                                 alt="Next page"
-                                 title="Next"
+                                 alt="{% trans 'Next page' %}"
+                                 title="{% trans 'Next' %}"
                                  class="icon-post"
                                  width="18"
                                  height="23"
@@ -396,26 +385,24 @@
     <div class="post-text-explore">
 
         <p>
-            It is important to realistically consider how much time you can dedicate to walks, training, and interaction.
+            {% blocktranslate trimmed %}It is important to realistically consider how much time you can dedicate to walks, training, and interaction.
             Some dogs require constant activity and stimulation, while others are calm and adapt to a slower pace.<br>
-            <strong>Grooming needs also vary significantly</strong> between breeds.
+            <strong>Grooming needs also vary significantly</strong> between breeds.{% endblocktranslate %}
         </p>
 
         <p>
-            <strong>Living conditions matter.</strong>
+            {% blocktranslate trimmed %}<strong>Living conditions matter.</strong>
             Not every dog is suited for apartment life, and barking levels can affect daily comfort.
-            Experience also plays a role — some breeds are easy for beginners, while others require patience and confidence.
+            Experience also plays a role — some breeds are easy for beginners, while others require patience and confidence.{% endblocktranslate %}
         </p>
 
         <p>
-            <strong>Health and allergies should not be overlooked.</strong>
-            While no dog is completely hypoallergenic, some are more suitable for sensitive owners.
+            {% blocktranslate trimmed %}<strong>Health and allergies should not be overlooked.</strong>
+            While no dog is completely hypoallergenic, some are more suitable for sensitive owners.{% endblocktranslate %}
         </p>
 
-        <p>
-            Taking time to understand these factors helps you make a thoughtful choice.<br>
-            This page is designed to guide you with simple, practical groups — helping you find a dog that truly fits your lifestyle.
-        </p>
+        <p>{% blocktranslate trimmed %}Taking time to understand these factors helps you make a thoughtful choice.<br>
+            This page is designed to guide you with simple, practical groups — helping you find a dog that truly fits your lifestyle.{% endblocktranslate %}</p>
 
     </div>
 

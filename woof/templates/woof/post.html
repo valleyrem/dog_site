@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -6,15 +7,15 @@
 <!-- Breadcrumbs -->
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
             ></a>
         <span>/</span>
-        <a href="{% url 'groups' %}" title="Groups" class="link-policies">Groups</a>
+        <a href="{% url 'groups' %}" title="{% trans 'Groups' %}" class="link-policies">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</a>
         <span>/</span>
         <a href="{{ post.cat.get_absolute_url }}"
             title="{{ post.cat.name }}"
@@ -43,8 +44,8 @@
         <a href="{{ prev_post.get_absolute_url }}"
            class="post-media-arrow post-media-prev">
             <img src="{% static 'left.svg' %}"
-                 alt="Previous page"
-title="Previous"
+                 alt="{% trans 'Previous page' %}"
+title="{% trans 'Previous' %}"
                  class="icon-post"
                  width="18"
                  height="23"
@@ -58,8 +59,8 @@ title="Previous"
            class="post-media-arrow post-media-next">
             <span>{{ next_post.title }}</span>
             <img src="{% static 'right.svg' %}"
-                 alt="Next page"
-title="Next"
+                 alt="{% trans 'Next page' %}"
+title="{% trans 'Next' %}"
                  class="icon-post"
                  width="18"
                  height="23"
@@ -74,7 +75,7 @@ title="Next"
 
     <button class="main-img-arrow prev" type="button" aria-label="Previous image">
         <img src="{% static 'left.svg' %}"
-             alt="Previous"
+             alt="{% trans 'Previous' %}"
              class="icon-post"
              width="18"
              height="23">
@@ -94,7 +95,7 @@ title="Next"
 
     <button class="main-img-arrow next" type="button" aria-label="Next image">
         <img src="{% static 'right.svg' %}"
-             alt="Next"
+             alt="{% trans 'Next' %}"
              class="icon-post"
              width="18"
              height="23">
@@ -138,7 +139,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🧩</span>
-            <span>Section</span>
+            <span>{% blocktranslate trimmed %}Section{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.section }}</strong>
     </div>
@@ -146,7 +147,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🧬</span>
-            <span>Varieties</span>
+            <span>{% blocktranslate trimmed %}Varieties{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.varieties }}</strong>
     </div>
@@ -154,7 +155,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🌍</span>
-            <span>Origin</span>
+            <span>{% blocktranslate trimmed %}Origin{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.country }}</strong>
     </div>
@@ -162,7 +163,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🐕</span>
-            <span>Size</span>
+            <span>{% blocktranslate trimmed %}Size{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_size_display }}</strong>
     </div>
@@ -170,9 +171,9 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">❤️</span>
-            <span>Life expectancy</span>
+            <span>{% blocktranslate trimmed %}Life expectancy{% endblocktranslate %}</span>
         </div>
-        <strong>{{ post.life_expectancy }} years</strong>
+        <strong>{% blocktranslate trimmed with years=post.life_expectancy %}{{ years }} years{% endblocktranslate %}</strong>
     </div>
 
 <div class="param-card">
@@ -180,15 +181,14 @@ title="Next"
         <span class="icon">↕️</span>
 
         <span>
-            Height & Weight
-
+            {% blocktranslate trimmed %}Height & Weight{% endblocktranslate %}
         </span>
     </div>
 
     <strong>
-        {{ post.height }} cm, {{ post.weight }} kg <span class="param-info">
+        {% blocktranslate trimmed with h=post.height w=post.weight %}{{ h }} cm, {{ w }} kg{% endblocktranslate %} <span class="param-info">
                 ⓘ<span class="param-tooltip">
-                    Range includes values for both males and females. Individual values may vary by sex.
+                    {% blocktranslate trimmed %}Range includes values for both males and females. Individual values may vary by sex.{% endblocktranslate %}
                 </span>
             </span>
     </strong>
@@ -197,7 +197,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">💡</span>
-            <span>Trainability</span>
+            <span>{% blocktranslate trimmed %}Trainability{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_trainability_display }}</strong>
     </div>
@@ -205,7 +205,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🚀</span>
-            <span>Activity level</span>
+            <span>{% blocktranslate trimmed %}Activity level{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_activity_level_display }}</strong>
     </div>
@@ -213,7 +213,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">📢</span>
-            <span>Barking</span>
+            <span>{% blocktranslate trimmed %}Barking{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_barking_level_display }}</strong>
     </div>
@@ -221,7 +221,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🌱</span>
-            <span>Allergy friendly</span>
+            <span>{% blocktranslate trimmed %}Allergy friendly{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_hypoallergenic_display }}</strong>
     </div>
@@ -229,7 +229,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🏡</span>
-            <span>Family friendly</span>
+            <span>{% blocktranslate trimmed %}Family friendly{% endblocktranslate %}</span>
         </div>
         <strong>{{ post.get_family_friendliness_display }}</strong>
     </div>
@@ -237,7 +237,7 @@ title="Next"
     <div class="param-card">
         <div class="top">
             <span class="icon">🐩</span>
-            <span>Coat</span>
+            <span>{% blocktranslate trimmed %}Coat{% endblocktranslate %}</span>
         </div>
         <strong>
             {% if post.coat_length.all %}
@@ -255,7 +255,7 @@ title="Next"
         <div class="param-card wide">
     <div class="top">
         <span class="icon">🎨</span>
-        <span>Colors</span>
+        <span>{% blocktranslate trimmed %}Colors{% endblocktranslate %}</span>
     </div>
     <strong>{{ post.colors }}</strong>
 </div>
@@ -284,48 +284,48 @@ title="Next"
 <!--<p class="images-rule">
                 This website is non-commercial. All images are used with attribution.
                 If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
-                <a href="mailto:woofdogs23@gmail.com" class="link-policies">contact us</a>.
+                <a href="mailto:woofdogs23@gmail.com" class="link-policies">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
             </p>-->
 
     <!-- About the breed -->
-    <h2 class="section-title">About the Breed</h2>
+    <h2 class="section-title">{% blocktranslate trimmed %}About the Breed{% endblocktranslate %}</h2>
     <div class="post-text">
 
         {% if post.slug == "german-spitz" %}
             <p class="varieties-note">
-                Varieties of German Spitz (links to breeds):
+                {% blocktranslate trimmed %}Varieties of German Spitz (links to breeds):{% endblocktranslate %}
                 <strong>
                     <a href="{% url 'post' post.cat.slug 'keeshond-wolfspitz' %}"
-                       style="text-decoration: underline;">Keeshond (Wolfspitz)</a>,
+                       style="text-decoration: underline;">{% blocktranslate trimmed %}Keeshond (Wolfspitz){% endblocktranslate %}</a>,
                     <a href="{% url 'post' post.cat.slug 'pomeranian' %}"
-                       style="text-decoration: underline;">Pomeranian</a>
+                       style="text-decoration: underline;">{% blocktranslate trimmed %}Pomeranian{% endblocktranslate %}</a>
                 </strong><br>
 
-                Varieties of German Spitz by size:
-                <strong>Miniature, Medium, Giant</strong><br>
+                {% blocktranslate trimmed %}Varieties of German Spitz by size:{% endblocktranslate %}
+                <strong>{% blocktranslate trimmed %}Miniature, Medium, Giant{% endblocktranslate %}</strong><br>
             </p>
         {% endif %}
 
         {% if post.slug == "keeshond-wolfspitz" or post.slug == "pomeranian" %}
             <p class="varieties-note">
-                German Spitz link:
+                {% blocktranslate trimmed %}German Spitz link:{% endblocktranslate %}
                 <strong>
                     <a href="{% url 'post' post.cat.slug 'german-spitz' %}"
-                       style="text-decoration: underline;">German Spitz</a>
+                       style="text-decoration: underline;">{% blocktranslate trimmed %}German Spitz{% endblocktranslate %}</a>
                 </strong><br>
             </p>
         {% endif %}
 
-        <p><strong> Summary.</strong><br> {{ post.summary }}</p>
-        <p><strong>Care.</strong><br> {{ post.care }}</p>
-        <p><strong>Conditions.</strong><br> {{ post.living_conditions }}</p>
+        <p><strong>{% blocktranslate trimmed %}Summary.{% endblocktranslate %}</strong><br> {{ post.summary }}</p>
+        <p><strong>{% blocktranslate trimmed %}Care.{% endblocktranslate %}</strong><br> {{ post.care }}</p>
+        <p><strong>{% blocktranslate trimmed %}Conditions.{% endblocktranslate %}</strong><br> {{ post.living_conditions }}</p>
         <div class="post-meta-bottom">
 <!--            <p class="updated last-updated">
                 {{ post.time_update|date:"d F Y" }}
             </p>-->
 
             <button class="share-btn" id="shareBtn">
-                <span class="share-text" data-default="Copy link" title="Copy link">Copy link</span>
+                <span class="share-text" data-default="{% trans 'Copy link' %}" title="{% trans 'Copy link' %}">{% trans "Copy link" %}</span>
                 <span class="share-icon" data-default="🔗">🔗</span>
             </button>
         </div>
@@ -340,8 +340,8 @@ title="Next"
 
     <span class="modal-arrow prev">
         <img src="{% static 'left.svg' %}"
-             alt="Previous page"
-title="Previous"
+             alt="{% trans 'Previous page' %}"
+title="{% trans 'Previous' %}"
              class="icon-post"
              width="18"
              height="23"
@@ -355,8 +355,8 @@ title="Previous"
 
     <span class="modal-arrow next">
         <img src="{% static 'right.svg' %}"
-             alt="Next page"
-title="Next"
+             alt="{% trans 'Next page' %}"
+title="{% trans 'Next' %}"
              class="icon-post"
              width="18"
              height="23"
@@ -368,7 +368,7 @@ title="Next"
 <!-- Compare dogs -->
 <div class="compare-section">
 
-    <h2 class="section-title">Compare breeds</h2>
+    <h2 class="section-title">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</h2>
 
     <div id="comparePanel" class="compare-panel hidden">
 
@@ -382,8 +382,8 @@ title="Next"
 
             <span class="vs">vs</span>
 
-            <select id="breedB" class="compare-select" title="Select breed">
-                <option value="">Select breed</option>
+            <select id="breedB" class="compare-select" title="{% trans 'Select breed' %}">
+                <option value="">{% trans "Select breed" %}</option>
 
                 {% for dog in all_breeds %}
                     {% if dog.id != post.id %}
@@ -404,26 +404,26 @@ title="Next"
 
 <!-- Related dogs -->
 {% if related_dogs and post.slug != 'dachshund' %}
-<h2 class="section-title">Other «{{ post.cat.name }}»</h2>
+<h2 class="section-title">{% blocktranslate trimmed with name=post.cat.name %}Other «{{ name }}»{% endblocktranslate %}</h2>
 <div class="slider-block">
     <div class="slider-inner">
         <div class="slider-nav">
                 <button class="slider-arrow slider-prev disabled">
                     <img src="{% static 'left.svg' %}"
-                         alt="Previous page"
-title="Previous"
+                         alt="{% trans 'Previous page' %}"
+title="{% trans 'Previous' %}"
                          class="icon-post"
                          width="18"
                          height="23"
                     >
-                    <span>prev</span>
+                    <span>{% trans "prev" %}</span>
                 </button>
 
                 <button class="slider-arrow slider-next">
-                    <span>next</span>
+                    <span>{% trans "next" %}</span>
                     <img src="{% static 'right.svg' %}"
-                         alt="Next page"
-title="Next"
+                         alt="{% trans 'Next page' %}"
+title="{% trans 'Next' %}"
                          class="icon-post"
                          width="18"
                          height="23"

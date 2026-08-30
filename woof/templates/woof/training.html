@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -7,9 +8,9 @@
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -18,15 +19,11 @@
 
         <span>/</span>
 
-        <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
-            Dog guides
-        </a>
+        <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
 
         <span>/</span>
 
-        <span class="current">
-            Dog training fundamentals
-        </span>
+        <span class="current">{% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}</span>
 
     </div>
 </div>
@@ -34,15 +31,13 @@
 <!-- Dog training guide content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">
-        Dog training fundamentals
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}</h1>
 
     <div class="post-text-explore">
 
         <img
             src="{% static 'guides6.webp' %}"
-            alt="Dog training fundamentals"
+            alt="{% trans 'Dog training fundamentals' %}"
             class="guide-image guide-image-6"
             width="260"
             height="230"
@@ -50,91 +45,53 @@
             decoding="async"
         >
 
-        <p class="section-title">
-            What training actually is
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}What training actually is{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Dog training is the process of building clear communication between human and dog through consistent signals and predictable outcomes.
-            It is not about control, but about establishing shared understanding.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Dog training is the process of building clear communication between human and dog through consistent signals and predictable outcomes.
+            It is not about control, but about establishing shared understanding.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Training influences everyday behavior, safety, and the ability of the dog to function comfortably in human environments.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Training influences everyday behavior, safety, and the ability of the dog to function comfortably in human environments.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Consistency and repetition
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Consistency and repetition{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Dogs learn through repetition and pattern recognition.
-            The same action must lead to the same result in order for learning to stabilize.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Dogs learn through repetition and pattern recognition.
+            The same action must lead to the same result in order for learning to stabilize.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Inconsistent rules create confusion and slow down behavioral development.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Inconsistent rules create confusion and slow down behavioral development.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Clear repetition is more effective than complex commands or frequent changes in approach.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Clear repetition is more effective than complex commands or frequent changes in approach.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Communication signals
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Communication signals{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Training relies on clear and simple signals that the dog can associate with specific actions.
-            Timing is important because dogs connect behavior and outcome within a short time window.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Training relies on clear and simple signals that the dog can associate with specific actions.
+            Timing is important because dogs connect behavior and outcome within a short time window.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Emotional tone, body language, and predictability of response all influence learning speed.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Emotional tone, body language, and predictability of response all influence learning speed.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Common learning mistakes
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Common learning mistakes{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            One of the most common issues is mixing signals, where different responses are given for the same behavior.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}One of the most common issues is mixing signals, where different responses are given for the same behavior.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Another issue is expecting immediate results.
-            Learning takes time and depends on repetition rather than single sessions.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Another issue is expecting immediate results.
+            Learning takes time and depends on repetition rather than single sessions.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Overloading with commands or complexity can slow progress significantly.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Overloading with commands or complexity can slow progress significantly.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Building reliable behavior
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Building reliable behavior{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Reliable behavior is achieved through stable routines and predictable outcomes rather than intensity of training.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Reliable behavior is achieved through stable routines and predictable outcomes rather than intensity of training.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Small, repeated successes build stronger long-term behavior than occasional intensive sessions.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Small, repeated successes build stronger long-term behavior than occasional intensive sessions.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Conclusion
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Training is a communication system that develops over time through consistency and clarity.
-            When properly structured, it creates stability and reduces misunderstandings between dog and owner.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Training is a communication system that develops over time through consistency and clarity.
+            When properly structured, it creates stability and reduces misunderstandings between dog and owner.{% endblocktranslate %}</p>
 
     </div>
 

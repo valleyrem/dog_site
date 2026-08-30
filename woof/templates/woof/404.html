@@ -1,9 +1,10 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Page Not Found</title>
+    <title>{% blocktranslate trimmed %}404 — Page Not Found{% endblocktranslate %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -193,27 +194,19 @@
 
     <div class="card">
 
-        <h1>404</h1>
+        <h1>{% blocktranslate trimmed %}404{% endblocktranslate %}</h1>
 
         <div class="paw">🐾</div>
 
-        <h2 class="title">
-            This page ran away.
-        </h2>
+        <h2 class="title">{% blocktranslate trimmed %}This page ran away.{% endblocktranslate %}</h2>
 
-        <p class="description">
-            The page you’re looking for doesn’t exist,
+        <p class="description">{% blocktranslate trimmed %}The page you’re looking for doesn’t exist,
             may have been moved,
-            or is still chasing squirrels somewhere else.
-        </p>
+            or is still chasing squirrels somewhere else.{% endblocktranslate %}</p>
 
-        <p class="hint">
-            Return to the homepage and continue exploring dog breeds.
-        </p>
+        <p class="hint">{% blocktranslate trimmed %}Return to the homepage and continue exploring dog breeds.{% endblocktranslate %}</p>
 
-        <a href="{% url 'home' %}" class="home-btn">
-            ← Back Home
-        </a>
+        <a href="{% url 'home' %}" class="home-btn">{% blocktranslate trimmed %}← Back Home{% endblocktranslate %}</a>
 
         <div class="dog-face">
             UᵔᴥᵔU

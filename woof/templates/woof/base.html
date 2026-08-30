@@ -110,7 +110,7 @@
         <li class="nav-logo">
 
             <a href="{% url 'home' %}">
-                <div class="logo-text" translate="no" title="Woof Dogs">
+                <div class="logo-text" translate="no" title="{% trans 'Woof Dogs' %}">
                     <span class="logo-letter logo-letter--primary">w</span>
                     <span class="logo-letter logo-letter--secondary">d</span>
                 </div>
@@ -144,7 +144,7 @@
                 data-list-icon="{% static 'list.svg' %}"
                 data-close-icon="{% static 'list-close.svg' %}">
                     <img src="{% static 'list.svg' %}"
-                         alt="Menu"
+                         alt="{% trans 'Menu' %}"
                          class="icon-list"
                          id="burger-icon">
             </button>
@@ -259,43 +259,43 @@
             <ul>
 
                 <li>
-                    <a href="{% url 'guides' %}" title="{% trans "All Guides" %}">
+                    <a href="{% url 'guides' %}" title="{% trans 'All Guides' %}">
                         {% trans "All Guides" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-choosing-dog' %}" title="{% trans "Choosing the right dog" %}">
+                    <a href="{% url 'guide-choosing-dog' %}" title="{% trans 'Choosing the right dog' %}">
                         {% trans "Choosing the right dog" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-puppy' %}" title="{% trans "Raising a puppy" %}">
+                    <a href="{% url 'guide-puppy' %}" title="{% trans 'Raising a puppy' %}">
                         {% trans "Raising a puppy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-training' %}" title="{% trans "Dog training fundamentals" %}">
+                    <a href="{% url 'guide-training' %}" title="{% trans 'Dog training fundamentals' %}">
                         {% trans "Dog training fundamentals" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-health' %}" title="{% trans "Dog health & care" %}">
+                    <a href="{% url 'guide-health' %}" title="{% trans 'Dog health & care' %}">
                         {% trans "Dog health & care" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-behavior' %}" title="{% trans "Dog behavior & communication" %}">
+                    <a href="{% url 'guide-behavior' %}" title="{% trans 'Dog behavior & communication' %}">
                         {% trans "Dog behavior & communication" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-living' %}" title="{% trans "Living with a dog" %}">
+                    <a href="{% url 'guide-living' %}" title="{% trans 'Living with a dog' %}">
                         {% trans "Living with a dog" %}
                     </a>
                 </li>
@@ -313,19 +313,19 @@
             <ul>
 
                 <li>
-                    <a href="{% url 'privacy-policy' %}" title="{% trans "Privacy Policy" %}">
+                    <a href="{% url 'privacy-policy' %}" title="{% trans 'Privacy Policy' %}">
                         {% trans "Privacy Policy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'cookie-policy' %}" title="{% trans "Cookie Policy" %}">
+                    <a href="{% url 'cookie-policy' %}" title="{% trans 'Cookie Policy' %}">
                         {% trans "Cookie Policy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'terms-of-use' %}" title="{% trans "Terms of Use" %}">
+                    <a href="{% url 'terms-of-use' %}" title="{% trans 'Terms of Use' %}">
                         {% trans "Terms of Use" %}
                     </a>
                 </li>
@@ -359,9 +359,9 @@
 
 
 <!-- Scroll to top button -->
-<button id="scroll-top-button" title="{% trans "Back to top" %}">
+<button id="scroll-top-button" title="{% trans 'Back to top' %}">
     <img src="{% static 'up.svg' %}"
-         alt="{% trans "go up" %}"
+         alt="{% trans 'go up' %}"
          class="icon-post"
          width="16"
          height="16"

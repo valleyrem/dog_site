@@ -1,5 +1,6 @@
 {% extends 'woof/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_loader %}
 <!-- Page loader -->
@@ -114,7 +115,7 @@
                         </p>
 
                         <p class="homepage-subtitle">
-                            A little mess, a lot of <span class="love-word">love</span>
+                            {% blocktranslate trimmed %}A little mess, a lot of <span class="love-word">love</span>{% endblocktranslate %}
                         </p>
 
 
@@ -122,16 +123,16 @@
                         <div class="homepage-search-block">
 
                             <!-- Group search -->
-                            <div class="homepage-search" title="Find by group">
+                            <div class="homepage-search" title="{% trans 'Find by group' %}">
 
                                 <label for="breed-select" class="visually-hidden">
-                                    Find by group
+                                    {% trans "Find by group" %}
                                 </label>
 
                                 <select id="breed-select"
                                         onchange="if(this.value) window.location.href=this.value;">
 
-                                    <option value="">Find by group</option>
+                                    <option value="">{% trans "Find by group" %}</option>
 
                                     {% for group in cats %}
                                         <option value="{{ group.get_absolute_url }}">
@@ -145,15 +146,15 @@
 
 
                             <!-- Breed search -->
-                            <div class="homepage-search" title="Find by breed">
+                            <div class="homepage-search" title="{% trans 'Find by breed' %}">
 
                                 <label for="breed-select-1" class="visually-hidden">
-                                    Find by breed
+                                    {% trans "Find by breed" %}
                                 </label>
 
                                 <select id="breed-select-1">
 
-                                    <option value="">Find by breed</option>
+                                    <option value="">{% trans "Find by breed" %}</option>
 
                                     {% for dog in posts %}
                                         <option value="{{ dog.get_absolute_url }}">
@@ -169,8 +170,8 @@
 
 
                         <p class="homepage-subsubtitle">
-                            A simple way to find a dog that really fits your lifestyle,
-                            your home, and your everyday rhythm — and feels like it belongs there
+                            {% blocktranslate trimmed %}A simple way to find a dog that really fits your lifestyle,
+                            your home, and your everyday rhythm — and feels like it belongs there{% endblocktranslate %}
                         </p>
 
                     </div>
@@ -186,7 +187,7 @@
                 <!-- Hero scroll arrow -->
                 <a href="#explore"
                    class="hero-arrow"
-                   title="Scroll down">
+                   title="{% trans 'Scroll down' %}">
 
                     <div class="arrow-icon"></div>
 
@@ -199,15 +200,15 @@
     </div>
 
 
-    <!-- Breed profiles -->
+    <!-- {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %} -->
     <div class="home-text-block" id="explore">
 
         <h1 class="home-text-block-title">
-            Breed profiles
+            {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %}
         </h1>
 
         <p class="homepage-subsubtitle">
-            Explore breeds by size, temperament,<br> lifestyle and more.
+            {% blocktranslate trimmed %}Explore breeds by size, temperament,<br> lifestyle and more.{% endblocktranslate %}
         </p>
 
     </div>
@@ -224,25 +225,25 @@
                 <button class="slider-arrow slider-prev disabled">
 
                     <img src="{% static 'left.svg' %}"
-                         alt="Previous page"
-                         title="Previous"
+                         alt="{% trans 'Previous page' %}"
+                         title="{% trans 'Previous' %}"
                          class="icon-post"
                          width="18"
                          height="23"
                     >
 
-                    <span>prev</span>
+                    <span>{% trans "prev" %}</span>
 
                 </button>
 
 
                 <button class="slider-arrow slider-next">
 
-                    <span>next</span>
+                    <span>{% trans "next" %}</span>
 
                     <img src="{% static 'right.svg' %}"
-                         alt="Next page"
-                         title="Next"
+                         alt="{% trans 'Next page' %}"
+                         title="{% trans 'Next' %}"
                          class="icon-post"
                          width="18"
                          height="23"
