@@ -1,5 +1,92 @@
-{% extends 'woof/base_fullwidth.html' %}
+{% extends 'woof/base.html' %}
 {% load static %}
+
+{% block page_loader %}
+<!-- Page loader -->
+<div class="page-loader" id="page-loader">
+
+    <div class="loader-logo">
+        <span class="loader-logo-w">w</span><span class="loader-logo-d">d</span>
+    </div>
+
+    <p>woof...</p>
+
+</div>
+{% endblock %}
+
+{# Full-width homepage: no boxed container, sidebar outside the content flow #}
+{% block layout_container %}{% endblock %}
+{% block layout_container_close %}{% endblock %}
+
+{% block sidebar %}
+
+<!-- Sidebar -->
+<aside class="sidebar-nav nav-2">
+
+    <div class="mobile-menu">
+
+
+        <!-- Main menu -->
+        <ul class="mobile-menu__list--top">
+
+            {% for m in menu %}
+
+                <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                    <a href="{% url m.url_name %}" title="{{ m.title }}">
+                        {{ m.title }}
+                    </a>
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+
+        <!-- Groups -->
+        <ul class="mobile-menu__list">
+
+            {% for category in cats %}
+
+                {% if category.pk != 10 %}
+
+                    <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
+                        <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</aside>
+
+{% endblock %}
+
+{% block main_class %}fullwidth-content{% endblock %}
+
+{% block body_scripts %}
+<script>
+    window.addEventListener('load', function () {
+
+        const loader = document.getElementById('page-loader');
+
+        if (!loader) {
+            return;
+        }
+
+        loader.classList.add('is-hidden');
+
+        setTimeout(function () {
+            loader.remove();
+        }, 400);
+    });
+</script>
+{% endblock %}
 
 {% block content %}
 

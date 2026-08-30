@@ -79,6 +79,8 @@
 
 <body class="layout-root">
 
+{% block page_loader %}{% endblock %}
+
 <!-- Header -->
 {% block mainmenu %}
 
@@ -156,11 +158,14 @@
 {% endblock %}
 
 
-<!-- Layout -->
+<!-- Layout: a boxed container with a sidebar by default; the homepage
+     overrides these blocks for the full-width layout. -->
+{% block layout_container %}
 <div class="layout-container">
+{% endblock %}
 
+{% block sidebar %}
 
-    <!-- Sidebar -->
     {% if not is_home %}
 
         <aside class="sidebar-nav">
@@ -207,13 +212,17 @@
 
     {% endif %}
 
+{% endblock %}
+
 
     <!-- Main content -->
-    <main class="layout-content">
+    <main class="{% block main_class %}layout-content{% endblock %}">
         {% block content %}{% endblock %}
     </main>
 
+{% block layout_container_close %}
 </div>
+{% endblock %}
 
 
 <!-- Footer -->
@@ -225,7 +234,7 @@
         <!-- Navigation -->
         <div class="footer-col">
 
-            <p><strong>Navigation</strong></p>
+            <p><strong>{% trans "Navigation" %}</strong></p>
 
             <ul>
 
@@ -245,49 +254,49 @@
         <!-- Guides -->
         <div class="footer-col">
 
-            <p><strong>Guides</strong></p>
+            <p><strong>{% trans "Guides" %}</strong></p>
 
             <ul>
 
                 <li>
-                    <a href="{% url 'guides' %}" title="All Guides">
-                        All Guides
+                    <a href="{% url 'guides' %}" title="{% trans "All Guides" %}">
+                        {% trans "All Guides" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-choosing-dog' %}" title="Choosing the right dog">
-                        Choosing the right dog
+                    <a href="{% url 'guide-choosing-dog' %}" title="{% trans "Choosing the right dog" %}">
+                        {% trans "Choosing the right dog" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-puppy' %}" title="Raising a puppy">
-                        Raising a puppy
+                    <a href="{% url 'guide-puppy' %}" title="{% trans "Raising a puppy" %}">
+                        {% trans "Raising a puppy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-training' %}" title="Dog training fundamentals">
-                        Dog training fundamentals
+                    <a href="{% url 'guide-training' %}" title="{% trans "Dog training fundamentals" %}">
+                        {% trans "Dog training fundamentals" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-health' %}" title="Dog health & care">
-                        Dog health & care
+                    <a href="{% url 'guide-health' %}" title="{% trans "Dog health & care" %}">
+                        {% trans "Dog health & care" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-behavior' %}" title="Dog behavior & communication">
-                        Dog behavior & communication
+                    <a href="{% url 'guide-behavior' %}" title="{% trans "Dog behavior & communication" %}">
+                        {% trans "Dog behavior & communication" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-living' %}" title="Living with a dog">
-                        Living with a dog
+                    <a href="{% url 'guide-living' %}" title="{% trans "Living with a dog" %}">
+                        {% trans "Living with a dog" %}
                     </a>
                 </li>
 
@@ -299,25 +308,25 @@
         <!-- Info -->
         <div class="footer-col">
 
-            <p><strong>Info</strong></p>
+            <p><strong>{% trans "Info" %}</strong></p>
 
             <ul>
 
                 <li>
-                    <a href="{% url 'privacy-policy' %}" title="Privacy Policy">
-                        Privacy Policy
+                    <a href="{% url 'privacy-policy' %}" title="{% trans "Privacy Policy" %}">
+                        {% trans "Privacy Policy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'cookie-policy' %}" title="Cookie Policy">
-                        Cookie Policy
+                    <a href="{% url 'cookie-policy' %}" title="{% trans "Cookie Policy" %}">
+                        {% trans "Cookie Policy" %}
                     </a>
                 </li>
 
                 <li>
-                    <a href="{% url 'terms-of-use' %}" title="Terms of Use">
-                        Terms of Use
+                    <a href="{% url 'terms-of-use' %}" title="{% trans "Terms of Use" %}">
+                        {% trans "Terms of Use" %}
                     </a>
                 </li>
 
@@ -332,9 +341,9 @@
             <p><strong>Woof Dogs</strong></p>
 
             <p class="footer-text">
-                Dog breeds catalog.<br>
-                Non-commercial informational project.<br>
-                Find a dog that fits your life.
+                {% trans "Dog breeds catalog." %}<br>
+                {% trans "Non-commercial informational project." %}<br>
+                {% trans "Find a dog that fits your life." %}
             </p>
 
         </div>
@@ -350,15 +359,17 @@
 
 
 <!-- Scroll to top button -->
-<button id="scroll-top-button" title="Back to top">
+<button id="scroll-top-button" title="{% trans "Back to top" %}">
     <img src="{% static 'up.svg' %}"
-         alt="go up"
+         alt="{% trans "go up" %}"
          class="icon-post"
          width="16"
          height="16"
     >
 </button>
 
+
+{% block body_scripts %}{% endblock %}
 
 <!-- GTM noscript -->
 <noscript>

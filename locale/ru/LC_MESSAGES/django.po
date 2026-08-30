@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-29 16:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: templates/admin/base_site.html:9
+msgid "Django site admin"
+msgstr "Админ-сайт Woof Dogs"
+
+#: templates/admin/base_site.html:12
+msgid "Django administration"
+msgstr "Администрация Woof Dogs"
+
+#: woof/templates/woof/base.html:130
+#: woof/templates/woof/base_fullwidth.html:122
+msgid "Language"
+msgstr "Язык"
+
+#: woof/templates/woof/base.html:228
+msgid "Navigation"
+msgstr "Навигация"
+
+#: woof/templates/woof/base.html:253 woof/templates/woof/base.html:254
+msgid "All Guides"
+msgstr "Все гайды"
+
+#: woof/templates/woof/base.html:259 woof/templates/woof/base.html:260
+msgid "Choosing the right dog"
+msgstr "Как выбрать собаку"
+
+#: woof/templates/woof/base.html:265 woof/templates/woof/base.html:266
+msgid "Raising a puppy"
+msgstr "Воспитание щенка"
+
+#: woof/templates/woof/base.html:271 woof/templates/woof/base.html:272
+msgid "Dog training fundamentals"
+msgstr "Основы дрессировки"
+
+#: woof/templates/woof/base.html:277 woof/templates/woof/base.html:278
+msgid "Dog health & care"
+msgstr "Здоровье и уход"
+
+#: woof/templates/woof/base.html:283 woof/templates/woof/base.html:284
+msgid "Dog behavior & communication"
+msgstr "Поведение и общение"
+
+#: woof/templates/woof/base.html:289 woof/templates/woof/base.html:290
+msgid "Living with a dog"
+msgstr "Жизнь с собакой"
+
+#: woof/templates/woof/base.html:302
+msgid "Info"
+msgstr "Информация"
+
+#: woof/templates/woof/base.html:307 woof/templates/woof/base.html:308
+msgid "Privacy Policy"
+msgstr "Политика конфиденциальности"
+
+#: woof/templates/woof/base.html:313 woof/templates/woof/base.html:314
+msgid "Cookie Policy"
+msgstr "Политика cookies"
+
+#: woof/templates/woof/base.html:319 woof/templates/woof/base.html:320
+msgid "Terms of Use"
+msgstr "Условия использования"
+
+#: woof/templates/woof/base.html:335
+msgid "Dog breeds catalog."
+msgstr "Каталог пород собак."
+
+#: woof/templates/woof/base.html:336
+msgid "Non-commercial informational project."
+msgstr "Некоммерческий информационный проект."
+
+#: woof/templates/woof/base.html:337
+msgid "Find a dog that fits your life."
+msgstr "Найдите собаку, которая подойдёт вам."
+
+#: woof/templates/woof/base.html:353
+msgid "Back to top"
+msgstr "Наверх"
+
+#: woof/templates/woof/base.html:355
+msgid "go up"
+msgstr "наверх"
+
+#: woof/utils.py:8
+msgid "All groups"
+msgstr "Все группы"
+
+#: woof/utils.py:9
+msgid "About us"
+msgstr "О нас"
+
+#: woof/utils.py:10
+msgid "Guides"
+msgstr "Гайды"
+
+#: woof/utils.py:11
+msgid "Explore"
+msgstr "Подборки"
+
+#: woof/utils.py:12
+msgid "Contact"
+msgstr "Контакты"

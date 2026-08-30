@@ -1,14 +1,15 @@
 from django.core.cache import cache
 from django.db.models import Count
+from django.utils.translation import gettext_lazy as _
 
 from .models import Category, Dogs
 
 menu = [
-    {"title": "All groups", "url_name": "groups"},
-    {"title": "About us", "url_name": "about"},
-    {"title": "Guides", "url_name": "guides"},
-    {"title": "Explore", "url_name": "dog-explore"},
-    {"title": "Contact", "url_name": "contact"},
+    {"title": _("All groups"), "url_name": "groups"},
+    {"title": _("About us"), "url_name": "about"},
+    {"title": _("Guides"), "url_name": "guides"},
+    {"title": _("Explore"), "url_name": "dog-explore"},
+    {"title": _("Contact"), "url_name": "contact"},
 ]
 
 CATS_CACHE_KEY = "cats"
