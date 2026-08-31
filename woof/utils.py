@@ -1,5 +1,6 @@
 from django.core.cache import cache
 from django.db.models import Count
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
 from .models import Category, Dogs
@@ -36,8 +37,11 @@ class DataMixin:
 
     @staticmethod
     def _get_categories():
+        # translation-aware cache key: the first request (en or ru) would
+        # otherwise seed the shared cache with only one language
+        lang = get_language()
         return cache.get_or_set(
-            CATS_CACHE_KEY,
+            f"{CATS_CACHE_KEY}:{lang}",
             lambda: list(Category.objects.annotate(Count("dogs"))),
             CATS_CACHE_TIMEOUT,
         )
