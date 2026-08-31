@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-30 13:25+0200\n"
+"POT-Creation-Date: 2026-08-31 15:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,6 +38,126 @@ msgstr "E-mail"
 #: woof/forms.py:22
 msgid "Message"
 msgstr "Сообщение"
+
+#: woof/models.py:27
+msgid "When necessary (rare, purposeful)"
+msgstr "Когда необходимо (редко, осознанно)"
+
+#: woof/models.py:28
+msgid "Infrequent (occasional barking)"
+msgstr "Редкий (периодический лай)"
+
+#: woof/models.py:29
+msgid "Medium (regular alert barking)"
+msgstr "Средний (регулярный настороженный лай)"
+
+#: woof/models.py:30
+msgid "Frequent (barks often)"
+msgstr "Частый (лает часто)"
+
+#: woof/models.py:31
+msgid "Very vocal (howls, talks, barks)"
+msgstr "Очень голосистая (воет, «разговаривает», лает)"
+
+#: woof/models.py:35
+msgid "XSmall"
+msgstr "Очень маленький"
+
+#: woof/models.py:36
+msgid "Small"
+msgstr "Маленький"
+
+#: woof/models.py:37
+msgid "Small to Medium"
+msgstr "Маленький — средний"
+
+#: woof/models.py:38
+msgid "Small to Large"
+msgstr "Маленький — крупный"
+
+#: woof/models.py:39
+msgid "Medium"
+msgstr "Средний"
+
+#: woof/models.py:40
+msgid "Medium to Large"
+msgstr "Средний — крупный"
+
+#: woof/models.py:41
+msgid "Large"
+msgstr "Крупный"
+
+#: woof/models.py:42
+msgid "XLarge"
+msgstr "Очень крупный"
+
+#: woof/models.py:76
+msgid "Independent (thinks for itself)"
+msgstr "Самостоятельная (думает своей головой)"
+
+#: woof/models.py:77
+msgid "May be stubborn (patience)"
+msgstr "Может упрямиться (нужно терпение)"
+
+#: woof/models.py:78
+msgid "Agreeable (trainable)"
+msgstr "Покладистая (поддаётся дрессировке)"
+
+#: woof/models.py:79
+msgid "Eager to please (quick learner)"
+msgstr "Старается угодить (быстро обучается)"
+
+#: woof/models.py:80
+msgid "Easy training (very easy to train)"
+msgstr "Лёгкая дрессировка (очень легко обучается)"
+
+#: woof/models.py:84
+msgid "Calm (low energy)"
+msgstr "Спокойная (низкая энергичность)"
+
+#: woof/models.py:85
+msgid "Regular exercise (daily walks)"
+msgstr "Регулярные нагрузки (ежедневные прогулки)"
+
+#: woof/models.py:86
+msgid "Needs lots of activity"
+msgstr "Нужна большая активность"
+
+#: woof/models.py:87
+msgid "Very energetic (high endurance)"
+msgstr "Очень энергичная (высокая выносливость)"
+
+#: woof/models.py:91
+msgid "No (not hypoallergenic)"
+msgstr "Нет (не гипоаллергенная)"
+
+#: woof/models.py:92
+msgid "Low (sheds a lot)"
+msgstr "Низкая (сильно линяет)"
+
+#: woof/models.py:93
+msgid "Moderate (some shedding)"
+msgstr "Средняя (умеренная линька)"
+
+#: woof/models.py:94
+msgid "High (minimal shedding)"
+msgstr "Высокая (минимальная линька)"
+
+#: woof/models.py:98
+msgid "Low (better with adults, limited tolerance)"
+msgstr "Низкая (лучше с взрослыми, ограниченная терпимость)"
+
+#: woof/models.py:99
+msgid "Medium (family-oriented, needs supervision)"
+msgstr "Средняя (ориентирована на семью, нужен присмотр)"
+
+#: woof/models.py:100
+msgid "High (affectionate, good with family)"
+msgstr "Высокая (ласковая, хороша для семьи)"
+
+#: woof/models.py:101
+msgid "Excellent (very gentle, great with kids)"
+msgstr "Отличная (очень нежная, прекрасна с детьми)"
 
 #: woof/templates/woof/404.html:7
 msgid "404 — Page Not Found"
@@ -91,7 +211,7 @@ msgid "Home"
 msgstr "Главная"
 
 #: woof/templates/woof/about.html:23 woof/templates/woof/about.html:31
-#: woof/templates/woof/about.html:37 woof/utils.py:9
+#: woof/templates/woof/about.html:37 woof/utils.py:10
 msgid "About us"
 msgstr "О нас"
 
@@ -219,7 +339,7 @@ msgstr "Меню"
 msgid "Navigation"
 msgstr "Навигация"
 
-#: woof/templates/woof/base.html:257 woof/utils.py:10
+#: woof/templates/woof/base.html:257 woof/utils.py:11
 msgid "Guides"
 msgstr "Гайды"
 
@@ -696,7 +816,7 @@ msgstr ""
 "значительно легче."
 
 #: woof/templates/woof/contact.html:23 woof/templates/woof/contact.html:32
-#: woof/utils.py:12
+#: woof/utils.py:13
 msgid "Contact"
 msgstr "Контакты"
 
@@ -880,7 +1000,7 @@ msgstr "Собаки не найдены."
 
 #: woof/templates/woof/dog_groups.html:24
 #: woof/templates/woof/dog_groups.html:34
-#: woof/templates/woof/dog_groups.html:38 woof/utils.py:11
+#: woof/templates/woof/dog_groups.html:38 woof/utils.py:12
 msgid "Explore"
 msgstr "Подборки"
 
@@ -1872,7 +1992,7 @@ msgstr "13. Контактная информация"
 
 #: woof/templates/woof/privacy_policy.html:77
 msgid "This Privacy Policy describes how"
-msgstr "Политика конфиденциальности"
+msgstr "Эта Политика конфиденциальности описывает, как"
 
 #: woof/templates/woof/privacy_policy.html:79
 msgid ""
@@ -2029,7 +2149,8 @@ msgstr "Великобритания (UK GDPR)"
 
 #: woof/templates/woof/privacy_policy.html:165
 msgid "For UK users, data is processed under the"
-msgstr "Для пользователей из Великобритании данные обрабатываются в соответствии с"
+msgstr ""
+"Для пользователей из Великобритании данные обрабатываются в соответствии с"
 
 #: woof/templates/woof/privacy_policy.html:167
 msgid "UK DPA 2018"
@@ -2049,7 +2170,9 @@ msgstr "Соединённые Штаты"
 
 #: woof/templates/woof/privacy_policy.html:177
 msgid "US residents may have privacy rights under state laws, including:"
-msgstr "Жители США могут иметь права на конфиденциальность по законам штатов, включая:"
+msgstr ""
+"Жители США могут иметь права на конфиденциальность по законам штатов, "
+"включая:"
 
 #: woof/templates/woof/privacy_policy.html:184
 msgid "California Consumer Privacy Act (CCPA/CPRA)"
@@ -2093,11 +2216,11 @@ msgstr "Обрабатывается в соответствии с"
 
 #: woof/templates/woof/privacy_policy.html:232
 msgid "Privacy Act 1988"
-msgstr "Политика конфиденциальности"
+msgstr "Закон о конфиденциальности 1988"
 
 #: woof/templates/woof/privacy_policy.html:236
 msgid "Other countries"
-msgstr "Другие породы"
+msgstr "Другие страны"
 
 #: woof/templates/woof/privacy_policy.html:239
 msgid "We follow generally accepted international data protection principles."
@@ -2430,7 +2553,9 @@ msgstr "Контакты"
 msgid ""
 "These Terms of Use constitute a legally binding agreement between you "
 "(«you») and"
-msgstr "Настоящие Условия использования представляют собой юридически обязательное соглашение между вами («вы») и"
+msgstr ""
+"Настоящие Условия использования представляют собой юридически обязательное "
+"соглашение между вами («вы») и"
 
 #: woof/templates/woof/terms_and_conditions.html:69
 msgid "regarding your access to and use of"
@@ -2748,7 +2873,7 @@ msgstr "Жизнь с собакой - Woof Dogs"
 msgid "Raising a Puppy - Woof Dogs"
 msgstr "Воспитание щенка - Woof Dogs"
 
-#: woof/utils.py:8
+#: woof/utils.py:9
 msgid "All groups"
 msgstr "Все группы"
 

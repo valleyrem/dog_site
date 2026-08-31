@@ -1,8 +1,9 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, ResizeToFit
-from django.core.exceptions import ValidationError
 from smart_selects.db_fields import ChainedForeignKey
 
 
@@ -23,22 +24,22 @@ class CoatLength(models.Model):
 
 class Dogs(models.Model):
     BARKING_CHOICES = [
-        ('necessary', 'When necessary (rare, purposeful)'),
-        ('infrequent', 'Infrequent (occasional barking)'),
-        ('medium', 'Medium (regular alert barking)'),
-        ('frequent', 'Frequent (barks often)'),
-        ('vocal', 'Very vocal (howls, talks, barks)'),
+        ('necessary', _('When necessary (rare, purposeful)')),
+        ('infrequent', _('Infrequent (occasional barking)')),
+        ('medium', _('Medium (regular alert barking)')),
+        ('frequent', _('Frequent (barks often)')),
+        ('vocal', _('Very vocal (howls, talks, barks)')),
     ]
 
     SIZE_CHOICES = [
-        ('xsmall', 'XSmall'),
-        ('small', 'Small'),
-        ('small_medium', 'Small to Medium'),
-        ('small_large', 'Small to Large'),
-        ('medium', 'Medium'),
-        ('medium_large', 'Medium to Large'),
-        ('large', 'Large'),
-        ('xlarge', 'XLarge'),
+        ('xsmall', _('XSmall')),
+        ('small', _('Small')),
+        ('small_medium', _('Small to Medium')),
+        ('small_large', _('Small to Large')),
+        ('medium', _('Medium')),
+        ('medium_large', _('Medium to Large')),
+        ('large', _('Large')),
+        ('xlarge', _('XLarge')),
     ]
 
     SIZE_INDEX = {
@@ -72,32 +73,32 @@ class Dogs(models.Model):
     ]
 
     TRAINABILITY_CHOICES = [
-        ('independent', 'Independent (thinks for itself)'),
-        ('stubborn', 'May be stubborn (patience)'),
-        ('agreeable', 'Agreeable (trainable)'),
-        ('eager', 'Eager to please (quick learner)'),
-        ('easy', 'Easy training (very easy to train)'),
+        ('independent', _('Independent (thinks for itself)')),
+        ('stubborn', _('May be stubborn (patience)')),
+        ('agreeable', _('Agreeable (trainable)')),
+        ('eager', _('Eager to please (quick learner)')),
+        ('easy', _('Easy training (very easy to train)')),
     ]
 
     ACTIVITY_CHOICES = [
-        ('calm', 'Calm (low energy)'),
-        ('regular', 'Regular exercise (daily walks)'),
-        ('high', 'Needs lots of activity'),
-        ('energetic', 'Very energetic (high endurance)'),
+        ('calm', _('Calm (low energy)')),
+        ('regular', _('Regular exercise (daily walks)')),
+        ('high', _('Needs lots of activity')),
+        ('energetic', _('Very energetic (high endurance)')),
     ]
 
     HYPOALLERGENIC_CHOICES = [
-        ('no', 'No (not hypoallergenic)'),
-        ('low', 'Low (sheds a lot)'),
-        ('moderate', 'Moderate (some shedding)'),
-        ('high', 'High (minimal shedding)'),
+        ('no', _('No (not hypoallergenic)')),
+        ('low', _('Low (sheds a lot)')),
+        ('moderate', _('Moderate (some shedding)')),
+        ('high', _('High (minimal shedding)')),
     ]
 
     FAMILY_FRIENDLINESS_CHOICES = [
-        ('low', 'Low (better with adults, limited tolerance)'),
-        ('medium', 'Medium (family-oriented, needs supervision)'),
-        ('high', 'High (affectionate, good with family)'),
-        ('excellent', 'Excellent (very gentle, great with kids)'),
+        ('low', _('Low (better with adults, limited tolerance)')),
+        ('medium', _('Medium (family-oriented, needs supervision)')),
+        ('high', _('High (affectionate, good with family)')),
+        ('excellent', _('Excellent (very gentle, great with kids)')),
     ]
 
     # main

@@ -1,6 +1,6 @@
 from modeltranslation.translator import TranslationOptions, translator
 
-from .models import Category, Dogs, Section
+from .models import Category, CoatLength, CoatType, Dogs, Section
 
 
 class DogsTranslationOptions(TranslationOptions):
@@ -27,6 +27,16 @@ class SectionTranslationOptions(TranslationOptions):
     fields = ("name",)
 
 
+class CoatTypeTranslationOptions(TranslationOptions):
+    fields = ("name",)
+
+
+class CoatLengthTranslationOptions(TranslationOptions):
+    fields = ("name",)
+
+
 translator.register(Dogs, DogsTranslationOptions)
 translator.register(Category, CategoryTranslationOptions)
 translator.register(Section, SectionTranslationOptions)
+translator.register(CoatType, CoatTypeTranslationOptions)
+translator.register(CoatLength, CoatLengthTranslationOptions)
