@@ -41,6 +41,7 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Applications
 
 INSTALLED_APPS = [
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
     # local-only tooling
     "debug_toolbar",
 ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
