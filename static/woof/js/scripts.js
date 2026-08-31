@@ -707,7 +707,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let breedB = null;
 
     async function loadBreed(id) {
-        const res = await fetch(`/api/breed/${id}/`);
+        const lang = document.documentElement.lang || "en";
+        const prefix = lang === "en" ? "" : `/${lang}`;
+        const res = await fetch(`${prefix}/api/breed/${id}/`);
         return await res.json();
     }
 
@@ -784,17 +786,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </tr>
 
-                ${row("🧬", "Varieties")}
-                ${row("🌍", "Origin")}
-                ${row("🐕", "Size")}
-                ${row("📏", "Height / Weight")}
-                ${row("🐩", "Coat")}
-                ${row("❤️", "Life expectancy")}
-                ${row("💡", "Trainability")}
-                ${row("🚀", "Activity")}
-                ${row("📢", "Barking")}
-                ${row("🌱", "Allergy-Friendly")}
-                ${row("🏡", "Family friendly")}
+                ${row("🧬", wrapper.dataset.i18nVarieties || "Varieties")}
+                ${row("🌍", wrapper.dataset.i18nOrigin || "Origin")}
+                ${row("🐕", wrapper.dataset.i18nSize || "Size")}
+                ${row("📏", wrapper.dataset.i18nHeightWeight || "Height / Weight")}
+                ${row("🐩", wrapper.dataset.i18nCoat || "Coat")}
+                ${row("❤️", wrapper.dataset.i18nLife || "Life expectancy")}
+                ${row("💡", wrapper.dataset.i18nTrainability || "Trainability")}
+                ${row("🚀", wrapper.dataset.i18nActivity || "Activity")}
+                ${row("📢", wrapper.dataset.i18nBarking || "Barking")}
+                ${row("🌱", wrapper.dataset.i18nAllergy || "Allergy-Friendly")}
+                ${row("🏡", wrapper.dataset.i18nFamily || "Family friendly")}
 
             </table>
         `;
@@ -865,7 +867,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     `${breedA.height || "-"} cm / ${breedA.weight || "-"} kg`,
                     `${breedB.height || "-"} cm / ${breedB.weight || "-"} kg`
                 ],
-
                 [
                     `${(breedA.coat_length || "").replaceAll(",", "/")}${
                         breedA.coat_length && breedA.coat_type ? ", " : ""
@@ -877,8 +878,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ],
 
                 [
-                    `${breedA.life} years`,
-                    `${breedB.life} years`
+                    `${breedA.life} ${wrapper.dataset.i18nYears || "years"}`,
+                    `${breedB.life} ${wrapper.dataset.i18nYears || "years"}`
                 ],
 
                 [

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-31 15:33+0200\n"
+"POT-Creation-Date: 2026-08-31 15:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1048,7 +1048,7 @@ msgstr "Предыдущие собаки"
 #: woof/templates/woof/dog_groups.html:327
 #: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:228
 #: woof/templates/woof/post.html:47 woof/templates/woof/post.html:343
-#: woof/templates/woof/post.html:413
+#: woof/templates/woof/post.html:425
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
@@ -1058,7 +1058,7 @@ msgstr "Предыдущая страница"
 #: woof/templates/woof/dog_groups.html:328
 #: woof/templates/woof/dogs_list.html:60 woof/templates/woof/home.html:229
 #: woof/templates/woof/post.html:48 woof/templates/woof/post.html:78
-#: woof/templates/woof/post.html:344 woof/templates/woof/post.html:414
+#: woof/templates/woof/post.html:344 woof/templates/woof/post.html:426
 msgid "Previous"
 msgstr "Назад"
 
@@ -1075,7 +1075,7 @@ msgstr "Следующие собаки"
 #: woof/templates/woof/dog_groups.html:364
 #: woof/templates/woof/dogs_list.html:71 woof/templates/woof/home.html:245
 #: woof/templates/woof/post.html:62 woof/templates/woof/post.html:358
-#: woof/templates/woof/post.html:425
+#: woof/templates/woof/post.html:437
 msgid "Next page"
 msgstr "Следующая страница"
 
@@ -1085,7 +1085,7 @@ msgstr "Следующая страница"
 #: woof/templates/woof/dog_groups.html:365
 #: woof/templates/woof/dogs_list.html:72 woof/templates/woof/home.html:246
 #: woof/templates/woof/post.html:63 woof/templates/woof/post.html:98
-#: woof/templates/woof/post.html:359 woof/templates/woof/post.html:426
+#: woof/templates/woof/post.html:359 woof/templates/woof/post.html:438
 msgid "Next"
 msgstr "Вперёд"
 
@@ -1155,12 +1155,12 @@ msgid "Groups"
 msgstr "Все группы"
 
 #: woof/templates/woof/dogs_list.html:65 woof/templates/woof/home.html:235
-#: woof/templates/woof/post.html:419
+#: woof/templates/woof/post.html:431
 msgid "prev"
 msgstr "назад"
 
 #: woof/templates/woof/dogs_list.html:69 woof/templates/woof/home.html:242
-#: woof/templates/woof/post.html:423
+#: woof/templates/woof/post.html:435
 msgid "next"
 msgstr "вперёд"
 
@@ -1740,19 +1740,19 @@ msgstr ""
 msgid "Section"
 msgstr "Раздел"
 
-#: woof/templates/woof/post.html:150
+#: woof/templates/woof/post.html:150 woof/templates/woof/post.html:400
 msgid "Varieties"
 msgstr "Разновидности"
 
-#: woof/templates/woof/post.html:158
+#: woof/templates/woof/post.html:158 woof/templates/woof/post.html:401
 msgid "Origin"
 msgstr "Происхождение"
 
-#: woof/templates/woof/post.html:166
+#: woof/templates/woof/post.html:166 woof/templates/woof/post.html:402
 msgid "Size"
 msgstr "Размер"
 
-#: woof/templates/woof/post.html:174
+#: woof/templates/woof/post.html:174 woof/templates/woof/post.html:405
 msgid "Life expectancy"
 msgstr "Продолжительность жизни"
 
@@ -1778,7 +1778,7 @@ msgstr ""
 "Диапазон включает значения для кобелей и сук.\n"
 "            Индивидуальные значения могут различаться в зависимости от пола."
 
-#: woof/templates/woof/post.html:200
+#: woof/templates/woof/post.html:200 woof/templates/woof/post.html:406
 msgid "Trainability"
 msgstr "Обучаемость"
 
@@ -1786,7 +1786,7 @@ msgstr "Обучаемость"
 msgid "Activity level"
 msgstr "Уровень активности"
 
-#: woof/templates/woof/post.html:216
+#: woof/templates/woof/post.html:216 woof/templates/woof/post.html:408
 msgid "Barking"
 msgstr "Лай"
 
@@ -1794,11 +1794,11 @@ msgstr "Лай"
 msgid "Allergy friendly"
 msgstr "Гипоаллергенность"
 
-#: woof/templates/woof/post.html:232
+#: woof/templates/woof/post.html:232 woof/templates/woof/post.html:410
 msgid "Family friendly"
 msgstr "Дружелюбность к семье"
 
-#: woof/templates/woof/post.html:240
+#: woof/templates/woof/post.html:240 woof/templates/woof/post.html:404
 msgid "Coat"
 msgstr "Шерсть"
 
@@ -1862,7 +1862,23 @@ msgstr "Сравнить породы"
 msgid "Select breed"
 msgstr "Выберите породу"
 
+#: woof/templates/woof/post.html:403
+msgid "Height / Weight"
+msgstr "Рост / Вес"
+
 #: woof/templates/woof/post.html:407
+msgid "Activity"
+msgstr "Уровень активности"
+
+#: woof/templates/woof/post.html:409
+msgid "Allergy-Friendly"
+msgstr "Гипоаллергенность"
+
+#: woof/templates/woof/post.html:411
+msgid "years"
+msgstr "лет"
+
+#: woof/templates/woof/post.html:419
 #, python-format
 msgid "Other «%(name)s»"
 msgstr "Другие «%(name)s»"
