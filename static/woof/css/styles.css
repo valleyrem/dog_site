@@ -35,6 +35,27 @@
     font-display: swap;
 }
 
+/* Cyrillic display counterpart for Clash Display */
+@font-face {
+    /* real 700 file served under 600 so cyrillic headings render bolder
+       while latin (Clash Display) keeps its own weight */
+    font-family: 'Wix Madefor Display';
+    src: url('/static/fonts/WixMadeforDisplay-800.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url("/static/fonts/Manrope-Variable.woff2") format("woff2");
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 
 
 /* GENERAL */
@@ -46,9 +67,12 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     line-height: 1.8;
     font-size: 16px;
+    /* normalize cyrillic Manrope metrics to match latin Space Grotesk (ratio 0.486);
+       0.492 nudges cyrillic a touch larger — raise the number to grow it */
+    font-size-adjust: 0.500;
 }
 
 html {
@@ -75,7 +99,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     margin: 65px auto 0;
-    width: 1020px;
+    width: min(1300px, calc(100% - 2.5rem));
 }
 
 .layout-content {
@@ -129,7 +153,7 @@ a {
     justify-content: center;
     margin: 0;
     padding: 0;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     list-style: none;
 }
 
@@ -184,25 +208,27 @@ a {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     overflow: visible;
 }
 
 .nav-left-list li a {
     display: inline-flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     color: var(--color-text-primary);
     text-decoration: none;
     padding: 0 8px;
     font-size: 14px;
-    gap: 8px;
+    cursor: pointer;
 }
 
-.nav-left-list li a:hover,
+
 .nav-left-list li.is-active a {
-    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .nav-logo {
@@ -213,7 +239,7 @@ a {
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
 }
 
 .logo-letter--primary {
@@ -233,20 +259,31 @@ a {
     font-size: 14px;
 }
 
-.nav-groups {
-    justify-self: end;
+/* Language selector */
+.lang-select {
+    font-family: inherit;
     font-size: 14px;
-    padding: 3.5px 20px;
-    color: var(--color-text-primary);
-    background: var(--lavender);
-    border-radius: 20px;
+    color: var(--color-text-primary, inherit);
+    background: var(--white, transparent) url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%231C2B27' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 10px center;
     border: 1.5px solid #1C2B27;
-    box-shadow: 2px 2px 0 #1C2B27, 1px 2px 0 -10px #1C2B27;
+    border-radius: 20px;
+    box-shadow: 2px 2px 0 #1C2B27;
+    padding: 7px 28px 7px 12px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.lang-select:hover {
+    opacity: 0.85;
 }
 
 
 /* FOOTER */
 .site-footer {
+    /* body is a flex column with min-height:100vh; auto margin pushes the
+       footer to the bottom on short pages instead of leaving a gap below. */
+    margin-top: auto;
     border-top: 2px solid #1C2B27;
     border-bottom: 2px solid #1C2B27;
 }
@@ -288,7 +325,7 @@ a {
 
 .footer-text {
     font-size: 14px;
-    line-height: 1.5;
+/*    line-height: 1.5;*/
 }
 
 .footer-bottom {
@@ -377,11 +414,18 @@ a {
 
 .slider-inner {
     position: relative;
-    width: 1020px;
-    margin: 0 auto;
+/*    width: min(1300px, calc(100% - 2.5rem));
+    margin: 0 auto;*/
     margin-top: -56px;
     padding: 70px 0 20px;
     overflow: hidden;
+}
+
+/* Homepage slider runs full-width; box it to the same width as the
+   slider inside the layout container on all other pages */
+.homepage .slider-inner {
+    width: min(1300px, calc(100% - 2.5rem));
+    margin: 0 auto;
 }
 
 .slider-nav {
@@ -406,7 +450,7 @@ a {
     padding: 1px 3px;
     margin-top: 4px;
     touch-action: none;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .dog-slider-viewport {
@@ -416,7 +460,7 @@ a {
 
 .dog-slider-track {
     display: flex;
-    gap: 35px;
+    gap: 30px;
     transition: transform 0.35s ease;
     will-change: transform;
 }
@@ -467,16 +511,16 @@ a {
 .dog-card {
     display: flex;
     flex-direction: column;
-    width: 312px;
-    height: 400px;
+    width: 298px;
+    height: 405px;
     overflow: hidden;
     background: var(--white);
-    border: 0.5px solid var(--blue)
+    border: 0.5px solid var(--blue);
 }
 
 .dog-card__image {
     width: 100%;
-    height: 320px;
+    height: 325px;
     object-fit: cover;
     display: block;
     padding: 20px;
@@ -491,11 +535,11 @@ a {
     align-items: flex-start;
     background: var(--white);
     gap: 0;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .dog-card__title {
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
     margin: 0;
     font-weight: 700;
     font-size: 17px;
@@ -552,19 +596,29 @@ a {
 
 .post-title {
     margin: 0;
-    font-size: 28px;
-    font-family: 'Clash Display';
+    font-size: 24px;
+    font-family: 'Clash Display', 'Wix Madefor Display';
     line-height: 1.2;
     color: var(--blue);
+    background: var(--light-lavender);
+    border: 1.5px solid var(--lavender);
+    padding: 5px 30px;
+    width: fit-content;
+    border-radius: 999px;
 }
 
 .post-title-cat {
     margin: 0;
     font-size: 28px;
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
     margin: 20px 0 0px;
     line-height: 1.2;
     color: var(--blue);
+    background: var(--light-lavender);
+    border: 1.5px solid var(--lavender);
+    padding: 5px 30px;
+    width: fit-content;
+    border-radius: 999px;
 }
 
 .post-media-nav {
@@ -593,12 +647,12 @@ a {
     margin-top: 4px;
     line-height: 1;
     font-size: 17px;
-    font-family: "Space Grotesk", sans-serif !important;
+    font-family: "Space Grotesk", "Manrope", sans-serif !important;
 }
 
 .main-img-viewport {
-    width: 350px;
-    height: 450px;
+    width: 400px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -617,37 +671,52 @@ a {
 .post-media {
     display: grid;
     position: relative;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 540px 1fr;
     align-items: start;
     margin: 20px 0 30px 0;
     gap: 10px 20px;
     border: 0.5px solid var(--blue);
-    padding: 80px 0 35px 20px;
+    padding: 65px 0 35px 20px;
     overflow: hidden;
 }
 
-.slider-pagination {
+.slider-dots {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     margin-top: 20px;
-    font-family: "Space Grotesk",sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    user-select: none;
+    min-height: 12px;
 }
 
-.slider-current{
-    color: var(--blue);
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 1.5px solid var(--lavender);
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 0.9;
+    transition:
+        width 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.2s ease;
 }
 
-.slider-separator{
-    opacity: .45;
+.slider-dot:hover {
+    opacity: 1;
+    border-color: var(--purple);
+    background: rgba(196, 161, 255, 0.25);
 }
 
-.slider-total{
-    opacity: .7;
+.slider-dot.is-active {
+    width: 22px;
+    opacity: 1;
+    background: var(--purple);
+    border-color: var(--purple);
 }
 
 .main-img-arrow {
@@ -674,11 +743,11 @@ a {
 }
 
 .main-img-arrow.prev {
-    left: -15px;
+    left: 0;
 }
 
 .main-img-arrow.next {
-    right: -15px;
+    right: 0;
 }
 
 .post-photo-author {
@@ -696,6 +765,21 @@ a {
     border: 0.5px solid var(--blue);
 }
 
+.img-enlarge-hint {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    font-size: 11px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.20);
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    pointer-events: none;
+    z-index: 3;
+}
+
 .photo-author {
     font-size: 0.75rem;
     text-align: center;
@@ -710,14 +794,14 @@ a {
 .post-right {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .breed-tag {
     display: inline-flex;
     align-items: center;
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 500;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-weight: 600;
     font-size: 16px;
     padding: 6px 13px 6px 0;
     color: var(--dark-purple);
@@ -725,6 +809,21 @@ a {
 
 .breed-tag:hover {
     color: var(--blue);
+}
+
+.breed-character {
+    margin: 2px 0 12px;
+}
+
+.character-tags {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 430;
+    font-family: "Manrope", "Space Grotesk", sans-serif;
+    line-height: 1.1;
+    width: fit-content;
+    color: var(--color-text-primary);
+    font-style: italic;
 }
 
 .post-colors {
@@ -735,7 +834,7 @@ a {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
-    gap: 0 5px;
+    gap: 4px;
 }
 
 .param-card {
@@ -760,7 +859,8 @@ a {
 .param-card strong {
     margin-top: 2px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 430;
+    font-family: "Manrope", "Space Grotesk", sans-serif;
     position: relative;
     line-height: 1.1;
     width: fit-content;
@@ -793,7 +893,7 @@ a {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 9px;
     font-weight: 700;
     line-height: 1;
@@ -810,7 +910,7 @@ a {
     padding: 8px 10px;
     background: white;
     color: var(--dark-purple);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 11px;
     font-weight: 500;
     line-height: 1.3;
@@ -860,7 +960,7 @@ a {
 }
 
 .post-params-grid i {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     border-right-width: 2.5px;
     border-bottom-width: 2.5px;
     border-radius: 7px;
@@ -918,7 +1018,7 @@ a {
 
 .section-title {
     font-size: 20px;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-weight: 700;
 }
 
@@ -958,7 +1058,7 @@ a {
 }
 
 .post-text strong {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 16px;
     font-weight: 700;
 }
@@ -995,6 +1095,7 @@ a {
 }
 
 #modal-img {
+    max-width: min(96vw, 1200px);
     transition: transform 0.05s linear, opacity 0.25s ease;
     transform-origin: center center;
     touch-action: none;
@@ -1003,15 +1104,42 @@ a {
     -webkit-user-drag: none;
 }
 
+#modal-img.is-dragging {
+    cursor: grabbing;
+}
+
+.modal-zoom {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 4px 10px;
+    border-radius: 999px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.modal-zoom.show {
+    display: block;
+}
+
 .close {
     position: absolute;
     top: 20px;
     right: 30px;
     font-size: 21px;
     font-weight: bold;
-    background: var(--light-yellow);
-    color: var(--color-text-primary);
-    border: 2px solid #1C2B27;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    border: none;
     cursor: pointer;
     padding: 3px 7px;
     height: 45px;
@@ -1022,7 +1150,7 @@ a {
 }
 
 .close:hover {
-    background: var(--purple);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .modal-arrow {
@@ -1031,10 +1159,9 @@ a {
     font-size: 22px;
     z-index: 9999;
     border-radius: 999px;
-    color: var(--white);
-    background: var(--light-yellow);
-    color: var(--color-text-primary);
-    border: 2px solid #1C2B27;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
     cursor: pointer;
     right: 30px;
     padding: 3px 7px;
@@ -1045,7 +1172,11 @@ a {
 }
 
 .modal-arrow:hover {
-    background: var(--purple);
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-arrow img {
+    filter: invert(1);
 }
 
 .modal-arrow.prev {
@@ -1088,7 +1219,7 @@ a {
 .share-text {
     font-size: 15px;
     color: #161616;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .share-arrow {
@@ -1117,26 +1248,49 @@ a {
     padding: 15px 0;
 }
 
+.compare-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 18px 24px 24px;
+    background: var(--light-lavender);
+    border: 1.5px solid var(--lavender);
+    border-radius: 24px;
+}
+
 .compare-controls {
     display: flex;
-    gap: 10px;
-    border-radius: 999px;
+    gap: 14px;
     align-items: center;
-    width: fit-content;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 0 16px;
+    margin: 0;
+    border-bottom: 1.5px dashed var(--lavender);
 }
 
 .current-post-dog {
-    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
     color: var(--blue);
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 20px;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-size: 18px;
+}
+
+.control-dog-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .compare-select {
     height: 42px;
     line-height: 38px;
     padding: 0 40px 0 12px;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 15px;
     text-align: center;
     cursor: pointer;
@@ -1165,12 +1319,195 @@ a {
     font-weight: 600;
 }
 
+/* Кастомный селект с фото */
+
+.custom-select {
+    position: relative;
+}
+
+.custom-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 42px;
+    min-width: 220px;
+    max-width: 280px;
+    padding: 0 14px;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1.5px solid #1C2B27;
+    border-radius: 999px;
+    box-shadow: 2px 2px 0 #1C2B27;
+    background: var(--white);
+    color: var(--color-text-primary);
+}
+
+.custom-select-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.custom-select-placeholder {
+    opacity: 0.55;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-select-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.custom-select-caret {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #1C2B27;
+    border-bottom: 2px solid #1C2B27;
+    transform: rotate(45deg);
+    margin-top: -4px;
+    flex-shrink: 0;
+}
+
+.custom-select-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 360px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--white);
+    border: 1.5px solid var(--lavender);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(28, 43, 39, 0.14);
+}
+
+.custom-select-list[hidden],
+.custom-select-img[hidden] {
+    display: none !important;
+}
+
+.custom-select-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
+    font-size: 14px;
+}
+
+.custom-select-item:hover {
+    background: var(--light-lavender);
+    color: var(--blue);
+}
+
+.custom-select-opt-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Главная: триггеры в изначальном крупном дизайне кнопок */
+
+.homepage .custom-select-trigger {
+    position: relative;
+    width: 250px;
+    min-width: 0;
+    max-width: none;
+    height: 48px;
+    min-height: 48px;
+    box-sizing: border-box;
+    padding: 0 25px;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #1C2B27;
+    border-radius: 999px;
+    box-shadow: 2px 2px 0 #1C2B27;
+    background: var(--white);
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+.homepage .custom-select-value {
+    width: 100%;
+    justify-content: center;
+}
+
+.homepage .custom-select-img {
+    width: 32px;
+    height: 32px;
+}
+
+.homepage .custom-select-placeholder {
+    color: var(--color-text-primary);
+    opacity: 1;
+}
+
+.homepage .custom-select-caret {
+    position: absolute;
+    right: 22px;
+    margin-top: 0;
+}
+
+#breedCustom .custom-select-trigger {
+    background: var(--pink);
+}
+
+.homepage .custom-select-trigger:hover {
+    background: var(--purple);
+}
+
+.homepage .custom-select-trigger:active {
+    transform: translateY(0px);
+}
+
+/* списки на главной открываются от левого края кнопки */
+
+.homepage .custom-select-list {
+    left: 0;
+    transform: none;
+}
+
+.homepage .custom-select-item {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+@keyframes previewPop {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .compare-btn {
     line-height: 1.8;
     padding: 6px 20px;
     border: 2px solid #1C2B27;
     background: var(--white);
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
     font-size: 14px;
 }
 
@@ -1204,7 +1541,7 @@ a {
 #compareTableWrapper {
     width: 100%;
     max-width: 900px;
-    margin: 5px auto;
+    margin: 0 auto;
     position: relative;
 
     transition:
@@ -1215,10 +1552,22 @@ a {
 }
 
 
+@keyframes compareTableIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .compare-table {
+    animation: compareTableIn 0.5s cubic-bezier(0.22, 0.7, 0.3, 1) both;
     width: 100%;
     max-width: 800px;
-    margin: 30px auto 10px;
+    margin: 20px auto 0;
     position: relative;
     border-radius: 5px;
     border-collapse: separate;
@@ -1228,8 +1577,68 @@ a {
     overflow: hidden;
 }
 
+.compare-table .value-row td {
+    opacity: 0;
+    animation: rowSlideIn 0.35s ease forwards;
+}
+
+.compare-table .value-row:nth-child(2) td {
+    animation-delay: 0.06s;
+}
+
+.compare-table .value-row:nth-child(3) td {
+    animation-delay: 0.12s;
+}
+
+.compare-table .value-row:nth-child(4) td {
+    animation-delay: 0.18s;
+}
+
+.compare-table .value-row:nth-child(5) td {
+    animation-delay: 0.24s;
+}
+
+.compare-table .value-row:nth-child(6) td {
+    animation-delay: 0.30s;
+}
+
+.compare-table .value-row:nth-child(7) td {
+    animation-delay: 0.36s;
+}
+
+.compare-table .value-row:nth-child(8) td {
+    animation-delay: 0.42s;
+}
+
+.compare-table .value-row:nth-child(9) td {
+    animation-delay: 0.48s;
+}
+
+.compare-table .value-row:nth-child(10) td {
+    animation-delay: 0.54s;
+}
+
+.compare-table .value-row:nth-child(11) td {
+    animation-delay: 0.60s;
+}
+
+.compare-table .value-row:nth-child(12) td {
+    animation-delay: 0.66s;
+}
+
+@keyframes rowSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .compare-table .header-row th {
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
     font-size: 16px;
     text-align: left;
     color: var(--blue);
@@ -1250,7 +1659,7 @@ a {
 
 .param-name {
     width: 30%;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 12px;
     text-align: left;
     padding: 8px 12px 8px 0;
@@ -1274,17 +1683,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    height: 150px;
-}
-
-.compare-breed-image {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--white);
-    display: block;
+    gap: 4px;
 }
 
 .compare-breed-info {
@@ -1292,16 +1691,17 @@ a {
     flex-direction: column;
     gap: 2px;
     text-align: left;
-    font-family: 'Clash Display';
-    font-size: 18px;
+    font-family: 'Clash Display', 'Wix Madefor Display';
+    font-size: 16px;
     line-height: 1.2;
+    font-weight: 400;
 }
 
 .compare-breed-link {
     color: var(--blue);
     text-decoration: none;
     transition: 0.2s ease;
-   font-family: "Space Grotesk", sans-serif;
+   font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .compare-breed-link:hover {
@@ -1315,7 +1715,7 @@ a {
     line-height: 1.3;
     width: 250px;
     color: var(--dark-purple);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .value-row td {
@@ -1326,17 +1726,15 @@ a {
 
 
 .value-a {
-    font-weight: 450;
+    font-weight: 400;
 }
 
 .value-b {
-    font-weight: 450;
+    font-weight: 400;
 }
 
 .value-row:hover td {
     color: var(--blue);
-    font-weight: 700;
-    transition: 0.2s ease;
 }
 
 .compare-table-header {
@@ -1346,8 +1744,7 @@ a {
 
 .compare-close-btn {
     position: absolute;
-    top: 35px;
-    right: 60px;
+    top: 10px;
     border: none;
     background: transparent;
     font-size: 22px;
@@ -1385,7 +1782,7 @@ a {
     min-height: 240px;
     flex-direction: column;
     justify-content: flex-end;
-    margin-bottom: 50px;
+
     align-items: center;
     text-align: center;
     position: relative;
@@ -1396,13 +1793,13 @@ a {
 .home-text-block-title {
     font-size: 35px;
     margin: 0;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     text-align: center;
 }
 
 .home-text-block-text {
     font-size: 16px;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     text-align: center;
     max-width: 700px;
     width: 100%;
@@ -1436,7 +1833,7 @@ a {
     flex-direction: column;
     width: 100%;
     gap: 60px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero-content::before,
@@ -1543,7 +1940,7 @@ a {
 
     overflow: visible;
 
-    z-index: 1;
+    z-index: 5;
 }
 
 .hero-inner > * {
@@ -1679,7 +2076,7 @@ a {
 
 /* HERO TEXT */
 .homepage-title-1 {
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
     max-width: 900px;
     width: 100%;
     font-weight: 600;
@@ -1693,7 +2090,7 @@ a {
 
 .homepage-subtitle {
     margin-top: 12px;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 35px;
     line-height: 1.5;
     color: var(--color-text-primary);
@@ -1734,7 +2131,7 @@ a {
     color: var(--color-text-primary);
     margin-bottom: 12px;
     text-align: center;
-    font-family: 'Clash Display';
+    font-family: 'Clash Display', 'Wix Madefor Display';
 }
 
 /* SELECT */
@@ -1745,7 +2142,7 @@ a {
     width: 230px;
     padding: 13px 25px;
     text-align: center;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 
     font-weight: 400;
     align-items: center;
@@ -1826,7 +2223,7 @@ a {
 .catalog-structure {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px 10px;
+    gap: 20px 20px;
     margin-top: 24px;
     margin-bottom: 30px;
 }
@@ -1898,7 +2295,7 @@ a {
 }
 
 .group-sections-inline strong{
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
 .group-name {
@@ -1910,7 +2307,7 @@ a {
 .groups-link {
     display: block;
     margin-bottom: 2px;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 13px;
     line-height: 1.4;
     text-align: start;
@@ -1973,6 +2370,19 @@ a {
     font-size: 16px;
 }
 
+/* Always underline links in the legal/policy pages so they read as links
+   (the rest of the site keeps links without underline) */
+.policy-container a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+/* …but keep the Table of Contents links clean, without underline */
+.policy-container .num-list a {
+    text-decoration: none;
+}
+
 .policy-container form {
     margin: 0;
 }
@@ -1996,11 +2406,10 @@ a {
 .policy-container textarea {
     width: 100%;
     font-size: 14px;
-    border-top: 0px solid #1C2B27;
-    border-bottom: 1px solid #1C2B27;
-    border-left: 0px solid #1C2B27;
-    border-right: 0px solid #1C2B27;
-    background: transparent;
+    border: 1px solid var(--lavender);
+    border-radius: 10px;
+    background: #F4F1FB;
+    padding: 9px 12px;
     transition: border-color .15s ease, box-shadow .15s ease;
 }
 
@@ -2041,9 +2450,9 @@ a {
     padding: 10px 25px;
     font-size: 14px;
     color: #161616;
-    background: var(--light-yellow);
+    background: var(--white);
     border: 1.5px solid #1C2B27;
-    box-shadow: 3px 3px 0 #1C2B27, 2px 3px 0 -10px #1C2B27;
+    box-shadow: 2px 2px 0 #1C2B27;
     flex-shrink: 0;
     border-radius: 999px;
     cursor: pointer;
@@ -2111,7 +2520,7 @@ a {
     margin: 0 0 10px;
     font-size: 16px;
     font-weight: 700;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     text-align: center;
 }
 
@@ -2429,7 +2838,7 @@ a {
 /* guides */
 .guides-list {
     margin: 24px 0 20px;
-    gap: 20px 10px;
+    gap: 20px 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -2457,7 +2866,7 @@ a {
 .guide-title {
     display: block;
     font-weight: 700;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 16px;
     margin-bottom: 6px;
     color: var(--color-text-primary);
@@ -2609,7 +3018,7 @@ a {
 .page-loader p {
     margin: 14px 0 0;
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Space Grotesk", "Manrope", sans-serif;
     font-size: 15px;
     font-weight: 600;
 
@@ -2649,4 +3058,101 @@ a {
     .page-loader p {
         animation: none;
     }
+}
+/* Shrink cyrillic display headings slightly to visually match Clash Display */
+html.lang-ru .logo-text,
+html.lang-ru .dog-card__title,
+html.lang-ru .post-title,
+html.lang-ru .post-title-cat,
+html.lang-ru .compare-btn,
+html.lang-ru .compare-table .header-row th,
+html.lang-ru .compare-breed-info,
+html.lang-ru .homepage-title-1,
+html.lang-ru .homepage-search label {
+    transform: scale(1);
+    font-size-adjust: none;
+}
+
+/* keep left-aligned pinned to the left edge, centered ones centered */
+html.lang-ru .logo-text,
+html.lang-ru .dog-card__title,
+html.lang-ru .post-title,
+html.lang-ru .post-title-cat,
+html.lang-ru .compare-btn,
+html.lang-ru .compare-table .header-row th,
+html.lang-ru .compare-breed-info {
+    transform-origin: left center;
+}
+html.lang-ru .homepage-title-1,
+html.lang-ru .homepage-search label {
+    transform-origin: center center;
+}
+
+
+/* CARD ACCENT — спокойная цветная полоса FCI-группы сверху карточки,
+   надпись группы красится тем же цветом. Один блок: убрал — вернул
+   карточки как были. */
+.dog-card {
+    position: relative;
+}
+
+.dog-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--card-accent, var(--lavender));
+    z-index: 2;
+}
+
+.dog-card__group {
+    color: var(--card-accent-dark, var(--card-accent, var(--dark-purple)));
+}
+
+.breed-tag a {
+    transition: color 0.2s ease;
+}
+
+.breed-tag a:hover {
+    color: var(--blue) !important;
+}
+
+/* POST IMAGE STRIP — цветная кромка группы сверху и снизу самой фото
+   (viewport ровно по фото). Декоративная (светлая). */
+.main-img-viewport::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--card-accent, var(--lavender));
+    z-index: 3;
+}
+
+.main-img-viewport::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--card-accent, var(--lavender));
+    z-index: 3;
+}
+
+/* CHARACTER TAG WORDS — каждое слово черты характера подчёркнуто\n   отдельно, волнистой тонкой линией. */
+.character-tags .tag-word {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 4px;
+}
+
+/* GROUP ROW ACCENT — вертикальная цветная кромка группы слева
+   на странице всех групп. Декоративная (светлая). */
+.group-row {
+    border-left: 6px solid var(--group-accent, var(--lavender));
 }

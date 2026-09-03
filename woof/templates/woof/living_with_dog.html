@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -8,9 +9,9 @@
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -19,15 +20,11 @@
 
         <span>/</span>
 
-        <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
-            Dog guides
-        </a>
+        <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
 
         <span>/</span>
 
-        <span class="current">
-            Living with a dog
-        </span>
+        <span class="current">{% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}</span>
 
     </div>
 </div>
@@ -36,15 +33,13 @@
 <!-- Living with a dog content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">
-        Living with a dog
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}</h1>
 
     <div class="post-text-explore">
 
         <img
             src="{% static 'guides3.webp' %}"
-            alt="Living with a dog"
+            alt="{% trans 'Living with a dog' %}"
             class="guide-image guide-image-3"
             width="260"
             height="230"
@@ -52,123 +47,75 @@
             decoding="async"
         >
 
-        <p class="section-title">
-            What “living with a dog” actually means
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}What “living with a dog” actually means{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Living with a dog is primarily about organizing your daily life around another living being that depends on structure and consistency.
-            It is less about individual tasks like training or feeding, and more about how your home, time, and routines change as a system.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Living with a dog is primarily about organizing your daily life around another living being that depends on structure and consistency.
+            It is less about individual tasks like training or feeding, and more about how your home, time, and routines change as a system.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Once a dog becomes part of the household, your lifestyle stops being fully flexible.
-            Daily planning, free time, and even travel decisions begin to take the dog’s needs into account.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Once a dog becomes part of the household, your lifestyle stops being fully flexible.
+            Daily planning, free time, and even travel decisions begin to take the dog’s needs into account.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Daily structure and time organization
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Daily structure and time organization{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            A stable daily rhythm is the foundation of life with a dog.
-            Instead of thinking in isolated tasks, it is better to think in blocks of time: morning, midday, evening, and rest periods.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}A stable daily rhythm is the foundation of life with a dog.
+            Instead of thinking in isolated tasks, it is better to think in blocks of time: morning, midday, evening, and rest periods.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Walks, feeding, and rest are repeated every day at roughly the same times.
-            This creates predictability, which helps the dog feel secure and reduces stress in the household.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Walks, feeding, and rest are repeated every day at roughly the same times.
+            This creates predictability, which helps the dog feel secure and reduces stress in the household.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            The key point is not the exact schedule, but consistency.
-            Dogs adapt well to routine, but poorly to frequent unpredictable changes.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}The key point is not the exact schedule, but consistency.
+            Dogs adapt well to routine, but poorly to frequent unpredictable changes.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Home organization and shared space
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Home organization and shared space{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Living with a dog also means adapting your physical space.
-            The home becomes a shared environment where both human and dog have defined areas and rules.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Living with a dog also means adapting your physical space.
+            The home becomes a shared environment where both human and dog have defined areas and rules.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            A resting zone for the dog is important because it creates predictability and reduces overstimulation.
-            At the same time, some areas of the home may need boundaries depending on safety and comfort.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}A resting zone for the dog is important because it creates predictability and reduces overstimulation.
+            At the same time, some areas of the home may need boundaries depending on safety and comfort.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            This is not about restriction, but about structure.
-            Dogs feel more relaxed when they understand where they can rest, play, or simply observe the environment.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}This is not about restriction, but about structure.
+            Dogs feel more relaxed when they understand where they can rest, play, or simply observe the environment.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Energy management during the day
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Energy management during the day{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            One of the most important aspects of living with a dog is managing energy levels throughout the day.
-            This does not refer to training, but to balancing activity and rest.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}One of the most important aspects of living with a dog is managing energy levels throughout the day.
+            This does not refer to training, but to balancing activity and rest.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Without enough physical activity, dogs often become restless.
-            Without enough rest, they can become overstimulated and less predictable in behavior.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Without enough physical activity, dogs often become restless.
+            Without enough rest, they can become overstimulated and less predictable in behavior.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            A stable routine naturally balances both:
-            activity during walks and calm periods at home.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}A stable routine naturally balances both:
+            activity during walks and calm periods at home.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Time commitment and lifestyle changes
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Time commitment and lifestyle changes{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Living with a dog introduces a long-term time commitment that affects daily freedom.
-            Spontaneous decisions such as long trips, late evenings out, or sudden schedule changes become more limited.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Living with a dog introduces a long-term time commitment that affects daily freedom.
+            Spontaneous decisions such as long trips, late evenings out, or sudden schedule changes become more limited.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            This is not a negative aspect, but a structural change in lifestyle.
-            The owner shifts from a fully flexible schedule to a shared routine-based system.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}This is not a negative aspect, but a structural change in lifestyle.
+            The owner shifts from a fully flexible schedule to a shared routine-based system.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Understanding this early helps avoid frustration and unrealistic expectations.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Understanding this early helps avoid frustration and unrealistic expectations.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Emotional role in everyday life
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Emotional role in everyday life{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Beyond physical routines, dogs also influence emotional structure in the household.
-            Their presence creates continuity, attention cycles, and a sense of shared responsibility.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Beyond physical routines, dogs also influence emotional structure in the household.
+            Their presence creates continuity, attention cycles, and a sense of shared responsibility.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            This does not replace human relationships, but it adds a stable emotional layer to daily life.
-            Many owners experience increased routine stability and reduced isolation.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}This does not replace human relationships, but it adds a stable emotional layer to daily life.
+            Many owners experience increased routine stability and reduced isolation.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Conclusion
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Living with a dog is best understood as organizing a shared life system rather than managing separate tasks.
-            When structure, routine, and space are well balanced, both dog and owner benefit from a stable and predictable environment.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Living with a dog is best understood as organizing a shared life system rather than managing separate tasks.
+            When structure, routine, and space are well balanced, both dog and owner benefit from a stable and predictable environment.{% endblocktranslate %}</p>
 
     </div>
 

@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -7,22 +8,18 @@
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
             >
         </a>
         <span>/</span>
-        <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
-            Dog guides
-        </a>
+        <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
         <span>/</span>
-        <span class="current">
-            Choosing the right dog
-        </span>
+        <span class="current">{% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}</span>
     </div>
 </div>
 
@@ -30,13 +27,13 @@
 <!-- Choosing dog content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">Choosing the right dog</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}</h1>
 
 
     <div class="post-text-explore">
         <img
             src="{% static 'guides4.webp' %}"
-            alt="Choosing the right dog"
+            alt="{% trans 'Choosing the right dog' %}"
             class="guide-image guide-image-4"
             width="260"
             height="230"
@@ -44,82 +41,56 @@
             decoding="async"
         >
 
-        <p class="section-title">What this guide is about</p>
+        <p class="section-title">{% blocktranslate trimmed %}What this guide is about{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Choosing a dog is a decision about long-term compatibility rather than appearance or impulse.
-            The right choice depends on how well a dog’s needs align with your lifestyle, energy level, and living environment.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Choosing a dog is a decision about long-term compatibility rather than appearance or impulse.
+            The right choice depends on how well a dog’s needs align with your lifestyle, energy level, and living environment.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            This guide focuses on selection logic: how to think before choosing a breed, not individual breed descriptions or training considerations.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}This guide focuses on selection logic: how to think before choosing a breed, not individual breed descriptions or training considerations.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">Lifestyle compatibility</p>
+        <p class="section-title">{% blocktranslate trimmed %}Lifestyle compatibility{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            The most important factor in choosing a dog is daily lifestyle.
-            Time availability, activity level, work schedule, and home environment all influence suitability.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}The most important factor in choosing a dog is daily lifestyle.
+            Time availability, activity level, work schedule, and home environment all influence suitability.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Active individuals may struggle with low-energy dogs, while calm lifestyles may not meet the needs of highly energetic breeds.
-            Mismatch often leads to long-term frustration for both owner and dog.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Active individuals may struggle with low-energy dogs, while calm lifestyles may not meet the needs of highly energetic breeds.
+            Mismatch often leads to long-term frustration for both owner and dog.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            The goal is balance, not preference alone.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}The goal is balance, not preference alone.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">Experience level of the owner</p>
+        <p class="section-title">{% blocktranslate trimmed %}Experience level of the owner{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Some dogs require more structured handling, patience, and consistency than others.
-            First-time owners often benefit from more stable and adaptable breeds.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Some dogs require more structured handling, patience, and consistency than others.
+            First-time owners often benefit from more stable and adaptable breeds.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            More independent or strong-willed dogs may require prior experience and clearer leadership consistency.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}More independent or strong-willed dogs may require prior experience and clearer leadership consistency.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Matching experience level with dog temperament reduces behavioral and adaptation issues.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Matching experience level with dog temperament reduces behavioral and adaptation issues.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">Living space and environment</p>
+        <p class="section-title">{% blocktranslate trimmed %}Living space and environment{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Living conditions play a major role in suitability.
-            Apartment living, suburban homes, and rural environments create very different needs for space and activity.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Living conditions play a major role in suitability.
+            Apartment living, suburban homes, and rural environments create very different needs for space and activity.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Larger or high-energy dogs typically require more space and outdoor access,
-            while smaller or calmer breeds can adapt more easily to compact environments.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Larger or high-energy dogs typically require more space and outdoor access,
+            while smaller or calmer breeds can adapt more easily to compact environments.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">Time and responsibility expectations</p>
+        <p class="section-title">{% blocktranslate trimmed %}Time and responsibility expectations{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Dogs require daily attention for many years.
-            This includes routine care, time presence, and consistent involvement in their daily life.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Dogs require daily attention for many years.
+            This includes routine care, time presence, and consistent involvement in their daily life.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Underestimating time requirements is one of the most common reasons for poor adaptation after adoption.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Underestimating time requirements is one of the most common reasons for poor adaptation after adoption.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">Conclusion</p>
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Choosing the right dog is a structured decision based on compatibility, not preference alone.
-            When lifestyle, experience, and environment are aligned with the dog’s needs, long-term stability becomes significantly easier to achieve.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Choosing the right dog is a structured decision based on compatibility, not preference alone.
+            When lifestyle, experience, and environment are aligned with the dog’s needs, long-term stability becomes significantly easier to achieve.{% endblocktranslate %}</p>
 
     </div>
 

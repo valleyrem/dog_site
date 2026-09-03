@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -7,9 +8,9 @@
 <div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
-        <a href="{% url 'home' %}" title="Home" class="link-policies">
+        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -18,15 +19,11 @@
 
         <span>/</span>
 
-        <a href="{% url 'guides' %}" title="Dog guides" class="link-policies">
-            Dog guides
-        </a>
+        <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
 
         <span>/</span>
 
-        <span class="current">
-            Raising a puppy
-        </span>
+        <span class="current">{% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}</span>
 
     </div>
 </div>
@@ -34,15 +31,13 @@
 <!-- Puppy guide content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">
-        Raising a puppy
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}</h1>
 
     <div class="post-text-explore">
 
         <img
             src="{% static 'guides2.webp' %}"
-            alt="Raising a puppy"
+            alt="{% trans 'Raising a puppy' %}"
             class="guide-image guide-image-2"
             width="260"
             height="230"
@@ -50,105 +45,65 @@
             decoding="async"
         >
 
-        <p class="section-title">
-            What to expect during puppyhood
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}What to expect during puppyhood{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Puppyhood is the earliest and most formative stage of a dog’s life.
+        <p class="cat-desc">{% blocktranslate trimmed %}Puppyhood is the earliest and most formative stage of a dog’s life.
             During this period, dogs rapidly develop habits, reactions, confidence,
-            and social understanding of the world around them.
-        </p>
+            and social understanding of the world around them.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Raising a puppy is not only about care, but about helping the dog adapt
-            safely and gradually to human environments, routines, sounds, and interactions.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Raising a puppy is not only about care, but about helping the dog adapt
+            safely and gradually to human environments, routines, sounds, and interactions.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            The first days at home
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}The first days at home{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Moving into a new home can be stressful for a puppy.
+        <p class="cat-desc">{% blocktranslate trimmed %}Moving into a new home can be stressful for a puppy.
             New smells, unfamiliar people, and separation from littermates
-            create a major environmental change.
-        </p>
+            create a major environmental change.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            The first days should remain calm and predictable.
-            A quiet resting space and stable routine help the puppy adapt more comfortably.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}The first days should remain calm and predictable.
+            A quiet resting space and stable routine help the puppy adapt more comfortably.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Early socialization
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Early socialization{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Early socialization introduces the puppy to different environments,
+        <p class="cat-desc">{% blocktranslate trimmed %}Early socialization introduces the puppy to different environments,
             sounds, surfaces, people, and situations.
-            Positive early experiences help build confidence and adaptability later in life.
-        </p>
+            Positive early experiences help build confidence and adaptability later in life.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Socialization should happen gradually and without overwhelming the puppy.
-            Too much stimulation at once can create stress instead of confidence.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Socialization should happen gradually and without overwhelming the puppy.
+            Too much stimulation at once can create stress instead of confidence.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Sleep and daily rhythm
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Sleep and daily rhythm{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Puppies sleep significantly more than adult dogs and require frequent rest periods.
-            Overtired puppies often become more restless, reactive, or difficult to calm.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Puppies sleep significantly more than adult dogs and require frequent rest periods.
+            Overtired puppies often become more restless, reactive, or difficult to calm.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            A stable daily rhythm helps regulate energy and improves adaptation to home life.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}A stable daily rhythm helps regulate energy and improves adaptation to home life.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Teething and chewing phase
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Teething and chewing phase{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            During teething, puppies naturally explore objects through chewing.
-            This stage is temporary but requires patience and proper management of the environment.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}During teething, puppies naturally explore objects through chewing.
+            This stage is temporary but requires patience and proper management of the environment.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Safe chew toys and supervision help redirect destructive chewing behavior.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Safe chew toys and supervision help redirect destructive chewing behavior.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Building confidence
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Building confidence{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Confidence develops through repeated positive experiences and predictable routines.
-            Gentle exposure to new environments helps puppies learn that unfamiliar situations are safe.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Confidence develops through repeated positive experiences and predictable routines.
+            Gentle exposure to new environments helps puppies learn that unfamiliar situations are safe.{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Fearful reactions during puppyhood are normal and should be handled calmly rather than punished.
-        </p>
+        <p class="cat-desc">{% blocktranslate trimmed %}Fearful reactions during puppyhood are normal and should be handled calmly rather than punished.{% endblocktranslate %}</p>
 
 
-        <p class="section-title">
-            Conclusion
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
 
-        <p class="cat-desc">
-            Puppyhood is a short but extremely important developmental stage.
+        <p class="cat-desc">{% blocktranslate trimmed %}Puppyhood is a short but extremely important developmental stage.
             Stable routines, gradual socialization, patience, and a safe environment
-            help create a more confident and adaptable adult dog.
-        </p>
+            help create a more confident and adaptable adult dog.{% endblocktranslate %}</p>
 
     </div>
 

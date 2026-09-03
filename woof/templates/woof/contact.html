@@ -1,4 +1,5 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -7,10 +8,10 @@
 <div class="breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}"
-           title="Home"
+           title="{% trans 'Home' %}"
            class="link-policies">
             <img src="{% static 'house.svg' %}"
-                 alt="Home"
+                 alt="{% trans 'Home' %}"
                  class="icon-bread"
                  width="12"
                  height="12"
@@ -19,7 +20,7 @@
 
         <span>/</span>
 
-        <span class="current">Contact</span>
+        <span class="current">{% blocktranslate trimmed %}Contact{% endblocktranslate %}</span>
     </div>
 </div>
 
@@ -28,15 +29,11 @@
 <div class="policy-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">Contact</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Contact{% endblocktranslate %}</h1>
 
-    <p class="section-title">
-        Thank you for helping improve this project
-    </p>
+    <p class="section-title">{% blocktranslate trimmed %}Thank you for helping improve this project{% endblocktranslate %}</p>
 
-    <p class="cat-desc">
-        Feel free to reach out with any questions, suggestions, or feedback.
-    </p>
+    <p class="cat-desc">{% blocktranslate trimmed %}Feel free to reach out with any questions, suggestions, or feedback.{% endblocktranslate %}</p>
 
     <div class="hero-inner-contact">
 
@@ -86,17 +83,15 @@
                     {% endfor %}
 
                     <p class="form-oferta">
-                        By clicking "Send" button, you allow WoofDogs to process your information in accordance with our
+                        {% blocktranslate trimmed %}By clicking "Send" button, you allow WoofDogs to process your information in accordance with our{% endblocktranslate %}
                         <a href="https://woofdogs.world/privacy-policy/"
-                           target="_blank">
-                            Privacy Policy
-                        </a>.
+                           target="_blank">{% blocktranslate trimmed %}Privacy Policy{% endblocktranslate %}</a>.
                     </p>
 
                     <button id="btn-custom"
                             type="submit"
-                            title="Send a message">
-                        Send
+                            title="{% trans 'Send a message' %}">
+                        {% trans "Send" %}
                     </button>
 
                 </form>
@@ -111,37 +106,23 @@
 
                 <ul class="contact-list">
 
-                    <li>
-                        If you notice any inaccuracies in breed descriptions, characteristics, or data.
-                    </li>
+                    <li>{% blocktranslate trimmed %}If you notice any inaccuracies in breed descriptions, characteristics, or data.{% endblocktranslate %}</li>
 
-                    <li>
-                        If you would like to suggest a dog breed that is not yet listed on the website.
-                    </li>
+                    <li>{% blocktranslate trimmed %}If you would like to suggest a dog breed that is not yet listed on the website.{% endblocktranslate %}</li>
 
-                    <li>
-                        If you have ideas or suggestions to improve the content or structure.
-                    </li>
+                    <li>{% blocktranslate trimmed %}If you have ideas or suggestions to improve the content or structure.{% endblocktranslate %}</li>
 
-                    <li>
-                        If you are the author of a photograph and would like it to be removed.
-                    </li>
+                    <li>{% blocktranslate trimmed %}If you are the author of a photograph and would like it to be removed.{% endblocktranslate %}</li>
 
-                    <li>
-                        If you would like your authorship to be corrected or credited differently.
-                    </li>
+                    <li>{% blocktranslate trimmed %}If you would like your authorship to be corrected or credited differently.{% endblocktranslate %}</li>
 
-                    <li>
-                        Please include a link or any relevant details to help process your request.
-                    </li>
+                    <li>{% blocktranslate trimmed %}Please include a link or any relevant details to help process your request.{% endblocktranslate %}</li>
 
                 </ul>
 
             </div>
 
-            <p class="cat-desc">
-                Your feedback helps keep the information accurate and reliable.
-            </p>
+            <p class="cat-desc">{% blocktranslate trimmed %}Your feedback helps keep the information accurate and reliable.{% endblocktranslate %}</p>
 
         </div>
 
@@ -175,7 +156,7 @@
             if (xhr.status === 200) {
 
                 Swal.fire({
-                    text: 'Thank you. Message has been sent.',
+                    text: '{% trans "Thank you. Message has been sent." %}',
                     icon: 'success',
                     showConfirmButton: false,
                     timer: 2000
@@ -186,7 +167,7 @@
             } else {
 
                 Swal.fire({
-                    text: 'Please try again later.',
+                    text: '{% trans "Please try again later." %}',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });

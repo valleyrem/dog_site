@@ -79,37 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Breed select navigation script
-document.addEventListener('DOMContentLoaded', function () {
-
-    const breedSelect =
-        document.getElementById('breed-select-1');
-
-    if (!breedSelect) return;
-
-    function go(value) {
-
-        if (value && value !== '') {
-            window.location.href = value;
-        }
-
-    }
-
-    breedSelect.addEventListener('change', function () {
-        go(this.value);
-    });
-
-    breedSelect.addEventListener('pointerup', function () {
-
-        setTimeout(() => {
-            go(this.value);
-        }, 50);
-
-    });
-
-});
-
-
 // Dog slider
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -121,8 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const prev = document.querySelector('.slider-prev');
     const next = document.querySelector('.slider-next');
-    const currentPage = document.querySelector('.slider-current');
-    const totalPages = document.querySelector('.slider-total');
+    const dotsWrap = document.querySelector('.slider-dots');
 
     let page = 0;
     let holdInterval = null;
@@ -131,13 +99,45 @@ document.addEventListener('DOMContentLoaded', () => {
     function getPerPage() {
         if (window.innerWidth <= 767) return 1;
         if (window.innerWidth <= 853) return 2;
-        if (window.innerWidth <= 1024) return 3;
-        return 3;
+        if (window.innerWidth <= 1329) return 3;
+        return 4;
     }
 
 
     function getPages() {
         return Math.ceil(items.length / getPerPage());
+    }
+
+
+    function renderDots() {
+
+        // Точки пересоздаются, когда число страниц изменилось
+        // (после изменения ширины окна или числа карточек).
+        if (dotsWrap && dotsWrap.children.length !== getPages()) {
+            dotsWrap.innerHTML = '';
+
+            for (let i = 0; i < getPages(); i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'slider-dot';
+                dot.setAttribute('aria-label', `Page ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    page = i;
+                    update();
+                });
+                dotsWrap.appendChild(dot);
+            }
+        }
+    }
+
+
+    function updateDots() {
+
+        if (!dotsWrap) return;
+
+        [...dotsWrap.children].forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === page);
+        });
     }
 
 
@@ -153,8 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         track.style.transform = `translateX(-${shift}px)`;
 
-        currentPage.textContent = page + 1;
-        totalPages.textContent = getPages();
+        renderDots();
+        updateDots();
 
         prev.classList.toggle('disabled', page === 0);
         next.classList.toggle('disabled', page >= getPages() - 1);
@@ -164,11 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const navigation = document.querySelector('.slider-nav');
 
         const hideControls =
-            (window.innerWidth > 1024 && items.length <= 3) ||
-            (window.innerWidth <= 768 && items.length <= 1);
+            (window.innerWidth > 1329 && items.length <= 4) ||
+            (window.innerWidth <= 767 && items.length <= 1) ||
+            (window.innerWidth <= 853 && items.length <= 2) ||
+            (window.innerWidth <= 1329 && items.length <= 3);
 
         if (pagination) {
             pagination.style.display = hideControls ? 'none' : '';
+        }
+
+        if (dotsWrap) {
+            dotsWrap.style.display = hideControls ? 'none' : '';
         }
 
         if (navigation) {
@@ -488,6 +494,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.documentElement.classList.add('no-scroll');
         document.body.classList.add('no-scroll');
+
+        resetZoom();
     }
 
 
@@ -497,6 +505,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.documentElement.classList.remove('no-scroll');
         document.body.classList.remove('no-scroll');
+
+        resetZoom();
 
         window.scrollTo({
             top: scrollY,
@@ -593,6 +603,207 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
+
+    // =========================
+    // ZOOM: колесо мыши + перетаскивание + pinch
+    // =========================
+
+    const zoomLevelEl = document.getElementById('modal-zoom');
+
+    const MIN_SCALE = 1;
+    const MAX_SCALE = 5;
+
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
+
+    const zoomPointers = new Map();
+    let pinchStartDist = 0;
+    let pinchStartScale = 1;
+    let pinchMid = null;
+    let pinchStartTx = 0;
+    let pinchStartTy = 0;
+    let dragStart = null;
+    let wasDragged = false;
+    let zoomWasActive = false;
+
+    function clampZoomValue(v) {
+        return Math.max(MIN_SCALE, Math.min(MAX_SCALE, v));
+    }
+
+    function clampPan() {
+
+        const rect = modalImg.getBoundingClientRect();
+        const vw = modal.clientWidth - 64;
+        const vh = modal.clientHeight - 64;
+
+        const maxX = Math.max(0, (rect.width - vw) / 2);
+        const maxY = Math.max(0, (rect.height - vh) / 2);
+
+        tx = Math.max(-maxX, Math.min(maxX, tx));
+        ty = Math.max(-maxY, Math.min(maxY, ty));
+    }
+
+    function applyZoom() {
+
+        modalImg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+
+        const zoomed = scale > 1;
+
+        if (zoomLevelEl) {
+            zoomLevelEl.textContent = `${Math.round(scale * 100)}%`;
+            zoomLevelEl.classList.toggle('show', zoomed);
+        }
+
+        // при увеличении стрелки навигации прячем,
+        // чтобы не путать с панорамой
+        modal.querySelectorAll('.modal-arrow').forEach(a => {
+            a.style.opacity = zoomed ? '0' : '';
+            a.style.pointerEvents = zoomed ? 'none' : '';
+        });
+    }
+
+    function resetZoom() {
+
+        scale = 1;
+        tx = 0;
+        ty = 0;
+
+        modalImg.style.transform = '';
+        modalImg.style.transition = '';
+
+        if (zoomLevelEl) {
+            zoomLevelEl.textContent = '100%';
+            zoomLevelEl.classList.remove('show');
+        }
+
+        modal.querySelectorAll('.modal-arrow').forEach(a => {
+            a.style.opacity = '';
+            a.style.pointerEvents = '';
+        });
+    }
+
+    // Колесо мыши — зум к точке под курсором
+
+    modalImg.addEventListener('wheel', (e) => {
+
+        e.preventDefault();
+
+        const rect = modalImg.getBoundingClientRect();
+        const px = e.clientX - rect.left;
+        const py = e.clientY - rect.top;
+
+        const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+        const nextScale = clampZoomValue(scale * factor);
+
+        if (nextScale === scale) return;
+
+        const k = nextScale / scale;
+
+        tx = px - (px - tx) * k;
+        ty = py - (py - ty) * k;
+
+        scale = nextScale;
+
+        modalImg.style.transition = 'none';
+        clampPan();
+        applyZoom();
+        requestAnimationFrame(() => {
+            modalImg.style.transition = '';
+        });
+    }, { passive: false });
+
+    // Перетаскивание мышью / пальцем + pinch двумя пальцами
+
+    modalImg.addEventListener('pointerdown', (e) => {
+
+        zoomPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+        try {
+            modalImg.setPointerCapture(e.pointerId);
+        } catch (err) { /* ignore */ }
+
+        modalImg.style.transition = 'none';
+
+        if (zoomPointers.size === 1) {
+            dragStart = { x: e.clientX, y: e.clientY, tx, ty };
+            wasDragged = false;
+            zoomWasActive = scale > 1;
+        }
+
+        if (zoomPointers.size === 2) {
+            const [a, b] = [...zoomPointers.values()];
+            pinchStartDist = Math.hypot(a.x - b.x, a.y - b.y);
+            pinchStartScale = scale;
+            pinchStartTx = tx;
+            pinchStartTy = ty;
+            pinchMid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+            dragStart = null;
+        }
+
+        e.preventDefault();
+    });
+
+    modalImg.addEventListener('pointermove', (e) => {
+
+        if (!zoomPointers.has(e.pointerId)) return;
+
+        zoomPointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+        // Один активный палец/мышь — панорама по увеличенной картинке
+        if (zoomPointers.size === 1 && dragStart && zoomWasActive) {
+
+            const dx = e.clientX - dragStart.x;
+            const dy = e.clientY - dragStart.y;
+
+            if (Math.abs(dx) + Math.abs(dy) > 2) wasDragged = true;
+
+            tx = dragStart.tx + dx;
+            ty = dragStart.ty + dy;
+
+            clampPan();
+            applyZoom();
+            return;
+        }
+
+        // Два пальца — pinch-зум к середине жеста + перемещение
+        if (zoomPointers.size === 2 && pinchStartDist > 0) {
+
+            const [a, b] = [...zoomPointers.values()];
+            const dist = Math.hypot(a.x - b.x, a.y - b.y);
+            const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+
+            scale = clampZoomValue(pinchStartScale * (dist / pinchStartDist));
+            tx = pinchStartTx + (mid.x - pinchMid.x);
+            ty = pinchStartTy + (mid.y - pinchMid.y);
+
+            if (scale > 1) {
+                zoomWasActive = true;
+            }
+
+            clampPan();
+            applyZoom();
+        }
+
+    });
+
+    modalImg.addEventListener('pointerup', (e) => {
+        zoomPointers.delete(e.pointerId);
+        modalImg.style.transition = '';
+        dragStart = null;
+    });
+
+    modalImg.addEventListener('pointercancel', (e) => {
+        zoomPointers.delete(e.pointerId);
+        modalImg.style.transition = '';
+        dragStart = null;
+    });
+
+    // Двойной клик / двойной тап — сброс до оригинала
+
+    modalImg.addEventListener('dblclick', () => {
+        resetZoom();
+    });
 
     // =========================
     // TOUCH / SWIPE
@@ -700,14 +911,64 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectA = document.getElementById("breedA");
     const selectB = document.getElementById("breedB");
     const wrapper = document.getElementById("compareTableWrapper");
+    const customSelect = document.getElementById("breedBCustom");
+    const trigger = document.getElementById("breedBTrigger");
+    const list = document.getElementById("breedBList");
+    const triggerImg = document.getElementById("breedBTriggerImg");
+    const triggerText = document.getElementById("breedBTriggerText");
 
     if (!selectA || !selectB || !wrapper) return;
 
     let breedA = null;
     let breedB = null;
 
+    // Кастомный селект с фото
+    if (trigger && list && triggerText) {
+        const placeholderText = triggerText.textContent;
+
+        function closeList() {
+            list.hidden = true;
+            trigger.setAttribute("aria-expanded", "false");
+        }
+
+        trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const willOpen = list.hidden;
+            list.hidden = !willOpen;
+            trigger.setAttribute("aria-expanded", String(willOpen));
+        });
+
+        list.addEventListener("click", (e) => {
+            const item = e.target.closest(".custom-select-item");
+            if (!item) return;
+            selectB.value = item.dataset.value;
+            closeList();
+            selectB.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+
+        document.addEventListener("click", (e) => {
+            if (customSelect && !e.target.closest("#breedBCustom")) {
+                closeList();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && list && !list.hidden) closeList();
+        });
+
+        // сброс триггера
+        window.__resetBreedB = function () {
+            selectB.value = "";
+            triggerImg.hidden = true;
+            triggerImg.removeAttribute("src");
+            triggerText.textContent = placeholderText;
+        };
+    }
+
     async function loadBreed(id) {
-        const res = await fetch(`/api/breed/${id}/`);
+        const lang = document.documentElement.lang || "en";
+        const prefix = lang === "en" ? "" : `/${lang}`;
+        const res = await fetch(`${prefix}/api/breed/${id}/`);
         return await res.json();
     }
 
@@ -745,17 +1006,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <th>
         <div class="compare-breed-head">
 
-            <img
-                class="compare-breed-image breed-a-image"
-                loading="lazy"
-                decoding="async"
-            >
-
             <div class="compare-breed-info">
 
                 <a class="compare-breed-link breed-a-link"></a>
-
-                <span class="breed-meta breed-a-meta"></span>
 
             </div>
 
@@ -765,17 +1018,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <th>
         <div class="compare-breed-head">
 
-            <img
-                class="compare-breed-image breed-b-image"
-                loading="lazy"
-                decoding="async"
-            >
-
             <div class="compare-breed-info">
 
                 <a class="compare-breed-link breed-b-link"></a>
-
-                <span class="breed-meta breed-b-meta"></span>
 
             </div>
 
@@ -784,17 +1029,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </tr>
 
-                ${row("🧬", "Varieties")}
-                ${row("🌍", "Origin")}
-                ${row("🐕", "Size")}
-                ${row("📏", "Height / Weight")}
-                ${row("🐩", "Coat")}
-                ${row("❤️", "Life expectancy")}
-                ${row("💡", "Trainability")}
-                ${row("🚀", "Activity")}
-                ${row("📢", "Barking")}
-                ${row("🌱", "Allergy-Friendly")}
-                ${row("🏡", "Family friendly")}
+                ${row("🧬", wrapper.dataset.i18nVarieties || "Varieties")}
+                ${row("🌍", wrapper.dataset.i18nOrigin || "Origin")}
+                ${row("🐕", wrapper.dataset.i18nSize || "Size")}
+                ${row("📏", wrapper.dataset.i18nHeightWeight || "Height / Weight")}
+                ${row("🐩", wrapper.dataset.i18nCoat || "Coat")}
+                ${row("❤️", wrapper.dataset.i18nLife || "Life expectancy")}
+                ${row("💡", wrapper.dataset.i18nTrainability || "Trainability")}
+                ${row("🚀", wrapper.dataset.i18nActivity || "Activity")}
+                ${row("📢", wrapper.dataset.i18nBarking || "Barking")}
+                ${row("🌱", wrapper.dataset.i18nAllergy || "Allergy-Friendly")}
+                ${row("🏡", wrapper.dataset.i18nFamily || "Family friendly")}
 
             </table>
         `;
@@ -806,7 +1051,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 setTimeout(() => {
                     wrapper.innerHTML = "";
-                    selectB.value = "";
+                    if (window.__resetBreedB) window.__resetBreedB();
                 }, 180);
             });
     }
@@ -818,18 +1063,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
 
             // HEADER
-
-            document.querySelector(".breed-a-image").src =
-                breedA.photo;
-
-            document.querySelector(".breed-a-image").alt =
-                breedA.title;
-
-            document.querySelector(".breed-b-image").src =
-                breedB.photo;
-
-            document.querySelector(".breed-b-image").alt =
-                breedB.title;
 
             document.querySelector(".breed-a-link").textContent =
                 breedA.title;
@@ -843,11 +1076,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".breed-b-link").href =
                 breedB.url;
 
-            document.querySelector(".breed-a-meta").innerHTML =
-                `(${breedA.cat}${breedA.section ? `, ${breedA.section}` : ""})`;
+            // TRIGGER селекта: фото + имя выбранной породы
 
-            document.querySelector(".breed-b-meta").innerHTML =
-                `(${breedB.cat}${breedB.section ? `, ${breedB.section}` : ""})`;
+            triggerImg.src = breedB.photo;
+            triggerImg.alt = breedB.title;
+            triggerImg.hidden = false;
+            triggerText.textContent = breedB.title;
 
             // VALUES
 
@@ -865,7 +1099,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     `${breedA.height || "-"} cm / ${breedA.weight || "-"} kg`,
                     `${breedB.height || "-"} cm / ${breedB.weight || "-"} kg`
                 ],
-
                 [
                     `${(breedA.coat_length || "").replaceAll(",", "/")}${
                         breedA.coat_length && breedA.coat_type ? ", " : ""
@@ -877,8 +1110,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ],
 
                 [
-                    `${breedA.life} years`,
-                    `${breedB.life} years`
+                    `${breedA.life} ${wrapper.dataset.i18nYears || "years"}`,
+                    `${breedB.life} ${wrapper.dataset.i18nYears || "years"}`
                 ],
 
                 [
@@ -993,3 +1226,94 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Кастомные навигационные селекты (home: группы и породы)
+document.addEventListener("DOMContentLoaded", () => {
+
+    function initNavSelect(cfg) {
+
+        const custom = document.getElementById(cfg.customId);
+        const trigger = document.getElementById(cfg.triggerId);
+        const list = document.getElementById(cfg.listId);
+        const select = document.getElementById(cfg.selectId);
+        const triggerText = document.getElementById(cfg.triggerTextId);
+        const triggerImg = cfg.triggerImgId
+            ? document.getElementById(cfg.triggerImgId)
+            : null;
+
+        if (!custom || !trigger || !list || !select || !triggerText) return;
+
+        function closeList() {
+            list.hidden = true;
+            trigger.setAttribute("aria-expanded", "false");
+        }
+
+        trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const willOpen = list.hidden;
+            list.hidden = !willOpen;
+            trigger.setAttribute("aria-expanded", String(willOpen));
+        });
+
+        // Клик в любом месте вне кастомного селекта закрывает все открытые списки.
+        // capture-фаза нужна: стоп-пропагация на триггере не мешает перехвату,
+        // и клик по другому триггеру тоже гасит остальные дропдауны.
+        document.addEventListener("click", (e) => {
+            const customEl = e.target.closest(".custom-select");
+            document.querySelectorAll(".custom-select-list").forEach((openList) => {
+                if (openList.hidden) return;
+                if (customEl && customEl.contains(openList)) return;
+                openList.hidden = true;
+                const openTrigger = openList.parentElement.querySelector(".custom-select-trigger");
+                if (openTrigger) openTrigger.setAttribute("aria-expanded", "false");
+            });
+        }, true);
+
+        list.addEventListener("click", (e) => {
+            const item = e.target.closest(".custom-select-item");
+            if (!item) return;
+
+            select.value = item.dataset.value;
+
+            const span = item.querySelector("span");
+            if (span) triggerText.textContent = span.textContent.trim();
+
+            if (triggerImg) {
+                const img = item.querySelector(".custom-select-opt-img");
+                if (img) {
+                    triggerImg.src = img.src;
+                    triggerImg.alt = span ? span.textContent.trim() : "";
+                    triggerImg.hidden = false;
+                }
+            }
+
+            closeList();
+
+            if (item.dataset.value) {
+                window.location.href = item.dataset.value;
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && list && !list.hidden) closeList();
+        });
+    }
+
+    // Группы: текстом, без фото
+    initNavSelect({
+        customId: "groupCustom",
+        triggerId: "groupTrigger",
+        listId: "groupList",
+        selectId: "breed-select",
+        triggerTextId: "groupTriggerText"
+    });
+
+    // Породы: с фото, как в compare
+    initNavSelect({
+        customId: "breedCustom",
+        triggerId: "breedTrigger",
+        listId: "breedList",
+        selectId: "breed-select-1",
+        triggerTextId: "breedTriggerText",
+        triggerImgId: "breedTriggerImg"
+    });
+});

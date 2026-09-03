@@ -1,5 +1,107 @@
-{% extends 'woof/base_fullwidth.html' %}
+{% extends 'woof/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load cards %}
+
+{% block json_ld %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Woof Dogs",
+    "url": "{{ request.scheme }}://{{ request.get_host }}",
+    "inLanguage": "{{ LANGUAGE_CODE }}",
+    "description": "Woof Dogs — dog breeds grouped by AKC standards."
+}
+</script>
+{% endblock %}
+
+{% block page_loader %}
+<!-- Page loader -->
+<div class="page-loader" id="page-loader">
+
+    <div class="loader-logo">
+        <span class="loader-logo-w">w</span><span class="loader-logo-d">d</span>
+    </div>
+
+    <p>woof...</p>
+
+</div>
+{% endblock %}
+
+{# Full-width homepage: no boxed container, sidebar outside the content flow #}
+{% block layout_container %}{% endblock %}
+{% block layout_container_close %}{% endblock %}
+
+{% block sidebar %}
+
+<!-- Sidebar -->
+<aside class="sidebar-nav nav-2">
+
+    <div class="mobile-menu">
+
+
+        <!-- Main menu -->
+        <ul class="mobile-menu__list--top">
+
+            {% for m in menu %}
+
+                <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
+                    <a href="{% url m.url_name %}" title="{{ m.title }}">
+                        {{ m.title }}
+                    </a>
+                </li>
+
+            {% endfor %}
+
+        </ul>
+
+
+        <!-- Groups -->
+        <ul class="mobile-menu__list">
+
+            {% for category in cats %}
+
+                {% if category.pk != 10 %}
+
+                    <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
+                        <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</aside>
+
+{% endblock %}
+
+{% block main_class %}fullwidth-content{% endblock %}
+
+{% block body_scripts %}
+<script>
+    window.addEventListener('load', function () {
+
+        const loader = document.getElementById('page-loader');
+
+        if (!loader) {
+            return;
+        }
+
+        loader.classList.add('is-hidden');
+
+        setTimeout(function () {
+            loader.remove();
+        }, 400);
+    });
+</script>
+{% endblock %}
 
 {% block content %}
 
@@ -27,7 +129,7 @@
                         </p>
 
                         <p class="homepage-subtitle">
-                            A little mess, a lot of <span class="love-word">love</span>
+                            {% blocktranslate trimmed %}A little mess, a lot of <span class="love-word">love</span>{% endblocktranslate %}
                         </p>
 
 
@@ -35,45 +137,107 @@
                         <div class="homepage-search-block">
 
                             <!-- Group search -->
-                            <div class="homepage-search" title="Find by group">
+                            <div class="homepage-search" title="{% trans 'Find by group' %}">
 
                                 <label for="breed-select" class="visually-hidden">
-                                    Find by group
+                                    {% trans "Find by group" %}
                                 </label>
 
+                                <div id="groupCustom" class="custom-select">
+                                    <button type="button"
+                                            id="groupTrigger"
+                                            class="custom-select-trigger"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false">
+                                        <span class="custom-select-value">
+                                            <span id="groupTriggerText"
+                                                  class="custom-select-placeholder">{% trans "Find by group" %}</span>
+                                        </span>
+                                        <span class="custom-select-caret" aria-hidden="true"></span>
+                                    </button>
+
+                                    <ul id="groupList"
+                                        class="custom-select-list"
+                                        role="listbox"
+                                        tabindex="-1"
+                                        hidden>
+                                        {% for group in cats %}
+                                        <li class="custom-select-item"
+                                            role="option"
+                                            data-value="{{ group.get_absolute_url }}">
+                                            <span>{{ group.name }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
                                 <select id="breed-select"
-                                        onchange="if(this.value) window.location.href=this.value;">
-
-                                    <option value="">Find by group</option>
-
+                                        hidden
+                                        aria-hidden="true">
+                                    <option value="">{% trans "Find by group" %}</option>
                                     {% for group in cats %}
                                         <option value="{{ group.get_absolute_url }}">
                                             {{ group.name }}
                                         </option>
                                     {% endfor %}
-
                                 </select>
 
                             </div>
 
 
                             <!-- Breed search -->
-                            <div class="homepage-search" title="Find by breed">
+                            <div class="homepage-search" title="{% trans 'Find by breed' %}">
 
                                 <label for="breed-select-1" class="visually-hidden">
-                                    Find by breed
+                                    {% trans "Find by breed" %}
                                 </label>
 
-                                <select id="breed-select-1">
+                                <div id="breedCustom" class="custom-select">
+                                    <button type="button"
+                                            id="breedTrigger"
+                                            class="custom-select-trigger"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false">
+                                        <span class="custom-select-value">
+                                            <img id="breedTriggerImg"
+                                                 class="custom-select-img"
+                                                 alt=""
+                                                 hidden>
+                                            <span id="breedTriggerText"
+                                                  class="custom-select-placeholder">{% trans "Find by breed" %}</span>
+                                        </span>
+                                        <span class="custom-select-caret" aria-hidden="true"></span>
+                                    </button>
 
-                                    <option value="">Find by breed</option>
+                                    <ul id="breedList"
+                                        class="custom-select-list"
+                                        role="listbox"
+                                        tabindex="-1"
+                                        hidden>
+                                        {% for dog in posts %}
+                                        <li class="custom-select-item"
+                                            role="option"
+                                            data-value="{{ dog.get_absolute_url }}">
+                                            <img src="{{ dog.photo_thumb.url }}"
+                                                 alt=""
+                                                 class="custom-select-opt-img"
+                                                 loading="lazy"
+                                                 decoding="async">
+                                            <span>{{ dog.title }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
 
+                                <select id="breed-select-1"
+                                        hidden
+                                        aria-hidden="true">
+                                    <option value="">{% trans "Find by breed" %}</option>
                                     {% for dog in posts %}
                                         <option value="{{ dog.get_absolute_url }}">
                                             {{ dog.title }}
                                         </option>
                                     {% endfor %}
-
                                 </select>
 
                             </div>
@@ -82,8 +246,8 @@
 
 
                         <p class="homepage-subsubtitle">
-                            A simple way to find a dog that really fits your lifestyle,
-                            your home, and your everyday rhythm — and feels like it belongs there
+                            {% blocktranslate trimmed %}A simple way to find a dog that really fits your lifestyle,
+                            your home, and your everyday rhythm — and feels like it belongs there{% endblocktranslate %}
                         </p>
 
                     </div>
@@ -99,7 +263,7 @@
                 <!-- Hero scroll arrow -->
                 <a href="#explore"
                    class="hero-arrow"
-                   title="Scroll down">
+                   title="{% trans 'Scroll down' %}">
 
                     <div class="arrow-icon"></div>
 
@@ -112,15 +276,15 @@
     </div>
 
 
-    <!-- Breed profiles -->
+    <!-- {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %} -->
     <div class="home-text-block" id="explore">
 
         <h1 class="home-text-block-title">
-            Breed profiles
+            {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %}
         </h1>
 
         <p class="homepage-subsubtitle">
-            Explore breeds by size, temperament,<br> lifestyle and more.
+            {% blocktranslate trimmed %}Explore breeds by size, temperament,<br> lifestyle and more.{% endblocktranslate %}
         </p>
 
     </div>
@@ -137,25 +301,25 @@
                 <button class="slider-arrow slider-prev disabled">
 
                     <img src="{% static 'left.svg' %}"
-                         alt="Previous page"
-                         title="Previous"
+                         alt="{% trans 'Previous page' %}"
+                         title="{% trans 'Previous' %}"
                          class="icon-post"
                          width="18"
                          height="23"
                     >
 
-                    <span>prev</span>
+                    <span>{% trans "prev" %}</span>
 
                 </button>
 
 
                 <button class="slider-arrow slider-next">
 
-                    <span>next</span>
+                    <span>{% trans "next" %}</span>
 
                     <img src="{% static 'right.svg' %}"
-                         alt="Next page"
-                         title="Next"
+                         alt="{% trans 'Next page' %}"
+                         title="{% trans 'Next' %}"
                          class="icon-post"
                          width="18"
                          height="23"
@@ -179,11 +343,12 @@
                                class="dog-card-link"
                                title="{{ dog.title }}">
 
-                                <div class="dog-card">
+                                <div class="dog-card"
+                                     style="--card-accent: {{ dog.cat.fci_number|fci_color }}; --card-accent-dark: {{ dog.cat.fci_number|fci_dark }}">
 
                                     {% if dog.photo %}
 
-                                        <img src="{{ dog.photo_medium.url }}"
+                                        <img src="{{ dog.photo_card.url }}"
                                              alt="{{ dog.title }}"
                                              class="dog-card__image"
                                              height="300"
@@ -224,21 +389,7 @@
 
 
             <!-- Slider pagination -->
-            <div class="slider-pagination">
-
-                <span class="slider-current">
-                    1
-                </span>
-
-                <span class="slider-separator">
-                    /
-                </span>
-
-                <span class="slider-total">
-                    1
-                </span>
-
-            </div>
+            <div class="slider-dots" role="group"></div>
 
         </div>
 

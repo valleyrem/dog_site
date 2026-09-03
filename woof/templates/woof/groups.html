@@ -1,5 +1,7 @@
 {% extends 'woof/base.html' %}
+{% load i18n %}
 {% load static %}
+{% load cards %}
 
 {% block content %}
 
@@ -7,10 +9,10 @@
 <div class="breadcrumbs">
 
     <a href="{% url 'home' %}"
-       title="Home"
+       title="{% trans 'Home' %}"
        class="link-policies">
         <img src="{% static 'house.svg' %}"
-             alt="Home"
+             alt="{% trans 'Home' %}"
              class="icon-bread"
              width="12"
              height="12"
@@ -19,9 +21,7 @@
 
     <span>/</span>
 
-    <span class="current">
-        Groups
-    </span>
+    <span class="current">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span>
 
 </div>
 
@@ -30,21 +30,15 @@
 <div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">
-        Groups
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</h1>
 
-    <p class="section-title">
-        Explore all FCI dog groups and their sections
-    </p>
+    <p class="section-title">{% blocktranslate trimmed %}Explore all FCI dog groups and their sections{% endblocktranslate %}</p>
 
 
     <div class="post-text-explore">
 
         <p class="cat-desc">
-            Explore the official <strong>FCI groups</strong> below —
-            each group contains breeds with similar history, purpose,
-            and characteristics. Discover individual breeds.
+            {% blocktranslate trimmed %}Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics. Discover individual breeds.{% endblocktranslate %}
         </p>
 
 
@@ -57,6 +51,7 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
+                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
 
                         <!-- Left image -->
@@ -78,7 +73,7 @@
                         <div class="group-sections">
 
                             <div class="group-name">
-                                Group {{ category.fci_number }}
+                                {% blocktranslate trimmed with n=category.fci_number %}Group {{ n }}{% endblocktranslate %}
                             </div>
 
                             <span class="groups-link">
@@ -91,7 +86,7 @@
                         <!-- Open icon -->
                         <span class="group-open-icon">
                             <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="go"
+                                 alt="{% trans 'go' %}"
                                  class="icon-arrow"
                                  width="16"
                                  height="16"
@@ -108,16 +103,12 @@
 
 
         <!-- Other breeds -->
-        <p class="section-title">
-            Breeds outside the current FCI structure
-        </p>
+        <p class="section-title">{% blocktranslate trimmed %}Breeds outside the current FCI structure{% endblocktranslate %}</p>
 
-        <p>
-            Some breeds on the site are not currently placed inside
+        <p>{% blocktranslate trimmed %}Some breeds on the site are not currently placed inside
             the official FCI classification.
             They are collected in a separate category so you can still
-            browse and compare them easily.
-        </p>
+            browse and compare them easily.{% endblocktranslate %}</p>
 
 
         <div class="catalog-structure">
@@ -128,6 +119,7 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
+                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
 
                         <!-- Left image -->
@@ -149,7 +141,7 @@
                         <div class="group-sections">
 
                             <div class="group-name">
-                                Other Breeds
+                                {% blocktranslate trimmed %}Other Breeds{% endblocktranslate %}
                             </div>
 
                             <span class="groups-link">
@@ -162,7 +154,7 @@
                         <!-- Open icon -->
                         <span class="group-open-icon">
                             <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="go"
+                                 alt="{% trans 'go' %}"
                                  class="icon-arrow"
                                  width="16"
                                  height="16"
