@@ -1,6 +1,26 @@
 {% extends 'woof/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load cards %}
+
+{% block json_ld %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Breed",
+    "name": "{{ post.title|escapejs }}",
+    "url": "{{ request.build_absolute_uri }}",
+    "description": "{{ post.summary|default:''|truncatechars:250|escapejs }}",
+    {% if post.photo %}
+    "image": [
+        "{{ request.scheme }}://{{ request.get_host }}{{ post.photo_medium.url }}",
+        "{{ request.scheme }}://{{ request.get_host }}{{ post.photo_card.url }}"
+    ],
+    {% endif %}
+    "inLanguage": "{{ LANGUAGE_CODE }}"
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
@@ -81,16 +101,18 @@ title="{% trans 'Next' %}"
              height="23">
     </button>
 
-    <div class="main-img-viewport">
+    <div class="main-img-viewport"
+         style="--card-accent: {{ post.cat.fci_number|fci_color }}">
         <img class="post-image"
              src="{{ post.photo_medium.url }}"
              alt="{{ post.title }}"
-             width="350"
-             height="450"
+             width="400"
+             height="500"
              decoding="async"
              fetchpriority="high"
              data-index="0"
              data-author="{% if post.photo_author %}by {{ post.photo_author|escapejs }}{% endif %}">
+        <span class="img-enlarge-hint">{% trans "Click to enlarge" %}</span>
     </div>
 
     <button class="main-img-arrow next" type="button" aria-label="Next image">
@@ -130,9 +152,22 @@ title="{% trans 'Next' %}"
 
     <div class="breed-header">
         <span class="breed-tag">
-             <a href="{{ post.cat.get_absolute_url }}" title="{{ post.cat }}"> {{ post.cat }} </a>
+             <a href="{{ post.cat.get_absolute_url }}"
+                title="{{ post.cat }}"
+                style="color: {{ post.cat.fci_number|fci_dark }}"
+             > {{ post.cat }} </a>
         </span>
     </div>
+
+    {% if post.temperament.all %}
+    <div class="breed-character">
+        <p class="character-tags">
+            {% for tt in post.temperament.all %}
+                <span class="tag-word">{{ tt }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+    {% endif %}
 
     <div class="post-params-grid">
 
@@ -362,6 +397,8 @@ title="{% trans 'Next' %}"
              height="23"
         >
     </span>
+
+    <span class="modal-zoom" id="modal-zoom" aria-hidden="true">100%</span>
 </div>
 
 
@@ -372,17 +409,67 @@ title="{% trans 'Next' %}"
 
     <div id="comparePanel" class="compare-panel hidden">
 
+        <div class="compare-wrap">
+
         <div class="compare-controls">
 
             <div id="breedA"
                  class="current-post-dog"
                  data-id="{{ post.id }}">
-                 {{ post.title }}
+                 <img class="control-dog-image"
+                      src="{{ post.photo_thumb.url }}"
+                      alt="{{ post.title }}"
+                      loading="lazy"
+                      decoding="async">
+                 <span class="control-dog-name">{{ post.title }}</span>
             </div>
 
             <span class="vs">vs</span>
 
-            <select id="breedB" class="compare-select" title="{% trans 'Select breed' %}">
+            <div id="breedBCustom" class="custom-select">
+                <button type="button"
+                        id="breedBTrigger"
+                        class="custom-select-trigger"
+                        aria-haspopup="listbox"
+                        aria-expanded="false">
+                    <span class="custom-select-value">
+                        <img id="breedBTriggerImg"
+                             class="custom-select-img"
+                             alt=""
+                             hidden>
+                        <span id="breedBTriggerText"
+                              class="custom-select-placeholder">{% trans "Select breed" %}</span>
+                    </span>
+                    <span class="custom-select-caret" aria-hidden="true"></span>
+                </button>
+
+                <ul id="breedBList"
+                    class="custom-select-list"
+                    role="listbox"
+                    tabindex="-1"
+                    hidden>
+                    {% for dog in all_breeds %}
+                        {% if dog.id != post.id %}
+                        <li class="custom-select-item"
+                            role="option"
+                            data-value="{{ dog.id }}">
+                            <img src="{{ dog.photo_thumb.url }}"
+                                 alt=""
+                                 class="custom-select-opt-img"
+                                 loading="lazy"
+                                 decoding="async">
+                            <span>{{ dog.title }}</span>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <select id="breedB"
+                    class="compare-select"
+                    title="{% trans 'Select breed' %}"
+                    hidden
+                    aria-hidden="true">
                 <option value="">{% trans "Select breed" %}</option>
 
                 {% for dog in all_breeds %}
@@ -410,13 +497,15 @@ title="{% trans 'Next' %}"
              data-i18n-family="{% trans 'Family friendly' %}"
              data-i18n-years="{% trans 'years' %}"></div>
 
+        </div>
+
     </div>
 
 </div>
 
 <!-- Related dogs -->
 {% if related_dogs and post.slug != 'dachshund' %}
-<h2 class="section-title">{% blocktranslate trimmed with name=post.cat.name %}Other «{{ name }}»{% endblocktranslate %}</h2>
+<h2 class="section-title">{% trans "Other breeds in this group" %}</h2>
 <div class="slider-block">
     <div class="slider-inner">
         <div class="slider-nav">
@@ -447,10 +536,11 @@ title="{% trans 'Next' %}"
     <div class="dog-slider-track">
         {% for dog in related_dogs %}
             <a href="{{ dog.get_absolute_url }}" class="dog-card-link" title="{{ dog.title }}">
-                <div class="dog-card">
+                <div class="dog-card" style="--card-accent: {{ dog.cat.fci_number|fci_color }}; --card-accent-dark: {{ dog.cat.fci_number|fci_dark }}">
 
                     {% if dog.photo %}
-                        <img src="{{ dog.photo_medium.url }}"
+
+                        <img src="{{ dog.photo_card.url }}"
                              alt="{{ dog.title }}"
                             class="dog-card__image"
                             loading="lazy"
@@ -472,11 +562,7 @@ title="{% trans 'Next' %}"
         </div>
 
 </div>
-        <div class="slider-pagination">
-    <span class="slider-current">1</span>
-    <span class="slider-separator">/</span>
-    <span class="slider-total">1</span>
-</div>
+        <div class="slider-dots" role="group"></div>
         </div>
     </div>
 

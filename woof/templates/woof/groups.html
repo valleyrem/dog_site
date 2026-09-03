@@ -1,6 +1,7 @@
 {% extends 'woof/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load cards %}
 
 {% block content %}
 
@@ -50,6 +51,7 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
+                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
 
                         <!-- Left image -->
@@ -117,6 +119,7 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
+                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
 
                         <!-- Left image -->

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}" class="lang-{{ LANGUAGE_CODE }}">
 
 <head>
 
@@ -18,10 +18,16 @@
 
 
     <!-- Meta -->
-    <meta name="description" content="Woof Dogs. Website about dog breeds categorizes by American Kennel Club (AKC).">
+    <meta name="description" content="{{ meta_description }}">
     <meta name="google-site-verification" content="HPWwmIldc9XdWosMjDEekOApMJHKtsHUea5lkzhx4u0">
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    <link rel="alternate" hreflang="en" href="{{ page_url_en }}">
+    <link rel="alternate" hreflang="ru" href="{{ page_url_ru }}">
+    <link rel="alternate" hreflang="x-default" href="{{ page_url_en }}">
 
 
     <!-- Styles -->
@@ -53,8 +59,6 @@
 
     <!-- Global scripts -->
     <script src="{% static 'woof/js/scripts.js' %}" defer></script>
-    <script src="https://unpkg.com/htmx.org@1.8.5" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
 
     <!-- Open Graph -->
@@ -64,15 +68,26 @@
           content="{{ title }}">
 
     <meta property="og:description"
-          content="{{ post.summary|truncatechars:140 }}">
+          content="{{ og_description|default:meta_description }}">
+
+    <meta property="og:site_name" content="Woof Dogs">
+
+    <meta property="og:image:alt" content="{{ title }}">
 
     <meta property="og:url"
           content="{{ request.build_absolute_uri }}">
 
-    {% if post.photo %}
+    {% if og_image %}
         <meta property="og:image"
-              content="{{ request.scheme }}://{{ request.get_host }}{{ post.photo_large.url }}">
+              content="{{ og_image }}">
+    {% else %}
+        <meta property="og:image"
+              content="{{ request.scheme }}://{{ request.get_host }}{% static 'logo.png' %}">
     {% endif %}
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    {% block json_ld %}{% endblock %}
 
 </head>
 

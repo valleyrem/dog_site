@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Dogs, Category, DogImage, Section, CoatType, CoatLength
+from .models import Dogs, Category, DogImage, Section, CoatType, CoatLength, Temperament
 
 
 class DogImageInline(admin.TabularInline):
@@ -31,7 +31,7 @@ class DogsAdmin(admin.ModelAdmin):
     )
 
     list_display_links = ('id', 'title')
-    filter_horizontal = ('coat_length', 'coat_type' )
+    filter_horizontal = ('coat_length', 'coat_type', 'temperament')
 
     search_fields = (
         'title',
@@ -62,11 +62,14 @@ class DogsAdmin(admin.ModelAdmin):
     fields = (
         # main
         'title',
+        'title_ru',
         'slug',
         'cat',
         'section',
         'varieties',
+        'varieties_ru',
         'country',
+        'country_ru',
 
         # photo
         'photo',
@@ -80,7 +83,9 @@ class DogsAdmin(admin.ModelAdmin):
         'weight',
         'coat_length',
         'coat_type',
+        'temperament',
         'colors',
+        'colors_ru',
         'trainability',
         'activity_level',
         'barking_level',
@@ -89,8 +94,11 @@ class DogsAdmin(admin.ModelAdmin):
 
         # description
         'summary',
+        'summary_ru',
         'care',
+        'care_ru',
         'living_conditions',
+        'living_conditions_ru',
 
         # general
         'is_published',
@@ -148,6 +156,12 @@ class CoatTypeAdmin(admin.ModelAdmin):
 
 @admin.register(CoatLength)
 class CoatLengthAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    search_fields = ('name',)
+
+
+@admin.register(Temperament)
+class TemperamentAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     search_fields = ('name',)
 

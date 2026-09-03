@@ -7,13 +7,15 @@ from django.urls import include, path, re_path
 from django.views.static import serve
 
 from config.views import set_language
-from woof.views import page_not_found
+from woof.views import page_not_found, robots_txt, sitemap_xml
 
 # URLs that must NOT get a language prefix.
 urlpatterns = [
     path("i18n/setlang/", set_language, name="set_language"),
     path("admin/", admin.site.urls),
     path("chaining/", include("smart_selects.urls")),
+    path("sitemap.xml", sitemap_xml, name="sitemap"),
+    path("robots.txt", robots_txt, name="robots"),
     re_path(
         r"^media/(?P<path>.*)$", serve, kwargs={"document_root": settings.MEDIA_ROOT}
     ),

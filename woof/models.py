@@ -22,6 +22,13 @@ class CoatLength(models.Model):
         return self.name
 
 
+class Temperament(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Dogs(models.Model):
     BARKING_CHOICES = [
         ('necessary', _('When necessary (rare, purposeful)')),
@@ -151,6 +158,13 @@ class Dogs(models.Model):
         options={'quality': 90}
     )
 
+    photo_card = ImageSpecField(
+        source='photo',
+        processors=[ResizeToFit(700, 500)],
+        format='WEBP',
+        options={'quality': 82}
+    )
+
     photo_author = models.CharField(
         max_length=255,
         blank=True,
@@ -175,6 +189,12 @@ class Dogs(models.Model):
         CoatLength,
         blank=True,
         verbose_name="Coat length"
+    )
+
+    temperament = models.ManyToManyField(
+        'Temperament',
+        blank=True,
+        verbose_name="Character (temperament)"
     )
 
     trainability = models.CharField(

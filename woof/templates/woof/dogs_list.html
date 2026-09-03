@@ -1,6 +1,7 @@
 {% extends 'woof/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load cards %}
 
 {% block content %}
 
@@ -92,10 +93,12 @@ title="{% trans 'Next' %}"
                                class="dog-card-link"
                                title="{{ p.title }}">
 
-                                <div class="dog-card">
+                                <div class="dog-card"
+                                     style="--card-accent: {{ p.cat.fci_number|fci_color }}; --card-accent-dark: {{ p.cat.fci_number|fci_dark }}">
 
                                     {% if p.photo %}
-                                        <img src="{{ p.photo_medium.url }}"
+
+                                        <img src="{{ p.photo_card.url }}"
                                              class="dog-card__image"
                                              alt="{{ p.title }}"
                                              height="300"
@@ -134,15 +137,7 @@ title="{% trans 'Next' %}"
 
 
             <!-- Slider pagination -->
-            <div class="slider-pagination">
-
-                <span class="slider-current">1</span>
-
-                <span class="slider-separator">/</span>
-
-                <span class="slider-total">1</span>
-
-            </div>
+            <div class="slider-dots" role="group"></div>
 
         </div>
 

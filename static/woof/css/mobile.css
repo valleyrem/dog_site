@@ -136,12 +136,12 @@
 
     .mobile-menu__list--top a {
         font-size: 16px;
-        font-family: "Clash Display";
+        font-family: "Clash Display", "Wix Madefor Display";
     }
 
     .mobile-menu__list--top {
         display: flex;
-        gap: 20px;
+        gap: 10px;
         justify-content: flex-start;
         margin: 0;
         padding-bottom: 10px;
@@ -170,7 +170,7 @@
         color: var(--color-text-primary);
         position: relative;
         transition: var(--transition-base);
-        font-family: "Space Grotesk";
+        font-family: "Space Grotesk", "Manrope";
     }
 
     .nav-right .nav-guides-link {
@@ -333,7 +333,7 @@
     .section-title {
         font-size: 22px;
         margin: 0;
-        text-align: center;
+/*        text-align: center;*/
         padding: 10px 0;
         line-height: 1.4;
     }
@@ -419,7 +419,7 @@
         padding-top: 40px;
     }
 
-    .slider-pagination {
+    .slider-dots {
         margin: 0;
     }
 
@@ -534,15 +534,14 @@
 
     .post-title {
         font-size: 24px;
-        padding: 0;
         line-height: 1.3;
         text-align: center;
         margin: 5px 0 10px;
+        width: 100%;
     }
 
     .post-title-cat {
         font-size: 30px;
-        padding: 0;
         line-height: 1.3;
         text-align: center;
         margin: 5px 0 0;
@@ -585,7 +584,7 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        padding: 80px 5px 20px;
+        padding: 75px 5px 20px;
         margin: 10px 0;
         background-image: none;
         background-position:
@@ -620,13 +619,22 @@
         text-align: center;
     }
 
+    .character-tags {
+        width: 100%;
+        text-align: center;
+    }
+
+    .img-enlarge-hint {
+        right: 5px;
+    }
+
     .main-img-viewport {
         width: 100%;
         height: 100%;
     }
 
     .main-img-arrow.next {
-        right: -27px;
+        right: -40px;
         font-size: 24px;
         background: transparent;
         border: 0;
@@ -634,17 +642,22 @@
     }
 
     .main-img-arrow.prev {
-        left: -27px;
+        left: -40px;
         font-size: 24px;
         background: transparent;
         border: 0;
         color: #1C2B27;
     }
 
-    .post-main-image,
-    .post-image {
-        width: 89%;
+    .post-main-image {
+        width: 85%;
         margin: 0 auto;
+        height: 380px;
+    }
+
+    .post-image {
+        width: 100%;
+        margin: 0;
         height: 380px;
         object-fit: cover;
         cursor: pointer;
@@ -656,8 +669,9 @@
     }
 
     .post-photo-author {
-        margin: 10px 0;
+        margin: 7px 0;
         padding: 0;
+        font-size: 9px;
     }
 
     .post-image {
@@ -732,6 +746,7 @@
         width: fit-content;
         padding: 4px 10px 4px 0;
         letter-spacing: -0.3px;
+        font-weight: 400;
     }
 
     .param-card span {
@@ -769,10 +784,6 @@
         margin: 2px 0 20px;
     }
 
-    #compareTableWrapper {
-        margin: 20px auto;
-    }
-
     .compare-table th,
     .compare-table td {
         line-height: 1.3;
@@ -785,9 +796,7 @@
         display: none;
     }
 
-    .compare-table .header-row th {
-        height: 120px;
-    }
+
 
     .compare-breed-head {
         height: 100%;
@@ -799,6 +808,35 @@
         width: 100%;
         background: transparent;
         border: none;
+        border-bottom: none;
+        padding: 0 0 12px;
+    }
+
+    .compare-wrap {
+        padding: 14px 10px 16px;
+        border-radius: 18px;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    .custom-select-trigger {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        justify-content: center;
+    }
+
+    .homepage .custom-select-trigger {
+        width: 270px;
+        max-width: none;
+    }
+
+    .custom-select-list {
+        width: 100%;
+        left: 0;
+        transform: none;
     }
 
     .current-post-dog {
@@ -1187,6 +1225,11 @@
         margin: 40px 20px 40px;
     }
 
+    .nav-left-list li a {
+        padding: 0 2px;
+        font-size: 12px;
+    }
+
     .homepage select,
     .compare-select {
         color: var(--color-text-primary);
@@ -1197,7 +1240,7 @@
     }
 
     .post-media {
-        padding: 70px 0 35px 20px;
+        padding: 70px 0 35px 0px;
     }
 
     .section-title {
@@ -1207,7 +1250,7 @@
     .policy-container input[type="text"],
     .policy-container input[type="email"],
     .policy-container textarea {
-        border-radius: 0;
+        border-radius: 10px;
     }
 
     .hero-left {
@@ -1218,27 +1261,55 @@
         font-size: 140px;
     }
 
+    .homepage .slider-inner {
+        width: 100%;
+        margin: 0;
+    }
+
+/*
     .layout-content {
         padding: 15px 20px 100px;
         width: 768px;
     }
+*/
 
-    .post-main-image, .post-image {
+    .post-main-image {
         margin: 0 auto;
         width: 360px;
     }
 
+    .post-image {
+        margin: 0;
+        width: 100%;
+    }
+
+    .character-tags {
+        width: 100%;
+        text-align: center;
+    }
+
     .main-img-arrow.prev {
-        left: -45px;
+        left: -70px;
     }
 
     .main-img-arrow.next {
-        right: -45px;
+        right: -70px;
     }
 
-    .post-title {
+    .post-title, .breed-tag {
         text-align: center;
+        width: fit-content;
+        margin: 0 auto;
+        justify-content: center;
     }
+
+    .breed-tag {
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+
 
     .post-right {
         width: 100%;
@@ -1255,6 +1326,11 @@
     .post-media {
         display: flex;
         flex-direction: column;
+        gap: 30px;
+    }
+
+    .post-params-grid {
+        padding-left: 10px;
     }
 
     .dog-groups,
@@ -1310,7 +1386,7 @@
 
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 913px) and (max-width: 1023px) {
 
     .homepage-title-1 {
         font-size: 130px;
@@ -1477,6 +1553,8 @@
     }
 
     .post-title {
+        width: 100%;
+        justify-content: center;
         text-align: center;
     }
 
@@ -1487,6 +1565,9 @@
     .breed-tag {
         padding: 6px 0;
         font-size: 22px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
     }
 
     .post-right {
@@ -1581,7 +1662,7 @@
     .policy-container input[type="text"],
     .policy-container input[type="email"],
     .policy-container textarea {
-        border-radius: 0;
+        border-radius: 10px;
     }
 
     .nav-main {

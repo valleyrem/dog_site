@@ -10,11 +10,6 @@ logger = logging.getLogger(__name__)
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(
-        label=_("Name"),
-        max_length=255,
-        widget=forms.TextInput(attrs={"class": "form-input"}),
-    )
     email = forms.EmailField(
         label=_("E-mail"), widget=forms.EmailInput(attrs={"class": "form-input"})
     )
@@ -27,7 +22,6 @@ class ContactForm(forms.Form):
         message = (
             f"{current_time}\n"
             f"Contact:\n"
-            f"Name: {self.cleaned_data['name']}\n"
             f"Email: {self.cleaned_data['email']}\n"
             f"Message: {self.cleaned_data['content']}"
         )

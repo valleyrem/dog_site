@@ -1,6 +1,20 @@
 {% extends 'woof/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load cards %}
+
+{% block json_ld %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Woof Dogs",
+    "url": "{{ request.scheme }}://{{ request.get_host }}",
+    "inLanguage": "{{ LANGUAGE_CODE }}",
+    "description": "Woof Dogs — dog breeds grouped by AKC standards."
+}
+</script>
+{% endblock %}
 
 {% block page_loader %}
 <!-- Page loader -->
@@ -129,17 +143,43 @@
                                     {% trans "Find by group" %}
                                 </label>
 
+                                <div id="groupCustom" class="custom-select">
+                                    <button type="button"
+                                            id="groupTrigger"
+                                            class="custom-select-trigger"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false">
+                                        <span class="custom-select-value">
+                                            <span id="groupTriggerText"
+                                                  class="custom-select-placeholder">{% trans "Find by group" %}</span>
+                                        </span>
+                                        <span class="custom-select-caret" aria-hidden="true"></span>
+                                    </button>
+
+                                    <ul id="groupList"
+                                        class="custom-select-list"
+                                        role="listbox"
+                                        tabindex="-1"
+                                        hidden>
+                                        {% for group in cats %}
+                                        <li class="custom-select-item"
+                                            role="option"
+                                            data-value="{{ group.get_absolute_url }}">
+                                            <span>{{ group.name }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
                                 <select id="breed-select"
-                                        onchange="if(this.value) window.location.href=this.value;">
-
+                                        hidden
+                                        aria-hidden="true">
                                     <option value="">{% trans "Find by group" %}</option>
-
                                     {% for group in cats %}
                                         <option value="{{ group.get_absolute_url }}">
                                             {{ group.name }}
                                         </option>
                                     {% endfor %}
-
                                 </select>
 
                             </div>
@@ -152,16 +192,52 @@
                                     {% trans "Find by breed" %}
                                 </label>
 
-                                <select id="breed-select-1">
+                                <div id="breedCustom" class="custom-select">
+                                    <button type="button"
+                                            id="breedTrigger"
+                                            class="custom-select-trigger"
+                                            aria-haspopup="listbox"
+                                            aria-expanded="false">
+                                        <span class="custom-select-value">
+                                            <img id="breedTriggerImg"
+                                                 class="custom-select-img"
+                                                 alt=""
+                                                 hidden>
+                                            <span id="breedTriggerText"
+                                                  class="custom-select-placeholder">{% trans "Find by breed" %}</span>
+                                        </span>
+                                        <span class="custom-select-caret" aria-hidden="true"></span>
+                                    </button>
 
+                                    <ul id="breedList"
+                                        class="custom-select-list"
+                                        role="listbox"
+                                        tabindex="-1"
+                                        hidden>
+                                        {% for dog in posts %}
+                                        <li class="custom-select-item"
+                                            role="option"
+                                            data-value="{{ dog.get_absolute_url }}">
+                                            <img src="{{ dog.photo_thumb.url }}"
+                                                 alt=""
+                                                 class="custom-select-opt-img"
+                                                 loading="lazy"
+                                                 decoding="async">
+                                            <span>{{ dog.title }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                                <select id="breed-select-1"
+                                        hidden
+                                        aria-hidden="true">
                                     <option value="">{% trans "Find by breed" %}</option>
-
                                     {% for dog in posts %}
                                         <option value="{{ dog.get_absolute_url }}">
                                             {{ dog.title }}
                                         </option>
                                     {% endfor %}
-
                                 </select>
 
                             </div>
@@ -267,11 +343,12 @@
                                class="dog-card-link"
                                title="{{ dog.title }}">
 
-                                <div class="dog-card">
+                                <div class="dog-card"
+                                     style="--card-accent: {{ dog.cat.fci_number|fci_color }}; --card-accent-dark: {{ dog.cat.fci_number|fci_dark }}">
 
                                     {% if dog.photo %}
 
-                                        <img src="{{ dog.photo_medium.url }}"
+                                        <img src="{{ dog.photo_card.url }}"
                                              alt="{{ dog.title }}"
                                              class="dog-card__image"
                                              height="300"
@@ -312,21 +389,7 @@
 
 
             <!-- Slider pagination -->
-            <div class="slider-pagination">
-
-                <span class="slider-current">
-                    1
-                </span>
-
-                <span class="slider-separator">
-                    /
-                </span>
-
-                <span class="slider-total">
-                    1
-                </span>
-
-            </div>
+            <div class="slider-dots" role="group"></div>
 
         </div>
 

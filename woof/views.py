@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -7,7 +7,7 @@ from django.views.generic import DetailView, FormView, ListView, TemplateView
 
 from .forms import ContactForm
 from .models import Category, Dogs
-from .utils import DataMixin
+from .utils import DEFAULT_META_DESCRIPTION, DataMixin
 
 class DogFilterMixin:
     """Apply optional ?size=&trainability=&coat= query filters."""
@@ -42,7 +42,9 @@ class DogsHome(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Dogs.objects.filter(is_published=True).order_by("title")
+        context["posts"] = Dogs.objects.filter(
+            is_published=True
+        ).select_related("cat", "section").order_by("title")
         context["is_home"] = True
         return self.get_user_context(**context, title="Woof Dogs")
 
@@ -55,7 +57,7 @@ class DogsList(DataMixin, DogFilterMixin, ListView):
 
     def get_queryset(self):
         return self.filter_by_query_params(
-            Dogs.objects.filter(is_published=True).select_related("cat")
+            Dogs.objects.filter(is_published=True).select_related("cat", "section")
         )
 
     def get_context_data(self, **kwargs):
@@ -96,7 +98,7 @@ class ShowPost(DataMixin, DetailView):
             slug=self.kwargs["post_slug"],
             cat__slug=self.kwargs["cat_slug"],
             is_published=True,
-        )
+        ).select_related("cat", "section")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -117,7 +119,22 @@ class ShowPost(DataMixin, DetailView):
         # related breeds from the same group
         context["related_dogs"] = Dogs.objects.filter(
             cat=post.cat, is_published=True
-        ).exclude(pk=post.pk).order_by("title")
+        ).select_related("cat", "section").exclude(pk=post.pk).order_by("title")
+
+        # SEO: page description + share image for this breed
+        context["meta_description"] = post.summary or DEFAULT_META_DESCRIPTION
+
+        # Share preview (Telegram/WhatsApp/iMessage): title, group, character
+        traits = [str(t) for t in post.temperament.all()[:4]]
+        context["og_description"] = (
+            f"{post.cat.name} · " + " · ".join(traits)
+        ) if traits else str(post.cat.name)
+
+        if post.photo:
+            context["og_image"] = (
+                f"{self.request.scheme}://{self.request.get_host()}"
+                f"{post.photo_medium.url}"
+            )
 
         return self.get_user_context(
             **context, title=_("{name} - Woof Dogs").format(name=post.title), cat_selected=post.cat_id
@@ -160,7 +177,9 @@ class DogGroupsView(DataMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        dogs = Dogs.objects.filter(is_published=True)
+        dogs = Dogs.objects.filter(
+            is_published=True
+        ).select_related("cat", "section")
 
         context["groups"] = [
             {
@@ -213,7 +232,7 @@ class DogGroupsView(DataMixin, TemplateView):
                     size__in=["xsmall", "small", "medium"],
                     activity_level__in=["calm", "regular"],
                     barking_level__in=["necessary", "infrequent"],
-                    coat_length__name__in=["Short", "Medium"],
+                    coat_length__name_en__in=["Short", "Medium"],
                 ),
             },
             {
@@ -285,3 +304,106 @@ def breed_api(request, pk):
 
 def page_not_found(request, exception):
     return render(request, "woof/404.html", status=404)
+
+
+@require_GET
+def sitemap_xml(request):
+    """Hand-written sitemap: breeds + categories + static pages, en & ru."""
+
+    from django.urls import reverse
+    from django.utils import timezone
+    from django.utils.xmlutils import SimplerXMLGenerator
+    from io import StringIO
+
+    scheme = request.scheme
+    host = request.get_host()
+
+    def abs_url(path):
+        return f"{scheme}://{host}{path}"
+
+    def lang_urls(path):
+        """The path from reverse() has no language prefix here (en)."""
+        if path == "/":
+            return abs_url(path), abs_url("/ru/")
+        return abs_url(path), abs_url("/ru" + path)
+
+    out = StringIO()
+    xml = SimplerXMLGenerator(out, encoding="utf-8")
+    xml.startDocument()
+    xml.startElement(
+        "urlset",
+        {
+            "xmlns": "http://www.sitemaps.org/schemas/sitemap/0.9",
+            "xmlns:xhtml": "http://www.w3.org/1999/xhtml",
+        },
+    )
+
+    def add_url(loc, lastmod=None, changefreq="weekly", priority="0.6"):
+        xml.startElement("url", {})
+        xml.addQuickElement("loc", loc)
+        if lastmod:
+            xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
+        xml.addQuickElement("changefreq", changefreq)
+        xml.addQuickElement("priority", priority)
+        xml.endElement("url")
+
+    def add_bilingual(path, lastmod=None, changefreq="weekly", priority="0.6"):
+        en, ru = lang_urls(path)
+        for loc in (en, ru):
+            xml.startElement("url", {})
+            xml.addQuickElement("loc", loc)
+            if lastmod:
+                xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
+            xml.addQuickElement("changefreq", changefreq)
+            xml.addQuickElement("priority", priority)
+            # xhtml alternate for the other language
+            xml.startElement("xhtml:link", {
+                "rel": "alternate", "hreflang": "en", "href": en,
+            })
+            xml.endElement("xhtml:link")
+            xml.startElement("xhtml:link", {
+                "rel": "alternate", "hreflang": "ru", "href": ru,
+            })
+            xml.endElement("xhtml:link")
+            xml.endElement("url")
+
+    # static pages
+    for name, priority in (
+        ("home", "1.0"),
+        ("dogs_list", "0.8"),
+        ("dog-explore", "0.8"),
+        ("groups", "0.8"),
+        ("guides", "0.7"),
+        ("about", "0.5"),
+        ("contact", "0.5"),
+    ):
+        add_bilingual(reverse(name), priority=priority)
+
+    # categories
+    for cat in Category.objects.all():
+        add_bilingual(cat.get_absolute_url(), priority="0.7")
+
+    # breeds
+    for dog in Dogs.objects.filter(is_published=True).select_related("cat"):
+        add_bilingual(
+            dog.get_absolute_url(),
+            lastmod=dog.time_update or timezone.now(),
+            priority="0.6",
+        )
+
+    xml.endElement("urlset")
+    xml.endDocument()
+    return HttpResponse(out.getvalue(), content_type="application/xml; charset=utf-8")
+
+
+@require_GET
+def robots_txt(request):
+    from django.urls import reverse
+
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "",
+        f"Sitemap: {request.scheme}://{request.get_host()}{reverse('sitemap')}",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain; charset=utf-8")
