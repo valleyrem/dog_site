@@ -50,7 +50,7 @@ body {
   font-family: "Space Grotesk", "Manrope", sans-serif;
   line-height: 1.8;
   font-size: 16px;
-  font-size-adjust: 0.5;
+/*  font-size-adjust: 0.5;*/
 }
 
 html {
@@ -913,9 +913,9 @@ a {
 }
 
 .section-title-group {
-  font-size: 20px;
+  font-size: 22px;
   font-family: "Space Grotesk", "Manrope", sans-serif;
-  font-weight: 550;
+  font-weight: 400;
   text-align: center;
 
   letter-spacing: 0.04em;
@@ -926,6 +926,18 @@ a {
   margin: 20px auto;
   padding: 4px 10px 0;
 }
+
+.section-title-group::before {
+    content: "•";
+    color: var(--main-accent);
+}
+
+.section-title-group::after {
+    content: "•";
+    color: var(--main-accent);
+}
+
+
 .post-text {
   font-size: 16px;
   text-align: justify;
@@ -1847,6 +1859,11 @@ p strong {
 .love-word {
 }
 
+.accent-strong {
+  color: var(--main-accent);
+  font-weight: 500;
+}
+
 .homepage-subsubtitle {
   max-width: 550px;
   margin: 28px 0 0;
@@ -2169,6 +2186,7 @@ p strong {
 .policy-container textarea {
   width: 100%;
   font-size: 14px;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
   border: 0.5px solid var(--main-text);
   padding: 9px 12px;
   transition:
@@ -2482,6 +2500,8 @@ p strong {
 .guide-image-4,
 .guide-image-5,
 .guide-image-6,
+.guide-image-7,
+.guide-image-8,
 .image-aboutus,
 .image-guides {
   object-fit: cover;

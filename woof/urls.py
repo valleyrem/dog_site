@@ -89,7 +89,7 @@ urlpatterns = [
         "guides/behavior/",
         StaticPageView.as_view(
             template_name="woof/behavior.html",
-            page_title=_("Dog Behavior & Communication - Woof Dogs"),
+            page_title=_("Dog Behavior - Woof Dogs"),
         ),
         name="guide-behavior",
     ),
@@ -108,6 +108,22 @@ urlpatterns = [
             page_title=_("Raising a Puppy - Woof Dogs"),
         ),
         name="guide-puppy",
+    ),
+    path(
+        "guides/feeding/",
+        StaticPageView.as_view(
+            template_name="woof/feeding.html",
+            page_title=_("Feeding your dog - Woof Dogs"),
+        ),
+        name="guide-feeding",
+    ),
+    path(
+        "guides/games/",
+        StaticPageView.as_view(
+            template_name="woof/games.html",
+            page_title=_("Games & activities - Woof Dogs"),
+        ),
+        name="guide-games",
     ),
     path("api/breed/<int:pk>/", breed_api, name="breed-api"),
 ]

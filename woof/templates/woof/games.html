@@ -1,0 +1,178 @@
+{% extends 'woof/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs-wrapper">
+
+    <div class="breadcrumbs">
+
+        <a href="{% url 'home' %}"
+           title="{% trans 'Home' %}"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="{% trans 'Home' %}"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
+        <span>/</span>
+
+        <a href="{% url 'guides' %}"
+           title="{% trans 'Dog guides' %}"
+           class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
+
+        <span>/</span>
+
+        <span class="current">{% blocktranslate trimmed %}Games & activities{% endblocktranslate %}</span>
+
+    </div>
+
+</div>
+
+
+<!-- Games and activities content -->
+<div class="post-container">
+
+    <!-- Page title -->
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Games & activities{% endblocktranslate %}</h1>
+
+
+    <div class="post-text-explore">
+
+        <!-- Guide image -->
+        <img
+            src="{% static 'guides8.webp' %}"
+            alt="{% trans 'Games & activities' %}"
+            class="guide-image guide-image-8"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
+
+        <!-- What this guide covers -->
+        <p class="section-title">{% blocktranslate trimmed %}What this guide covers{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Play is not just fun — it is a necessary part of everyday life for a dog.
+            Games give physical activity, mental load and emotional contact with the owner.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}This guide describes safe games that suit most dogs, from puppies to seniors,
+            and explains their benefits.{% endblocktranslate %}</p>
+
+
+        <!-- Why play matters -->
+        <p class="section-title">{% blocktranslate trimmed %}Why play matters{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Regular games help release excess energy, reduce stress and prevent destructive behavior.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A tired and satisfied dog sleeps better, trains better and stays calmer when left alone.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Play also strengthens the bond between you: the dog learns to trust and cooperate.{% endblocktranslate %}</p>
+
+
+        <!-- Fetch and chase games -->
+        <p class="section-title">{% blocktranslate trimmed %}Fetch and chase games{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Fetch is one of the simplest games: throw a toy or a soft dummy
+            and teach the dog to bring it back. Use special toys — sticks are dangerous.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Keep sessions short, end the game at the peak of interest,
+            and always check the playing area for hazards.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}For dogs that love running, games of hide-and-seek with toys
+            and light chasing work well too.{% endblocktranslate %}</p>
+
+
+        <!-- Tug games -->
+        <p class="section-title">{% blocktranslate trimmed %}Tug games{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Tug-of-war is a natural game that trains muscles and self-control.
+            Agree on the rules in advance: the game starts and ends on your command.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Use a special toy with a firm grip, do not pull sharply,
+            and give the dog breaks to rest.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}For puppies and young dogs, watch the teeth and joints —
+            the game should not turn into a fight.{% endblocktranslate %}</p>
+
+
+        <!-- Scent games -->
+        <p class="section-title">{% blocktranslate trimmed %}Scent games{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Dogs perceive the world through their nose.
+            Scent games are the best mental load: hide treats or toys around the house and let the dog find them.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Start with simple hiding places in the same room
+            and gradually make the task harder.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A "sniffing walk" is also a game: on part of the route,
+            let the dog stop and explore smells freely instead of walking in a straight line.{% endblocktranslate %}</p>
+
+
+        <!-- Puzzle toys and slow feeders -->
+        <p class="section-title">{% blocktranslate trimmed %}Puzzle toys and slow feeders{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Puzzle toys and slow feeding bowls turn eating into a small game
+            and slow down fast eaters.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}They are especially useful for smart breeds that get bored quickly,
+            and for dogs that swallow food too fast.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Rotate the toys regularly so they do not become boring.{% endblocktranslate %}</p>
+
+
+        <!-- Learning through play -->
+        <p class="section-title">{% blocktranslate trimmed %}Learning through play{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Games are a great way to train: teach new commands in a playful format
+            with short sessions of five to ten minutes.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Reward every correct action immediately —
+            the dog learns faster when the game stays positive and short.{% endblocktranslate %}</p>
+
+
+        <!-- Outdoor and water activities -->
+        <p class="section-title">{% blocktranslate trimmed %}Outdoor and water activities{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}For active dogs, running, hiking and swimming are excellent sports.
+            Introduce them gradually and consider the breed and age.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Swimming is a gentle load for the joints,
+            but never leave a dog in the water unattended and check the safety of the reservoir.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Avoid intense exercise in extreme heat,
+            especially for brachycephalic breeds with short muzzles.{% endblocktranslate %}</p>
+
+
+        <!-- Safety and age limits -->
+        <p class="section-title">{% blocktranslate trimmed %}Safety and age limits{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Puppies' joints and teeth are still forming —
+            choose gentle games and keep the load moderate.
+            Seniors appreciate calmer games: scent tasks, light tug and mental puzzles.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Watch for signs of fatigue: panting, refusal of the toy, reduced interest.
+            The game should stop while the dog still wants to continue.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}If an injury or an unusual condition appears, contact a veterinarian.{% endblocktranslate %}</p>
+
+
+        <!-- Conclusion -->
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Regular play makes a dog healthier, calmer and happier.
+            Choose games that match your dog's age, energy and taste — and play with joy yourself.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A variety of games keeps both physical shape and psychological balance.{% endblocktranslate %}</p>
+
+    </div>
+
+</div>
+
+{% endblock %}

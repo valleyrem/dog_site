@@ -164,6 +164,44 @@
 
             </a>
 
+
+            <!-- Feeding your dog -->
+            <a href="{% url 'guide-feeding' %}"
+               title="{% trans 'Feeding your dog' %}"
+               class="guide-card">
+
+                <span class="guide-number">(7)</span>
+
+                <span class="guide-title">
+                    {% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}
+                </span>
+
+                <p>{% blocktranslate trimmed %}Learn how to choose food, feed by age
+                    and build a healthy drinking regime.{% endblocktranslate %}</p>
+
+                <span class="guide-more">{% trans "Read" %}</span>
+
+            </a>
+
+
+            <!-- Games & activities -->
+            <a href="{% url 'guide-games' %}"
+               title="{% trans 'Games & activities' %}"
+               class="guide-card">
+
+                <span class="guide-number">(8)</span>
+
+                <span class="guide-title">
+                    {% blocktranslate trimmed %}Games & activities{% endblocktranslate %}
+                </span>
+
+                <p>{% blocktranslate trimmed %}Discover safe games and activities
+                    that keep your dog active, engaged and happy.{% endblocktranslate %}</p>
+
+                <span class="guide-more">{% trans "Read" %}</span>
+
+            </a>
+
         </div>
 
     </div>

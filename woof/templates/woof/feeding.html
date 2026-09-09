@@ -1,0 +1,166 @@
+{% extends 'woof/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs-wrapper">
+
+    <div class="breadcrumbs">
+
+        <a href="{% url 'home' %}"
+           title="{% trans 'Home' %}"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="{% trans 'Home' %}"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
+        <span>/</span>
+
+        <a href="{% url 'guides' %}"
+           title="{% trans 'Dog guides' %}"
+           class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
+
+        <span>/</span>
+
+        <span class="current">{% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}</span>
+
+    </div>
+
+</div>
+
+
+<!-- Feeding your dog content -->
+<div class="post-container">
+
+    <!-- Page title -->
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}</h1>
+
+
+    <div class="post-text-explore">
+
+        <!-- Guide image -->
+        <img
+            src="{% static 'guides7.webp' %}"
+            alt="{% trans 'Feeding your dog' %}"
+            class="guide-image guide-image-7"
+            width="260"
+            height="230"
+            fetchpriority="high"
+            decoding="async"
+        >
+
+
+        <!-- What this guide covers -->
+        <p class="section-title">{% blocktranslate trimmed %}What this guide covers{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Feeding is one of the most important parts of everyday dog care.
+            This guide explains general feeding principles that apply to any healthy dog:
+            food formats, portions, feeding by age and a proper drinking regime.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}This guide deliberately avoids brand names.
+            Every dog is different: the final ration always depends on age, size, activity level and health condition.{% endblocktranslate %}</p>
+
+
+        <!-- Dry and wet food -->
+        <p class="section-title">{% blocktranslate trimmed %}Dry and wet food{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Dry food is convenient: it is easy to store, measure and dose.
+            It stays fresh longer, and its crunchy texture helps clean teeth mechanically.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Wet food contains much more moisture, which helps maintain water balance.
+            It is often more palatable, which suits picky eaters, older dogs and dogs with dental problems.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Both formats can be combined.
+            What matters most is that the ration is complete and balanced for the dog's age and size.
+            An opened tin of wet food must be stored in the refrigerator and used within a short time.{% endblocktranslate %}</p>
+
+
+        <!-- How to choose food -->
+        <p class="section-title">{% blocktranslate trimmed %}How to choose food{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Read the composition: good food lists a specific source of protein first —
+            chicken, beef or fish — instead of vague mixtures.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Consider the age category, the size of the kibble for small breeds,
+            and special needs such as allergies or sensitive digestion.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Avoid products with unclear composition, excess salt, sugar or artificial colours.
+            If in doubt, ask your veterinarian.{% endblocktranslate %}</p>
+
+
+        <!-- Feeding across ages -->
+        <p class="section-title">{% blocktranslate trimmed %}Feeding across ages{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Puppies need small frequent meals: roughly three to four times a day,
+            gradually reduced to two meals by the age of six to twelve months.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Adult dogs usually feel best with one or two regular meals a day at the same time.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Senior dogs may need smaller portions, easier-to-digest food and, often, more frequent feeding.
+            During pregnancy and lactation the dog needs more food and more frequent meals.{% endblocktranslate %}</p>
+
+
+        <!-- Portions and schedule -->
+        <p class="section-title">{% blocktranslate trimmed %}Portions and schedule{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}The portion depends on weight, activity and the food itself.
+            Use the feeding table on the package as a starting point and adjust it by observing the dog's condition.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Regular meals at fixed times help digestion and prevent begging.
+            For adult dogs avoid free access to the bowl all day — it often leads to obesity.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Treats should make up no more than ten percent of the daily calories.{% endblocktranslate %}</p>
+
+
+        <!-- Drinking regime -->
+        <p class="section-title">{% blocktranslate trimmed %}Drinking regime{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Fresh water must be available at all times, not only during meals.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Change the water daily and wash the bowl regularly.
+            In hot weather, after activity or when eating dry food, the dog drinks noticeably more.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A sudden increase or decrease in thirst can be a sign of health problems —
+            in that case, consult a veterinarian.{% endblocktranslate %}</p>
+
+
+        <!-- Switching food -->
+        <p class="section-title">{% blocktranslate trimmed %}Switching food{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Change the food gradually, over seven to ten days,
+            mixing the new food into the old one in increasing proportions.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A sudden change often causes digestive upset:
+            loose stool, refusal of food or bloating. Watch your dog carefully during the transition.{% endblocktranslate %}</p>
+
+
+        <!-- Foods to avoid -->
+        <p class="section-title">{% blocktranslate trimmed %}Foods to avoid{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Some human foods are dangerous for dogs: chocolate, grapes and raisins,
+            onions and garlic, xylitol, alcohol and cooked bones.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Salty, spicy and fatty food from the table is also best avoided.
+            Keep these products out of the dog's reach.{% endblocktranslate %}</p>
+
+
+        <!-- Conclusion -->
+        <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Feeding is a routine, but a conscious one: a stable schedule,
+            a quality ration and constant access to water are the foundation of health.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}If you are not sure about the right food for your dog,
+            always consult a specialist — the right choice is easier to make together.{% endblocktranslate %}</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
