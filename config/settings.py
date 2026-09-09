@@ -6,6 +6,7 @@ A `.env` file in the project root is read automatically.
 """
 
 import os
+import re
 from pathlib import Path
 
 import environ
@@ -37,6 +38,26 @@ CSRF_TRUSTED_ORIGINS = env.list(
 # Enable when running behind an HTTPS reverse proxy (nginx, traefik, caddy).
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
+# --- Security hardening ---
+
+# TLS termination, http->https redirect and HSTS are the job of the
+# reverse proxy / CDN (traefik/caddy/nginx/Cloudflare). Django trusts
+# X-Forwarded-Proto (SECURE_PROXY_SSL_HEADER above) so request.is_secure()
+# and CSRF origin checks work behind it.
+
+# Cookies must never travel over plain HTTP.
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Not readable by JavaScript (limits XSS blast radius for CSRF/session cookies).
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+
+# Refuse to render the site inside iframes from other origins (clickjacking).
+# Django already sets X-Frame-Options=DENY; SECURE_CONTENT_TYPE_NOSNIFF adds
+# the nosniff header, and referrer-policy keeps internal URLs out of logs.
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = "same-origin"
 
 # Applications
 

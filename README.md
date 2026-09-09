@@ -146,6 +146,15 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 приезжает в рантайме), прод-сервер — **gunicorn** (3 воркера).
 Старый вариант с `manage.py runserver` в прод-контейнере выпилен.
 
+Порядок обновления прод-БД (i18n и далее):
+
+1. `python manage.py migrate` — создаёт переводные поля `*_en`/`*_ru`
+   (миграции 0017/0018) — **до** восстановления данных.
+2. Данные — `pg_dump`/`pg_restore` с сервера БД либо `loaddata`.
+3. Реверс-прокси (traefik/caddy/nginx) обязан передавать заголовок
+   `X-Forwarded-Proto: https` — иначе `request.is_secure()` врёт и CSRF
+   будет отвергать формы (см. «Безопасность»).
+
 ## Переменные окружения (config/.env)
 
 | Переменная | Назначение |
@@ -160,8 +169,43 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 | `S3_ACCESS_KEY_ID/SECRET_ACCESS_KEY` | креды S3 |
 | `S3_ENDPOINT_URL`, `S3_BUCKET_NAME`, `S3_REGION` | параметры бакета |
 
-`.env` читается из `config/.env` по явному пути (см. `settings.py`) —
+.env` читается из `config/.env` по явному пути (см. `settings.py`) —
 не полагаемся на стек-магию django-environ.
+
+## Безопасность
+
+Разделение ответственности: **транспорт — на реверс-прокси / CDN**, **приложение — в Django**.
+
+На уровне реверс-прокси / Cloudflare (не в Django):
+
+- TLS-терминация и сертификаты (автообновление: letsencrypt/certbot, DNS-челлендж)
+- редирект http → https (Cloudflare: Always Use HTTPS; caddy — автоматически;
+  traefik/nginx — middleware/север-блок на :80)
+- HSTS-заголовок (`Strict-Transport-Security`) — «односторонняя дверь»:
+  включать, когда https стабилен на всех поддоменах
+- опционально: CSP, rate-limiting, WAF
+
+На уровне Django (`config/settings.py`, блок «Security hardening»):
+
+| Настройка | Что даёт |
+|---|---|
+| `SESSION_COOKIE_SECURE` / `CSRF_COOKIE_SECURE` | cookie уходят только по https |
+| `SESSION/CSRF_COOKIE_HTTPONLY` | cookie не видны JavaScript (ограничивает XSS) |
+| `X-Frame-Options: DENY` | запрет фреймования (кликджекинг) |
+| `X-Content-Type-Options: nosniff` | запрет MIME-sniffing |
+| `Referrer-Policy: same-origin` | внутренние URL не утекают в чужую аналитику |
+| `SECURE_PROXY_SSL_HEADER` | Django доверяет `X-Forwarded-Proto` от прокси: `request.is_secure()`, CSRF и абсолютные URL работают корректно |
+
+Требование к деплою: реверс-прокси **обязан** передавать `X-Forwarded-Proto: https`
+на бэкенд — иначе `request.is_secure()` врёт, а CSRF на https-домене будет
+отвергать формы.
+
+**Про Content-Security-Policy**: CSP на уровне Django **не включён** —
+на сайте есть легитимные inline-скрипты (GTM-сниппет, скрытие прелоадера,
+обработчик контактной формы), которые строгий CSP блокирует. Если CSP
+понадобится, добавляй его на уровне Cloudflare / реверс-прокси (там же
+проще управлять nonce и отчётами о нарушениях), либо переводи inline-
+скрипты в внешние файлы и включай строгий CSP в settings.
 
 ## Технический долг / что дальше
 
