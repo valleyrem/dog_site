@@ -40,7 +40,6 @@
 
     <div class="mobile-menu">
 
-
         <!-- Main menu -->
         <ul class="mobile-menu__list--top">
 
@@ -55,7 +54,6 @@
             {% endfor %}
 
         </ul>
-
 
         <!-- Groups -->
         <ul class="mobile-menu__list">
@@ -117,10 +115,6 @@
 
                 <div class="hero-inner">
 
-                    <div class="hero-shape hero-shape-1"></div>
-                    <div class="hero-shape hero-shape-2"></div>
-
-
                     <!-- Hero left -->
                     <div class="hero-left">
 
@@ -131,7 +125,6 @@
                         <p class="homepage-subtitle">
                             {% blocktranslate trimmed %}A little mess, a lot of <span class="love-word">love</span>{% endblocktranslate %}
                         </p>
-
 
                         <!-- Search -->
                         <div class="homepage-search-block">
@@ -183,7 +176,6 @@
                                 </select>
 
                             </div>
-
 
                             <!-- Breed search -->
                             <div class="homepage-search" title="{% trans 'Find by breed' %}">
@@ -244,7 +236,6 @@
 
                         </div>
 
-
                         <p class="homepage-subsubtitle">
                             {% blocktranslate trimmed %}A simple way to find a dog that really fits your lifestyle,
                             your home, and your everyday rhythm — and feels like it belongs there{% endblocktranslate %}
@@ -252,13 +243,20 @@
 
                     </div>
 
-
                     <!-- Hero right -->
                     <div class="hero-right">
+
+                        <img class="hero-photo"
+                             src="{% static 'woof/img/hero-dog-3.jpg' %}"
+                             alt="{% trans 'A happy dog' %}"
+                             width="1400"
+                             height="1700"
+                             fetchpriority="high"
+                             decoding="async">
+
                     </div>
 
                 </div>
-
 
                 <!-- Hero scroll arrow -->
                 <a href="#explore"
@@ -275,6 +273,16 @@
 
     </div>
 
+    <!-- Breed marquee -->
+    <div class="breed-marquee" aria-hidden="true">
+
+        <div class="breed-marquee__track">
+
+            {% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}{% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}
+
+        </div>
+
+    </div>
 
     <!-- {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %} -->
     <div class="home-text-block" id="explore">
@@ -288,7 +296,6 @@
         </p>
 
     </div>
-
 
     <!-- Breed slider -->
     <div class="slider-block">
@@ -308,34 +315,11 @@
                          height="23"
                     >
 
-                    <span>{% trans "prev" %}</span>
-
                 </button>
 
-
-                <button class="slider-arrow slider-next">
-
-                    <span>{% trans "next" %}</span>
-
-                    <img src="{% static 'right.svg' %}"
-                         alt="{% trans 'Next page' %}"
-                         title="{% trans 'Next' %}"
-                         class="icon-post"
-                         width="18"
-                         height="23"
-                    >
-
-                </button>
-
-            </div>
-
-
-            <!-- Dog slider -->
             <div class="dog-slider">
 
-                <div class="dog-slider-viewport">
-
-                    <div class="dog-slider-track">
+                <div class="dog-slider-track">
 
                         {% for dog in posts %}
 
@@ -343,8 +327,7 @@
                                class="dog-card-link"
                                title="{{ dog.title }}">
 
-                                <div class="dog-card"
-                                     style="--card-accent: {{ dog.cat.fci_number|fci_color }}; --card-accent-dark: {{ dog.cat.fci_number|fci_dark }}">
+                                <div class="dog-card">
 
                                     {% if dog.photo %}
 
@@ -357,7 +340,6 @@
                                         >
 
                                     {% endif %}
-
 
                                     <div class="dog-card__info">
 
@@ -383,19 +365,34 @@
 
                     </div>
 
-                </div>
+            </div>
+
+                <button class="slider-arrow slider-next">
+
+                    <img src="{% static 'right.svg' %}"
+                         alt="{% trans 'Next page' %}"
+                         title="{% trans 'Next' %}"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+
+                </button>
 
             </div>
 
-
             <!-- Slider pagination -->
-            <div class="slider-dots" role="group"></div>
+
+            <div class="slider-pagination" aria-live="polite">
+                <span class="slider-current">1</span>
+                <span class="slider-separator">/</span>
+                <span class="slider-total">1</span>
+            </div>
 
         </div>
 
     </div>
 
 </div>
-
 
 {% endblock %}

@@ -6,22 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0015_category_group_image'),
+        ("woof", "0015_category_group_image"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'ordering': ['fci_number'], 'verbose_name': 'Category', 'verbose_name_plural': 'Categories'},
+            name="category",
+            options={
+                "ordering": ["fci_number"],
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categories",
+            },
         ),
         migrations.AddField(
-            model_name='category',
-            name='fci_number',
+            model_name="category",
+            name="fci_number",
             field=models.PositiveIntegerField(default=0),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='group_image',
-            field=models.ImageField(blank=True, null=True, upload_to='groups/'),
+            model_name="category",
+            name="group_image",
+            field=models.ImageField(blank=True, null=True, upload_to="groups/"),
         ),
     ]

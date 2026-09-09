@@ -28,7 +28,9 @@ class ContactForm(forms.Form):
 
         url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
         response = requests.post(
-            url, data={"chat_id": settings.TELEGRAM_CHAT_ID, "text": message}, timeout=10
+            url,
+            data={"chat_id": settings.TELEGRAM_CHAT_ID, "text": message},
+            timeout=10,
         )
         response.raise_for_status()
 

@@ -53,8 +53,11 @@ class DataMixin:
         path = self.request.path
         context.setdefault(
             "meta_description",
-            DEFAULT_META_DESCRIPTION if not self.request.path.startswith("/ru")
-            else DEFAULT_META_DESCRIPTION,
+            (
+                DEFAULT_META_DESCRIPTION
+                if not self.request.path.startswith("/ru")
+                else DEFAULT_META_DESCRIPTION
+            ),
         )
         context["page_url_en"] = self.request.build_absolute_uri(
             switch_lang_url(path, "en")

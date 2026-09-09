@@ -6,22 +6,34 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0018_coatlength_name_en_coatlength_name_ru_and_more'),
+        ("woof", "0018_coatlength_name_en_coatlength_name_ru_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Temperament',
+            name="Temperament",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('name_en', models.CharField(max_length=50, null=True)),
-                ('name_ru', models.CharField(max_length=50, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("name_en", models.CharField(max_length=50, null=True)),
+                ("name_ru", models.CharField(max_length=50, null=True)),
             ],
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='temperament',
-            field=models.ManyToManyField(blank=True, to='woof.temperament', verbose_name='Character (temperament)'),
+            model_name="dogs",
+            name="temperament",
+            field=models.ManyToManyField(
+                blank=True,
+                to="woof.temperament",
+                verbose_name="Character (temperament)",
+            ),
         ),
     ]

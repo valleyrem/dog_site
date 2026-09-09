@@ -6,28 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0017_category_desc_en_category_desc_ru_category_name_en_and_more'),
+        ("woof", "0017_category_desc_en_category_desc_ru_category_name_en_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='coatlength',
-            name='name_en',
+            model_name="coatlength",
+            name="name_en",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='coatlength',
-            name='name_ru',
+            model_name="coatlength",
+            name="name_ru",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='coattype',
-            name='name_en',
+            model_name="coattype",
+            name="name_en",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='coattype',
-            name='name_ru',
+            model_name="coattype",
+            name="name_ru",
             field=models.CharField(max_length=50, null=True),
         ),
     ]

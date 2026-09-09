@@ -2,12 +2,92 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.utils import translation
 from django.views.decorators.http import require_GET
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 
 from .forms import ContactForm
 from .models import Category, Dogs
 from .utils import DEFAULT_META_DESCRIPTION, DataMixin
+
+MARQUEE_QUOTES = {
+    "en": [
+        ("Dogs are not our whole life, but they make our lives whole.", "Roger Caras"),
+        (
+            "Some of our greatest historical and artistic treasures we place in museums; others, we take for walks.",
+            "Roger Caras",
+        ),
+        (
+            "In moments of joy, all of us wished we possessed a tail we could wag.",
+            "W. H. Auden",
+        ),
+        (
+            "The dog is a gentleman; I hope to go to his heaven, not man's.",
+            "Mark Twain",
+        ),
+        ("A dog can be a perfect therapist.", "John T. Rosen"),
+        (
+            "The bond with a dog is as lasting as the ties of this earth can ever be.",
+            "Konrad Lorenz",
+        ),
+        (
+            "Petting, scratching, and cuddling a dog could be as soothing to the mind and heart as deep meditation and almost as good for the soul as prayer.",
+            "Dean Koontz",
+        ),
+        (
+            "A dog is the only thing on earth that loves you more than he loves himself.",
+            "Josh Billings",
+        ),
+        (
+            "The dog was created specially for children. He is the god of frolic.",
+            "Henry Ward Beecher",
+        ),
+        (
+            "A dog naturally loves a man above his own species, and very commonly meets with a return of affection.",
+            "David Hume",
+        ),
+    ],
+    "ru": [
+        (
+            "Собаки — не вся наша жизнь, но они делают нашу жизнь полноценной.",
+            "Роджер Карас",
+        ),
+        (
+            "Некоторые из наших величайших исторических и художественных сокровищ мы помещаем в музеи; другие — выводим на прогулку.",
+            "Роджер Карас",
+        ),
+        (
+            "В минуты радости всем нам хотелось бы иметь хвост, которым можно было бы вилять.",
+            "У. Х. Оден",
+        ),
+        (
+            "Собака — настоящий джентльмен. Надеюсь попасть в её рай, а не в человеческий.",
+            "Марк Твен",
+        ),
+        ("Собака может быть идеальным психотерапевтом.", "Джон Т. Розен"),
+        (
+            "Связь с собакой так же прочна, как только могут быть прочны земные узы.",
+            "Конрад Лоренц",
+        ),
+        (
+            "Гладить, чесать и обнимать собаку может быть для ума и сердца так же успокаивающе, как глубокая медитация, и почти так же полезно для души, как молитва.",
+            "Дин Кунц",
+        ),
+        (
+            "Собака — единственное существо на земле, которое любит вас больше, чем себя.",
+            "Джош Биллингс",
+        ),
+        (
+            "Собака была создана специально для детей. Она — бог веселья и игры.",
+            "Генри Уорд Бичер",
+        ),
+        (
+            "Собака по природе своей любит человека больше представителей собственного вида и очень часто получает от него ответную любовь.",
+            "Дэвид Юм",
+        ),
+    ],
+}
+
 
 class DogFilterMixin:
     """Apply optional ?size=&trainability=&coat= query filters."""
@@ -42,9 +122,14 @@ class DogsHome(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Dogs.objects.filter(
-            is_published=True
-        ).select_related("cat", "section").order_by("title")
+        context["posts"] = (
+            Dogs.objects.filter(is_published=True)
+            .select_related("cat", "section")
+            .order_by("title")
+        )
+        context["quotes"] = MARQUEE_QUOTES.get(
+            translation.get_language(), MARQUEE_QUOTES["en"]
+        )
         context["is_home"] = True
         return self.get_user_context(**context, title="Woof Dogs")
 
@@ -83,7 +168,9 @@ class DogsCategory(DataMixin, DogFilterMixin, ListView):
         category = get_object_or_404(Category, slug=self.kwargs["cat_slug"])
         context["current_category"] = category
         return self.get_user_context(
-            **context, title=_("{name} - Woof Dogs").format(name=category.name), cat_selected=category.pk
+            **context,
+            title=_("{name} - Woof Dogs").format(name=category.name),
+            cat_selected=category.pk,
         )
 
 
@@ -117,9 +204,12 @@ class ShowPost(DataMixin, DetailView):
         context["next_post"] = dogs_qs.filter(id__gt=post.id).first() or dogs_qs.first()
 
         # related breeds from the same group
-        context["related_dogs"] = Dogs.objects.filter(
-            cat=post.cat, is_published=True
-        ).select_related("cat", "section").exclude(pk=post.pk).order_by("title")
+        context["related_dogs"] = (
+            Dogs.objects.filter(cat=post.cat, is_published=True)
+            .select_related("cat", "section")
+            .exclude(pk=post.pk)
+            .order_by("title")
+        )
 
         # SEO: page description + share image for this breed
         context["meta_description"] = post.summary or DEFAULT_META_DESCRIPTION
@@ -127,8 +217,10 @@ class ShowPost(DataMixin, DetailView):
         # Share preview (Telegram/WhatsApp/iMessage): title, group, character
         traits = [str(t) for t in post.temperament.all()[:4]]
         context["og_description"] = (
-            f"{post.cat.name} · " + " · ".join(traits)
-        ) if traits else str(post.cat.name)
+            (f"{post.cat.name} · " + " · ".join(traits))
+            if traits
+            else str(post.cat.name)
+        )
 
         if post.photo:
             context["og_image"] = (
@@ -137,7 +229,9 @@ class ShowPost(DataMixin, DetailView):
             )
 
         return self.get_user_context(
-            **context, title=_("{name} - Woof Dogs").format(name=post.title), cat_selected=post.cat_id
+            **context,
+            title=_("{name} - Woof Dogs").format(name=post.title),
+            cat_selected=post.cat_id,
         )
 
 
@@ -177,9 +271,7 @@ class DogGroupsView(DataMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        dogs = Dogs.objects.filter(
-            is_published=True
-        ).select_related("cat", "section")
+        dogs = Dogs.objects.filter(is_published=True).select_related("cat", "section")
 
         context["groups"] = [
             {
@@ -255,9 +347,9 @@ class GroupsPageView(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["cats"] = Category.objects.prefetch_related(
-            "sections"
-        ).order_by("fci_number")
+        context["cats"] = Category.objects.prefetch_related("sections").order_by(
+            "fci_number"
+        )
         return self.get_user_context(**context, title=_("Groups - Woof Dogs"))
 
 
@@ -357,13 +449,23 @@ def sitemap_xml(request):
             xml.addQuickElement("changefreq", changefreq)
             xml.addQuickElement("priority", priority)
             # xhtml alternate for the other language
-            xml.startElement("xhtml:link", {
-                "rel": "alternate", "hreflang": "en", "href": en,
-            })
+            xml.startElement(
+                "xhtml:link",
+                {
+                    "rel": "alternate",
+                    "hreflang": "en",
+                    "href": en,
+                },
+            )
             xml.endElement("xhtml:link")
-            xml.startElement("xhtml:link", {
-                "rel": "alternate", "hreflang": "ru", "href": ru,
-            })
+            xml.startElement(
+                "xhtml:link",
+                {
+                    "rel": "alternate",
+                    "hreflang": "ru",
+                    "href": ru,
+                },
+            )
             xml.endElement("xhtml:link")
             xml.endElement("url")
 

@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}"
            title="{% trans 'Home' %}"
@@ -46,8 +46,20 @@
 
         <p class="cat-desc">
             {% blocktranslate %}This project is created for fun and designed as a structured catalog of dog breeds, focused on clarity, comparison, and easy navigation.
-            The main classification system follows the <strong>FCI (Fédération Cynologique Internationale)</strong> — the largest international federation of kennel clubs, which defines official breed standards and group structures worldwide.{% endblocktranslate %}
+            The main classification system follows the <strong>FCI (Fédération Cynologique Internationale)</strong>.{% endblocktranslate %}
         </p>
+
+        <p class="section-title">{% trans "What is FCI" %}</p>
+
+        <p>
+            {% blocktranslate trimmed %}FCI — Fédération Cynologique Internationale (International Canine Federation) — the largest international federation of kennel clubs, which defines official breed standards and group structures worldwide.{% endblocktranslate %}
+        </p>
+
+        <ul class="fci-list">
+            <li>{% blocktranslate trimmed %}Founded on 22 May 1911, headquartered in Thuin, Belgium.{% endblocktranslate %}</li>
+            <li>{% blocktranslate trimmed %}98 member countries.{% endblocktranslate %}</li>
+            <li>{% blocktranslate trimmed %}Recognizes 356 breeds; each breed belongs to its country of origin, which writes its standard; FCI publishes standards in 4 languages (en/fr/de/es){% endblocktranslate %}</li>
+        </ul>
 
         <p>
             {% blocktranslate %}To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.
@@ -81,12 +93,7 @@
                    target="_blank"
                    class="link-site"
                    title="{% trans 'FCI website' %}">
-                    {% trans "FCI website" %} <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="{% trans 'go' %}"
-                                 class="icon-arrow"
-                                 width="16"
-                                 height="16"
-                            >.
+                    {% trans "FCI website" %}.
                 </a>
             </strong>
         </p>
@@ -97,13 +104,8 @@
                 <a href="{% url 'guides' %}"
                    class="link-site"
                    title="{% trans 'Guides section' %}">
-                    {% trans "Guides section" %} <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="{% trans 'go' %}"
-                                 class="icon-arrow"
-                                 width="16"
-                                 height="16"
-                            >
-                </a>.
+                    {% trans "Guides section" %}.
+                </a>
             </strong>
         </p>
 

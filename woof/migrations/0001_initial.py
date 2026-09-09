@@ -8,50 +8,198 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(db_index=True, max_length=100, verbose_name='Category')),
-                ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
-                ('desc', models.TextField(blank=True, verbose_name='Description')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        db_index=True, max_length=100, verbose_name="Category"
+                    ),
+                ),
+                (
+                    "slug",
+                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                ),
+                ("desc", models.TextField(blank=True, verbose_name="Description")),
             ],
             options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categories',
-                'ordering': ['id'],
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categories",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='Dogs',
+            name="Dogs",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user_email', models.EmailField(blank=True, default='', max_length=254, verbose_name='User Email')),
-                ('title', models.CharField(max_length=255, verbose_name='Вreed')),
-                ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
-                ('content', models.TextField(blank=True, verbose_name='Summary')),
-                ('size', models.CharField(choices=[('xsmall', 'XSmall'), ('small', 'Small'), ('medium', 'Medium'), ('large', 'Large'), ('xlarge', 'XLarge')], default='small', max_length=10, verbose_name='Size')),
-                ('coat_type', models.CharField(choices=[('curly', 'Curly'), ('wavy', 'Wavy'), ('rough', 'Rough-haired'), ('corded', 'Corded'), ('hairless', 'Hairless'), ('short', 'Short-haired'), ('medium', 'Medium-haired'), ('long', 'Long-haired'), ('smooth', 'Smooth-haired'), ('wiry', 'Wiry'), ('silky', 'Silky'), ('double', 'Double Coat')], default='cirly', max_length=10, verbose_name='Coat type')),
-                ('care', models.TextField(blank=True, verbose_name='Care')),
-                ('living_conditions', models.TextField(blank=True, verbose_name='Conditions')),
-                ('trainability', models.CharField(choices=[('independent', 'Independent'), ('eager', 'Eager To Please'), ('agreeable', 'Agreeable'), ('stubborn', 'May Be Stubborn'), ('easy', 'Easy Training')], default='independent', max_length=11, verbose_name='Trainability')),
-                ('activity_level', models.CharField(choices=[('calm', 'Calm'), ('regular', 'Regular Exercise'), ('high', 'Needs Lots Of Activity'), ('energetic', 'Energetic')], default='calm', max_length=10, verbose_name='Activity Level')),
-                ('coat_length', models.CharField(choices=[('short', 'Short'), ('medium', 'Medium'), ('long', 'Long')], default='short', max_length=10, verbose_name='Coat length')),
-                ('barking_level', models.CharField(choices=[('necessary', 'When Necessary'), ('infrequent', 'Infrequent'), ('medium', 'Medium'), ('frequent', 'Frequent'), ('vocal', 'Likes To Be Vocal')], default='necessary', max_length=20, verbose_name='Barking level')),
-                ('photo', models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Photo')),
-                ('time_create', models.DateTimeField(auto_now_add=True, verbose_name='Time created')),
-                ('time_update', models.DateTimeField(auto_now=True, verbose_name='Time update')),
-                ('is_published', models.BooleanField(default=True, verbose_name='Published')),
-                ('cat', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='woof.category', verbose_name='Group')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "user_email",
+                    models.EmailField(
+                        blank=True,
+                        default="",
+                        max_length=254,
+                        verbose_name="User Email",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="Вreed")),
+                (
+                    "slug",
+                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                ),
+                ("content", models.TextField(blank=True, verbose_name="Summary")),
+                (
+                    "size",
+                    models.CharField(
+                        choices=[
+                            ("xsmall", "XSmall"),
+                            ("small", "Small"),
+                            ("medium", "Medium"),
+                            ("large", "Large"),
+                            ("xlarge", "XLarge"),
+                        ],
+                        default="small",
+                        max_length=10,
+                        verbose_name="Size",
+                    ),
+                ),
+                (
+                    "coat_type",
+                    models.CharField(
+                        choices=[
+                            ("curly", "Curly"),
+                            ("wavy", "Wavy"),
+                            ("rough", "Rough-haired"),
+                            ("corded", "Corded"),
+                            ("hairless", "Hairless"),
+                            ("short", "Short-haired"),
+                            ("medium", "Medium-haired"),
+                            ("long", "Long-haired"),
+                            ("smooth", "Smooth-haired"),
+                            ("wiry", "Wiry"),
+                            ("silky", "Silky"),
+                            ("double", "Double Coat"),
+                        ],
+                        default="cirly",
+                        max_length=10,
+                        verbose_name="Coat type",
+                    ),
+                ),
+                ("care", models.TextField(blank=True, verbose_name="Care")),
+                (
+                    "living_conditions",
+                    models.TextField(blank=True, verbose_name="Conditions"),
+                ),
+                (
+                    "trainability",
+                    models.CharField(
+                        choices=[
+                            ("independent", "Independent"),
+                            ("eager", "Eager To Please"),
+                            ("agreeable", "Agreeable"),
+                            ("stubborn", "May Be Stubborn"),
+                            ("easy", "Easy Training"),
+                        ],
+                        default="independent",
+                        max_length=11,
+                        verbose_name="Trainability",
+                    ),
+                ),
+                (
+                    "activity_level",
+                    models.CharField(
+                        choices=[
+                            ("calm", "Calm"),
+                            ("regular", "Regular Exercise"),
+                            ("high", "Needs Lots Of Activity"),
+                            ("energetic", "Energetic"),
+                        ],
+                        default="calm",
+                        max_length=10,
+                        verbose_name="Activity Level",
+                    ),
+                ),
+                (
+                    "coat_length",
+                    models.CharField(
+                        choices=[
+                            ("short", "Short"),
+                            ("medium", "Medium"),
+                            ("long", "Long"),
+                        ],
+                        default="short",
+                        max_length=10,
+                        verbose_name="Coat length",
+                    ),
+                ),
+                (
+                    "barking_level",
+                    models.CharField(
+                        choices=[
+                            ("necessary", "When Necessary"),
+                            ("infrequent", "Infrequent"),
+                            ("medium", "Medium"),
+                            ("frequent", "Frequent"),
+                            ("vocal", "Likes To Be Vocal"),
+                        ],
+                        default="necessary",
+                        max_length=20,
+                        verbose_name="Barking level",
+                    ),
+                ),
+                (
+                    "photo",
+                    models.ImageField(
+                        upload_to="photos/%Y/%m/%d/", verbose_name="Photo"
+                    ),
+                ),
+                (
+                    "time_create",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Time created"
+                    ),
+                ),
+                (
+                    "time_update",
+                    models.DateTimeField(auto_now=True, verbose_name="Time update"),
+                ),
+                (
+                    "is_published",
+                    models.BooleanField(default=True, verbose_name="Published"),
+                ),
+                (
+                    "cat",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="woof.category",
+                        verbose_name="Group",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Dog breed',
-                'verbose_name_plural': 'Dog breeds',
-                'ordering': ['title'],
+                "verbose_name": "Dog breed",
+                "verbose_name_plural": "Dog breeds",
+                "ordering": ["title"],
             },
         ),
     ]

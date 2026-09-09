@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<div class="breadcrumbs-wrapper">
     <div class="breadcrumbs">
 
         <a href="{% url 'home' %}"
@@ -57,12 +57,7 @@
             <strong>
                 <a href="{% url 'guides' %}"
                    class="link-site">
-                    {% blocktranslate trimmed %}Guides section{% endblocktranslate %} <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="{% trans 'go' %}"
-                                 class="icon-arrow"
-                                 width="16"
-                                 height="16"
-                            >
+                    {% blocktranslate trimmed %}Guides section{% endblocktranslate %}
                 </a>
             </strong>
             {% blocktranslate trimmed %}where you will find structured information about choosing, training, behavior, health, and daily life with dogs.{% endblocktranslate %}

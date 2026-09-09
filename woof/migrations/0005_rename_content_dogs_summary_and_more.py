@@ -6,43 +6,84 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0004_remove_dogs_user_email_dogs_colors_and_more'),
+        ("woof", "0004_remove_dogs_user_email_dogs_colors_and_more"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='dogs',
-            old_name='content',
-            new_name='summary',
+            model_name="dogs",
+            old_name="content",
+            new_name="summary",
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='activity_level',
-            field=models.CharField(choices=[('calm', 'Calm'), ('regular', 'Regular Exercise'), ('high', 'Needs Lots Of Activity'), ('energetic', 'Energetic')], default='calm', max_length=15, verbose_name='Activity level'),
+            model_name="dogs",
+            name="activity_level",
+            field=models.CharField(
+                choices=[
+                    ("calm", "Calm"),
+                    ("regular", "Regular Exercise"),
+                    ("high", "Needs Lots Of Activity"),
+                    ("energetic", "Energetic"),
+                ],
+                default="calm",
+                max_length=15,
+                verbose_name="Activity level",
+            ),
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='coat_type',
-            field=models.CharField(choices=[('curly', 'Curly'), ('wavy', 'Wavy'), ('rough', 'Rough-haired'), ('corded', 'Corded'), ('hairless', 'Hairless'), ('short', 'Short-haired'), ('medium', 'Medium-haired'), ('long', 'Long-haired'), ('smooth', 'Smooth-haired'), ('wiry', 'Wiry'), ('silky', 'Silky'), ('double', 'Double Coat')], default='short', max_length=15, verbose_name='Coat type'),
+            model_name="dogs",
+            name="coat_type",
+            field=models.CharField(
+                choices=[
+                    ("curly", "Curly"),
+                    ("wavy", "Wavy"),
+                    ("rough", "Rough-haired"),
+                    ("corded", "Corded"),
+                    ("hairless", "Hairless"),
+                    ("short", "Short-haired"),
+                    ("medium", "Medium-haired"),
+                    ("long", "Long-haired"),
+                    ("smooth", "Smooth-haired"),
+                    ("wiry", "Wiry"),
+                    ("silky", "Silky"),
+                    ("double", "Double Coat"),
+                ],
+                default="short",
+                max_length=15,
+                verbose_name="Coat type",
+            ),
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='photo',
-            field=models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Main photo'),
+            model_name="dogs",
+            name="photo",
+            field=models.ImageField(
+                upload_to="photos/%Y/%m/%d/", verbose_name="Main photo"
+            ),
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='time_update',
-            field=models.DateTimeField(auto_now=True, verbose_name='Time updated'),
+            model_name="dogs",
+            name="time_update",
+            field=models.DateTimeField(auto_now=True, verbose_name="Time updated"),
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='title',
-            field=models.CharField(max_length=255, verbose_name='Breed'),
+            model_name="dogs",
+            name="title",
+            field=models.CharField(max_length=255, verbose_name="Breed"),
         ),
         migrations.AlterField(
-            model_name='dogs',
-            name='trainability',
-            field=models.CharField(choices=[('independent', 'Independent'), ('eager', 'Eager To Please'), ('agreeable', 'Agreeable'), ('stubborn', 'May Be Stubborn'), ('easy', 'Easy Training')], default='independent', max_length=15, verbose_name='Trainability'),
+            model_name="dogs",
+            name="trainability",
+            field=models.CharField(
+                choices=[
+                    ("independent", "Independent"),
+                    ("eager", "Eager To Please"),
+                    ("agreeable", "Agreeable"),
+                    ("stubborn", "May Be Stubborn"),
+                    ("easy", "Easy Training"),
+                ],
+                default="independent",
+                max_length=15,
+                verbose_name="Trainability",
+            ),
         ),
     ]

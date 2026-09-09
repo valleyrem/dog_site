@@ -9,7 +9,7 @@ FCI_COLORS = {
     2: "#7CA6F0",  # muted blue
     3: "#93C5A1",  # sage
     4: "#63B08C",  # cold green (sea/emerald)
-    5: "#E2A6B4",  # rose quartz (похож на candy pink компаньонов, мягче)
+    5: "#4E9FE6",  # clear calm azure (distinct in the blue family)
     6: "#94A8CF",  # slate blue
     7: "#86C5C1",  # soft teal
     8: "#A7C6EB",  # ice blue
@@ -25,7 +25,7 @@ FCI_DARK = {
     2: "#6093EC",
     3: "#58A46D",
     4: "#52A27C",
-    5: "#D2778D",
+    5: "#2E7BC9",
     6: "#7B93C3",
     7: "#4DA19C",
     8: "#5C95D9",
@@ -38,6 +38,20 @@ FCI_DARK = {
 def fci_color(value):
     """Soft accent colour for a dog's FCI group number (decorative strip)."""
     return FCI_COLORS.get(value, "#B9B4C7")
+
+
+@register.filter
+def fci_pale(value):
+    """Same hue, mixed with white (60%) — barely-there pale background
+    for group cards. Computed in Python so it works in every browser
+    (no color-mix needed)."""
+    hexc = FCI_COLORS.get(value, "#B9B4C7").lstrip("#")
+    r, g, b = (int(hexc[i : i + 2], 16) for i in (0, 2, 4))
+    w = 0.60
+    r2 = round(r + (255 - r) * w)
+    g2 = round(g + (255 - g) * w)
+    b2 = round(b + (255 - b) * w)
+    return f"#{r2:02X}{g2:02X}{b2:02X}"
 
 
 @register.filter

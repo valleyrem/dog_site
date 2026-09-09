@@ -6,22 +6,26 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<div class="breadcrumbs-wrapper">
 
-    <a href="{% url 'home' %}"
-       title="{% trans 'Home' %}"
-       class="link-policies">
-        <img src="{% static 'house.svg' %}"
-             alt="{% trans 'Home' %}"
-             class="icon-bread"
-             width="12"
-             height="12"
-        >
-    </a>
+    <div class="breadcrumbs">
 
-    <span>/</span>
+        <a href="{% url 'home' %}"
+           title="{% trans 'Home' %}"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="{% trans 'Home' %}"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
 
-    <span class="current">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span>
+        <span>/</span>
+
+        <span class="current">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span>
+
+    </div>
 
 </div>
 
@@ -51,47 +55,25 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
-                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
-
-                        <!-- Left image -->
-                        {% if category.group_image_thumb %}
-
-                            <img src="{{ category.group_image_thumb.url }}"
-                                 alt="{{ category.name }}"
-                                 class="group-cover"
-                                 height="90"
-                                 width="90"
-                                 decoding="async"
-                                 fetchpriority="high"
-                                >
-
-                        {% endif %}
-
-
-                        <!-- Right content -->
+<!-- Right content -->
                         <div class="group-sections">
 
-                            <div class="group-name">
-                                {% blocktranslate trimmed with n=category.fci_number %}Group {{ n }}{% endblocktranslate %}
+                            <span class="group-number">({{ category.fci_number }})</span>
+
+                            <div class="group-body">
+
+                                <span class="groups-link">
+                                    {{ category.name }}
+                                </span>
+
+                                <span class="group-desc">{{ category.desc }}</span>
+
                             </div>
 
-                            <span class="groups-link">
-                                {{ category.name }}
-                            </span>
+                            <span class="group-more">{% trans "Look more" %}</span>
 
                         </div>
-
-
-                        <!-- Open icon -->
-                        <span class="group-open-icon">
-                            <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="{% trans 'go' %}"
-                                 class="icon-arrow"
-                                 width="16"
-                                 height="16"
-                            >
-                        </span>
 
                     </a>
 
@@ -119,47 +101,28 @@
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"
-                       style="--group-accent: {{ category.fci_number|fci_color }}"
                        title="{{ category.name }}">
-
-                        <!-- Left image -->
-                        {% if category.group_image_thumb %}
-
-                            <img src="{{ category.group_image_thumb.url }}"
-                                 alt="{{ category.name }}"
-                                 class="group-cover"
-                                 height="90"
-                                 width="90"
-                                 decoding="async"
-                                 fetchpriority="high"
-                                 >
-
-                        {% endif %}
-
-
-                        <!-- Right content -->
+<!-- Right content -->
                         <div class="group-sections">
 
-                            <div class="group-name">
+                            <span class="group-number">
                                 {% blocktranslate trimmed %}Other Breeds{% endblocktranslate %}
+                            </span>
+
+                            <div class="group-body">
+
+                                <span class="groups-link">
+                                    {{ category.name }}
+                                </span>
+
+                                <span class="group-desc">{{ category.desc }}</span>
+
                             </div>
 
-                            <span class="groups-link">
-                                {{ category.name }}
-                            </span>
+                            <span class="group-more">{% trans "Look more" %}</span>
 
                         </div>
 
-
-                        <!-- Open icon -->
-                        <span class="group-open-icon">
-                            <img src="{% static 'arrow-up-right.svg' %}"
-                                 alt="{% trans 'go' %}"
-                                 class="icon-arrow"
-                                 width="16"
-                                 height="16"
-                            >
-                        </span>
 
                     </a>
 

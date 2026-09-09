@@ -42,7 +42,9 @@
 
         <p class="cat-desc">
             {% blocktranslate trimmed %}Explore <strong>short</strong> guides about choosing, training, understanding and caring for dogs.
-            These pages are designed to help both new and experienced owners.{% endblocktranslate %}
+            These pages are designed to help both new and experienced owners.
+            No unnecessary theory, only what you can apply in everyday life.
+            You can read them in any order, depending on your situation.{% endblocktranslate %}
         </p>
 
 
@@ -54,6 +56,8 @@
                title="{% trans 'Choosing the right dog' %}"
                class="guide-card">
 
+                <span class="guide-number">(1)</span>
+
                 <span class="guide-title">
                     {% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}
                 </span>
@@ -61,14 +65,7 @@
                 <p>{% blocktranslate trimmed %}Learn how to choose a breed that matches your lifestyle,
                     activity level and living space.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 
@@ -78,6 +75,8 @@
                title="{% trans 'Raising a puppy' %}"
                class="guide-card">
 
+                <span class="guide-number">(2)</span>
+
                 <span class="guide-title">
                     {% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}
                 </span>
@@ -85,14 +84,7 @@
                 <p>{% blocktranslate trimmed %}Learn about early puppy development,
                     socialization, routines and first-life stages.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 
@@ -102,6 +94,8 @@
                title="{% trans 'Dog training fundamentals' %}"
                class="guide-card">
 
+                <span class="guide-number">(3)</span>
+
                 <span class="guide-title">
                     {% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}
                 </span>
@@ -109,14 +103,7 @@
                 <p>{% blocktranslate trimmed %}Understand basic training principles,
                     communication and learning consistency.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 
@@ -126,6 +113,8 @@
                title="{% trans 'Dog health & care' %}"
                class="guide-card">
 
+                <span class="guide-number">(4)</span>
+
                 <span class="guide-title">
                     {% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}
                 </span>
@@ -133,38 +122,26 @@
                 <p>{% blocktranslate trimmed %}Learn about grooming, nutrition,
                     preventive care and general health basics.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 
 
-            <!-- Dog behavior & communication -->
+            <!-- Dog behavior -->
             <a href="{% url 'guide-behavior' %}"
-               title="{% trans 'Dog behavior & communication' %}"
+               title="{% trans 'Dog behavior' %}"
                class="guide-card">
 
+                <span class="guide-number">(5)</span>
+
                 <span class="guide-title">
-                    {% blocktranslate trimmed %}Dog behavior & communication{% endblocktranslate %}
+                    {% blocktranslate trimmed %}Dog behavior{% endblocktranslate %}
                 </span>
 
                 <p>{% blocktranslate trimmed %}Discover how dogs communicate,
                     express emotions and react to the world around them.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 
@@ -174,6 +151,8 @@
                title="{% trans 'Living with a dog' %}"
                class="guide-card">
 
+                <span class="guide-number">(6)</span>
+
                 <span class="guide-title">
                     {% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}
                 </span>
@@ -181,14 +160,7 @@
                 <p>{% blocktranslate trimmed %}Daily routines, home adaptation
                     and long-term lifestyle organization with a dog.{% endblocktranslate %}</p>
 
-                <span class="group-open-icon">
-                    <img src="{% static 'arrow-up-right.svg' %}"
-                         alt="{% trans 'go' %}"
-                         class="icon-arrow"
-                         width="16"
-                         height="16"
-                    >
-                </span>
+                <span class="guide-more">{% trans "Read" %}</span>
 
             </a>
 

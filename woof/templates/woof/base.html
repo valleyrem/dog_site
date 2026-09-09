@@ -137,8 +137,8 @@
         <!-- Right navigation: language + burger -->
         <li class="nav-right">
 
-            <!-- Language selector -->
-            <form action="{% url 'set_language' %}" method="post" class="lang-form">
+            <!-- Language selector (full names, desktop/tablet) -->
+            <form action="{% url 'set_language' %}" method="post" class="lang-form lang-form-desktop">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.get_full_path }}">
                 {% get_current_language as LANGUAGE_CODE %}
@@ -148,6 +148,22 @@
                     {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
                             {{ language.name_local }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+
+            <!-- Language selector (short en/ru, mobile) -->
+            <form action="{% url 'set_language' %}" method="post" class="lang-form lang-form-mobile">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <select name="language" class="lang-select lang-select-mobile" onchange="this.form.submit()" aria-label="{% trans 'Language' %}">
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.code|upper }}
                         </option>
                     {% endfor %}
                 </select>
@@ -304,8 +320,8 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-behavior' %}" title="{% trans 'Dog behavior & communication' %}">
-                        {% trans "Dog behavior & communication" %}
+                    <a href="{% url 'guide-behavior' %}" title="{% trans 'Dog behavior' %}">
+                        {% trans "Dog behavior" %}
                     </a>
                 </li>
 

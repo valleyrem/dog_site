@@ -6,42 +6,62 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0003_dogimage_author_dogs_photo_author'),
+        ("woof", "0003_dogimage_author_dogs_photo_author"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='dogs',
-            name='user_email',
+            model_name="dogs",
+            name="user_email",
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='colors',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Colors'),
+            model_name="dogs",
+            name="colors",
+            field=models.CharField(blank=True, max_length=255, verbose_name="Colors"),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='family_friendliness',
-            field=models.CharField(choices=[('low', 'Low'), ('medium', 'Medium'), ('high', 'High'), ('excellent', 'Excellent')], default='medium', max_length=10, verbose_name='Family friendliness'),
+            model_name="dogs",
+            name="family_friendliness",
+            field=models.CharField(
+                choices=[
+                    ("low", "Low"),
+                    ("medium", "Medium"),
+                    ("high", "High"),
+                    ("excellent", "Excellent"),
+                ],
+                default="medium",
+                max_length=10,
+                verbose_name="Family friendliness",
+            ),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='height',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Height'),
+            model_name="dogs",
+            name="height",
+            field=models.CharField(blank=True, max_length=255, verbose_name="Height"),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='hypoallergenic',
-            field=models.CharField(choices=[('no', 'No'), ('low', 'Low'), ('moderate', 'Moderate'), ('yes', 'Yes')], default='no', max_length=10, verbose_name='Hypoallergenic'),
+            model_name="dogs",
+            name="hypoallergenic",
+            field=models.CharField(
+                choices=[
+                    ("no", "No"),
+                    ("low", "Low"),
+                    ("moderate", "Moderate"),
+                    ("yes", "Yes"),
+                ],
+                default="no",
+                max_length=10,
+                verbose_name="Hypoallergenic",
+            ),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='lifespan',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Lifespan'),
+            model_name="dogs",
+            name="lifespan",
+            field=models.CharField(blank=True, max_length=255, verbose_name="Lifespan"),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='weight',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Weight'),
+            model_name="dogs",
+            name="weight",
+            field=models.CharField(blank=True, max_length=255, verbose_name="Weight"),
         ),
     ]

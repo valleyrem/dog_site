@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0014_alter_dogs_size'),
+        ("woof", "0014_alter_dogs_size"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='category',
-            name='group_image',
-            field=models.ImageField(blank=True, null=True, upload_to='groups/', verbose_name='Group image'),
+            model_name="category",
+            name="group_image",
+            field=models.ImageField(
+                blank=True, null=True, upload_to="groups/", verbose_name="Group image"
+            ),
         ),
     ]

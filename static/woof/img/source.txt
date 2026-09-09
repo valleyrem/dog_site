@@ -1,0 +1,19 @@
+Home-hero photos (one active: see home.html src).
+All three are free to use, no attribution required:
+
+hero-dog-1.jpg (CURRENT)
+  Pexels — two dogs together in garden
+  https://www.pexels.com/photo/dogs-together-in-garden-18436678/
+  License: Pexels License (free commercial use)
+
+hero-dog-2.jpg (candidate 2)
+  Unsplash — two playing dogs
+  https://unsplash.com/photos/two-playing-dogs-1tlUy6TBHW0
+  License: Unsplash License (free commercial use)
+
+hero-dog-3.jpg (candidate 3)
+  Unsplash — a couple of dogs holding a frisbee
+  https://unsplash.com/photos/a-couple-of-dogs-that-are-holding-a-frisbee-PopNBvQfMYE
+  License: Unsplash License (free commercial use)
+
+hero-dog.jpg = previous photo (Pexels 1108099), kept as backup, not used.

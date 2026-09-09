@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-31 15:40+0200\n"
+"POT-Creation-Date: 2026-09-08 15:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,131 +27,131 @@ msgstr "Админ-сайт Woof Dogs"
 msgid "Django administration"
 msgstr "Администрация Woof Dogs"
 
-#: woof/forms.py:19
+#: woof/forms.py:14
 msgid "E-mail"
 msgstr "E-mail"
 
-#: woof/forms.py:22
+#: woof/forms.py:17
 msgid "Message"
 msgstr "Сообщение"
 
-#: woof/models.py:27
+#: woof/models.py:34
 msgid "When necessary (rare, purposeful)"
 msgstr "Когда необходимо (редко, по делу)"
 
-#: woof/models.py:28
+#: woof/models.py:35
 msgid "Infrequent (occasional barking)"
 msgstr "Редкий (периодический лай)"
 
-#: woof/models.py:29
+#: woof/models.py:36
 msgid "Medium (regular alert barking)"
 msgstr "Средний (регулярный настороженный лай)"
 
-#: woof/models.py:30
+#: woof/models.py:37
 msgid "Frequent (barks often)"
 msgstr "Частый (лает часто)"
 
-#: woof/models.py:31
+#: woof/models.py:38
 msgid "Very vocal (howls, talks, barks)"
 msgstr "Очень голосистая (воет, «разговаривает», лает)"
 
-#: woof/models.py:35
+#: woof/models.py:42
 msgid "XSmall"
 msgstr "Очень маленький"
 
-#: woof/models.py:36
+#: woof/models.py:43
 msgid "Small"
 msgstr "Маленький"
 
-#: woof/models.py:37
+#: woof/models.py:44
 msgid "Small to Medium"
 msgstr "Маленький — средний"
 
-#: woof/models.py:38
+#: woof/models.py:45
 msgid "Small to Large"
 msgstr "Маленький — крупный"
 
-#: woof/models.py:39
+#: woof/models.py:46
 msgid "Medium"
 msgstr "Средний"
 
-#: woof/models.py:40
+#: woof/models.py:47
 msgid "Medium to Large"
 msgstr "Средний — крупный"
 
-#: woof/models.py:41
+#: woof/models.py:48
 msgid "Large"
 msgstr "Крупный"
 
-#: woof/models.py:42
+#: woof/models.py:49
 msgid "XLarge"
 msgstr "Очень крупный"
 
-#: woof/models.py:76
+#: woof/models.py:83
 msgid "Independent (thinks for itself)"
 msgstr "Самостоятельная (думает своей головой)"
 
-#: woof/models.py:77
+#: woof/models.py:84
 msgid "May be stubborn (patience)"
 msgstr "Может упрямиться (нужно терпение)"
 
-#: woof/models.py:78
+#: woof/models.py:85
 msgid "Agreeable (trainable)"
 msgstr "Покладистая (поддаётся дрессировке)"
 
-#: woof/models.py:79
+#: woof/models.py:86
 msgid "Eager to please (quick learner)"
 msgstr "Старается угодить (быстро обучается)"
 
-#: woof/models.py:80
+#: woof/models.py:87
 msgid "Easy training (very easy to train)"
 msgstr "Лёгкая дрессировка (очень легко обучается)"
 
-#: woof/models.py:84
+#: woof/models.py:91
 msgid "Calm (low energy)"
 msgstr "Спокойная (низкий уровень энергии)"
 
-#: woof/models.py:85
+#: woof/models.py:92
 msgid "Regular exercise (daily walks)"
 msgstr "Регулярные нагрузки (ежедневные прогулки)"
 
-#: woof/models.py:86
+#: woof/models.py:93
 msgid "Needs lots of activity"
 msgstr "Нужна большая активность"
 
-#: woof/models.py:87
+#: woof/models.py:94
 msgid "Very energetic (high endurance)"
 msgstr "Очень энергичная (высокая выносливость)"
 
-#: woof/models.py:91
+#: woof/models.py:98
 msgid "No (not hypoallergenic)"
 msgstr "Нет (не гипоаллергенная)"
 
-#: woof/models.py:92
+#: woof/models.py:99
 msgid "Low (sheds a lot)"
 msgstr "Низкая (сильно линяет)"
 
-#: woof/models.py:93
+#: woof/models.py:100
 msgid "Moderate (some shedding)"
 msgstr "Средняя (умеренная линька)"
 
-#: woof/models.py:94
+#: woof/models.py:101
 msgid "High (minimal shedding)"
 msgstr "Высокая (минимальная линька)"
 
-#: woof/models.py:98
+#: woof/models.py:105
 msgid "Low (better with adults, limited tolerance)"
 msgstr "Низкая (лучше со взрослыми, ограниченная терпимость)"
 
-#: woof/models.py:99
+#: woof/models.py:106
 msgid "Medium (family-oriented, needs supervision)"
 msgstr "Средняя (ориентирована на семью, нужен присмотр)"
 
-#: woof/models.py:100
+#: woof/models.py:107
 msgid "High (affectionate, good with family)"
 msgstr "Высокая (ласковая, хороша для семьи)"
 
-#: woof/models.py:101
+#: woof/models.py:108
 msgid "Excellent (very gentle, great with kids)"
 msgstr "Отличная (очень нежная, отлично ладит с детьми)"
 
@@ -191,13 +191,13 @@ msgstr "← На главную"
 #: woof/templates/woof/cookie_policy.html:13
 #: woof/templates/woof/dog_groups.html:12
 #: woof/templates/woof/dog_groups.html:15 woof/templates/woof/dogs_list.html:12
-#: woof/templates/woof/dogs_list.html:15 woof/templates/woof/groups.html:11
-#: woof/templates/woof/groups.html:14 woof/templates/woof/guides.html:13
+#: woof/templates/woof/dogs_list.html:15 woof/templates/woof/groups.html:14
+#: woof/templates/woof/groups.html:17 woof/templates/woof/guides.html:13
 #: woof/templates/woof/guides.html:16 woof/templates/woof/health.html:13
 #: woof/templates/woof/health.html:16
 #: woof/templates/woof/living_with_dog.html:12
-#: woof/templates/woof/living_with_dog.html:14 woof/templates/woof/post.html:10
-#: woof/templates/woof/post.html:12 woof/templates/woof/privacy_policy.html:13
+#: woof/templates/woof/living_with_dog.html:14 woof/templates/woof/post.html:30
+#: woof/templates/woof/post.html:32 woof/templates/woof/privacy_policy.html:13
 #: woof/templates/woof/privacy_policy.html:16 woof/templates/woof/puppy.html:11
 #: woof/templates/woof/puppy.html:13
 #: woof/templates/woof/terms_and_conditions.html:10
@@ -220,31 +220,58 @@ msgid ""
 "This project is created for fun and designed as a structured catalog of dog "
 "breeds, focused on clarity, comparison, and easy navigation.\n"
 "            The main classification system follows the <strong>FCI "
-"(Fédération Cynologique Internationale)</strong> — the largest international "
-"federation of kennel clubs, which defines official breed standards and group "
-"structures worldwide."
+"(Fédération Cynologique Internationale)</strong>."
 msgstr ""
 "Этот проект создан ради веселья и представляет собой структурированный "
-"каталог с породами для тех, кто любит узнавать новое, сравнивать и просто исследовать."
-" удивительный мир собак.\n"
+"каталог с породами для тех, кто любит узнавать новое, сравнивать и просто "
+"исследовать. удивительный мир собак.\n"
 "            Основная система классификации основана на <strong>FCI "
-"(Fédération Cynologique Internationale)</strong> — крупнейшей международной "
-"федерации кинологических клубов, которая определяет официальные стандарты "
-"пород и структуру групп по всему миру."
+"(Fédération Cynologique Internationale)</strong>."
 
-#: woof/templates/woof/about.html:53
+#: woof/templates/woof/about.html:52
+msgid "What is FCI"
+msgstr "Что такое FCI"
+
+#: woof/templates/woof/about.html:55
+msgid ""
+"FCI — Fédération Cynologique Internationale (International Canine "
+"Federation) — the largest international federation of kennel clubs, which "
+"defines official breed standards and group structures worldwide."
+msgstr ""
+"FCI — Fédération Cynologique Internationale (Международная кинологическая "
+"федерация) — крупнейшая международная федерация кинологических клубов, "
+"которая определяет официальные стандарты пород и структуру групп по всему "
+"миру."
+
+#: woof/templates/woof/about.html:59
+msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
+msgstr "Основана 22 мая 1911 года, штаб-квартира — Тюэн (Thuin), Бельгия."
+
+#: woof/templates/woof/about.html:60
+msgid "98 member countries."
+msgstr "98 стран-членов."
+
+#: woof/templates/woof/about.html:61
+msgid ""
+"Recognizes 356 breeds; each breed belongs to its country of origin, which "
+"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
+msgstr ""
+"Признаёт 356 пород; каждая порода принадлежит стране происхождения, которая "
+"пишет стандарт; FCI публикует стандарты на 4 языках (en/fr/de/es)"
+
+#: woof/templates/woof/about.html:65
 msgid ""
 "To provide a broader perspective, the catalog also incorporates data from "
 "other kennel organizations, as well as independent breed sources.\n"
 "            As a result, the database includes not only officially "
 "recognized breeds, but also less common and developing ones."
 msgstr ""
-"Чтобы картина была более полной, мы решили так же включить в каталог данные других "
-"кинологических организаций и независимых источников о породах.\n"
+"Чтобы картина была более полной, мы решили так же включить в каталог данные "
+"других кинологических организаций и независимых источников о породах.\n"
 "            В результате в базе представлены не только официально признанные "
 "породы, но и менее распространённые и развивающиеся."
 
-#: woof/templates/woof/about.html:58
+#: woof/templates/woof/about.html:70
 msgid ""
 "If a breed is missing, it may not yet be added or sufficient reference "
 "material is still being collected."
@@ -252,28 +279,28 @@ msgstr ""
 "Если какой-то породы нет, возможно, она ещё не добавлена, или мы пока "
 "собираем справочные материалы."
 
-#: woof/templates/woof/about.html:62
+#: woof/templates/woof/about.html:74
 msgid "About classification"
 msgstr "О классификации"
 
-#: woof/templates/woof/about.html:66
+#: woof/templates/woof/about.html:78
 msgid "The catalog combines:"
 msgstr "Каталог объединяет:"
 
-#: woof/templates/woof/about.html:67
+#: woof/templates/woof/about.html:79
 msgid "officially recognized FCI breeds and groups"
 msgstr "официально признанные породы и группы FCI"
 
-#: woof/templates/woof/about.html:68
+#: woof/templates/woof/about.html:80
 msgid "breeds recognized by other kennel clubs"
 msgstr "породы, признанные другими кинологическими клубами"
 
-#: woof/templates/woof/about.html:69
+#: woof/templates/woof/about.html:81
 msgid "rare or developing breeds not yet formally classified"
 msgstr ""
 "редкие или формирующиеся породы, ещё не получившие официальной классификации"
 
-#: woof/templates/woof/about.html:73
+#: woof/templates/woof/about.html:85
 msgid ""
 "Breed classification may vary between kennel organizations.\n"
 "            The same breed can be assigned to different groups depending on "
@@ -283,115 +310,111 @@ msgstr ""
 " Одна и та же порода может быть отнесена к разным группам в зависимости от "
 "используемого стандарта."
 
-#: woof/templates/woof/about.html:78
+#: woof/templates/woof/about.html:90
 msgid "For official FCI standards, you can visit the"
 msgstr "Официальные стандарты FCI можно посмотреть на"
 
-#: woof/templates/woof/about.html:83 woof/templates/woof/about.html:84
+#: woof/templates/woof/about.html:95 woof/templates/woof/about.html:96
 msgid "FCI website"
 msgstr "сайте FCI"
 
-#: woof/templates/woof/about.html:85 woof/templates/woof/about.html:101
-#: woof/templates/woof/dog_groups.html:61 woof/templates/woof/groups.html:87
-#: woof/templates/woof/groups.html:154 woof/templates/woof/guides.html:66
-#: woof/templates/woof/guides.html:90 woof/templates/woof/guides.html:114
-#: woof/templates/woof/guides.html:138 woof/templates/woof/guides.html:162
-#: woof/templates/woof/guides.html:186
+#: woof/templates/woof/about.html:97 woof/templates/woof/about.html:113
+#: woof/templates/woof/dog_groups.html:61 woof/templates/woof/groups.html:130
 msgid "go"
 msgstr "перейти"
 
-#: woof/templates/woof/about.html:95
+#: woof/templates/woof/about.html:107
 msgid ""
 "You can also find practical and helpful information about dog care, "
 "training, behavior, and daily life in the"
 msgstr ""
-"Также вы можете найти практическую и полезную информацию об уходе за собаками, дрессировке, "
-"поведении и повседневной жизни в разделе"
+"Также вы можете найти практическую и полезную информацию об уходе за "
+"собаками, дрессировке, поведении и повседневной жизни в разделе"
 
-#: woof/templates/woof/about.html:99 woof/templates/woof/about.html:100
+#: woof/templates/woof/about.html:111 woof/templates/woof/about.html:112
 #: woof/templates/woof/dog_groups.html:60
 msgid "Guides section"
 msgstr "Гайды"
 
-#: woof/templates/woof/about.html:111
+#: woof/templates/woof/about.html:123
 msgid "Enjoy exploring, learning, and discovering dog breeds :)"
 msgstr "Желаем приятного знакомства с миром собак :)"
 
-#: woof/templates/woof/base.html:113 woof/templates/woof/privacy_policy.html:78
+#: woof/templates/woof/base.html:128 woof/templates/woof/privacy_policy.html:78
 #: woof/templates/woof/privacy_policy.html:83
 #: woof/templates/woof/terms_and_conditions.html:68
 msgid "Woof Dogs"
 msgstr "Woof Dogs"
 
-#: woof/templates/woof/base.html:132
+#: woof/templates/woof/base.html:147 woof/templates/woof/base.html:163
 msgid "Language"
 msgstr "Язык"
 
-#: woof/templates/woof/base.html:147
+#: woof/templates/woof/base.html:178
 msgid "Menu"
 msgstr "Меню"
 
-#: woof/templates/woof/base.html:237
+#: woof/templates/woof/base.html:268
 msgid "Navigation"
 msgstr "Навигация"
 
-#: woof/templates/woof/base.html:257 woof/utils.py:11
+#: woof/templates/woof/base.html:288 woof/utils.py:11
 msgid "Guides"
 msgstr "Гайды"
 
-#: woof/templates/woof/base.html:262 woof/templates/woof/base.html:263
+#: woof/templates/woof/base.html:293 woof/templates/woof/base.html:294
 msgid "All Guides"
 msgstr "Все гайды"
 
-#: woof/templates/woof/base.html:268 woof/templates/woof/base.html:269
+#: woof/templates/woof/base.html:299 woof/templates/woof/base.html:300
 #: woof/templates/woof/choosing_dog.html:22
 #: woof/templates/woof/choosing_dog.html:30
-#: woof/templates/woof/choosing_dog.html:36 woof/templates/woof/guides.html:54
-#: woof/templates/woof/guides.html:58
+#: woof/templates/woof/choosing_dog.html:36 woof/templates/woof/guides.html:56
+#: woof/templates/woof/guides.html:62
 msgid "Choosing the right dog"
 msgstr "Как выбрать собаку"
 
-#: woof/templates/woof/base.html:274 woof/templates/woof/base.html:275
-#: woof/templates/woof/guides.html:78 woof/templates/woof/guides.html:82
+#: woof/templates/woof/base.html:305 woof/templates/woof/base.html:306
+#: woof/templates/woof/guides.html:75 woof/templates/woof/guides.html:81
 #: woof/templates/woof/puppy.html:26 woof/templates/woof/puppy.html:34
 #: woof/templates/woof/puppy.html:40
 msgid "Raising a puppy"
 msgstr "Воспитание щенка"
 
-#: woof/templates/woof/base.html:280 woof/templates/woof/base.html:281
-#: woof/templates/woof/guides.html:102 woof/templates/woof/guides.html:106
+#: woof/templates/woof/base.html:311 woof/templates/woof/base.html:312
+#: woof/templates/woof/guides.html:94 woof/templates/woof/guides.html:100
 #: woof/templates/woof/training.html:26 woof/templates/woof/training.html:34
 #: woof/templates/woof/training.html:40
 msgid "Dog training fundamentals"
 msgstr "Основы дрессировки"
 
-#: woof/templates/woof/base.html:286 woof/templates/woof/base.html:287
-#: woof/templates/woof/guides.html:126 woof/templates/woof/guides.html:130
+#: woof/templates/woof/base.html:317 woof/templates/woof/base.html:318
+#: woof/templates/woof/guides.html:113 woof/templates/woof/guides.html:119
 #: woof/templates/woof/health.html:31 woof/templates/woof/health.html:42
 #: woof/templates/woof/health.html:50
 msgid "Dog health & care"
 msgstr "Здоровье и уход"
 
-#: woof/templates/woof/base.html:292 woof/templates/woof/base.html:293
+#: woof/templates/woof/base.html:323 woof/templates/woof/base.html:324
 #: woof/templates/woof/behavior.html:22 woof/templates/woof/behavior.html:30
-#: woof/templates/woof/behavior.html:35 woof/templates/woof/guides.html:150
-#: woof/templates/woof/guides.html:154
-msgid "Dog behavior & communication"
-msgstr "Поведение и общение"
+#: woof/templates/woof/behavior.html:35 woof/templates/woof/guides.html:132
+#: woof/templates/woof/guides.html:138
+msgid "Dog behavior"
+msgstr "Поведение собак"
 
-#: woof/templates/woof/base.html:298 woof/templates/woof/base.html:299
-#: woof/templates/woof/guides.html:174 woof/templates/woof/guides.html:178
+#: woof/templates/woof/base.html:329 woof/templates/woof/base.html:330
+#: woof/templates/woof/guides.html:151 woof/templates/woof/guides.html:157
 #: woof/templates/woof/living_with_dog.html:27
 #: woof/templates/woof/living_with_dog.html:36
 #: woof/templates/woof/living_with_dog.html:42
 msgid "Living with a dog"
 msgstr "Жизнь с собакой"
 
-#: woof/templates/woof/base.html:311
+#: woof/templates/woof/base.html:342
 msgid "Info"
 msgstr "Информация"
 
-#: woof/templates/woof/base.html:316 woof/templates/woof/base.html:317
+#: woof/templates/woof/base.html:347 woof/templates/woof/base.html:348
 #: woof/templates/woof/contact.html:88
 #: woof/templates/woof/privacy_policy.html:25
 #: woof/templates/woof/privacy_policy.html:33
@@ -400,36 +423,36 @@ msgstr "Информация"
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
 
-#: woof/templates/woof/base.html:322 woof/templates/woof/base.html:323
+#: woof/templates/woof/base.html:353 woof/templates/woof/base.html:354
 #: woof/templates/woof/cookie_policy.html:22
 #: woof/templates/woof/cookie_policy.html:32
-#: woof/templates/woof/privacy_policy.html:252
+#: woof/templates/woof/privacy_policy.html:255
 msgid "Cookie Policy"
 msgstr "Политика cookies"
 
-#: woof/templates/woof/base.html:328 woof/templates/woof/base.html:329
+#: woof/templates/woof/base.html:359 woof/templates/woof/base.html:360
 #: woof/templates/woof/terms_and_conditions.html:19
 #: woof/templates/woof/terms_and_conditions.html:27
 msgid "Terms of Use"
 msgstr "Условия использования"
 
-#: woof/templates/woof/base.html:344
+#: woof/templates/woof/base.html:375
 msgid "Dog breeds catalog."
 msgstr "Каталог пород собак."
 
-#: woof/templates/woof/base.html:345
+#: woof/templates/woof/base.html:376
 msgid "Non-commercial informational project."
 msgstr "Некоммерческий информационный проект."
 
-#: woof/templates/woof/base.html:346
+#: woof/templates/woof/base.html:377
 msgid "Find a dog that fits your life."
 msgstr "Найдите собаку, которая подойдёт вам."
 
-#: woof/templates/woof/base.html:362
+#: woof/templates/woof/base.html:393
 msgid "Back to top"
 msgstr "Наверх"
 
-#: woof/templates/woof/base.html:364
+#: woof/templates/woof/base.html:395
 msgid "go up"
 msgstr "наверх"
 
@@ -467,7 +490,8 @@ msgid ""
 msgstr ""
 "Этот гайд посвящён интерпретации поведения, а не методам дрессировки или "
 "командам.\n"
-"            Цель — понять, что хочет нам сказать собака, а не как это изменить."
+"            Цель — понять, что хочет нам сказать собака, а не как это "
+"изменить."
 
 #: woof/templates/woof/behavior.html:52
 msgid "Basic principles of dog communication"
@@ -507,7 +531,8 @@ msgid ""
 "Stress in dogs is often visible long before it becomes severe. Common "
 "signals include lip licking, yawning, turning away, or avoiding eye contact."
 msgstr ""
-"Стресс у собак часто заметен задолго до того, как становится серьёзной проблемой.\n"
+"Стресс у собак часто заметен задолго до того, как становится серьёзной "
+"проблемой.\n"
 "    Типичные сигналы — облизывание, зевание, отворачивание или избегание "
 "зрительного контакта."
 
@@ -744,8 +769,8 @@ msgid ""
 "More independent or strong-willed dogs may require prior experience and "
 "clearer leadership consistency."
 msgstr ""
-"Более независимым или своенравным собакам может потребоваться опыт "
-"владельца и более последовательное лидерство."
+"Более независимым или своенравным собакам может потребоваться опыт владельца "
+"и более последовательное лидерство."
 
 #: woof/templates/woof/choosing_dog.html:70
 msgid ""
@@ -896,39 +921,55 @@ msgstr "Последнее обновление: 26 апреля 2026 г."
 msgid "Cookie Declaration"
 msgstr "Декларация о файлах cookie"
 
-#: woof/templates/woof/cookie_policy.html:45
+#: woof/templates/woof/cookie_policy.html:43
+msgid ""
+"Analytics cookies: we use Google Analytics cookies (for example <em>_ga</em> "
+"and <em>_ga_*</em>) to understand how visitors use the site. These cookies "
+"are set only after you give your consent through the cookie notice on the "
+"Website. You may withdraw or change your consent at any time using the "
+"cookie notice, and you may delete these cookies through your browser "
+"settings."
+msgstr ""
+"Аналитические файлы cookie: мы используем файлы cookie Google Analytics "
+"(например, <em>_ga</em> и <em>_ga_*</em>), чтобы понимать, как посетители "
+"пользуются сайтом. Эти файлы cookie устанавливаются только после того, как "
+"вы дадите согласие через уведомление о файлах cookie на сайте. Вы можете в "
+"любой момент отозвать или изменить согласие с помощью уведомления о файлах "
+"cookie, а также удалить эти файлы cookie в настройках браузера."
+
+#: woof/templates/woof/cookie_policy.html:47
 msgid "How can I control cookies in my browser?"
 msgstr "Как управлять файлами cookie в браузере?"
 
-#: woof/templates/woof/cookie_policy.html:47
+#: woof/templates/woof/cookie_policy.html:49
 msgid "Here are instructions for managing cookies in popular browsers:"
 msgstr "Вот инструкции по управлению файлами cookie в популярных браузерах:"
 
-#: woof/templates/woof/cookie_policy.html:55
+#: woof/templates/woof/cookie_policy.html:57
 msgid "Chrome"
 msgstr "Chrome"
 
-#: woof/templates/woof/cookie_policy.html:62
+#: woof/templates/woof/cookie_policy.html:64
 msgid "Internet Explorer"
 msgstr "Internet Explorer"
 
-#: woof/templates/woof/cookie_policy.html:69
+#: woof/templates/woof/cookie_policy.html:71
 msgid "Firefox"
 msgstr "Firefox"
 
-#: woof/templates/woof/cookie_policy.html:76
+#: woof/templates/woof/cookie_policy.html:78
 msgid "Safari"
 msgstr "Safari"
 
-#: woof/templates/woof/cookie_policy.html:83
+#: woof/templates/woof/cookie_policy.html:85
 msgid "Edge"
 msgstr "Edge"
 
-#: woof/templates/woof/cookie_policy.html:90
+#: woof/templates/woof/cookie_policy.html:92
 msgid "Opera"
 msgstr "Opera"
 
-#: woof/templates/woof/cookie_policy.html:97
+#: woof/templates/woof/cookie_policy.html:99
 msgid ""
 "Additionally, most ad networks offer options to opt out of targeted "
 "advertising. For more information, visit:"
@@ -937,24 +978,24 @@ msgstr ""
 "таргетированной рекламы.\n"
 "            Для получения дополнительной информации посетите:"
 
-#: woof/templates/woof/cookie_policy.html:106
+#: woof/templates/woof/cookie_policy.html:108
 msgid "Digital Advertising Alliance"
 msgstr "Digital Advertising Alliance"
 
-#: woof/templates/woof/cookie_policy.html:113
+#: woof/templates/woof/cookie_policy.html:115
 msgid "Digital Advertising Alliance of Canada"
 msgstr "Digital Advertising Alliance of Canada"
 
-#: woof/templates/woof/cookie_policy.html:120
+#: woof/templates/woof/cookie_policy.html:122
 msgid "European Interactive Digital Advertising Alliance"
 msgstr "European Interactive Digital Advertising Alliance"
 
-#: woof/templates/woof/cookie_policy.html:127
+#: woof/templates/woof/cookie_policy.html:129
 msgid "How often will you update this Cookie Policy?"
 msgstr ""
 "Как часто вы будете обновлять эту Политику использования файлов cookie?"
 
-#: woof/templates/woof/cookie_policy.html:129
+#: woof/templates/woof/cookie_policy.html:131
 msgid ""
 "We may update this Cookie Policy periodically to reflect changes to the "
 "cookies we use or for other operational, legal, or regulatory reasons. "
@@ -967,11 +1008,11 @@ msgstr ""
 "просматривайте эту политику, чтобы быть в курсе того, как мы используем "
 "файлы cookie и связанные технологии."
 
-#: woof/templates/woof/cookie_policy.html:135
+#: woof/templates/woof/cookie_policy.html:137
 msgid "Where can I get more information?"
 msgstr "Где можно получить больше информации?"
 
-#: woof/templates/woof/cookie_policy.html:138
+#: woof/templates/woof/cookie_policy.html:140
 msgid ""
 "If you have any questions about our use of cookies or other technologies, "
 "please"
@@ -979,14 +1020,14 @@ msgstr ""
 "Если у вас есть вопросы об использовании файлов cookie или других "
 "технологий, пожалуйста"
 
-#: woof/templates/woof/cookie_policy.html:141
-#: woof/templates/woof/privacy_policy.html:286
-#: woof/templates/woof/privacy_policy.html:310
+#: woof/templates/woof/cookie_policy.html:143
+#: woof/templates/woof/privacy_policy.html:293
+#: woof/templates/woof/privacy_policy.html:317
 #: woof/templates/woof/terms_and_conditions.html:203
 msgid "woofdogs23@gmail.com"
 msgstr "woofdogs23@gmail.com"
 
-#: woof/templates/woof/cookie_policy.html:141 woof/templates/woof/post.html:287
+#: woof/templates/woof/cookie_policy.html:143 woof/templates/woof/post.html:315
 msgid "contact us"
 msgstr "свяжитесь с нами"
 
@@ -1017,7 +1058,9 @@ msgstr ""
 
 #: woof/templates/woof/dog_groups.html:56
 msgid "For deeper understanding of dog ownership, you can also visit the"
-msgstr "Чтобы лучше понять, как ухаживать за собаками, вы также можете посетить раздел"
+msgstr ""
+"Чтобы лучше понять, как ухаживать за собаками, вы также можете посетить "
+"раздел"
 
 #: woof/templates/woof/dog_groups.html:68
 msgid ""
@@ -1042,9 +1085,9 @@ msgstr "Предыдущие собаки"
 #: woof/templates/woof/dog_groups.html:175
 #: woof/templates/woof/dog_groups.html:251
 #: woof/templates/woof/dog_groups.html:327
-#: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:228
-#: woof/templates/woof/post.html:47 woof/templates/woof/post.html:343
-#: woof/templates/woof/post.html:425
+#: woof/templates/woof/dogs_list.html:58 woof/templates/woof/home.html:311
+#: woof/templates/woof/post.html:66 woof/templates/woof/post.html:375
+#: woof/templates/woof/post.html:510
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
@@ -1052,9 +1095,9 @@ msgstr "Предыдущая страница"
 #: woof/templates/woof/dog_groups.html:176
 #: woof/templates/woof/dog_groups.html:252
 #: woof/templates/woof/dog_groups.html:328
-#: woof/templates/woof/dogs_list.html:60 woof/templates/woof/home.html:229
-#: woof/templates/woof/post.html:48 woof/templates/woof/post.html:78
-#: woof/templates/woof/post.html:344 woof/templates/woof/post.html:426
+#: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:312
+#: woof/templates/woof/post.html:67 woof/templates/woof/post.html:97
+#: woof/templates/woof/post.html:376 woof/templates/woof/post.html:511
 msgid "Previous"
 msgstr "Назад"
 
@@ -1069,9 +1112,9 @@ msgstr "Следующие собаки"
 #: woof/templates/woof/dog_groups.html:212
 #: woof/templates/woof/dog_groups.html:288
 #: woof/templates/woof/dog_groups.html:364
-#: woof/templates/woof/dogs_list.html:71 woof/templates/woof/home.html:245
-#: woof/templates/woof/post.html:62 woof/templates/woof/post.html:358
-#: woof/templates/woof/post.html:437
+#: woof/templates/woof/dogs_list.html:117 woof/templates/woof/home.html:373
+#: woof/templates/woof/post.html:81 woof/templates/woof/post.html:390
+#: woof/templates/woof/post.html:549
 msgid "Next page"
 msgstr "Следующая страница"
 
@@ -1079,9 +1122,9 @@ msgstr "Следующая страница"
 #: woof/templates/woof/dog_groups.html:213
 #: woof/templates/woof/dog_groups.html:289
 #: woof/templates/woof/dog_groups.html:365
-#: woof/templates/woof/dogs_list.html:72 woof/templates/woof/home.html:246
-#: woof/templates/woof/post.html:63 woof/templates/woof/post.html:98
-#: woof/templates/woof/post.html:359 woof/templates/woof/post.html:438
+#: woof/templates/woof/dogs_list.html:118 woof/templates/woof/home.html:374
+#: woof/templates/woof/post.html:82 woof/templates/woof/post.html:118
+#: woof/templates/woof/post.html:391 woof/templates/woof/post.html:550
 msgid "Next"
 msgstr "Вперёд"
 
@@ -1145,38 +1188,28 @@ msgstr ""
 "найти собаку, которая действительно подходит вашему образу жизни."
 
 #: woof/templates/woof/dogs_list.html:25 woof/templates/woof/dogs_list.html:26
-#: woof/templates/woof/dogs_list.html:42 woof/templates/woof/groups.html:23
-#: woof/templates/woof/groups.html:32 woof/templates/woof/post.html:18
+#: woof/templates/woof/dogs_list.html:41 woof/templates/woof/groups.html:26
+#: woof/templates/woof/groups.html:37 woof/templates/woof/post.html:38
 msgid "Groups"
 msgstr "Все группы"
 
-#: woof/templates/woof/dogs_list.html:65 woof/templates/woof/home.html:235
-#: woof/templates/woof/post.html:431
-msgid "prev"
-msgstr "пред"
-
-#: woof/templates/woof/dogs_list.html:69 woof/templates/woof/home.html:242
-#: woof/templates/woof/post.html:435
-msgid "next"
-msgstr "след"
-
-#: woof/templates/woof/dogs_list.html:155
+#: woof/templates/woof/dogs_list.html:142
 msgid "Sections."
 msgstr "Секции."
 
-#: woof/templates/woof/dogs_list.html:163
+#: woof/templates/woof/dogs_list.html:150
 msgid "No sections."
 msgstr "Секций нет."
 
-#: woof/templates/woof/dogs_list.html:172
+#: woof/templates/woof/dogs_list.html:158
 msgid "In short."
 msgstr "Общая информация."
 
-#: woof/templates/woof/dogs_list.html:180
+#: woof/templates/woof/dogs_list.html:165
 msgid "*"
 msgstr "*"
 
-#: woof/templates/woof/dogs_list.html:181
+#: woof/templates/woof/dogs_list.html:166
 msgid ""
 "If you don’t see a particular breed on this website, it may simply mean that "
 "it hasn’t been added yet, or that we haven’t found suitable images with "
@@ -1186,11 +1219,11 @@ msgstr ""
 "её ещё не добавили или мы пока не нашли подходящих изображений с ясной "
 "атрибуцией или свободной лицензией 😊"
 
-#: woof/templates/woof/groups.html:34
+#: woof/templates/woof/groups.html:39
 msgid "Explore all FCI dog groups and their sections"
 msgstr "Все группы FCI и их секции"
 
-#: woof/templates/woof/groups.html:40
+#: woof/templates/woof/groups.html:45
 msgid ""
 "Explore the official <strong>FCI groups</strong> below — each group contains "
 "breeds with similar history, purpose, and characteristics. Discover "
@@ -1200,16 +1233,15 @@ msgstr ""
 "породы со схожей историей, назначением и характеристиками. Открывайте "
 "отдельные породы."
 
-#: woof/templates/woof/groups.html:74
-#, python-format
-msgid "Group %(n)s"
-msgstr "Группа %(n)s"
+#: woof/templates/woof/groups.html:74 woof/templates/woof/groups.html:122
+msgid "Look more"
+msgstr "Узнать больше"
 
-#: woof/templates/woof/groups.html:104
+#: woof/templates/woof/groups.html:88
 msgid "Breeds outside the current FCI structure"
 msgstr "Породы вне текущей структуры FCI"
 
-#: woof/templates/woof/groups.html:106
+#: woof/templates/woof/groups.html:90
 msgid ""
 "Some breeds on the site are not currently placed inside the official FCI "
 "classification. They are collected in a separate category so you can still "
@@ -1219,7 +1251,7 @@ msgstr ""
 "            Они собраны в отдельную категорию, чтобы вы могли легко "
 "просматривать и сравнивать их."
 
-#: woof/templates/woof/groups.html:141
+#: woof/templates/woof/groups.html:109
 msgid "Other Breeds"
 msgstr "Другие породы"
 
@@ -1231,48 +1263,59 @@ msgstr "Узнайте больше о собаках"
 msgid ""
 "Explore <strong>short</strong> guides about choosing, training, "
 "understanding and caring for dogs. These pages are designed to help both new "
-"and experienced owners."
+"and experienced owners. No unnecessary theory, only what you can apply in "
+"everyday life. You can read them in any order, depending on your situation."
 msgstr ""
-"Здесь можно изучить <strong>короткие</strong> гайды о выборе собаки, дрессировке, понимании и "
-"уходе за питомцами.\n"
+"Здесь можно изучить <strong>короткие</strong> гайды о выборе собаки, "
+"дрессировке, понимании и уходе за питомцами.\n"
 "            Эти страницы созданы в помощь как новым, так и опытным "
-"владельцам."
+"владельцам. Без лишней теории — только то, что можно применить в "
+"повседневной жизни. Читать их можно в любом порядке, подстраиваясь под "
+"текущую ситуацию."
 
-#: woof/templates/woof/guides.html:61
+#: woof/templates/woof/guides.html:65
 msgid ""
 "Learn how to choose a breed that matches your lifestyle, activity level and "
 "living space."
 msgstr ""
-"Здесь можно узнать, как выбрать породу, подходящую вашему образу жизни, уровню "
-"активности и жилью."
+"Здесь можно узнать, как выбрать породу, подходящую вашему образу жизни, "
+"уровню активности и жилью."
 
-#: woof/templates/woof/guides.html:85
+#: woof/templates/woof/guides.html:68 woof/templates/woof/guides.html:87
+#: woof/templates/woof/guides.html:106 woof/templates/woof/guides.html:125
+#: woof/templates/woof/guides.html:144 woof/templates/woof/guides.html:163
+msgid "Read"
+msgstr "Читать"
+
+#: woof/templates/woof/guides.html:84
 msgid ""
 "Learn about early puppy development, socialization, routines and first-life "
 "stages."
 msgstr ""
-"Изучите информацию о раннем развитии щенка, социализации, режиме и первых этапах жизни."
+"Изучите информацию о раннем развитии щенка, социализации, режиме и первых "
+"этапах жизни."
 
-#: woof/templates/woof/guides.html:109
+#: woof/templates/woof/guides.html:103
 msgid ""
 "Understand basic training principles, communication and learning consistency."
-msgstr ""
-"Освойте базовые принципы дрессировки, общения и этапов обучения."
+msgstr "Освойте базовые принципы дрессировки, общения и этапов обучения."
 
-#: woof/templates/woof/guides.html:133
+#: woof/templates/woof/guides.html:122
 msgid ""
 "Learn about grooming, nutrition, preventive care and general health basics."
 msgstr ""
-"Узнайте больше об уходе за шерстью, питании, профилактике и основах общего здоровья."
+"Узнайте больше об уходе за шерстью, питании, профилактике и основах общего "
+"здоровья."
 
-#: woof/templates/woof/guides.html:157
+#: woof/templates/woof/guides.html:141
 msgid ""
 "Discover how dogs communicate, express emotions and react to the world "
 "around them."
 msgstr ""
-"Здесь содержится информация о том, как собаки общаются, выражают эмоции и реагируют на окружающий мир."
+"Здесь содержится информация о том, как собаки общаются, выражают эмоции и "
+"реагируют на окружающий мир."
 
-#: woof/templates/woof/guides.html:181
+#: woof/templates/woof/guides.html:160
 msgid ""
 "Daily routines, home adaptation and long-term lifestyle organization with a "
 "dog."
@@ -1369,8 +1412,8 @@ msgid ""
 "Consistency in feeding habits helps maintain stable digestion and prevents "
 "sudden metabolic stress."
 msgstr ""
-"Регулярность в кормлении помогает поддерживать стабильное пищеварение "
-"и предотвращает резкий метаболический стресс."
+"Регулярность в кормлении помогает поддерживать стабильное пищеварение и "
+"предотвращает резкий метаболический стресс."
 
 #: woof/templates/woof/health.html:94
 msgid "Hygiene and grooming"
@@ -1506,41 +1549,45 @@ msgstr ""
 "При правильном управлении эти факторы значительно увеличивают как качество, "
 "так и продолжительность жизни собаки."
 
-#: woof/templates/woof/home.html:118
+#: woof/templates/woof/home.html:126
 msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
-msgstr "Немного безумия, много <span class=\"love-word\">любви</span>"
+msgstr "Немного шалости, много <span class=\"love-word\">любви</span>"
 
-#: woof/templates/woof/home.html:126 woof/templates/woof/home.html:129
-#: woof/templates/woof/home.html:135
+#: woof/templates/woof/home.html:133 woof/templates/woof/home.html:136
+#: woof/templates/woof/home.html:147 woof/templates/woof/home.html:170
 msgid "Find by group"
 msgstr "Поиск по группе"
 
-#: woof/templates/woof/home.html:149 woof/templates/woof/home.html:152
-#: woof/templates/woof/home.html:157
+#: woof/templates/woof/home.html:181 woof/templates/woof/home.html:184
+#: woof/templates/woof/home.html:199 woof/templates/woof/home.html:227
 msgid "Find by breed"
 msgstr "Поиск по породе"
 
-#: woof/templates/woof/home.html:173
+#: woof/templates/woof/home.html:240
 msgid ""
 "A simple way to find a dog that really fits your lifestyle, your home, and "
 "your everyday rhythm — and feels like it belongs there"
 msgstr ""
+"Найдите собаку, которая подойдёт именно вам — вашему дому, вашему образу "
+"жизни и вашему ритму. И станет частью вашей семьи."
 
-"Найдите собаку, которая подойдёт именно вам — "
-"вашему дому, вашему образу жизни и вашему ритму. И станет частью вашей семьи."
+#: woof/templates/woof/home.html:251
+msgid "A happy dog"
+msgstr "Счастливая собака"
 
-#: woof/templates/woof/home.html:190
+#: woof/templates/woof/home.html:264
 msgid "Scroll down"
 msgstr "Прокрутить вниз"
 
-#: woof/templates/woof/home.html:203 woof/templates/woof/home.html:207
+#: woof/templates/woof/home.html:287 woof/templates/woof/home.html:291
 msgid "Breed profiles"
 msgstr "Профили пород"
 
-#: woof/templates/woof/home.html:211
+#: woof/templates/woof/home.html:295
 msgid "Explore breeds by size, temperament,<br> lifestyle and more."
 msgstr ""
-"Изучайте породы по размеру, темпераменту,<br> образу жизни и другим параметрам."
+"Изучайте породы по размеру, темпераменту,<br> образу жизни и другим "
+"параметрам."
 
 #: woof/templates/woof/living_with_dog.html:50
 msgid "What “living with a dog” actually means"
@@ -1733,41 +1780,45 @@ msgstr ""
 "сбалансированы, и собака, и владелец выигрывают от стабильной и "
 "предсказуемой среды."
 
-#: woof/templates/woof/post.html:142
+#: woof/templates/woof/post.html:113
+msgid "Click to enlarge"
+msgstr "Нажмите, чтобы увеличить"
+
+#: woof/templates/woof/post.html:173
 msgid "Section"
 msgstr "Секция"
 
-#: woof/templates/woof/post.html:150 woof/templates/woof/post.html:400
+#: woof/templates/woof/post.html:181 woof/templates/woof/post.html:483
 msgid "Varieties"
 msgstr "Разновидности"
 
-#: woof/templates/woof/post.html:158 woof/templates/woof/post.html:401
+#: woof/templates/woof/post.html:189 woof/templates/woof/post.html:484
 msgid "Origin"
 msgstr "Происхождение"
 
-#: woof/templates/woof/post.html:166 woof/templates/woof/post.html:402
+#: woof/templates/woof/post.html:197 woof/templates/woof/post.html:485
 msgid "Size"
 msgstr "Размер"
 
-#: woof/templates/woof/post.html:174 woof/templates/woof/post.html:405
+#: woof/templates/woof/post.html:205 woof/templates/woof/post.html:488
 msgid "Life expectancy"
 msgstr "Продолжительность жизни"
 
-#: woof/templates/woof/post.html:176
+#: woof/templates/woof/post.html:207
 #, python-format
 msgid "%(years)s years"
 msgstr "%(years)s лет"
 
-#: woof/templates/woof/post.html:184
+#: woof/templates/woof/post.html:215
 msgid "Height & Weight"
 msgstr "Рост и масса"
 
-#: woof/templates/woof/post.html:189
+#: woof/templates/woof/post.html:220
 #, python-format
 msgid "%(h)s cm, %(w)s kg"
 msgstr "%(h)s см, %(w)s кг"
 
-#: woof/templates/woof/post.html:191
+#: woof/templates/woof/post.html:222
 msgid ""
 "Range includes values for both males and females. Individual values may vary "
 "by sex."
@@ -1775,107 +1826,108 @@ msgstr ""
 "Диапазон включает значения для кобелей и сук.\n"
 "            Индивидуальные значения могут различаться в зависимости от пола."
 
-#: woof/templates/woof/post.html:200 woof/templates/woof/post.html:406
+#: woof/templates/woof/post.html:231 woof/templates/woof/post.html:489
 msgid "Trainability"
 msgstr "Обучаемость"
 
-#: woof/templates/woof/post.html:208
+#: woof/templates/woof/post.html:239
 msgid "Activity level"
 msgstr "Уровень активности"
 
-#: woof/templates/woof/post.html:216 woof/templates/woof/post.html:408
+#: woof/templates/woof/post.html:247 woof/templates/woof/post.html:491
 msgid "Barking"
 msgstr "Лай"
 
-#: woof/templates/woof/post.html:224
+#: woof/templates/woof/post.html:255
 msgid "Allergy friendly"
 msgstr "Гипоаллергенность"
 
-#: woof/templates/woof/post.html:232 woof/templates/woof/post.html:410
+#: woof/templates/woof/post.html:263 woof/templates/woof/post.html:493
 msgid "Family friendly"
 msgstr "Семейность"
 
-#: woof/templates/woof/post.html:240 woof/templates/woof/post.html:404
+#: woof/templates/woof/post.html:271 woof/templates/woof/post.html:487
 msgid "Coat"
 msgstr "Шерсть"
 
-#: woof/templates/woof/post.html:258
+#: woof/templates/woof/post.html:288
 msgid "Colors"
 msgstr "Окрас"
 
-#: woof/templates/woof/post.html:291
+#: woof/templates/woof/post.html:319
 msgid "About the Breed"
 msgstr "О породе"
 
-#: woof/templates/woof/post.html:296
+#: woof/templates/woof/post.html:324
 msgid "Varieties of German Spitz (links to breeds):"
 msgstr "Разновидности немецкого шпица (ссылки на породы):"
 
-#: woof/templates/woof/post.html:299
+#: woof/templates/woof/post.html:327
 msgid "Keeshond (Wolfspitz)"
 msgstr "Кеесхонд (вольфшпиц)"
 
-#: woof/templates/woof/post.html:301
+#: woof/templates/woof/post.html:329
 msgid "Pomeranian"
 msgstr "Померанский шпиц"
 
-#: woof/templates/woof/post.html:304
+#: woof/templates/woof/post.html:332
 msgid "Varieties of German Spitz by size:"
 msgstr "Разновидности немецкого шпица по размеру:"
 
-#: woof/templates/woof/post.html:305
+#: woof/templates/woof/post.html:333
 msgid "Miniature, Medium, Giant"
 msgstr "Малый, Средний, Большой"
 
-#: woof/templates/woof/post.html:311
+#: woof/templates/woof/post.html:339
 msgid "German Spitz link:"
 msgstr "Ссылка на немецкого шпица:"
 
-#: woof/templates/woof/post.html:314
+#: woof/templates/woof/post.html:342
 msgid "German Spitz"
 msgstr "Немецкий шпиц"
 
-#: woof/templates/woof/post.html:319
+#: woof/templates/woof/post.html:349
 msgid "Summary."
 msgstr "Общая информация."
 
-#: woof/templates/woof/post.html:320
+#: woof/templates/woof/post.html:352
 msgid "Care."
 msgstr "Уход."
 
-#: woof/templates/woof/post.html:321
+#: woof/templates/woof/post.html:355
 msgid "Conditions."
 msgstr "Условия."
 
-#: woof/templates/woof/post.html:328
+#: woof/templates/woof/post.html:363
 msgid "Copy link"
 msgstr "Копировать ссылку"
 
-#: woof/templates/woof/post.html:371
+#: woof/templates/woof/post.html:404
 msgid "Compare breeds"
 msgstr "Сравнить породы"
 
-#: woof/templates/woof/post.html:385 woof/templates/woof/post.html:386
+#: woof/templates/woof/post.html:437 woof/templates/woof/post.html:466
+#: woof/templates/woof/post.html:469
 msgid "Select breed"
 msgstr "Выберите породу"
 
-#: woof/templates/woof/post.html:403
+#: woof/templates/woof/post.html:486
 msgid "Height / Weight"
 msgstr "Рост / Вес"
 
-#: woof/templates/woof/post.html:407
+#: woof/templates/woof/post.html:490
 msgid "Activity"
 msgstr "Уровень активности"
 
-#: woof/templates/woof/post.html:409
+#: woof/templates/woof/post.html:492
 msgid "Allergy-Friendly"
 msgstr "Гипоаллергенность"
 
-#: woof/templates/woof/post.html:411
+#: woof/templates/woof/post.html:494
 msgid "years"
 msgstr "лет"
 
-#: woof/templates/woof/post.html:419
+#: woof/templates/woof/post.html:504
 msgid "Other breeds in this group"
 msgstr "Другие породы этой группы"
 
@@ -1912,7 +1964,7 @@ msgid "Automatically collected information"
 msgstr "Автоматически собираемая информация"
 
 #: woof/templates/woof/privacy_policy.html:48
-#: woof/templates/woof/privacy_policy.html:114
+#: woof/templates/woof/privacy_policy.html:113
 msgid "3. Automatically collected information"
 msgstr "3. Автоматически собираемая информация"
 
@@ -1921,7 +1973,7 @@ msgid "Purposes of processing"
 msgstr "Цели обработки"
 
 #: woof/templates/woof/privacy_policy.html:50
-#: woof/templates/woof/privacy_policy.html:132
+#: woof/templates/woof/privacy_policy.html:133
 msgid "4. Purposes of processing"
 msgstr "4. Цели обработки"
 
@@ -1930,7 +1982,7 @@ msgid "Legal bases and regional laws"
 msgstr "Правовые основания и региональные законы"
 
 #: woof/templates/woof/privacy_policy.html:52
-#: woof/templates/woof/privacy_policy.html:143
+#: woof/templates/woof/privacy_policy.html:144
 msgid "5. Legal bases and regional laws"
 msgstr "5. Правовые основания и региональные законы"
 
@@ -1939,7 +1991,7 @@ msgid "Cookies and tracking technologies"
 msgstr "Файлы cookie и технологии отслеживания"
 
 #: woof/templates/woof/privacy_policy.html:54
-#: woof/templates/woof/privacy_policy.html:243
+#: woof/templates/woof/privacy_policy.html:246
 msgid "6. Cookies and tracking technologies"
 msgstr "6. Файлы cookie и технологии отслеживания"
 
@@ -1948,12 +2000,12 @@ msgid "Sharing of information"
 msgstr "Раскрытие информации"
 
 #: woof/templates/woof/privacy_policy.html:56
-#: woof/templates/woof/privacy_policy.html:257
+#: woof/templates/woof/privacy_policy.html:260
 msgid "7. Sharing of information"
 msgstr "7. Передача информации"
 
 #: woof/templates/woof/privacy_policy.html:58
-#: woof/templates/woof/privacy_policy.html:264
+#: woof/templates/woof/privacy_policy.html:267
 msgid "8. International data transfers"
 msgstr "8. Международная передача данных"
 
@@ -1962,7 +2014,7 @@ msgid "Data retention"
 msgstr "Хранение данных"
 
 #: woof/templates/woof/privacy_policy.html:60
-#: woof/templates/woof/privacy_policy.html:271
+#: woof/templates/woof/privacy_policy.html:276
 msgid "9. Data retention"
 msgstr "9. Хранение данных"
 
@@ -1971,7 +2023,7 @@ msgid "Your privacy rights"
 msgstr "Ваши права на конфиденциальность"
 
 #: woof/templates/woof/privacy_policy.html:62
-#: woof/templates/woof/privacy_policy.html:278
+#: woof/templates/woof/privacy_policy.html:283
 msgid "10. Your privacy rights"
 msgstr "10. Ваши права на конфиденциальность"
 
@@ -1980,7 +2032,7 @@ msgid "Children’s privacy"
 msgstr "Конфиденциальность детей"
 
 #: woof/templates/woof/privacy_policy.html:64
-#: woof/templates/woof/privacy_policy.html:291
+#: woof/templates/woof/privacy_policy.html:298
 msgid "11. Children’s privacy"
 msgstr "11. Конфиденциальность детей"
 
@@ -1989,7 +2041,7 @@ msgid "Updates to this policy"
 msgstr "Обновления этой политики"
 
 #: woof/templates/woof/privacy_policy.html:66
-#: woof/templates/woof/privacy_policy.html:298
+#: woof/templates/woof/privacy_policy.html:305
 msgid "12. Updates to this policy"
 msgstr "12. Обновления этой политики"
 
@@ -1998,7 +2050,7 @@ msgid "Contact information"
 msgstr "Контактная информация"
 
 #: woof/templates/woof/privacy_policy.html:68
-#: woof/templates/woof/privacy_policy.html:305
+#: woof/templates/woof/privacy_policy.html:312
 msgid "13. Contact information"
 msgstr "13. Контактная информация"
 
@@ -2048,11 +2100,11 @@ msgstr ""
 #: woof/templates/woof/privacy_policy.html:99
 msgid ""
 "The Website does not require registration and does not request usernames, "
-"passwords, or email addresses by default. However, if you contact us "
-"through the"
+"passwords, or email addresses by default. However, if you contact us through "
+"the"
 msgstr ""
-"Сайт не требует регистрации и по умолчанию не запрашивает логины, пароли "
-"или адреса электронной почты. Однако если вы связываетесь с нами через"
+"Сайт не требует регистрации и по умолчанию не запрашивает логины, пароли или "
+"адреса электронной почты. Однако если вы связываетесь с нами через"
 
 #: woof/templates/woof/privacy_policy.html:100
 msgid "Contact Form"
@@ -2070,7 +2122,7 @@ msgstr "Адрес электронной почты"
 msgid "Message or inquiry content"
 msgstr "Содержание сообщения или запроса"
 
-#: woof/templates/woof/privacy_policy.html:109
+#: woof/templates/woof/privacy_policy.html:108
 msgid ""
 "We use this information solely to respond to your inquiry and do not share "
 "it with third parties except where required by law."
@@ -2078,7 +2130,7 @@ msgstr ""
 "Мы используем эту информацию исключительно для ответа на ваш запрос и не "
 "передаём её третьим лицам, за исключением случаев, предусмотренных законом."
 
-#: woof/templates/woof/privacy_policy.html:116
+#: woof/templates/woof/privacy_policy.html:115
 msgid ""
 "When you visit the Website, certain information may be collected "
 "automatically, including:"
@@ -2086,27 +2138,27 @@ msgstr ""
 "При посещении сайта некоторая информация может собираться автоматически, "
 "включая:"
 
-#: woof/templates/woof/privacy_policy.html:120
+#: woof/templates/woof/privacy_policy.html:119
 msgid "IP address"
 msgstr "IP-адрес"
 
-#: woof/templates/woof/privacy_policy.html:121
+#: woof/templates/woof/privacy_policy.html:120
 msgid "Browser type and version"
 msgstr "Тип и версия браузера"
 
-#: woof/templates/woof/privacy_policy.html:122
+#: woof/templates/woof/privacy_policy.html:121
 msgid "Device and operating system information"
 msgstr "Информация об устройстве и операционной системе"
 
-#: woof/templates/woof/privacy_policy.html:123
+#: woof/templates/woof/privacy_policy.html:122
 msgid "Pages visited and time spent on the site"
 msgstr "Посещённые страницы и время на сайте"
 
-#: woof/templates/woof/privacy_policy.html:124
+#: woof/templates/woof/privacy_policy.html:123
 msgid "Referring URLs"
 msgstr "Реферальные URL"
 
-#: woof/templates/woof/privacy_policy.html:127
+#: woof/templates/woof/privacy_policy.html:126
 msgid ""
 "This information does not directly identify you and is used for analytics, "
 "security, and performance improvement."
@@ -2114,23 +2166,37 @@ msgstr ""
 "Эта информация не идентифицирует вас напрямую и используется для аналитики, "
 "безопасности и повышения производительности."
 
-#: woof/templates/woof/privacy_policy.html:135
+#: woof/templates/woof/privacy_policy.html:129
+msgid ""
+"We use Google Analytics, a web analytics service provided by Google LLC, to "
+"understand how visitors use the Website. Google Analytics may collect your "
+"IP address, browser type, device information, pages visited, and time spent "
+"on the site. We enable IP anonymization, so a truncated IP address is used "
+"and cannot be used to identify you."
+msgstr ""
+"Мы используем Google Analytics — сервис веб-аналитики компании Google LLC — "
+"чтобы понимать, как посетители пользуются сайтом. Google Analytics может "
+"собирать ваш IP-адрес, тип браузера, информацию об устройстве, посещённые "
+"страницы и время на сайте. Мы включили анонимизацию IP, поэтому используется "
+"сокращённый IP-адрес, по которому вас невозможно идентифицировать."
+
+#: woof/templates/woof/privacy_policy.html:136
 msgid "Ensuring proper functioning of the Website"
 msgstr "Обеспечение корректной работы сайта"
 
-#: woof/templates/woof/privacy_policy.html:136
+#: woof/templates/woof/privacy_policy.html:137
 msgid "Analyzing usage to improve content and structure"
 msgstr "Анализ использования для улучшения контента и структуры"
 
-#: woof/templates/woof/privacy_policy.html:137
+#: woof/templates/woof/privacy_policy.html:138
 msgid "Maintaining Website security and preventing abuse"
 msgstr "Поддержание безопасности сайта и предотвращение злоупотреблений"
 
-#: woof/templates/woof/privacy_policy.html:138
+#: woof/templates/woof/privacy_policy.html:139
 msgid "Complying with legal obligations"
 msgstr "Соблюдение юридических обязательств"
 
-#: woof/templates/woof/privacy_policy.html:145
+#: woof/templates/woof/privacy_policy.html:146
 msgid ""
 "Depending on your location, your data is processed in accordance with "
 "applicable data protection laws."
@@ -2138,107 +2204,117 @@ msgstr ""
 "В зависимости от вашего местоположения ваши данные обрабатываются в "
 "соответствии с применимыми законами о защите данных."
 
-#: woof/templates/woof/privacy_policy.html:149
+#: woof/templates/woof/privacy_policy.html:150
 msgid "European Union (GDPR)"
 msgstr "Европейский союз (GDPR)"
 
-#: woof/templates/woof/privacy_policy.html:153
+#: woof/templates/woof/privacy_policy.html:154
 msgid "If you are in the EEA, data is processed under the"
 msgstr "Если вы находитесь в ЕЭЗ, данные обрабатываются в соответствии с"
 
-#: woof/templates/woof/privacy_policy.html:156
 #: woof/templates/woof/privacy_policy.html:157
+#: woof/templates/woof/privacy_policy.html:158
 msgid "GDPR"
 msgstr "GDPR"
 
-#: woof/templates/woof/privacy_policy.html:157
+#: woof/templates/woof/privacy_policy.html:158
 msgid ", based on legitimate interests, consent, or legal obligations."
 msgstr ", на основе законных интересов, согласия или юридических обязательств."
 
 #: woof/templates/woof/privacy_policy.html:161
+msgid ""
+"Analytics cookies and similar technologies are used only after you give your "
+"consent through the cookie notice on the Website. Consent can be withdrawn "
+"at any time."
+msgstr ""
+"Аналитические файлы cookie и аналогичные технологии используются только "
+"после того, как вы дадите согласие через уведомление о файлах cookie на "
+"сайте. Согласие можно отозвать в любой момент."
+
+#: woof/templates/woof/privacy_policy.html:164
 msgid "United Kingdom (UK GDPR)"
 msgstr "Великобритания (UK GDPR)"
 
-#: woof/templates/woof/privacy_policy.html:165
+#: woof/templates/woof/privacy_policy.html:168
 msgid "For UK users, data is processed under the"
 msgstr ""
 "Для пользователей из Великобритании данные обрабатываются в соответствии с"
 
-#: woof/templates/woof/privacy_policy.html:167
+#: woof/templates/woof/privacy_policy.html:170
 msgid "UK DPA 2018"
 msgstr "UK DPA 2018"
 
-#: woof/templates/woof/privacy_policy.html:169
+#: woof/templates/woof/privacy_policy.html:172
 msgid "UK Data Protection Act 2018"
 msgstr "Закон Великобритании о защите данных 2018 г."
 
-#: woof/templates/woof/privacy_policy.html:170
+#: woof/templates/woof/privacy_policy.html:173
 msgid "and UK GDPR."
 msgstr "и UK GDPR."
 
-#: woof/templates/woof/privacy_policy.html:174
+#: woof/templates/woof/privacy_policy.html:177
 msgid "United States"
 msgstr "Соединённые Штаты"
 
-#: woof/templates/woof/privacy_policy.html:177
+#: woof/templates/woof/privacy_policy.html:180
 msgid "US residents may have privacy rights under state laws, including:"
 msgstr ""
 "Жители США могут иметь права на конфиденциальность по законам штатов, "
 "включая:"
 
-#: woof/templates/woof/privacy_policy.html:184
+#: woof/templates/woof/privacy_policy.html:187
 msgid "California Consumer Privacy Act (CCPA/CPRA)"
 msgstr "Закон Калифорнии о конфиденциальности потребителей (CCPA/CPRA)"
 
-#: woof/templates/woof/privacy_policy.html:190
+#: woof/templates/woof/privacy_policy.html:193
 msgid "Virginia Consumer Data Protection Act (VCDPA)"
 msgstr "Закон Вирджинии о защите данных потребителей (VCDPA)"
 
-#: woof/templates/woof/privacy_policy.html:196
+#: woof/templates/woof/privacy_policy.html:199
 msgid "Colorado Privacy Act (CPA)"
 msgstr "Закон Колорадо о конфиденциальности (CPA)"
 
-#: woof/templates/woof/privacy_policy.html:202
+#: woof/templates/woof/privacy_policy.html:205
 msgid "Utah Consumer Privacy Act (UCPA)"
 msgstr "Закон Юты о конфиденциальности потребителей (UCPA)"
 
-#: woof/templates/woof/privacy_policy.html:208
+#: woof/templates/woof/privacy_policy.html:211
 msgid "Tennessee Information Protection Act (TIPA)"
 msgstr "Закон Теннесси о защите информации (TIPA)"
 
-#: woof/templates/woof/privacy_policy.html:214
+#: woof/templates/woof/privacy_policy.html:217
 msgid "Canada"
 msgstr "Канада"
 
-#: woof/templates/woof/privacy_policy.html:218
+#: woof/templates/woof/privacy_policy.html:221
 msgid "Handled in accordance with"
 msgstr "Обрабатывается в соответствии с"
 
-#: woof/templates/woof/privacy_policy.html:221
+#: woof/templates/woof/privacy_policy.html:224
 msgid "PIPEDA"
 msgstr "PIPEDA"
 
-#: woof/templates/woof/privacy_policy.html:225
+#: woof/templates/woof/privacy_policy.html:228
 msgid "Australia"
 msgstr "Австралия"
 
-#: woof/templates/woof/privacy_policy.html:229
+#: woof/templates/woof/privacy_policy.html:232
 msgid "Processed under the"
 msgstr "Обрабатывается в соответствии с"
 
-#: woof/templates/woof/privacy_policy.html:232
+#: woof/templates/woof/privacy_policy.html:235
 msgid "Privacy Act 1988"
 msgstr "Закон о конфиденциальности 1988"
 
-#: woof/templates/woof/privacy_policy.html:236
+#: woof/templates/woof/privacy_policy.html:239
 msgid "Other countries"
 msgstr "Другие страны"
 
-#: woof/templates/woof/privacy_policy.html:239
+#: woof/templates/woof/privacy_policy.html:242
 msgid "We follow generally accepted international data protection principles."
 msgstr "Мы следуем общепринятым международным принципам защиты данных."
 
-#: woof/templates/woof/privacy_policy.html:245
+#: woof/templates/woof/privacy_policy.html:248
 msgid ""
 "The Website uses cookies to ensure proper operation and analyze traffic. "
 "Manage cookies in your browser settings."
@@ -2246,11 +2322,11 @@ msgstr ""
 "Сайт использует файлы cookie для корректной работы и анализа трафика.\n"
 "      Управляйте файлами cookie в настройках браузера."
 
-#: woof/templates/woof/privacy_policy.html:249
+#: woof/templates/woof/privacy_policy.html:252
 msgid "More details in our"
 msgstr "Подробнее в нашей"
 
-#: woof/templates/woof/privacy_policy.html:259
+#: woof/templates/woof/privacy_policy.html:262
 msgid ""
 "We do not sell or rent personal data. Information may be shared with "
 "analytics providers or as required by law."
@@ -2259,7 +2335,7 @@ msgstr ""
 "            Информация может передаваться аналитическим провайдерам или по "
 "требованию закона."
 
-#: woof/templates/woof/privacy_policy.html:266
+#: woof/templates/woof/privacy_policy.html:269
 msgid ""
 "Data may be processed outside your country. Appropriate safeguards are "
 "applied when needed."
@@ -2267,15 +2343,25 @@ msgstr ""
 "Данные могут обрабатываться за пределами вашей страны.\n"
 "            При необходимости применяются соответствующие меры защиты."
 
-#: woof/templates/woof/privacy_policy.html:273
+#: woof/templates/woof/privacy_policy.html:272
+msgid ""
+"Where data is transferred to Google LLC (based in the United States) for "
+"analytics, the transfer is covered by Google's Standard Contractual Clauses "
+"and its Data Processing Addendum."
+msgstr ""
+"Если данные передаются компании Google LLC (зарегистрированной в США) для "
+"аналитики, такая передача защищена стандартными контрактными условиями "
+"Google и дополнением об обработке данных."
+
+#: woof/templates/woof/privacy_policy.html:278
 msgid ""
 "Data is retained only as long as necessary for the purposes described in "
 "this policy."
 msgstr ""
-"Данные хранятся только в течение срока, необходимого для целей, описанных "
-"в этой политике."
+"Данные хранятся только в течение срока, необходимого для целей, описанных в "
+"этой политике."
 
-#: woof/templates/woof/privacy_policy.html:280
+#: woof/templates/woof/privacy_policy.html:285
 msgid ""
 "Depending on your location, you may have the right to access, correct, "
 "delete, or restrict your data."
@@ -2283,11 +2369,21 @@ msgstr ""
 "В зависимости от вашего местоположения вы можете иметь право на доступ, "
 "исправление, удаление или ограничение обработки ваших данных."
 
-#: woof/templates/woof/privacy_policy.html:284
+#: woof/templates/woof/privacy_policy.html:288
+msgid ""
+"If you are in the EEA or the UK, you may also withdraw your consent at any "
+"time and lodge a complaint with your local data protection authority (in "
+"Italy, the Garante)."
+msgstr ""
+"Если вы находитесь в ЕЭЗ или Великобритании, вы также можете в любой момент "
+"отозвать своё согласие и подать жалобу в местный орган по защите данных (для "
+"Италии — Гарант по защите персональных данных)."
+
+#: woof/templates/woof/privacy_policy.html:291
 msgid "Requests:"
 msgstr "Запросы:"
 
-#: woof/templates/woof/privacy_policy.html:293
+#: woof/templates/woof/privacy_policy.html:300
 msgid ""
 "The Website is not intended for children under 18. We do not knowingly "
 "collect data from minors."
@@ -2295,7 +2391,7 @@ msgstr ""
 "Сайт не предназначен для детей младше 18 лет.\n"
 "            Мы намеренно не собираем данные несовершеннолетних."
 
-#: woof/templates/woof/privacy_policy.html:300
+#: woof/templates/woof/privacy_policy.html:307
 msgid ""
 "This Privacy Policy may be updated periodically. Updated versions will be "
 "posted on this page."
@@ -2303,7 +2399,7 @@ msgstr ""
 "Эта Политика конфиденциальности может периодически обновляться.\n"
 "            Обновлённые версии будут публиковаться на этой странице."
 
-#: woof/templates/woof/privacy_policy.html:308
+#: woof/templates/woof/privacy_policy.html:315
 msgid "Questions? Contact:"
 msgstr "Вопросы? Напишите нам:"
 
@@ -2889,99 +2985,84 @@ msgstr "Воспитание щенка - Woof Dogs"
 msgid "All groups"
 msgstr "Все группы"
 
-#: woof/views.py:63
-msgid "Dog Breeds - Woof Dogs"
-msgstr "Породы собак - Woof Dogs"
-
-#: woof/views.py:84 woof/views.py:123
-#, python-brace-format
-msgid "{name} - Woof Dogs"
-msgstr "{name} - Woof Dogs"
-
-#: woof/views.py:134
-msgid "Contact - Woof Dogs"
-msgstr "Контакты - Woof Dogs"
-
-#: woof/views.py:167
-msgid "Best family dogs 🐶"
-msgstr "Лучшие для семьи 🐶"
-
-#: woof/views.py:175
-msgid "Great for first-time owners 🆕"
-msgstr "Отлично подойдут новичкам 🆕"
-
-#: woof/views.py:182
-msgid "For experienced owners 💪"
-msgstr "Для опытных владельцев 💪"
-
-#: woof/views.py:189
-msgid "Easy to train dogs 🧠"
-msgstr "Легко обучаемые собаки 🧠"
-
-#: woof/views.py:195
-msgid "Hypoallergenic breeds 🌿"
-msgstr "Гипоаллергенные породы 🌿"
-
-#: woof/views.py:199
-msgid "Small dogs 🐾"
-msgstr "Маленькие собаки 🐾"
-
-#: woof/views.py:203
-msgid "Medium dogs 🔹"
-msgstr "Собаки среднего размера 🔹"
-
-#: woof/views.py:207
-msgid "Large dogs 🐕"
-msgstr "Крупные собаки 🐕"
-
-#: woof/views.py:211
-msgid "Apartment-friendly dogs 🏢"
-msgstr "Подходят для квартиры 🏢"
-
-#: woof/views.py:220
-msgid "Best for houses with yard 🏡"
-msgstr "Подходят для частного дома 🏡"
-
-#: woof/views.py:229
-msgid "Explore - Woof Dogs"
-msgstr "Исследуйте - Woof Dogs"
-
-#: woof/views.py:242
-msgid "Groups - Woof Dogs"
-msgstr "Группы - Woof Dogs"
-
-#: woof/templates/woof/privacy_policy.html
-msgid "We use Google Analytics, a web analytics service provided by Google LLC, to understand how visitors use the Website. Google Analytics may collect your IP address, browser type, device information, pages visited, and time spent on the site. We enable IP anonymization, so a truncated IP address is used and cannot be used to identify you."
-msgstr "Мы используем Google Analytics — сервис веб-аналитики компании Google LLC — чтобы понимать, как посетители пользуются сайтом. Google Analytics может собирать ваш IP-адрес, тип браузера, информацию об устройстве, посещённые страницы и время на сайте. Мы включили анонимизацию IP, поэтому используется сокращённый IP-адрес, по которому вас невозможно идентифицировать."
-
-#: woof/templates/woof/privacy_policy.html
-msgid "Analytics cookies and similar technologies are used only after you give your consent through the cookie notice on the Website. Consent can be withdrawn at any time."
-msgstr "Аналитические файлы cookie и аналогичные технологии используются только после того, как вы дадите согласие через уведомление о файлах cookie на сайте. Согласие можно отозвать в любой момент."
-
-#: woof/templates/woof/privacy_policy.html
-msgid "Where data is transferred to Google LLC (based in the United States) for analytics, the transfer is covered by Google's Standard Contractual Clauses and its Data Processing Addendum."
-msgstr "Если данные передаются компании Google LLC (зарегистрированной в США) для аналитики, такая передача защищена стандартными контрактными условиями Google и дополнением об обработке данных."
-
-#: woof/templates/woof/privacy_policy.html
-msgid "If you are in the EEA or the UK, you may also withdraw your consent at any time and lodge a complaint with your local data protection authority (in Italy, the Garante)."
-msgstr "Если вы находитесь в ЕЭЗ или Великобритании, вы также можете в любой момент отозвать своё согласие и подать жалобу в местный орган по защите данных (для Италии — Гарант по защите персональных данных)."
-
-#: woof/templates/woof/cookie_policy.html
-msgid "Analytics cookies: we use Google Analytics cookies (for example <em>_ga</em> and <em>_ga_*</em>) to understand how visitors use the site. These cookies are set only after you give your consent through the cookie notice on the Website. You may withdraw or change your consent at any time using the cookie notice, and you may delete these cookies through your browser settings."
-msgstr "Аналитические файлы cookie: мы используем файлы cookie Google Analytics (например, <em>_ga</em> и <em>_ga_*</em>), чтобы понимать, как посетители пользуются сайтом. Эти файлы cookie устанавливаются только после того, как вы дадите согласие через уведомление о файлах cookie на сайте. Вы можете в любой момент отозвать или изменить согласие с помощью уведомления о файлах cookie, а также удалить эти файлы cookie в настройках браузера."
-
-#: woof/templates/woof/post.html
-msgid "Character"
-msgstr "Характер"
-
-#: woof/templates/woof/post.html
-msgid "Click to enlarge"
-msgstr "Нажмите, чтобы увеличить"
-
-#: woof/utils.py
+#: woof/utils.py:20
 msgid ""
 "Woof Dogs — the world's dog breeds grouped by American Kennel Club "
 "standards: temperament, size, care and more."
 msgstr ""
-"Woof Dogs — породы собак мира, сгруппированные по стандартам "
-"Американского клуба собаководства: темперамент, размер, уход и многое другое."
+"Woof Dogs — породы собак мира, сгруппированные по стандартам Американского "
+"клуба собаководства: темперамент, размер, уход и многое другое."
+
+#: woof/views.py:97
+msgid "Dog Breeds - Woof Dogs"
+msgstr "Породы собак - Woof Dogs"
+
+#: woof/views.py:118 woof/views.py:172
+#, python-brace-format
+msgid "{name} - Woof Dogs"
+msgstr "{name} - Woof Dogs"
+
+#: woof/views.py:183
+msgid "Contact - Woof Dogs"
+msgstr "Контакты - Woof Dogs"
+
+#: woof/views.py:218
+msgid "Best family dogs 🐶"
+msgstr "Лучшие для семьи 🐶"
+
+#: woof/views.py:226
+msgid "Great for first-time owners 🆕"
+msgstr "Отлично подойдут новичкам 🆕"
+
+#: woof/views.py:233
+msgid "For experienced owners 💪"
+msgstr "Для опытных владельцев 💪"
+
+#: woof/views.py:240
+msgid "Easy to train dogs 🧠"
+msgstr "Легко обучаемые собаки 🧠"
+
+#: woof/views.py:246
+msgid "Hypoallergenic breeds 🌿"
+msgstr "Гипоаллергенные породы 🌿"
+
+#: woof/views.py:250
+msgid "Small dogs 🐾"
+msgstr "Маленькие собаки 🐾"
+
+#: woof/views.py:254
+msgid "Medium dogs 🔹"
+msgstr "Собаки среднего размера 🔹"
+
+#: woof/views.py:258
+msgid "Large dogs 🐕"
+msgstr "Крупные собаки 🐕"
+
+#: woof/views.py:262
+msgid "Apartment-friendly dogs 🏢"
+msgstr "Подходят для квартиры 🏢"
+
+#: woof/views.py:271
+msgid "Best for houses with yard 🏡"
+msgstr "Подходят для частного дома 🏡"
+
+#: woof/views.py:280
+msgid "Explore - Woof Dogs"
+msgstr "Исследуйте - Woof Dogs"
+
+#: woof/views.py:293
+msgid "Groups - Woof Dogs"
+msgstr "Группы - Woof Dogs"
+
+#~ msgid "prev"
+#~ msgstr "пред"
+
+#~ msgid "next"
+#~ msgstr "след"
+
+#, python-format
+#~ msgid "Group %(n)s"
+#~ msgstr "Группа %(n)s"
+
+#~ msgid "Character"
+#~ msgstr "Характер"

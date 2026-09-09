@@ -8,26 +8,51 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0007_alter_dogs_trainability'),
+        ("woof", "0007_alter_dogs_trainability"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Section',
+            name="Section",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='Section')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sections', to='woof.category', verbose_name='Category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, verbose_name="Section")),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sections",
+                        to="woof.category",
+                        verbose_name="Category",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Section',
-                'verbose_name_plural': 'Sections',
-                'ordering': ['name'],
+                "verbose_name": "Section",
+                "verbose_name_plural": "Sections",
+                "ordering": ["name"],
             },
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='section',
-            field=smart_selects.db_fields.ChainedForeignKey(auto_choose=True, blank=True, chained_field='cat', chained_model_field='category', null=True, on_delete=django.db.models.deletion.CASCADE, to='woof.section', verbose_name='Section'),
+            model_name="dogs",
+            name="section",
+            field=smart_selects.db_fields.ChainedForeignKey(
+                auto_choose=True,
+                blank=True,
+                chained_field="cat",
+                chained_model_field="category",
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="woof.section",
+                verbose_name="Section",
+            ),
         ),
     ]

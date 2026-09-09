@@ -6,40 +6,60 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0009_dogs_country'),
+        ("woof", "0009_dogs_country"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='CoatLength',
+            name="CoatLength",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='CoatType',
+            name="CoatType",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
             ],
         ),
         migrations.RemoveField(
-            model_name='dogs',
-            name='coat_length',
+            model_name="dogs",
+            name="coat_length",
         ),
         migrations.RemoveField(
-            model_name='dogs',
-            name='coat_type',
+            model_name="dogs",
+            name="coat_type",
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='coat_length',
-            field=models.ManyToManyField(blank=True, to='woof.coatlength', verbose_name='Coat length'),
+            model_name="dogs",
+            name="coat_length",
+            field=models.ManyToManyField(
+                blank=True, to="woof.coatlength", verbose_name="Coat length"
+            ),
         ),
         migrations.AddField(
-            model_name='dogs',
-            name='coat_type',
-            field=models.ManyToManyField(blank=True, to='woof.coattype', verbose_name='Coat type'),
+            model_name="dogs",
+            name="coat_type",
+            field=models.ManyToManyField(
+                blank=True, to="woof.coattype", verbose_name="Coat type"
+            ),
         ),
     ]

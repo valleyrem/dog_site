@@ -18,9 +18,9 @@ DATABASES = {
 }
 
 # Manifest storage requires a collectstatic run; tests don't need it.
-STORAGES["staticfiles"]["BACKEND"] = (  # noqa: F405
-    "django.contrib.staticfiles.storage.StaticFilesStorage"
-)
+STORAGES["staticfiles"][
+    "BACKEND"
+] = "django.contrib.staticfiles.storage.StaticFilesStorage"  # noqa: F405
 
 # In-memory cache keeps tests isolated from the on-disk file cache.
 CACHES = {

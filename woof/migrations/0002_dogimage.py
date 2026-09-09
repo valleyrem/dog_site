@@ -7,22 +7,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0001_initial'),
+        ("woof", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='DogImage',
+            name="DogImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='photos/dogs/gallery/')),
-                ('order', models.PositiveIntegerField(default=0)),
-                ('dog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='gallery', to='woof.dogs')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="photos/dogs/gallery/")),
+                ("order", models.PositiveIntegerField(default=0)),
+                (
+                    "dog",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="gallery",
+                        to="woof.dogs",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Dog photo',
-                'verbose_name_plural': 'Dog photos',
-                'ordering': ['order'],
+                "verbose_name": "Dog photo",
+                "verbose_name_plural": "Dog photos",
+                "ordering": ["order"],
             },
         ),
     ]

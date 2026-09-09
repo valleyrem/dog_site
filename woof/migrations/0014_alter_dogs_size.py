@@ -6,13 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('woof', '0013_dogs_varieties'),
+        ("woof", "0013_dogs_varieties"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dogs',
-            name='size',
-            field=models.CharField(choices=[('xsmall', 'XSmall'), ('small', 'Small'), ('small_medium', 'Small to Medium'), ('small_large', 'Small to Large'), ('medium', 'Medium'), ('medium_large', 'Medium to Large'), ('large', 'Large'), ('xlarge', 'XLarge')], default='small', max_length=30, verbose_name='Size'),
+            model_name="dogs",
+            name="size",
+            field=models.CharField(
+                choices=[
+                    ("xsmall", "XSmall"),
+                    ("small", "Small"),
+                    ("small_medium", "Small to Medium"),
+                    ("small_large", "Small to Large"),
+                    ("medium", "Medium"),
+                    ("medium_large", "Medium to Large"),
+                    ("large", "Large"),
+                    ("xlarge", "XLarge"),
+                ],
+                default="small",
+                max_length=30,
+                verbose_name="Size",
+            ),
         ),
     ]

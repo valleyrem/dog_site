@@ -5,9 +5,8 @@
 
 {% block content %}
 
-
 <!-- Breadcrumbs -->
-<div class="breadcrumbs">
+<div class="breadcrumbs-wrapper group-breadcrumbs">
     <div class="breadcrumbs">
         <a href="{% url 'home' %}"
            title="{% trans 'Home' %}"
@@ -24,7 +23,7 @@
 
         <a href="{% url 'groups' %}"
            title="{% trans 'Groups' %}"
-           class="link-policies">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</a>
+           class="link-policies"><span class="desktop-text">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span><span class="mobile-text">…</span></a>
 
         <span>/</span>
 
@@ -35,14 +34,13 @@
     </div>
 </div>
 
-
 <!-- Dogs list content -->
 <div class="post-container">
 
     <!-- Page title -->
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</h1>
 
-    <p class="section-title"
+    <p class="section-title section-title-group"
        title="{{ current_category.name }}">
         {{ current_category.name }}
     </p>
@@ -63,29 +61,11 @@
                          width="18"
                          height="23"
                     >
-                    <span>{% trans "prev" %}</span>
                 </button>
 
-                <button class="slider-arrow slider-next">
-                    <span>{% trans "next" %}</span>
-                    <img src="{% static 'right.svg' %}"
-                         alt="{% trans 'Next page' %}"
-title="{% trans 'Next' %}"
-                         class="icon-post"
-                         width="18"
-                         height="23"
-                    >
-                </button>
-
-            </div>
-
-
-            <!-- Dog slider -->
             <div class="dog-slider">
 
-                <div class="dog-slider-viewport">
-
-                    <div class="dog-slider-track">
+                <div class="dog-slider-track">
 
                         {% for p in posts %}
 
@@ -93,8 +73,7 @@ title="{% trans 'Next' %}"
                                class="dog-card-link"
                                title="{{ p.title }}">
 
-                                <div class="dog-card"
-                                     style="--card-accent: {{ p.cat.fci_number|fci_color }}; --card-accent-dark: {{ p.cat.fci_number|fci_dark }}">
+                                <div class="dog-card">
 
                                     {% if p.photo %}
 
@@ -131,18 +110,31 @@ title="{% trans 'Next' %}"
 
                     </div>
 
-                </div>
+            </div>
+
+                <button class="slider-arrow slider-next">
+                    <img src="{% static 'right.svg' %}"
+                         alt="{% trans 'Next page' %}"
+                         title="{% trans 'Next' %}"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+                </button>
 
             </div>
 
-
             <!-- Slider pagination -->
-            <div class="slider-dots" role="group"></div>
+
+            <div class="slider-pagination" aria-live="polite">
+                <span class="slider-current">1</span>
+                <span class="slider-separator">/</span>
+                <span class="slider-total">1</span>
+            </div>
 
         </div>
 
     </div>
-
 
     <!-- Group sections -->
     <p class="group-sections-inline">
@@ -161,13 +153,11 @@ title="{% trans 'Next' %}"
 
     </p>
 
-
     <!-- Group description -->
     <p>
         <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
         {{ current_category.desc }}
     </p>
-
 
     <!-- Missing breed notice -->
     <p class="if-you-dont-see">
