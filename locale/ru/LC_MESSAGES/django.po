@@ -3480,3 +3480,7 @@ msgstr ""
 #: woof/templates/woof/contact.html:108
 msgid "Also:"
 msgstr "Также:"
+
+#: woof/templates/woof/base.html
+msgid "Sitemap"
+msgstr "Карта сайта"
