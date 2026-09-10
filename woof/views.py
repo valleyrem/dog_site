@@ -343,9 +343,13 @@ class ShowPost(DataMixin, DetailView):
         )
 
         if post.photo:
+            photo_url = post.photo_medium.url
+            # S3 storage returns an absolute URL already; local storage —
+            # a relative path that needs the host prepended.
             context["og_image"] = (
-                f"{self.request.scheme}://{self.request.get_host()}"
-                f"{post.photo_medium.url}"
+                photo_url
+                if photo_url.startswith("http")
+                else f"{self.request.scheme}://{self.request.get_host()}{photo_url}"
             )
 
         return self.get_user_context(
