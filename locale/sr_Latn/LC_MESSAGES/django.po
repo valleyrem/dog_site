@@ -1,0 +1,3765 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-10 21:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+#: templates/admin/base_site.html:9
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:12
+msgid "Django administration"
+msgstr "Django administracija"
+
+
+#: woof/forms.py:14
+msgid "E-mail"
+msgstr "E-pošta"
+
+
+#: woof/forms.py:17
+msgid "Message"
+msgstr "Poruka"
+
+
+#: woof/models.py:33
+msgid "When necessary (rare, purposeful)"
+msgstr "Kada je potrebno (retko, svrsishodno)"
+
+
+#: woof/models.py:34
+msgid "Infrequent (occasional barking)"
+msgstr "Retko (povremeno lajanje)"
+
+
+#: woof/models.py:35
+msgid "Medium (regular alert barking)"
+msgstr "Srednje (redovno lajanje kao upozorenje)"
+
+
+#: woof/models.py:36
+msgid "Frequent (barks often)"
+msgstr "Često (laje često)"
+
+
+#: woof/models.py:37
+msgid "Very vocal (howls, talks, barks)"
+msgstr "Veoma vokalne (zavija, oglašava se, laje)"
+
+
+#: woof/models.py:41
+msgid "XSmall"
+msgstr "Vrlo mali"
+
+
+#: woof/models.py:42
+msgid "Small"
+msgstr "Mali"
+
+
+#: woof/models.py:43
+msgid "Small to Medium"
+msgstr "Mali do srednji"
+
+
+#: woof/models.py:44
+msgid "Small to Large"
+msgstr "Mali do veliki"
+
+
+#: woof/models.py:45
+msgid "Medium"
+msgstr "Srednji"
+
+
+#: woof/models.py:46
+msgid "Medium to Large"
+msgstr "Srednji do veliki"
+
+
+#: woof/models.py:47
+msgid "Large"
+msgstr "Veliki"
+
+
+#: woof/models.py:48
+msgid "XLarge"
+msgstr "Vrlo veliki"
+
+
+#: woof/models.py:81
+msgid "Independent (thinks for itself)"
+msgstr "Nezavisan (samostalno razmišlja)"
+
+
+#: woof/models.py:82
+msgid "May be stubborn (patience)"
+msgstr "Može biti tvrdoglav (potrebno strpljenje)"
+
+
+#: woof/models.py:83
+msgid "Agreeable (trainable)"
+msgstr "Sklon saradnji (dresabilan)"
+
+
+#: woof/models.py:84
+msgid "Eager to please (quick learner)"
+msgstr "Željan da ugodi (brzo uči)"
+
+
+#: woof/models.py:85
+msgid "Easy training (very easy to train)"
+msgstr "Laka obuka (vrlo lako se dresira)"
+
+
+#: woof/models.py:89
+msgid "Calm (low energy)"
+msgstr "Smiren (niska energija)"
+
+
+#: woof/models.py:90
+msgid "Regular exercise (daily walks)"
+msgstr "Redovna aktivnost (svakodnevne šetnje)"
+
+
+#: woof/models.py:91
+msgid "Needs lots of activity"
+msgstr "Zahteva puno aktivnosti"
+
+
+#: woof/models.py:92
+msgid "Very energetic (high endurance)"
+msgstr "Veoma energičan (visoka izdržljivost)"
+
+
+#: woof/models.py:96
+msgid "No (not hypoallergenic)"
+msgstr "Ne (nije hipoalergen)"
+
+
+#: woof/models.py:97
+msgid "Low (sheds a lot)"
+msgstr "Nizak (mnogo linja)"
+
+
+#: woof/models.py:98
+msgid "Moderate (some shedding)"
+msgstr "Umeren (povremeno linja)"
+
+
+#: woof/models.py:99
+msgid "High (minimal shedding)"
+msgstr "Visok (minimalno linja)"
+
+
+#: woof/models.py:103
+msgid "Low (better with adults, limited tolerance)"
+msgstr "Nizak (bolje se slaže sa odraslima, ograničena tolerancija)"
+
+
+#: woof/models.py:104
+msgid "Medium (family-oriented, needs supervision)"
+msgstr "Srednji (orijentisan na porodicu, potreban nadzor)"
+
+
+#: woof/models.py:105
+msgid "High (affectionate, good with family)"
+msgstr "Visok (privržen, odličan za porodicu)"
+
+
+#: woof/models.py:106
+msgid "Excellent (very gentle, great with kids)"
+msgstr "Odličan (veoma nežan, sjajan sa decom)"
+
+
+#: woof/templates/woof/404.html:7
+msgid "404 — Page Not Found"
+msgstr "404 — Stranica nije pronađena"
+
+
+#: woof/templates/woof/404.html:197
+msgid "404"
+msgstr "404"
+
+
+#: woof/templates/woof/404.html:201
+msgid "This page ran away."
+msgstr "Ova stranica je pobegla."
+
+
+#: woof/templates/woof/404.html:203
+msgid ""
+"The page you’re looking for doesn’t exist, may have been moved, or is still "
+"chasing squirrels somewhere else."
+msgstr "Stranica koju tražite ne postoji, možda je premestana ili još uvek negde juri veverice."
+
+
+#: woof/templates/woof/404.html:207
+msgid "Return to the homepage and continue exploring dog breeds."
+msgstr "Vratite se na početnu stranicu i nastavite da istražujete rase pasa."
+
+
+#: woof/templates/woof/404.html:209
+msgid "← Back Home"
+msgstr "← Nazad na početnu"
+
+
+#: woof/templates/woof/about.html:11 woof/templates/woof/about.html:14
+#: woof/templates/woof/behavior.html:11 woof/templates/woof/behavior.html:13
+#: woof/templates/woof/choosing_dog.html:11
+#: woof/templates/woof/choosing_dog.html:13 woof/templates/woof/contact.html:11
+#: woof/templates/woof/contact.html:14
+#: woof/templates/woof/cookie_policy.html:13
+#: woof/templates/woof/dog_groups.html:12
+#: woof/templates/woof/dog_groups.html:15 woof/templates/woof/dogs_list.html:12
+#: woof/templates/woof/dogs_list.html:15 woof/templates/woof/feeding.html:13
+#: woof/templates/woof/feeding.html:16 woof/templates/woof/games.html:13
+#: woof/templates/woof/games.html:16 woof/templates/woof/groups.html:14
+#: woof/templates/woof/groups.html:17 woof/templates/woof/guides.html:13
+#: woof/templates/woof/guides.html:16 woof/templates/woof/health.html:13
+#: woof/templates/woof/health.html:16
+#: woof/templates/woof/living_with_dog.html:12
+#: woof/templates/woof/living_with_dog.html:14 woof/templates/woof/post.html:30
+#: woof/templates/woof/post.html:32 woof/templates/woof/privacy_policy.html:13
+#: woof/templates/woof/privacy_policy.html:16 woof/templates/woof/puppy.html:11
+#: woof/templates/woof/puppy.html:13
+#: woof/templates/woof/terms_and_conditions.html:10
+#: woof/templates/woof/terms_and_conditions.html:12
+#: woof/templates/woof/training.html:11 woof/templates/woof/training.html:13
+msgid "Home"
+msgstr "Početna"
+
+
+#: woof/templates/woof/about.html:23 woof/templates/woof/about.html:31
+#: woof/templates/woof/about.html:37 woof/utils.py:11
+msgid "About us"
+msgstr "O nama"
+
+
+#: woof/templates/woof/about.html:45
+msgid "Welcome!"
+msgstr "Dobrodošli!"
+
+
+#: woof/templates/woof/about.html:48
+msgid ""
+"This project is created for fun and designed as a structured catalog of dog "
+"breeds, focused on clarity, comparison, and easy navigation.\n"
+"            The main classification system follows the <strong>FCI "
+"(Fédération Cynologique Internationale)</strong>."
+msgstr "Ovaj projekat je nastao iz zabave i zamišljen je kao strukturisan katalog rasa pasa, usmeren na jasnoću, poređenje i jednostavnu navigaciju.\n            Glavni sistem klasifikacije prati standarde <strong>FCI (Fédération Cynologique Internationale)</strong>."
+
+
+#: woof/templates/woof/about.html:52
+msgid "What is FCI"
+msgstr "Šta je FCI"
+
+
+#: woof/templates/woof/about.html:55
+msgid ""
+"FCI — Fédération Cynologique Internationale (International Canine "
+"Federation) — the largest international federation of kennel clubs, which "
+"defines official breed standards and group structures worldwide."
+msgstr "FCI — Fédération Cynologique Internationale (Međunarodna kinološka federacija) — najveća međunarodna federacija kinoloških saveza koja definiše zvanične standarde rasa i strukturu grupa širom sveta."
+
+
+#: woof/templates/woof/about.html:59
+msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
+msgstr "Osnovana 22. maja 1911. godine, sa sedištem u Tenu (Thuin), Belgija."
+
+
+#: woof/templates/woof/about.html:60
+msgid "98 member countries."
+msgstr "98 zemalja članica."
+
+
+#: woof/templates/woof/about.html:61
+msgid ""
+"Recognizes 356 breeds; each breed belongs to its country of origin, which "
+"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
+msgstr "Priznaje 356 rasa; svaka rasa pripada zemlji porekla, koja piše njen standard; FCI objavljuje standarde na 4 jezika (en/fr/de/es)"
+
+
+#: woof/templates/woof/about.html:65
+msgid ""
+"To provide a broader perspective, the catalog also incorporates data from "
+"other kennel organizations, as well as independent breed sources.\n"
+"            As a result, the database includes not only officially "
+"recognized breeds, but also less common and developing ones."
+msgstr "Da bi se dobila šira perspektiva, katalog obuhvata i podatke drugih kinoloških organizacija i nezavisnih izvora o rasama.\n            Kao rezultat, baza podataka uključuje ne samo zvanično priznate rase, već i manje poznate i one u razvoju."
+
+
+#: woof/templates/woof/about.html:70
+msgid ""
+"If a breed is missing, it may not yet be added or sufficient reference "
+"material is still being collected."
+msgstr "Ako rasa nedostaje, možda još nije dodata ili se i dalje prikuplja dovoljno referentnog materijala."
+
+
+#: woof/templates/woof/about.html:74
+msgid "About classification"
+msgstr "O klasifikaciji"
+
+
+#: woof/templates/woof/about.html:78
+msgid "The catalog combines:"
+msgstr "Katalog objedinjuje:"
+
+
+#: woof/templates/woof/about.html:79
+msgid "officially recognized FCI breeds and groups"
+msgstr "zvanično priznate FCI rase i grupe"
+
+
+#: woof/templates/woof/about.html:80
+msgid "breeds recognized by other kennel clubs"
+msgstr "rase koje priznaju drugi kinološki savezi"
+
+
+#: woof/templates/woof/about.html:81
+msgid "rare or developing breeds not yet formally classified"
+msgstr "retke ili rase u razvoju koje još nisu formalno klasifikovane"
+
+
+#: woof/templates/woof/about.html:85
+msgid ""
+"Breed classification may vary between kennel organizations.\n"
+"            The same breed can be assigned to different groups depending on "
+"the standard used."
+msgstr "Klasifikacija rasa može da se razlikuje između kinoloških organizacija.\n            Ista rasa može biti svrstana u različite grupe u zavisnosti od primenjenog standarda."
+
+
+#: woof/templates/woof/about.html:90
+msgid "For official FCI standards, you can visit the"
+msgstr "Zvanične FCI standarde možete pogledati na"
+
+
+#: woof/templates/woof/about.html:95 woof/templates/woof/about.html:96
+msgid "FCI website"
+msgstr "FCI veb-sajtu"
+
+
+#: woof/templates/woof/about.html:102
+msgid ""
+"You can also find practical and helpful information about dog care, "
+"training, behavior, and daily life in the"
+msgstr "Praktične i korisne informacije o nezi pasa, obuci, ponašanju i svakodnevnom životu možete pronaći i u"
+
+
+#: woof/templates/woof/about.html:106 woof/templates/woof/about.html:107
+#: woof/templates/woof/dog_groups.html:60
+msgid "Guides section"
+msgstr "odeljku Vodiči"
+
+
+#: woof/templates/woof/about.html:113
+msgid "Enjoy exploring, learning, and discovering dog breeds :)"
+msgstr "Uživajte u istraživanju, učenju i otkrivanju rasa pasa :)"
+
+
+#: woof/templates/woof/base.html:99 woof/templates/woof/base.html:138
+#: woof/templates/woof/base.html:148 woof/templates/woof/base.html:206
+#: woof/templates/woof/base.html:207
+msgid "Cookie preferences"
+msgstr "Podešavanja kolačića"
+
+
+#: woof/templates/woof/base.html:107 woof/templates/woof/base.html:108
+msgid "Close and decline"
+msgstr "Zatvori i odbij"
+
+
+#: woof/templates/woof/base.html:120
+msgid "We value your privacy"
+msgstr "Vaša privatnost nam je važna"
+
+
+#: woof/templates/woof/base.html:123
+msgid ""
+"This site uses cookies only for anonymous analytics — to understand how "
+"visitors use it. No advertising, no personal data is sold. You can accept, "
+"decline, or manage your preferences."
+msgstr "Ovaj sajt koristi kolačiće samo za anonimnu statistiku — da bismo razumeli kako ga posetioci koriste. Bez reklama, bez prodaje ličnih podataka. Možete prihvatiti, odbiti ili prilagoditi svoja podešavanja."
+
+
+#: woof/templates/woof/base.html:127
+msgid "Closing this notice counts as declining analytics cookies."
+msgstr "Zatvaranje ovog obaveštenja računa se kao odbijanje analitičkih kolačića."
+
+
+#: woof/templates/woof/base.html:132
+msgid "Accept all"
+msgstr "Prihvati sve"
+
+
+#: woof/templates/woof/base.html:135
+msgid "Decline"
+msgstr "Odbij"
+
+
+#: woof/templates/woof/base.html:151
+msgid ""
+"Below are the cookies this site may use. Necessary cookies are always active "
+"and store no personal data."
+msgstr "Ispod su kolačići koje ovaj sajt može koristiti. Neophodni kolačići su uvek aktivni i ne čuvaju lične podatke."
+
+
+#: woof/templates/woof/base.html:158
+msgid "Necessary"
+msgstr "Neophodni"
+
+
+#: woof/templates/woof/base.html:160
+msgid ""
+"csrftoken — CSRF protection cookie set by Django on pages with forms "
+"(language switcher, contact page). Always on. Stores no personal data."
+msgstr "csrftoken — CSRF zaštitni kolačić koji Django postavlja na stranicama sa formularima (prebacivanje jezika, kontakt stranica). Uvek uključen. Ne čuva lične podatke."
+
+
+#: woof/templates/woof/base.html:163
+msgid "Always on"
+msgstr "Uvek uključen"
+
+
+#: woof/templates/woof/base.html:168
+msgid "Analytics"
+msgstr "Analitika"
+
+
+#: woof/templates/woof/base.html:170
+msgid ""
+"Google Analytics — _ga and _ga_* — anonymous visit statistics. Set only "
+"after you give consent."
+msgstr "Google Analytics — _ga i _ga_* — anonimna statistika poseta. Postavlja se samo nakon vaše saglasnosti."
+
+
+#: woof/templates/woof/base.html:183
+msgid "Read our Cookie Policy"
+msgstr "Pročitajte našu Politiku kolačića"
+
+
+#: woof/templates/woof/base.html:189
+msgid "Save preferences"
+msgstr "Sačuvaj podešavanja"
+
+
+#: woof/templates/woof/base.html:192
+msgid "Back"
+msgstr "Nazad"
+
+
+#: woof/templates/woof/base.html:242 woof/templates/woof/privacy_policy.html:78
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:68
+msgid "Woof Dogs"
+msgstr "Woof Dogs"
+
+
+#: woof/templates/woof/base.html:261 woof/templates/woof/base.html:277
+msgid "Language"
+msgstr "Jezik"
+
+
+#: woof/templates/woof/base.html:292
+msgid "Menu"
+msgstr "Meni"
+
+
+#: woof/templates/woof/base.html:382
+msgid "Navigation"
+msgstr "Navigacija"
+
+
+#: woof/templates/woof/base.html:402 woof/utils.py:12
+msgid "Guides"
+msgstr "Vodiči"
+
+
+#: woof/templates/woof/base.html:407 woof/templates/woof/base.html:408
+msgid "All Guides"
+msgstr "Svi vodiči"
+
+
+#: woof/templates/woof/base.html:413 woof/templates/woof/base.html:414
+#: woof/templates/woof/choosing_dog.html:22
+#: woof/templates/woof/choosing_dog.html:30
+#: woof/templates/woof/choosing_dog.html:38 woof/templates/woof/guides.html:56
+#: woof/templates/woof/guides.html:62
+msgid "Choosing the right dog"
+msgstr "Izbor pravog psa"
+
+
+#: woof/templates/woof/base.html:419 woof/templates/woof/base.html:420
+#: woof/templates/woof/guides.html:75 woof/templates/woof/guides.html:81
+#: woof/templates/woof/puppy.html:26 woof/templates/woof/puppy.html:34
+#: woof/templates/woof/puppy.html:42
+msgid "Raising a puppy"
+msgstr "Odgajanje šteneta"
+
+
+#: woof/templates/woof/base.html:425 woof/templates/woof/base.html:426
+#: woof/templates/woof/guides.html:94 woof/templates/woof/guides.html:100
+#: woof/templates/woof/training.html:26 woof/templates/woof/training.html:34
+#: woof/templates/woof/training.html:42
+msgid "Dog training fundamentals"
+msgstr "Osnove obuke pasa"
+
+
+#: woof/templates/woof/base.html:431 woof/templates/woof/base.html:432
+#: woof/templates/woof/guides.html:113 woof/templates/woof/guides.html:119
+#: woof/templates/woof/health.html:31 woof/templates/woof/health.html:42
+#: woof/templates/woof/health.html:52
+msgid "Dog health & care"
+msgstr "Zdravlje i nega psa"
+
+
+#: woof/templates/woof/base.html:437 woof/templates/woof/base.html:438
+#: woof/templates/woof/behavior.html:22 woof/templates/woof/behavior.html:30
+#: woof/templates/woof/behavior.html:37 woof/templates/woof/guides.html:132
+#: woof/templates/woof/guides.html:138
+msgid "Dog behavior"
+msgstr "Ponašanje psa"
+
+
+#: woof/templates/woof/base.html:443 woof/templates/woof/base.html:444
+#: woof/templates/woof/guides.html:151 woof/templates/woof/guides.html:157
+#: woof/templates/woof/living_with_dog.html:27
+#: woof/templates/woof/living_with_dog.html:36
+#: woof/templates/woof/living_with_dog.html:44
+msgid "Living with a dog"
+msgstr "Život sa psom"
+
+
+#: woof/templates/woof/base.html:449 woof/templates/woof/base.html:450
+#: woof/templates/woof/feeding.html:31 woof/templates/woof/feeding.html:42
+#: woof/templates/woof/feeding.html:52 woof/templates/woof/guides.html:170
+#: woof/templates/woof/guides.html:176
+msgid "Feeding your dog"
+msgstr "Ishrana vašeg psa"
+
+
+#: woof/templates/woof/base.html:455 woof/templates/woof/base.html:456
+#: woof/templates/woof/games.html:31 woof/templates/woof/games.html:42
+#: woof/templates/woof/games.html:52 woof/templates/woof/guides.html:189
+#: woof/templates/woof/guides.html:195
+msgid "Games & activities"
+msgstr "Igre i aktivnosti"
+
+
+#: woof/templates/woof/base.html:468
+msgid "Info"
+msgstr "Info"
+
+
+#: woof/templates/woof/base.html:473 woof/templates/woof/base.html:474
+#: woof/templates/woof/contact.html:88
+#: woof/templates/woof/privacy_policy.html:25
+#: woof/templates/woof/privacy_policy.html:33
+#: woof/templates/woof/terms_and_conditions.html:109
+#: woof/templates/woof/terms_and_conditions.html:134
+msgid "Privacy Policy"
+msgstr "Politika privatnosti"
+
+
+#: woof/templates/woof/base.html:479 woof/templates/woof/base.html:480
+#: woof/templates/woof/cookie_policy.html:22
+#: woof/templates/woof/cookie_policy.html:32
+#: woof/templates/woof/privacy_policy.html:255
+msgid "Cookie Policy"
+msgstr "Politika kolačića"
+
+
+#: woof/templates/woof/base.html:485 woof/templates/woof/base.html:486
+#: woof/templates/woof/terms_and_conditions.html:19
+#: woof/templates/woof/terms_and_conditions.html:27
+msgid "Terms of Use"
+msgstr "Uslovi korišćenja"
+
+
+#: woof/templates/woof/base.html:491 woof/templates/woof/base.html:492
+msgid "Sitemap"
+msgstr "Mapa sajta"
+
+
+#: woof/templates/woof/base.html:507
+msgid "Dog breeds catalog."
+msgstr "Katalog rasa pasa."
+
+
+#: woof/templates/woof/base.html:508
+msgid "Non-commercial informational project."
+msgstr "Nekomercijalni informativni projekat."
+
+
+#: woof/templates/woof/base.html:509
+msgid "Find a dog that fits your life."
+msgstr "Pronađite psa koji odgovara vašem životu."
+
+
+#: woof/templates/woof/base.html:525
+msgid "Back to top"
+msgstr "Nazad na vrh"
+
+
+#: woof/templates/woof/base.html:527
+msgid "go up"
+msgstr "idi gore"
+
+
+#: woof/templates/woof/behavior.html:20
+#: woof/templates/woof/choosing_dog.html:20 woof/templates/woof/feeding.html:26
+#: woof/templates/woof/feeding.html:27 woof/templates/woof/games.html:26
+#: woof/templates/woof/games.html:27 woof/templates/woof/guides.html:25
+#: woof/templates/woof/guides.html:36 woof/templates/woof/health.html:26
+#: woof/templates/woof/health.html:27
+#: woof/templates/woof/living_with_dog.html:23
+#: woof/templates/woof/puppy.html:22 woof/templates/woof/training.html:22
+msgid "Dog guides"
+msgstr "Vodiči o psima"
+
+
+#: woof/templates/woof/behavior.html:45
+#: woof/templates/woof/choosing_dog.html:46
+msgid "What this guide is about"
+msgstr "O čemu govori ovaj vodič"
+
+
+#: woof/templates/woof/behavior.html:47
+msgid ""
+"Dog behavior is not random. It is a structured system of signals, reactions, "
+"and learned responses. Understanding behavior means learning how dogs "
+"interpret the world, how they communicate stress or comfort, and why they "
+"react in certain ways."
+msgstr "Ponašanje psa nije nasumično. To je strukturisan sistem signala, reakcija i naučenih odgovora. Razumeti ponašanje znači naučiti kako psi tumače svet, kako komuniciraju stres ili smirenost i zašto reaguju na određeni način."
+
+
+#: woof/templates/woof/behavior.html:50
+msgid ""
+"This guide focuses on interpretation of behavior, not training methods or "
+"commands. The goal is to understand what the dog is expressing rather than "
+"how to change it."
+msgstr "Ovaj vodič je fokusiran na tumačenje ponašanja, a ne na metode obuke ili komande. Cilj je razumeti šta pas izražava, a ne kako to promeniti."
+
+
+#: woof/templates/woof/behavior.html:54
+msgid "Basic principles of dog communication"
+msgstr "Osnovni principi pseće komunikacije"
+
+
+#: woof/templates/woof/behavior.html:56
+msgid ""
+"Dogs communicate primarily through body language rather than vocalization. "
+"Posture, tail position, ear movement, and facial tension all carry meaning."
+msgstr "Psi komuniciraju prvenstveno govorom tela, a ne oglašavanjem. Položaj tela, položaj repa, pokreti ušiju i napetost lica — sve to nosi značenje."
+
+
+#: woof/templates/woof/behavior.html:59
+msgid ""
+"Unlike humans, dogs rarely exaggerate signals. Their communication is subtle "
+"and often requires context to interpret correctly."
+msgstr "Za razliku od ljudi, psi retko preteruju u signalima. Njihova komunikacija je suptilna i često zahteva kontekst da bi se ispravno protumačila."
+
+
+#: woof/templates/woof/behavior.html:62
+msgid ""
+"The same behavior can mean different things depending on environment, past "
+"experience, and emotional state."
+msgstr "Isto ponašanje može značiti različite stvari u zavisnosti od okruženja, prethodnog iskustva i emotivnog stanja."
+
+
+#: woof/templates/woof/behavior.html:65
+msgid "Stress and emotional signals"
+msgstr "Stres i emotivni signali"
+
+
+#: woof/templates/woof/behavior.html:67
+msgid ""
+"Stress in dogs is often visible long before it becomes severe. Common "
+"signals include lip licking, yawning, turning away, or avoiding eye contact."
+msgstr "Stres kod pasa često je vidljiv mnogo pre nego što postane ozbiljan. Uobičajeni signali uključuju oblizivanje usana, zevaanje, okretanje glave ili izbegavanje kontakta očima."
+
+
+#: woof/templates/woof/behavior.html:70
+msgid ""
+"These behaviors are not “bad habits” but communication attempts. They "
+"indicate discomfort in a situation, even if the dog appears calm externally."
+msgstr "Ova ponašanja nisu „loše navike“ već pokušaji komunikacije. Oni ukazuju na nelagodu u situaciji, čak i ako pas spolja deluje smireno."
+
+
+#: woof/templates/woof/behavior.html:73
+msgid ""
+"Ignoring early stress signals can lead to escalation, such as barking, "
+"freezing, or defensive reactions."
+msgstr "Ignorisanje ranih znakova stresa može dovesti do eskalacije — lajanja, ukočenosti ili odbrambenih reakcija."
+
+
+#: woof/templates/woof/behavior.html:76
+msgid "Confidence vs insecurity"
+msgstr "Samopouzdanje naspram nesigurnosti"
+
+
+#: woof/templates/woof/behavior.html:78
+msgid ""
+"A confident dog typically shows relaxed posture, steady movement, and "
+"controlled curiosity toward new environments."
+msgstr "Samouveren pas obično pokazuje opušten stav, stabilne pokrete i kontrolisanu radoznalost prema novom okruženju."
+
+
+#: woof/templates/woof/behavior.html:80
+msgid ""
+"An insecure dog may hesitate, stay close to the owner, or avoid unfamiliar "
+"objects and sounds. These reactions are not fixed personality traits but "
+"situational responses."
+msgstr "Nesiguran pas može oklevati, ostajati blizu vlasnika ili izbegavati nepoznate predmete i zvuke. Te reakcije nisu fiksne crte ličnosti, već situacioni odgovori."
+
+
+#: woof/templates/woof/behavior.html:83
+msgid ""
+"Understanding the difference helps prevent misinterpretation of behavior as "
+"stubbornness or disobedience."
+msgstr "Razumevanje razlike pomaže da se ponašanje ne protumači pogrešno kao tvrdoglavost ili neposlušnost."
+
+
+#: woof/templates/woof/behavior.html:86
+msgid "Social behavior and interaction"
+msgstr "Društveno ponašanje i interakcija"
+
+
+#: woof/templates/woof/behavior.html:88
+msgid ""
+"Dog-to-dog interaction follows a structured set of signals used to establish "
+"boundaries and intentions. This includes approach speed, body orientation, "
+"and play initiation signals."
+msgstr "Interakcija između pasa prati strukturisan skup signala za uspostavljanje granica i namera. To uključuje brzinu prilaska, orijentaciju tela i signale za započinjanje igre."
+
+
+#: woof/templates/woof/behavior.html:91
+msgid ""
+"Not all dogs are equally social. Some prefer direct interaction, while "
+"others require distance and gradual introduction."
+msgstr "Nisu svi psi podjednako društveni. Neki preferiraju direktnu interakciju, dok drugima treba distanca i postepeno upoznavanje."
+
+
+#: woof/templates/woof/behavior.html:94
+msgid ""
+"Misreading social signals can lead to unnecessary tension between dogs, even "
+"in non-aggressive situations."
+msgstr "Pogrešno čitanje društvenih signala može dovesti do nepotrebne napetosti među psima, čak i u neagresivnim situacijama."
+
+
+#: woof/templates/woof/behavior.html:98
+msgid "Common misunderstandings of behavior"
+msgstr "Česta pogrešna tumačenja ponašanja"
+
+
+#: woof/templates/woof/behavior.html:100
+msgid ""
+"Many behaviors are incorrectly interpreted from a human perspective. For "
+"example, a dog that avoids eye contact is not necessarily guilty or "
+"submissive—it may simply be showing respect or avoiding conflict."
+msgstr "Mnoga ponašanja se pogrešno tumače iz ljudske perspektive. Na primer, pas koji izbegava kontakt očima nije nužno kriv ili pokoran — on možda samo iskazuje poštovanje ili izbegava sukob."
+
+
+#: woof/templates/woof/behavior.html:103
+msgid ""
+"Barking is another commonly misunderstood signal. It can indicate "
+"excitement, alertness, fear, or communication rather than aggression."
+msgstr "Lajanje je još jedan često pogrešno shvaćen signal. Ono može ukazivati na uzbuđenje, oprez, strah ili pokušaj komunikacije, a ne na agresiju."
+
+
+#: woof/templates/woof/behavior.html:106
+msgid ""
+"Correct interpretation always depends on context rather than isolated "
+"actions."
+msgstr "Ispravno tumačenje uvek zavisi od konteksta, a ne od izolovanih postupaka."
+
+
+#: woof/templates/woof/behavior.html:109
+msgid "Human influence on behavior"
+msgstr "Uticaj čoveka na ponašanje"
+
+
+#: woof/templates/woof/behavior.html:111
+msgid ""
+"Dog behavior is shaped significantly by environment and human response. "
+"Consistency, emotional tone, and household structure all influence how a dog "
+"reacts over time."
+msgstr "Na ponašanje psa značajno utiču okruženje i reakcije ljudi. Doslednost, emotivni ton i struktura domaćinstva utiču na to kako pas reaguje tokom vremena."
+
+
+#: woof/templates/woof/behavior.html:114
+msgid ""
+"Dogs learn patterns from repetition. If a behavior is consistently "
+"reinforced or ignored, it becomes part of their natural response system."
+msgstr "Psi uče obrasce kroz ponavljanje. Ako se neko ponašanje dosledno nagrađuje ili ignoriše, ono postaje deo njihovog prirodnog sistema reakcija."
+
+
+#: woof/templates/woof/behavior.html:117
+msgid ""
+"This is why behavior is not fixed—it evolves based on interaction with the "
+"environment."
+msgstr "Zato ponašanje nije fiksno — ono se razvija kroz interakciju sa okruženjem."
+
+
+#: woof/templates/woof/behavior.html:120
+#: woof/templates/woof/choosing_dog.html:92
+#: woof/templates/woof/feeding.html:156 woof/templates/woof/games.html:169
+#: woof/templates/woof/health.html:144
+#: woof/templates/woof/living_with_dog.html:117
+#: woof/templates/woof/puppy.html:104 woof/templates/woof/training.html:93
+msgid "Conclusion"
+msgstr "Zaključak"
+
+
+#: woof/templates/woof/behavior.html:122
+msgid ""
+"Understanding dog behavior is primarily about interpretation rather than "
+"control. When signals are read correctly, it becomes easier to understand "
+"needs, emotions, and reactions without misjudgment."
+msgstr "Razumevanje ponašanja psa prvenstveno je pitanje tumačenja, a ne kontrole. Kada se signali ispravno čitaju, lakše je razumeti potrebe, emocije i reakcije bez pogrešnih procena."
+
+
+#: woof/templates/woof/behavior.html:125
+msgid ""
+"This creates a more stable and predictable relationship between dog and "
+"owner based on awareness rather than assumption."
+msgstr "To stvara stabilniji i predvidljiviji odnos između psa i vlasnika, zasnovan na svesti, a ne na pretpostavkama."
+
+
+#: woof/templates/woof/choosing_dog.html:48
+msgid ""
+"Choosing a dog is a decision about long-term compatibility rather than "
+"appearance or impulse. The right choice depends on how well a dog’s needs "
+"align with your lifestyle, energy level, and living environment."
+msgstr "Izbor psa je odluka o dugoročnoj kompatibilnosti, a ne o izgledu ili trenutnom impulsu. Pravi izbor zavisi od toga koliko se potrebe psa poklapaju sa vašim životnim stilom, nivoom energije i životnim okruženjem."
+
+
+#: woof/templates/woof/choosing_dog.html:51
+msgid ""
+"This guide focuses on selection logic: how to think before choosing a breed, "
+"not individual breed descriptions or training considerations."
+msgstr "Ovaj vodič se fokusira na logiku izbora: kako razmišljati pre odabira rase, a ne na opise pojedinačnih rasa ili obuku."
+
+
+#: woof/templates/woof/choosing_dog.html:54
+msgid "Lifestyle compatibility"
+msgstr "Kompatibilnost sa životnim stilom"
+
+
+#: woof/templates/woof/choosing_dog.html:56
+msgid ""
+"The most important factor in choosing a dog is daily lifestyle. Time "
+"availability, activity level, work schedule, and home environment all "
+"influence suitability."
+msgstr "Najvažniji faktor pri izboru psa je svakodnevni životni stil. Raspoloživo vreme, nivo aktivnosti, radni raspored i kućno okruženje utiču na prikladnost."
+
+
+#: woof/templates/woof/choosing_dog.html:59
+msgid ""
+"Active individuals may struggle with low-energy dogs, while calm lifestyles "
+"may not meet the needs of highly energetic breeds. Mismatch often leads to "
+"long-term frustration for both owner and dog."
+msgstr "Aktivne osobe mogu imati problem sa psima niske energije, dok miran životni stil možda ne zadovoljava potrebe veoma energičnih rasa. Nepoklapanje često dovodi do dugoročne frustracije i vlasnika i psa."
+
+
+#: woof/templates/woof/choosing_dog.html:62
+msgid "The goal is balance, not preference alone."
+msgstr "Cilj je ravnoteža, a ne samo sklonost."
+
+
+#: woof/templates/woof/choosing_dog.html:65
+msgid "Experience level of the owner"
+msgstr "Nivo iskustva vlasnika"
+
+
+#: woof/templates/woof/choosing_dog.html:67
+msgid ""
+"Some dogs require more structured handling, patience, and consistency than "
+"others. First-time owners often benefit from more stable and adaptable "
+"breeds."
+msgstr "Nekim psima je potrebno više strukturisanog pristupa, strpljenja i doslednosti nego drugima. Onima koji prvi put uzimaju psa često odgovaraju stabilnije i prilagodljivije rase."
+
+
+#: woof/templates/woof/choosing_dog.html:70
+msgid ""
+"More independent or strong-willed dogs may require prior experience and "
+"clearer leadership consistency."
+msgstr "Nezavisniji psi ili psi sa jakom voljom mogu zahtevati prethodno iskustvo i jasniju doslednost u vođenju."
+
+
+#: woof/templates/woof/choosing_dog.html:72
+msgid ""
+"Matching experience level with dog temperament reduces behavioral and "
+"adaptation issues."
+msgstr "Usklađivanje nivoa iskustva sa temperamentom psa smanjuje probleme u ponašanju i adaptaciji."
+
+
+#: woof/templates/woof/choosing_dog.html:75
+msgid "Living space and environment"
+msgstr "Životni prostor i okruženje"
+
+
+#: woof/templates/woof/choosing_dog.html:77
+msgid ""
+"Living conditions play a major role in suitability. Apartment living, "
+"suburban homes, and rural environments create very different needs for space "
+"and activity."
+msgstr "Uslovi stanovanja igraju veliku ulogu u prikladnosti. Život u stanu, prigradska kuća i ruralno okruženje stvaraju veoma različite potrebe za prostorom i aktivnošću."
+
+
+#: woof/templates/woof/choosing_dog.html:80
+msgid ""
+"Larger or high-energy dogs typically require more space and outdoor access, "
+"while smaller or calmer breeds can adapt more easily to compact environments."
+msgstr "Većim ili energičnijim psima obično je potrebno više prostora i pristupa otvorenom, dok se manje ili smirenije rase lakše prilagođavaju manjim sredinama."
+
+
+#: woof/templates/woof/choosing_dog.html:84
+msgid "Time and responsibility expectations"
+msgstr "Vreme i očekivanja u vezi sa odgovornošću"
+
+
+#: woof/templates/woof/choosing_dog.html:86
+msgid ""
+"Dogs require daily attention for many years. This includes routine care, "
+"time presence, and consistent involvement in their daily life."
+msgstr "Psi zahtevaju svakodnevnu pažnju tokom mnogo godina. To uključuje redovnu negu, prisustvo i dosledno učešće u njihovom svakodnevnom životu."
+
+
+#: woof/templates/woof/choosing_dog.html:89
+msgid ""
+"Underestimating time requirements is one of the most common reasons for poor "
+"adaptation after adoption."
+msgstr "Potcenjivanje vremenskih zahteva jedan je od najčešćih razloga loše adaptacije nakon udomljavanja."
+
+
+#: woof/templates/woof/choosing_dog.html:94
+msgid ""
+"Choosing the right dog is a structured decision based on compatibility, not "
+"preference alone. When lifestyle, experience, and environment are aligned "
+"with the dog’s needs, long-term stability becomes significantly easier to "
+"achieve."
+msgstr "Izbor pravog psa je strukturisana odluka zasnovana na kompatibilnosti, a ne samo na sklonosti. Kada su životni stil, iskustvo i okruženje usklađeni sa potrebama psa, dugoročna stabilnost se postiže znatno lakše."
+
+
+#: woof/templates/woof/contact.html:23 woof/templates/woof/contact.html:32
+#: woof/utils.py:14
+msgid "Contact"
+msgstr "Kontakt"
+
+
+#: woof/templates/woof/contact.html:34
+msgid "Thank you for helping improve this project"
+msgstr "Hvala što pomažete da unapredimo ovaj projekat"
+
+
+#: woof/templates/woof/contact.html:36
+msgid "Feel free to reach out with any questions, suggestions, or feedback."
+msgstr "Slobodno nas kontaktirajte sa pitanjima, predlozima ili utiscima."
+
+
+#: woof/templates/woof/contact.html:86
+msgid ""
+"By clicking \"Send\" button, you allow WoofDogs to process your information "
+"in accordance with our"
+msgstr "Klikom na dugme „Pošalji“ dozvoljavate WoofDogs-u da obradi vaše informacije u skladu sa našom"
+
+
+#: woof/templates/woof/contact.html:93
+msgid "Send a message"
+msgstr "Pošalji poruku"
+
+
+#: woof/templates/woof/contact.html:94
+msgid "Send"
+msgstr "Pošalji"
+
+
+#: woof/templates/woof/contact.html:108
+msgid ""
+"<span class=\"accent-strong\">Photography credits:</span> Every photograph "
+"on the website matters to us. If you are the author of a photograph and "
+"would like it to be removed, or if you would like your authorship to be "
+"corrected or credited differently — <span class=\"accent-strong\">please "
+"write to us</span>. We are always happy to give credit where it is due."
+msgstr "<span class=\"accent-strong\">Zasluge za fotografije:</span> Svaka fotografija na sajtu nam je važna. Ako ste autor fotografije i želite da bude uklonjena, ili ako želite da autorstvo bude ispravljeno ili drugačije navedeno — <span class=\"accent-strong\">pišite nam</span>. Uvek nam je drago da navedemo zasluge tamo gde pripadaju."
+
+
+#: woof/templates/woof/contact.html:110
+msgid "Also:"
+msgstr "Takođe:"
+
+
+#: woof/templates/woof/contact.html:114
+msgid ""
+"If you notice any inaccuracies in breed descriptions, characteristics, or "
+"data."
+msgstr "Ako primetite netačnosti u opisima rasa, karakteristikama ili podacima."
+
+
+#: woof/templates/woof/contact.html:116
+msgid ""
+"If you would like to suggest a dog breed that is not yet listed on the "
+"website."
+msgstr "Ako želite da predložite rasu pasa koja još nije na sajtu."
+
+
+#: woof/templates/woof/contact.html:118
+msgid "If you have ideas or suggestions to improve the content or structure."
+msgstr "Ako imate ideje ili predloge za poboljšanje sadržaja ili strukture."
+
+
+#: woof/templates/woof/contact.html:120
+msgid ""
+"Please include a link or any relevant details to help process your request."
+msgstr "Molimo vas da priložite link ili relevantne detalje koji će pomoći obradi vašeg zahteva."
+
+
+#: woof/templates/woof/contact.html:126
+msgid "Your feedback helps keep the information accurate and reliable."
+msgstr "Vaše povratne informacije pomažu da informacije ostanu tačne i pouzdane."
+
+
+#: woof/templates/woof/contact.html:160
+msgid "Thank you. Message has been sent."
+msgstr "Hvala. Poruka je poslata."
+
+
+#: woof/templates/woof/contact.html:171
+msgid "Please try again later."
+msgstr "Pokušajte ponovo kasnije."
+
+
+#: woof/templates/woof/cookie_policy.html:35
+msgid "Last updated: September 10, 2026"
+msgstr "Poslednje ažuriranje: 10. septembar 2026."
+
+
+#: woof/templates/woof/cookie_policy.html:39
+msgid "Cookie Declaration"
+msgstr "Izjava o kolačićima"
+
+
+#: woof/templates/woof/cookie_policy.html:41
+msgid "When you visit the Website, the following cookies may be stored:"
+msgstr "Kada posetite Veb-sajt, mogu se sačuvati sledeći kolačići:"
+
+
+#: woof/templates/woof/cookie_policy.html:47
+msgid "Cookie"
+msgstr "Kolačić"
+
+
+#: woof/templates/woof/cookie_policy.html:48
+msgid "Duration"
+msgstr "Trajanje"
+
+
+#: woof/templates/woof/cookie_policy.html:49
+msgid "Purpose"
+msgstr "Svrha"
+
+
+#: woof/templates/woof/cookie_policy.html:57
+msgid "1 year"
+msgstr "1 godina"
+
+
+#: woof/templates/woof/cookie_policy.html:58
+msgid ""
+"Necessary. CSRF protection cookie set by Django on pages with forms "
+"(language switcher, contact page). Stores no personal data."
+msgstr "Neophodan. CSRF zaštitni kolačić koji Django postavlja na stranicama sa formularima (prebacivanje jezika, kontakt stranica). Ne čuva lične podatke."
+
+
+#: woof/templates/woof/cookie_policy.html:63
+#: woof/templates/woof/cookie_policy.html:69
+msgid "About 400 days"
+msgstr "Oko 400 dana"
+
+
+#: woof/templates/woof/cookie_policy.html:64
+msgid ""
+"Analytics. Google Analytics cookie used to calculate visitor, session and "
+"campaign data and track site usage. Stores anonymous data. Set only after "
+"consent."
+msgstr "Analitički. Kolačić Google Analytics-a koji se koristi za izračunavanje podataka o posetiocima, sesijama i kampanjama i praćenje korišćenja sajta. Čuva anonimne podatke. Postavlja se samo nakon saglasnosti."
+
+
+#: woof/templates/woof/cookie_policy.html:70
+msgid ""
+"Analytics. Google Analytics cookie used to store and count page views. Set "
+"only after consent."
+msgstr "Analitički. Kolačić Google Analytics-a koji se koristi za čuvanje i brojanje pregleda stranica. Postavlja se samo nakon saglasnosti."
+
+
+#: woof/templates/woof/cookie_policy.html:77
+msgid ""
+"The cookie notice on the Website appears before any analytics cookies are "
+"set. Nothing is loaded — no scripts, no cookies — until you make a choice. "
+"You may withdraw or change your consent at any time using the cookie notice "
+"(the floating button in the corner of the page), and you may delete these "
+"cookies through your browser settings."
+msgstr "Obaveštenje o kolačićima na Veb-sajtu pojavljuje se pre postavljanja bilo kakvih analitičkih kolačića. Ništa se ne učitava — nijedan skript, nijedan kolačić — dok ne napravite izbor. Saglasnost možete povući ili promeniti u bilo kom trenutku preko obaveštenja o kolačićima (plutajuće dugme u uglu stranice), a kolačiće možete obrisati i kroz podešavanja pregledača."
+
+
+#: woof/templates/woof/cookie_policy.html:79
+msgid ""
+"You can also change your preferences directly from this page using the "
+"button below."
+msgstr "Podešavanja možete promeniti i direktno sa ove stranice, pomoću dugmeta ispod."
+
+
+#: woof/templates/woof/cookie_policy.html:83
+msgid "Change cookie preferences"
+msgstr "Promeni podešavanja kolačića"
+
+
+#: woof/templates/woof/cookie_policy.html:89
+msgid "How can I control cookies in my browser?"
+msgstr "Kako mogu da kontrolišem kolačiće u pregledaču?"
+
+
+#: woof/templates/woof/cookie_policy.html:91
+msgid "Here are instructions for managing cookies in popular browsers:"
+msgstr "Evo uputstava za upravljanje kolačićima u popularnim pregledačima:"
+
+
+#: woof/templates/woof/cookie_policy.html:99
+msgid "Chrome"
+msgstr "Chrome"
+
+
+#: woof/templates/woof/cookie_policy.html:106
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+
+#: woof/templates/woof/cookie_policy.html:113
+msgid "Firefox"
+msgstr "Firefox"
+
+
+#: woof/templates/woof/cookie_policy.html:120
+msgid "Safari"
+msgstr "Safari"
+
+
+#: woof/templates/woof/cookie_policy.html:127
+msgid "Edge"
+msgstr "Edge"
+
+
+#: woof/templates/woof/cookie_policy.html:134
+msgid "Opera"
+msgstr "Opera"
+
+
+#: woof/templates/woof/cookie_policy.html:141
+msgid ""
+"Additionally, most ad networks offer options to opt out of targeted "
+"advertising. For more information, visit:"
+msgstr "Pored toga, većina reklamnih mreža nudi mogućnost isključivanja ciljanog oglašavanja. Za više informacija posetite:"
+
+
+#: woof/templates/woof/cookie_policy.html:150
+msgid "Digital Advertising Alliance"
+msgstr "Digital Advertising Alliance"
+
+
+#: woof/templates/woof/cookie_policy.html:157
+msgid "Digital Advertising Alliance of Canada"
+msgstr "Digital Advertising Alliance of Canada"
+
+
+#: woof/templates/woof/cookie_policy.html:164
+msgid "European Interactive Digital Advertising Alliance"
+msgstr "European Interactive Digital Advertising Alliance"
+
+
+#: woof/templates/woof/cookie_policy.html:171
+msgid "How often will you update this Cookie Policy?"
+msgstr "Koliko često ćete ažurirati ovu Politiku kolačića?"
+
+
+#: woof/templates/woof/cookie_policy.html:173
+msgid ""
+"We may update this Cookie Policy periodically to reflect changes to the "
+"cookies we use or for other operational, legal, or regulatory reasons. "
+"Please review this policy regularly to stay informed about how we use "
+"cookies and related technologies."
+msgstr "Ovu Politiku kolačića možemo povremeno ažurirati kako bismo odrazili promene u kolačićima koje koristimo ili iz drugih operativnih, pravnih ili regulatornih razloga. Molimo vas da redovno pregledate ovu politiku kako biste bili informisani o tome kako koristimo kolačiće i srodne tehnologije."
+
+
+#: woof/templates/woof/cookie_policy.html:179
+msgid "Where can I get more information?"
+msgstr "Gde mogu dobiti više informacija?"
+
+
+#: woof/templates/woof/cookie_policy.html:182
+msgid ""
+"If you have any questions about our use of cookies or other technologies, "
+"please"
+msgstr "Ako imate pitanja o našoj upotrebi kolačića ili drugih tehnologija, molimo vas da nas"
+
+
+#: woof/templates/woof/cookie_policy.html:185
+#: woof/templates/woof/privacy_policy.html:293
+#: woof/templates/woof/privacy_policy.html:317
+#: woof/templates/woof/terms_and_conditions.html:203
+msgid "woofdogs23@gmail.com"
+msgstr "woofdogs23@gmail.com"
+
+
+#: woof/templates/woof/cookie_policy.html:185 woof/templates/woof/post.html:315
+msgid "contact us"
+msgstr "kontaktirate"
+
+
+#: woof/templates/woof/dog_cards.html:35
+msgid "No dogs found."
+msgstr "Nije pronađen nijedan pas."
+
+
+#: woof/templates/woof/dog_groups.html:24
+#: woof/templates/woof/dog_groups.html:34
+#: woof/templates/woof/dog_groups.html:38 woof/utils.py:13
+msgid "Explore"
+msgstr "Istraži"
+
+
+#: woof/templates/woof/dog_groups.html:48
+msgid "How to use this page"
+msgstr "Kako koristiti ovu stranicu"
+
+
+#: woof/templates/woof/dog_groups.html:52
+msgid ""
+"This page helps you navigate dog breeds based on real-life needs rather than "
+"appearance alone. You can explore grouped categories and compare dogs by "
+"temperament, energy level, and general suitability."
+msgstr "Ova stranica vam pomaže da pronađete rase pasa na osnovu stvarnih potreba, a ne samo izgleda. Možete istraživati grupisane kategorije i upoređivati pse po temperamentu, nivou energije i opštoj prikladnosti."
+
+
+#: woof/templates/woof/dog_groups.html:56
+msgid "For deeper understanding of dog ownership, you can also visit the"
+msgstr "Za dublje razumevanje života sa psom možete posetiti i"
+
+
+#: woof/templates/woof/dog_groups.html:63
+msgid ""
+"where you will find structured information about choosing, training, "
+"behavior, health, and daily life with dogs."
+msgstr "gde ćete pronaći strukturisane informacije o izboru, obuci, ponašanju, zdravlju i svakodnevnom životu sa psima."
+
+
+#: woof/templates/woof/dog_groups.html:74
+msgid "By size"
+msgstr "Po veličini"
+
+
+#: woof/templates/woof/dog_groups.html:91
+#: woof/templates/woof/dog_groups.html:167
+#: woof/templates/woof/dog_groups.html:243
+#: woof/templates/woof/dog_groups.html:319
+msgid "Previous dogs"
+msgstr "Prethodni psi"
+
+
+#: woof/templates/woof/dog_groups.html:94
+#: woof/templates/woof/dog_groups.html:170
+#: woof/templates/woof/dog_groups.html:246
+#: woof/templates/woof/dog_groups.html:322
+#: woof/templates/woof/dogs_list.html:58 woof/templates/woof/home.html:311
+#: woof/templates/woof/post.html:66 woof/templates/woof/post.html:375
+#: woof/templates/woof/post.html:510
+msgid "Previous page"
+msgstr "Prethodna stranica"
+
+
+#: woof/templates/woof/dog_groups.html:95
+#: woof/templates/woof/dog_groups.html:171
+#: woof/templates/woof/dog_groups.html:247
+#: woof/templates/woof/dog_groups.html:323
+#: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:312
+#: woof/templates/woof/post.html:67 woof/templates/woof/post.html:97
+#: woof/templates/woof/post.html:376 woof/templates/woof/post.html:511
+msgid "Previous"
+msgstr "Prethodno"
+
+
+#: woof/templates/woof/dog_groups.html:128
+#: woof/templates/woof/dog_groups.html:204
+#: woof/templates/woof/dog_groups.html:280
+#: woof/templates/woof/dog_groups.html:356
+msgid "Next dogs"
+msgstr "Sledeći psi"
+
+
+#: woof/templates/woof/dog_groups.html:131
+#: woof/templates/woof/dog_groups.html:207
+#: woof/templates/woof/dog_groups.html:283
+#: woof/templates/woof/dog_groups.html:359
+#: woof/templates/woof/dogs_list.html:117 woof/templates/woof/home.html:373
+#: woof/templates/woof/post.html:81 woof/templates/woof/post.html:390
+#: woof/templates/woof/post.html:549
+msgid "Next page"
+msgstr "Sledeća stranica"
+
+
+#: woof/templates/woof/dog_groups.html:132
+#: woof/templates/woof/dog_groups.html:208
+#: woof/templates/woof/dog_groups.html:284
+#: woof/templates/woof/dog_groups.html:360
+#: woof/templates/woof/dogs_list.html:118 woof/templates/woof/home.html:374
+#: woof/templates/woof/post.html:82 woof/templates/woof/post.html:118
+#: woof/templates/woof/post.html:391 woof/templates/woof/post.html:550
+msgid "Next"
+msgstr "Sledeće"
+
+
+#: woof/templates/woof/dog_groups.html:150
+msgid "Lifestyle & ownership"
+msgstr "Životni stil i briga o psu"
+
+
+#: woof/templates/woof/dog_groups.html:226
+msgid "By living conditions"
+msgstr "Po uslovima života"
+
+
+#: woof/templates/woof/dog_groups.html:302
+msgid "Other characteristics"
+msgstr "Ostale karakteristike"
+
+
+#: woof/templates/woof/dog_groups.html:383
+msgid ""
+"It is important to realistically consider how much time you can dedicate to "
+"walks, training, and interaction. Some dogs require constant activity and "
+"stimulation, while others are calm and adapt to a slower pace.<br> "
+"<strong>Grooming needs also vary significantly</strong> between breeds."
+msgstr "Važno je da realno razmislite o tome koliko vremena možete posvetiti šetnjama, obuci i interakciji. Neki psi zahtevaju stalnu aktivnost i stimulaciju, dok su drugi smireni i prilagođavaju se sporijem ritmu.<br> <strong>Potrebe za negom takođe se značajno razlikuju</strong> među rasama."
+
+
+#: woof/templates/woof/dog_groups.html:389
+msgid ""
+"<strong>Living conditions matter.</strong> Not every dog is suited for "
+"apartment life, and barking levels can affect daily comfort. Experience also "
+"plays a role — some breeds are easy for beginners, while others require "
+"patience and confidence."
+msgstr "<strong>Uslovi života su bitni.</strong> Nije svaki pas pogodan za život u stanu, a nivo lajanja može uticati na svakodnevni komfor. Iskustvo takođe igra ulogu — neke rase su lake za početnike, dok druge zahtevaju strpljenje i samopouzdanje."
+
+
+#: woof/templates/woof/dog_groups.html:395
+msgid ""
+"<strong>Health and allergies should not be overlooked.</strong> While no dog "
+"is completely hypoallergenic, some are more suitable for sensitive owners."
+msgstr "<strong>Zdravlje i alergije ne treba zanemariti.</strong> Iako nijedan pas nije potpuno hipoalergen, neke rase su pogodnije za osetljive vlasnike."
+
+
+#: woof/templates/woof/dog_groups.html:399
+msgid ""
+"Taking time to understand these factors helps you make a thoughtful choice."
+"<br> This page is designed to guide you with simple, practical groups — "
+"helping you find a dog that truly fits your lifestyle."
+msgstr "Odvojiti vreme da razumete ove faktore pomaže vam da napravite promišljen izbor.<br> Ova stranica je zamišljena da vas vodi kroz jednostavne, praktične grupe — kako biste pronašli psa koji zaista odgovara vašem životnom stilu."
+
+
+#: woof/templates/woof/dogs_list.html:25 woof/templates/woof/dogs_list.html:26
+#: woof/templates/woof/dogs_list.html:41 woof/templates/woof/groups.html:26
+#: woof/templates/woof/groups.html:37 woof/templates/woof/post.html:38
+msgid "Groups"
+msgstr "Grupe"
+
+
+#: woof/templates/woof/dogs_list.html:142
+msgid "Sections."
+msgstr "Sekcije."
+
+
+#: woof/templates/woof/dogs_list.html:150
+msgid "No sections."
+msgstr "Nema sekcija."
+
+
+#: woof/templates/woof/dogs_list.html:158
+msgid "In short."
+msgstr "Ukratko."
+
+
+#: woof/templates/woof/dogs_list.html:165
+msgid "*"
+msgstr "*"
+
+
+#: woof/templates/woof/dogs_list.html:166
+msgid ""
+"If you don’t see a particular breed on this website, it may simply mean that "
+"it hasn’t been added yet, or that we haven’t found suitable images with "
+"clear attribution or free usage rights 😊"
+msgstr "Ako na ovom sajtu ne vidite određenu rasu, to može jednostavno značiti da još nije dodata ili da nismo pronašli odgovarajuće fotografije sa jasnom atribucijom ili slobodnim pravima korišćenja 😊"
+
+
+#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
+#: woof/templates/woof/health.html:62
+msgid "What this guide covers"
+msgstr "Šta pokriva ovaj vodič"
+
+
+#: woof/templates/woof/feeding.html:64
+msgid ""
+"Feeding is one of the most important parts of everyday dog care. This guide "
+"explains general feeding principles that apply to any healthy dog: food "
+"formats, portions, feeding by age and a proper drinking regime."
+msgstr "Ishrana je jedan od najvažnijih delova svakodnevne nege psa. Ovaj vodič objašnjava opšte principe ishrane koji važe za svakog zdravog psa: formate hrane, porcije, ishranu po uzrastu i pravilan režim pijenja."
+
+
+#: woof/templates/woof/feeding.html:68
+msgid ""
+"This guide deliberately avoids brand names. Every dog is different: the "
+"final ration always depends on age, size, activity level and health "
+"condition."
+msgstr "Ovaj vodič namerno ne pominje brendove. Svaki pas je drugačiji: konačni obrok uvek zavisi od uzrasta, veličine, nivoa aktivnosti i zdravstvenog stanja."
+
+
+#: woof/templates/woof/feeding.html:73
+msgid "Dry and wet food"
+msgstr "Suva i mokra hrana"
+
+
+#: woof/templates/woof/feeding.html:75
+msgid ""
+"Dry food is convenient: it is easy to store, measure and dose. It stays "
+"fresh longer, and its crunchy texture helps clean teeth mechanically."
+msgstr "Suva hrana je praktična: lako se čuva, meri i dozira. Duže ostaje sveža, a njena hrskava tekstura pomaže mehaničkom čišćenju zuba."
+
+
+#: woof/templates/woof/feeding.html:78
+msgid ""
+"Wet food contains much more moisture, which helps maintain water balance. It "
+"is often more palatable, which suits picky eaters, older dogs and dogs with "
+"dental problems."
+msgstr "Mokra hrana sadrži znatno više vlage, što pomaže održavanju ravnoteže vode. Često je ukusnija, pa odgovara izbirljivim psima, starijim psima i psima sa problemima sa zubima."
+
+
+#: woof/templates/woof/feeding.html:81
+msgid ""
+"Both formats can be combined. What matters most is that the ration is "
+"complete and balanced for the dog's age and size. An opened tin of wet food "
+"must be stored in the refrigerator and used within a short time."
+msgstr "Oba formata mogu se kombinovati. Najvažnije je da obrok bude kompletan i uravnotežen za uzrast i veličinu psa. Otvorenu konzervu mokre hrane treba čuvati u frižideru i potrošiti u kratkom roku."
+
+
+#: woof/templates/woof/feeding.html:87
+msgid "How to choose food"
+msgstr "Kako odabrati hranu"
+
+
+#: woof/templates/woof/feeding.html:89
+msgid ""
+"Read the composition: good food lists a specific source of protein first — "
+"chicken, beef or fish — instead of vague mixtures."
+msgstr "Pročitajte sastav: dobra hrana na prvom mestu navodi konkretan izvor proteina — piletinu, govedinu ili ribu — umesto nejasnih mešavina."
+
+
+#: woof/templates/woof/feeding.html:92
+msgid ""
+"Consider the age category, the size of the kibble for small breeds, and "
+"special needs such as allergies or sensitive digestion."
+msgstr "Uzmite u obzir uzrasnu kategoriju, veličinu granula za male rase i posebne potrebe kao što su alergije ili osetljivo varenje."
+
+
+#: woof/templates/woof/feeding.html:95
+msgid ""
+"Avoid products with unclear composition, excess salt, sugar or artificial "
+"colours. If in doubt, ask your veterinarian."
+msgstr "Izbegavajte proizvode sa nejasnim sastavom, viškom soli, šećera ili veštačkih boja. Ako ste u nedoumici, pitajte svog veterinara."
+
+
+#: woof/templates/woof/feeding.html:100
+msgid "Feeding across ages"
+msgstr "Ishrana kroz uzraste"
+
+
+#: woof/templates/woof/feeding.html:102
+msgid ""
+"Puppies need small frequent meals: roughly three to four times a day, "
+"gradually reduced to two meals by the age of six to twelve months."
+msgstr "Štenci treba da jedu manje obroke češće: otprilike tri do četiri puta dnevno, a do uzrasta od šest do dvanaest meseci postepeno preći na dva obroka."
+
+
+#: woof/templates/woof/feeding.html:105
+msgid ""
+"Adult dogs usually feel best with one or two regular meals a day at the same "
+"time."
+msgstr "Odrasli psi se obično najbolje osećaju uz jedan ili dva redovna obroka dnevno u isto vreme."
+
+
+#: woof/templates/woof/feeding.html:107
+msgid ""
+"Senior dogs may need smaller portions, easier-to-digest food and, often, "
+"more frequent feeding. During pregnancy and lactation the dog needs more "
+"food and more frequent meals."
+msgstr "Starijim psima možda trebaju manje porcije, lakše svarljiva hrana i, često, češće hranjenje. Tokom trudnoće i laktacije psu je potrebno više hrane i češćih obroka."
+
+
+#: woof/templates/woof/feeding.html:112
+msgid "Portions and schedule"
+msgstr "Porcije i raspored"
+
+
+#: woof/templates/woof/feeding.html:114
+msgid ""
+"The portion depends on weight, activity and the food itself. Use the feeding "
+"table on the package as a starting point and adjust it by observing the "
+"dog's condition."
+msgstr "Porcija zavisi od težine, aktivnosti i same hrane. Koristite tabelu ishrane na pakovanju kao polaznu tačku i prilagodite je posmatranjem stanja psa."
+
+
+#: woof/templates/woof/feeding.html:117
+msgid ""
+"Regular meals at fixed times help digestion and prevent begging. For adult "
+"dogs avoid free access to the bowl all day — it often leads to obesity."
+msgstr "Redovni obroci u isto vreme pomažu varenju i sprečavaju prose. Kod odraslih pasa izbegavajte slobodan pristup činiji tokom celog dana — to često dovodi do gojaznosti."
+
+
+#: woof/templates/woof/feeding.html:120
+msgid "Treats should make up no more than ten percent of the daily calories."
+msgstr "Poslastice ne smeju činiti više od deset procenata dnevnih kalorija."
+
+
+#: woof/templates/woof/feeding.html:124
+msgid "Drinking regime"
+msgstr "Režim pijenja"
+
+
+#: woof/templates/woof/feeding.html:126
+msgid "Fresh water must be available at all times, not only during meals."
+msgstr "Sveža voda mora biti dostupna u svakom trenutku, ne samo uz obroke."
+
+
+#: woof/templates/woof/feeding.html:128
+msgid ""
+"Change the water daily and wash the bowl regularly. In hot weather, after "
+"activity or when eating dry food, the dog drinks noticeably more."
+msgstr "Menjajte vodu svakodnevno i redovno perite činiju. Po vrućem vremenu, nakon aktivnosti ili kada jede suvu hranu, pas pije primetno više."
+
+
+#: woof/templates/woof/feeding.html:131
+msgid ""
+"A sudden increase or decrease in thirst can be a sign of health problems — "
+"in that case, consult a veterinarian."
+msgstr "Nagli porast ili pad žeđi može biti znak zdravstvenih problema — u tom slučaju se posavetujte sa veterinarom."
+
+
+#: woof/templates/woof/feeding.html:136
+msgid "Switching food"
+msgstr "Promena hrane"
+
+
+#: woof/templates/woof/feeding.html:138
+msgid ""
+"Change the food gradually, over seven to ten days, mixing the new food into "
+"the old one in increasing proportions."
+msgstr "Menjajte hranu postepeno, tokom sedam do deset dana, mešajući novu hranu u staru u sve većim razmerama."
+
+
+#: woof/templates/woof/feeding.html:141
+msgid ""
+"A sudden change often causes digestive upset: loose stool, refusal of food "
+"or bloating. Watch your dog carefully during the transition."
+msgstr "Nagla promena često izaziva probleme s varenjem: retku stolicu, odbijanje hrane ili nadimanje. Pažljivo pratite psa tokom prelaska."
+
+
+#: woof/templates/woof/feeding.html:146
+msgid "Foods to avoid"
+msgstr "Hrana koju treba izbegavati"
+
+
+#: woof/templates/woof/feeding.html:148
+msgid ""
+"Some human foods are dangerous for dogs: chocolate, grapes and raisins, "
+"onions and garlic, xylitol, alcohol and cooked bones."
+msgstr "Neke ljudske namirnice su opasne za pse: čokolada, grožđe i suvo grožđe, luk i beli luk, ksilitol, alkohol i kuvane kosti."
+
+
+#: woof/templates/woof/feeding.html:151
+msgid ""
+"Salty, spicy and fatty food from the table is also best avoided. Keep these "
+"products out of the dog's reach."
+msgstr "Slanu, ljutu i masnu hranu sa stola takođe je najbolje izbegavati. Držite ove proizvode van domašaja psa."
+
+
+#: woof/templates/woof/feeding.html:158
+msgid ""
+"Feeding is a routine, but a conscious one: a stable schedule, a quality "
+"ration and constant access to water are the foundation of health."
+msgstr "Ishrana je rutina, ali svesna: stabilan raspored, kvalitetan obrok i stalan pristup vodi temelj su zdravlja."
+
+
+#: woof/templates/woof/feeding.html:161
+msgid ""
+"If you are not sure about the right food for your dog, always consult a "
+"specialist — the right choice is easier to make together."
+msgstr "Ako niste sigurni koja hrana odgovara vašem psu, uvek se posavetujte sa stručnjakom — pravi izbor se lakše donosi zajedno."
+
+
+#: woof/templates/woof/games.html:64
+msgid ""
+"Play is not just fun — it is a necessary part of everyday life for a dog. "
+"Games give physical activity, mental load and emotional contact with the "
+"owner."
+msgstr "Igra nije samo zabava — to je neophodan deo svakodnevnog života psa. Igre pružaju fizičku aktivnost, mentalno opterećenje i emotivni kontakt sa vlasnikom."
+
+
+#: woof/templates/woof/games.html:67
+msgid ""
+"This guide describes safe games that suit most dogs, from puppies to "
+"seniors, and explains their benefits."
+msgstr "Ovaj vodič opisuje bezbedne igre koje odgovaraju većini pasa, od štenaca do starijih pasa, i objašnjava njihove koristi."
+
+
+#: woof/templates/woof/games.html:72
+msgid "Why play matters"
+msgstr "Zašto je igra važna"
+
+
+#: woof/templates/woof/games.html:74
+msgid ""
+"Regular games help release excess energy, reduce stress and prevent "
+"destructive behavior."
+msgstr "Redovne igre pomažu da se oslobodi višak energije, smanji stres i spreči destruktivno ponašanje."
+
+
+#: woof/templates/woof/games.html:76
+msgid ""
+"A tired and satisfied dog sleeps better, trains better and stays calmer when "
+"left alone."
+msgstr "Umoran i zadovoljan pas bolje spava, bolje uči i smireniji je kada ostane sam."
+
+
+#: woof/templates/woof/games.html:78
+msgid ""
+"Play also strengthens the bond between you: the dog learns to trust and "
+"cooperate."
+msgstr "Igra takođe jača vezu između vas: pas uči da veruje i sarađuje."
+
+
+#: woof/templates/woof/games.html:82
+msgid "Fetch and chase games"
+msgstr "Igre donošenja i jurnjave"
+
+
+#: woof/templates/woof/games.html:84
+msgid ""
+"Fetch is one of the simplest games: throw a toy or a soft dummy and teach "
+"the dog to bring it back. Use special toys — sticks are dangerous."
+msgstr "Donošenje (fetch) jedna je od najjednostavnijih igara: bacite igračku ili mekanu vabicu i naučite psa da je vrati. Koristite posebne igračke — štapovi su opasni."
+
+
+#: woof/templates/woof/games.html:87
+msgid ""
+"Keep sessions short, end the game at the peak of interest, and always check "
+"the playing area for hazards."
+msgstr "Držite sesije kratkim, završite igru na vrhuncu interesovanja i uvek proverite prostor za igru."
+
+
+#: woof/templates/woof/games.html:90
+msgid ""
+"For dogs that love running, games of hide-and-seek with toys and light "
+"chasing work well too."
+msgstr "Za pse koji vole trčanje, dobro funkcionišu i igre skrivanja sa igračkama i lagana jurnjava."
+
+
+#: woof/templates/woof/games.html:95
+msgid "Tug games"
+msgstr "Igre potezanja"
+
+
+#: woof/templates/woof/games.html:97
+msgid ""
+"Tug-of-war is a natural game that trains muscles and self-control. Agree on "
+"the rules in advance: the game starts and ends on your command."
+msgstr "Potezanje je prirodna igra koja vežba mišiće i samokontrolu. Dogovorite pravila unapred: igra počinje i završava se na vašu komandu."
+
+
+#: woof/templates/woof/games.html:100
+msgid ""
+"Use a special toy with a firm grip, do not pull sharply, and give the dog "
+"breaks to rest."
+msgstr "Koristite posebnu igračku sa čvrstim hvatom, ne povlačite naglo i pravite pauze za odmor."
+
+
+#: woof/templates/woof/games.html:103
+msgid ""
+"For puppies and young dogs, watch the teeth and joints — the game should not "
+"turn into a fight."
+msgstr "Kod štenaca i mladih pasa pazite na zube i zglobove — igra ne sme prerasti u borbu."
+
+
+#: woof/templates/woof/games.html:108
+msgid "Scent games"
+msgstr "Igre mirisom"
+
+
+#: woof/templates/woof/games.html:110
+msgid ""
+"Dogs perceive the world through their nose. Scent games are the best mental "
+"load: hide treats or toys around the house and let the dog find them."
+msgstr "Psi svet doživljavaju nosom. Igre mirisom najbolje su mentalno opterećenje: sakrijte poslastice ili igračke po kući i pustite psa da ih pronađe."
+
+
+#: woof/templates/woof/games.html:113
+msgid ""
+"Start with simple hiding places in the same room and gradually make the task "
+"harder."
+msgstr "Počnite sa jednostavnim skrovištima u istoj prostoriji i postepeno otežavajte zadatak."
+
+
+#: woof/templates/woof/games.html:116
+msgid ""
+"A \"sniffing walk\" is also a game: on part of the route, let the dog stop "
+"and explore smells freely instead of walking in a straight line."
+msgstr "„Šetnja njušenja“ je takođe igra: na delu rute pustite psa da slobodno staje i istražuje mirise, umesto da hoda pravolinijski."
+
+
+#: woof/templates/woof/games.html:121
+msgid "Puzzle toys and slow feeders"
+msgstr "Slagalice i spore činije"
+
+
+#: woof/templates/woof/games.html:123
+msgid ""
+"Puzzle toys and slow feeding bowls turn eating into a small game and slow "
+"down fast eaters."
+msgstr "Slagalice i spore činije pretvaraju hranjenje u malu igru i usporavaju brze jedače."
+
+
+#: woof/templates/woof/games.html:126
+msgid ""
+"They are especially useful for smart breeds that get bored quickly, and for "
+"dogs that swallow food too fast."
+msgstr "Posebno su korisne za pametne rase koje se brzo dosade i za pse koji gutaju hranu prebrzo."
+
+
+#: woof/templates/woof/games.html:129
+msgid "Rotate the toys regularly so they do not become boring."
+msgstr "Redovno menjajte igračke kako ne bi dosadile."
+
+
+#: woof/templates/woof/games.html:133
+msgid "Learning through play"
+msgstr "Učenje kroz igru"
+
+
+#: woof/templates/woof/games.html:135
+msgid ""
+"Games are a great way to train: teach new commands in a playful format with "
+"short sessions of five to ten minutes."
+msgstr "Igre su odličan način za obuku: učite nove komande u igrivom formatu, u kratkim sesijama od pet do deset minuta."
+
+
+#: woof/templates/woof/games.html:138
+msgid ""
+"Reward every correct action immediately — the dog learns faster when the "
+"game stays positive and short."
+msgstr "Nagrađujte svaku tačnu akciju odmah — pas brže uči kada igra ostane pozitivna i kratka."
+
+
+#: woof/templates/woof/games.html:143
+msgid "Outdoor and water activities"
+msgstr "Aktivnosti na otvorenom i u vodi"
+
+
+#: woof/templates/woof/games.html:145
+msgid ""
+"For active dogs, running, hiking and swimming are excellent sports. "
+"Introduce them gradually and consider the breed and age."
+msgstr "Za aktivne pse trčanje, planinarenje i plivanje su odlični sportovi. Uvodite ih postepeno i vodite računa o rasi i uzrastu."
+
+
+#: woof/templates/woof/games.html:148
+msgid ""
+"Swimming is a gentle load for the joints, but never leave a dog in the water "
+"unattended and check the safety of the reservoir."
+msgstr "Plivanje je blag napor za zglobove, ali nikada ne ostavljajte psa bez nadzora u vodi i proverite bezbednost vodenog prostora."
+
+
+#: woof/templates/woof/games.html:151
+msgid ""
+"Avoid intense exercise in extreme heat, especially for brachycephalic breeds "
+"with short muzzles."
+msgstr "Izbegavajte intenzivne vežbe na velikim vrućinama, posebno za brahicefalne rase sa kratkim njuškama."
+
+
+#: woof/templates/woof/games.html:156
+msgid "Safety and age limits"
+msgstr "Bezbednost i uzrasna ograničenja"
+
+
+#: woof/templates/woof/games.html:158
+msgid ""
+"Puppies' joints and teeth are still forming — choose gentle games and keep "
+"the load moderate. Seniors appreciate calmer games: scent tasks, light tug "
+"and mental puzzles."
+msgstr "Zglobovi i zubi štenaca se još uvek formiraju — birajte nežne igre i držite opterećenje umerenim. Stariji psi više vole smirenije igre: zadatke mirisom, lagano potezanje i mentalne slagalice."
+
+
+#: woof/templates/woof/games.html:162
+msgid ""
+"Watch for signs of fatigue: panting, refusal of the toy, reduced interest. "
+"The game should stop while the dog still wants to continue."
+msgstr "Pazite na znakove umora: dahtanje, odbijanje igračke, smanjeno interesovanje. Igra treba da se završi dok pas još želi da nastavi."
+
+
+#: woof/templates/woof/games.html:165
+msgid "If an injury or an unusual condition appears, contact a veterinarian."
+msgstr "Ako se pojavi povreda ili neobično stanje, kontaktirajte veterinara."
+
+
+#: woof/templates/woof/games.html:171
+msgid ""
+"Regular play makes a dog healthier, calmer and happier. Choose games that "
+"match your dog's age, energy and taste — and play with joy yourself."
+msgstr "Redovna igra čini psa zdravijim, smirenijim i srećnijim. Birajte igre koje odgovaraju uzrastu, energiji i ukusu vašeg psa — i igrajte se sa radošću i sami."
+
+
+#: woof/templates/woof/games.html:174
+msgid "A variety of games keeps both physical shape and psychological balance."
+msgstr "Raznovrsnost igara održava i fizičku kondiciju i psihološku ravnotežu."
+
+
+#: woof/templates/woof/groups.html:39
+msgid "Explore all FCI dog groups and their sections"
+msgstr "Istražite sve FCI grupe pasa i njihove sekcije"
+
+
+#: woof/templates/woof/groups.html:45
+msgid ""
+"Explore the official <strong>FCI groups</strong> below — each group contains "
+"breeds with similar history, purpose, and characteristics. Discover "
+"individual breeds."
+msgstr "Ispod istražite zvanične <strong>FCI grupe</strong> — svaka grupa sadrži rase slične istorije, namene i karakteristika. Otkrijte pojedinačne rase."
+
+
+#: woof/templates/woof/groups.html:74 woof/templates/woof/groups.html:122
+msgid "Look more"
+msgstr "Pogledaj više"
+
+
+#: woof/templates/woof/groups.html:88
+msgid "Breeds outside the current FCI structure"
+msgstr "Rase izvan trenutne FCI strukture"
+
+
+#: woof/templates/woof/groups.html:90
+msgid ""
+"Some breeds on the site are not currently placed inside the official FCI "
+"classification. They are collected in a separate category so you can still "
+"browse and compare them easily."
+msgstr "Neke rase na sajtu trenutno nisu smeštene unutar zvanične FCI klasifikacije. Sakupljene su u posebnu kategoriju kako biste ih i dalje mogli lako pregledati i upoređivati."
+
+
+#: woof/templates/woof/groups.html:109
+msgid "Other Breeds"
+msgstr "Ostale rase"
+
+
+#: woof/templates/woof/guides.html:41
+msgid "Learn more about dogs"
+msgstr "Saznajte više o psima"
+
+
+#: woof/templates/woof/guides.html:44
+msgid ""
+"Explore <strong>short</strong> guides about choosing, training, "
+"understanding and caring for dogs. These pages are designed to help both new "
+"and experienced owners. No unnecessary theory, only what you can apply in "
+"everyday life. You can read them in any order, depending on your situation."
+msgstr "Istražite <strong>kratke</strong> vodiče o izboru, obuci, razumevanju i nezi pasa. Ove stranice su zamišljene da pomognu i novim i iskusnim vlasnicima. Bez suvišne teorije — samo ono što možete primeniti u svakodnevnom životu. Možete ih čitati bilo kojim redosledom, u zavisnosti od svoje situacije."
+
+
+#: woof/templates/woof/guides.html:65
+msgid ""
+"Learn how to choose a breed that matches your lifestyle, activity level and "
+"living space."
+msgstr "Naučite kako da odaberete rasu koja odgovara vašem životnom stilu, nivou aktivnosti i životnom prostoru."
+
+
+#: woof/templates/woof/guides.html:68 woof/templates/woof/guides.html:87
+#: woof/templates/woof/guides.html:106 woof/templates/woof/guides.html:125
+#: woof/templates/woof/guides.html:144 woof/templates/woof/guides.html:163
+#: woof/templates/woof/guides.html:182 woof/templates/woof/guides.html:201
+msgid "Read"
+msgstr "Pročitaj"
+
+
+#: woof/templates/woof/guides.html:84
+msgid ""
+"Learn about early puppy development, socialization, routines and first-life "
+"stages."
+msgstr "Saznajte više o ranom razvoju šteneta, socijalizaciji, rutinama i prvim fazama života."
+
+
+#: woof/templates/woof/guides.html:103
+msgid ""
+"Understand basic training principles, communication and learning consistency."
+msgstr "Razumite osnovne principe obuke, komunikaciju i doslednost u učenju."
+
+
+#: woof/templates/woof/guides.html:122
+msgid ""
+"Learn about grooming, nutrition, preventive care and general health basics."
+msgstr "Saznajte više o nezi, ishrani, preventivnoj nezi i osnovama zdravlja."
+
+
+#: woof/templates/woof/guides.html:141
+msgid ""
+"Discover how dogs communicate, express emotions and react to the world "
+"around them."
+msgstr "Otkrijte kako psi komuniciraju, izražavaju emocije i reaguju na svet oko sebe."
+
+
+#: woof/templates/woof/guides.html:160
+msgid ""
+"Daily routines, home adaptation and long-term lifestyle organization with a "
+"dog."
+msgstr "Svakodnevne rutine, prilagođavanje domu i dugoročna organizacija života sa psom."
+
+
+#: woof/templates/woof/guides.html:179
+msgid ""
+"Learn how to choose food, feed by age and build a healthy drinking regime."
+msgstr "Naučite kako da odaberete hranu, hranite po uzrastu i uspostavite zdrav režim pijenja."
+
+
+#: woof/templates/woof/guides.html:198
+msgid ""
+"Discover safe games and activities that keep your dog active, engaged and "
+"happy."
+msgstr "Otkrijte bezbedne igre i aktivnosti koje održavaju vašeg psa aktivnim, angažovanim i srećnim."
+
+
+#: woof/templates/woof/health.html:64
+msgid ""
+"Dog health is a combination of prevention, observation, and consistent care. "
+"It is not only about treating illness, but about maintaining a stable "
+"physical condition throughout the dog’s life."
+msgstr "Zdravlje psa je kombinacija prevencije, posmatranja i dosledne nege. Ne radi se samo o lečenju bolesti, već o održavanju stabilnog fizičkog stanja tokom celog života psa."
+
+
+#: woof/templates/woof/health.html:67
+msgid ""
+"This guide focuses on general principles of health management, not "
+"veterinary diagnosis or treatment. Any medical concerns should always be "
+"handled by a qualified veterinarian."
+msgstr "Ovaj vodič se fokusira na opšte principe upravljanja zdravljem, a ne na veterinarsku dijagnostiku ili lečenje. Sva medicinska pitanja uvek treba da rešava kvalifikovani veterinar."
+
+
+#: woof/templates/woof/health.html:72
+msgid "Preventive care and routine checks"
+msgstr "Preventivna nega i redovne provere"
+
+
+#: woof/templates/woof/health.html:74
+msgid ""
+"Preventive care is the most important aspect of maintaining long-term "
+"health. Regular veterinary check-ups help detect issues early, often before "
+"symptoms become visible."
+msgstr "Preventivna nega najvažniji je aspekt održavanja dugoročnog zdravlja. Redovne veterinarske provere pomažu da se problemi otkriju rano, često pre nego što simptomi postanu vidljivi."
+
+
+#: woof/templates/woof/health.html:77
+msgid ""
+"Vaccinations, parasite prevention, and routine examinations form the "
+"foundation of responsible ownership. These measures reduce the risk of "
+"serious illness and improve overall lifespan quality."
+msgstr "Vakcinacija, prevencija parazita i rutinski pregledi temelj su odgovornog vlasništva. Ove mere smanjuju rizik od ozbiljnih bolesti i poboljšavaju kvalitet života."
+
+
+#: woof/templates/woof/health.html:80
+msgid ""
+"Many health problems develop gradually, which is why consistent monitoring "
+"is more effective than reactive treatment."
+msgstr "Mnogi zdravstveni problemi se razvijaju postepeno, zbog čega je dosledno praćenje efikasnije od reaktivnog lečenja."
+
+
+#: woof/templates/woof/health.html:84
+msgid "Nutrition and physical condition"
+msgstr "Ishrana i fizičko stanje"
+
+
+#: woof/templates/woof/health.html:86
+msgid ""
+"Nutrition directly influences energy levels, coat quality, weight, and "
+"immune system stability. A balanced diet should be appropriate for the dog’s "
+"age, size, and activity level."
+msgstr "Ishrana direktno utiče na nivo energije, kvalitet dlake, težinu i stabilnost imunog sistema. Uravnotežena ishrana treba da odgovara uzrastu, veličini i nivou aktivnosti psa."
+
+
+#: woof/templates/woof/health.html:89
+msgid ""
+"Overfeeding is one of the most common health issues in domestic dogs and can "
+"lead to obesity-related complications. Underfeeding or low-quality diets can "
+"also cause deficiencies and long-term problems."
+msgstr "Preterano hranjenje jedan je od najčešćih zdravstvenih problema domaćih pasa i može dovesti do komplikacija povezanih sa gojaznošću. Nedovoljno hranjenje ili ishrana niskog kvaliteta takođe mogu izazvati nedostatke i dugoročne probleme."
+
+
+#: woof/templates/woof/health.html:92
+msgid ""
+"Consistency in feeding habits helps maintain stable digestion and prevents "
+"sudden metabolic stress."
+msgstr "Doslednost u navikama ishrane pomaže stabilnom varenju i sprečava nagli metabolički stres."
+
+
+#: woof/templates/woof/health.html:94
+msgid ""
+"For practical details — food formats, feeding by age, portions and the "
+"drinking regime — see the separate guide on feeding your dog."
+msgstr "Za praktične detalje — formate hrane, ishranu po uzrastu, porcije i režim pijenja — pogledajte poseban vodič o ishrani vašeg psa."
+
+
+#: woof/templates/woof/health.html:99
+msgid "Hygiene and grooming"
+msgstr "Higijena i nega dlake"
+
+
+#: woof/templates/woof/health.html:101
+msgid ""
+"Grooming is not only cosmetic but also a health-related necessity. Regular "
+"brushing helps prevent skin irritation, removes dead hair, and improves "
+"blood circulation."
+msgstr "Nega dlake nije samo kozmetika, već i zdravstvena potreba. Redovno češljanje pomaže prevenciji iritacija kože, uklanja mrtvu dlaku i poboljšava cirkulaciju."
+
+
+#: woof/templates/woof/health.html:104
+msgid ""
+"Nail trimming, ear cleaning, and dental care are often overlooked but "
+"essential for preventing infections and discomfort."
+msgstr "Sečenje noktiju, čišćenje ušiju i nega zuba često se zanemaruju, ali su neophodni za prevenciju infekcija i nelagodnosti."
+
+
+#: woof/templates/woof/health.html:106
+msgid ""
+"The frequency of grooming depends on breed type, coat length, and lifestyle."
+msgstr "Učestalost nege zavisi od vrste rase, dužine dlake i životnog stila."
+
+
+#: woof/templates/woof/health.html:110
+msgid "Common health issues"
+msgstr "Česti zdravstveni problemi"
+
+
+#: woof/templates/woof/health.html:112
+msgid ""
+"Some health problems are more common across domestic dogs, including skin "
+"allergies, digestive issues, and joint stress in larger breeds."
+msgstr "Neki zdravstveni problemi su češći kod domaćih pasa, uključujući alergije na koži, probleme s varenjem i opterećenje zglobova kod većih rasa."
+
+
+#: woof/templates/woof/health.html:114
+msgid ""
+"Early signs often include changes in appetite, energy levels, coat "
+"condition, or behavior patterns. These indicators should not be ignored, "
+"even if they appear minor."
+msgstr "Rani znaci često uključuju promene u apetitu, nivou energije, stanju dlake ili obrascima ponašanja. Ove pokazatelje ne treba ignorisati, čak i ako deluju beznačajno."
+
+
+#: woof/templates/woof/health.html:117
+msgid ""
+"Timely response to early symptoms significantly improves outcomes and "
+"reduces long-term complications."
+msgstr "Pravovremena reakcija na rane simptome značajno poboljšava ishode i smanjuje dugoročne komplikacije."
+
+
+#: woof/templates/woof/health.html:121
+msgid "Physical activity and body maintenance"
+msgstr "Fizička aktivnost i održavanje tela"
+
+
+#: woof/templates/woof/health.html:123
+msgid ""
+"Regular physical activity supports cardiovascular health, muscle tone, and "
+"joint mobility. The required level of activity varies significantly "
+"depending on breed and age."
+msgstr "Redovna fizička aktivnost podržava kardiovaskularno zdravlje, mišićni tonus i pokretljivost zglobova. Potreban nivo aktivnosti značajno se razlikuje u zavisnosti od rase i uzrasta."
+
+
+#: woof/templates/woof/health.html:126
+msgid ""
+"Insufficient movement can lead to weight gain and reduced overall vitality, "
+"while excessive strain without proper rest can cause injuries."
+msgstr "Nedovoljno kretanje može dovesti do povećanja telesne težine i smanjene vitalnosti, dok prekomerno opterećenje bez dovoljno odmora može izazvati povrede."
+
+
+#: woof/templates/woof/health.html:129
+msgid ""
+"A balanced approach to exercise is essential for long-term physical "
+"stability."
+msgstr "Uravnotežen pristup vežbanju neophodan je za dugoročnu fizičku stabilnost."
+
+
+#: woof/templates/woof/health.html:133
+msgid "Mental health and well-being"
+msgstr "Mentalno zdravlje i dobrostanje"
+
+
+#: woof/templates/woof/health.html:135
+msgid ""
+"Mental health is closely linked to physical health in dogs. Stress, boredom, "
+"and lack of stimulation can negatively affect the immune system and behavior."
+msgstr "Mentalno zdravlje kod pasa je usko povezano sa fizičkim. Stres, dosada i nedostatak stimulacije mogu negativno uticati na imuni sistem i ponašanje."
+
+
+#: woof/templates/woof/health.html:138
+msgid ""
+"Environmental stability, interaction, and predictable routines help maintain "
+"emotional balance."
+msgstr "Stabilnost okruženja, interakcija i predvidljive rutine pomažu održavanju emotivne ravnoteže."
+
+
+#: woof/templates/woof/health.html:140
+msgid ""
+"A mentally healthy dog is generally more stable, responsive, and physically "
+"resilient."
+msgstr "Mentalno zdrav pas je generalno stabilniji, prisebniji i fizički otporniji."
+
+
+#: woof/templates/woof/health.html:146
+msgid ""
+"Dog health is a continuous process rather than a fixed state. It requires "
+"consistent attention to nutrition, hygiene, prevention, and lifestyle "
+"balance."
+msgstr "Zdravlje psa je neprekidan proces, a ne fiksno stanje. Zahteva doslednu pažnju na ishranu, higijenu, prevenciju i ravnotežu životnog stila."
+
+
+#: woof/templates/woof/health.html:149
+msgid ""
+"When properly managed, these factors significantly increase both the quality "
+"and length of a dog’s life."
+msgstr "Kada se pravilno vode, ovi faktori značajno povećavaju i kvalitet i dužinu života psa."
+
+
+#: woof/templates/woof/home.html:126
+msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
+msgstr "Malo haosa, puno <span class=\"love-word\">ljubavi</span>"
+
+
+#: woof/templates/woof/home.html:133 woof/templates/woof/home.html:136
+#: woof/templates/woof/home.html:147 woof/templates/woof/home.html:170
+msgid "Find by group"
+msgstr "Pronađi po grupi"
+
+
+#: woof/templates/woof/home.html:181 woof/templates/woof/home.html:184
+#: woof/templates/woof/home.html:199 woof/templates/woof/home.html:227
+msgid "Find by breed"
+msgstr "Pronađi po rasi"
+
+
+#: woof/templates/woof/home.html:240
+msgid ""
+"A simple way to find a dog that really fits your lifestyle, your home, and "
+"your everyday rhythm — and feels like it belongs there"
+msgstr "Jednostavan način da pronađete psa koji zaista odgovara vašem životnom stilu, domu i svakodnevnom ritmu — i koji se tu oseća kao kod kuće"
+
+
+#: woof/templates/woof/home.html:251
+msgid "A happy dog"
+msgstr "Srećan pas"
+
+
+#: woof/templates/woof/home.html:264
+msgid "Scroll down"
+msgstr "Skroluj nadole"
+
+
+#: woof/templates/woof/home.html:287 woof/templates/woof/home.html:291
+msgid "Breed profiles"
+msgstr "Profili rasa"
+
+
+#: woof/templates/woof/home.html:295
+msgid "Explore breeds by size, temperament,<br> lifestyle and more."
+msgstr "Istražite rase po veličini, temperamentu,<br> životnom stilu i više."
+
+
+#: woof/templates/woof/includes/guide_disclaimer.html:5
+msgid ""
+"Please note: these guides are created for informational purposes only and do "
+"not replace veterinary advice. If your pet shows signs of health problems — "
+"unusual or atypical behavior, refusal to eat, or any other worrying symptoms "
+"— please do not self-medicate and take your pet to a veterinarian."
+msgstr "Napomena: ovi vodiči su napravljeni samo u informativne svrhe i ne zamenjuju savet veterinara. Ako vaš ljubimac pokazuje znake zdravstvenih problema — neuobičajeno ili atipično ponašanje, odbijanje hrane ili bilo koje druge zabrinjavajuće simptome — molimo vas da se ne bavite samolečenjem i odvedete ljubimca veterinaru."
+
+
+#: woof/templates/woof/living_with_dog.html:52
+msgid "What “living with a dog” actually means"
+msgstr "Šta zapravo znači „život sa psom“"
+
+
+#: woof/templates/woof/living_with_dog.html:54
+msgid ""
+"Living with a dog is primarily about organizing your daily life around "
+"another living being that depends on structure and consistency. It is less "
+"about individual tasks like training or feeding, and more about how your "
+"home, time, and routines change as a system."
+msgstr "Život sa psom prvenstveno znači organizovanje svakodnevnog života oko drugog živog bića koje zavisi od strukture i doslednosti. Manje se radi o pojedinačnim zadacima poput obuke ili ishrane, a više o tome kako se vaš dom, vreme i rutine menjaju kao sistem."
+
+
+#: woof/templates/woof/living_with_dog.html:57
+msgid ""
+"Once a dog becomes part of the household, your lifestyle stops being fully "
+"flexible. Daily planning, free time, and even travel decisions begin to take "
+"the dog’s needs into account."
+msgstr "Kada pas postane deo domaćinstva, vaš životni stil prestaje da bude potpuno fleksibilan. Svakodnevno planiranje, slobodno vreme, pa i odluke o putovanjima počinju da uzimaju u obzir potrebe psa."
+
+
+#: woof/templates/woof/living_with_dog.html:61
+msgid "Daily structure and time organization"
+msgstr "Svakodnevna struktura i organizacija vremena"
+
+
+#: woof/templates/woof/living_with_dog.html:63
+msgid ""
+"A stable daily rhythm is the foundation of life with a dog. Instead of "
+"thinking in isolated tasks, it is better to think in blocks of time: "
+"morning, midday, evening, and rest periods."
+msgstr "Stabilan dnevni ritam temelj je života sa psom. Umesto razmišljanja o izolovanim zadacima, bolje je razmišljati u vremenskim blokovima: jutro, podne, veče i periodi odmora."
+
+
+#: woof/templates/woof/living_with_dog.html:66
+msgid ""
+"Walks, feeding, and rest are repeated every day at roughly the same times. "
+"This creates predictability, which helps the dog feel secure and reduces "
+"stress in the household."
+msgstr "Šetnje, hranjenje i odmor ponavljaju se svakog dana u približno isto vreme. To stvara predvidljivost koja pomaže psu da se oseća sigurno i smanjuje stres u domaćinstvu."
+
+
+#: woof/templates/woof/living_with_dog.html:69
+msgid ""
+"The key point is not the exact schedule, but consistency. Dogs adapt well to "
+"routine, but poorly to frequent unpredictable changes."
+msgstr "Ključna stvar nije tačan raspored, već doslednost. Psi se dobro prilagođavaju rutini, ali loše čestim nepredvidivim promenama."
+
+
+#: woof/templates/woof/living_with_dog.html:73
+msgid "Home organization and shared space"
+msgstr "Organizacija doma i zajednički prostor"
+
+
+#: woof/templates/woof/living_with_dog.html:75
+msgid ""
+"Living with a dog also means adapting your physical space. The home becomes "
+"a shared environment where both human and dog have defined areas and rules."
+msgstr "Život sa psom znači i prilagođavanje fizičkog prostora. Dom postaje zajedničko okruženje u kojem i čovek i pas imaju definisane zone i pravila."
+
+
+#: woof/templates/woof/living_with_dog.html:78
+msgid ""
+"A resting zone for the dog is important because it creates predictability "
+"and reduces overstimulation. At the same time, some areas of the home may "
+"need boundaries depending on safety and comfort."
+msgstr "Zona odmora za psa je važna jer stvara predvidljivost i smanjuje preteranu stimulaciju. Istovremeno, neki delovi doma mogu zahtevati granice u zavisnosti od bezbednosti i udobnosti."
+
+
+#: woof/templates/woof/living_with_dog.html:81
+msgid ""
+"This is not about restriction, but about structure. Dogs feel more relaxed "
+"when they understand where they can rest, play, or simply observe the "
+"environment."
+msgstr "To nije ograničavanje, već struktura. Psi se osećaju opuštenije kada razumeju gde mogu da se odmore, igraju ili jednostavno posmatraju okruženje."
+
+
+#: woof/templates/woof/living_with_dog.html:85
+msgid "Energy management during the day"
+msgstr "Upravljanje energijom tokom dana"
+
+
+#: woof/templates/woof/living_with_dog.html:87
+msgid ""
+"One of the most important aspects of living with a dog is managing energy "
+"levels throughout the day. This does not refer to training, but to balancing "
+"activity and rest."
+msgstr "Jedan od najvažnijih aspekata života sa psom je upravljanje nivoom energije tokom dana. To se ne odnosi na obuku, već na balansiranje aktivnosti i odmora."
+
+
+#: woof/templates/woof/living_with_dog.html:90
+msgid ""
+"Without enough physical activity, dogs often become restless. Without enough "
+"rest, they can become overstimulated and less predictable in behavior."
+msgstr "Bez dovoljno fizičke aktivnosti psi često postaju nemirni. Bez dovoljno odmora mogu postati preterano stimulisani i manje predvidljivi u ponašanju."
+
+
+#: woof/templates/woof/living_with_dog.html:93
+msgid ""
+"A stable routine naturally balances both: activity during walks and calm "
+"periods at home."
+msgstr "Stabilna rutina prirodno balansira oboje: aktivnost tokom šetnji i mirne periode kod kuće."
+
+
+#: woof/templates/woof/living_with_dog.html:97
+msgid "Time commitment and lifestyle changes"
+msgstr "Vremenska posvećenost i promene životnog stila"
+
+
+#: woof/templates/woof/living_with_dog.html:99
+msgid ""
+"Living with a dog introduces a long-term time commitment that affects daily "
+"freedom. Spontaneous decisions such as long trips, late evenings out, or "
+"sudden schedule changes become more limited."
+msgstr "Život sa psom donosi dugoročnu vremensku posvećenost koja utiče na svakodnevnu slobodu. Spontane odluke poput dugih putovanja, kasnih izlazaka ili naglih promena rasporeda postaju ograničenije."
+
+
+#: woof/templates/woof/living_with_dog.html:102
+msgid ""
+"This is not a negative aspect, but a structural change in lifestyle. The "
+"owner shifts from a fully flexible schedule to a shared routine-based system."
+msgstr "To nije negativan aspekt, već strukturna promena životnog stila. Vlasnik prelazi sa potpuno fleksibilnog rasporeda na zajednički sistem zasnovan na rutini."
+
+
+#: woof/templates/woof/living_with_dog.html:105
+msgid ""
+"Understanding this early helps avoid frustration and unrealistic "
+"expectations."
+msgstr "Razumevanje ovoga rano pomaže da se izbegnu frustracije i nerealna očekivanja."
+
+
+#: woof/templates/woof/living_with_dog.html:108
+msgid "Emotional role in everyday life"
+msgstr "Emotivna uloga u svakodnevnom životu"
+
+
+#: woof/templates/woof/living_with_dog.html:110
+msgid ""
+"Beyond physical routines, dogs also influence emotional structure in the "
+"household. Their presence creates continuity, attention cycles, and a sense "
+"of shared responsibility."
+msgstr "Pored fizičkih rutina, psi utiču i na emotivnu strukturu domaćinstva. Njihovo prisustvo stvara kontinuitet, cikluse pažnje i osećaj zajedničke odgovornosti."
+
+
+#: woof/templates/woof/living_with_dog.html:113
+msgid ""
+"This does not replace human relationships, but it adds a stable emotional "
+"layer to daily life. Many owners experience increased routine stability and "
+"reduced isolation."
+msgstr "To ne zamenjuje ljudske odnose, ali dodaje stabilan emotivni sloj svakodnevnom životu. Mnogi vlasnici primećuju veću stabilnost rutine i manju izolovanost."
+
+
+#: woof/templates/woof/living_with_dog.html:119
+msgid ""
+"Living with a dog is best understood as organizing a shared life system "
+"rather than managing separate tasks. When structure, routine, and space are "
+"well balanced, both dog and owner benefit from a stable and predictable "
+"environment."
+msgstr "Život sa psom najbolje je razumeti kao organizovanje zajedničkog životnog sistema, a ne kao vođenje pojedinačnih zadataka. Kada su struktura, rutina i prostor dobro uravnoteženi, i pas i vlasnik imaju koristi od stabilnog i predvidljivog okruženja."
+
+
+#: woof/templates/woof/post.html:113
+msgid "Click to enlarge"
+msgstr "Klikni za uvećanje"
+
+
+#: woof/templates/woof/post.html:173
+msgid "Section"
+msgstr "Sekcija"
+
+
+#: woof/templates/woof/post.html:181 woof/templates/woof/post.html:483
+msgid "Varieties"
+msgstr "Varijeteti"
+
+
+#: woof/templates/woof/post.html:189 woof/templates/woof/post.html:484
+msgid "Origin"
+msgstr "Poreklo"
+
+
+#: woof/templates/woof/post.html:197 woof/templates/woof/post.html:485
+msgid "Size"
+msgstr "Veličina"
+
+
+#: woof/templates/woof/post.html:205 woof/templates/woof/post.html:488
+msgid "Life expectancy"
+msgstr "Životni vek"
+
+
+#: woof/templates/woof/post.html:207
+#, python-format
+msgid "%(years)s years"
+msgstr "%(years)s godina"
+
+
+#: woof/templates/woof/post.html:215
+msgid "Height & Weight"
+msgstr "Visina i težina"
+
+
+#: woof/templates/woof/post.html:220
+#, python-format
+msgid "%(h)s cm, %(w)s kg"
+msgstr "%(h)s cm, %(w)s kg"
+
+
+#: woof/templates/woof/post.html:222
+msgid ""
+"Range includes values for both males and females. Individual values may vary "
+"by sex."
+msgstr "Opseg uključuje vrednosti za mužjake i ženke. Pojedinačne vrednosti mogu varirati u zavisnosti od pola."
+
+
+#: woof/templates/woof/post.html:231 woof/templates/woof/post.html:489
+msgid "Trainability"
+msgstr "Dresabilnost"
+
+
+#: woof/templates/woof/post.html:239
+msgid "Activity level"
+msgstr "Nivo aktivnosti"
+
+
+#: woof/templates/woof/post.html:247 woof/templates/woof/post.html:491
+msgid "Barking"
+msgstr "Lajanje"
+
+
+#: woof/templates/woof/post.html:255
+msgid "Allergy friendly"
+msgstr "Pogodan za alergičare"
+
+
+#: woof/templates/woof/post.html:263 woof/templates/woof/post.html:493
+msgid "Family friendly"
+msgstr "Pogodan za porodicu"
+
+
+#: woof/templates/woof/post.html:271 woof/templates/woof/post.html:487
+msgid "Coat"
+msgstr "Dlaka"
+
+
+#: woof/templates/woof/post.html:288
+msgid "Colors"
+msgstr "Boje"
+
+
+#: woof/templates/woof/post.html:319
+msgid "About the Breed"
+msgstr "O rasi"
+
+
+#: woof/templates/woof/post.html:324
+msgid "Varieties of German Spitz (links to breeds):"
+msgstr "Varijeteti nemačkog špica (linkovi ka rasama):"
+
+
+#: woof/templates/woof/post.html:327
+msgid "Keeshond (Wolfspitz)"
+msgstr "Kešond (vučji špic)"
+
+
+#: woof/templates/woof/post.html:329
+msgid "Pomeranian"
+msgstr "Pomeranski špic"
+
+
+#: woof/templates/woof/post.html:332
+msgid "Varieties of German Spitz by size:"
+msgstr "Varijeteti nemačkog špica po veličini:"
+
+
+#: woof/templates/woof/post.html:333
+msgid "Miniature, Medium, Giant"
+msgstr "Patuljasti, srednji, veliki"
+
+
+#: woof/templates/woof/post.html:339
+msgid "German Spitz link:"
+msgstr "Link ka nemačkom špicu:"
+
+
+#: woof/templates/woof/post.html:342
+msgid "German Spitz"
+msgstr "Nemački špic"
+
+
+#: woof/templates/woof/post.html:349
+msgid "Summary."
+msgstr "Sažetak."
+
+
+#: woof/templates/woof/post.html:352
+msgid "Care."
+msgstr "Nega."
+
+
+#: woof/templates/woof/post.html:355
+msgid "Conditions."
+msgstr "Uslovi."
+
+
+#: woof/templates/woof/post.html:363
+msgid "Copy link"
+msgstr "Kopiraj link"
+
+
+#: woof/templates/woof/post.html:404
+msgid "Compare breeds"
+msgstr "Uporedi rase"
+
+
+#: woof/templates/woof/post.html:437 woof/templates/woof/post.html:466
+#: woof/templates/woof/post.html:469
+msgid "Select breed"
+msgstr "Izaberi rasu"
+
+
+#: woof/templates/woof/post.html:486
+msgid "Height / Weight"
+msgstr "Visina / težina"
+
+
+#: woof/templates/woof/post.html:490
+msgid "Activity"
+msgstr "Aktivnost"
+
+
+#: woof/templates/woof/post.html:492
+msgid "Allergy-Friendly"
+msgstr "Pogodan za alergičare"
+
+
+#: woof/templates/woof/post.html:494
+msgid "years"
+msgstr "godina"
+
+
+#: woof/templates/woof/post.html:504
+msgid "Other breeds in this group"
+msgstr "Ostale rase u ovoj grupi"
+
+
+#: woof/templates/woof/privacy_policy.html:36
+#: woof/templates/woof/terms_and_conditions.html:32
+msgid "Last updated: February 2, 2026"
+msgstr "Poslednje ažuriranje: 2. februar 2026."
+
+
+#: woof/templates/woof/privacy_policy.html:40
+#: woof/templates/woof/terms_and_conditions.html:35
+msgid "Table of Contents"
+msgstr "Sadržaj"
+
+
+#: woof/templates/woof/privacy_policy.html:44
+msgid "Who we are"
+msgstr "Ko smo mi"
+
+
+#: woof/templates/woof/privacy_policy.html:44
+#: woof/templates/woof/privacy_policy.html:74
+msgid "1. Who we are"
+msgstr "1. Ko smo mi"
+
+
+#: woof/templates/woof/privacy_policy.html:46
+msgid "Personal data you provide"
+msgstr "Lični podaci koje nam dajete"
+
+
+#: woof/templates/woof/privacy_policy.html:46
+#: woof/templates/woof/privacy_policy.html:94
+msgid "2. Personal data you provide"
+msgstr "2. Lični podaci koje nam dajete"
+
+
+#: woof/templates/woof/privacy_policy.html:48
+msgid "Automatically collected information"
+msgstr "Automatski prikupljene informacije"
+
+
+#: woof/templates/woof/privacy_policy.html:48
+#: woof/templates/woof/privacy_policy.html:113
+msgid "3. Automatically collected information"
+msgstr "3. Automatski prikupljene informacije"
+
+
+#: woof/templates/woof/privacy_policy.html:50
+msgid "Purposes of processing"
+msgstr "Svrhe obrade"
+
+
+#: woof/templates/woof/privacy_policy.html:50
+#: woof/templates/woof/privacy_policy.html:133
+msgid "4. Purposes of processing"
+msgstr "4. Svrhe obrade"
+
+
+#: woof/templates/woof/privacy_policy.html:52
+msgid "Legal bases and regional laws"
+msgstr "Pravni osnovi i regionalni zakoni"
+
+
+#: woof/templates/woof/privacy_policy.html:52
+#: woof/templates/woof/privacy_policy.html:144
+msgid "5. Legal bases and regional laws"
+msgstr "5. Pravni osnovi i regionalni zakoni"
+
+
+#: woof/templates/woof/privacy_policy.html:54
+msgid "Cookies and tracking technologies"
+msgstr "Kolačići i tehnologije praćenja"
+
+
+#: woof/templates/woof/privacy_policy.html:54
+#: woof/templates/woof/privacy_policy.html:246
+msgid "6. Cookies and tracking technologies"
+msgstr "6. Kolačići i tehnologije praćenja"
+
+
+#: woof/templates/woof/privacy_policy.html:56
+msgid "Sharing of information"
+msgstr "Deljenje informacija"
+
+
+#: woof/templates/woof/privacy_policy.html:56
+#: woof/templates/woof/privacy_policy.html:260
+msgid "7. Sharing of information"
+msgstr "7. Deljenje informacija"
+
+
+#: woof/templates/woof/privacy_policy.html:58
+#: woof/templates/woof/privacy_policy.html:267
+msgid "8. International data transfers"
+msgstr "8. Međunarodni prenosi podataka"
+
+
+#: woof/templates/woof/privacy_policy.html:60
+msgid "Data retention"
+msgstr "Čuvanje podataka"
+
+
+#: woof/templates/woof/privacy_policy.html:60
+#: woof/templates/woof/privacy_policy.html:276
+msgid "9. Data retention"
+msgstr "9. Čuvanje podataka"
+
+
+#: woof/templates/woof/privacy_policy.html:62
+msgid "Your privacy rights"
+msgstr "Vaša prava na privatnost"
+
+
+#: woof/templates/woof/privacy_policy.html:62
+#: woof/templates/woof/privacy_policy.html:283
+msgid "10. Your privacy rights"
+msgstr "10. Vaša prava na privatnost"
+
+
+#: woof/templates/woof/privacy_policy.html:64
+msgid "Children’s privacy"
+msgstr "Privatnost dece"
+
+
+#: woof/templates/woof/privacy_policy.html:64
+#: woof/templates/woof/privacy_policy.html:298
+msgid "11. Children’s privacy"
+msgstr "11. Privatnost dece"
+
+
+#: woof/templates/woof/privacy_policy.html:66
+msgid "Updates to this policy"
+msgstr "Ažuriranja ove politike"
+
+
+#: woof/templates/woof/privacy_policy.html:66
+#: woof/templates/woof/privacy_policy.html:305
+msgid "12. Updates to this policy"
+msgstr "12. Ažuriranja ove politike"
+
+
+#: woof/templates/woof/privacy_policy.html:68
+msgid "Contact information"
+msgstr "Kontakt informacije"
+
+
+#: woof/templates/woof/privacy_policy.html:68
+#: woof/templates/woof/privacy_policy.html:312
+msgid "13. Contact information"
+msgstr "13. Kontakt informacije"
+
+
+#: woof/templates/woof/privacy_policy.html:77
+msgid "This Privacy Policy describes how"
+msgstr "Ova Politika privatnosti opisuje kako"
+
+
+#: woof/templates/woof/privacy_policy.html:79
+msgid ""
+"(«Website», «we», «us») collects, uses, and protects information when you "
+"visit our website"
+msgstr "(«Veb-sajt», «mi», «nas») prikuplja, koristi i štiti informacije kada posetite naš veb-sajt"
+
+
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:72
+msgid "https://woofdogs.world/"
+msgstr "https://woofdogs.world/"
+
+
+#: woof/templates/woof/privacy_policy.html:86
+msgid ""
+"By using this Website, you agree to the collection and use of information in "
+"accordance with this Privacy Policy."
+msgstr "Korišćenjem ovog Veb-sajta prihvatate prikupljanje i korišćenje informacija u skladu sa ovom Politikom privatnosti."
+
+
+#: woof/templates/woof/privacy_policy.html:89
+msgid ""
+"Woof Dogs is an informational website dedicated to dog breeds and related "
+"content. We do not provide user accounts, registration, or login "
+"functionality."
+msgstr "Woof Dogs je informativni veb-sajt posvećen rasama pasa i povezanim sadržajima. Ne pružamo korisničke naloge, registraciju ili funkciju prijavljivanja."
+
+
+#: woof/templates/woof/privacy_policy.html:96
+msgid ""
+"<em>In short:</em> We only process the personal data you voluntarily provide."
+msgstr "<em>Ukratko:</em> Obrađujemo samo lične podatke koje dobrovoljno date."
+
+
+#: woof/templates/woof/privacy_policy.html:99
+msgid ""
+"The Website does not require registration and does not request usernames, "
+"passwords, or email addresses by default. However, if you contact us through "
+"the"
+msgstr "Veb-sajt ne zahteva registraciju i podrazumevano ne traži korisnička imena, lozinke ili adrese e-pošte. Međutim, ako nas kontaktirate preko"
+
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid "Contact Form"
+msgstr "kontakt formulara"
+
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid ", we collect:"
+msgstr ", prikupljamo:"
+
+
+#: woof/templates/woof/privacy_policy.html:104
+msgid "Email address"
+msgstr "Adresa e-pošte"
+
+
+#: woof/templates/woof/privacy_policy.html:105
+msgid "Message or inquiry content"
+msgstr "Sadržaj poruke ili upita"
+
+
+#: woof/templates/woof/privacy_policy.html:108
+msgid ""
+"We use this information solely to respond to your inquiry and do not share "
+"it with third parties except where required by law."
+msgstr "Ove informacije koristimo isključivo da bismo odgovorili na vaš upit i ne delimo ih sa trećim stranama osim kada je to propisano zakonom."
+
+
+#: woof/templates/woof/privacy_policy.html:115
+msgid ""
+"When you visit the Website, certain information may be collected "
+"automatically, including:"
+msgstr "Kada posetite Veb-sajt, određene informacije mogu se automatski prikupiti, uključujući:"
+
+
+#: woof/templates/woof/privacy_policy.html:119
+msgid "IP address"
+msgstr "IP adresa"
+
+
+#: woof/templates/woof/privacy_policy.html:120
+msgid "Browser type and version"
+msgstr "Tip i verzija pregledača"
+
+
+#: woof/templates/woof/privacy_policy.html:121
+msgid "Device and operating system information"
+msgstr "Informacije o uređaju i operativnom sistemu"
+
+
+#: woof/templates/woof/privacy_policy.html:122
+msgid "Pages visited and time spent on the site"
+msgstr "Posete stranicama i vreme provedeno na sajtu"
+
+
+#: woof/templates/woof/privacy_policy.html:123
+msgid "Referring URLs"
+msgstr "Referentni URL-ovi"
+
+
+#: woof/templates/woof/privacy_policy.html:126
+msgid ""
+"This information does not directly identify you and is used for analytics, "
+"security, and performance improvement."
+msgstr "Ove informacije vas ne identifikuju direktno i koriste se za analitiku, bezbednost i poboljšanje performansi."
+
+
+#: woof/templates/woof/privacy_policy.html:129
+msgid ""
+"We use Google Analytics, a web analytics service provided by Google LLC, to "
+"understand how visitors use the Website. Google Analytics may collect your "
+"IP address, browser type, device information, pages visited, and time spent "
+"on the site. We enable IP anonymization, so a truncated IP address is used "
+"and cannot be used to identify you."
+msgstr "Koristimo Google Analytics, uslugu web-analitike kompanije Google LLC, da bismo razumeli kako posetioci koriste Veb-sajt. Google Analytics može prikupiti vašu IP adresu, tip pregledača, podatke o uređaju, posećene stranice i vreme provedeno na sajtu. Omogućavamo anonimizaciju IP adrese, pa se koristi skraćena IP adresa koja ne može da vas identifikuje."
+
+
+#: woof/templates/woof/privacy_policy.html:136
+msgid "Ensuring proper functioning of the Website"
+msgstr "Obezbeđivanje pravilnog funkcionisanja Veb-sajta"
+
+
+#: woof/templates/woof/privacy_policy.html:137
+msgid "Analyzing usage to improve content and structure"
+msgstr "Analiza korišćenja radi poboljšanja sadržaja i strukture"
+
+
+#: woof/templates/woof/privacy_policy.html:138
+msgid "Maintaining Website security and preventing abuse"
+msgstr "Održavanje bezbednosti Veb-sajta i sprečavanje zloupotreba"
+
+
+#: woof/templates/woof/privacy_policy.html:139
+msgid "Complying with legal obligations"
+msgstr "Ispunjavanje pravnih obaveza"
+
+
+#: woof/templates/woof/privacy_policy.html:146
+msgid ""
+"Depending on your location, your data is processed in accordance with "
+"applicable data protection laws."
+msgstr "U zavisnosti od vaše lokacije, vaši podaci se obrađuju u skladu sa primenljivim zakonima o zaštiti podataka."
+
+
+#: woof/templates/woof/privacy_policy.html:150
+msgid "European Union (GDPR)"
+msgstr "Evropska unija (GDPR)"
+
+
+#: woof/templates/woof/privacy_policy.html:154
+msgid "If you are in the EEA, data is processed under the"
+msgstr "Ako ste u EEA, podaci se obrađuju u skladu sa"
+
+
+#: woof/templates/woof/privacy_policy.html:157
+#: woof/templates/woof/privacy_policy.html:158
+msgid "GDPR"
+msgstr "GDPR"
+
+
+#: woof/templates/woof/privacy_policy.html:158
+msgid ", based on legitimate interests, consent, or legal obligations."
+msgstr ", na osnovu legitimnih interesa, saglasnosti ili pravnih obaveza."
+
+
+#: woof/templates/woof/privacy_policy.html:161
+msgid ""
+"Analytics cookies and similar technologies are used only after you give your "
+"consent through the cookie notice on the Website. Consent can be withdrawn "
+"at any time."
+msgstr "Analitički kolačići i slične tehnologije koriste se samo nakon što date saglasnost preko obaveštenja o kolačićima na Veb-sajtu. Saglasnost možete povući u bilo kom trenutku."
+
+
+#: woof/templates/woof/privacy_policy.html:164
+msgid "United Kingdom (UK GDPR)"
+msgstr "Ujedinjeno Kraljevstvo (UK GDPR)"
+
+
+#: woof/templates/woof/privacy_policy.html:168
+msgid "For UK users, data is processed under the"
+msgstr "Za korisnike u UK, podaci se obrađuju u skladu sa"
+
+
+#: woof/templates/woof/privacy_policy.html:170
+msgid "UK DPA 2018"
+msgstr "UK DPA 2018"
+
+
+#: woof/templates/woof/privacy_policy.html:172
+msgid "UK Data Protection Act 2018"
+msgstr "Zakonom o zaštiti podataka Ujedinjenog Kraljevstva iz 2018. (UK Data Protection Act 2018)"
+
+
+#: woof/templates/woof/privacy_policy.html:173
+msgid "and UK GDPR."
+msgstr "i UK GDPR."
+
+
+#: woof/templates/woof/privacy_policy.html:177
+msgid "United States"
+msgstr "Sjedinjene Američke Države"
+
+
+#: woof/templates/woof/privacy_policy.html:180
+msgid "US residents may have privacy rights under state laws, including:"
+msgstr "Stanovnici SAD mogu imati prava na privatnost po saveznim zakonima, uključujući:"
+
+
+#: woof/templates/woof/privacy_policy.html:187
+msgid "California Consumer Privacy Act (CCPA/CPRA)"
+msgstr "California Consumer Privacy Act (CCPA/CPRA)"
+
+
+#: woof/templates/woof/privacy_policy.html:193
+msgid "Virginia Consumer Data Protection Act (VCDPA)"
+msgstr "Virginia Consumer Data Protection Act (VCDPA)"
+
+
+#: woof/templates/woof/privacy_policy.html:199
+msgid "Colorado Privacy Act (CPA)"
+msgstr "Colorado Privacy Act (CPA)"
+
+
+#: woof/templates/woof/privacy_policy.html:205
+msgid "Utah Consumer Privacy Act (UCPA)"
+msgstr "Utah Consumer Privacy Act (UCPA)"
+
+
+#: woof/templates/woof/privacy_policy.html:211
+msgid "Tennessee Information Protection Act (TIPA)"
+msgstr "Tennessee Information Protection Act (TIPA)"
+
+
+#: woof/templates/woof/privacy_policy.html:217
+msgid "Canada"
+msgstr "Kanada"
+
+
+#: woof/templates/woof/privacy_policy.html:221
+msgid "Handled in accordance with"
+msgstr "Postupa se u skladu sa"
+
+
+#: woof/templates/woof/privacy_policy.html:224
+msgid "PIPEDA"
+msgstr "PIPEDA"
+
+
+#: woof/templates/woof/privacy_policy.html:228
+msgid "Australia"
+msgstr "Australija"
+
+
+#: woof/templates/woof/privacy_policy.html:232
+msgid "Processed under the"
+msgstr "Obrađuje se u skladu sa"
+
+
+#: woof/templates/woof/privacy_policy.html:235
+msgid "Privacy Act 1988"
+msgstr "Zakonom o privatnosti iz 1988. (Privacy Act 1988)"
+
+
+#: woof/templates/woof/privacy_policy.html:239
+msgid "Other countries"
+msgstr "Ostale zemlje"
+
+
+#: woof/templates/woof/privacy_policy.html:242
+msgid "We follow generally accepted international data protection principles."
+msgstr "Pridržavamo se opšteprihvaćenih međunarodnih principa zaštite podataka."
+
+
+#: woof/templates/woof/privacy_policy.html:248
+msgid ""
+"The Website uses cookies to ensure proper operation and analyze traffic. "
+"Manage cookies in your browser settings."
+msgstr "Veb-sajt koristi kolačiće da bi obezbedio ispravan rad i analizu saobraćaja. Kolačićima upravljajte kroz podešavanja pregledača."
+
+
+#: woof/templates/woof/privacy_policy.html:252
+msgid "More details in our"
+msgstr "Više detalja u našoj"
+
+
+#: woof/templates/woof/privacy_policy.html:262
+msgid ""
+"We do not sell or rent personal data. Information may be shared with "
+"analytics providers or as required by law."
+msgstr "Ne prodajemo niti iznajmljujemo lične podatke. Informacije se mogu deliti sa pružaocima analitike ili kada to zahteva zakon."
+
+
+#: woof/templates/woof/privacy_policy.html:269
+msgid ""
+"Data may be processed outside your country. Appropriate safeguards are "
+"applied when needed."
+msgstr "Podaci se mogu obrađivati van vaše zemlje. Kada je potrebno, primenjuju se odgovarajuće zaštitne mere."
+
+
+#: woof/templates/woof/privacy_policy.html:272
+msgid ""
+"Where data is transferred to Google LLC (based in the United States) for "
+"analytics, the transfer is covered by Google's Standard Contractual Clauses "
+"and its Data Processing Addendum."
+msgstr "Kada se podaci prenose kompaniji Google LLC (sa sedištem u SAD) u svrhe analitike, prenos pokrivaju Google Standardne ugovorne klauzule i Dodatak o obradi podataka."
+
+
+#: woof/templates/woof/privacy_policy.html:278
+msgid ""
+"Data is retained only as long as necessary for the purposes described in "
+"this policy."
+msgstr "Podaci se čuvaju samo onoliko dugo koliko je neophodno za svrhe opisane u ovoj politici."
+
+
+#: woof/templates/woof/privacy_policy.html:285
+msgid ""
+"Depending on your location, you may have the right to access, correct, "
+"delete, or restrict your data."
+msgstr "U zavisnosti od vaše lokacije, možete imati pravo na pristup, ispravku, brisanje ili ograničenje obrade vaših podataka."
+
+
+#: woof/templates/woof/privacy_policy.html:288
+msgid ""
+"If you are in the EEA or the UK, you may also withdraw your consent at any "
+"time and lodge a complaint with your local data protection authority (in "
+"Italy, the Garante)."
+msgstr "Ako ste u EEA ili UK, saglasnost takođe možete povući u bilo kom trenutku i podneti žalbu lokalnom organu za zaštitu podataka."
+
+
+#: woof/templates/woof/privacy_policy.html:291
+msgid "Requests:"
+msgstr "Zahtevi:"
+
+
+#: woof/templates/woof/privacy_policy.html:300
+msgid ""
+"The Website is not intended for children under 18. We do not knowingly "
+"collect data from minors."
+msgstr "Veb-sajt nije namenjen deci mlađoj od 18 godina. Namerno ne prikupljamo podatke od maloletnika."
+
+
+#: woof/templates/woof/privacy_policy.html:307
+msgid ""
+"This Privacy Policy may be updated periodically. Updated versions will be "
+"posted on this page."
+msgstr "Ova Politika privatnosti može se povremeno ažurirati. Ažurirane verzije biće objavljene na ovoj stranici."
+
+
+#: woof/templates/woof/privacy_policy.html:315
+msgid "Questions? Contact:"
+msgstr "Pitanja? Kontakt:"
+
+
+#: woof/templates/woof/puppy.html:50
+msgid "What to expect during puppyhood"
+msgstr "Šta očekivati tokom perioda šteneta"
+
+
+#: woof/templates/woof/puppy.html:52
+msgid ""
+"Puppyhood is the earliest and most formative stage of a dog’s life. During "
+"this period, dogs rapidly develop habits, reactions, confidence, and social "
+"understanding of the world around them."
+msgstr "Period šteneta je najranija i najformativnija faza života psa. Tokom tog perioda psi brzo razvijaju navike, reakcije, samopouzdanje i društveno razumevanje sveta oko sebe."
+
+
+#: woof/templates/woof/puppy.html:56
+msgid ""
+"Raising a puppy is not only about care, but about helping the dog adapt "
+"safely and gradually to human environments, routines, sounds, and "
+"interactions."
+msgstr "Odgajanje šteneta nije samo briga o njemu, već pomaganje psu da se bezbedno i postepeno prilagodi ljudskom okruženju, rutinama, zvucima i interakcijama."
+
+
+#: woof/templates/woof/puppy.html:60
+msgid "The first days at home"
+msgstr "Prvi dani kod kuće"
+
+
+#: woof/templates/woof/puppy.html:62
+msgid ""
+"Moving into a new home can be stressful for a puppy. New smells, unfamiliar "
+"people, and separation from littermates create a major environmental change."
+msgstr "Preseljenje u novi dom može biti stresno za štene. Novi mirisi, nepoznati ljudi i odvajanje od legla stvaraju veliku promenu okruženja."
+
+
+#: woof/templates/woof/puppy.html:66
+msgid ""
+"The first days should remain calm and predictable. A quiet resting space and "
+"stable routine help the puppy adapt more comfortably."
+msgstr "Prvi dani treba da ostanu mirni i predvidljivi. Tih prostor za odmor i stabilna rutina pomažu štenetu da se udobnije prilagodi."
+
+
+#: woof/templates/woof/puppy.html:70
+msgid "Early socialization"
+msgstr "Rana socijalizacija"
+
+
+#: woof/templates/woof/puppy.html:72
+msgid ""
+"Early socialization introduces the puppy to different environments, sounds, "
+"surfaces, people, and situations. Positive early experiences help build "
+"confidence and adaptability later in life."
+msgstr "Rana socijalizacija upoznaje štene sa različitim okruženjima, zvucima, površinama, ljudima i situacijama. Pozitivna rana iskustva pomažu izgradnji samopouzdanja i prilagodljivosti kasnije u životu."
+
+
+#: woof/templates/woof/puppy.html:76
+msgid ""
+"Socialization should happen gradually and without overwhelming the puppy. "
+"Too much stimulation at once can create stress instead of confidence."
+msgstr "Socijalizacija treba da se odvija postepeno i bez preopterećenja šteneta. Previše stimulacije odjednom može stvoriti stres umesto samopouzdanja."
+
+
+#: woof/templates/woof/puppy.html:80
+msgid "Sleep and daily rhythm"
+msgstr "San i dnevni ritam"
+
+
+#: woof/templates/woof/puppy.html:82
+msgid ""
+"Puppies sleep significantly more than adult dogs and require frequent rest "
+"periods. Overtired puppies often become more restless, reactive, or "
+"difficult to calm."
+msgstr "Štenci spavaju znatno više od odraslih pasa i zahtevaju česte periode odmora. Preumorna štenad često postaju nemirnija, reaktivnija ili ih je teže smiriti."
+
+
+#: woof/templates/woof/puppy.html:85
+msgid ""
+"A stable daily rhythm helps regulate energy and improves adaptation to home "
+"life."
+msgstr "Stabilan dnevni ritam pomaže regulaciji energije i poboljšava prilagođavanje kućnom životu."
+
+
+#: woof/templates/woof/puppy.html:88
+msgid "Teething and chewing phase"
+msgstr "Faza nicanja zuba i žvakanja"
+
+
+#: woof/templates/woof/puppy.html:90
+msgid ""
+"During teething, puppies naturally explore objects through chewing. This "
+"stage is temporary but requires patience and proper management of the "
+"environment."
+msgstr "Tokom nicanja zuba štenad prirodno istražuje predmete žvakanjem. Ova faza je privremena, ali zahteva strpljenje i pravilno upravljanje okruženjem."
+
+
+#: woof/templates/woof/puppy.html:93
+msgid ""
+"Safe chew toys and supervision help redirect destructive chewing behavior."
+msgstr "Bezbedne igračke za žvakanje i nadzor pomažu da se destruktivno žvakanje usmeri na pravu stvar."
+
+
+#: woof/templates/woof/puppy.html:96
+msgid "Building confidence"
+msgstr "Izgradnja samopouzdanja"
+
+
+#: woof/templates/woof/puppy.html:98
+msgid ""
+"Confidence develops through repeated positive experiences and predictable "
+"routines. Gentle exposure to new environments helps puppies learn that "
+"unfamiliar situations are safe."
+msgstr "Samopouzdanje se razvija kroz ponovljena pozitivna iskustva i predvidljive rutine. Nežno izlaganje novim okruženjima pomaže štenetu da nauči da su nepoznate situacije bezbedne."
+
+
+#: woof/templates/woof/puppy.html:101
+msgid ""
+"Fearful reactions during puppyhood are normal and should be handled calmly "
+"rather than punished."
+msgstr "Strahovite reakcije tokom perioda šteneta su normalne i treba ih rešavati smireno, a ne kažnjavanjem."
+
+
+#: woof/templates/woof/puppy.html:106
+msgid ""
+"Puppyhood is a short but extremely important developmental stage. Stable "
+"routines, gradual socialization, patience, and a safe environment help "
+"create a more confident and adaptable adult dog."
+msgstr "Period šteneta je kratka, ali izuzetno važna razvojna faza. Stabilne rutine, postepena socijalizacija, strpljenje i bezbedno okruženje pomažu stvaranju samouverenijeg i prilagodljivijeg odraslog psa."
+
+
+#: woof/templates/woof/terms_and_conditions.html:38
+#: woof/templates/woof/terms_and_conditions.html:64
+msgid "1. Consent to Terms"
+msgstr "1. Saglasnost sa uslovima"
+
+
+#: woof/templates/woof/terms_and_conditions.html:39
+#: woof/templates/woof/terms_and_conditions.html:79
+msgid "2. Intellectual Property Rights"
+msgstr "2. Prava intelektualne svojine"
+
+
+#: woof/templates/woof/terms_and_conditions.html:40
+#: woof/templates/woof/terms_and_conditions.html:85
+msgid "3. User Representations"
+msgstr "3. Izjave korisnika"
+
+
+#: woof/templates/woof/terms_and_conditions.html:41
+#: woof/templates/woof/terms_and_conditions.html:91
+msgid "4. Prohibited Activities"
+msgstr "4. Zabranjene aktivnosti"
+
+
+#: woof/templates/woof/terms_and_conditions.html:42
+#: woof/templates/woof/terms_and_conditions.html:103
+msgid "5. User Contributions"
+msgstr "5. Korisnički sadržaji"
+
+
+#: woof/templates/woof/terms_and_conditions.html:43
+#: woof/templates/woof/terms_and_conditions.html:113
+msgid "6. License to Use"
+msgstr "6. Licenca za korišćenje"
+
+
+#: woof/templates/woof/terms_and_conditions.html:44
+#: woof/templates/woof/terms_and_conditions.html:118
+msgid "7. Provided Materials"
+msgstr "7. Dostavljeni materijali"
+
+
+#: woof/templates/woof/terms_and_conditions.html:45
+#: woof/templates/woof/terms_and_conditions.html:123
+msgid "8. Website Management"
+msgstr "8. Upravljanje sajtom"
+
+
+#: woof/templates/woof/terms_and_conditions.html:46
+#: woof/templates/woof/terms_and_conditions.html:128
+msgid "9. Privacy Policy"
+msgstr "9. Politika privatnosti"
+
+
+#: woof/templates/woof/terms_and_conditions.html:47
+#: woof/templates/woof/terms_and_conditions.html:138
+msgid "10. Term and Termination"
+msgstr "10. Trajanje i prekid"
+
+
+#: woof/templates/woof/terms_and_conditions.html:48
+#: woof/templates/woof/terms_and_conditions.html:143
+msgid "11. Modifications and Interruptions"
+msgstr "11. Izmene i prekidi"
+
+
+#: woof/templates/woof/terms_and_conditions.html:49
+#: woof/templates/woof/terms_and_conditions.html:148
+msgid "12. Governing Law"
+msgstr "12. Merodavno pravo"
+
+
+#: woof/templates/woof/terms_and_conditions.html:50
+#: woof/templates/woof/terms_and_conditions.html:153
+msgid "13. Dispute Resolution"
+msgstr "13. Rešavanje sporova"
+
+
+#: woof/templates/woof/terms_and_conditions.html:51
+#: woof/templates/woof/terms_and_conditions.html:158
+msgid "14. Corrections"
+msgstr "14. Ispravke"
+
+
+#: woof/templates/woof/terms_and_conditions.html:52
+#: woof/templates/woof/terms_and_conditions.html:163
+msgid "15. Disclaimer"
+msgstr "15. Odricanje od odgovornosti"
+
+
+#: woof/templates/woof/terms_and_conditions.html:53
+#: woof/templates/woof/terms_and_conditions.html:168
+msgid "16. Limitation of Liability"
+msgstr "16. Ograničenje odgovornosti"
+
+
+#: woof/templates/woof/terms_and_conditions.html:54
+#: woof/templates/woof/terms_and_conditions.html:173
+msgid "17. Indemnification"
+msgstr "17. Obaveza obeštećenja"
+
+
+#: woof/templates/woof/terms_and_conditions.html:55
+#: woof/templates/woof/terms_and_conditions.html:178
+msgid "18. User Data"
+msgstr "18. Korisnički podaci"
+
+
+#: woof/templates/woof/terms_and_conditions.html:56
+#: woof/templates/woof/terms_and_conditions.html:183
+msgid "19. Electronic Communications"
+msgstr "19. Elektronske komunikacije"
+
+
+#: woof/templates/woof/terms_and_conditions.html:57
+#: woof/templates/woof/terms_and_conditions.html:188
+msgid "20. California Residents"
+msgstr "20. Stanovnici Kalifornije"
+
+
+#: woof/templates/woof/terms_and_conditions.html:58
+#: woof/templates/woof/terms_and_conditions.html:193
+msgid "21. Miscellaneous"
+msgstr "21. Razne odredbe"
+
+
+#: woof/templates/woof/terms_and_conditions.html:59
+#: woof/templates/woof/terms_and_conditions.html:198
+msgid "22. Contact Us"
+msgstr "22. Kontaktirajte nas"
+
+
+#: woof/templates/woof/terms_and_conditions.html:67
+msgid ""
+"These Terms of Use constitute a legally binding agreement between you "
+"(«you») and"
+msgstr "Ovi Uslovi korišćenja predstavljaju pravno obavezujući sporazum između vas («vi») i"
+
+
+#: woof/templates/woof/terms_and_conditions.html:69
+msgid "regarding your access to and use of"
+msgstr "u vezi sa vašim pristupom i korišćenjem"
+
+
+#: woof/templates/woof/terms_and_conditions.html:75
+msgid ""
+"IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, YOU MUST DISCONTINUE USE "
+"IMMEDIATELY."
+msgstr "AKO SE NE SLAŽETE SA SVIM OVIM USLOVIMA KORIŠĆENJA, MORATE ODMAH PRESTATI SA KORIŠĆENJEM."
+
+
+#: woof/templates/woof/terms_and_conditions.html:81
+msgid ""
+"Unless otherwise stated, the Website and all content are owned or licensed "
+"by us and protected by intellectual property laws."
+msgstr "Osim ako nije drugačije navedeno, Veb-sajt i sav sadržaj su u našem vlasništvu ili su nam licencirani i zaštićeni zakonima o intelektualnoj svojini."
+
+
+#: woof/templates/woof/terms_and_conditions.html:87
+msgid ""
+"By using the Website, you represent and warrant that you comply with all "
+"applicable laws and these Terms."
+msgstr "Korišćenjem Veb-sajta potvrđujete i garantujete da se pridržavate svih primenljivih zakona i ovih Uslova."
+
+
+#: woof/templates/woof/terms_and_conditions.html:93
+msgid ""
+"You agree not to engage in prohibited activities, including but not limited "
+"to:"
+msgstr "Saglasni ste da se ne upuštate u zabranjene aktivnosti, uključujući, ali ne ograničavajući se na:"
+
+
+#: woof/templates/woof/terms_and_conditions.html:96
+msgid "Unauthorized data extraction"
+msgstr "Neovlašćeno izdvajanje podataka"
+
+
+#: woof/templates/woof/terms_and_conditions.html:97
+msgid "Fraud, abuse, or harassment"
+msgstr "Prevara, zloupotreba ili uznemiravanje"
+
+
+#: woof/templates/woof/terms_and_conditions.html:98
+msgid "Security circumvention"
+msgstr "Zaobilaženje bezbednosnih mera"
+
+
+#: woof/templates/woof/terms_and_conditions.html:99
+msgid "Illegal or unauthorized use"
+msgstr "Nezakonita ili neovlašćena upotreba"
+
+
+#: woof/templates/woof/terms_and_conditions.html:106
+msgid "User contributions are governed by our"
+msgstr "Korisnički sadržaji podležu našoj"
+
+
+#: woof/templates/woof/terms_and_conditions.html:115
+msgid "You are granted a limited, non-commercial license to use the Website."
+msgstr "Dodeljuje vam se ograničena, nekomercijalna licenca za korišćenje Veb-sajta."
+
+
+#: woof/templates/woof/terms_and_conditions.html:120
+msgid ""
+"Any materials you submit become our property and may be used without "
+"compensation."
+msgstr "Svi materijali koje dostavite postaju naše vlasništvo i mogu se koristiti bez naknade."
+
+
+#: woof/templates/woof/terms_and_conditions.html:125
+msgid ""
+"We reserve the right to manage, restrict, or remove content at our "
+"discretion."
+msgstr "Zadržavamo pravo da upravljamo, ograničavamo ili uklanjamo sadržaj po sopstvenom nahođenju."
+
+
+#: woof/templates/woof/terms_and_conditions.html:131
+msgid "Your use of the Website is also governed by our"
+msgstr "Vaše korišćenje Veb-sajta takođe podleže našoj"
+
+
+#: woof/templates/woof/terms_and_conditions.html:140
+msgid "We may terminate access to the Website at any time without notice."
+msgstr "Pristup Veb-sajtu možemo prekinuti u bilo kom trenutku bez prethodnog obaveštenja."
+
+
+#: woof/templates/woof/terms_and_conditions.html:145
+msgid ""
+"We reserve the right to modify or discontinue the Website without liability."
+msgstr "Zadržavamo pravo da izmenimo ili ukinemo Veb-sajt bez odgovornosti."
+
+
+#: woof/templates/woof/terms_and_conditions.html:150
+msgid "These Terms are governed by the laws of Serbia."
+msgstr "Ovi Uslovi podležu zakonima Republike Srbije."
+
+
+#: woof/templates/woof/terms_and_conditions.html:155
+msgid "Disputes shall be resolved through arbitration in Serbia."
+msgstr "Sporovi će se rešavati arbitražom u Srbiji."
+
+
+#: woof/templates/woof/terms_and_conditions.html:160
+msgid "We may correct errors or update content at any time."
+msgstr "Možemo ispraviti greške ili ažurirati sadržaj u bilo kom trenutku."
+
+
+#: woof/templates/woof/terms_and_conditions.html:165
+msgid "The Website is provided “AS IS” without warranties."
+msgstr "Veb-sajt se pruža „KAKAV JESTE“ (AS IS), bez garancija."
+
+
+#: woof/templates/woof/terms_and_conditions.html:170
+msgid "Our liability is limited to the maximum extent permitted by law."
+msgstr "Naša odgovornost ograničena je u najvećoj meri koju zakon dozvoljava."
+
+
+#: woof/templates/woof/terms_and_conditions.html:175
+msgid "You agree to indemnify and hold us harmless."
+msgstr "Saglasni ste da nas obeštetite i oslobodite odgovornosti."
+
+
+#: woof/templates/woof/terms_and_conditions.html:180
+msgid "You are responsible for any data you submit."
+msgstr "Odgovorni ste za sve podatke koje dostavite."
+
+
+#: woof/templates/woof/terms_and_conditions.html:185
+msgid "Electronic communications satisfy legal requirements."
+msgstr "Elektronske komunikacije ispunjavaju pravne zahteve."
+
+
+#: woof/templates/woof/terms_and_conditions.html:190
+msgid ""
+"California residents may contact the appropriate authorities as required by "
+"law."
+msgstr "Stanovnici Kalifornije mogu kontaktirati nadležne organe kako zahteva zakon."
+
+
+#: woof/templates/woof/terms_and_conditions.html:195
+msgid "These Terms constitute the entire agreement between you and us."
+msgstr "Ovi Uslovi čine celokupan sporazum između vas i nas."
+
+
+#: woof/templates/woof/terms_and_conditions.html:201
+msgid "Questions may be sent to"
+msgstr "Pitanja možete poslati na"
+
+
+#: woof/templates/woof/training.html:50
+msgid "What training actually is"
+msgstr "Šta je zapravo obuka"
+
+
+#: woof/templates/woof/training.html:52
+msgid ""
+"Dog training is the process of building clear communication between human "
+"and dog through consistent signals and predictable outcomes. It is not about "
+"control, but about establishing shared understanding."
+msgstr "Obuka psa je proces izgradnje jasne komunikacije između čoveka i psa kroz dosledne signale i predvidljive ishode. Ne radi se o kontroli, već o uspostavljanju zajedničkog razumevanja."
+
+
+#: woof/templates/woof/training.html:55
+msgid ""
+"Training influences everyday behavior, safety, and the ability of the dog to "
+"function comfortably in human environments."
+msgstr "Obuka utiče na svakodnevno ponašanje, bezbednost i sposobnost psa da se udobno funkcioniše u ljudskom okruženju."
+
+
+#: woof/templates/woof/training.html:58
+msgid "Consistency and repetition"
+msgstr "Doslednost i ponavljanje"
+
+
+#: woof/templates/woof/training.html:60
+msgid ""
+"Dogs learn through repetition and pattern recognition. The same action must "
+"lead to the same result in order for learning to stabilize."
+msgstr "Psi uče kroz ponavljanje i prepoznavanje obrazaca. Ista akcija mora dovesti do istog rezultata da bi se učenje stabilizovalo."
+
+
+#: woof/templates/woof/training.html:63
+msgid ""
+"Inconsistent rules create confusion and slow down behavioral development."
+msgstr "Nedosledna pravila stvaraju zbunjenost i usporavaju razvoj ponašanja."
+
+
+#: woof/templates/woof/training.html:65
+msgid ""
+"Clear repetition is more effective than complex commands or frequent changes "
+"in approach."
+msgstr "Jasno ponavljanje efikasnije je od složenih komandi ili čestih promena pristupa."
+
+
+#: woof/templates/woof/training.html:68
+msgid "Communication signals"
+msgstr "Komunikacioni signali"
+
+
+#: woof/templates/woof/training.html:70
+msgid ""
+"Training relies on clear and simple signals that the dog can associate with "
+"specific actions. Timing is important because dogs connect behavior and "
+"outcome within a short time window."
+msgstr "Obuka se oslanja na jasne i jednostavne signale koje pas može povezati sa konkretnim akcijama. Vreme je važno jer psi povezuju ponašanje i ishod u kratkom vremenskom okviru."
+
+
+#: woof/templates/woof/training.html:73
+msgid ""
+"Emotional tone, body language, and predictability of response all influence "
+"learning speed."
+msgstr "Emotivni ton, govor tela i predvidljivost reakcija utiču na brzinu učenja."
+
+
+#: woof/templates/woof/training.html:76
+msgid "Common learning mistakes"
+msgstr "Česte greške u učenju"
+
+
+#: woof/templates/woof/training.html:78
+msgid ""
+"One of the most common issues is mixing signals, where different responses "
+"are given for the same behavior."
+msgstr "Jedan od najčešćih problema je mešanje signala, kada se na isto ponašanje daju različite reakcije."
+
+
+#: woof/templates/woof/training.html:80
+msgid ""
+"Another issue is expecting immediate results. Learning takes time and "
+"depends on repetition rather than single sessions."
+msgstr "Drugi problem je očekivanje trenutnih rezultata. Učenje zahteva vreme i zavisi od ponavljanja, a ne od pojedinačnih sesija."
+
+
+#: woof/templates/woof/training.html:83
+msgid ""
+"Overloading with commands or complexity can slow progress significantly."
+msgstr "Preopterećenje komandama ili složenošću može značajno usporiti napredak."
+
+
+#: woof/templates/woof/training.html:86
+msgid "Building reliable behavior"
+msgstr "Izgradnja pouzdanog ponašanja"
+
+
+#: woof/templates/woof/training.html:88
+msgid ""
+"Reliable behavior is achieved through stable routines and predictable "
+"outcomes rather than intensity of training."
+msgstr "Pouzdano ponašanje postiže se stabilnim rutinama i predvidljivim ishodima, a ne intenzitetom obuke."
+
+
+#: woof/templates/woof/training.html:90
+msgid ""
+"Small, repeated successes build stronger long-term behavior than occasional "
+"intensive sessions."
+msgstr "Mali, ponovljeni uspesi grade jače dugoročno ponašanje nego povremene intenzivne sesije."
+
+
+#: woof/templates/woof/training.html:95
+msgid ""
+"Training is a communication system that develops over time through "
+"consistency and clarity. When properly structured, it creates stability and "
+"reduces misunderstandings between dog and owner."
+msgstr "Obuka je komunikacioni sistem koji se razvija tokom vremena kroz doslednost i jasnoću. Kada je pravilno strukturisana, stvara stabilnost i smanjuje nesporazume između psa i vlasnika."
+
+
+#: woof/urls.py:23
+msgid "About us - Woof Dogs"
+msgstr "O nama - Woof Dogs"
+
+
+#: woof/urls.py:34
+msgid "Cookie Policy - Woof Dogs"
+msgstr "Politika kolačića - Woof Dogs"
+
+
+#: woof/urls.py:42
+msgid "Terms of Use - Woof Dogs"
+msgstr "Uslovi korišćenja - Woof Dogs"
+
+
+#: woof/urls.py:50
+msgid "Privacy Policy - Woof Dogs"
+msgstr "Politika privatnosti - Woof Dogs"
+
+
+#: woof/urls.py:60
+msgid "Dog Guides - Woof Dogs"
+msgstr "Vodiči o psima - Woof Dogs"
+
+
+#: woof/urls.py:68
+msgid "Choosing the right dog - Woof Dogs"
+msgstr "Izbor pravog psa - Woof Dogs"
+
+
+#: woof/urls.py:76
+msgid "Dog Training Fundamentals - Woof Dogs"
+msgstr "Osnove obuke pasa - Woof Dogs"
+
+
+#: woof/urls.py:84
+msgid "Dog Health & Care - Woof Dogs"
+msgstr "Zdravlje i nega psa - Woof Dogs"
+
+
+#: woof/urls.py:92
+msgid "Dog Behavior - Woof Dogs"
+msgstr "Ponašanje psa - Woof Dogs"
+
+
+#: woof/urls.py:100
+msgid "Living with a Dog - Woof Dogs"
+msgstr "Život sa psom - Woof Dogs"
+
+
+#: woof/urls.py:108
+msgid "Raising a Puppy - Woof Dogs"
+msgstr "Odgajanje šteneta - Woof Dogs"
+
+
+#: woof/urls.py:116
+msgid "Feeding your dog - Woof Dogs"
+msgstr "Ishrana vašeg psa - Woof Dogs"
+
+
+#: woof/urls.py:124
+msgid "Games & activities - Woof Dogs"
+msgstr "Igre i aktivnosti - Woof Dogs"
+
+
+#: woof/utils.py:10
+msgid "All groups"
+msgstr "Sve grupe"
+
+
+#: woof/utils.py:21
+msgid ""
+"Woof Dogs — the world's dog breeds grouped by American Kennel Club "
+"standards: temperament, size, care and more."
+msgstr "Woof Dogs — rase pasa celog sveta grupisane po standardima American Kennel Club: temperament, veličina, nega i više."
+
+
+#: woof/views.py:267
+msgid "Dog Breeds - Woof Dogs"
+msgstr "Rase pasa - Woof Dogs"
+
+
+#: woof/views.py:289 woof/views.py:350
+#, python-brace-format
+msgid "{name} - Woof Dogs"
+msgstr "{name} - Woof Dogs"
+
+
+#: woof/views.py:362
+msgid "Contact - Woof Dogs"
+msgstr "Kontakt - Woof Dogs"
+
+
+#: woof/views.py:395
+msgid "Best family dogs 🐶"
+msgstr "Najbolji porodični psi 🐶"
+
+
+#: woof/views.py:403
+msgid "Great for first-time owners 🆕"
+msgstr "Odlični za vlasnike početnike 🆕"
+
+
+#: woof/views.py:410
+msgid "For experienced owners 💪"
+msgstr "Za iskusne vlasnike 💪"
+
+
+#: woof/views.py:417
+msgid "Easy to train dogs 🧠"
+msgstr "Psi koji se lako dresiraju 🧠"
+
+
+#: woof/views.py:423
+msgid "Hypoallergenic breeds 🌿"
+msgstr "Hipoalergene rase 🌿"
+
+
+#: woof/views.py:427
+msgid "Small dogs 🐾"
+msgstr "Mali psi 🐾"
+
+
+#: woof/views.py:431
+msgid "Medium dogs 🔹"
+msgstr "Srednji psi 🔹"
+
+
+#: woof/views.py:435
+msgid "Large dogs 🐕"
+msgstr "Veliki psi 🐕"
+
+
+#: woof/views.py:439
+msgid "Apartment-friendly dogs 🏢"
+msgstr "Psi pogodni za stan 🏢"
+
+
+#: woof/views.py:448
+msgid "Best for houses with yard 🏡"
+msgstr "Najbolji za kuće sa dvorištem 🏡"
+
+
+#: woof/views.py:457
+msgid "Explore - Woof Dogs"
+msgstr "Istraži - Woof Dogs"
+
+
+#: woof/views.py:470
+msgid "Groups - Woof Dogs"
+msgstr "Grupe - Woof Dogs"
+#: woof/forms.py:29 woof/templates/woof/contact.html:149
+msgid "Math captcha result"
+msgstr "Rezultat matematičke provere"
+
+#: woof/forms.py:37
+msgid "Incorrect answer. Please try again."
+msgstr "Pogrešan odgovor. Pokušajte ponovo."
+
+#: woof/templates/woof/privacy_policy.html:290
+msgid "Contact form"
+msgstr "Kontakt forma"
+
+#: woof/templates/woof/terms_and_conditions.html:200
+msgid "Questions may be sent to the"
+msgstr "Pitanja možete poslati preko"
+

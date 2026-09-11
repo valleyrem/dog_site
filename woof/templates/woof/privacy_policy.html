@@ -289,8 +289,8 @@
 
     <p>
         {% blocktranslate trimmed %}Requests:{% endblocktranslate %}
-        <a href="mailto:woofdogs23@gmail.com"
-           class="link-policies">{% blocktranslate trimmed %}woofdogs23@gmail.com{% endblocktranslate %}</a>
+        <a href="{% url 'contact' %}"
+           class="link-policies">{% trans "Contact form" %}</a>
     </p>
 
 
@@ -313,8 +313,7 @@
 
     <p>
         {% blocktranslate trimmed %}Questions? Contact:{% endblocktranslate %}
-        <a href="mailto:woofdogs23@gmail.com"
-           class="link-policies">{% blocktranslate trimmed %}woofdogs23@gmail.com{% endblocktranslate %}</a>
+        <span class="link-policies">{% blocktranslate trimmed %}woofdogs23@gmail.com{% endblocktranslate %}</span>
     </p>
 
 </div>

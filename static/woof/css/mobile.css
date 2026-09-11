@@ -889,15 +889,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 912px) {
-  /* The select dropdown opens downward as usual, but must sit
-       above the photo. .hero-inner > * gives both columns z-index:2,
-       and the photo comes later in DOM and used to cover the list
-       (9999 works only within its own column). Raise the selects
-       column above the photo. */
-  .hero-left {
-    z-index: 3;
-  }
-
   .footer-grid {
     margin: 40px 20px 40px;
   }
@@ -1148,6 +1139,7 @@
 
   .homepage-subtitle {
     max-width: 100%;
+    margin: 0 auto;
   }
 
   .homepage-subsubtitle {
@@ -1413,3 +1405,51 @@
   }
 }
 /* === END EXPERIMENT 2026 (mobile part) === */
+
+/* Cookie banner: phones */
+@media (min-width: 300px) and (max-width: 767px) {
+  .cookie-banner {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .cookie-banner__card {
+    padding: 18px 16px;
+  }
+
+  .cookie-banner__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-btn {
+    text-align: center;
+  }
+
+  .cookie-btn--link {
+    padding: 6px 8px;
+  }
+
+  .cookie-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cookie-edit {
+    left: 8px;
+    bottom: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .cookie-table {
+    font-size: 12px;
+  }
+
+  .cookie-table th,
+  .cookie-table td {
+    padding: 7px 8px;
+  }
+}

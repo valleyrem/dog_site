@@ -52,7 +52,11 @@
 
                     {% for f in form %}
 
-                        {% if f.name == 'confirm_privacy' %}
+                        {% if f.name == 'captcha_token' %}
+
+                            {# rendered manually inside the captcha row below #}
+
+                        {% elif f.name == 'confirm_privacy' %}
 
                             <div class="form-check-wrapper">
                                 {{ f }}
@@ -62,6 +66,20 @@
                                     {{ f.label }}
                                 </label>
                             </div>
+
+                        {% elif f.name == 'captcha' %}
+
+                            <p class="captcha-row">
+                                <input type="hidden"
+                                       name="captcha_token"
+                                       value="{{ captcha_token }}">
+
+                                <span class="captcha-expr" id="captchaExpr">
+                                    {{ captcha_a }} + {{ captcha_b }} =
+                                </span>
+
+                                {{ f }}
+                            </p>
 
                         {% else %}
 
@@ -166,6 +184,27 @@
                 form.reset();
 
             } else {
+
+                var captchaData = null;
+                try {
+                    var parsed = JSON.parse(xhr.responseText);
+                    if (parsed && parsed.captcha) {
+                        captchaData = parsed.captcha;
+                    }
+                } catch (e) {}
+
+                if (captchaData) {
+                    document.getElementById('captchaExpr').textContent =
+                        captchaData.a + ' + ' + captchaData.b + ' =';
+                    document.getElementById('contactForm')
+                        .querySelector('[name="captcha_token"]').value =
+                        captchaData.token;
+                    var captchaInput = document.getElementById('id_captcha');
+                    if (captchaInput) {
+                        captchaInput.value = '';
+                        captchaInput.focus();
+                    }
+                }
 
                 Swal.fire({
                     text: '{% trans "Please try again later." %}',

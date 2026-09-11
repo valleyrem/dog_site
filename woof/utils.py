@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.cache import cache
 from django.db.models import Count
 from django.utils.translation import get_language
@@ -22,15 +23,25 @@ DEFAULT_META_DESCRIPTION = _(
 )
 
 
+def _lang_prefixes():
+    """Prefixes of all non-default languages, e.g. ["ru", "de"]"""
+    default = settings.LANGUAGE_CODE
+    return [code for code, _ in settings.LANGUAGES if code != default]
+
+
 def switch_lang_url(path, target):
-    """Add/remove the /ru prefix for the alternate-language link."""
-    if path.startswith("/ru"):
-        base = path[3:] or "/"
-    else:
-        base = path
-    if target == "ru" and not base.startswith("/ru"):
-        return "/ru" + ("" if base == "/" else base)
-    return base
+    """Add/remove the language prefix for the alternate-language link."""
+    base = path
+    for code in _lang_prefixes():
+        prefix = "/" + code
+        if base == prefix or base.startswith(prefix + "/"):
+            base = base[len(prefix) :] or "/"
+            break
+    if target == settings.LANGUAGE_CODE:
+        return base
+    if base == "/":
+        return "/" + target + "/"
+    return "/" + target + base
 
 
 class DataMixin:
@@ -59,12 +70,19 @@ class DataMixin:
                 else DEFAULT_META_DESCRIPTION
             ),
         )
-        context["page_url_en"] = self.request.build_absolute_uri(
-            switch_lang_url(path, "en")
-        )
-        context["page_url_ru"] = self.request.build_absolute_uri(
-            switch_lang_url(path, "ru")
-        )
+        context["page_urls"] = [
+            {
+                "code": code,
+                # BCP 47: Serbian Latin is written "sr-Latn" (Django code:
+                # sr-latn). Other codes are already valid BCP 47 tags.
+                "hreflang": "sr-Latn" if code == "sr-latn" else code,
+                "url": self.request.build_absolute_uri(switch_lang_url(path, code)),
+            }
+            for code, _ in settings.LANGUAGES
+        ]
+        context["page_url_en"] = context["page_urls"][0]["url"]
+        if len(context["page_urls"]) > 1:
+            context["page_url_ru"] = context["page_urls"][1]["url"]
 
         return context
 

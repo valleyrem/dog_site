@@ -6,16 +6,9 @@
 
 <head>
 
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NJCSC592');
-    </script>
-    <!-- End Google Tag Manager -->
-
+    <!-- Google Tag Manager is NOT loaded here anymore.
+         It is injected by woof/js/scripts.js ONLY after the visitor
+         grants analytics consent through the cookie banner (GDPR). -->
 
     <!-- Meta -->
     <meta name="description" content="{{ meta_description }}">
@@ -25,9 +18,10 @@
 
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
 
-    <link rel="alternate" hreflang="en" href="{{ page_url_en }}">
-    <link rel="alternate" hreflang="ru" href="{{ page_url_ru }}">
-    <link rel="alternate" hreflang="x-default" href="{{ page_url_en }}">
+    {% for alt in page_urls %}
+        <link rel="alternate" hreflang="{{ alt.hreflang }}" href="{{ alt.url }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ page_urls.0.url }}">
 
 
     <!-- Styles -->
@@ -96,6 +90,126 @@
 
 {% block page_loader %}{% endblock %}
 
+
+<!-- Cookie consent banner (custom, GDPR-compliant: nothing loads before consent) -->
+<div id="cookie-banner"
+     class="cookie-banner"
+     role="dialog"
+     aria-modal="true"
+     aria-label="{% trans 'Cookie preferences' %}"
+     hidden>
+
+    <div class="cookie-banner__card">
+
+        <button type="button"
+                class="cookie-banner__close"
+                id="cookie-close"
+                title="{% trans 'Close and decline' %}"
+                aria-label="{% trans 'Close and decline' %}">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                <path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                      stroke-linecap="round" />
+            </svg>
+        </button>
+
+        <!-- First layer -->
+        <div id="cookie-banner-first">
+
+            <p class="cookie-banner__title">{% trans "We value your privacy" %}</p>
+
+            <p class="cookie-banner__text">
+                {% trans "This site uses cookies only for anonymous analytics — to understand how visitors use it. No advertising, no personal data is sold. You can accept, decline, or manage your preferences." %}
+            </p>
+
+            <p class="cookie-banner__note">
+                {% trans "Closing this notice counts as declining analytics cookies." %}
+            </p>
+
+            <div class="cookie-banner__actions">
+                <button type="button" class="cookie-btn cookie-btn--primary" id="cookie-accept-all">
+                    {% trans "Accept all" %}
+                </button>
+                <button type="button" class="cookie-btn" id="cookie-decline-all">
+                    {% trans "Decline" %}
+                </button>
+                <button type="button" class="cookie-btn cookie-btn--link" id="cookie-open-details">
+                    {% trans "Cookie preferences" %}
+                </button>
+            </div>
+
+        </div>
+
+
+        <!-- Details layer -->
+        <div id="cookie-banner-details" hidden>
+
+            <p class="cookie-banner__title">{% trans "Cookie preferences" %}</p>
+
+            <p class="cookie-banner__text">
+                {% trans "Below are the cookies this site may use. Necessary cookies are always active and store no personal data." %}
+            </p>
+
+            <div class="cookie-list">
+
+                <div class="cookie-item">
+                    <div>
+                        <p class="cookie-item__name">{% trans "Necessary" %}</p>
+                        <p class="cookie-item__desc">
+                            {% trans "csrftoken — CSRF protection cookie set by Django on pages with forms (language switcher, contact page). Always on. Stores no personal data." %}
+                        </p>
+                    </div>
+                    <span class="cookie-item__badge">{% trans "Always on" %}</span>
+                </div>
+
+                <div class="cookie-item">
+                    <div>
+                        <p class="cookie-item__name">{% trans "Analytics" %}</p>
+                        <p class="cookie-item__desc">
+                            {% trans "Google Analytics — _ga and _ga_* — anonymous visit statistics. Set only after you give consent." %}
+                        </p>
+                    </div>
+                    <label class="cookie-switch">
+                        <input type="checkbox" id="cookie-analytics-toggle">
+                        <span class="cookie-switch__slider"></span>
+                    </label>
+                </div>
+
+            </div>
+
+            <p class="cookie-banner__policy-link">
+                <a href="{% url 'cookie-policy' %}" class="link-policies">
+                    {% trans "Read our Cookie Policy" %}
+                </a>
+            </p>
+
+            <div class="cookie-banner__actions">
+                <button type="button" class="cookie-btn cookie-btn--primary" id="cookie-save">
+                    {% trans "Save preferences" %}
+                </button>
+                <button type="button" class="cookie-btn cookie-btn--link" id="cookie-back">
+                    {% trans "Back" %}
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Floating button to change consent later (withdrawal as easy as consent) -->
+<button type="button"
+        id="cookie-edit"
+        class="cookie-edit"
+        title="{% trans 'Cookie preferences' %}"
+        aria-label="{% trans 'Cookie preferences' %}"
+        hidden>
+    🍪
+</button>
+
+
 <!-- Header -->
 {% block mainmenu %}
 
@@ -147,7 +261,7 @@
                 <select name="language" class="lang-select" onchange="this.form.submit()" aria-label="{% trans 'Language' %}">
                     {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                            {{ language.name_local }}
+                            {{ language.name_local|lower }}
                         </option>
                     {% endfor %}
                 </select>
@@ -163,7 +277,7 @@
                 <select name="language" class="lang-select lang-select-mobile" onchange="this.form.submit()" aria-label="{% trans 'Language' %}">
                     {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                            {{ language.code|upper }}
+                            {{ language.code|lower|cut:"-latn" }}
                         </option>
                     {% endfor %}
                 </select>
@@ -419,16 +533,6 @@
 
 
 {% block body_scripts %}{% endblock %}
-
-<!-- GTM noscript -->
-<noscript>
-
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCSC592"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"></iframe>
-
-</noscript>
 
 
 </body>

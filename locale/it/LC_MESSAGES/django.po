@@ -1,0 +1,3158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-10 15:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: templates/admin/base_site.html:9
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/base_site.html:12
+msgid "Django administration"
+msgstr "Amministrazione Django"
+
+#: woof/forms.py:14
+msgid "E-mail"
+msgstr "E-mail"
+
+#: woof/forms.py:17
+msgid "Message"
+msgstr "Messaggio"
+
+#: woof/models.py:33
+msgid "When necessary (rare, purposeful)"
+msgstr "Quando necessario (raro, mirato)"
+
+#: woof/models.py:34
+msgid "Infrequent (occasional barking)"
+msgstr "Raro (abbaio occasionale)"
+
+#: woof/models.py:35
+msgid "Medium (regular alert barking)"
+msgstr "Medio (abbaio regolare di avviso)"
+
+#: woof/models.py:36
+msgid "Frequent (barks often)"
+msgstr "Frequente (abbaia spesso)"
+
+#: woof/models.py:37
+msgid "Very vocal (howls, talks, barks)"
+msgstr "Molto vocale (ulula, parla, abbaia)"
+
+#: woof/models.py:41
+msgid "XSmall"
+msgstr "Molto piccola"
+
+#: woof/models.py:42
+msgid "Small"
+msgstr "Piccola"
+
+#: woof/models.py:43
+msgid "Small to Medium"
+msgstr "Piccola/media"
+
+#: woof/models.py:44
+msgid "Small to Large"
+msgstr "Piccola/grande"
+
+#: woof/models.py:45
+msgid "Medium"
+msgstr "Media"
+
+#: woof/models.py:46
+msgid "Medium to Large"
+msgstr "Media/grande"
+
+#: woof/models.py:47
+msgid "Large"
+msgstr "Grande"
+
+#: woof/models.py:48
+msgid "XLarge"
+msgstr "Molto grande"
+
+#: woof/models.py:81
+msgid "Independent (thinks for itself)"
+msgstr "Indipendente (pensa con la propria testa)"
+
+#: woof/models.py:82
+msgid "May be stubborn (patience)"
+msgstr "Può essere testardo (pazienza)"
+
+#: woof/models.py:83
+msgid "Agreeable (trainable)"
+msgstr "Docile (addestrabile)"
+
+#: woof/models.py:84
+msgid "Eager to please (quick learner)"
+msgstr "Desideroso di compiacere (impara in fretta)"
+
+#: woof/models.py:85
+msgid "Easy training (very easy to train)"
+msgstr "Facile da addestrare (molto docile)"
+
+#: woof/models.py:89
+msgid "Calm (low energy)"
+msgstr "Calmo (poca energia)"
+
+#: woof/models.py:90
+msgid "Regular exercise (daily walks)"
+msgstr "Esercizio regolare (passeggiate quotidiane)"
+
+#: woof/models.py:91
+msgid "Needs lots of activity"
+msgstr "Ha bisogno di molta attività"
+
+#: woof/models.py:92
+msgid "Very energetic (high endurance)"
+msgstr "Molto energico (grande resistenza)"
+
+#: woof/models.py:96
+msgid "No (not hypoallergenic)"
+msgstr "No (non ipoallergenico)"
+
+#: woof/models.py:97
+msgid "Low (sheds a lot)"
+msgstr "Bassa (perde molto pelo)"
+
+#: woof/models.py:98
+msgid "Moderate (some shedding)"
+msgstr "Media (perde un po' di pelo)"
+
+#: woof/models.py:99
+msgid "High (minimal shedding)"
+msgstr "Alta (perdita minima di pelo)"
+
+#: woof/models.py:103
+msgid "Low (better with adults, limited tolerance)"
+msgstr "Bassa (meglio con adulti, tolleranza limitata)"
+
+#: woof/models.py:104
+msgid "Medium (family-oriented, needs supervision)"
+msgstr "Media (orientata alla famiglia, richiede supervisione)"
+
+#: woof/models.py:105
+msgid "High (affectionate, good with family)"
+msgstr "Alta (affettuosa, buona con la famiglia)"
+
+#: woof/models.py:106
+msgid "Excellent (very gentle, great with kids)"
+msgstr "Eccellente (molto dolce, ottima con i bambini)"
+
+#: woof/templates/woof/404.html:7
+msgid "404 — Page Not Found"
+msgstr "404 — Pagina non trovata"
+
+#: woof/templates/woof/404.html:197
+msgid "404"
+msgstr "404"
+
+#: woof/templates/woof/404.html:201
+msgid "This page ran away."
+msgstr "Questa pagina è scappata."
+
+#: woof/templates/woof/404.html:203
+msgid ""
+"The page you’re looking for doesn’t exist, may have been moved, or is still "
+"chasing squirrels somewhere else."
+msgstr "La pagina che cerchi non esiste, potrebbe essere stata spostata o stare ancora inseguendo qualche scoiattolo altrove."
+
+#: woof/templates/woof/404.html:207
+msgid "Return to the homepage and continue exploring dog breeds."
+msgstr "Torna alla home e continua a esplorare le razze canine."
+
+#: woof/templates/woof/404.html:209
+msgid "← Back Home"
+msgstr "← Torna alla home"
+
+#: woof/templates/woof/about.html:11 woof/templates/woof/about.html:14
+#: woof/templates/woof/behavior.html:11 woof/templates/woof/behavior.html:13
+#: woof/templates/woof/choosing_dog.html:11
+#: woof/templates/woof/choosing_dog.html:13 woof/templates/woof/contact.html:11
+#: woof/templates/woof/contact.html:14
+#: woof/templates/woof/cookie_policy.html:13
+#: woof/templates/woof/dog_groups.html:12
+#: woof/templates/woof/dog_groups.html:15 woof/templates/woof/dogs_list.html:12
+#: woof/templates/woof/dogs_list.html:15 woof/templates/woof/feeding.html:13
+#: woof/templates/woof/feeding.html:16 woof/templates/woof/games.html:13
+#: woof/templates/woof/games.html:16 woof/templates/woof/groups.html:14
+#: woof/templates/woof/groups.html:17 woof/templates/woof/guides.html:13
+#: woof/templates/woof/guides.html:16 woof/templates/woof/health.html:13
+#: woof/templates/woof/health.html:16
+#: woof/templates/woof/living_with_dog.html:12
+#: woof/templates/woof/living_with_dog.html:14 woof/templates/woof/post.html:30
+#: woof/templates/woof/post.html:32 woof/templates/woof/privacy_policy.html:13
+#: woof/templates/woof/privacy_policy.html:16 woof/templates/woof/puppy.html:11
+#: woof/templates/woof/puppy.html:13
+#: woof/templates/woof/terms_and_conditions.html:10
+#: woof/templates/woof/terms_and_conditions.html:12
+#: woof/templates/woof/training.html:11 woof/templates/woof/training.html:13
+msgid "Home"
+msgstr "Home"
+
+#: woof/templates/woof/about.html:23 woof/templates/woof/about.html:31
+#: woof/templates/woof/about.html:37 woof/utils.py:11
+msgid "About us"
+msgstr "Chi siamo"
+
+#: woof/templates/woof/about.html:45
+msgid "Welcome!"
+msgstr "Benvenuto!"
+
+#: woof/templates/woof/about.html:48
+msgid ""
+"This project is created for fun and designed as a structured catalog of dog "
+"breeds, focused on clarity, comparison, and easy navigation.\n"
+"            The main classification system follows the <strong>FCI "
+"(Fédération Cynologique Internationale)</strong>."
+msgstr "Questo progetto è nato per divertimento ed è pensato come un catalogo strutturato di razze canine, incentrato su chiarezza, confronto e navigazione semplice.\n            Il sistema di classificazione principale segue gli standard <strong>FCI (Fédération Cynologique Internationale)</strong>."
+
+#: woof/templates/woof/about.html:52
+msgid "What is FCI"
+msgstr "Cos'è la FCI"
+
+#: woof/templates/woof/about.html:55
+msgid ""
+"FCI — Fédération Cynologique Internationale (International Canine "
+"Federation) — the largest international federation of kennel clubs, which "
+"defines official breed standards and group structures worldwide."
+msgstr "FCI — Fédération Cynologique Internationale (Federazione Cinologica Internazionale) — la più grande federazione internazionale di club cinofili, che definisce gli standard ufficiali delle razze e le strutture dei gruppi in tutto il mondo."
+
+#: woof/templates/woof/about.html:59
+msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
+msgstr "Fondata il 22 maggio 1911, con sede a Thuin, in Belgio."
+
+#: woof/templates/woof/about.html:60
+msgid "98 member countries."
+msgstr "98 paesi membri."
+
+#: woof/templates/woof/about.html:61
+msgid ""
+"Recognizes 356 breeds; each breed belongs to its country of origin, which "
+"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
+msgstr "Riconosce 356 razze; ogni razza appartiene al proprio paese d'origine, che redige lo standard; la FCI pubblica gli standard in 4 lingue (en/fr/de/es)"
+
+#: woof/templates/woof/about.html:65
+msgid ""
+"To provide a broader perspective, the catalog also incorporates data from "
+"other kennel organizations, as well as independent breed sources.\n"
+"            As a result, the database includes not only officially "
+"recognized breeds, but also less common and developing ones."
+msgstr "Per offrire una prospettiva più ampia, il catalogo integra anche dati di altre organizzazioni cinofile e fonti indipendenti sulle razze.\n            Di conseguenza, il database comprende non solo le razze ufficialmente riconosciute, ma anche quelle meno comuni e in via di sviluppo."
+
+#: woof/templates/woof/about.html:70
+msgid ""
+"If a breed is missing, it may not yet be added or sufficient reference "
+"material is still being collected."
+msgstr "Se una razza manca, potrebbe non essere ancora stata aggiunta oppure i materiali di riferimento sufficienti sono ancora in raccolta."
+
+#: woof/templates/woof/about.html:74
+msgid "About classification"
+msgstr "Informazioni sulla classificazione"
+
+#: woof/templates/woof/about.html:78
+msgid "The catalog combines:"
+msgstr "Il catalogo comprende:"
+
+#: woof/templates/woof/about.html:79
+msgid "officially recognized FCI breeds and groups"
+msgstr "razze e gruppi ufficialmente riconosciuti dalla FCI"
+
+#: woof/templates/woof/about.html:80
+msgid "breeds recognized by other kennel clubs"
+msgstr "razze riconosciute da altri club cinofili"
+
+#: woof/templates/woof/about.html:81
+msgid "rare or developing breeds not yet formally classified"
+msgstr "razze rare o in via di sviluppo non ancora classificate formalmente"
+
+#: woof/templates/woof/about.html:85
+msgid ""
+"Breed classification may vary between kennel organizations.\n"
+"            The same breed can be assigned to different groups depending on "
+"the standard used."
+msgstr "La classificazione delle razze può variare tra le organizzazioni cinofile.\n            La stessa razza può essere assegnata a gruppi diversi a seconda dello standard utilizzato."
+
+#: woof/templates/woof/about.html:90
+msgid "For official FCI standards, you can visit the"
+msgstr "Per gli standard ufficiali FCI, puoi visitare il"
+
+#: woof/templates/woof/about.html:95 woof/templates/woof/about.html:96
+msgid "FCI website"
+msgstr "sito FCI"
+
+#: woof/templates/woof/about.html:102
+msgid ""
+"You can also find practical and helpful information about dog care, "
+"training, behavior, and daily life in the"
+msgstr "Puoi trovare anche informazioni pratiche e utili su cura, addestramento, comportamento e vita quotidiana del cane nella"
+
+#: woof/templates/woof/about.html:106 woof/templates/woof/about.html:107
+#: woof/templates/woof/dog_groups.html:60
+msgid "Guides section"
+msgstr "Sezione guide"
+
+#: woof/templates/woof/about.html:113
+msgid "Enjoy exploring, learning, and discovering dog breeds :)"
+msgstr "Buona esplorazione: scopri e impara a conoscere le razze canine :)"
+
+#: woof/templates/woof/base.html:99 woof/templates/woof/base.html:138
+#: woof/templates/woof/base.html:148 woof/templates/woof/base.html:206
+#: woof/templates/woof/base.html:207
+msgid "Cookie preferences"
+msgstr "Preferenze sui cookie"
+
+#: woof/templates/woof/base.html:107 woof/templates/woof/base.html:108
+msgid "Close and decline"
+msgstr "Chiudi e rifiuta"
+
+#: woof/templates/woof/base.html:120
+msgid "We value your privacy"
+msgstr "La tua privacy è importante per noi"
+
+#: woof/templates/woof/base.html:123
+msgid ""
+"This site uses cookies only for anonymous analytics — to understand how "
+"visitors use it. No advertising, no personal data is sold. You can accept, "
+"decline, or manage your preferences."
+msgstr "Questo sito utilizza i cookie solo per analisi anonime — per capire come i visitatori lo usano. Nessuna pubblicità, nessun dato personale in vendita. Puoi accettare, rifiutare o gestire le tue preferenze."
+
+#: woof/templates/woof/base.html:127
+msgid "Closing this notice counts as declining analytics cookies."
+msgstr "Chiudere questo avviso equivale a rifiutare i cookie analitici."
+
+#: woof/templates/woof/base.html:132
+msgid "Accept all"
+msgstr "Accetta tutto"
+
+#: woof/templates/woof/base.html:135
+msgid "Decline"
+msgstr "Rifiuta"
+
+#: woof/templates/woof/base.html:151
+msgid ""
+"Below are the cookies this site may use. Necessary cookies are always active "
+"and store no personal data."
+msgstr "Ecco i cookie che questo sito può utilizzare. I cookie necessari sono sempre attivi e non memorizzano dati personali."
+
+#: woof/templates/woof/base.html:158
+msgid "Necessary"
+msgstr "Necessari"
+
+#: woof/templates/woof/base.html:160
+msgid ""
+"csrftoken — CSRF protection cookie set by Django on pages with forms "
+"(language switcher, contact page). Always on. Stores no personal data."
+msgstr "csrftoken — cookie di protezione CSRF impostato da Django sulle pagine con moduli (selettore di lingua, pagina contatti). Sempre attivo. Non memorizza dati personali."
+
+#: woof/templates/woof/base.html:163
+msgid "Always on"
+msgstr "Sempre attivi"
+
+#: woof/templates/woof/base.html:168
+msgid "Analytics"
+msgstr "Analitici"
+
+#: woof/templates/woof/base.html:170
+msgid ""
+"Google Analytics — _ga and _ga_* — anonymous visit statistics. Set only "
+"after you give consent."
+msgstr "Google Analytics — _ga e _ga_* — statistiche anonime delle visite. Vengono impostati solo dopo il tuo consenso."
+
+#: woof/templates/woof/base.html:183
+msgid "Read our Cookie Policy"
+msgstr "Leggi la nostra Cookie Policy"
+
+#: woof/templates/woof/base.html:189
+msgid "Save preferences"
+msgstr "Salva le preferenze"
+
+#: woof/templates/woof/base.html:192
+msgid "Back"
+msgstr "Indietro"
+
+#: woof/templates/woof/base.html:242 woof/templates/woof/privacy_policy.html:78
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:68
+msgid "Woof Dogs"
+msgstr "Woof Dogs"
+
+#: woof/templates/woof/base.html:261 woof/templates/woof/base.html:277
+msgid "Language"
+msgstr "Lingua"
+
+#: woof/templates/woof/base.html:292
+msgid "Menu"
+msgstr "Menu"
+
+#: woof/templates/woof/base.html:382
+msgid "Navigation"
+msgstr "Navigazione"
+
+#: woof/templates/woof/base.html:402 woof/utils.py:12
+msgid "Guides"
+msgstr "Guide"
+
+#: woof/templates/woof/base.html:407 woof/templates/woof/base.html:408
+msgid "All Guides"
+msgstr "Tutte le guide"
+
+#: woof/templates/woof/base.html:413 woof/templates/woof/base.html:414
+#: woof/templates/woof/choosing_dog.html:22
+#: woof/templates/woof/choosing_dog.html:30
+#: woof/templates/woof/choosing_dog.html:38 woof/templates/woof/guides.html:56
+#: woof/templates/woof/guides.html:62
+msgid "Choosing the right dog"
+msgstr "Come scegliere il cane giusto"
+
+#: woof/templates/woof/base.html:419 woof/templates/woof/base.html:420
+#: woof/templates/woof/guides.html:75 woof/templates/woof/guides.html:81
+#: woof/templates/woof/puppy.html:26 woof/templates/woof/puppy.html:34
+#: woof/templates/woof/puppy.html:42
+msgid "Raising a puppy"
+msgstr "Crescere un cucciolo"
+
+#: woof/templates/woof/base.html:425 woof/templates/woof/base.html:426
+#: woof/templates/woof/guides.html:94 woof/templates/woof/guides.html:100
+#: woof/templates/woof/training.html:26 woof/templates/woof/training.html:34
+#: woof/templates/woof/training.html:42
+msgid "Dog training fundamentals"
+msgstr "Fondamenti di addestramento"
+
+#: woof/templates/woof/base.html:431 woof/templates/woof/base.html:432
+#: woof/templates/woof/guides.html:113 woof/templates/woof/guides.html:119
+#: woof/templates/woof/health.html:31 woof/templates/woof/health.html:42
+#: woof/templates/woof/health.html:52
+msgid "Dog health & care"
+msgstr "Salute e cura del cane"
+
+#: woof/templates/woof/base.html:437 woof/templates/woof/base.html:438
+#: woof/templates/woof/behavior.html:22 woof/templates/woof/behavior.html:30
+#: woof/templates/woof/behavior.html:37 woof/templates/woof/guides.html:132
+#: woof/templates/woof/guides.html:138
+msgid "Dog behavior"
+msgstr "Comportamento del cane"
+
+#: woof/templates/woof/base.html:443 woof/templates/woof/base.html:444
+#: woof/templates/woof/guides.html:151 woof/templates/woof/guides.html:157
+#: woof/templates/woof/living_with_dog.html:27
+#: woof/templates/woof/living_with_dog.html:36
+#: woof/templates/woof/living_with_dog.html:44
+msgid "Living with a dog"
+msgstr "Vivere con un cane"
+
+#: woof/templates/woof/base.html:449 woof/templates/woof/base.html:450
+#: woof/templates/woof/feeding.html:31 woof/templates/woof/feeding.html:42
+#: woof/templates/woof/feeding.html:52 woof/templates/woof/guides.html:170
+#: woof/templates/woof/guides.html:176
+msgid "Feeding your dog"
+msgstr "Alimentazione del cane"
+
+#: woof/templates/woof/base.html:455 woof/templates/woof/base.html:456
+#: woof/templates/woof/games.html:31 woof/templates/woof/games.html:42
+#: woof/templates/woof/games.html:52 woof/templates/woof/guides.html:189
+#: woof/templates/woof/guides.html:195
+msgid "Games & activities"
+msgstr "Giochi e attività"
+
+#: woof/templates/woof/base.html:468
+msgid "Info"
+msgstr "Info"
+
+#: woof/templates/woof/base.html:473 woof/templates/woof/base.html:474
+#: woof/templates/woof/contact.html:88
+#: woof/templates/woof/privacy_policy.html:25
+#: woof/templates/woof/privacy_policy.html:33
+#: woof/templates/woof/terms_and_conditions.html:109
+#: woof/templates/woof/terms_and_conditions.html:134
+msgid "Privacy Policy"
+msgstr "Informativa sulla privacy"
+
+#: woof/templates/woof/base.html:479 woof/templates/woof/base.html:480
+#: woof/templates/woof/cookie_policy.html:22
+#: woof/templates/woof/cookie_policy.html:32
+#: woof/templates/woof/privacy_policy.html:255
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+#: woof/templates/woof/base.html:485 woof/templates/woof/base.html:486
+#: woof/templates/woof/terms_and_conditions.html:19
+#: woof/templates/woof/terms_and_conditions.html:27
+msgid "Terms of Use"
+msgstr "Termini di utilizzo"
+
+#: woof/templates/woof/base.html:491 woof/templates/woof/base.html:492
+msgid "Sitemap"
+msgstr "Mappa del sito"
+
+#: woof/templates/woof/base.html:507
+msgid "Dog breeds catalog."
+msgstr "Catalogo delle razze canine."
+
+#: woof/templates/woof/base.html:508
+msgid "Non-commercial informational project."
+msgstr "Progetto informativo senza scopo di lucro."
+
+#: woof/templates/woof/base.html:509
+msgid "Find a dog that fits your life."
+msgstr "Trova il cane adatto alla tua vita."
+
+#: woof/templates/woof/base.html:525
+msgid "Back to top"
+msgstr "Torna su"
+
+#: woof/templates/woof/base.html:527
+msgid "go up"
+msgstr "su"
+
+#: woof/templates/woof/behavior.html:20
+#: woof/templates/woof/choosing_dog.html:20 woof/templates/woof/feeding.html:26
+#: woof/templates/woof/feeding.html:27 woof/templates/woof/games.html:26
+#: woof/templates/woof/games.html:27 woof/templates/woof/guides.html:25
+#: woof/templates/woof/guides.html:36 woof/templates/woof/health.html:26
+#: woof/templates/woof/health.html:27
+#: woof/templates/woof/living_with_dog.html:23
+#: woof/templates/woof/puppy.html:22 woof/templates/woof/training.html:22
+msgid "Dog guides"
+msgstr "Guide canine"
+
+#: woof/templates/woof/behavior.html:45
+#: woof/templates/woof/choosing_dog.html:46
+msgid "What this guide is about"
+msgstr "Di cosa parla questa guida"
+
+#: woof/templates/woof/behavior.html:47
+msgid ""
+"Dog behavior is not random. It is a structured system of signals, reactions, "
+"and learned responses. Understanding behavior means learning how dogs "
+"interpret the world, how they communicate stress or comfort, and why they "
+"react in certain ways."
+msgstr "Il comportamento del cane non è casuale. È un sistema strutturato di segnali, reazioni e risposte apprese. Capire il comportamento significa imparare come i cani interpretano il mondo, come comunicano stress o benessere e perché reagiscono in certi modi."
+
+#: woof/templates/woof/behavior.html:50
+msgid ""
+"This guide focuses on interpretation of behavior, not training methods or "
+"commands. The goal is to understand what the dog is expressing rather than "
+"how to change it."
+msgstr "Questa guida si concentra sull'interpretazione del comportamento, non sui metodi di addestramento o sui comandi. L'obiettivo è capire cosa esprime il cane, piuttosto che come modificarlo."
+
+#: woof/templates/woof/behavior.html:54
+msgid "Basic principles of dog communication"
+msgstr "Principi fondamentali della comunicazione del cane"
+
+#: woof/templates/woof/behavior.html:56
+msgid ""
+"Dogs communicate primarily through body language rather than vocalization. "
+"Posture, tail position, ear movement, and facial tension all carry meaning."
+msgstr "I cani comunicano principalmente attraverso il linguaggio del corpo, più che con la voce. Postura, posizione della coda, movimento delle orecchie e tensione del muso portano tutti un significato."
+
+#: woof/templates/woof/behavior.html:59
+msgid ""
+"Unlike humans, dogs rarely exaggerate signals. Their communication is subtle "
+"and often requires context to interpret correctly."
+msgstr "A differenza degli esseri umani, i cani raramente esagerano i segnali. La loro comunicazione è sottile e spesso richiede contesto per essere interpretata correttamente."
+
+#: woof/templates/woof/behavior.html:62
+msgid ""
+"The same behavior can mean different things depending on environment, past "
+"experience, and emotional state."
+msgstr "Lo stesso comportamento può significare cose diverse a seconda dell'ambiente, delle esperienze passate e dello stato emotivo."
+
+#: woof/templates/woof/behavior.html:65
+msgid "Stress and emotional signals"
+msgstr "Stress e segnali emotivi"
+
+#: woof/templates/woof/behavior.html:67
+msgid ""
+"Stress in dogs is often visible long before it becomes severe. Common "
+"signals include lip licking, yawning, turning away, or avoiding eye contact."
+msgstr "Lo stress nei cani è spesso visibile molto prima che diventi grave. I segnali comuni includono leccarsi le labbra, sbadigliare, girarsi dall'altra parte o evitare il contatto visivo."
+
+#: woof/templates/woof/behavior.html:70
+msgid ""
+"These behaviors are not “bad habits” but communication attempts. They "
+"indicate discomfort in a situation, even if the dog appears calm externally."
+msgstr "Questi comportamenti non sono «cattive abitudini», ma tentativi di comunicazione. Indicano disagio in una situazione, anche se il cane appare calmo all'esterno."
+
+#: woof/templates/woof/behavior.html:73
+msgid ""
+"Ignoring early stress signals can lead to escalation, such as barking, "
+"freezing, or defensive reactions."
+msgstr "Ignorare i primi segnali di stress può portare a escalation, come abbaio, congelamento o reazioni difensive."
+
+#: woof/templates/woof/behavior.html:76
+msgid "Confidence vs insecurity"
+msgstr "Sicurezza vs insicurezza"
+
+#: woof/templates/woof/behavior.html:78
+msgid ""
+"A confident dog typically shows relaxed posture, steady movement, and "
+"controlled curiosity toward new environments."
+msgstr "Un cane sicuro mostra in genere postura rilassata, movimenti decisi e curiosità controllata verso nuovi ambienti."
+
+#: woof/templates/woof/behavior.html:80
+msgid ""
+"An insecure dog may hesitate, stay close to the owner, or avoid unfamiliar "
+"objects and sounds. These reactions are not fixed personality traits but "
+"situational responses."
+msgstr "Un cane insicuro può esitare, restare vicino al proprietario o evitare oggetti e suoni sconosciuti. Queste reazioni non sono tratti fissi della personalità, ma risposte situazionali."
+
+#: woof/templates/woof/behavior.html:83
+msgid ""
+"Understanding the difference helps prevent misinterpretation of behavior as "
+"stubbornness or disobedience."
+msgstr "Capire la differenza aiuta a non interpretare erroneamente il comportamento come testardaggine o disobbedienza."
+
+#: woof/templates/woof/behavior.html:86
+msgid "Social behavior and interaction"
+msgstr "Comportamento sociale e interazione"
+
+#: woof/templates/woof/behavior.html:88
+msgid ""
+"Dog-to-dog interaction follows a structured set of signals used to establish "
+"boundaries and intentions. This includes approach speed, body orientation, "
+"and play initiation signals."
+msgstr "L'interazione tra cani segue un insieme strutturato di segnali usati per stabilire confini e intenzioni. Include la velocità di avvicinamento, l'orientamento del corpo e i segnali di inizio del gioco."
+
+#: woof/templates/woof/behavior.html:91
+msgid ""
+"Not all dogs are equally social. Some prefer direct interaction, while "
+"others require distance and gradual introduction."
+msgstr "Non tutti i cani sono ugualmente socievoli. Alcuni preferiscono l'interazione diretta, altri richiedono distanza e un'introduzione graduale."
+
+#: woof/templates/woof/behavior.html:94
+msgid ""
+"Misreading social signals can lead to unnecessary tension between dogs, even "
+"in non-aggressive situations."
+msgstr "Leggere male i segnali sociali può creare tensioni inutili tra cani, anche in situazioni non aggressive."
+
+#: woof/templates/woof/behavior.html:98
+msgid "Common misunderstandings of behavior"
+msgstr "Fraintendimenti comuni sul comportamento"
+
+#: woof/templates/woof/behavior.html:100
+msgid ""
+"Many behaviors are incorrectly interpreted from a human perspective. For "
+"example, a dog that avoids eye contact is not necessarily guilty or "
+"submissive—it may simply be showing respect or avoiding conflict."
+msgstr "Molti comportamenti vengono interpretati erroneamente da una prospettiva umana. Per esempio, un cane che evita il contatto visivo non è necessariamente in colpa o sottomesso — potrebbe semplicemente mostrare rispetto o evitare un conflitto."
+
+#: woof/templates/woof/behavior.html:103
+msgid ""
+"Barking is another commonly misunderstood signal. It can indicate "
+"excitement, alertness, fear, or communication rather than aggression."
+msgstr "L'abbaio è un altro segnale spesso frainteso. Può indicare eccitazione, attenzione, paura o comunicazione, più che aggressività."
+
+#: woof/templates/woof/behavior.html:106
+msgid ""
+"Correct interpretation always depends on context rather than isolated "
+"actions."
+msgstr "L'interpretazione corretta dipende sempre dal contesto, più che da azioni isolate."
+
+#: woof/templates/woof/behavior.html:109
+msgid "Human influence on behavior"
+msgstr "L'influenza dell'uomo sul comportamento"
+
+#: woof/templates/woof/behavior.html:111
+msgid ""
+"Dog behavior is shaped significantly by environment and human response. "
+"Consistency, emotional tone, and household structure all influence how a dog "
+"reacts over time."
+msgstr "Il comportamento del cane è fortemente plasmato dall'ambiente e dalla risposta umana. Coerenza, tono emotivo e struttura della famiglia influenzano il modo in cui il cane reagisce nel tempo."
+
+#: woof/templates/woof/behavior.html:114
+msgid ""
+"Dogs learn patterns from repetition. If a behavior is consistently "
+"reinforced or ignored, it becomes part of their natural response system."
+msgstr "I cani apprendono schemi dalla ripetizione. Se un comportamento viene costantemente rinforzato o ignorato, diventa parte del loro sistema naturale di risposta."
+
+#: woof/templates/woof/behavior.html:117
+msgid ""
+"This is why behavior is not fixed—it evolves based on interaction with the "
+"environment."
+msgstr "Ecco perché il comportamento non è fisso: evolve in base all'interazione con l'ambiente."
+
+#: woof/templates/woof/behavior.html:120
+#: woof/templates/woof/choosing_dog.html:92
+#: woof/templates/woof/feeding.html:156 woof/templates/woof/games.html:169
+#: woof/templates/woof/health.html:144
+#: woof/templates/woof/living_with_dog.html:117
+#: woof/templates/woof/puppy.html:104 woof/templates/woof/training.html:93
+msgid "Conclusion"
+msgstr "Conclusione"
+
+#: woof/templates/woof/behavior.html:122
+msgid ""
+"Understanding dog behavior is primarily about interpretation rather than "
+"control. When signals are read correctly, it becomes easier to understand "
+"needs, emotions, and reactions without misjudgment."
+msgstr "Capire il comportamento del cane è soprattutto questione di interpretazione, più che di controllo. Quando i segnali vengono letti correttamente, diventa più facile comprendere bisogni, emozioni e reazioni senza fraintendimenti."
+
+#: woof/templates/woof/behavior.html:125
+msgid ""
+"This creates a more stable and predictable relationship between dog and "
+"owner based on awareness rather than assumption."
+msgstr "Questo crea una relazione più stabile e prevedibile tra cane e proprietario, basata sulla consapevolezza piuttosto che sulle supposizioni."
+
+#: woof/templates/woof/choosing_dog.html:48
+msgid ""
+"Choosing a dog is a decision about long-term compatibility rather than "
+"appearance or impulse. The right choice depends on how well a dog’s needs "
+"align with your lifestyle, energy level, and living environment."
+msgstr "Scegliere un cane è una decisione di compatibilità a lungo termine, non di aspetto o impulso. La scelta giusta dipende da quanto i bisogni del cane si allineano con il tuo stile di vita, il tuo livello di energia e il tuo ambiente di vita."
+
+#: woof/templates/woof/choosing_dog.html:51
+msgid ""
+"This guide focuses on selection logic: how to think before choosing a breed, "
+"not individual breed descriptions or training considerations."
+msgstr "Questa guida si concentra sulla logica di selezione: come ragionare prima di scegliere una razza, non sulle descrizioni delle singole razze o su considerazioni di addestramento."
+
+#: woof/templates/woof/choosing_dog.html:54
+msgid "Lifestyle compatibility"
+msgstr "Compatibilità con il tuo stile di vita"
+
+#: woof/templates/woof/choosing_dog.html:56
+msgid ""
+"The most important factor in choosing a dog is daily lifestyle. Time "
+"availability, activity level, work schedule, and home environment all "
+"influence suitability."
+msgstr "Il fattore più importante nella scelta di un cane è lo stile di vita quotidiano. Disponibilità di tempo, livello di attività, orari di lavoro e ambiente domestico influenzano tutti l'idoneità."
+
+#: woof/templates/woof/choosing_dog.html:59
+msgid ""
+"Active individuals may struggle with low-energy dogs, while calm lifestyles "
+"may not meet the needs of highly energetic breeds. Mismatch often leads to "
+"long-term frustration for both owner and dog."
+msgstr "Le persone attive possono avere difficoltà con cani a bassa energia, mentre gli stili di vita tranquilli possono non soddisfare i bisogni delle razze molto energiche. La discrepanza porta spesso a frustrazione a lungo termine sia per il proprietario sia per il cane."
+
+#: woof/templates/woof/choosing_dog.html:62
+msgid "The goal is balance, not preference alone."
+msgstr "L'obiettivo è l'equilibrio, non solo le preferenze."
+
+#: woof/templates/woof/choosing_dog.html:65
+msgid "Experience level of the owner"
+msgstr "Livello di esperienza del proprietario"
+
+#: woof/templates/woof/choosing_dog.html:67
+msgid ""
+"Some dogs require more structured handling, patience, and consistency than "
+"others. First-time owners often benefit from more stable and adaptable "
+"breeds."
+msgstr "Alcuni cani richiedono una gestione più strutturata, pazienza e coerenza rispetto ad altri. Chi ha un cane per la prima volta trae spesso beneficio da razze più stabili e adattabili."
+
+#: woof/templates/woof/choosing_dog.html:70
+msgid ""
+"More independent or strong-willed dogs may require prior experience and "
+"clearer leadership consistency."
+msgstr "I cani più indipendenti o testardi possono richiedere esperienza precedente e una coerenza di leadership più chiara."
+
+#: woof/templates/woof/choosing_dog.html:72
+msgid ""
+"Matching experience level with dog temperament reduces behavioral and "
+"adaptation issues."
+msgstr "Abbinare il livello di esperienza al temperamento del cane riduce i problemi comportamentali e di adattamento."
+
+#: woof/templates/woof/choosing_dog.html:75
+msgid "Living space and environment"
+msgstr "Spazio abitativo e ambiente"
+
+#: woof/templates/woof/choosing_dog.html:77
+msgid ""
+"Living conditions play a major role in suitability. Apartment living, "
+"suburban homes, and rural environments create very different needs for space "
+"and activity."
+msgstr "Le condizioni di vita giocano un ruolo fondamentale nell'idoneità. La vita in appartamento, le case suburbane e gli ambienti rurali creano bisogni molto diversi di spazio e attività."
+
+#: woof/templates/woof/choosing_dog.html:80
+msgid ""
+"Larger or high-energy dogs typically require more space and outdoor access, "
+"while smaller or calmer breeds can adapt more easily to compact environments."
+msgstr "I cani più grandi o ad alta energia richiedono in genere più spazio e accesso all'aperto, mentre le razze più piccole o più calme si adattano più facilmente agli ambienti compatti."
+
+#: woof/templates/woof/choosing_dog.html:84
+msgid "Time and responsibility expectations"
+msgstr "Tempo e responsabilità attese"
+
+#: woof/templates/woof/choosing_dog.html:86
+msgid ""
+"Dogs require daily attention for many years. This includes routine care, "
+"time presence, and consistent involvement in their daily life."
+msgstr "I cani richiedono attenzione quotidiana per molti anni. Questo include cure di routine, presenza e coinvolgimento costante nella loro vita quotidiana."
+
+#: woof/templates/woof/choosing_dog.html:89
+msgid ""
+"Underestimating time requirements is one of the most common reasons for poor "
+"adaptation after adoption."
+msgstr "Sottovalutare i requisiti di tempo è una delle cause più comuni di scarso adattamento dopo l'adozione."
+
+#: woof/templates/woof/choosing_dog.html:94
+msgid ""
+"Choosing the right dog is a structured decision based on compatibility, not "
+"preference alone. When lifestyle, experience, and environment are aligned "
+"with the dog’s needs, long-term stability becomes significantly easier to "
+"achieve."
+msgstr "Scegliere il cane giusto è una decisione strutturata basata sulla compatibilità, non solo sulle preferenze. Quando stile di vita, esperienza e ambiente sono allineati con i bisogni del cane, la stabilità a lungo termine diventa molto più facile da raggiungere."
+
+#: woof/templates/woof/contact.html:23 woof/templates/woof/contact.html:32
+#: woof/utils.py:14
+msgid "Contact"
+msgstr "Contatti"
+
+#: woof/templates/woof/contact.html:34
+msgid "Thank you for helping improve this project"
+msgstr "Grazie per aver contribuito a migliorare questo progetto"
+
+#: woof/templates/woof/contact.html:36
+msgid "Feel free to reach out with any questions, suggestions, or feedback."
+msgstr "Non esitare a scriverci per domande, suggerimenti o feedback."
+
+#: woof/templates/woof/contact.html:86
+msgid ""
+"By clicking \"Send\" button, you allow WoofDogs to process your information "
+"in accordance with our"
+msgstr "Cliccando sul pulsante «Invia», acconsenti a WoofDogs di trattare le tue informazioni in conformità con la nostra"
+
+#: woof/templates/woof/contact.html:93
+msgid "Send a message"
+msgstr "Invia un messaggio"
+
+#: woof/templates/woof/contact.html:94
+msgid "Send"
+msgstr "Invia"
+
+#: woof/templates/woof/contact.html:108
+msgid ""
+"<span class=\"accent-strong\">Photography credits:</span> Every photograph "
+"on the website matters to us. If you are the author of a photograph and "
+"would like it to be removed, or if you would like your authorship to be "
+"corrected or credited differently — <span class=\"accent-strong\">please "
+"write to us</span>. We are always happy to give credit where it is due."
+msgstr "<span class=\\\"accent-strong\\\">Crediti fotografici:</span> Ogni fotografia sul sito è importante per noi. Se sei l'autore di una fotografia e desideri che venga rimossa, oppure se vuoi che la tua paternità venga corretta o accreditata diversamente — <span class=\\\"accent-strong\\\">scrivici</span>. Siamo sempre felici di dare credito dove è dovuto."
+
+#: woof/templates/woof/contact.html:110
+msgid "Also:"
+msgstr "Inoltre:"
+
+#: woof/templates/woof/contact.html:114
+msgid ""
+"If you notice any inaccuracies in breed descriptions, characteristics, or "
+"data."
+msgstr "Se noti imprecisioni nelle descrizioni delle razze, nelle caratteristiche o nei dati."
+
+#: woof/templates/woof/contact.html:116
+msgid ""
+"If you would like to suggest a dog breed that is not yet listed on the "
+"website."
+msgstr "Se desideri suggerire una razza di cane non ancora presente sul sito."
+
+#: woof/templates/woof/contact.html:118
+msgid "If you have ideas or suggestions to improve the content or structure."
+msgstr "Se hai idee o suggerimenti per migliorare contenuti o struttura."
+
+#: woof/templates/woof/contact.html:120
+msgid ""
+"Please include a link or any relevant details to help process your request."
+msgstr "Includi un link o eventuali dettagli pertinenti per aiutarci a gestire la tua richiesta."
+
+#: woof/templates/woof/contact.html:126
+msgid "Your feedback helps keep the information accurate and reliable."
+msgstr "Il tuo feedback aiuta a mantenere le informazioni accurate e affidabili."
+
+#: woof/templates/woof/contact.html:160
+msgid "Thank you. Message has been sent."
+msgstr "Grazie. Messaggio inviato."
+
+#: woof/templates/woof/contact.html:171
+msgid "Please try again later."
+msgstr "Riprova più tardi."
+
+#: woof/templates/woof/cookie_policy.html:35
+msgid "Last updated: September 10, 2026"
+msgstr "Ultimo aggiornamento: 10 settembre 2026"
+
+#: woof/templates/woof/cookie_policy.html:39
+msgid "Cookie Declaration"
+msgstr "Dichiarazione sui cookie"
+
+#: woof/templates/woof/cookie_policy.html:41
+msgid "When you visit the Website, the following cookies may be stored:"
+msgstr "Durante la visita al Sito possono essere memorizzati i seguenti cookie:"
+
+#: woof/templates/woof/cookie_policy.html:47
+msgid "Cookie"
+msgstr "Cookie"
+
+#: woof/templates/woof/cookie_policy.html:48
+msgid "Duration"
+msgstr "Durata"
+
+#: woof/templates/woof/cookie_policy.html:49
+msgid "Purpose"
+msgstr "Scopo"
+
+#: woof/templates/woof/cookie_policy.html:57
+msgid "1 year"
+msgstr "1 anno"
+
+#: woof/templates/woof/cookie_policy.html:58
+msgid ""
+"Necessary. CSRF protection cookie set by Django on pages with forms "
+"(language switcher, contact page). Stores no personal data."
+msgstr "Necessario. Cookie di protezione CSRF impostato da Django sulle pagine con moduli (selettore di lingua, pagina contatti). Non memorizza dati personali."
+
+#: woof/templates/woof/cookie_policy.html:63
+#: woof/templates/woof/cookie_policy.html:69
+msgid "About 400 days"
+msgstr "Circa 400 giorni"
+
+#: woof/templates/woof/cookie_policy.html:64
+msgid ""
+"Analytics. Google Analytics cookie used to calculate visitor, session and "
+"campaign data and track site usage. Stores anonymous data. Set only after "
+"consent."
+msgstr "Analitico. Cookie di Google Analytics usato per calcolare dati su visitatori, sessioni e campagne e per monitorare l'uso del sito. Memorizza dati anonimi. Impostato solo dopo il consenso."
+
+#: woof/templates/woof/cookie_policy.html:70
+msgid ""
+"Analytics. Google Analytics cookie used to store and count page views. Set "
+"only after consent."
+msgstr "Analitico. Cookie di Google Analytics usato per memorizzare e contare le visualizzazioni delle pagine. Impostato solo dopo il consenso."
+
+#: woof/templates/woof/cookie_policy.html:77
+msgid ""
+"The cookie notice on the Website appears before any analytics cookies are "
+"set. Nothing is loaded — no scripts, no cookies — until you make a choice. "
+"You may withdraw or change your consent at any time using the cookie notice "
+"(the floating button in the corner of the page), and you may delete these "
+"cookies through your browser settings."
+msgstr "L'avviso sui cookie sul Sito appare prima che vengano impostati i cookie analitici. Non viene caricato nulla — né script né cookie — finché non fai una scelta. Puoi revocare o modificare il tuo consenso in qualsiasi momento tramite l'avviso sui cookie (il pulsante flottante nell'angolo della pagina) e puoi eliminare questi cookie attraverso le impostazioni del browser."
+
+#: woof/templates/woof/cookie_policy.html:79
+msgid ""
+"You can also change your preferences directly from this page using the "
+"button below."
+msgstr "Puoi anche modificare le tue preferenze direttamente da questa pagina usando il pulsante qui sotto."
+
+#: woof/templates/woof/cookie_policy.html:83
+msgid "Change cookie preferences"
+msgstr "Modifica le preferenze sui cookie"
+
+#: woof/templates/woof/cookie_policy.html:89
+msgid "How can I control cookies in my browser?"
+msgstr "Come posso gestire i cookie nel mio browser?"
+
+#: woof/templates/woof/cookie_policy.html:91
+msgid "Here are instructions for managing cookies in popular browsers:"
+msgstr "Ecco le istruzioni per gestire i cookie nei browser più diffusi:"
+
+#: woof/templates/woof/cookie_policy.html:99
+msgid "Chrome"
+msgstr "Chrome"
+
+#: woof/templates/woof/cookie_policy.html:106
+msgid "Internet Explorer"
+msgstr "Internet Explorer"
+
+#: woof/templates/woof/cookie_policy.html:113
+msgid "Firefox"
+msgstr "Firefox"
+
+#: woof/templates/woof/cookie_policy.html:120
+msgid "Safari"
+msgstr "Safari"
+
+#: woof/templates/woof/cookie_policy.html:127
+msgid "Edge"
+msgstr "Edge"
+
+#: woof/templates/woof/cookie_policy.html:134
+msgid "Opera"
+msgstr "Opera"
+
+#: woof/templates/woof/cookie_policy.html:141
+msgid ""
+"Additionally, most ad networks offer options to opt out of targeted "
+"advertising. For more information, visit:"
+msgstr "Inoltre, la maggior parte delle reti pubblicitarie offre opzioni per rinunciare alla pubblicità mirata. Per maggiori informazioni, visita:"
+
+#: woof/templates/woof/cookie_policy.html:150
+msgid "Digital Advertising Alliance"
+msgstr "Digital Advertising Alliance"
+
+#: woof/templates/woof/cookie_policy.html:157
+msgid "Digital Advertising Alliance of Canada"
+msgstr "Digital Advertising Alliance of Canada"
+
+#: woof/templates/woof/cookie_policy.html:164
+msgid "European Interactive Digital Advertising Alliance"
+msgstr "European Interactive Digital Advertising Alliance"
+
+#: woof/templates/woof/cookie_policy.html:171
+msgid "How often will you update this Cookie Policy?"
+msgstr "Con quale frequenza aggiorniamo questa Cookie Policy?"
+
+#: woof/templates/woof/cookie_policy.html:173
+msgid ""
+"We may update this Cookie Policy periodically to reflect changes to the "
+"cookies we use or for other operational, legal, or regulatory reasons. "
+"Please review this policy regularly to stay informed about how we use "
+"cookies and related technologies."
+msgstr "Possiamo aggiornare periodicamente questa Cookie Policy per riflettere i cambiamenti dei cookie che utilizziamo o per altri motivi operativi, legali o normativi. Ti invitiamo a rivedere regolarmente questa informativa per restare aggiornato sull'uso di cookie e tecnologie correlate."
+
+#: woof/templates/woof/cookie_policy.html:179
+msgid "Where can I get more information?"
+msgstr "Dove posso trovare maggiori informazioni?"
+
+#: woof/templates/woof/cookie_policy.html:182
+msgid ""
+"If you have any questions about our use of cookies or other technologies, "
+"please"
+msgstr "Se hai domande sul nostro uso dei cookie o di altre tecnologie,"
+
+#: woof/templates/woof/cookie_policy.html:185
+#: woof/templates/woof/privacy_policy.html:293
+#: woof/templates/woof/privacy_policy.html:317
+#: woof/templates/woof/terms_and_conditions.html:203
+msgid "woofdogs23@gmail.com"
+msgstr "woofdogs23@gmail.com"
+
+#: woof/templates/woof/cookie_policy.html:185 woof/templates/woof/post.html:315
+msgid "contact us"
+msgstr "contattaci"
+
+#: woof/templates/woof/dog_cards.html:35
+msgid "No dogs found."
+msgstr "Nessun cane trovato."
+
+#: woof/templates/woof/dog_groups.html:24
+#: woof/templates/woof/dog_groups.html:34
+#: woof/templates/woof/dog_groups.html:38 woof/utils.py:13
+msgid "Explore"
+msgstr "Esplora"
+
+#: woof/templates/woof/dog_groups.html:48
+msgid "How to use this page"
+msgstr "Come usare questa pagina"
+
+#: woof/templates/woof/dog_groups.html:52
+msgid ""
+"This page helps you navigate dog breeds based on real-life needs rather than "
+"appearance alone. You can explore grouped categories and compare dogs by "
+"temperament, energy level, and general suitability."
+msgstr "Questa pagina ti aiuta a orientarti tra le razze canine in base ai bisogni reali, non solo all'aspetto. Puoi esplorare categorie raggruppate e confrontare i cani per temperamento, livello di energia e idoneità generale."
+
+#: woof/templates/woof/dog_groups.html:56
+msgid "For deeper understanding of dog ownership, you can also visit the"
+msgstr "Per capire meglio la convivenza con un cane, puoi anche visitare la"
+
+#: woof/templates/woof/dog_groups.html:63
+msgid ""
+"where you will find structured information about choosing, training, "
+"behavior, health, and daily life with dogs."
+msgstr "dove troverai informazioni strutturate su scelta, addestramento, comportamento, salute e vita quotidiana con i cani."
+
+#: woof/templates/woof/dog_groups.html:74
+msgid "By size"
+msgstr "Per taglia"
+
+#: woof/templates/woof/dog_groups.html:91
+#: woof/templates/woof/dog_groups.html:167
+#: woof/templates/woof/dog_groups.html:243
+#: woof/templates/woof/dog_groups.html:319
+msgid "Previous dogs"
+msgstr "Cani precedenti"
+
+#: woof/templates/woof/dog_groups.html:94
+#: woof/templates/woof/dog_groups.html:170
+#: woof/templates/woof/dog_groups.html:246
+#: woof/templates/woof/dog_groups.html:322
+#: woof/templates/woof/dogs_list.html:58 woof/templates/woof/home.html:311
+#: woof/templates/woof/post.html:66 woof/templates/woof/post.html:375
+#: woof/templates/woof/post.html:510
+msgid "Previous page"
+msgstr "Pagina precedente"
+
+#: woof/templates/woof/dog_groups.html:95
+#: woof/templates/woof/dog_groups.html:171
+#: woof/templates/woof/dog_groups.html:247
+#: woof/templates/woof/dog_groups.html:323
+#: woof/templates/woof/dogs_list.html:59 woof/templates/woof/home.html:312
+#: woof/templates/woof/post.html:67 woof/templates/woof/post.html:97
+#: woof/templates/woof/post.html:376 woof/templates/woof/post.html:511
+msgid "Previous"
+msgstr "Precedente"
+
+#: woof/templates/woof/dog_groups.html:128
+#: woof/templates/woof/dog_groups.html:204
+#: woof/templates/woof/dog_groups.html:280
+#: woof/templates/woof/dog_groups.html:356
+msgid "Next dogs"
+msgstr "Cani successivi"
+
+#: woof/templates/woof/dog_groups.html:131
+#: woof/templates/woof/dog_groups.html:207
+#: woof/templates/woof/dog_groups.html:283
+#: woof/templates/woof/dog_groups.html:359
+#: woof/templates/woof/dogs_list.html:117 woof/templates/woof/home.html:373
+#: woof/templates/woof/post.html:81 woof/templates/woof/post.html:390
+#: woof/templates/woof/post.html:549
+msgid "Next page"
+msgstr "Pagina successiva"
+
+#: woof/templates/woof/dog_groups.html:132
+#: woof/templates/woof/dog_groups.html:208
+#: woof/templates/woof/dog_groups.html:284
+#: woof/templates/woof/dog_groups.html:360
+#: woof/templates/woof/dogs_list.html:118 woof/templates/woof/home.html:374
+#: woof/templates/woof/post.html:82 woof/templates/woof/post.html:118
+#: woof/templates/woof/post.html:391 woof/templates/woof/post.html:550
+msgid "Next"
+msgstr "Successivo"
+
+#: woof/templates/woof/dog_groups.html:150
+msgid "Lifestyle & ownership"
+msgstr "Stile di vita e convivenza"
+
+#: woof/templates/woof/dog_groups.html:226
+msgid "By living conditions"
+msgstr "Per condizioni di vita"
+
+#: woof/templates/woof/dog_groups.html:302
+msgid "Other characteristics"
+msgstr "Altre caratteristiche"
+
+#: woof/templates/woof/dog_groups.html:383
+msgid ""
+"It is important to realistically consider how much time you can dedicate to "
+"walks, training, and interaction. Some dogs require constant activity and "
+"stimulation, while others are calm and adapt to a slower pace.<br> "
+"<strong>Grooming needs also vary significantly</strong> between breeds."
+msgstr "È importante considerare realisticamente quanto tempo puoi dedicare a passeggiate, addestramento e interazione. Alcuni cani richiedono attività e stimoli costanti, altri sono calmi e si adattano a un ritmo più lento.<br> <strong>Anche le esigenze di toelettatura variano notevolmente</strong> tra le razze."
+
+#: woof/templates/woof/dog_groups.html:389
+msgid ""
+"<strong>Living conditions matter.</strong> Not every dog is suited for "
+"apartment life, and barking levels can affect daily comfort. Experience also "
+"plays a role — some breeds are easy for beginners, while others require "
+"patience and confidence."
+msgstr "<strong>Le condizioni di vita contano.</strong> Non tutti i cani sono adatti alla vita in appartamento, e i livelli di abbaio possono influenzare il comfort quotidiano. Anche l'esperienza conta — alcune razze sono facili per i principianti, mentre altre richiedono pazienza e sicurezza."
+
+#: woof/templates/woof/dog_groups.html:395
+msgid ""
+"<strong>Health and allergies should not be overlooked.</strong> While no dog "
+"is completely hypoallergenic, some are more suitable for sensitive owners."
+msgstr "<strong>Salute e allergie non vanno trascurate.</strong> Anche se nessun cane è completamente ipoallergenico, alcuni sono più adatti ai proprietari sensibili."
+
+#: woof/templates/woof/dog_groups.html:399
+msgid ""
+"Taking time to understand these factors helps you make a thoughtful choice."
+"<br> This page is designed to guide you with simple, practical groups — "
+"helping you find a dog that truly fits your lifestyle."
+msgstr "Prendersi il tempo per capire questi fattori aiuta a fare una scelta consapevole.<br> Questa pagina è pensata per guidarti con gruppi semplici e pratici — aiutandoti a trovare un cane che si adatti davvero al tuo stile di vita."
+
+#: woof/templates/woof/dogs_list.html:25 woof/templates/woof/dogs_list.html:26
+#: woof/templates/woof/dogs_list.html:41 woof/templates/woof/groups.html:26
+#: woof/templates/woof/groups.html:37 woof/templates/woof/post.html:38
+msgid "Groups"
+msgstr "Gruppi"
+
+#: woof/templates/woof/dogs_list.html:142
+msgid "Sections."
+msgstr "Sezioni."
+
+#: woof/templates/woof/dogs_list.html:150
+msgid "No sections."
+msgstr "Nessuna sezione."
+
+#: woof/templates/woof/dogs_list.html:158
+msgid "In short."
+msgstr "In breve."
+
+#: woof/templates/woof/dogs_list.html:165
+msgid "*"
+msgstr "*"
+
+#: woof/templates/woof/dogs_list.html:166
+msgid ""
+"If you don’t see a particular breed on this website, it may simply mean that "
+"it hasn’t been added yet, or that we haven’t found suitable images with "
+"clear attribution or free usage rights 😊"
+msgstr "Se non vedi una razza particolare su questo sito, può semplicemente significare che non è ancora stata aggiunta o che non abbiamo trovato immagini adatte con attribuzione chiara o diritti di utilizzo gratuiti 😊"
+
+#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
+#: woof/templates/woof/health.html:62
+msgid "What this guide covers"
+msgstr "Cosa tratta questa guida"
+
+#: woof/templates/woof/feeding.html:64
+msgid ""
+"Feeding is one of the most important parts of everyday dog care. This guide "
+"explains general feeding principles that apply to any healthy dog: food "
+"formats, portions, feeding by age and a proper drinking regime."
+msgstr "L'alimentazione è una delle parti più importanti della cura quotidiana del cane. Questa guida spiega i principi generali dell'alimentazione validi per qualsiasi cane sano: formati di cibo, porzioni, alimentazione per età e un corretto regime di idratazione."
+
+#: woof/templates/woof/feeding.html:68
+msgid ""
+"This guide deliberately avoids brand names. Every dog is different: the "
+"final ration always depends on age, size, activity level and health "
+"condition."
+msgstr "Questa guida evita volutamente i nomi di marca. Ogni cane è diverso: la razione finale dipende sempre da età, taglia, livello di attività e stato di salute."
+
+#: woof/templates/woof/feeding.html:73
+msgid "Dry and wet food"
+msgstr "Cibo secco e umido"
+
+#: woof/templates/woof/feeding.html:75
+msgid ""
+"Dry food is convenient: it is easy to store, measure and dose. It stays "
+"fresh longer, and its crunchy texture helps clean teeth mechanically."
+msgstr "Il cibo secco è comodo: facile da conservare, dosare e misurare. Resta fresco più a lungo e la sua consistenza croccante aiuta a pulire i denti meccanicamente."
+
+#: woof/templates/woof/feeding.html:78
+msgid ""
+"Wet food contains much more moisture, which helps maintain water balance. It "
+"is often more palatable, which suits picky eaters, older dogs and dogs with "
+"dental problems."
+msgstr "Il cibo umido contiene molta più acqua, aiutando a mantenere l'equilibrio idrico. È spesso più appetibile, adatto ai cani schizzinosi, anziani o con problemi dentali."
+
+#: woof/templates/woof/feeding.html:81
+msgid ""
+"Both formats can be combined. What matters most is that the ration is "
+"complete and balanced for the dog's age and size. An opened tin of wet food "
+"must be stored in the refrigerator and used within a short time."
+msgstr "I due formati possono essere combinati. Ciò che conta di più è che la razione sia completa ed equilibrata per età e taglia del cane. Una scatola di cibo umido aperta va conservata in frigorifero e utilizzata in breve tempo."
+
+#: woof/templates/woof/feeding.html:87
+msgid "How to choose food"
+msgstr "Come scegliere l'alimentazione"
+
+#: woof/templates/woof/feeding.html:89
+msgid ""
+"Read the composition: good food lists a specific source of protein first — "
+"chicken, beef or fish — instead of vague mixtures."
+msgstr "Leggi la composizione: un buon alimento elenca prima una fonte proteica specifica — pollo, manzo o pesce — invece di miscele vaghe."
+
+#: woof/templates/woof/feeding.html:92
+msgid ""
+"Consider the age category, the size of the kibble for small breeds, and "
+"special needs such as allergies or sensitive digestion."
+msgstr "Considera la categoria d'età, la dimensione delle crocchette per le razze piccole e le esigenze particolari come allergie o digestione sensibile."
+
+#: woof/templates/woof/feeding.html:95
+msgid ""
+"Avoid products with unclear composition, excess salt, sugar or artificial "
+"colours. If in doubt, ask your veterinarian."
+msgstr "Evita prodotti con composizione poco chiara, eccesso di sale, zucchero o coloranti artificiali. In caso di dubbi, chiedi al tuo veterinario."
+
+#: woof/templates/woof/feeding.html:100
+msgid "Feeding across ages"
+msgstr "Alimentazione nelle diverse età"
+
+#: woof/templates/woof/feeding.html:102
+msgid ""
+"Puppies need small frequent meals: roughly three to four times a day, "
+"gradually reduced to two meals by the age of six to twelve months."
+msgstr "I cuccioli hanno bisogno di pasti piccoli e frequenti: circa tre o quattro volte al giorno, ridotti gradualmente a due pasti entro i sei-dodici mesi."
+
+#: woof/templates/woof/feeding.html:105
+msgid ""
+"Adult dogs usually feel best with one or two regular meals a day at the same "
+"time."
+msgstr "I cani adulti stanno generalmente meglio con uno o due pasti regolari al giorno, alla stessa ora."
+
+#: woof/templates/woof/feeding.html:107
+msgid ""
+"Senior dogs may need smaller portions, easier-to-digest food and, often, "
+"more frequent feeding. During pregnancy and lactation the dog needs more "
+"food and more frequent meals."
+msgstr "I cani anziani possono aver bisogno di porzioni più piccole, cibo più digeribile e, spesso, pasti più frequenti. Durante gravidanza e allattamento la cagna ha bisogno di più cibo e pasti più frequenti."
+
+#: woof/templates/woof/feeding.html:112
+msgid "Portions and schedule"
+msgstr "Porzioni e orari"
+
+#: woof/templates/woof/feeding.html:114
+msgid ""
+"The portion depends on weight, activity and the food itself. Use the feeding "
+"table on the package as a starting point and adjust it by observing the "
+"dog's condition."
+msgstr "La porzione dipende dal peso, dall'attività e dall'alimento stesso. Usa la tabella di alimentazione sulla confezione come punto di partenza e adattala osservando le condizioni del cane."
+
+#: woof/templates/woof/feeding.html:117
+msgid ""
+"Regular meals at fixed times help digestion and prevent begging. For adult "
+"dogs avoid free access to the bowl all day — it often leads to obesity."
+msgstr "I pasti regolari a orari fissi aiutano la digestione e prevengono l'accattonaggio. Per i cani adulti evita l'accesso libero alla ciotola tutto il giorno — porta spesso all'obesità."
+
+#: woof/templates/woof/feeding.html:120
+msgid "Treats should make up no more than ten percent of the daily calories."
+msgstr "Gli snack non devono superare il dieci per cento delle calorie giornaliere."
+
+#: woof/templates/woof/feeding.html:124
+msgid "Drinking regime"
+msgstr "Regime di idratazione"
+
+#: woof/templates/woof/feeding.html:126
+msgid "Fresh water must be available at all times, not only during meals."
+msgstr "Acqua fresca sempre disponibile, non solo durante i pasti."
+
+#: woof/templates/woof/feeding.html:128
+msgid ""
+"Change the water daily and wash the bowl regularly. In hot weather, after "
+"activity or when eating dry food, the dog drinks noticeably more."
+msgstr "Cambia l'acqua ogni giorno e lava la ciotola regolarmente. Con il caldo, dopo l'attività o mangiando cibo secco, il cane beve sensibilmente di più."
+
+#: woof/templates/woof/feeding.html:131
+msgid ""
+"A sudden increase or decrease in thirst can be a sign of health problems — "
+"in that case, consult a veterinarian."
+msgstr "Un aumento o una diminuzione improvvisa della sete può essere un segno di problemi di salute — in tal caso, consulta un veterinario."
+
+#: woof/templates/woof/feeding.html:136
+msgid "Switching food"
+msgstr "Cambio di alimentazione"
+
+#: woof/templates/woof/feeding.html:138
+msgid ""
+"Change the food gradually, over seven to ten days, mixing the new food into "
+"the old one in increasing proportions."
+msgstr "Cambia l'alimentazione gradualmente, nell'arco di sette-dieci giorni, mescolando il nuovo alimento al vecchio in proporzioni crescenti."
+
+#: woof/templates/woof/feeding.html:141
+msgid ""
+"A sudden change often causes digestive upset: loose stool, refusal of food "
+"or bloating. Watch your dog carefully during the transition."
+msgstr "Un cambio improvviso provoca spesso disturbi digestivi: feci molli, rifiuto del cibo o gonfiore. Osserva attentamente il cane durante la transizione."
+
+#: woof/templates/woof/feeding.html:146
+msgid "Foods to avoid"
+msgstr "Alimenti da evitare"
+
+#: woof/templates/woof/feeding.html:148
+msgid ""
+"Some human foods are dangerous for dogs: chocolate, grapes and raisins, "
+"onions and garlic, xylitol, alcohol and cooked bones."
+msgstr "Alcuni cibi umani sono pericolosi per i cani: cioccolato, uva e uvetta, cipolle e aglio, xilitolo, alcol e ossa cotte."
+
+#: woof/templates/woof/feeding.html:151
+msgid ""
+"Salty, spicy and fatty food from the table is also best avoided. Keep these "
+"products out of the dog's reach."
+msgstr "Anche il cibo salato, speziato e grasso dalla tavola è meglio evitarlo. Tieni questi prodotti fuori dalla portata del cane."
+
+#: woof/templates/woof/feeding.html:158
+msgid ""
+"Feeding is a routine, but a conscious one: a stable schedule, a quality "
+"ration and constant access to water are the foundation of health."
+msgstr "L'alimentazione è una routine, ma consapevole: un programma stabile, una razione di qualità e l'accesso costante all'acqua sono le fondamenta della salute."
+
+#: woof/templates/woof/feeding.html:161
+msgid ""
+"If you are not sure about the right food for your dog, always consult a "
+"specialist — the right choice is easier to make together."
+msgstr "Se non sei sicuro dell'alimento giusto per il tuo cane, consulta sempre uno specialista — la scelta giusta è più facile da fare insieme."
+
+#: woof/templates/woof/games.html:64
+msgid ""
+"Play is not just fun — it is a necessary part of everyday life for a dog. "
+"Games give physical activity, mental load and emotional contact with the "
+"owner."
+msgstr "Il gioco non è solo divertimento — è una parte necessaria della vita quotidiana del cane. I giochi offrono attività fisica, stimolo mentale e contatto emotivo con il proprietario."
+
+#: woof/templates/woof/games.html:67
+msgid ""
+"This guide describes safe games that suit most dogs, from puppies to "
+"seniors, and explains their benefits."
+msgstr "Questa guida descrive giochi sicuri adatti alla maggior parte dei cani, dai cuccioli agli anziani, e spiega i loro benefici."
+
+#: woof/templates/woof/games.html:72
+msgid "Why play matters"
+msgstr "Perché il gioco è importante"
+
+#: woof/templates/woof/games.html:74
+msgid ""
+"Regular games help release excess energy, reduce stress and prevent "
+"destructive behavior."
+msgstr "I giochi regolari aiutano a smaltire l'energia in eccesso, ridurre lo stress e prevenire comportamenti distruttivi."
+
+#: woof/templates/woof/games.html:76
+msgid ""
+"A tired and satisfied dog sleeps better, trains better and stays calmer when "
+"left alone."
+msgstr "Un cane stanco e soddisfatto dorme meglio, si addestra meglio e resta più calmo quando è solo."
+
+#: woof/templates/woof/games.html:78
+msgid ""
+"Play also strengthens the bond between you: the dog learns to trust and "
+"cooperate."
+msgstr "Il gioco rafforza anche il legame tra voi: il cane impara a fidarsi e a collaborare."
+
+#: woof/templates/woof/games.html:82
+msgid "Fetch and chase games"
+msgstr "Giochi di riporto e inseguimento"
+
+#: woof/templates/woof/games.html:84
+msgid ""
+"Fetch is one of the simplest games: throw a toy or a soft dummy and teach "
+"the dog to bring it back. Use special toys — sticks are dangerous."
+msgstr "Il riporto è uno dei giochi più semplici: lancia un giocattolo o un recupero morbido e insegna al cane a riportarlo. Usa giocattoli appositi — i bastoni sono pericolosi."
+
+#: woof/templates/woof/games.html:87
+msgid ""
+"Keep sessions short, end the game at the peak of interest, and always check "
+"the playing area for hazards."
+msgstr "Mantieni brevi le sessioni, termina il gioco al culmine dell'interesse e controlla sempre che l'area di gioco non presenti pericoli."
+
+#: woof/templates/woof/games.html:90
+msgid ""
+"For dogs that love running, games of hide-and-seek with toys and light "
+"chasing work well too."
+msgstr "Per i cani che amano correre funzionano bene anche i giochi di nascondino con i giocattoli e inseguimenti leggeri."
+
+#: woof/templates/woof/games.html:95
+msgid "Tug games"
+msgstr "Giochi di trazione"
+
+#: woof/templates/woof/games.html:97
+msgid ""
+"Tug-of-war is a natural game that trains muscles and self-control. Agree on "
+"the rules in advance: the game starts and ends on your command."
+msgstr "Il tira e molla è un gioco naturale che allena i muscoli e l'autocontrollo. Concorda le regole in anticipo: il gioco inizia e finisce con il tuo comando."
+
+#: woof/templates/woof/games.html:100
+msgid ""
+"Use a special toy with a firm grip, do not pull sharply, and give the dog "
+"breaks to rest."
+msgstr "Usa un giocattolo apposito con presa salda, non strattonare e concedi al cane pause di riposo."
+
+#: woof/templates/woof/games.html:103
+msgid ""
+"For puppies and young dogs, watch the teeth and joints — the game should not "
+"turn into a fight."
+msgstr "Per i cuccioli e i cani giovani, fai attenzione a denti e articolazioni — il gioco non deve trasformarsi in un combattimento."
+
+#: woof/templates/woof/games.html:108
+msgid "Scent games"
+msgstr "Giochi di fiuto"
+
+#: woof/templates/woof/games.html:110
+msgid ""
+"Dogs perceive the world through their nose. Scent games are the best mental "
+"load: hide treats or toys around the house and let the dog find them."
+msgstr "I cani percepiscono il mondo con il naso. I giochi di fiuto sono il miglior esercizio mentale: nascondi snack o giocattoli per casa e lascia che il cane li trovi."
+
+#: woof/templates/woof/games.html:113
+msgid ""
+"Start with simple hiding places in the same room and gradually make the task "
+"harder."
+msgstr "Inizia con nascondigli semplici nella stessa stanza e rendi gradualmente il compito più difficile."
+
+#: woof/templates/woof/games.html:116
+msgid ""
+"A \"sniffing walk\" is also a game: on part of the route, let the dog stop "
+"and explore smells freely instead of walking in a straight line."
+msgstr "Anche una «passeggiata annusata» è un gioco: per un tratto del percorso, lascia che il cane si fermi ed esplori liberamente gli odori invece di camminare in linea retta."
+
+#: woof/templates/woof/games.html:121
+msgid "Puzzle toys and slow feeders"
+msgstr "Giocattoli puzzle e mangiatoie lente"
+
+#: woof/templates/woof/games.html:123
+msgid ""
+"Puzzle toys and slow feeding bowls turn eating into a small game and slow "
+"down fast eaters."
+msgstr "I giocattoli puzzle e le ciotole anti-ingordigia trasformano il pasto in un piccolo gioco e rallentano chi mangia troppo in fretta."
+
+#: woof/templates/woof/games.html:126
+msgid ""
+"They are especially useful for smart breeds that get bored quickly, and for "
+"dogs that swallow food too fast."
+msgstr "Sono particolarmente utili per le razze intelligenti che si annoiano in fretta e per i cani che ingoiano il cibo troppo velocemente."
+
+#: woof/templates/woof/games.html:129
+msgid "Rotate the toys regularly so they do not become boring."
+msgstr "Ruota i giocattoli regolarmente perché non diventino noiosi."
+
+#: woof/templates/woof/games.html:133
+msgid "Learning through play"
+msgstr "Imparare giocando"
+
+#: woof/templates/woof/games.html:135
+msgid ""
+"Games are a great way to train: teach new commands in a playful format with "
+"short sessions of five to ten minutes."
+msgstr "I giochi sono un ottimo modo per addestrare: insegna nuovi comandi in forma ludica con sessioni brevi di cinque-dieci minuti."
+
+#: woof/templates/woof/games.html:138
+msgid ""
+"Reward every correct action immediately — the dog learns faster when the "
+"game stays positive and short."
+msgstr "Premia subito ogni azione corretta — il cane impara più in fretta quando il gioco resta positivo e breve."
+
+#: woof/templates/woof/games.html:143
+msgid "Outdoor and water activities"
+msgstr "Attività all'aperto e in acqua"
+
+#: woof/templates/woof/games.html:145
+msgid ""
+"For active dogs, running, hiking and swimming are excellent sports. "
+"Introduce them gradually and consider the breed and age."
+msgstr "Per i cani attivi, corsa, escursioni e nuoto sono sport eccellenti. Introducili gradualmente e tieni conto di razza ed età."
+
+#: woof/templates/woof/games.html:148
+msgid ""
+"Swimming is a gentle load for the joints, but never leave a dog in the water "
+"unattended and check the safety of the reservoir."
+msgstr "Il nuoto è un carico delicato per le articolazioni, ma non lasciare mai un cane in acqua senza supervisione e verifica la sicurezza del bacino."
+
+#: woof/templates/woof/games.html:151
+msgid ""
+"Avoid intense exercise in extreme heat, especially for brachycephalic breeds "
+"with short muzzles."
+msgstr "Evita esercizio intenso con caldo estremo, soprattutto per le razze brachicefale dal muso corto."
+
+#: woof/templates/woof/games.html:156
+msgid "Safety and age limits"
+msgstr "Sicurezza e limiti d'età"
+
+#: woof/templates/woof/games.html:158
+msgid ""
+"Puppies' joints and teeth are still forming — choose gentle games and keep "
+"the load moderate. Seniors appreciate calmer games: scent tasks, light tug "
+"and mental puzzles."
+msgstr "Le articolazioni e i denti dei cuccioli si stanno ancora formando — scegli giochi delicati e mantieni un carico moderato. Gli anziani apprezzano giochi più calmi: compiti di fiuto, trazioni leggere e puzzle mentali."
+
+#: woof/templates/woof/games.html:162
+msgid ""
+"Watch for signs of fatigue: panting, refusal of the toy, reduced interest. "
+"The game should stop while the dog still wants to continue."
+msgstr "Osserva i segni di stanchezza: ansimare, rifiuto del giocattolo, interesse ridotto. Il gioco dovrebbe finire mentre il cane vorrebbe ancora continuare."
+
+#: woof/templates/woof/games.html:165
+msgid "If an injury or an unusual condition appears, contact a veterinarian."
+msgstr "Se compare una ferita o una condizione insolita, consulta un veterinario."
+
+#: woof/templates/woof/games.html:171
+msgid ""
+"Regular play makes a dog healthier, calmer and happier. Choose games that "
+"match your dog's age, energy and taste — and play with joy yourself."
+msgstr "Il gioco regolare rende il cane più sano, calmo e felice. Scegli giochi adatti all'età, all'energia e ai gusti del tuo cane — e gioca con gioia anche tu."
+
+#: woof/templates/woof/games.html:174
+msgid "A variety of games keeps both physical shape and psychological balance."
+msgstr "La varietà dei giochi mantiene sia la forma fisica sia l'equilibrio psicologico."
+
+#: woof/templates/woof/groups.html:39
+msgid "Explore all FCI dog groups and their sections"
+msgstr "Esplora tutti i gruppi FCI e le loro sezioni"
+
+#: woof/templates/woof/groups.html:45
+msgid ""
+"Explore the official <strong>FCI groups</strong> below — each group contains "
+"breeds with similar history, purpose, and characteristics. Discover "
+"individual breeds."
+msgstr "Esplora qui sotto i <strong>gruppi FCI</strong> ufficiali — ogni gruppo contiene razze con storia, scopo e caratteristiche simili. Scopri le singole razze."
+
+#: woof/templates/woof/groups.html:74 woof/templates/woof/groups.html:122
+msgid "Look more"
+msgstr "Scopri di più"
+
+#: woof/templates/woof/groups.html:88
+msgid "Breeds outside the current FCI structure"
+msgstr "Razze al di fuori dell'attuale struttura FCI"
+
+#: woof/templates/woof/groups.html:90
+msgid ""
+"Some breeds on the site are not currently placed inside the official FCI "
+"classification. They are collected in a separate category so you can still "
+"browse and compare them easily."
+msgstr "Alcune razze del sito non sono attualmente inserite nella classificazione FCI ufficiale. Sono raccolte in una categoria separata così puoi comunque consultarle e confrontarle facilmente."
+
+#: woof/templates/woof/groups.html:109
+msgid "Other Breeds"
+msgstr "Altre razze"
+
+#: woof/templates/woof/guides.html:41
+msgid "Learn more about dogs"
+msgstr "Scopri di più sui cani"
+
+#: woof/templates/woof/guides.html:44
+msgid ""
+"Explore <strong>short</strong> guides about choosing, training, "
+"understanding and caring for dogs. These pages are designed to help both new "
+"and experienced owners. No unnecessary theory, only what you can apply in "
+"everyday life. You can read them in any order, depending on your situation."
+msgstr "Esplora guide <strong>brevi</strong> su scelta, addestramento, comprensione e cura dei cani. Queste pagine sono pensate per aiutare sia i nuovi proprietari sia quelli esperti. Nessuna teoria superflua, solo ciò che puoi applicare nella vita quotidiana. Puoi leggerle in qualsiasi ordine, a seconda della tua situazione."
+
+#: woof/templates/woof/guides.html:65
+msgid ""
+"Learn how to choose a breed that matches your lifestyle, activity level and "
+"living space."
+msgstr "Impara a scegliere una razza adatta al tuo stile di vita, al tuo livello di attività e al tuo spazio abitativo."
+
+#: woof/templates/woof/guides.html:68 woof/templates/woof/guides.html:87
+#: woof/templates/woof/guides.html:106 woof/templates/woof/guides.html:125
+#: woof/templates/woof/guides.html:144 woof/templates/woof/guides.html:163
+#: woof/templates/woof/guides.html:182 woof/templates/woof/guides.html:201
+msgid "Read"
+msgstr "Leggi"
+
+#: woof/templates/woof/guides.html:84
+msgid ""
+"Learn about early puppy development, socialization, routines and first-life "
+"stages."
+msgstr "Scopri lo sviluppo iniziale del cucciolo, la socializzazione, le routine e le prime fasi di vita."
+
+#: woof/templates/woof/guides.html:103
+msgid ""
+"Understand basic training principles, communication and learning consistency."
+msgstr "Comprendi i principi di base dell'addestramento, la comunicazione e la costanza nell'apprendimento."
+
+#: woof/templates/woof/guides.html:122
+msgid ""
+"Learn about grooming, nutrition, preventive care and general health basics."
+msgstr "Impara a conoscere toelettatura, alimentazione, cure preventive e le basi generali della salute."
+
+#: woof/templates/woof/guides.html:141
+msgid ""
+"Discover how dogs communicate, express emotions and react to the world "
+"around them."
+msgstr "Scopri come i cani comunicano, esprimono emozioni e reagiscono al mondo che li circonda."
+
+#: woof/templates/woof/guides.html:160
+msgid ""
+"Daily routines, home adaptation and long-term lifestyle organization with a "
+"dog."
+msgstr "Routine quotidiane, adattamento alla casa e organizzazione a lungo termine della vita con un cane."
+
+#: woof/templates/woof/guides.html:179
+msgid ""
+"Learn how to choose food, feed by age and build a healthy drinking regime."
+msgstr "Impara a scegliere l'alimentazione, a nutrire per età e a costruire un sano regime di idratazione."
+
+#: woof/templates/woof/guides.html:198
+msgid ""
+"Discover safe games and activities that keep your dog active, engaged and "
+"happy."
+msgstr "Scopri giochi e attività sicuri che mantengono il tuo cane attivo, coinvolto e felice."
+
+#: woof/templates/woof/health.html:64
+msgid ""
+"Dog health is a combination of prevention, observation, and consistent care. "
+"It is not only about treating illness, but about maintaining a stable "
+"physical condition throughout the dog’s life."
+msgstr "La salute del cane è una combinazione di prevenzione, osservazione e cura costante. Non si tratta solo di curare le malattie, ma di mantenere una condizione fisica stabile per tutta la vita del cane."
+
+#: woof/templates/woof/health.html:67
+msgid ""
+"This guide focuses on general principles of health management, not "
+"veterinary diagnosis or treatment. Any medical concerns should always be "
+"handled by a qualified veterinarian."
+msgstr "Questa guida si concentra sui principi generali della gestione della salute, non sulla diagnosi o cura veterinaria. Qualsiasi problema medico va sempre gestito da un veterinario qualificato."
+
+#: woof/templates/woof/health.html:72
+msgid "Preventive care and routine checks"
+msgstr "Cura preventiva e controlli di routine"
+
+#: woof/templates/woof/health.html:74
+msgid ""
+"Preventive care is the most important aspect of maintaining long-term "
+"health. Regular veterinary check-ups help detect issues early, often before "
+"symptoms become visible."
+msgstr "La cura preventiva è l'aspetto più importante per mantenere la salute a lungo termine. I controlli veterinari regolari aiutano a individuare i problemi presto, spesso prima che i sintomi diventino visibili."
+
+#: woof/templates/woof/health.html:77
+msgid ""
+"Vaccinations, parasite prevention, and routine examinations form the "
+"foundation of responsible ownership. These measures reduce the risk of "
+"serious illness and improve overall lifespan quality."
+msgstr "Vaccinazioni, prevenzione dei parassiti ed esami di routine costituiscono le fondamenta di una proprietà responsabile. Queste misure riducono il rischio di malattie gravi e migliorano la qualità complessiva della vita."
+
+#: woof/templates/woof/health.html:80
+msgid ""
+"Many health problems develop gradually, which is why consistent monitoring "
+"is more effective than reactive treatment."
+msgstr "Molti problemi di salute si sviluppano gradualmente, motivo per cui il monitoraggio costante è più efficace del trattamento reattivo."
+
+#: woof/templates/woof/health.html:84
+msgid "Nutrition and physical condition"
+msgstr "Alimentazione e condizione fisica"
+
+#: woof/templates/woof/health.html:86
+msgid ""
+"Nutrition directly influences energy levels, coat quality, weight, and "
+"immune system stability. A balanced diet should be appropriate for the dog’s "
+"age, size, and activity level."
+msgstr "L'alimentazione influenza direttamente i livelli di energia, la qualità del pelo, il peso e la stabilità del sistema immunitario. Una dieta equilibrata deve essere adeguata all'età, alla taglia e al livello di attività del cane."
+
+#: woof/templates/woof/health.html:89
+msgid ""
+"Overfeeding is one of the most common health issues in domestic dogs and can "
+"lead to obesity-related complications. Underfeeding or low-quality diets can "
+"also cause deficiencies and long-term problems."
+msgstr "L'alimentazione eccessiva è uno dei problemi di salute più comuni nei cani domestici e può portare a complicazioni legate all'obesità. Anche l'alimentazione insufficiente o di bassa qualità può causare carenze e problemi a lungo termine."
+
+#: woof/templates/woof/health.html:92
+msgid ""
+"Consistency in feeding habits helps maintain stable digestion and prevents "
+"sudden metabolic stress."
+msgstr "La costanza nelle abitudini alimentari aiuta a mantenere una digestione stabile e previene improvvisi stress metabolici."
+
+#: woof/templates/woof/health.html:94
+msgid ""
+"For practical details — food formats, feeding by age, portions and the "
+"drinking regime — see the separate guide on feeding your dog."
+msgstr "Per i dettagli pratici — formati di cibo, alimentazione per età, porzioni e regime di idratazione — consulta l'apposita guida sull'alimentazione del cane."
+
+#: woof/templates/woof/health.html:99
+msgid "Hygiene and grooming"
+msgstr "Igiene e toelettatura"
+
+#: woof/templates/woof/health.html:101
+msgid ""
+"Grooming is not only cosmetic but also a health-related necessity. Regular "
+"brushing helps prevent skin irritation, removes dead hair, and improves "
+"blood circulation."
+msgstr "La toelettatura non è solo estetica, ma anche una necessità per la salute. La spazzolatura regolare aiuta a prevenire le irritazioni cutanee, rimuove il pelo morto e migliora la circolazione sanguigna."
+
+#: woof/templates/woof/health.html:104
+msgid ""
+"Nail trimming, ear cleaning, and dental care are often overlooked but "
+"essential for preventing infections and discomfort."
+msgstr "Il taglio delle unghie, la pulizia delle orecchie e la cura dentale sono spesso trascurati, ma essenziali per prevenire infezioni e disagi."
+
+#: woof/templates/woof/health.html:106
+msgid ""
+"The frequency of grooming depends on breed type, coat length, and lifestyle."
+msgstr "La frequenza della toelettatura dipende dal tipo di razza, dalla lunghezza del pelo e dallo stile di vita."
+
+#: woof/templates/woof/health.html:110
+msgid "Common health issues"
+msgstr "Problemi di salute comuni"
+
+#: woof/templates/woof/health.html:112
+msgid ""
+"Some health problems are more common across domestic dogs, including skin "
+"allergies, digestive issues, and joint stress in larger breeds."
+msgstr "Alcuni problemi di salute sono più comuni tra i cani domestici, tra cui allergie cutanee, disturbi digestivi e stress articolare nelle razze più grandi."
+
+#: woof/templates/woof/health.html:114
+msgid ""
+"Early signs often include changes in appetite, energy levels, coat "
+"condition, or behavior patterns. These indicators should not be ignored, "
+"even if they appear minor."
+msgstr "I primi segni includono spesso cambiamenti nell'appetito, nei livelli di energia, nelle condizioni del pelo o nei modelli comportamentali. Questi indicatori non vanno ignorati, anche se sembrano minori."
+
+#: woof/templates/woof/health.html:117
+msgid ""
+"Timely response to early symptoms significantly improves outcomes and "
+"reduces long-term complications."
+msgstr "Una risposta tempestiva ai primi sintomi migliora significativamente gli esiti e riduce le complicazioni a lungo termine."
+
+#: woof/templates/woof/health.html:121
+msgid "Physical activity and body maintenance"
+msgstr "Attività fisica e mantenimento della forma"
+
+#: woof/templates/woof/health.html:123
+msgid ""
+"Regular physical activity supports cardiovascular health, muscle tone, and "
+"joint mobility. The required level of activity varies significantly "
+"depending on breed and age."
+msgstr "L'attività fisica regolare sostiene la salute cardiovascolare, il tono muscolare e la mobilità articolare. Il livello di attività richiesto varia notevolmente a seconda della razza e dell'età."
+
+#: woof/templates/woof/health.html:126
+msgid ""
+"Insufficient movement can lead to weight gain and reduced overall vitality, "
+"while excessive strain without proper rest can cause injuries."
+msgstr "Un movimento insufficiente può portare ad aumento di peso e riduzione della vitalità generale, mentre uno sforzo eccessivo senza riposo adeguato può causare infortuni."
+
+#: woof/templates/woof/health.html:129
+msgid ""
+"A balanced approach to exercise is essential for long-term physical "
+"stability."
+msgstr "Un approccio equilibrato all'esercizio è essenziale per la stabilità fisica a lungo termine."
+
+#: woof/templates/woof/health.html:133
+msgid "Mental health and well-being"
+msgstr "Salute mentale e benessere"
+
+#: woof/templates/woof/health.html:135
+msgid ""
+"Mental health is closely linked to physical health in dogs. Stress, boredom, "
+"and lack of stimulation can negatively affect the immune system and behavior."
+msgstr "La salute mentale è strettamente legata alla salute fisica nei cani. Stress, noia e mancanza di stimoli possono influire negativamente sul sistema immunitario e sul comportamento."
+
+#: woof/templates/woof/health.html:138
+msgid ""
+"Environmental stability, interaction, and predictable routines help maintain "
+"emotional balance."
+msgstr "La stabilità ambientale, l'interazione e le routine prevedibili aiutano a mantenere l'equilibrio emotivo."
+
+#: woof/templates/woof/health.html:140
+msgid ""
+"A mentally healthy dog is generally more stable, responsive, and physically "
+"resilient."
+msgstr "Un cane mentalmente sano è in genere più stabile, reattivo e fisicamente resiliente."
+
+#: woof/templates/woof/health.html:146
+msgid ""
+"Dog health is a continuous process rather than a fixed state. It requires "
+"consistent attention to nutrition, hygiene, prevention, and lifestyle "
+"balance."
+msgstr "La salute del cane è un processo continuo, più che uno stato fisso. Richiede attenzione costante a nutrizione, igiene, prevenzione ed equilibrio dello stile di vita."
+
+#: woof/templates/woof/health.html:149
+msgid ""
+"When properly managed, these factors significantly increase both the quality "
+"and length of a dog’s life."
+msgstr "Quando gestiti correttamente, questi fattori aumentano significativamente sia la qualità sia la durata della vita del cane."
+
+#: woof/templates/woof/home.html:126
+msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
+msgstr "Un po' di caos, tanto <span class=\"love-word\">amore</span>"
+
+#: woof/templates/woof/home.html:133 woof/templates/woof/home.html:136
+#: woof/templates/woof/home.html:147 woof/templates/woof/home.html:170
+msgid "Find by group"
+msgstr "Cerca per gruppo"
+
+#: woof/templates/woof/home.html:181 woof/templates/woof/home.html:184
+#: woof/templates/woof/home.html:199 woof/templates/woof/home.html:227
+msgid "Find by breed"
+msgstr "Cerca per razza"
+
+#: woof/templates/woof/home.html:240
+msgid ""
+"A simple way to find a dog that really fits your lifestyle, your home, and "
+"your everyday rhythm — and feels like it belongs there"
+msgstr "Un modo semplice per trovare un cane che si adatti davvero al tuo stile di vita, alla tua casa e al tuo ritmo quotidiano — e che sembri nato per stare lì"
+
+#: woof/templates/woof/home.html:251
+msgid "A happy dog"
+msgstr "Un cane felice"
+
+#: woof/templates/woof/home.html:264
+msgid "Scroll down"
+msgstr "Scorri in basso"
+
+#: woof/templates/woof/home.html:287 woof/templates/woof/home.html:291
+msgid "Breed profiles"
+msgstr "Schede delle razze"
+
+#: woof/templates/woof/home.html:295
+msgid "Explore breeds by size, temperament,<br> lifestyle and more."
+msgstr "Esplora le razze per taglia, temperamento,<br> stile di vita e altro."
+
+#: woof/templates/woof/includes/guide_disclaimer.html:5
+msgid ""
+"Please note: these guides are created for informational purposes only and do "
+"not replace veterinary advice. If your pet shows signs of health problems — "
+"unusual or atypical behavior, refusal to eat, or any other worrying symptoms "
+"— please do not self-medicate and take your pet to a veterinarian."
+msgstr "Nota: queste guide sono create solo a scopo informativo e non sostituiscono il parere veterinario. Se il tuo animale mostra segni di problemi di salute — comportamento insolito o atipico, rifiuto del cibo o altri sintomi preoccupanti — non auto-medicarlo e portalo dal veterinario."
+
+#: woof/templates/woof/living_with_dog.html:52
+msgid "What “living with a dog” actually means"
+msgstr "Cosa significa davvero «vivere con un cane»"
+
+#: woof/templates/woof/living_with_dog.html:54
+msgid ""
+"Living with a dog is primarily about organizing your daily life around "
+"another living being that depends on structure and consistency. It is less "
+"about individual tasks like training or feeding, and more about how your "
+"home, time, and routines change as a system."
+msgstr "Vivere con un cane significa principalmente organizzare la tua vita quotidiana attorno a un altro essere vivente che dipende da struttura e costanza. Meno compiti individuali come addestramento o pasti, più il modo in cui casa, tempo e routine cambiano come sistema."
+
+#: woof/templates/woof/living_with_dog.html:57
+msgid ""
+"Once a dog becomes part of the household, your lifestyle stops being fully "
+"flexible. Daily planning, free time, and even travel decisions begin to take "
+"the dog’s needs into account."
+msgstr "Una volta che il cane entra in famiglia, il tuo stile di vita smette di essere del tutto flessibile. La pianificazione quotidiana, il tempo libero e persino le decisioni di viaggio iniziano a tenere conto dei bisogni del cane."
+
+#: woof/templates/woof/living_with_dog.html:61
+msgid "Daily structure and time organization"
+msgstr "Struttura quotidiana e organizzazione del tempo"
+
+#: woof/templates/woof/living_with_dog.html:63
+msgid ""
+"A stable daily rhythm is the foundation of life with a dog. Instead of "
+"thinking in isolated tasks, it is better to think in blocks of time: "
+"morning, midday, evening, and rest periods."
+msgstr "Un ritmo quotidiano stabile è il fondamento della vita con un cane. Più che pensare a compiti isolati, conviene ragionare per blocchi di tempo: mattina, mezzogiorno, sera e periodi di riposo."
+
+#: woof/templates/woof/living_with_dog.html:66
+msgid ""
+"Walks, feeding, and rest are repeated every day at roughly the same times. "
+"This creates predictability, which helps the dog feel secure and reduces "
+"stress in the household."
+msgstr "Passeggiate, pasti e riposo si ripetono ogni giorno più o meno alle stesse ore. Questo crea prevedibilità, che aiuta il cane a sentirsi al sicuro e riduce lo stress in famiglia."
+
+#: woof/templates/woof/living_with_dog.html:69
+msgid ""
+"The key point is not the exact schedule, but consistency. Dogs adapt well to "
+"routine, but poorly to frequent unpredictable changes."
+msgstr "Il punto chiave non è l'orario esatto, ma la costanza. I cani si adattano bene alla routine, ma male ai frequenti cambiamenti imprevedibili."
+
+#: woof/templates/woof/living_with_dog.html:73
+msgid "Home organization and shared space"
+msgstr "Organizzazione della casa e spazi condivisi"
+
+#: woof/templates/woof/living_with_dog.html:75
+msgid ""
+"Living with a dog also means adapting your physical space. The home becomes "
+"a shared environment where both human and dog have defined areas and rules."
+msgstr "Vivere con un cane significa anche adattare il tuo spazio fisico. La casa diventa un ambiente condiviso in cui sia l'uomo sia il cane hanno aree e regole definite."
+
+#: woof/templates/woof/living_with_dog.html:78
+msgid ""
+"A resting zone for the dog is important because it creates predictability "
+"and reduces overstimulation. At the same time, some areas of the home may "
+"need boundaries depending on safety and comfort."
+msgstr "Una zona di riposo per il cane è importante perché crea prevedibilità e riduce la sovrastimolazione. Allo stesso tempo, alcune aree della casa possono richiedere confini a seconda della sicurezza e del comfort."
+
+#: woof/templates/woof/living_with_dog.html:81
+msgid ""
+"This is not about restriction, but about structure. Dogs feel more relaxed "
+"when they understand where they can rest, play, or simply observe the "
+"environment."
+msgstr "Non si tratta di restrizioni, ma di struttura. I cani si sentono più rilassati quando capiscono dove possono riposare, giocare o semplicemente osservare l'ambiente."
+
+#: woof/templates/woof/living_with_dog.html:85
+msgid "Energy management during the day"
+msgstr "Gestione dell'energia durante la giornata"
+
+#: woof/templates/woof/living_with_dog.html:87
+msgid ""
+"One of the most important aspects of living with a dog is managing energy "
+"levels throughout the day. This does not refer to training, but to balancing "
+"activity and rest."
+msgstr "Uno degli aspetti più importanti della vita con un cane è gestire i livelli di energia durante il giorno. Non si tratta di addestramento, ma di bilanciare attività e riposo."
+
+#: woof/templates/woof/living_with_dog.html:90
+msgid ""
+"Without enough physical activity, dogs often become restless. Without enough "
+"rest, they can become overstimulated and less predictable in behavior."
+msgstr "Senza abbastanza attività fisica, i cani diventano spesso irrequieti. Senza abbastanza riposo, possono diventare sovrastimolati e meno prevedibili nel comportamento."
+
+#: woof/templates/woof/living_with_dog.html:93
+msgid ""
+"A stable routine naturally balances both: activity during walks and calm "
+"periods at home."
+msgstr "Una routine stabile bilancia naturalmente entrambi: attività durante le passeggiate e periodi di calma a casa."
+
+#: woof/templates/woof/living_with_dog.html:97
+msgid "Time commitment and lifestyle changes"
+msgstr "Impegno di tempo e cambiamenti nello stile di vita"
+
+#: woof/templates/woof/living_with_dog.html:99
+msgid ""
+"Living with a dog introduces a long-term time commitment that affects daily "
+"freedom. Spontaneous decisions such as long trips, late evenings out, or "
+"sudden schedule changes become more limited."
+msgstr "Vivere con un cane introduce un impegno di tempo a lungo termine che incide sulla libertà quotidiana. Decisioni spontanee come viaggi lunghi, serate fuori o cambi improvvisi di programma diventano più limitate."
+
+#: woof/templates/woof/living_with_dog.html:102
+msgid ""
+"This is not a negative aspect, but a structural change in lifestyle. The "
+"owner shifts from a fully flexible schedule to a shared routine-based system."
+msgstr "Non è un aspetto negativo, ma un cambiamento strutturale dello stile di vita. Il proprietario passa da un programma del tutto flessibile a un sistema condiviso basato sulla routine."
+
+#: woof/templates/woof/living_with_dog.html:105
+msgid ""
+"Understanding this early helps avoid frustration and unrealistic "
+"expectations."
+msgstr "Capirlo presto aiuta a evitare frustrazioni e aspettative irrealistiche."
+
+#: woof/templates/woof/living_with_dog.html:108
+msgid "Emotional role in everyday life"
+msgstr "Il ruolo emotivo nella vita di tutti i giorni"
+
+#: woof/templates/woof/living_with_dog.html:110
+msgid ""
+"Beyond physical routines, dogs also influence emotional structure in the "
+"household. Their presence creates continuity, attention cycles, and a sense "
+"of shared responsibility."
+msgstr "Oltre alle routine fisiche, i cani influenzano anche la struttura emotiva della famiglia. La loro presenza crea continuità, cicli di attenzione e un senso di responsabilità condivisa."
+
+#: woof/templates/woof/living_with_dog.html:113
+msgid ""
+"This does not replace human relationships, but it adds a stable emotional "
+"layer to daily life. Many owners experience increased routine stability and "
+"reduced isolation."
+msgstr "Non sostituisce le relazioni umane, ma aggiunge un livello emotivo stabile alla vita quotidiana. Molti proprietari sperimentano una maggiore stabilità nella routine e una ridotta sensazione di isolamento."
+
+#: woof/templates/woof/living_with_dog.html:119
+msgid ""
+"Living with a dog is best understood as organizing a shared life system "
+"rather than managing separate tasks. When structure, routine, and space are "
+"well balanced, both dog and owner benefit from a stable and predictable "
+"environment."
+msgstr "Vivere con un cane si capisce meglio come organizzazione di un sistema di vita condiviso, più che come gestione di compiti separati. Quando struttura, routine e spazio sono ben bilanciati, sia il cane sia il proprietario traggono beneficio da un ambiente stabile e prevedibile."
+
+#: woof/templates/woof/post.html:113
+msgid "Click to enlarge"
+msgstr "Clicca per ingrandire"
+
+#: woof/templates/woof/post.html:173
+msgid "Section"
+msgstr "Sezione"
+
+#: woof/templates/woof/post.html:181 woof/templates/woof/post.html:483
+msgid "Varieties"
+msgstr "Varietà"
+
+#: woof/templates/woof/post.html:189 woof/templates/woof/post.html:484
+msgid "Origin"
+msgstr "Origine"
+
+#: woof/templates/woof/post.html:197 woof/templates/woof/post.html:485
+msgid "Size"
+msgstr "Taglia"
+
+#: woof/templates/woof/post.html:205 woof/templates/woof/post.html:488
+msgid "Life expectancy"
+msgstr "Aspettativa di vita"
+
+#: woof/templates/woof/post.html:207
+#, python-format
+msgid "%(years)s years"
+msgstr "%(years)s anni"
+
+#: woof/templates/woof/post.html:215
+msgid "Height & Weight"
+msgstr "Altezza e peso"
+
+#: woof/templates/woof/post.html:220
+#, python-format
+msgid "%(h)s cm, %(w)s kg"
+msgstr "%(h)s cm, %(w)s kg"
+
+#: woof/templates/woof/post.html:222
+msgid ""
+"Range includes values for both males and females. Individual values may vary "
+"by sex."
+msgstr "L'intervallo include i valori per maschi e femmine. I valori individuali possono variare in base al sesso."
+
+#: woof/templates/woof/post.html:231 woof/templates/woof/post.html:489
+msgid "Trainability"
+msgstr "Addestrabilità"
+
+#: woof/templates/woof/post.html:239
+msgid "Activity level"
+msgstr "Livello di attività"
+
+#: woof/templates/woof/post.html:247 woof/templates/woof/post.html:491
+msgid "Barking"
+msgstr "Abbaiare"
+
+#: woof/templates/woof/post.html:255
+msgid "Allergy friendly"
+msgstr "Adatto agli allergici"
+
+#: woof/templates/woof/post.html:263 woof/templates/woof/post.html:493
+msgid "Family friendly"
+msgstr "Adatto alle famiglie"
+
+#: woof/templates/woof/post.html:271 woof/templates/woof/post.html:487
+msgid "Coat"
+msgstr "Pelo"
+
+#: woof/templates/woof/post.html:288
+msgid "Colors"
+msgstr "Colori"
+
+#: woof/templates/woof/post.html:319
+msgid "About the Breed"
+msgstr "Sulla razza"
+
+#: woof/templates/woof/post.html:324
+msgid "Varieties of German Spitz (links to breeds):"
+msgstr "Varietà dello Spitz tedesco (link alle razze):"
+
+#: woof/templates/woof/post.html:327
+msgid "Keeshond (Wolfspitz)"
+msgstr "Keeshond (Wolfspitz)"
+
+#: woof/templates/woof/post.html:329
+msgid "Pomeranian"
+msgstr "Volpino di Pomerania"
+
+#: woof/templates/woof/post.html:332
+msgid "Varieties of German Spitz by size:"
+msgstr "Varietà dello Spitz tedesco per taglia:"
+
+#: woof/templates/woof/post.html:333
+msgid "Miniature, Medium, Giant"
+msgstr "Nano, Medio, Grande"
+
+#: woof/templates/woof/post.html:339
+msgid "German Spitz link:"
+msgstr "Link allo Spitz tedesco:"
+
+#: woof/templates/woof/post.html:342
+msgid "German Spitz"
+msgstr "Spitz tedesco"
+
+#: woof/templates/woof/post.html:349
+msgid "Summary."
+msgstr "In breve."
+
+#: woof/templates/woof/post.html:352
+msgid "Care."
+msgstr "Cura."
+
+#: woof/templates/woof/post.html:355
+msgid "Conditions."
+msgstr "Condizioni."
+
+#: woof/templates/woof/post.html:363
+msgid "Copy link"
+msgstr "Copia link"
+
+#: woof/templates/woof/post.html:404
+msgid "Compare breeds"
+msgstr "Confronta le razze"
+
+#: woof/templates/woof/post.html:437 woof/templates/woof/post.html:466
+#: woof/templates/woof/post.html:469
+msgid "Select breed"
+msgstr "Seleziona razza"
+
+#: woof/templates/woof/post.html:486
+msgid "Height / Weight"
+msgstr "Altezza / Peso"
+
+#: woof/templates/woof/post.html:490
+msgid "Activity"
+msgstr "Attività"
+
+#: woof/templates/woof/post.html:492
+msgid "Allergy-Friendly"
+msgstr "Adatto agli allergici"
+
+#: woof/templates/woof/post.html:494
+msgid "years"
+msgstr "anni"
+
+#: woof/templates/woof/post.html:504
+msgid "Other breeds in this group"
+msgstr "Altre razze di questo gruppo"
+
+#: woof/templates/woof/privacy_policy.html:36
+#: woof/templates/woof/terms_and_conditions.html:32
+msgid "Last updated: February 2, 2026"
+msgstr "Ultimo aggiornamento: 2 febbraio 2026"
+
+#: woof/templates/woof/privacy_policy.html:40
+#: woof/templates/woof/terms_and_conditions.html:35
+msgid "Table of Contents"
+msgstr "Indice"
+
+#: woof/templates/woof/privacy_policy.html:44
+msgid "Who we are"
+msgstr "Chi siamo"
+
+#: woof/templates/woof/privacy_policy.html:44
+#: woof/templates/woof/privacy_policy.html:74
+msgid "1. Who we are"
+msgstr "1. Chi siamo"
+
+#: woof/templates/woof/privacy_policy.html:46
+msgid "Personal data you provide"
+msgstr "Dati personali che fornisci"
+
+#: woof/templates/woof/privacy_policy.html:46
+#: woof/templates/woof/privacy_policy.html:94
+msgid "2. Personal data you provide"
+msgstr "2. Dati personali che fornisci"
+
+#: woof/templates/woof/privacy_policy.html:48
+msgid "Automatically collected information"
+msgstr "Informazioni raccolte automaticamente"
+
+#: woof/templates/woof/privacy_policy.html:48
+#: woof/templates/woof/privacy_policy.html:113
+msgid "3. Automatically collected information"
+msgstr "3. Informazioni raccolte automaticamente"
+
+#: woof/templates/woof/privacy_policy.html:50
+msgid "Purposes of processing"
+msgstr "Finalità del trattamento"
+
+#: woof/templates/woof/privacy_policy.html:50
+#: woof/templates/woof/privacy_policy.html:133
+msgid "4. Purposes of processing"
+msgstr "4. Finalità del trattamento"
+
+#: woof/templates/woof/privacy_policy.html:52
+msgid "Legal bases and regional laws"
+msgstr "Basi giuridiche e leggi regionali"
+
+#: woof/templates/woof/privacy_policy.html:52
+#: woof/templates/woof/privacy_policy.html:144
+msgid "5. Legal bases and regional laws"
+msgstr "5. Basi giuridiche e leggi regionali"
+
+#: woof/templates/woof/privacy_policy.html:54
+msgid "Cookies and tracking technologies"
+msgstr "Cookie e tecnologie di tracciamento"
+
+#: woof/templates/woof/privacy_policy.html:54
+#: woof/templates/woof/privacy_policy.html:246
+msgid "6. Cookies and tracking technologies"
+msgstr "6. Cookie e tecnologie di tracciamento"
+
+#: woof/templates/woof/privacy_policy.html:56
+msgid "Sharing of information"
+msgstr "Condivisione delle informazioni"
+
+#: woof/templates/woof/privacy_policy.html:56
+#: woof/templates/woof/privacy_policy.html:260
+msgid "7. Sharing of information"
+msgstr "7. Condivisione delle informazioni"
+
+#: woof/templates/woof/privacy_policy.html:58
+#: woof/templates/woof/privacy_policy.html:267
+msgid "8. International data transfers"
+msgstr "8. Trasferimenti internazionali di dati"
+
+#: woof/templates/woof/privacy_policy.html:60
+msgid "Data retention"
+msgstr "Conservazione dei dati"
+
+#: woof/templates/woof/privacy_policy.html:60
+#: woof/templates/woof/privacy_policy.html:276
+msgid "9. Data retention"
+msgstr "9. Conservazione dei dati"
+
+#: woof/templates/woof/privacy_policy.html:62
+msgid "Your privacy rights"
+msgstr "I tuoi diritti alla privacy"
+
+#: woof/templates/woof/privacy_policy.html:62
+#: woof/templates/woof/privacy_policy.html:283
+msgid "10. Your privacy rights"
+msgstr "10. I tuoi diritti alla privacy"
+
+#: woof/templates/woof/privacy_policy.html:64
+msgid "Children’s privacy"
+msgstr "Privacy dei minori"
+
+#: woof/templates/woof/privacy_policy.html:64
+#: woof/templates/woof/privacy_policy.html:298
+msgid "11. Children’s privacy"
+msgstr "11. Privacy dei minori"
+
+#: woof/templates/woof/privacy_policy.html:66
+msgid "Updates to this policy"
+msgstr "Aggiornamenti di questa informativa"
+
+#: woof/templates/woof/privacy_policy.html:66
+#: woof/templates/woof/privacy_policy.html:305
+msgid "12. Updates to this policy"
+msgstr "12. Aggiornamenti di questa informativa"
+
+#: woof/templates/woof/privacy_policy.html:68
+msgid "Contact information"
+msgstr "Informazioni di contatto"
+
+#: woof/templates/woof/privacy_policy.html:68
+#: woof/templates/woof/privacy_policy.html:312
+msgid "13. Contact information"
+msgstr "13. Informazioni di contatto"
+
+#: woof/templates/woof/privacy_policy.html:77
+msgid "This Privacy Policy describes how"
+msgstr "Questa Informativa sulla privacy descrive come"
+
+#: woof/templates/woof/privacy_policy.html:79
+msgid ""
+"(«Website», «we», «us») collects, uses, and protects information when you "
+"visit our website"
+msgstr "(«Sito», «noi») raccoglie, utilizza e protegge le informazioni quando visiti il nostro sito"
+
+#: woof/templates/woof/privacy_policy.html:83
+#: woof/templates/woof/terms_and_conditions.html:72
+msgid "https://woofdogs.world/"
+msgstr "https://woofdogs.world/"
+
+#: woof/templates/woof/privacy_policy.html:86
+msgid ""
+"By using this Website, you agree to the collection and use of information in "
+"accordance with this Privacy Policy."
+msgstr "Utilizzando questo Sito, accetti la raccolta e l'uso delle informazioni in conformità con questa Informativa sulla privacy."
+
+#: woof/templates/woof/privacy_policy.html:89
+msgid ""
+"Woof Dogs is an informational website dedicated to dog breeds and related "
+"content. We do not provide user accounts, registration, or login "
+"functionality."
+msgstr "Woof Dogs è un sito informativo dedicato alle razze canine e ai contenuti correlati. Non offriamo account utente, registrazione o funzionalità di accesso."
+
+#: woof/templates/woof/privacy_policy.html:96
+msgid ""
+"<em>In short:</em> We only process the personal data you voluntarily provide."
+msgstr "<em>In breve:</em> Trattiamo solo i dati personali che fornisci volontariamente."
+
+#: woof/templates/woof/privacy_policy.html:99
+msgid ""
+"The Website does not require registration and does not request usernames, "
+"passwords, or email addresses by default. However, if you contact us through "
+"the"
+msgstr "Il Sito non richiede registrazione e non chiede nomi utente, password o indirizzi e-mail per impostazione predefinita. Tuttavia, se ci contatti tramite il"
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid "Contact Form"
+msgstr "Modulo di contatto"
+
+#: woof/templates/woof/privacy_policy.html:100
+msgid ", we collect:"
+msgstr ", raccogliamo:"
+
+#: woof/templates/woof/privacy_policy.html:104
+msgid "Email address"
+msgstr "Indirizzo e-mail"
+
+#: woof/templates/woof/privacy_policy.html:105
+msgid "Message or inquiry content"
+msgstr "Contenuto del messaggio o della richiesta"
+
+#: woof/templates/woof/privacy_policy.html:108
+msgid ""
+"We use this information solely to respond to your inquiry and do not share "
+"it with third parties except where required by law."
+msgstr "Usiamo queste informazioni esclusivamente per rispondere alla tua richiesta e non le condividiamo con terzi, se non dove richiesto dalla legge."
+
+#: woof/templates/woof/privacy_policy.html:115
+msgid ""
+"When you visit the Website, certain information may be collected "
+"automatically, including:"
+msgstr "Quando visiti il Sito, alcune informazioni possono essere raccolte automaticamente, tra cui:"
+
+#: woof/templates/woof/privacy_policy.html:119
+msgid "IP address"
+msgstr "Indirizzo IP"
+
+#: woof/templates/woof/privacy_policy.html:120
+msgid "Browser type and version"
+msgstr "Tipo e versione del browser"
+
+#: woof/templates/woof/privacy_policy.html:121
+msgid "Device and operating system information"
+msgstr "Informazioni su dispositivo e sistema operativo"
+
+#: woof/templates/woof/privacy_policy.html:122
+msgid "Pages visited and time spent on the site"
+msgstr "Pagine visitate e tempo trascorso sul sito"
+
+#: woof/templates/woof/privacy_policy.html:123
+msgid "Referring URLs"
+msgstr "URL di provenienza"
+
+#: woof/templates/woof/privacy_policy.html:126
+msgid ""
+"This information does not directly identify you and is used for analytics, "
+"security, and performance improvement."
+msgstr "Queste informazioni non ti identificano direttamente e sono usate per analisi, sicurezza e miglioramento delle prestazioni."
+
+#: woof/templates/woof/privacy_policy.html:129
+msgid ""
+"We use Google Analytics, a web analytics service provided by Google LLC, to "
+"understand how visitors use the Website. Google Analytics may collect your "
+"IP address, browser type, device information, pages visited, and time spent "
+"on the site. We enable IP anonymization, so a truncated IP address is used "
+"and cannot be used to identify you."
+msgstr "Utilizziamo Google Analytics, un servizio di analisi web fornito da Google LLC, per capire come i visitatori usano il Sito. Google Analytics può raccogliere il tuo indirizzo IP, il tipo di browser, le informazioni sul dispositivo, le pagine visitate e il tempo trascorso sul sito. Attiviamo l'anonimizzazione dell'IP, quindi viene utilizzato un indirizzo IP troncato che non può essere usato per identificarti."
+
+#: woof/templates/woof/privacy_policy.html:136
+msgid "Ensuring proper functioning of the Website"
+msgstr "Garantire il corretto funzionamento del Sito"
+
+#: woof/templates/woof/privacy_policy.html:137
+msgid "Analyzing usage to improve content and structure"
+msgstr "Analizzare l'utilizzo per migliorare contenuti e struttura"
+
+#: woof/templates/woof/privacy_policy.html:138
+msgid "Maintaining Website security and preventing abuse"
+msgstr "Mantenere la sicurezza del Sito e prevenire abusi"
+
+#: woof/templates/woof/privacy_policy.html:139
+msgid "Complying with legal obligations"
+msgstr "Adempiere agli obblighi di legge"
+
+#: woof/templates/woof/privacy_policy.html:146
+msgid ""
+"Depending on your location, your data is processed in accordance with "
+"applicable data protection laws."
+msgstr "A seconda della tua posizione, i tuoi dati sono trattati in conformità con le leggi sulla protezione dei dati applicabili."
+
+#: woof/templates/woof/privacy_policy.html:150
+msgid "European Union (GDPR)"
+msgstr "Unione Europea (GDPR)"
+
+#: woof/templates/woof/privacy_policy.html:154
+msgid "If you are in the EEA, data is processed under the"
+msgstr "Se ti trovi nello SEE, i dati sono trattati ai sensi del"
+
+#: woof/templates/woof/privacy_policy.html:157
+#: woof/templates/woof/privacy_policy.html:158
+msgid "GDPR"
+msgstr "GDPR"
+
+#: woof/templates/woof/privacy_policy.html:158
+msgid ", based on legitimate interests, consent, or legal obligations."
+msgstr ", in base a interessi legittimi, consenso o obblighi di legge."
+
+#: woof/templates/woof/privacy_policy.html:161
+msgid ""
+"Analytics cookies and similar technologies are used only after you give your "
+"consent through the cookie notice on the Website. Consent can be withdrawn "
+"at any time."
+msgstr "I cookie analitici e le tecnologie simili sono usati solo dopo che hai dato il tuo consenso tramite l'avviso sui cookie del Sito. Il consenso può essere revocato in qualsiasi momento."
+
+#: woof/templates/woof/privacy_policy.html:164
+msgid "United Kingdom (UK GDPR)"
+msgstr "Regno Unito (UK GDPR)"
+
+#: woof/templates/woof/privacy_policy.html:168
+msgid "For UK users, data is processed under the"
+msgstr "Per gli utenti del Regno Unito, i dati sono trattati ai sensi del"
+
+#: woof/templates/woof/privacy_policy.html:170
+msgid "UK DPA 2018"
+msgstr "UK DPA 2018"
+
+#: woof/templates/woof/privacy_policy.html:172
+msgid "UK Data Protection Act 2018"
+msgstr "UK Data Protection Act 2018"
+
+#: woof/templates/woof/privacy_policy.html:173
+msgid "and UK GDPR."
+msgstr "e dell'UK GDPR."
+
+#: woof/templates/woof/privacy_policy.html:177
+msgid "United States"
+msgstr "Stati Uniti"
+
+#: woof/templates/woof/privacy_policy.html:180
+msgid "US residents may have privacy rights under state laws, including:"
+msgstr "I residenti negli Stati Uniti possono avere diritti alla privacy ai sensi delle leggi statali, tra cui:"
+
+#: woof/templates/woof/privacy_policy.html:187
+msgid "California Consumer Privacy Act (CCPA/CPRA)"
+msgstr "California Consumer Privacy Act (CCPA/CPRA)"
+
+#: woof/templates/woof/privacy_policy.html:193
+msgid "Virginia Consumer Data Protection Act (VCDPA)"
+msgstr "Virginia Consumer Data Protection Act (VCDPA)"
+
+#: woof/templates/woof/privacy_policy.html:199
+msgid "Colorado Privacy Act (CPA)"
+msgstr "Colorado Privacy Act (CPA)"
+
+#: woof/templates/woof/privacy_policy.html:205
+msgid "Utah Consumer Privacy Act (UCPA)"
+msgstr "Utah Consumer Privacy Act (UCPA)"
+
+#: woof/templates/woof/privacy_policy.html:211
+msgid "Tennessee Information Protection Act (TIPA)"
+msgstr "Tennessee Information Protection Act (TIPA)"
+
+#: woof/templates/woof/privacy_policy.html:217
+msgid "Canada"
+msgstr "Canada"
+
+#: woof/templates/woof/privacy_policy.html:221
+msgid "Handled in accordance with"
+msgstr "Trattato in conformità con"
+
+#: woof/templates/woof/privacy_policy.html:224
+msgid "PIPEDA"
+msgstr "PIPEDA"
+
+#: woof/templates/woof/privacy_policy.html:228
+msgid "Australia"
+msgstr "Australia"
+
+#: woof/templates/woof/privacy_policy.html:232
+msgid "Processed under the"
+msgstr "Trattato ai sensi del"
+
+#: woof/templates/woof/privacy_policy.html:235
+msgid "Privacy Act 1988"
+msgstr "Privacy Act 1988"
+
+#: woof/templates/woof/privacy_policy.html:239
+msgid "Other countries"
+msgstr "Altri paesi"
+
+#: woof/templates/woof/privacy_policy.html:242
+msgid "We follow generally accepted international data protection principles."
+msgstr "Seguiamo i principi internazionali generalmente accettati in materia di protezione dei dati."
+
+#: woof/templates/woof/privacy_policy.html:248
+msgid ""
+"The Website uses cookies to ensure proper operation and analyze traffic. "
+"Manage cookies in your browser settings."
+msgstr "Il Sito usa i cookie per garantire il corretto funzionamento e analizzare il traffico. Gestisci i cookie nelle impostazioni del tuo browser."
+
+#: woof/templates/woof/privacy_policy.html:252
+msgid "More details in our"
+msgstr "Maggiori dettagli nella nostra"
+
+#: woof/templates/woof/privacy_policy.html:262
+msgid ""
+"We do not sell or rent personal data. Information may be shared with "
+"analytics providers or as required by law."
+msgstr "Non vendiamo né affittiamo dati personali. Le informazioni possono essere condivise con fornitori di analisi o come richiesto dalla legge."
+
+#: woof/templates/woof/privacy_policy.html:269
+msgid ""
+"Data may be processed outside your country. Appropriate safeguards are "
+"applied when needed."
+msgstr "I dati possono essere trattati fuori dal tuo paese. Quando necessario, vengono applicate garanzie adeguate."
+
+#: woof/templates/woof/privacy_policy.html:272
+msgid ""
+"Where data is transferred to Google LLC (based in the United States) for "
+"analytics, the transfer is covered by Google's Standard Contractual Clauses "
+"and its Data Processing Addendum."
+msgstr "Quando i dati vengono trasferiti a Google LLC (con sede negli Stati Uniti) per l'analisi, il trasferimento è coperto dalle Clausole contrattuali standard di Google e dal suo Data Processing Addendum."
+
+#: woof/templates/woof/privacy_policy.html:278
+msgid ""
+"Data is retained only as long as necessary for the purposes described in "
+"this policy."
+msgstr "I dati sono conservati solo per il tempo necessario alle finalità descritte in questa informativa."
+
+#: woof/templates/woof/privacy_policy.html:285
+msgid ""
+"Depending on your location, you may have the right to access, correct, "
+"delete, or restrict your data."
+msgstr "A seconda della tua posizione, puoi avere il diritto di accedere, correggere, cancellare o limitare i tuoi dati."
+
+#: woof/templates/woof/privacy_policy.html:288
+msgid ""
+"If you are in the EEA or the UK, you may also withdraw your consent at any "
+"time and lodge a complaint with your local data protection authority (in "
+"Italy, the Garante)."
+msgstr "Se ti trovi nello SEE o nel Regno Unito, puoi inoltre revocare il consenso in qualsiasi momento e presentare un reclamo all'autorità locale per la protezione dei dati (in Italia, il Garante)."
+
+#: woof/templates/woof/privacy_policy.html:291
+msgid "Requests:"
+msgstr "Richieste:"
+
+#: woof/templates/woof/privacy_policy.html:300
+msgid ""
+"The Website is not intended for children under 18. We do not knowingly "
+"collect data from minors."
+msgstr "Il Sito non è destinato a minori di 18 anni. Non raccogliamo consapevolmente dati di minori."
+
+#: woof/templates/woof/privacy_policy.html:307
+msgid ""
+"This Privacy Policy may be updated periodically. Updated versions will be "
+"posted on this page."
+msgstr "Questa Informativa sulla privacy può essere aggiornata periodicamente. Le versioni aggiornate saranno pubblicate su questa pagina."
+
+#: woof/templates/woof/privacy_policy.html:315
+msgid "Questions? Contact:"
+msgstr "Domande? Contattaci:"
+
+#: woof/templates/woof/puppy.html:50
+msgid "What to expect during puppyhood"
+msgstr "Cosa aspettarsi nella crescita del cucciolo"
+
+#: woof/templates/woof/puppy.html:52
+msgid ""
+"Puppyhood is the earliest and most formative stage of a dog’s life. During "
+"this period, dogs rapidly develop habits, reactions, confidence, and social "
+"understanding of the world around them."
+msgstr "La cucciolata è la fase più precoce e formativa della vita di un cane. In questo periodo i cani sviluppano rapidamente abitudini, reazioni, sicurezza e comprensione sociale del mondo che li circonda."
+
+#: woof/templates/woof/puppy.html:56
+msgid ""
+"Raising a puppy is not only about care, but about helping the dog adapt "
+"safely and gradually to human environments, routines, sounds, and "
+"interactions."
+msgstr "Crescere un cucciolo non significa solo prendersene cura, ma aiutarlo ad adattarsi in modo sicuro e graduale agli ambienti umani, alle routine, ai suoni e alle interazioni."
+
+#: woof/templates/woof/puppy.html:60
+msgid "The first days at home"
+msgstr "I primi giorni a casa"
+
+#: woof/templates/woof/puppy.html:62
+msgid ""
+"Moving into a new home can be stressful for a puppy. New smells, unfamiliar "
+"people, and separation from littermates create a major environmental change."
+msgstr "Entrare in una nuova casa può essere stressante per un cucciolo. Nuovi odori, persone sconosciute e la separazione dai fratelli creano un grande cambiamento ambientale."
+
+#: woof/templates/woof/puppy.html:66
+msgid ""
+"The first days should remain calm and predictable. A quiet resting space and "
+"stable routine help the puppy adapt more comfortably."
+msgstr "I primi giorni dovrebbero restare calmi e prevedibili. Uno spazio di riposo tranquillo e una routine stabile aiutano il cucciolo ad adattarsi più comodamente."
+
+#: woof/templates/woof/puppy.html:70
+msgid "Early socialization"
+msgstr "Socializzazione precoce"
+
+#: woof/templates/woof/puppy.html:72
+msgid ""
+"Early socialization introduces the puppy to different environments, sounds, "
+"surfaces, people, and situations. Positive early experiences help build "
+"confidence and adaptability later in life."
+msgstr "La socializzazione precoce introduce il cucciolo a diversi ambienti, suoni, superfici, persone e situazioni. Le prime esperienze positive aiutano a costruire sicurezza e adattabilità più avanti nella vita."
+
+#: woof/templates/woof/puppy.html:76
+msgid ""
+"Socialization should happen gradually and without overwhelming the puppy. "
+"Too much stimulation at once can create stress instead of confidence."
+msgstr "La socializzazione dovrebbe avvenire gradualmente e senza sovraccaricare il cucciolo. Troppi stimoli in una volta possono creare stress invece di sicurezza."
+
+#: woof/templates/woof/puppy.html:80
+msgid "Sleep and daily rhythm"
+msgstr "Sonno e ritmo quotidiano"
+
+#: woof/templates/woof/puppy.html:82
+msgid ""
+"Puppies sleep significantly more than adult dogs and require frequent rest "
+"periods. Overtired puppies often become more restless, reactive, or "
+"difficult to calm."
+msgstr "I cuccioli dormono molto più dei cani adulti e richiedono frequenti periodi di riposo. I cuccioli troppo stanchi diventano spesso più irrequieti, reattivi o difficili da calmare."
+
+#: woof/templates/woof/puppy.html:85
+msgid ""
+"A stable daily rhythm helps regulate energy and improves adaptation to home "
+"life."
+msgstr "Un ritmo quotidiano stabile aiuta a regolare l'energia e migliora l'adattamento alla vita domestica."
+
+#: woof/templates/woof/puppy.html:88
+msgid "Teething and chewing phase"
+msgstr "Fase dei denti e della masticazione"
+
+#: woof/templates/woof/puppy.html:90
+msgid ""
+"During teething, puppies naturally explore objects through chewing. This "
+"stage is temporary but requires patience and proper management of the "
+"environment."
+msgstr "Durante la dentizione i cuccioli esplorano naturalmente gli oggetti masticando. Questa fase è temporanea ma richiede pazienza e una corretta gestione dell'ambiente."
+
+#: woof/templates/woof/puppy.html:93
+msgid ""
+"Safe chew toys and supervision help redirect destructive chewing behavior."
+msgstr "Giocattoli da masticare sicuri e supervisione aiutano a reindirizzare la masticazione distruttiva."
+
+#: woof/templates/woof/puppy.html:96
+msgid "Building confidence"
+msgstr "Costruire la fiducia"
+
+#: woof/templates/woof/puppy.html:98
+msgid ""
+"Confidence develops through repeated positive experiences and predictable "
+"routines. Gentle exposure to new environments helps puppies learn that "
+"unfamiliar situations are safe."
+msgstr "La sicurezza si sviluppa attraverso esperienze positive ripetute e routine prevedibili. L'esposizione delicata a nuovi ambienti aiuta i cuccioli a imparare che le situazioni sconosciute sono sicure."
+
+#: woof/templates/woof/puppy.html:101
+msgid ""
+"Fearful reactions during puppyhood are normal and should be handled calmly "
+"rather than punished."
+msgstr "Le reazioni di paura durante la cucciolata sono normali e vanno gestite con calma, non punite."
+
+#: woof/templates/woof/puppy.html:106
+msgid ""
+"Puppyhood is a short but extremely important developmental stage. Stable "
+"routines, gradual socialization, patience, and a safe environment help "
+"create a more confident and adaptable adult dog."
+msgstr "La cucciolata è una fase breve ma estremamente importante dello sviluppo. Routine stabili, socializzazione graduale, pazienza e un ambiente sicuro aiutano a creare un cane adulto più sicuro e adattabile."
+
+#: woof/templates/woof/terms_and_conditions.html:38
+#: woof/templates/woof/terms_and_conditions.html:64
+msgid "1. Consent to Terms"
+msgstr "1. Accettazione dei Termini"
+
+#: woof/templates/woof/terms_and_conditions.html:39
+#: woof/templates/woof/terms_and_conditions.html:79
+msgid "2. Intellectual Property Rights"
+msgstr "2. Diritti di proprietà intellettuale"
+
+#: woof/templates/woof/terms_and_conditions.html:40
+#: woof/templates/woof/terms_and_conditions.html:85
+msgid "3. User Representations"
+msgstr "3. Dichiarazioni dell'utente"
+
+#: woof/templates/woof/terms_and_conditions.html:41
+#: woof/templates/woof/terms_and_conditions.html:91
+msgid "4. Prohibited Activities"
+msgstr "4. Attività vietate"
+
+#: woof/templates/woof/terms_and_conditions.html:42
+#: woof/templates/woof/terms_and_conditions.html:103
+msgid "5. User Contributions"
+msgstr "5. Contributi degli utenti"
+
+#: woof/templates/woof/terms_and_conditions.html:43
+#: woof/templates/woof/terms_and_conditions.html:113
+msgid "6. License to Use"
+msgstr "6. Licenza d'uso"
+
+#: woof/templates/woof/terms_and_conditions.html:44
+#: woof/templates/woof/terms_and_conditions.html:118
+msgid "7. Provided Materials"
+msgstr "7. Materiali forniti"
+
+#: woof/templates/woof/terms_and_conditions.html:45
+#: woof/templates/woof/terms_and_conditions.html:123
+msgid "8. Website Management"
+msgstr "8. Gestione del Sito"
+
+#: woof/templates/woof/terms_and_conditions.html:46
+#: woof/templates/woof/terms_and_conditions.html:128
+msgid "9. Privacy Policy"
+msgstr "9. Informativa sulla privacy"
+
+#: woof/templates/woof/terms_and_conditions.html:47
+#: woof/templates/woof/terms_and_conditions.html:138
+msgid "10. Term and Termination"
+msgstr "10. Durata e risoluzione"
+
+#: woof/templates/woof/terms_and_conditions.html:48
+#: woof/templates/woof/terms_and_conditions.html:143
+msgid "11. Modifications and Interruptions"
+msgstr "11. Modifiche e interruzioni"
+
+#: woof/templates/woof/terms_and_conditions.html:49
+#: woof/templates/woof/terms_and_conditions.html:148
+msgid "12. Governing Law"
+msgstr "12. Legge applicabile"
+
+#: woof/templates/woof/terms_and_conditions.html:50
+#: woof/templates/woof/terms_and_conditions.html:153
+msgid "13. Dispute Resolution"
+msgstr "13. Risoluzione delle controversie"
+
+#: woof/templates/woof/terms_and_conditions.html:51
+#: woof/templates/woof/terms_and_conditions.html:158
+msgid "14. Corrections"
+msgstr "14. Correzioni"
+
+#: woof/templates/woof/terms_and_conditions.html:52
+#: woof/templates/woof/terms_and_conditions.html:163
+msgid "15. Disclaimer"
+msgstr "15. Esclusione di responsabilità"
+
+#: woof/templates/woof/terms_and_conditions.html:53
+#: woof/templates/woof/terms_and_conditions.html:168
+msgid "16. Limitation of Liability"
+msgstr "16. Limitazione di responsabilità"
+
+#: woof/templates/woof/terms_and_conditions.html:54
+#: woof/templates/woof/terms_and_conditions.html:173
+msgid "17. Indemnification"
+msgstr "17. Manleva"
+
+#: woof/templates/woof/terms_and_conditions.html:55
+#: woof/templates/woof/terms_and_conditions.html:178
+msgid "18. User Data"
+msgstr "18. Dati dell'utente"
+
+#: woof/templates/woof/terms_and_conditions.html:56
+#: woof/templates/woof/terms_and_conditions.html:183
+msgid "19. Electronic Communications"
+msgstr "19. Comunicazioni elettroniche"
+
+#: woof/templates/woof/terms_and_conditions.html:57
+#: woof/templates/woof/terms_and_conditions.html:188
+msgid "20. California Residents"
+msgstr "20. Residenti in California"
+
+#: woof/templates/woof/terms_and_conditions.html:58
+#: woof/templates/woof/terms_and_conditions.html:193
+msgid "21. Miscellaneous"
+msgstr "21. Disposizioni varie"
+
+#: woof/templates/woof/terms_and_conditions.html:59
+#: woof/templates/woof/terms_and_conditions.html:198
+msgid "22. Contact Us"
+msgstr "22. Contattaci"
+
+#: woof/templates/woof/terms_and_conditions.html:67
+msgid ""
+"These Terms of Use constitute a legally binding agreement between you "
+"(«you») and"
+msgstr "Questi Termini di utilizzo costituiscono un accordo giuridicamente vincolante tra te («tu») e"
+
+#: woof/templates/woof/terms_and_conditions.html:69
+msgid "regarding your access to and use of"
+msgstr "in merito al tuo accesso e utilizzo di"
+
+#: woof/templates/woof/terms_and_conditions.html:75
+msgid ""
+"IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE, YOU MUST DISCONTINUE USE "
+"IMMEDIATELY."
+msgstr "SE NON ACCETTI TUTTI QUESTI TERMINI DI UTILIZZO, DEVI SMETTERE DI USARE IL SITO IMMEDIATAMENTE."
+
+#: woof/templates/woof/terms_and_conditions.html:81
+msgid ""
+"Unless otherwise stated, the Website and all content are owned or licensed "
+"by us and protected by intellectual property laws."
+msgstr "Salvo diversa indicazione, il Sito e tutti i contenuti sono di nostra proprietà o sotto licenza e protetti dalle leggi sulla proprietà intellettuale."
+
+#: woof/templates/woof/terms_and_conditions.html:87
+msgid ""
+"By using the Website, you represent and warrant that you comply with all "
+"applicable laws and these Terms."
+msgstr "Utilizzando il Sito, dichiari e garantisci di rispettare tutte le leggi applicabili e questi Termini."
+
+#: woof/templates/woof/terms_and_conditions.html:93
+msgid ""
+"You agree not to engage in prohibited activities, including but not limited "
+"to:"
+msgstr "Accetti di non intraprendere attività vietate, tra cui, a titolo esemplificativo:"
+
+#: woof/templates/woof/terms_and_conditions.html:96
+msgid "Unauthorized data extraction"
+msgstr "Estrazione non autorizzata di dati"
+
+#: woof/templates/woof/terms_and_conditions.html:97
+msgid "Fraud, abuse, or harassment"
+msgstr "Frode, abuso o molestie"
+
+#: woof/templates/woof/terms_and_conditions.html:98
+msgid "Security circumvention"
+msgstr "Elusione della sicurezza"
+
+#: woof/templates/woof/terms_and_conditions.html:99
+msgid "Illegal or unauthorized use"
+msgstr "Uso illegale o non autorizzato"
+
+#: woof/templates/woof/terms_and_conditions.html:106
+msgid "User contributions are governed by our"
+msgstr "I contributi degli utenti sono disciplinati dalla nostra"
+
+#: woof/templates/woof/terms_and_conditions.html:115
+msgid "You are granted a limited, non-commercial license to use the Website."
+msgstr "Ti è concessa una licenza limitata e non commerciale per l'uso del Sito."
+
+#: woof/templates/woof/terms_and_conditions.html:120
+msgid ""
+"Any materials you submit become our property and may be used without "
+"compensation."
+msgstr "Qualsiasi materiale inviato diventa di nostra proprietà e può essere utilizzato senza compenso."
+
+#: woof/templates/woof/terms_and_conditions.html:125
+msgid ""
+"We reserve the right to manage, restrict, or remove content at our "
+"discretion."
+msgstr "Ci riserviamo il diritto di gestire, limitare o rimuovere i contenuti a nostra discrezione."
+
+#: woof/templates/woof/terms_and_conditions.html:131
+msgid "Your use of the Website is also governed by our"
+msgstr "Il tuo utilizzo del Sito è disciplinato anche dalla nostra"
+
+#: woof/templates/woof/terms_and_conditions.html:140
+msgid "We may terminate access to the Website at any time without notice."
+msgstr "Possiamo terminare l'accesso al Sito in qualsiasi momento senza preavviso."
+
+#: woof/templates/woof/terms_and_conditions.html:145
+msgid ""
+"We reserve the right to modify or discontinue the Website without liability."
+msgstr "Ci riserviamo il diritto di modificare o interrompere il Sito senza responsabilità."
+
+#: woof/templates/woof/terms_and_conditions.html:150
+msgid "These Terms are governed by the laws of Serbia."
+msgstr "Questi Termini sono disciplinati dalle leggi della Serbia."
+
+#: woof/templates/woof/terms_and_conditions.html:155
+msgid "Disputes shall be resolved through arbitration in Serbia."
+msgstr "Le controversie saranno risolte tramite arbitrato in Serbia."
+
+#: woof/templates/woof/terms_and_conditions.html:160
+msgid "We may correct errors or update content at any time."
+msgstr "Possiamo correggere errori o aggiornare i contenuti in qualsiasi momento."
+
+#: woof/templates/woof/terms_and_conditions.html:165
+msgid "The Website is provided “AS IS” without warranties."
+msgstr "Il Sito è fornito «AS IS» senza garanzie."
+
+#: woof/templates/woof/terms_and_conditions.html:170
+msgid "Our liability is limited to the maximum extent permitted by law."
+msgstr "La nostra responsabilità è limitata al massimo consentito dalla legge."
+
+#: woof/templates/woof/terms_and_conditions.html:175
+msgid "You agree to indemnify and hold us harmless."
+msgstr "Accetti di manlevarci e tenerci indenni."
+
+#: woof/templates/woof/terms_and_conditions.html:180
+msgid "You are responsible for any data you submit."
+msgstr "Sei responsabile dei dati che invii."
+
+#: woof/templates/woof/terms_and_conditions.html:185
+msgid "Electronic communications satisfy legal requirements."
+msgstr "Le comunicazioni elettroniche soddisfano i requisiti di legge."
+
+#: woof/templates/woof/terms_and_conditions.html:190
+msgid ""
+"California residents may contact the appropriate authorities as required by "
+"law."
+msgstr "I residenti in California possono contattare le autorità competenti come richiesto dalla legge."
+
+#: woof/templates/woof/terms_and_conditions.html:195
+msgid "These Terms constitute the entire agreement between you and us."
+msgstr "Questi Termini costituiscono l'intero accordo tra te e noi."
+
+#: woof/templates/woof/terms_and_conditions.html:201
+msgid "Questions may be sent to"
+msgstr "Le domande possono essere inviate a"
+
+#: woof/templates/woof/training.html:50
+msgid "What training actually is"
+msgstr "Cos'è realmente l'addestramento"
+
+#: woof/templates/woof/training.html:52
+msgid ""
+"Dog training is the process of building clear communication between human "
+"and dog through consistent signals and predictable outcomes. It is not about "
+"control, but about establishing shared understanding."
+msgstr "L'addestramento del cane è il processo di costruzione di una comunicazione chiara tra uomo e cane attraverso segnali coerenti ed esiti prevedibili. Non è controllo, ma la creazione di una comprensione condivisa."
+
+#: woof/templates/woof/training.html:55
+msgid ""
+"Training influences everyday behavior, safety, and the ability of the dog to "
+"function comfortably in human environments."
+msgstr "L'addestramento influenza il comportamento quotidiano, la sicurezza e la capacità del cane di vivere comodamente negli ambienti umani."
+
+#: woof/templates/woof/training.html:58
+msgid "Consistency and repetition"
+msgstr "Coerenza e ripetizione"
+
+#: woof/templates/woof/training.html:60
+msgid ""
+"Dogs learn through repetition and pattern recognition. The same action must "
+"lead to the same result in order for learning to stabilize."
+msgstr "I cani imparano attraverso la ripetizione e il riconoscimento di schemi. La stessa azione deve portare allo stesso risultato perché l'apprendimento si stabilizzi."
+
+#: woof/templates/woof/training.html:63
+msgid ""
+"Inconsistent rules create confusion and slow down behavioral development."
+msgstr "Regole incoerenti creano confusione e rallentano lo sviluppo comportamentale."
+
+#: woof/templates/woof/training.html:65
+msgid ""
+"Clear repetition is more effective than complex commands or frequent changes "
+"in approach."
+msgstr "La ripetizione chiara è più efficace di comandi complessi o frequenti cambi di approccio."
+
+#: woof/templates/woof/training.html:68
+msgid "Communication signals"
+msgstr "Segnali di comunicazione"
+
+#: woof/templates/woof/training.html:70
+msgid ""
+"Training relies on clear and simple signals that the dog can associate with "
+"specific actions. Timing is important because dogs connect behavior and "
+"outcome within a short time window."
+msgstr "L'addestramento si basa su segnali chiari e semplici che il cane può associare ad azioni specifiche. La tempistica è importante perché i cani collegano comportamento ed esito in una finestra di tempo breve."
+
+#: woof/templates/woof/training.html:73
+msgid ""
+"Emotional tone, body language, and predictability of response all influence "
+"learning speed."
+msgstr "Il tono emotivo, il linguaggio del corpo e la prevedibilità della risposta influenzano tutti la velocità di apprendimento."
+
+#: woof/templates/woof/training.html:76
+msgid "Common learning mistakes"
+msgstr "Errori comuni nell'apprendimento"
+
+#: woof/templates/woof/training.html:78
+msgid ""
+"One of the most common issues is mixing signals, where different responses "
+"are given for the same behavior."
+msgstr "Uno dei problemi più comuni è mescolare i segnali, dando risposte diverse allo stesso comportamento."
+
+#: woof/templates/woof/training.html:80
+msgid ""
+"Another issue is expecting immediate results. Learning takes time and "
+"depends on repetition rather than single sessions."
+msgstr "Un altro problema è aspettarsi risultati immediati. L'apprendimento richiede tempo e si basa sulla ripetizione, non su singole sessioni."
+
+#: woof/templates/woof/training.html:83
+msgid ""
+"Overloading with commands or complexity can slow progress significantly."
+msgstr "Il sovraccarico di comandi o complessità può rallentare significativamente i progressi."
+
+#: woof/templates/woof/training.html:86
+msgid "Building reliable behavior"
+msgstr "Costruire un comportamento affidabile"
+
+#: woof/templates/woof/training.html:88
+msgid ""
+"Reliable behavior is achieved through stable routines and predictable "
+"outcomes rather than intensity of training."
+msgstr "Il comportamento affidabile si ottiene con routine stabili ed esiti prevedibili, più che con l'intensità dell'addestramento."
+
+#: woof/templates/woof/training.html:90
+msgid ""
+"Small, repeated successes build stronger long-term behavior than occasional "
+"intensive sessions."
+msgstr "Piccoli successi ripetuti costruiscono un comportamento a lungo termine più solido delle sessioni intensive occasionali."
+
+#: woof/templates/woof/training.html:95
+msgid ""
+"Training is a communication system that develops over time through "
+"consistency and clarity. When properly structured, it creates stability and "
+"reduces misunderstandings between dog and owner."
+msgstr "L'addestramento è un sistema di comunicazione che si sviluppa nel tempo attraverso coerenza e chiarezza. Quando è ben strutturato, crea stabilità e riduce i fraintendimenti tra cane e proprietario."
+
+#: woof/urls.py:23
+msgid "About us - Woof Dogs"
+msgstr "Chi siamo - Woof Dogs"
+
+#: woof/urls.py:34
+msgid "Cookie Policy - Woof Dogs"
+msgstr "Cookie Policy - Woof Dogs"
+
+#: woof/urls.py:42
+msgid "Terms of Use - Woof Dogs"
+msgstr "Termini di utilizzo - Woof Dogs"
+
+#: woof/urls.py:50
+msgid "Privacy Policy - Woof Dogs"
+msgstr "Informativa sulla privacy - Woof Dogs"
+
+#: woof/urls.py:60
+msgid "Dog Guides - Woof Dogs"
+msgstr "Guide canine - Woof Dogs"
+
+#: woof/urls.py:68
+msgid "Choosing the right dog - Woof Dogs"
+msgstr "Come scegliere il cane giusto - Woof Dogs"
+
+#: woof/urls.py:76
+msgid "Dog Training Fundamentals - Woof Dogs"
+msgstr "Fondamenti di addestramento - Woof Dogs"
+
+#: woof/urls.py:84
+msgid "Dog Health & Care - Woof Dogs"
+msgstr "Salute e cura del cane - Woof Dogs"
+
+#: woof/urls.py:92
+msgid "Dog Behavior - Woof Dogs"
+msgstr "Comportamento del cane - Woof Dogs"
+
+#: woof/urls.py:100
+msgid "Living with a Dog - Woof Dogs"
+msgstr "Vivere con un cane - Woof Dogs"
+
+#: woof/urls.py:108
+msgid "Raising a Puppy - Woof Dogs"
+msgstr "Crescere un cucciolo - Woof Dogs"
+
+#: woof/urls.py:116
+msgid "Feeding your dog - Woof Dogs"
+msgstr "Alimentazione del cane - Woof Dogs"
+
+#: woof/urls.py:124
+msgid "Games & activities - Woof Dogs"
+msgstr "Giochi e attività - Woof Dogs"
+
+#: woof/utils.py:10
+msgid "All groups"
+msgstr "Tutti i gruppi"
+
+#: woof/utils.py:21
+msgid ""
+"Woof Dogs — the world's dog breeds grouped by American Kennel Club "
+"standards: temperament, size, care and more."
+msgstr "Woof Dogs — le razze canine del mondo raggruppate secondo gli standard dell'American Kennel Club: temperamento, taglia, cura e altro."
+
+#: woof/views.py:228
+msgid "Dog Breeds - Woof Dogs"
+msgstr "Razze canine - Woof Dogs"
+
+#: woof/views.py:250 woof/views.py:311
+#, python-brace-format
+msgid "{name} - Woof Dogs"
+msgstr "{name} - Woof Dogs"
+
+#: woof/views.py:323
+msgid "Contact - Woof Dogs"
+msgstr "Contatti - Woof Dogs"
+
+#: woof/views.py:356
+msgid "Best family dogs 🐶"
+msgstr "I migliori cani per la famiglia 🐶"
+
+#: woof/views.py:364
+msgid "Great for first-time owners 🆕"
+msgstr "Ottimi per chi ha un cane per la prima volta 🆕"
+
+#: woof/views.py:371
+msgid "For experienced owners 💪"
+msgstr "Per proprietari esperti 💪"
+
+#: woof/views.py:378
+msgid "Easy to train dogs 🧠"
+msgstr "Cani facili da addestrare 🧠"
+
+#: woof/views.py:384
+msgid "Hypoallergenic breeds 🌿"
+msgstr "Razze ipoallergeniche 🌿"
+
+#: woof/views.py:388
+msgid "Small dogs 🐾"
+msgstr "Cani di piccola taglia 🐾"
+
+#: woof/views.py:392
+msgid "Medium dogs 🔹"
+msgstr "Cani di taglia media 🔹"
+
+#: woof/views.py:396
+msgid "Large dogs 🐕"
+msgstr "Cani di grandi dimensioni 🐕"
+
+#: woof/views.py:400
+msgid "Apartment-friendly dogs 🏢"
+msgstr "Cani adatti all'appartamento 🏢"
+
+#: woof/views.py:409
+msgid "Best for houses with yard 🏡"
+msgstr "Ideali per case con giardino 🏡"
+
+#: woof/views.py:418
+msgid "Explore - Woof Dogs"
+msgstr "Esplora - Woof Dogs"
+
+#: woof/views.py:431
+msgid "Groups - Woof Dogs"
+msgstr "Gruppi - Woof Dogs"
+#: woof/forms.py:29 woof/templates/woof/contact.html:149
+msgid "Math captcha result"
+msgstr "Risultato della verifica matematica"
+
+#: woof/forms.py:37
+msgid "Incorrect answer. Please try again."
+msgstr "Risposta errata. Riprova."
+
+#: woof/templates/woof/privacy_policy.html:290
+msgid "Contact form"
+msgstr "Modulo di contatto"
+
+#: woof/templates/woof/terms_and_conditions.html:200
+msgid "Questions may be sent to the"
+msgstr "Le domande possono essere inviate tramite il"
+

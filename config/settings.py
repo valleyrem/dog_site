@@ -156,6 +156,9 @@ LANGUAGE_CODE = "en"
 LANGUAGES = [
     ("en", "English"),
     ("ru", "Русский"),
+    ("de", "Deutsch"),
+    ("it", "Italiano"),
+    ("sr-latn", "Srpski"),
 ]
 
 TIME_ZONE = "Europe/Belgrade"

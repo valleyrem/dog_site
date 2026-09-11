@@ -32,15 +32,57 @@
         <strong>{% blocktranslate trimmed %}Cookie Policy{% endblocktranslate %}</strong>
     </h1>
 
-    <p>{% blocktranslate trimmed %}Last updated: April 26, 2026{% endblocktranslate %}</p>
+    <p>{% blocktranslate trimmed %}Last updated: September 10, 2026{% endblocktranslate %}</p>
 
 
     <!-- Cookie declaration -->
     <h2 class="section-title">{% blocktranslate trimmed %}Cookie Declaration{% endblocktranslate %}</h2>
 
-    <div class="cky-audit-table-element"></div>
+    <p class="cookie-table-intro">{% blocktranslate trimmed %}When you visit the Website, the following cookies may be stored:{% endblocktranslate %}</p>
 
-    <p>{% blocktranslate trimmed %}Analytics cookies: we use Google Analytics cookies (for example <em>_ga</em> and <em>_ga_*</em>) to understand how visitors use the site. These cookies are set only after you give your consent through the cookie notice on the Website. You may withdraw or change your consent at any time using the cookie notice, and you may delete these cookies through your browser settings.{% endblocktranslate %}</p>
+    <table class="cookie-table">
+
+        <thead>
+            <tr>
+                <th>{% blocktranslate trimmed %}Cookie{% endblocktranslate %}</th>
+                <th>{% blocktranslate trimmed %}Duration{% endblocktranslate %}</th>
+                <th>{% blocktranslate trimmed %}Purpose{% endblocktranslate %}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td><strong>csrftoken</strong></td>
+                <td>{% blocktranslate trimmed %}1 year{% endblocktranslate %}</td>
+                <td>{% blocktranslate trimmed %}Necessary. CSRF protection cookie set by Django on pages with forms (language switcher, contact page). Stores no personal data.{% endblocktranslate %}</td>
+            </tr>
+
+            <tr>
+                <td><strong>_ga</strong></td>
+                <td>{% blocktranslate trimmed %}About 400 days{% endblocktranslate %}</td>
+                <td>{% blocktranslate trimmed %}Analytics. Google Analytics cookie used to calculate visitor, session and campaign data and track site usage. Stores anonymous data. Set only after consent.{% endblocktranslate %}</td>
+            </tr>
+
+            <tr>
+                <td><strong>_ga_*</strong></td>
+                <td>{% blocktranslate trimmed %}About 400 days{% endblocktranslate %}</td>
+                <td>{% blocktranslate trimmed %}Analytics. Google Analytics cookie used to store and count page views. Set only after consent.{% endblocktranslate %}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <p>{% blocktranslate trimmed %}The cookie notice on the Website appears before any analytics cookies are set. Nothing is loaded — no scripts, no cookies — until you make a choice. You may withdraw or change your consent at any time using the cookie notice (the floating button in the corner of the page), and you may delete these cookies through your browser settings.{% endblocktranslate %}</p>
+
+    <p>{% blocktranslate trimmed %}You can also change your preferences directly from this page using the button below.{% endblocktranslate %}</p>
+
+    <div class="cookie-policy-change">
+        <button type="button" class="cookie-btn cookie-btn--primary" id="cookie-policy-open">
+            {% blocktranslate trimmed %}Change cookie preferences{% endblocktranslate %}
+        </button>
+    </div>
 
 
     <!-- Browser controls -->
@@ -138,9 +180,8 @@
 
     <p>
         {% blocktranslate trimmed %}If you have any questions about our use of cookies or other technologies, please{% endblocktranslate %}
-        <a href="mailto:woofdogs23@gmail.com"
-           class="link-policies"
-           title="{% trans 'woofdogs23@gmail.com' %}">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
+        <a href="{% url 'contact' %}"
+           class="link-policies">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
     </p>
 
 </div>

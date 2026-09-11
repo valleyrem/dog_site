@@ -198,9 +198,9 @@
         <h2 class="section-title" id="contact-us">{% blocktranslate trimmed %}22. Contact Us{% endblocktranslate %}</h2>
 
         <p>
-            {% blocktranslate trimmed %}Questions may be sent to{% endblocktranslate %}
-            <a href="mailto:woofdogs23@gmail.com"
-               class="link-policies">{% blocktranslate trimmed %}woofdogs23@gmail.com{% endblocktranslate %}</a>.
+            {% blocktranslate trimmed %}Questions may be sent to the{% endblocktranslate %}
+            <a href="{% url 'contact' %}"
+               class="link-policies">{% trans "Contact form" %}</a>.
         </p>
 
     </div>

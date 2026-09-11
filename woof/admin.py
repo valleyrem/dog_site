@@ -63,13 +63,22 @@ class DogsAdmin(admin.ModelAdmin):
         # main
         "title",
         "title_ru",
+        "title_de",
+        "title_it",
+        "title_sr_latn",
         "slug",
         "cat",
         "section",
         "varieties",
         "varieties_ru",
+        "varieties_de",
+        "varieties_it",
+        "varieties_sr_latn",
         "country",
         "country_ru",
+        "country_de",
+        "country_it",
+        "country_sr_latn",
         # photo
         "photo",
         "photo_author",
@@ -84,6 +93,9 @@ class DogsAdmin(admin.ModelAdmin):
         "temperament",
         "colors",
         "colors_ru",
+        "colors_de",
+        "colors_it",
+        "colors_sr_latn",
         "trainability",
         "activity_level",
         "barking_level",
@@ -92,10 +104,19 @@ class DogsAdmin(admin.ModelAdmin):
         # description
         "summary",
         "summary_ru",
+        "summary_de",
+        "summary_it",
+        "summary_sr_latn",
         "care",
         "care_ru",
+        "care_de",
+        "care_it",
+        "care_sr_latn",
         "living_conditions",
         "living_conditions_ru",
+        "living_conditions_de",
+        "living_conditions_it",
+        "living_conditions_sr_latn",
         # general
         "is_published",
         "time_create",
@@ -125,6 +146,23 @@ class CategoryAdmin(admin.ModelAdmin):
 
     readonly_fields = ("group_preview",)
 
+    fields = (
+        "name",
+        "name_ru",
+        "name_de",
+        "name_it",
+        "name_sr_latn",
+        "desc",
+        "desc_ru",
+        "desc_de",
+        "desc_it",
+        "desc_sr_latn",
+        "fci_number",
+        "slug",
+        "group_image",
+        "group_preview",
+    )
+
     def group_preview(self, obj):
         if obj.group_image:
             return mark_safe(
@@ -142,11 +180,15 @@ class SectionAdmin(admin.ModelAdmin):
     list_filter = ("category",)
     search_fields = ("name",)
 
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "category")
+
 
 @admin.register(CoatType)
 class CoatTypeAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
+
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn")
 
 
 @admin.register(CoatLength)
@@ -154,11 +196,15 @@ class CoatLengthAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
 
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn")
+
 
 @admin.register(Temperament)
 class TemperamentAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
+
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn")
 
 
 admin.site.site_title = "Woof Dogs admin"

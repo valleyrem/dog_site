@@ -1275,3 +1275,166 @@ document.addEventListener("DOMContentLoaded", () => {
     triggerImgId: "breedTriggerImg",
   });
 });
+
+// Cookie consent (custom banner).
+// Nothing is loaded before consent: GTM (and with it Google Analytics)
+// is injected ONLY after the visitor grants analytics consent.
+
+(function () {
+  const STORAGE_KEY = "woof_consent";
+  const CONSENT_VERSION = 1;
+  const GTM_ID = "GTM-NJCSC592";
+
+  const banner = document.getElementById("cookie-banner");
+  const editBtn = document.getElementById("cookie-edit");
+  const layerFirst = document.getElementById("cookie-banner-first");
+  const layerDetails = document.getElementById("cookie-banner-details");
+  const acceptBtn = document.getElementById("cookie-accept-all");
+  const declineBtn = document.getElementById("cookie-decline-all");
+  const openDetailsBtn = document.getElementById("cookie-open-details");
+  const saveBtn = document.getElementById("cookie-save");
+  const backBtn = document.getElementById("cookie-back");
+  const closeBtn = document.getElementById("cookie-close");
+  const analyticsToggle = document.getElementById("cookie-analytics-toggle");
+
+  function readConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (!data || data.v !== CONSENT_VERSION) return null;
+      return data;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveConsent(analytics) {
+    const data = {
+      v: CONSENT_VERSION,
+      analytics: !!analytics,
+      ts: Date.now(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return data;
+  }
+
+  function gtmLoaded() {
+    return !!document.querySelector("script[data-consent-gtm]");
+  }
+
+  function loadGTM(analyticsGranted) {
+    if (gtmLoaded()) return;
+
+    window.dataLayer = window.dataLayer || [];
+
+    // Consent Mode v2 signals: Google tags must respect the choice.
+    window.dataLayer.push({
+      consent: "default",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: analyticsGranted ? "granted" : "denied",
+    });
+
+    window.dataLayer.push({
+      "gtm.start": new Date().getTime(),
+      event: "gtm.js",
+    });
+
+    const s = document.createElement("script");
+    s.async = true;
+    s.dataset.consentGtm = "1";
+    s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    document.head.appendChild(s);
+  }
+
+  function applyConsent(data) {
+    if (data && data.analytics) loadGTM(true);
+  }
+
+  function showBanner() {
+    if (!banner) return;
+    layerFirst.hidden = false;
+    layerDetails.hidden = true;
+    banner.hidden = false;
+  }
+
+  function hideBanner() {
+    if (banner) banner.hidden = true;
+  }
+
+  function showEditButton() {
+    if (editBtn) editBtn.hidden = !readConsent();
+  }
+
+  function setToggleFromConsent() {
+    if (!analyticsToggle) return;
+    const data = readConsent();
+    analyticsToggle.checked = data ? data.analytics : false;
+  }
+
+  function finish(analytics) {
+    const data = saveConsent(analytics);
+    applyConsent(data);
+    hideBanner();
+    showEditButton();
+  }
+
+  // Initial state
+  const saved = readConsent();
+  if (saved) {
+    hideBanner();
+    showEditButton();
+    applyConsent(saved);
+  } else {
+    showBanner();
+    showEditButton();
+  }
+
+  // Buttons
+  if (acceptBtn) acceptBtn.addEventListener("click", () => finish(true));
+  if (declineBtn) declineBtn.addEventListener("click", () => finish(false));
+
+  if (openDetailsBtn) {
+    openDetailsBtn.addEventListener("click", () => {
+      setToggleFromConsent();
+      layerFirst.hidden = true;
+      layerDetails.hidden = false;
+    });
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      layerDetails.hidden = true;
+      layerFirst.hidden = false;
+    });
+  }
+
+  // X button: closing the notice = declining analytics cookies.
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => finish(false));
+  }
+
+  if (saveBtn) {
+    saveBtn.addEventListener("click", () =>
+      finish(analyticsToggle ? analyticsToggle.checked : false),
+    );
+  }
+
+  if (editBtn) {
+    editBtn.addEventListener("click", () => {
+      setToggleFromConsent();
+      showBanner();
+    });
+  }
+
+  // Button on the Cookie Policy page: reopen the same consent window
+  const policyOpenBtn = document.getElementById("cookie-policy-open");
+  if (policyOpenBtn) {
+    policyOpenBtn.addEventListener("click", () => {
+      setToggleFromConsent();
+      showBanner();
+    });
+  }
+})();

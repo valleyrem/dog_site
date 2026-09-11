@@ -138,7 +138,7 @@ title="{% trans 'Next' %}"
              alt="{{ post.title }}"
              loading="lazy"
              decoding="async"
-             data-author="{% if photo.author %}by {{ photo.author|escapejs }}{% endif %}">
+             data-author="{% if photo.author %}{{ photo.author|escapejs }}{% endif %}">
     {% endfor %}
 </div>
 {% endif %}
@@ -312,7 +312,7 @@ title="{% trans 'Next' %}"
 <!--<p class="images-rule">
                 This website is non-commercial. All images are used with attribution.
                 If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
-                <a href="mailto:woofdogs23@gmail.com" class="link-policies">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
+                <a href="{% url 'contact' %}" class="link-policies">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
             </p>-->
 
     <!-- About the breed -->

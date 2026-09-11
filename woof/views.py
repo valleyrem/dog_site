@@ -6,6 +6,9 @@ from django.utils import translation
 from django.views.decorators.http import require_GET
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 
+import secrets
+from django.core.cache import cache
+
 from .forms import ContactForm
 from .models import Category, Dogs
 from .utils import DEFAULT_META_DESCRIPTION, DataMixin
@@ -84,6 +87,123 @@ MARQUEE_QUOTES = {
         (
             "Собака по природе своей любит человека больше представителей собственного вида и очень часто получает от него ответную любовь.",
             "Дэвид Юм",
+        ),
+    ],
+    "de": [
+        (
+            "Hunde sind nicht unser ganzes Leben, aber sie machen unser Leben vollständig.",
+            "Roger Caras",
+        ),
+        (
+            "Einige unserer größten historischen und künstlerischen Schätze stellen wir in Museen aus; andere führen wir spazieren.",
+            "Roger Caras",
+        ),
+        (
+            "In Momenten der Freude wünschten wir uns alle, einen Schwanz zum Wedeln zu haben.",
+            "W. H. Auden",
+        ),
+        (
+            "Der Hund ist ein Gentleman; ich hoffe, in seinen Himmel zu kommen, nicht in den des Menschen.",
+            "Mark Twain",
+        ),
+        ("Ein Hund kann ein perfekter Therapeut sein.", "John T. Rosen"),
+        (
+            "Die Bindung zu einem Hund ist so dauerhaft, wie die Bande dieser Erde nur sein können.",
+            "Konrad Lorenz",
+        ),
+        (
+            "Einen Hund zu streicheln, zu kraulen und zu knuddeln kann für Geist und Herz so wohltuend sein wie tiefe Meditation und für die Seele fast so gut wie ein Gebet.",
+            "Dean Koontz",
+        ),
+        (
+            "Ein Hund ist das einzige Wesen auf Erden, das dich mehr liebt als sich selbst.",
+            "Josh Billings",
+        ),
+        (
+            "Der Hund wurde eigens für die Kinder geschaffen. Er ist der Gott des Ausgelassenseins.",
+            "Henry Ward Beecher",
+        ),
+        (
+            "Ein Hund liebt den Menschen natürlicherweise mehr als seine eigene Art und findet sehr oft erwiderte Zuneigung.",
+            "David Hume",
+        ),
+    ],
+    "it": [
+        (
+            "I cani non sono tutta la nostra vita, ma rendono la nostra vita completa.",
+            "Roger Caras",
+        ),
+        (
+            "Alcuni dei nostri più grandi tesori storici e artistici li mettiamo nei musei; altri li portiamo a spasso.",
+            "Roger Caras",
+        ),
+        (
+            "Nei momenti di gioia vorremmo tutti avere una coda da scodinzolare.",
+            "W. H. Auden",
+        ),
+        (
+            "Il cane è un gentiluomo; spero di andare nel suo paradiso, non in quello dell'uomo.",
+            "Mark Twain",
+        ),
+        ("Un cane può essere un perfetto terapeuta.", "John T. Rosen"),
+        (
+            "Il legame con un cane è durevole quanto possono esserlo i legami di questa terra.",
+            "Konrad Lorenz",
+        ),
+        (
+            "Accarezzare e coccolare un cane può fare bene alla mente e al cuore quanto una meditazione profonda, e all'anima quasi quanto una preghiera.",
+            "Dean Koontz",
+        ),
+        (
+            "Il cane è l'unica creatura sulla terra che ti ama più di quanto ami se stessa.",
+            "Josh Billings",
+        ),
+        (
+            "Il cane è stato creato apposta per i bambini. È il dio dell'euforia.",
+            "Henry Ward Beecher",
+        ),
+        (
+            "Il cane ama l'uomo naturalmente più della propria specie e trova molto spesso affetto ricambiato.",
+            "David Hume",
+        ),
+    ],
+    "sr-latn": [
+        (
+            "Psi nisu ceo naš život, ali čine naš život potpunim.",
+            "Roger Caras",
+        ),
+        (
+            "Neke od naših najvećih istorijskih i umetničkih blaga stavljamo u muzeje; druge vodimo u šetnju.",
+            "Roger Caras",
+        ),
+        (
+            "U trenucima radosti svi bismo poželeli da imamo rep kojim možemo da mašemo.",
+            "W. H. Auden",
+        ),
+        (
+            "Pas je džentlmen; nadam se da ću stići na njegov raj, a ne na čovekov.",
+            "Mark Twain",
+        ),
+        ("Pas može biti savršen terapeut.", "John T. Rosen"),
+        (
+            "Veza sa psom traje koliko i sve veze koje na ovoj zemlji mogu trajati.",
+            "Konrad Lorenz",
+        ),
+        (
+            "Maženje i grljenje psa može umiriti um i srce kao duboka meditacija i biti za dušu gotovo isto što i molitva.",
+            "Dean Koontz",
+        ),
+        (
+            "Pas je jedino stvorenje na zemlji koje vas voli više nego što voli sebe.",
+            "Josh Billings",
+        ),
+        (
+            "Pas je stvoren posebno za decu. On je bog euforije.",
+            "Henry Ward Beecher",
+        ),
+        (
+            "Pas prirodno voli čoveka više nego sopstvenu vrstu i vrlo često nalazi uzvraćenu ljubav.",
+            "David Hume",
         ),
     ],
 }
@@ -239,10 +359,39 @@ class ContactFormView(DataMixin, FormView):
     form_class = ContactForm
     template_name = "woof/contact.html"
     success_url = reverse_lazy("home")
+    CAPTCHA_TTL = 600  # 10 minutes
+
+    def _make_captcha(self):
+        """Fresh math captcha: the answer lives in the cache keyed by a
+        random token, so no session/cookie is created for guests."""
+        a = secrets.randbelow(9) + 1
+        b = secrets.randbelow(9) + 1
+        token = secrets.token_hex(16)
+        cache.set(f"contact_captcha:{token}", a + b, timeout=self.CAPTCHA_TTL)
+        return {"a": a, "b": b, "token": token}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        cap = self._make_captcha()
+        context.update(
+            {
+                "captcha_a": cap["a"],
+                "captcha_b": cap["b"],
+                "captcha_token": cap["token"],
+            }
+        )
         return self.get_user_context(**context, title=_("Contact - Woof Dogs"))
+
+    def form_invalid(self, form):
+        # Refresh the captcha, so a failed attempt always shows a new example.
+        return JsonResponse(
+            {
+                "success": False,
+                "errors": form.errors,
+                "captcha": self._make_captcha(),
+            },
+            status=400,
+        )
 
     def form_valid(self, form):
         if not form.process_form():
@@ -258,9 +407,6 @@ class ContactFormView(DataMixin, FormView):
                 status=503,
             )
         return super().form_valid(form)
-
-    def form_invalid(self, form):
-        return JsonResponse({"success": False, "errors": form.errors}, status=400)
 
 
 class DogGroupsView(DataMixin, TemplateView):
@@ -402,6 +548,7 @@ def page_not_found(request, exception):
 def sitemap_xml(request):
     """Hand-written sitemap: breeds + categories + static pages, en & ru."""
 
+    from django.conf import settings
     from django.urls import reverse
     from django.utils import timezone
     from django.utils.xmlutils import SimplerXMLGenerator
@@ -414,10 +561,16 @@ def sitemap_xml(request):
         return f"{scheme}://{host}{path}"
 
     def lang_urls(path):
-        """The path from reverse() has no language prefix here (en)."""
-        if path == "/":
-            return abs_url(path), abs_url("/ru/")
-        return abs_url(path), abs_url("/ru" + path)
+        """The path from reverse() has no language prefix (default language)."""
+        urls = {}
+        for code, _ in settings.LANGUAGES:
+            if code == settings.LANGUAGE_CODE:
+                urls[code] = abs_url(path)
+            elif path == "/":
+                urls[code] = abs_url("/" + code + "/")
+            else:
+                urls[code] = abs_url("/" + code + path)
+        return urls
 
     out = StringIO()
     xml = SimplerXMLGenerator(out, encoding="utf-8")
@@ -440,33 +593,27 @@ def sitemap_xml(request):
         xml.endElement("url")
 
     def add_bilingual(path, lastmod=None, changefreq="weekly", priority="0.6"):
-        en, ru = lang_urls(path)
-        for loc in (en, ru):
+        urls = lang_urls(path)
+        for code, loc in urls.items():
             xml.startElement("url", {})
             xml.addQuickElement("loc", loc)
             if lastmod:
                 xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
             xml.addQuickElement("changefreq", changefreq)
             xml.addQuickElement("priority", priority)
-            # xhtml alternate for the other language
-            xml.startElement(
-                "xhtml:link",
-                {
-                    "rel": "alternate",
-                    "hreflang": "en",
-                    "href": en,
-                },
-            )
-            xml.endElement("xhtml:link")
-            xml.startElement(
-                "xhtml:link",
-                {
-                    "rel": "alternate",
-                    "hreflang": "ru",
-                    "href": ru,
-                },
-            )
-            xml.endElement("xhtml:link")
+            # xhtml:alternate for every other language
+            for other_code, other_loc in urls.items():
+                xml.startElement(
+                    "xhtml:link",
+                    {
+                        "rel": "alternate",
+                        "hreflang": (
+                            "sr-Latn" if other_code == "sr-latn" else other_code
+                        ),
+                        "href": other_loc,
+                    },
+                )
+                xml.endElement("xhtml:link")
             xml.endElement("url")
 
     # static pages

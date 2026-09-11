@@ -50,7 +50,7 @@ body {
   font-family: "Space Grotesk", "Manrope", sans-serif;
   line-height: 1.8;
   font-size: 16px;
-/*  font-size-adjust: 0.5;*/
+  /*  font-size-adjust: 0.5;*/
 }
 
 html {
@@ -682,7 +682,6 @@ a {
   transition: background 0.2s ease;
 }
 
-
 .mini-gallery {
   display: none;
 }
@@ -928,15 +927,14 @@ a {
 }
 
 .section-title-group::before {
-    content: "•";
-    color: var(--main-accent);
+  content: "•";
+  color: var(--main-accent);
 }
 
 .section-title-group::after {
-    content: "•";
-    color: var(--main-accent);
+  content: "•";
+  color: var(--main-accent);
 }
-
 
 .post-text {
   font-size: 16px;
@@ -1714,12 +1712,17 @@ p strong {
   cursor: default;
 }
 
+/* Select dropdowns open downward and must sit above the photo.
+   .hero-inner > * gives both columns z-index:2, and the photo comes later
+   in DOM and used to cover the open list (z-index:9999 on the list works
+   only within its own column). Raise the selects column above the photo. */
 .hero-left {
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
   align-items: flex-start;
+  z-index: 3;
 }
 
 .hero-right {
@@ -2183,6 +2186,7 @@ p strong {
 
 .policy-container input[type="text"],
 .policy-container input[type="email"],
+.policy-container input[type="number"],
 .policy-container textarea {
   width: 100%;
   font-size: 14px;
@@ -2196,9 +2200,28 @@ p strong {
 
 .policy-container input[type="text"]:focus,
 .policy-container input[type="email"]:focus,
+.policy-container input[type="number"]:focus,
 .policy-container textarea:focus {
   outline: none;
   border-color: var(--main-accent);
+}
+
+.captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.captcha-expr {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--main-text);
+  white-space: nowrap;
+}
+
+.captcha-row input[type="number"] {
+  width: 60px;
+  flex-shrink: 0;
 }
 
 .policy-container textarea {
@@ -2472,10 +2495,10 @@ p strong {
   display: flex;
   flex-direction: column;
   padding: 18px 20px 16px;
-  height: 210px;
   justify-content: space-between;
   text-decoration: none;
   color: var(--main-text);
+  gap: 5px;
 }
 
 .guide-title {
@@ -2485,6 +2508,7 @@ p strong {
   font-size: 16.5px;
   color: var(--main-text);
   letter-spacing: 0.04em;
+  text-align: left;
 }
 
 .guide-card p {
@@ -2683,4 +2707,277 @@ html.lang-ru .homepage-search label {
   align-items: center;
   gap: 12px;
   font-size: 14px;
+}
+
+/* === Cookie consent banner (custom) === */
+
+.cookie-banner {
+  position: fixed;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cookie-banner[hidden],
+.cookie-edit[hidden] {
+  display: none;
+}
+
+.cookie-banner__card {
+  position: relative;
+  pointer-events: auto;
+  max-width: 640px;
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid rgba(34, 39, 47, 0.18);
+  padding: 22px 26px;
+  box-shadow: 0 18px 44px rgba(34, 39, 47, 0.16);
+}
+
+.cookie-banner__close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--main-text);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.cookie-banner__close:hover {
+  color: var(--main-accent);
+}
+
+.cookie-banner__note {
+  margin: -8px 0 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--main-text);
+  opacity: 0.75;
+}
+
+.cookie-banner__title {
+  margin: 0 0 6px;
+  padding-right: 34px;
+  font-family: "Clash Display", "Wix Madefor Display", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--main-text);
+}
+
+.cookie-banner__text {
+  margin: 0 0 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--main-text);
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.cookie-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 25px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--main-text);
+  background: #fff;
+  border: 0.5px solid var(--main-text);
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cookie-btn:hover {
+  border-color: var(--main-accent);
+}
+
+.cookie-btn--primary {
+  border-color: var(--main-accent);
+}
+
+.cookie-btn--link {
+  background: none;
+  border: none;
+  padding: 10px 6px;
+  color: var(--main-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-btn--link:hover {
+  border-color: transparent;
+  color: var(--main-accent);
+}
+
+.cookie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cookie-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(34, 39, 47, 0.12);
+}
+
+.cookie-item__name {
+  margin: 0 0 3px;
+  font-weight: 600;
+  color: var(--main-text);
+}
+
+.cookie-item__desc {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--main-text);
+}
+
+.cookie-item__badge {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--main-accent);
+  border: 1px solid rgba(2, 141, 106, 0.35);
+  padding: 3px 10px;
+}
+
+.cookie-switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 24px;
+  margin-top: 4px;
+}
+
+.cookie-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cookie-switch__slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: #d8d3ca;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cookie-switch__slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.cookie-switch input:checked + .cookie-switch__slider {
+  background: var(--main-accent);
+}
+
+.cookie-switch input:checked + .cookie-switch__slider::before {
+  transform: translateX(18px);
+}
+
+.cookie-switch input:focus-visible + .cookie-switch__slider {
+  outline: 2px solid var(--main-accent);
+  outline-offset: 2px;
+}
+
+.cookie-banner__policy-link {
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+
+.cookie-policy-change {
+  margin: 4px 0 24px;
+}
+
+.guide-disclaimer {
+  margin: 2px 0 18px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--main-text);
+  opacity: 0.72;
+}
+
+.cookie-table-intro {
+  margin: 0 0 8px;
+}
+
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 22px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cookie-table th,
+.cookie-table td {
+  border: 0.5px solid var(--main-text);
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cookie-table thead th {
+  background: var(--button-bg);
+  font-weight: 600;
+}
+
+.cookie-edit {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  z-index: 9998;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0.5px solid var(--main-text);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(34, 39, 47, 0.14);
+  transition: opacity 0.2s ease;
+}
+
+.cookie-edit:hover {
+  opacity: 0.8;
 }
