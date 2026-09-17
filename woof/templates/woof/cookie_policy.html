@@ -59,6 +59,12 @@
             </tr>
 
             <tr>
+                <td><strong>django_language</strong></td>
+                <td>{% blocktranslate trimmed %}Session{% endblocktranslate %}</td>
+                <td>{% blocktranslate trimmed %}Necessary. Remembers the site language you selected in the language switcher. Set only after you choose a language. Stores no personal data.{% endblocktranslate %}</td>
+            </tr>
+
+            <tr>
                 <td><strong>_ga</strong></td>
                 <td>{% blocktranslate trimmed %}About 400 days{% endblocktranslate %}</td>
                 <td>{% blocktranslate trimmed %}Analytics. Google Analytics cookie used to calculate visitor, session and campaign data and track site usage. Stores anonymous data. Set only after consent.{% endblocktranslate %}</td>
@@ -77,6 +83,11 @@
     <p>{% blocktranslate trimmed %}The cookie notice on the Website appears before any analytics cookies are set. Nothing is loaded — no scripts, no cookies — until you make a choice. You may withdraw or change your consent at any time using the cookie notice (the floating button in the corner of the page), and you may delete these cookies through your browser settings.{% endblocktranslate %}</p>
 
     <p>{% blocktranslate trimmed %}You can also change your preferences directly from this page using the button below.{% endblocktranslate %}</p>
+
+    <p class="cookie-policy-consent-id" id="cookie-policy-consent-id" hidden>
+        {% blocktranslate trimmed %}Your consent ID:{% endblocktranslate %}
+        <code id="cookie-consent-id"></code>
+    </p>
 
     <div class="cookie-policy-change">
         <button type="button" class="cookie-btn cookie-btn--primary" id="cookie-policy-open">

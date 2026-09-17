@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load lang_extras %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" class="lang-{{ LANGUAGE_CODE }}">
@@ -46,6 +47,14 @@
         crossorigin
     >
 
+    <link
+        rel="preload"
+        href="{% static 'fonts/Manrope-Variable.woff2' %}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    >
+
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
@@ -74,6 +83,8 @@
     {% if og_image %}
         <meta property="og:image"
               content="{{ og_image }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
     {% else %}
         <meta property="og:image"
               content="{{ request.scheme }}://{{ request.get_host }}{% static 'og-cover.jpg' %}">
@@ -157,9 +168,19 @@
 
                 <div class="cookie-item">
                     <div>
-                        <p class="cookie-item__name">{% trans "Necessary" %}</p>
+                        <p class="cookie-item__name">csrftoken</p>
                         <p class="cookie-item__desc">
-                            {% trans "csrftoken — CSRF protection cookie set by Django on pages with forms (language switcher, contact page). Always on. Stores no personal data." %}
+                            {% trans "Necessary. CSRF protection cookie set by Django on pages with forms (language switcher, contact page). Stores no personal data." %}
+                        </p>
+                    </div>
+                    <span class="cookie-item__badge">{% trans "Always on" %}</span>
+                </div>
+
+                <div class="cookie-item">
+                    <div>
+                        <p class="cookie-item__name">django_language</p>
+                        <p class="cookie-item__desc">
+                            {% trans "Necessary. Remembers the site language you selected in the language switcher. Set only after you choose a language. Stores no personal data." %}
                         </p>
                     </div>
                     <span class="cookie-item__badge">{% trans "Always on" %}</span>
@@ -263,7 +284,7 @@
                 <select name="language" class="lang-select" onchange="this.form.submit()" aria-label="{% trans 'Language' %}">
                     {% for language in languages %}
                         <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                            {{ language.name_local|lower }}
+                            {{ language.name_local|lang_name_local }}
                         </option>
                     {% endfor %}
                 </select>

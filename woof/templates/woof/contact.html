@@ -46,6 +46,10 @@
 
                     {% csrf_token %}
 
+                    <noscript>
+                        <style>.captcha-lazy { display: block; }</style>
+                    </noscript>
+
                     <div class="form-error">
                         {{ form.non_field_errors }}
                     </div>
@@ -69,24 +73,32 @@
 
                         {% elif f.name == 'captcha' %}
 
-                            <p class="captcha-row">
-                                <input type="hidden"
-                                       name="captcha_token"
-                                       value="{{ captcha_token }}">
+                            <div class="captcha-lazy" id="captchaLazy">
 
-                                <span class="captcha-expr" id="captchaExpr">
-                                    {{ captcha_a }} + {{ captcha_b }} =
-                                </span>
+                                <p class="captcha-row">
+                                    <input type="hidden"
+                                           name="captcha_token"
+                                           value="{{ captcha_token }}">
 
-                                {{ f }}
-                            </p>
+                                    <span class="captcha-expr" id="captchaExpr">
+                                        {{ captcha_a }} + {{ captcha_b }} =
+                                    </span>
+
+                                    {{ f }}
+                                </p>
+
+                                <div class="form-error">
+                                    {{ f.errors }}
+                                </div>
+
+                            </div>
 
                         {% else %}
 
                             <p>
                                 <label class="form-label"
                                        for="{{ f.id_for_label }}">
-                                    {{ f.label }}:
+                                    {{ f.label }}:{% if f.field.required %} <span class="required-mark" aria-hidden="true">*</span>{% endif %}
                                 </label>
 
                                 {{ f }}
@@ -94,9 +106,13 @@
 
                         {% endif %}
 
-                        <div class="form-error">
-                            {{ f.errors }}
-                        </div>
+                        {% if f.name != 'captcha' %}
+
+                            <div class="form-error">
+                                {{ f.errors }}
+                            </div>
+
+                        {% endif %}
 
                     {% endfor %}
 
@@ -158,7 +174,40 @@
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
+        // The math captcha is revealed only after the first "Send" click:
+        // nothing is sent until it has been shown and solved.
+        var captchaBox = document.getElementById('captchaLazy');
+        if (captchaBox && captchaBox.classList.contains('captcha-lazy')) {
+            captchaBox.classList.remove('captcha-lazy');
+            var captchaInput = document.getElementById('id_captcha');
+            if (captchaInput) {
+                captchaInput.focus();
+                captchaInput.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            }
+            return; // wait for the next "Send" click with the solved captcha
+        }
+
         var form = document.getElementById('contactForm');
+        var btn = document.getElementById('btn-custom');
+        var captchaBox = document.getElementById('captchaLazy');
+
+        function applyCaptcha(c) {
+            if (!c) return;
+            document.getElementById('captchaExpr').textContent =
+                c.a + ' + ' + c.b + ' =';
+            form.querySelector('[name="captcha_token"]').value = c.token;
+            var ci = document.getElementById('id_captcha');
+            if (ci) ci.value = '';
+        }
+
+        function setLoading(on) {
+            if (!btn) return;
+            btn.disabled = on;
+            btn.classList.toggle('is-loading', on);
+        }
+
+        setLoading(true);
+
         var formData = new FormData(form);
 
         var xhr = new XMLHttpRequest();
@@ -172,7 +221,18 @@
 
         xhr.onload = function() {
 
+            var parsed = null;
+            try {
+                parsed = JSON.parse(xhr.responseText);
+            } catch (e) {}
+
             if (xhr.status === 200) {
+
+                // The captcha goes away again and gets a fresh example
+                // (server hands us a new token on success too).
+                form.reset();
+                applyCaptcha(parsed && parsed.captcha);
+                if (captchaBox) captchaBox.classList.add('captcha-lazy');
 
                 Swal.fire({
                     text: '{% trans "Thank you. Message has been sent." %}',
@@ -181,29 +241,14 @@
                     timer: 2000
                 });
 
-                form.reset();
-
             } else {
 
-                var captchaData = null;
-                try {
-                    var parsed = JSON.parse(xhr.responseText);
-                    if (parsed && parsed.captcha) {
-                        captchaData = parsed.captcha;
-                    }
-                } catch (e) {}
+                applyCaptcha(parsed && parsed.captcha);
 
-                if (captchaData) {
-                    document.getElementById('captchaExpr').textContent =
-                        captchaData.a + ' + ' + captchaData.b + ' =';
-                    document.getElementById('contactForm')
-                        .querySelector('[name="captcha_token"]').value =
-                        captchaData.token;
-                    var captchaInput = document.getElementById('id_captcha');
-                    if (captchaInput) {
-                        captchaInput.value = '';
-                        captchaInput.focus();
-                    }
+                var ci = document.getElementById('id_captcha');
+                if (ci) {
+                    ci.focus();
+                    ci.scrollIntoView({ block: 'center', behavior: 'smooth' });
                 }
 
                 Swal.fire({
@@ -213,6 +258,12 @@
                 });
 
             }
+
+            setLoading(false);
+        };
+
+        xhr.onerror = function() {
+            setLoading(false);
         };
 
         xhr.send(formData);

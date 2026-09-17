@@ -345,6 +345,57 @@ a {
   padding-bottom: 60px;
 }
 
+/* Closing garden photo after the breed slider.
+   Wrapper takes a full flex line of its own so that the photo block can be
+   centered with plain auto margins — immune to the wide marquee sibling. */
+.garden-note-wrap {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+.garden-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 10px 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* slogan above the closing photo, same style as .home-text-block-title */
+.garden-note__title {
+  font-size: 30px;
+  letter-spacing: 0.09em;
+  opacity: 0.8;
+  margin: 0;
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  text-align: center;
+}
+
+/* sub-line under the slogan — reuses the site's `.homepage-subsubtitle`
+   style (incl. mobile overrides); only the block's top margin is removed
+   because flex `gap` already spaces it from the title */
+.garden-note .homepage-subsubtitle {
+  margin-top: 0;
+  text-align: center;
+}
+
+.garden-note__frame {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.garden-note__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 18px 44px rgba(28, 43, 39, 0.14);
+  margin-top: 20px;
+}
+
 .slider-inner {
   position: relative;
   width: min(calc(1000px + 108px), calc(100% - 24px));
@@ -750,7 +801,7 @@ a {
 .post-right {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 .breed-tag {
@@ -787,7 +838,7 @@ a {
 
 .post-params-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 0;
 }
@@ -1738,9 +1789,11 @@ p strong {
   width: 100%;
   max-height: min(82vh, 760px);
   object-fit: cover;
-  box-shadow:
-    0 2px 6px rgba(28, 43, 39, 0.06),
-    0 18px 40px rgba(28, 43, 39, 0.1);
+}
+/* keeps the photo-credit badge anchored to the photo itself */
+.hero-photo-box {
+  position: relative;
+  width: 100%;
 }
 
 .hero-center {
@@ -2213,6 +2266,75 @@ p strong {
   gap: 10px;
 }
 
+/* SweetAlert2 dialogs follow the site style: white, green accent,
+   Space Grotesk, sharp buttons only for the site's look. */
+.swal2-popup {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  background: #ffffff;
+  border-radius: 14px;
+  color: var(--main-text);
+  box-shadow: 0 18px 44px rgba(28, 43, 39, 0.14);
+  padding: 30px 26px;
+}
+
+.swal2-html-container {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--main-text);
+}
+
+.swal2-styled.swal2-confirm {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border-radius: 0 !important;
+  background-color: var(--main-accent) !important;
+  box-shadow: none !important;
+  padding: 10px 26px;
+}
+
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 2px rgba(2, 141, 106, 0.35) !important;
+}
+
+.swal2-success .swal2-success-ring {
+  border-color: rgba(2, 141, 106, 0.25) !important;
+}
+
+.swal2-success .swal2-success-line-tip,
+.swal2-success .swal2-success-line-long {
+  background-color: var(--main-accent) !important;
+}
+
+/* The dialog must not lock the page scroll or pad the body — otherwise
+   the page jumps sideways when the popup appears and again on close. */
+html.swal2-shown,
+body.swal2-shown {
+  height: auto !important;
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
+
+/* Contact form: the math captcha is revealed only after the first
+   "Send" click; with JavaScript disabled it stays visible (the
+   <noscript> override in contact.html re-enables it). */
+.captcha-lazy {
+  display: none;
+}
+
+/* Input placeholders are intentionally faded to stay a hint, not a label */
+.form-input::placeholder,
+#id_content::placeholder {
+  color: rgba(34, 39, 47, 0.35);
+  opacity: 1;
+}
+
+/* The star next to a required field label stays in the site accent */
+.required-mark {
+  color: var(--main-accent);
+  font-weight: 600;
+}
+
 .captcha-expr {
   font-size: 14px;
   font-weight: 600;
@@ -2251,6 +2373,7 @@ p strong {
 
 #btn-custom {
   display: inline-block;
+  position: relative;
   margin: 0;
   padding: 10px 25px;
   font-size: 14px;
@@ -2269,6 +2392,34 @@ p strong {
 
 #btn-custom:hover {
   border-color: var(--main-accent);
+}
+
+/* Sending state: a spinning circle replaces the label (the text is kept
+   in the DOM at full opacity but made invisible so the button width stays
+   stable until the response arrives). */
+#btn-custom.is-loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+#btn-custom.is-loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid rgba(2, 141, 106, 0.3);
+  border-top-color: var(--main-accent);
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .contact-layout {
@@ -2514,7 +2665,7 @@ p strong {
 
 .guide-card p {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   opacity: 0.7;
   line-height: 1.4;
 }
@@ -2923,6 +3074,23 @@ html.lang-ru .homepage-search label {
 
 .cookie-policy-change {
   margin: 4px 0 24px;
+}
+
+/* The consent ID shown on the Cookie Policy page uses the site font
+   instead of the browser's default monospace <code> face. */
+.cookie-policy-consent-id {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cookie-policy-consent-id code {
+  font-family: "Space Grotesk", "Manrope", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--main-text);
+  background: rgba(2, 141, 106, 0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
 }
 
 .guide-disclaimer {

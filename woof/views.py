@@ -1,6 +1,6 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.utils import translation
 from django.views.decorators.http import require_GET
@@ -11,7 +11,9 @@ from django.core.cache import cache
 
 from .forms import ContactForm
 from .models import Category, Dogs
-from .utils import DEFAULT_META_DESCRIPTION, DataMixin
+from .utils import DEFAULT_META_DESCRIPTION, DataMixin, build_og_card_bytes
+
+from django.templatetags.static import static as static_url
 
 MARQUEE_QUOTES = {
     "en": [
@@ -342,14 +344,10 @@ class ShowPost(DataMixin, DetailView):
             else str(post.cat.name)
         )
 
+        # branded share card (breed photo + "woof dogs" panel), generated on demand
         if post.photo:
-            photo_url = post.photo_medium.url
-            # S3 storage returns an absolute URL already; local storage —
-            # a relative path that needs the host prepended.
-            context["og_image"] = (
-                photo_url
-                if photo_url.startswith("http")
-                else f"{self.request.scheme}://{self.request.get_host()}{photo_url}"
+            context["og_image"] = self.request.build_absolute_uri(
+                reverse("breed_og", kwargs={"slug": post.slug})
             )
 
         return self.get_user_context(
@@ -357,6 +355,32 @@ class ShowPost(DataMixin, DetailView):
             title=_("{name} - Woof Dogs").format(name=post.title),
             cat_selected=post.cat_id,
         )
+
+
+def breed_og_image(request, slug):
+    """Serve the branded 1200x630 share card for a breed.
+
+    Photo on the left (cover-cropped like the homepage hero), the "woof
+    dogs" brand panel on the right. Generated once per photo and cached;
+    the key includes the photo file name, so a new upload invalidates it.
+    """
+    dog = Dogs.objects.filter(slug=slug, is_published=True).first()
+    if dog is None:
+        raise Http404("No published dog matches the given slug.")
+    if not dog.photo:
+        return HttpResponseRedirect(static_url("og-cover.jpg"))
+
+    key = f"og_breed:{dog.photo.name}"
+    jpeg = cache.get(key)
+    if jpeg is None:
+        with dog.photo.open("rb") as photo_file:
+            jpeg = build_og_card_bytes(photo_file)
+        cache.set(key, jpeg, timeout=None)
+
+    response = HttpResponse(jpeg, content_type="image/jpeg")
+    response["Cache-Control"] = "public, max-age=2592000, s-maxage=2592000"
+    response["Content-Length"] = str(len(jpeg))
+    return response
 
 
 class ContactFormView(DataMixin, FormView):
@@ -410,7 +434,14 @@ class ContactFormView(DataMixin, FormView):
                 },
                 status=503,
             )
-        return super().form_valid(form)
+        # On success also hand out a fresh captcha and token so the hidden
+        # captcha can be reset for the next message.
+        return JsonResponse(
+            {
+                "success": True,
+                "captcha": self._make_captcha(),
+            }
+        )
 
 
 class DogGroupsView(DataMixin, TemplateView):
@@ -629,6 +660,27 @@ def sitemap_xml(request):
         ("guides", "0.7"),
         ("about", "0.5"),
         ("contact", "0.5"),
+    ):
+        add_bilingual(reverse(name), priority=priority)
+
+    # guide articles
+    for name, priority in (
+        ("guide-choosing-dog", "0.7"),
+        ("guide-training", "0.7"),
+        ("guide-health", "0.7"),
+        ("guide-behavior", "0.7"),
+        ("guide-living", "0.7"),
+        ("guide-puppy", "0.7"),
+        ("guide-feeding", "0.7"),
+        ("guide-games", "0.7"),
+    ):
+        add_bilingual(reverse(name), priority=priority)
+
+    # legal pages (low priority so search engines still see them)
+    for name, priority in (
+        ("privacy-policy", "0.3"),
+        ("terms-of-use", "0.3"),
+        ("cookie-policy", "0.3"),
     ):
         add_bilingual(reverse(name), priority=priority)
 

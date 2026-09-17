@@ -11,7 +11,7 @@
     "name": "Woof Dogs",
     "url": "{{ request.scheme }}://{{ request.get_host }}",
     "inLanguage": "{{ LANGUAGE_CODE }}",
-    "description": "Woof Dogs — dog breeds grouped by AKC standards."
+    "description": "Woof Dogs — dog breeds grouped by FCI classification."
 }
 </script>
 {% endblock %}
@@ -246,13 +246,26 @@
                     <!-- Hero right -->
                     <div class="hero-right">
 
-                        <img class="hero-photo"
-                             src="{% static 'woof/img/hero-dog-3.jpg' %}"
-                             alt="{% trans 'A happy dog' %}"
-                             width="1400"
-                             height="1700"
-                             fetchpriority="high"
-                             decoding="async">
+                        <div class="hero-photo-box">
+
+                            <picture>
+                                <source type="image/webp"
+                                        srcset="{% static 'woof/img/hero-dog-3-700.webp' %} 700w,
+                                                {% static 'woof/img/hero-dog-3-1100.webp' %} 1100w,
+                                                {% static 'woof/img/hero-dog-3.webp' %} 1400w"
+                                        sizes="(min-width: 1025px) 42vw, 100vw">
+                                <img class="hero-photo"
+                                     src="{% static 'woof/img/hero-dog-3.jpg' %}"
+                                     alt="{% trans 'A happy dog' %}"
+                                     width="1400"
+                                     height="1700"
+                                     fetchpriority="high"
+                                     decoding="async">
+                            </picture>
+
+                            <div class="post-photo-author">Xie Heguo / Unsplash</div>
+
+                        </div>
 
                     </div>
 
@@ -390,6 +403,40 @@
             </div>
 
         </div>
+
+    </div>
+
+    <!-- Garden photo note -->
+    <div class="garden-note-wrap">
+
+    <div class="garden-note">
+
+        <h2 class="home-text-block-title">Enjoy</h2>
+
+        <p class="homepage-subsubtitle garden-note__sub">{% trans "Only the best for the best." %}</p>
+
+        <div class="garden-note__frame">
+
+            <picture>
+                <source type="image/webp"
+                        srcset="{% static 'woof/img/hero-dog-1-1000.webp' %} 1000w,
+                                {% static 'woof/img/hero-dog-1-1600.webp' %} 1600w,
+                                {% static 'woof/img/hero-dog-1-2000.webp' %} 2000w"
+                        sizes="(min-width: 1080px) 1000px, 92vw">
+                <img class="garden-note__img"
+                     src="{% static 'woof/img/hero-dog-1.jpg' %}"
+                     alt="{% trans 'Four dogs in a garden' %}"
+                     width="1600"
+                     height="1067"
+                     loading="lazy"
+                     decoding="async">
+            </picture>
+
+            <div class="post-photo-author">Elina Volkova / Pexels</div>
+
+        </div>
+
+    </div>
 
     </div>
 

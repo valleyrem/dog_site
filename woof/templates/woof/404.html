@@ -1,218 +1,159 @@
 {% load i18n %}
+{% load static %}
+{% get_current_language as LANG %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANG }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>{% blocktranslate trimmed %}404 — Page Not Found{% endblocktranslate %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Clash+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Self-hosted site fonts — same faces as styles.css */
+        @font-face {
+            font-family: "Clash Display";
+            src: url("{% static 'fonts/ClashDisplay-Variable.woff2' %}") format("woff2");
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Space Grotesk";
+            src: url("{% static 'fonts/SpaceGrotesk-Variable.woff2' %}") format("woff2");
+            font-weight: 300 700;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    :root {
-        --bg: #fffdf8;
+        :root {
+            --main-accent: #028d6a;
+            --main-text: #22272f;
+        }
 
-        --text: #1c2b27;
-        --text-soft: #5d6764;
+        * {
+            box-sizing: border-box;
+        }
 
-        --pink: #C4A1FF;
-        --yellow: #fdda0a;
-        --blue: #3301FF;
-        --mint: #d7ffd9;
-        --lavender: #efe6ff;
+        html, body {
+            margin: 0;
+        }
 
-        --border: #161616;
-        --white: #ffffff;
-    }
+        body {
+            min-height: 100vh;
+            background: #ffffff;
+            color: var(--main-text);
+            font-family: "Space Grotesk", "Manrope", sans-serif;
 
-    * {
-        box-sizing: border-box;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    body {
-        margin: 0;
-        min-height: 100vh;
+            padding: 32px 20px;
+        }
 
-        font-family: "Baloo 2", sans-serif;
-        color: var(--text);
+        .wrap {
+            width: 100%;
+            max-width: 640px;
+            text-align: center;
+        }
 
+        .brand {
+            margin: 0 0 28px;
+            font-family: "Clash Display", sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 0.22em;
+            text-transform: lowercase;
+            color: var(--main-accent);
+        }
 
-        overflow: hidden;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        padding: 20px;
-    }
-
-    body::before {
-        content: "";
-
-        position: fixed;
-        inset: 0;
-
-        background-image:
-            linear-gradient(rgba(28,43,39,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(28,43,39,0.06) 1px, transparent 1px);
-
-        background-size: 100px 100px;
-
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .wrapper {
-        position: relative;
-        z-index: 2;
-
-        width: 100%;
-        max-width: 720px;
-    }
-
-    .card {
-        position: relative;
-        padding: 50px 40px;
-        text-align: center;
-        overflow: hidden;
-    }
-
-
-    h1 {
-        margin: 0;
-
-        font-size: clamp(80px, 18vw, 100px);
-        line-height: 0.9;
-
-        font-family: "Clash Display", "Wix Madefor Display", sans-serif;
-        font-weight: 700;
-
-        color: var(--blue);
-    }
-
-    .paw {
-        font-size: 38px;
-        margin: 15px 0 10px;
-        display: inline-block;
-        transform: rotate(-12deg);
-    }
-
-    .title {
-        font-size: 25px;
-        font-weight: 700;
-        line-height: 1.1;
-
-        margin: 0 0 18px;
-
-        font-family: "Space Grotesk", "Manrope", sans-serif;
-    }
-
-    .description {
-        font-size: 18px;
-        line-height: 1.5;
-
-        color: var(--text-soft);
-        font-family: "Space Grotesk", "Manrope", sans-serif;
-
-        margin: 0 auto 18px;
-
-        max-width: 520px;
-    }
-
-    .hint {
-        font-size: 15px;
-        line-height: 1.5;
-
-        color: var(--text-soft);
-        font-family: "Space Grotesk", "Manrope", sans-serif;
-
-        opacity: 0.85;
-
-        margin-bottom: 35px;
-    }
-
-    .home-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-
-        text-decoration: none;
-
-        line-height: 1.8;
-    padding: 6px 20px;
-    border: 1.5px solid #1C2B27;
-    border-radius: 0;
-    box-shadow: 2px 2px 0 #1C2B27, 1px 2px 0 -10px #1C2B27;
-    background: var(--btn-back);
-    cursor: pointer;
-    }
-
-    .home-btn:hover {
-
-        background: var(--pink);
-    }
-
-    .dog-face {
-        margin-top: 30px;
-
-        font-size: 52px;
-        line-height: 1;
-    }
-
-    @media (max-width: 768px) {
-
-        .card {
-            padding: 38px 24px;
+        .code {
+            margin: 0;
+            font-family: "Clash Display", sans-serif;
+            font-weight: 600;
+            font-size: clamp(96px, 22vw, 150px);
+            line-height: 0.95;
+            letter-spacing: 0.05em;
+            color: var(--main-accent);
         }
 
         .title {
-            font-size: 25px;
+            margin: 20px 0 0;
+            font-size: clamp(22px, 4.4vw, 28px);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            line-height: 1.15;
         }
 
         .description {
-            font-size: 18px;
+            margin: 14px auto 0;
+            max-width: 460px;
+            font-size: 15px;
+            line-height: 1.55;
+            opacity: 0.65;
         }
 
         .hint {
-            font-size: 14px;
+            margin: 10px 0 30px;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            opacity: 0.5;
         }
 
         .home-btn {
-            width: 100%;
-            justify-content: center;
+            display: inline-block;
+            padding: 11px 28px;
+            font: inherit;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            color: var(--main-text);
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid var(--main-accent);
+            border-radius: 0;
+            cursor: pointer;
+            transition:
+                background 0.15s ease,
+                color 0.15s ease;
         }
-    }
 
+        .home-btn:hover {
+            background: var(--main-accent);
+            color: #ffffff;
+        }
+
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 17px;
+                margin-bottom: 24px;
+            }
+
+            .home-btn {
+                display: flex;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="wrap">
 
-    <div class="card">
+    <p class="brand">woof dogs</p>
 
-        <h1>{% blocktranslate trimmed %}404{% endblocktranslate %}</h1>
+    <h1 class="code">404</h1>
 
-        <div class="paw">🐾</div>
+    <h2 class="title">{% blocktranslate trimmed %}This page ran away.{% endblocktranslate %}</h2>
 
-        <h2 class="title">{% blocktranslate trimmed %}This page ran away.{% endblocktranslate %}</h2>
+    <p class="description">{% blocktranslate trimmed %}The page you’re looking for doesn’t exist,
+        may have been moved,
+        or is still chasing squirrels somewhere else.{% endblocktranslate %}</p>
 
-        <p class="description">{% blocktranslate trimmed %}The page you’re looking for doesn’t exist,
-            may have been moved,
-            or is still chasing squirrels somewhere else.{% endblocktranslate %}</p>
+    <p class="hint">{% blocktranslate trimmed %}Return to the homepage and continue exploring dog breeds.{% endblocktranslate %}</p>
 
-        <p class="hint">{% blocktranslate trimmed %}Return to the homepage and continue exploring dog breeds.{% endblocktranslate %}</p>
-
-        <a href="{% url 'home' %}" class="home-btn">{% blocktranslate trimmed %}← Back Home{% endblocktranslate %}</a>
-
-        <div class="dog-face">
-            UᵔᴥᵔU
-        </div>
-
-    </div>
+    <a href="{% url 'home' %}" class="home-btn">{% blocktranslate trimmed %}← Back Home{% endblocktranslate %}</a>
 
 </div>
 

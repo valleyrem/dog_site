@@ -1,7 +1,16 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Dogs, Category, DogImage, Section, CoatType, CoatLength, Temperament
+from .models import (
+    Dogs,
+    Category,
+    DogImage,
+    Section,
+    CoatType,
+    CoatLength,
+    Temperament,
+    ConsentLog,
+)
 
 
 class DogImageInline(admin.TabularInline):
@@ -209,3 +218,31 @@ class TemperamentAdmin(admin.ModelAdmin):
 
 admin.site.site_title = "Woof Dogs admin"
 admin.site.site_header = "Woof Dogs admin"
+
+
+@admin.register(ConsentLog)
+class ConsentLogAdmin(admin.ModelAdmin):
+    """Read-only register of cookie-banner decisions (Art. 7 GDPR)."""
+
+    list_display = (
+        "created_at",
+        "action",
+        "analytics",
+        "notice_version",
+        "consent_id",
+        "page",
+    )
+    list_filter = ("action", "analytics")
+    search_fields = ("consent_id",)
+    readonly_fields = ("created_at",)
+    list_per_page = 50
+    date_hierarchy = "created_at"
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False

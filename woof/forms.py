@@ -1,26 +1,45 @@
 import logging
 from datetime import datetime
 
-import requests
 from django import forms
-from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext_lazy as _
+
+from .utils import send_telegram_message
 
 logger = logging.getLogger(__name__)
 
 
 class ContactForm(forms.Form):
     email = forms.EmailField(
-        label=_("E-mail"), widget=forms.EmailInput(attrs={"class": "form-input"})
+        label=_("E-mail"),
+        required=False,
+        widget=forms.EmailInput(
+            attrs={
+                "class": "form-input",
+                "placeholder": _("Optional"),
+                "autocomplete": "email",
+            }
+        ),
     )
     content = forms.CharField(
-        label=_("Message"), widget=forms.Textarea(attrs={"cols": 60, "rows": 3})
+        label=_("Message"),
+        widget=forms.Textarea(
+            attrs={
+                "cols": 60,
+                "rows": 3,
+                "placeholder": _("Write what you're interested in…"),
+            }
+        ),
     )
     # Math captcha: the answer is stored in the cache keyed by a random
     # token — no session, no cookies for anonymous visitors.
     captcha_token = forms.CharField(widget=forms.HiddenInput(), required=False)
     captcha = forms.IntegerField(
+        # Not ``required=True`` on purpose: the HTML5 ``required`` attribute
+        # would block the first "Send" click before the captcha is revealed.
+        # The server (``clean_captcha``) still enforces a correct answer.
+        required=False,
         label=_("Math captcha result"),
         widget=forms.NumberInput(
             attrs={
@@ -44,31 +63,12 @@ class ContactForm(forms.Form):
 
     def send_message_to_telegram(self):
         current_time = datetime.now().strftime("%H:%M, %d %b %Y")
-        message = (
-            f"{current_time}\n"
-            f"Email: {self.cleaned_data['email']}\n"
-            f"Message: {self.cleaned_data['content']}"
-        )
-
-        url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
-        response = requests.post(
-            url,
-            data={"chat_id": settings.TELEGRAM_CHAT_ID, "text": message},
-            timeout=10,
-        )
-        response.raise_for_status()
+        lines = [current_time]
+        if self.cleaned_data.get("email"):
+            lines.append(f"Email: {self.cleaned_data['email']}")
+        lines.append(f"Message: {self.cleaned_data['content']}")
+        return send_telegram_message("\n".join(lines))
 
     def process_form(self):
         """Send the message to Telegram. Returns True on success."""
-        if not settings.TELEGRAM_BOT_TOKEN or not settings.TELEGRAM_CHAT_ID:
-            logger.error(
-                "Telegram credentials are not configured (TOKEN/CHAT_ID); "
-                "contact message was not delivered"
-            )
-            return False
-        try:
-            self.send_message_to_telegram()
-        except requests.RequestException:
-            logger.exception("Failed to deliver contact message to Telegram")
-            return False
-        return True
+        return self.send_message_to_telegram()

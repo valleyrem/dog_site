@@ -1160,6 +1160,15 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      // When the photo modal is open, the arrows belong to the modal
+      // (previous/next photo). Breed navigation must not hijack them.
+      const imageModal = document.getElementById("modal");
+      if (imageModal && imageModal.classList.contains("active")) {
+        return;
+      }
+    }
+
     if (event.key === "ArrowLeft") {
       const prev = document.querySelector(".post-media-prev");
 
@@ -1310,13 +1319,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function saveConsent(analytics) {
+    const existing = readConsent();
     const data = {
       v: CONSENT_VERSION,
+      // Stability of the ID across re-choices is intentional: Art. 7 GDPR
+      // evidence works best as an event history under one consent ID.
+      id: existing && existing.id ? existing.id : newConsentId(),
       analytics: !!analytics,
       ts: Date.now(),
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     return data;
+  }
+
+  function newConsentId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+    return (
+      "c-" +
+      Date.now().toString(36) +
+      "-" +
+      Math.random().toString(36).slice(2, 12)
+    );
   }
 
   function gtmLoaded() {
@@ -1374,11 +1399,50 @@ document.addEventListener("DOMContentLoaded", () => {
     analyticsToggle.checked = data ? data.analytics : false;
   }
 
-  function finish(analytics) {
+  function finish(analytics, action) {
     const data = saveConsent(analytics);
     applyConsent(data);
     hideBanner();
     showEditButton();
+    updateConsentIdDisplay();
+    reportConsent(action, analytics, data.id);
+  }
+
+  // Show the visitor's own consent ID on the Cookie Policy page.
+  function updateConsentIdDisplay() {
+    const line = document.getElementById("cookie-policy-consent-id");
+    const code = document.getElementById("cookie-consent-id");
+    if (!line || !code) return;
+    const data = readConsent();
+    if (data && data.id) {
+      code.textContent = data.id;
+      line.hidden = false;
+    } else {
+      line.hidden = true;
+    }
+  }
+
+  // Consent decisions are reported to the site's Telegram chat. The payload
+  // carries no cookies and no identifiers beyond the visitor's own consent
+  // ID (Art. 7 GDPR evidence) — the decision, the analytics flag, the page
+  // path and the notice version. Reporting must never break the banner.
+  function reportConsent(action, analytics, consentId) {
+    try {
+      fetch("/consent-log/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: action,
+          analytics: !!analytics,
+          path: window.location.pathname,
+          id: consentId || "",
+          notice: CONSENT_VERSION,
+        }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch (e) {
+      /* ignore: reporting is best-effort */
+    }
   }
 
   // Initial state
@@ -1391,10 +1455,13 @@ document.addEventListener("DOMContentLoaded", () => {
     showBanner();
     showEditButton();
   }
+  updateConsentIdDisplay();
 
   // Buttons
-  if (acceptBtn) acceptBtn.addEventListener("click", () => finish(true));
-  if (declineBtn) declineBtn.addEventListener("click", () => finish(false));
+  if (acceptBtn)
+    acceptBtn.addEventListener("click", () => finish(true, "accepted_all"));
+  if (declineBtn)
+    declineBtn.addEventListener("click", () => finish(false, "declined"));
 
   if (openDetailsBtn) {
     openDetailsBtn.addEventListener("click", () => {
@@ -1411,14 +1478,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // X button: closing the notice = declining analytics cookies.
+  // X button: on the very first visit (no choice stored yet) closing the
+  // notice means declining analytics cookies — the refusal is recorded and
+  // reported. When the banner was reopened to view or adjust preferences,
+  // the X only dismisses it and must NOT overwrite the existing choice or
+  // send a misleading report.
   if (closeBtn) {
-    closeBtn.addEventListener("click", () => finish(false));
+    closeBtn.addEventListener("click", () => {
+      if (readConsent()) {
+        hideBanner();
+      } else {
+        finish(false, "closed");
+      }
+    });
   }
 
   if (saveBtn) {
     saveBtn.addEventListener("click", () =>
-      finish(analyticsToggle ? analyticsToggle.checked : false),
+      finish(
+        analyticsToggle ? analyticsToggle.checked : false,
+        analyticsToggle && analyticsToggle.checked
+          ? "saved_analytics"
+          : "saved_necessary",
+      ),
     );
   }
 

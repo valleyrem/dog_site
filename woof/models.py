@@ -324,3 +324,27 @@ class DogImage(models.Model):
 
     def __str__(self):
         return f"{self.dog.title} photo"
+
+
+class ConsentLog(models.Model):
+    """Server-side record of a cookie-banner decision (Art. 7 GDPR evidence).
+
+    One row per decision; the client-generated ``consent_id`` ties the event
+    history of a single visitor together. No cookies, no sessions — only the
+    choice, the page, the notice version and the timestamp.
+    """
+
+    consent_id = models.CharField(max_length=64, unique=True, db_index=True)
+    action = models.CharField(max_length=32)
+    analytics = models.BooleanField(default=False)
+    notice_version = models.PositiveSmallIntegerField(default=1)
+    page = models.CharField(max_length=255, blank=True, default="")
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Consent log entry"
+        verbose_name_plural = "Consent log"
+
+    def __str__(self):
+        return f"{self.action} {self.consent_id}"

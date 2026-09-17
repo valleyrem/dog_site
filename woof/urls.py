@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from .views import (
     breed_api,
+    breed_og_image,
     ContactFormView,
     DogGroupsView,
     DogsCategory,
@@ -26,6 +27,11 @@ urlpatterns = [
     ),
     path("contact/", ContactFormView.as_view(), name="contact"),
     path("groups/<slug:cat_slug>/<slug:post_slug>/", ShowPost.as_view(), name="post"),
+    path(
+        "og/breed/<slug:slug>.jpg",
+        breed_og_image,
+        name="breed_og",
+    ),
     path("groups/<slug:cat_slug>/", DogsCategory.as_view(), name="category"),
     path(
         "cookie-policy/",

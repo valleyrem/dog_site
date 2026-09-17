@@ -1844,6 +1844,35 @@ msgstr "Un modo semplice per trovare un cane che si adatti davvero al tuo stile 
 msgid "A happy dog"
 msgstr "Un cane felice"
 
+
+
+
+
+
+
+msgid "Search…"
+msgstr "Cerca…"
+
+msgid "Optional"
+msgstr "facoltativo"
+
+msgid "Write what you're interested in…"
+msgstr "Scrivi cosa ti interessa…"
+
+msgid "Email address — optional, only if you want a reply"
+msgstr "Indirizzo e-mail — facoltativo, solo se desideri ricevere una risposta"
+
+msgid "Messages are delivered to our private delivery channel and are never shared with third parties. If you do not provide an email address, we cannot reply to you — your message is read and, where relevant, used to improve the Website. Please do not include sensitive personal data in your message."
+msgstr "I messaggi vengono consegnati al nostro canale privato e non vengono mai condivisi con terzi. Se non fornisci un indirizzo e-mail, non possiamo risponderti — il tuo messaggio verrà letto e, se pertinente, utilizzato per migliorare il sito. Ti preghiamo di non includere dati personali sensibili nel messaggio."
+
+msgid "When you make a choice in the cookie notice (accept, decline, or close it), we record a small evidence entry in our consent register: a randomly generated consent ID, your choice, the notice version, and the timestamp (Article 7 GDPR). This entry contains no name, email, IP address, or other identifying information."
+msgstr "Quando effettui una scelta nell'avviso sui cookie (accetta, rifiuta o chiudi), registriamo una piccola voce di evidenza nel registro dei consensi: un ID di consenso generato casualmente, la tua scelta, la versione dell'avviso e il timestamp (articolo 7 GDPR). Questa voce non contiene nome, e-mail, indirizzo IP o altri dati identificativi."msgid "Your consent ID:"
+msgstr "Il tuo ID di consenso:"msgid "Only the best for the best."
+msgstr "Solo il meglio per i migliori."
+
+msgid "Four dogs in a garden"
+msgstr "Quattro cani in giardino"
+
 #: woof/templates/woof/home.html:264
 msgid "Scroll down"
 msgstr "Scorri in basso"
@@ -3076,9 +3105,9 @@ msgstr "Tutti i gruppi"
 
 #: woof/utils.py:21
 msgid ""
-"Woof Dogs — the world's dog breeds grouped by American Kennel Club "
-"standards: temperament, size, care and more."
-msgstr "Woof Dogs — le razze canine del mondo raggruppate secondo gli standard dell'American Kennel Club: temperamento, taglia, cura e altro."
+"Woof Dogs — the world's dog breeds grouped by FCI classification: "
+"temperament, size, care and more."
+msgstr "Woof Dogs — le razze canine del mondo raggruppate secondo la classificazione FCI: temperamento, taglia, cura e altro."
 
 #: woof/views.py:228
 msgid "Dog Breeds - Woof Dogs"
@@ -3156,3 +3185,8 @@ msgstr "Modulo di contatto"
 msgid "Questions may be sent to the"
 msgstr "Le domande possono essere inviate tramite il"
 
+msgid "Session"
+msgstr "Sessione"
+
+msgid "Necessary. Remembers the site language you selected in the language switcher. Set only after you choose a language. Stores no personal data."
+msgstr "Necessario. Ricorda la lingua scelta nel selettore di lingua. Viene impostato solo dopo la scelta della lingua. Non memorizza dati personali."
