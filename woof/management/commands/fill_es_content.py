@@ -1,0 +1,435 @@
+"""Fill Spanish content for Category, Section and Dogs.
+
+Mirrors fill_uk_content.py / fill_de_content.py. Idempotent: only fills empty values. Run:
+    python manage.py fill_es_content
+"""
+
+from django.core.management.base import BaseCommand
+from django.utils import translation
+
+from woof.models import (
+    Category,
+    CoatLength,
+    CoatType,
+    Country,
+    Dogs,
+    Section,
+    Temperament,
+)
+
+DOGS_TITLES_ES = {
+    "Afghan Hound": "Sabueso afgano",
+    "Airedale Terrier": "Terrier de Airedale",
+    "Akita": "Akita",
+    "Alaskan Malamute": "Malamute de Alaska",
+    "American Cocker Spaniel": "Cocker spaniel americano",
+    "American Eskimo Dog": "Perro esquimal americano",
+    "American Staffordshire Terrier": "Staffordshire terrier americano",
+    "Anatolian Shepherd Dog": "Pastor anatolio",
+    "Australian Shepherd": "Pastor australiano",
+    "Azawakh": "Azawakh",
+    "Barbado da Terceira": "Barbado da Terceira",
+    "Basset Hound": "Basset hound",
+    "Bedlington Terrier": "Terrier de Bedlington",
+    "Bichon Frise": "Bichón frisé",
+    "Black and Tan Coonhound": "Coonhound negro y fuego",
+    "Bloodhound": "Bloodhound",
+    "Bolognese": "Bolognés",
+    "Border Collie": "Border collie",
+    "Border Terrier": "Terrier border",
+    "Borzoi": "Borzoi",
+    "Boxer": "Boxer",
+    "Brussels Griffon": "Grifón belga",
+    "Bull Terrier": "Bull terrier",
+    "Bulldog": "Bulldog",
+    "Catahoula Leopard Dog": "Perro leopardo de Catahoula",
+    "Cavalier King Charles Spaniel": "Cavalier King Charles spaniel",
+    "Collie Rough": "Collie de pelo largo",
+    "Czechoslovakian Wolfdog": "Lobo checoslovaco",
+    "Dachshund": "Teckel",
+    "Dalmatian": "Dálmata",
+    "Dobermann": "Doberman",
+    "Drever": "Drever",
+    "Dutch Shepherd Dog": "Pastor neerlandés",
+    "English Setter": "Setter inglés",
+    "French Bulldog": "Bulldog francés",
+    "Otterhound": "Otterhound",
+    "Weimaraner": "Weimaraner",
+    "German Shepherd Dog": "Pastor alemán",
+    "German Shorthaired Pointer": "Braco alemán de pelo corto",
+    "German Spitz": "Spitz alemán",
+    "Golden Retriever": "Golden retriever",
+    "Great Dane": "Gran danés",
+    "Hovawart": "Hovawart",
+    "Irish Wolfhound": "Lebrel irlandés",
+    "Italian Cane Corso": "Cane corso",
+    "Italian Sighthound": "Galgo italiano",
+    "Italian Spinone": "Spinone italiano",
+    "Keeshond (Wolfspitz)": "Keeshond (spitz lobo)",
+    "Kai": "Kai",
+    "Kleiner Münsterländer": "Kleiner müsterländer",
+    "Labrador Retriever": "Labrador retriever",
+    "Nederlandse Kooikerhondje": "Kooikerhondje neerlandés",
+    "Norwegian Elkhound Grey": "Elkhound noruego gris",
+    "Nova Scotia Duck Tolling Retriever": "Toller de Nueva Escocia",
+    "Old English Sheepdog": "Perro de pastor inglés antiguo",
+    "Pekingese": "Pequinés",
+    "Pembroke Welsh Corgi": "Corgi pembroke",
+    "Pomeranian": "Pomerania",
+    "Poodle": "Caniche",
+    "Portuguese Podengo": "Podengo portugués",
+    "Pug": "Carlino",
+    "Puli": "Puli",
+    "Rat Terrier": "Terrier rata",
+    "Romagna Water Dog": "Perro de agua de la Romaña",
+    "Rottweiler": "Rottweiler",
+    "Saint Bernard": "San Bernardo",
+    "Samoyed": "Samoyedo",
+    "Scottish Terrier": "Terrier escocés",
+    "Shar Pei": "Shar pei",
+    "Shih Tzu": "Shih tzu",
+    "Siberian Husky": "Husky siberiano",
+    "Sloughi": "Sloughi",
+    "Treeing Walker Coonhound": "Coonhound treeing walker",
+    "Whippet": "Whippet",
+    "Wire Fox Terrier": "Terrier de Fox duro",
+    "Yorkshire Terrier": "Terrier yorkshire",
+    "Xoloitzcuintli": "Xoloitzcuintli",
+    "Yakutian Laika": "Laika yakutiana",
+}
+
+VARIETIES_ES = {
+    "Color variations": "Variaciones de color",
+    "No variations": "Sin variaciones",
+    "It's a variety of German Spitz": "Es una variedad del spitz alemán",
+    "Size variations": "Variaciones de tamaño",
+    "Small, Medium-sized, Large": "Pequeño, Mediano, Grande",
+    "described in «About the Breed»": "descrito en «Sobre la raza»",
+    "Toy, Miniature, Standard": "Juguete, Miniatura, Estándar",
+    "Standart, Intermediate, Miniature": "Estándar, Intermedio, Miniatura",
+    "Standard, Medium, Miniature, Toy": "Estándar, Mediano, Miniatura, Juguete",
+    "Rabbit, Miniature, Standard": "Conejo, Miniatura, Estándar",
+}
+
+COATTYPE_ES = {
+    "Curly": "Rizada",
+    "Wavy": "Ondulada",
+    "Corded": "En cordones",
+    "Hairless": "Sin pelo",
+    "Smooth": "Lisa",
+    "Double coat": "Doble",
+    "Silky": "Sedosa",
+    "Rough": "Áspera",
+    "Wiry": "Estíbar",
+}
+
+COATLEN_ES = {
+    "Short": "Corta",
+    "Medium": "Media",
+    "Long": "Larga",
+}
+
+TEMPERAMENT_ES = {
+    "Loving": "Cariñoso",
+    "Determined": "Decidido",
+    "Confident": "Seguro de sí mismo",
+    "Good-natured": "De buen natural",
+    "Charming": "Encantador",
+    "Courageous": "Corajudo",
+    "Protective": "Protector",
+    "Loyal": "Leal",
+    "Calm": "Tranquilo",
+    "Outgoing": "Abierto",
+    "Affectionate": "Afectuoso",
+    "Agile": "Ágil",
+    "Strong-willed": "De carácter fuerte",
+    "Gentle": "Amable",
+    "Cheerful": "Alegre",
+    "Energetic": "Enérgico",
+    "Reserved": "Reservado",
+    "Fast": "Rápido",
+    "Hardworking": "Trabajador",
+    "Fearless": "Sin miedo",
+    "Hardy": "Resistente",
+    "Aloof": "Distante",
+    "Persistent": "Persistente",
+    "Independent": "Independiente",
+    "Even-tempered": "De temperamento equilibrado",
+    "Adaptable": "Adaptable",
+    "Smart": "Listo",
+    "Dignified": "Digno",
+    "Sensitive": "Sensible",
+    "Sociable": "Sociable",
+    "Trainable": "Entrenable",
+    "Patient": "Paciente",
+    "Laid-back": "Relajado",
+    "Spirited": "Espirituoso",
+    "Easygoing": "Complaciente",
+    "Devoted": "Devoto",
+    "Eager": "Con ganas",
+    "Focused": "Concentrado",
+    "Game": "Batallador",
+    "Plucky": "Animoso",
+    "Quiet": "Silencioso",
+    "Self-important": "Presumido",
+    "Stubborn": "Testarudo",
+    "Social": "Social",
+    "Active": "Activo",
+    "Playful": "Juguetón",
+    "Brave": "Valiente",
+    "Friendly": "Amigable",
+    "Intelligent": "Inteligente",
+    "Alert": "Alerta",
+    "Happy": "Feliz",
+}
+
+COUNTRY_ES = {
+    "Afghanistan": "Afganistán",
+    "Belgium": "Bélgica",
+    "Belgium, France": "Bélgica, Francia",
+    "Canada": "Canadá",
+    "China": "China",
+    "Croatia": "Croacia",
+    "Czechoslovakia": "Checoslovaquia",
+    "France": "Francia",
+    "Germany": "Alemania",
+    "Great Britain": "Gran Bretaña",
+    "Hungary": "Hungría",
+    "Ireland": "Irlanda",
+    "Italy": "Italia",
+    "Japan": "Japón",
+    "Mali": "Malí",
+    "Mexico": "México",
+    "Morocco": "Marruecos",
+    "Northern Russia, Siberia": "Rusia septentrional, Siberia",
+    "Norway": "Noruega",
+    "Portugal": "Portugal",
+    "Russian Federation": "Federación Rusa",
+    "Sweden": "Suecia",
+    "Switzerland": "Suiza",
+    "The Netherlands": "Países Bajos",
+    "Tibet (China)": "Tíbet (China)",
+    "Turkey": "Turquía",
+    "USA": "EE. UU.",
+}
+
+COLORS_ES = {
+    "Black & Rust, Red & Rust, Blue & Rust, Fawn & Rust, White": "Negro y rojo, rojo y rojo, azul y rojo, leonado y rojo, blanco",
+    "Black & Rust, Black & Mahogany, Black & Tan": "Negro y rojo, negro y caoba, negro y fuego",
+    "Silver gray, Blue, Gray": "Gris plata, azul, gris",
+    "White with black or liver spots, White & Orange, White & Lemon, White Black & Tan": "Blanco con manchas negras o hígado, blanco y naranja, blanco y limón, blanco, negro y fuego",
+    "Black, Blue, Cream, Fawn, Red, Brindle, White, Gold, Grey": "Negro, azul, crema, leonado, rojo, atigrado, blanco, dorado, gris",
+    "Sable & White, Tricolor, Blue Merle, White, Blue Merle & White": "Belón y blanco, tricolor, azul merle, blanco, azul merle y blanco",
+    "Black, Brindle, Wheaten, Silver Brindle": "Negro, atigrado, triguño, plata atigrado",
+    "Black, White, Gold, Brindle, Liver, Silver, Mixed": "Negro, blanco, dorado, atigrado, hígado, plata, mestizo",
+    "Blenheim, Tricolor, Black & Tan, Ruby": "Blenheim, tricolor, negro y fuego, rubí",
+    "Orange, Black, White, Cream, Blue, Brown, Sable, Chocolate Merle, Brindle, Beaver": "Naranja, negro, blanco, crema, azul, marrón, belón, chocolate merle, atigrado, castaño",
+    "Black & White, Gray & White, Red & White, Agouti, All-White": "Negro y blanco, gris y blanco, rojo y blanco, agutí, todo blanco",
+    "Light gray, Black, Sable, Red, Seal, White": "Gris claro, negro, belón, rojo, foca, blanco",
+    "White, Cream, Biscuit": "Blanco, crema, bizcocho",
+    "Gray & White, Blue & White, Blue Merle, Grizzle & White": "Gris y blanco, azul y blanco, azul merle, gris moteado y blanco",
+    "Black & Tan, Liver & Tan, Red": "Negro y fuego, hígado y fuego, rojo",
+    "Red, Sable, Fawn, Black & Tan, Tricolor": "Rojo, belón, leonado, negro y fuego, tricolor",
+    "White, Brindle, Fawn, Black, Red": "Blanco, atigrado, leonado, negro, rojo",
+    "Black, Yellow, Chocolate": "Negro, amarillo, chocolate",
+    "Blue Merle, Red Merle, Black, Red, White Markings": "Azul merle, rojo merle, negro, rojo, marcas blancas",
+    "Golden shades (light to dark)": "Tonos dorados (de claro a oscuro)",
+    "Fawn, Blue, Black, Red, White, Cream": "Leonado, azul, negro, rojo, blanco, crema",
+    "Blue Belton, Lemon Belton, Orange Belton, Tricolor": "Belton azul, belton limón, belton naranja, tricolor",
+    "Tri-color, Bi-color, Lemon & White, Red & White, Tan & White": "Tricolor, bicolor, limón y blanco, rojo y blanco, fuego y blanco",
+    "Gray, Black-tipped": "Gris con puntas negras",
+    "Fawn, Black, Apricot, Silver Fawn": "Leonado, negro, albaricoque, leonado plateado",
+    "Tiger brindle (brown/black stripes)": "Atigrado tigrado (rayas marrón/negro)",
+    "Yellow, Fawn, Black & Tan": "Amarillo, leonado, negro y fuego",
+    "Liver, Liver & White, Roan": "Hígado, hígado y blanco, alino",
+    "White with black or brown markings": "Blanco con marcas negras o marrones",
+    "Black and tan (signature coat pattern with rich tan markings over a deep black base)": "Negro y fuego (patrón distintivo con marcas fuego intensas sobre un fondo negro profundo)",
+    "Tricolor (Black, White, Tan)": "Tricolor (negro, blanco, fuego)",
+    "Fawn, Brindle, Black, Blue, Red, White, Mixed": "Leonado, atigrado, negro, azul, rojo, blanco, mestizo",
+    "White, Black, Gold, Brindle, Various combinations": "Blanco, negro, dorado, atigrado, combinaciones variadas",
+    "Fawn, White, Brindle, Sable, Masked": "Leonado, blanco, atigrado, belón, enmascarado",
+    "Gray, Brindle, Red, Black, Fawn, White": "Gris, atigrado, rojo, negro, leonado, blanco",
+    "Fawn, Brindle, Red, Black, Blue": "Leonado, atigrado, rojo, negro, azul",
+    "Black, Gray, Fawn, Red, Brindle, White": "Negro, gris, leonado, rojo, atigrado, blanco",
+    "Fawn, Brindle, Blue, Black, Harlequin, Mantle": "Leonado, atigrado, azul, negro, arlequín, manto",
+    "Steel blue & Tan": "Azul acero y fuego",
+    "Red & White, Brindle & White, Mostly White": "Rojo y blanco, atigrado y blanco, mayormente blanco",
+    "Brindle, Fawn, White, Pied, Cream": "Atigrado, leonado, blanco, jaspeado, crema",
+    "White (sometimes with apricot, cream, or buff shadings)": "Blanco (a veces con matices albaricoque, crema o pajizo)",
+    "White": "Blanco",
+    "Fawn, Brindle, White, Piebald, Red, Fallow": "Leonado, atigrado, blanco, albinos por manchas, rojo, pardo claro",
+    "Yellow, Fawn, Chestnut, Gray, Gold, Red, Orange and mixed": "Amarillo, leonado, castaño, gris, dorado, rojo, naranja y mestizos",
+    "Black, white, cream, brown, orange, sable": "Negro, blanco, crema, marrón, naranja, belón",
+    "White, black, brown, gray, piebald / tricolor combinations": "Blanco, negro, marrón, gris, combinaciones jaspeadas / tricolores",
+    "Brown & white, brown roan": "Marrón y blanco, marrón alino",
+    "Black and tan, black and red, sable, solid black, black and cream, black and silver": "Negro y fuego, negro y rojo, belón, negro sólido, negro y crema, negro y plata",
+    "Black, Gray, White": "Negro, gris, blanco",
+    "Black & white, red & white, tricolor, blue merle, sable, and other variations": "Negro y blanco, rojo y blanco, tricolor, azul merle, belón y otras variaciones",
+    "White, white & orange, orange roan, white & brown, brown roan": "Blanco, blanco y naranja, naranja alino, blanco y marrón, marrón alino",
+    "White with orange-red patches": "Blanco con manchas naranja-rojizas",
+    "Off-white, white with orange or brown patches, brown, orange, roan": "Blanco roto, blanco con manchas naranjas o marrones, marrón, naranja, alino",
+    "Black, red, buff, brown, parti-color (white with patches), roan variations": "Negro, rojo, ocre, marrón, bicolor (blanco con manchas), variaciones alino",
+    "Gold, red, sable, cream, black, black & tan, parti-color": "Dorado, rojo, belón, crema, negro, negro y fuego, bicolor",
+    "Red, black, black & tan, belge (reddish-brown with black mask), solid black": "Rojo, negro, negro y fuego, belga (marrón rojizo con máscara negra), negro sólido",
+    "Merle, blue merle, red merle, black, brindle, solid colors with patterns": "Merle, azul merle, rojo merle, negro, atigrado, colores sólidos con patrón",
+    "Yellow-gray, silver-gray, dark gray, with light mask": "Gris amarillento, gris plata, gris oscuro, con máscara clara",
+    "Brindle (gold or silver), sometimes with black patterning": "Atigrado (dorado o plateado), a veces con dibujo negro",
+    "White or white with cream (biscuit)": "Blanco o blanco con crema (bizcocho)",
+    "Black, gray, slate, red, bronze, liver, solid or spotted": "Negro, gris, pizarra, rojo, bronce, hígado, sólido o manchado",
+    "Solid colors: cream, red, fawn, black, blue, chocolate, sable": "Colores sólidos: crema, rojo, leonado, negro, azul, chocolate, belón",
+    "Black, white, brown, apricot, red, silver, cream, gray, blue, parti-color": "Negro, blanco, marrón, albaricoque, rojo, plata, crema, gris, azul, bicolor",
+    "Red, grizzle and tan, blue and tan, wheaten": "Rojo, gris fuego, azul fuego, triguño",
+    "Black, blue, fawn, red, brindle, white, solid or patched combinations": "Negro, azul, leonado, rojo, atigrado, blanco, combinaciones sólidas o con manchas",
+    "Black, white, tan, chocolate, blue, lemon, red; bicolor and tricolor patterns": "Negro, blanco, fuego, chocolate, azul, limón, rojo; patrones bicolor y tricolor",
+    "Blue, liver, sandy, blue & tan, liver & tan": "Azul, hígado, arena, azul y fuego, hígado y fuego",
+    "Black, black and gold, blonde": "Negro, negro y dorado, rubio",
+    "Fawn, brindle, white markings": "Leonado, atigrado, marcas blancas",
+    "White, Red, Brindle, Fawn, Sesame, Piebald": "Blanco, rojo, atigrado, leonado, sésamo, jaspeado",
+    "Black, Gray, Fawn, Red, Brindle": "Negro, gris, leonado, rojo, atigrado",
+    "Whole coloured, Grizzle, Sandy, Red, Wheaten, Blue, White, Black and tan, Blue and tan, Black and cream, Liver, Tan and liver, Tan and white": "Sólido, gris moteado, arena, rojo, triguño, azul, blanco, negro y fuego, azul y fuego, negro y crema, hígado, fuego y hígado, fuego y blanco",
+    "Yellow, gray, black, fawn, wolf-gray, often with white markings": "Amarillo, gris, negro, leonado, gris lobo, a menudo con marcas blancas",
+    "Black and tan, grizzle and tan": "Negro y fuego, gris fuego",
+    "Red, black & tan, chocolate & tan, cream, dapple, brindle, piebald": "Rojo, negro y fuego, chocolate y fuego, crema, manchado, atigrado, jaspeado",
+    "Grey with black shading, cream, variations of wolf-grey": "Gris con sombreado negro, crema, variaciones de gris lobo",
+    "Shades of red and orange with white markings often present on chest, feet, tail tip, or face": "Tonos de rojo y naranja con marcas blancas a menudo presentes en el pecho, las patas, la punta de la cola o la cara",
+    "Cream, sand, red fawn, mahogany, brindle, black mask, black ears, with or without small white markings": "Crema, arena, leonado rojizo, caoba, atigrado, máscara negra, orejas negras, con o sin pequeñas marcas blancas",
+}
+
+CATEGORY_NAMES_ES = {
+    "Breeds outside FCI classification": "Razas fuera de la clasificación FCI",
+    "Sheepdogs and Cattledogs (except Swiss Cattledogs)": "Perros pastores y de ganado (excepto los suizos)",
+    "Pinscher and Schnauzer - Molossoid and Swiss Mountain and Cattledogs": "Pinscher y Schnauzer - Molosoide, montañés suizo y de ganado",
+    "Terriers": "Terriers",
+    "Dachshunds": "Teckels",
+    "Spitz and primitive types": "Spitz y tipos primitivos",
+    "Scent hounds and related breeds": "Sabuesos y razas relacionadas",
+    "Pointing Dogs": "Perros de muestra",
+    "Retrievers - Flushing Dogs - Water Dogs": "Retrievers - Perros de agua",
+    "Companion and Toy Dogs": "Perros de compañía y juguete",
+    "Sighthounds": "Galgos",
+}
+
+CATEGORY_DESC_ES = {
+    "breeds-outside-fci-classification": "Esta categoría incluye razas de perros que no están reconocidas por la Fédération Cynologique Internationale (FCI), pero que están oficialmente registradas o ampliamente aceptadas por otros clubes cinófilos como el AKC o el UKC. Estas razas suelen proceder de regiones fuera de Europa y pueden tener sistemas de clasificación diferentes o menos estandarizados. A pesar de no formar parte del sistema de la FCI, están bien establecidas, se crían activamente y se valoran por sus capacidades de trabajo y por su compañía.",
+    "sheepdogs-cattledogs": "Los pastores y los perros de ganado son razas de trabajo inteligentes, desarrolladas para gestionar el ganado con precisión y control. Son conocidos por sus fuertes instintos, su receptividad y su capacidad para trabajar en estrecha colaboración con las personas. Estos perros suelen mostrar altos niveles de concentración, por lo que son excelentes compañeros tanto para el trabajo como para el adiestramiento. Muchas razas de este grupo son enérgicas y requieren estimulación mental y física regular. Su lealtad y su atención los hacen adecuados para hogares activos. Tienen tendencia a formar lazos profundos con sus dueños y prosperan cuando se les da un papel claro. Aunque muy capaces, necesitan orientación y participación para mantenerse equilibrados. Sin actividad suficiente, pueden volverse inquietos o demasiado vigilantes.",
+    "pinscher-schnauzer-molossoid": "Este grupo incluye razas potentes y versátiles con fuertes instintos de guardia y una presencia segura. Muchos de estos perros se criaron originalmente para la protección, el trabajo en la granja y la compañía. Tienen tendencia a ser leales, estables y naturalmente vigilantes con su entorno. Algunas razas son grandes e imponentes, otras son más compactas pero igual de seguras de sí mismas. La socialización temprana y el adiestramiento coherente son importantes para moldear su comportamiento. Estos perros suelen formar fuertes lazos con sus familias y pueden ser muy protectores. Normalmente requieren un manejo experimentado y límites claros. Con la estructura adecuada, son compañeros tranquilos, fiables y profundamente dedicados.",
+    "terriers": "Los terriers son vivaces, decididos y llenos de personalidad. Criados originalmente para cazar y controlar plagas, son conocidos por su coraje y su persistencia. Estos perros suelen ser enérgicos y curiosos, con un fuerte matiz de independencia. A muchos terriers les gusta cavar, explorar y mantenerse ocupados. Su naturaleza audaz los hace compañeros seguros de sí mismos, incluso testarudos. Se benefician del adiestramiento coherente y de la estimulación mental. A pesar de su tamaño pequeño o mediano, a menudo tienen un carácter grande. Con el equilibrio adecuado, son juguetones, leales y entretenidos sin fin.",
+    "dachshunds": "Los teckels son un grupo distintivo conocido por sus cuerpos largos y su fuerte herencia cinegética. Criados originalmente para rastrear y sacar de sus madrigueras a los animales excavadores, son valientes y decididos. A pesar de su tamaño, a menudo muestran una confianza y una independencia sorprendentes. Pueden ser juguetones y afectuosos, formando lazos estrechos con sus dueños. Los teckels suelen ser curiosos y disfrutan explorando su entorno. El adiestramiento puede requerir paciencia por su testarudez. Se adaptan bien a diferentes situaciones de vida, incluidos los apartamentos. Con los cuidados adecuados, son compañeros encantadores y leales.",
+    "spitz-primitive": "Los perros de tipo spitz y primitivo se encuentran entre los grupos de razas más antiguos y naturales. Suelen tener pelajes gruesos, orejas puntiagudas y colas enrolladas. Muchas de estas razas conservan fuertes instintos y un pensamiento independiente. Normalmente son vigilantes, resilientes y bien adaptados a climas duros. Algunos son muy sociables, otros más reservados y autosuficientes. Estos perros a menudo requieren enfoques de adiestramiento comprensivos y respetuosos. Su comportamiento puede sentirse más impulsado por el instinto en comparación con otros grupos. Con el entorno adecuado, son compañeros leales, fascinantes y profundamente expresivos.",
+    "scent-hounds": "Los sabuesos se mueven por su potente sentido del olfato y su capacidad natural de rastreo. Fueron desarrollados para seguir rastros a largas distancias con concentración y resistencia. Estos perros suelen ser pacientes, decididos e independientes en su trabajo. Muchos tienen un temperamento tranquilo y amigable en casa. Sus fuertes instintos olfativos pueden hacer que el regreso y el control sin correa sean más difíciles. El ejercicio regular y el enriquecimiento son importantes para mantenerlos satisfechos. Normalmente se llevan bien con las personas y con otros perros. Con la orientación adecuada, son compañeros amables, leales y estables.",
+    "pointing-dogs": "Los perros de muestra son hábiles compañeros de caza conocidos por su precisión y su concentración. Se entrenan para localizar la caza y señalar su presencia con una postura característica. Estas razas suelen ser enérgicas, receptivas y con ganas de trabajar. Prosperan con la actividad y la estrecha cooperación con su guía. Muchos perros de muestra son afectuosos y equilibrados en el hogar. Requieren ejercicio regular y estimulación mental para estar contentos. El adiestramiento suele ser eficaz gracias a su disposición a aprender. Con el estilo de vida adecuado, son partners elegantes, atentos y leales.",
+    "retrievers-flushing-water-dogs": "Este grupo incluye perros deportivos amigables y versátiles, con un fuerte instinto de traer y asistir. Son conocidos por su boca suave y su naturaleza cooperativa. Muchas razas de este grupo son muy sociosas y disfrutan trabajando en estrecha colaboración con las personas. Suelen tener temperamentos equilibrados y se adaptan bien a la vida familiar. La actividad y la participación regulares son importantes para su bienestar. Estos perros a menudo destacan en el adiestramiento y en varios deportes caninos. Su naturaleza afectuosa los convierte en compañeros especialmente populares. Con estimulación suficiente, son fiables, amables y fáciles de convivir.",
+    "companion-toy-dogs": "Los perros de compañía y juguete se criaron principalmente para la compañía humana y la conexión emocional. Suelen ser pequeños de tamaño pero ricos en personalidad y encanto. Muchas razas de este grupo son afectuosas, socias y atentas con sus dueños. Normalmente se adaptan bien a la vida en interiores y a espacios pequeños. A pesar de su tamaño, se benefician de actividad e interacción regulares. Algunas pueden ser más sensibles o expresivas en su comportamiento. Suelen formar fuertes lazos emocionales y disfrutan estando cerca de las personas. Con los cuidados adecuados, son compañeros dedicados, vivaces y reconfortantes.",
+    "sighthounds": "Los galgos son perros elegantes y atléticos, criados para la velocidad y el rastreo visual. Confían en la vista más que en el olfato para perseguir objetivos en movimiento. Estas razas suelen ser tranquilas y amables en casa, a pesar de su increíble velocidad al aire libre. Tienen tendencia a ser independientes pero afectuosos de forma callada. A muchos les gustan los estallidos breves de actividad intensa seguidos de largos períodos de descanso. Su constitución y temperamento los hacen únicos entre los grupos de perros. El adiestramiento requiere paciencia y comprensión de sus instintos. Con el equilibrio adecuado, son compañeros elegantes, pacíficos y profundamente leales.",
+}
+
+SECTION_NAMES_ES = {
+    "Asian Spitz and related breeds": "Spitz asiáticos y razas relacionadas",
+    "Bichons and related breeds": "Bichones y razas relacionadas",
+    "British and Irish Pointers and Setters": "Perros de muestra y setter británicos e irlandeses",
+    "Bull type Terriers": "Terriers tipo bull",
+    "Cattledogs (except Swiss Cattledogs)": "Perros de ganado (excepto los suizos)",
+    "Chihuahueno": "Chihuahueño",
+    "Continental Pointing Dogs": "Perros de muestra continentales",
+    "Continental Toy Spaniel and others": "Spaniel continental de juguete y otros",
+    "English Toy Spaniels": "Spaniels ingleses de juguete",
+    "European Spitz": "Spitz europeos",
+    "Flushing Dogs": "Perros de levantamiento",
+    "Hairless Dogs": "Perros sin pelo",
+    "Japan Chin and Pekingese": "Japan Chin y Pekineses",
+    "Kromfohrländer": "Kromfohrländer",
+    "Large and medium sized Terriers": "Terriers grandes y medianos",
+    "Leash (scent) Hounds": "Sabuesos en correa (por olfato)",
+    "Long-haired or fringed Sighthounds": "Galgos de pelo largo o con flequillo",
+    "Molossian type": "Tipo molosoide",
+    "Nordic Hunting Dogs": "Perros de caza nórdicos",
+    "Nordic Sledge Dogs": "Perros de trineo nórdicos",
+    "Nordic Watchdogs and Herders": "Perros de guardia y pastores nórdicos",
+    "Pinscher and Schnauzer type": "Tipo Pinscher y Schnauzer",
+    "Poodle": "Caniches",
+    "Primitive type": "Tipo primitivo",
+    "Primitive type - Hunting Dogs": "Tipo primitivo - Perros de caza",
+    "Recognized by Other Kennel Clubs": "Reconocidos por otros clubes cinófilos",
+    "Related breeds": "Razas relacionadas",
+    "Retrievers": "Retrievers",
+    "Rough-haired Sighthounds": "Galgos de pelo áspero",
+    "Scent hounds": "Sabuesos por olfato",
+    "Sheepdogs": "Perros pastores",
+    "Short-haired Sighthounds": "Galgos de pelo corto",
+    "Single breed group (no sections)": "Grupo de una sola raza (sin secciones)",
+    "Small Belgian Dogs": "Perros belgas pequeños",
+    "Small Molossian type Dogs": "Perros pequeños de tipo molosoide",
+    "Small sized Terriers": "Terriers de tamaño pequeño",
+    "Swiss Mountain and Cattledogs": "Montañeses suizos y perros de ganado",
+    "Tibetan breeds": "Razas tibetanas",
+    "Toy Terriers": "Terriers de juguete",
+    "Unrecognized but Documented Breeds": "Razas no reconocidas pero documentadas",
+    "Water Dogs": "Perros de agua",
+}
+
+
+class Command(BaseCommand):
+    help = "Fill Spanish names and group descriptions for categories, sections and dogs."
+
+    def handle(self, *args, **options):
+        with translation.override("es"):
+            for model, fname, mapping in (
+                (Category, "name_es", CATEGORY_NAMES_ES),
+                (Section, "name_es", SECTION_NAMES_ES),
+            ):
+                updated = 0
+                for obj in model.objects.all():
+                    es = mapping.get(obj.name)
+                    if es and not getattr(obj, fname):
+                        setattr(obj, fname, es)
+                        obj.save(update_fields=[fname])
+                        updated += 1
+                self.stdout.write(f"{model.__name__}.{fname} filled: {updated}")
+
+            desc_filled = 0
+            for cat in Category.objects.all():
+                desc = CATEGORY_DESC_ES.get(cat.slug)
+                if desc and not cat.desc_es:
+                    cat.desc_es = desc
+                    cat.save(update_fields=["desc_es"])
+                    desc_filled += 1
+            self.stdout.write(f"Category.desc_es filled: {desc_filled}")
+
+            dog_updated = 0
+            for dog in Dogs.objects.all():
+                es = DOGS_TITLES_ES.get(dog.title)
+                if es and not dog.title_es:
+                    dog.title_es = es
+                    dog.save(update_fields=["title_es"])
+                    dog_updated += 1
+            self.stdout.write(f"Dogs.title_es filled: {dog_updated}")
+
+            for model, fname, mapping in (
+                (CoatType, "name_es", COATTYPE_ES),
+                (CoatLength, "name_es", COATLEN_ES),
+                (Temperament, "name_es", TEMPERAMENT_ES),
+                (Country, "name_es", COUNTRY_ES),
+            ):
+                updated = 0
+                for obj in model.objects.all():
+                    es = mapping.get(obj.name)
+                    if es and not getattr(obj, fname):
+                        setattr(obj, fname, es)
+                        obj.save(update_fields=[fname])
+                        updated += 1
+                self.stdout.write(f"{model.__name__}.{fname} filled: {updated}")
+
+            short_updates = {
+                "varieties_es": VARIETIES_ES,
+                "colors_es": COLORS_ES,
+            }
+            for fname, mapping in short_updates.items():
+                count = 0
+                for dog in Dogs.objects.all():
+                    en = getattr(dog, fname[:-3])
+                    es = mapping.get(en)
+                    if es and not getattr(dog, fname):
+                        setattr(dog, fname, es)
+                        dog.save(update_fields=[fname])
+                        count += 1
+                self.stdout.write(f"Dogs.{fname} filled: {count}")

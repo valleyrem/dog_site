@@ -7,7 +7,7 @@ Idempotent: only fills empty values. Run:
 from django.core.management.base import BaseCommand
 from django.utils import translation
 
-from woof.models import Category, Dogs, Section
+from woof.models import Category, Country, Dogs, Section
 
 DOGS_TITLES = {
     "Afghan Hound": "Афганская борзая",
@@ -306,7 +306,6 @@ class Command(BaseCommand):
 
             short_updates = {
                 "varieties_ru": VARIETIES,
-                "country_ru": COUNTRY,
                 "colors_ru": COLORS,
             }
             for fname, mapping in short_updates.items():
@@ -319,3 +318,11 @@ class Command(BaseCommand):
                         dog.save(update_fields=[fname])
                         count += 1
                 self.stdout.write(f"Dogs.{fname} filled: {count}")
+            country_filled = 0
+            for c in Country.objects.all():
+                ru = COUNTRY.get(c.name)
+                if ru and not c.name_ru:
+                    c.name_ru = ru
+                    c.save(update_fields=["name_ru"])
+                    country_filled += 1
+            self.stdout.write(f"Country.name_ru filled: {country_filled}")

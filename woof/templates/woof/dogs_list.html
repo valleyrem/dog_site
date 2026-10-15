@@ -40,13 +40,36 @@
     <!-- Page title -->
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</h1>
 
-    <p class="section-title section-title-group"
+    <p class="section-title"
        title="{{ current_category.name }}">
         {{ current_category.name }}
     </p>
 
-    <!-- Dogs grid -->
-    <div class="slider-block">
+    <!-- Group sections -->
+    <p class="group-sections-inline">
+
+        <strong>{% blocktranslate trimmed %}Sections.{% endblocktranslate %}</strong>
+
+        {% for section in current_category.sections.all %}
+
+            {{ section.name }}{% if not forloop.last %}; {% endif %}
+
+        {% empty %}
+
+            {% trans "No sections." %}
+
+        {% endfor %}
+
+    </p>
+
+    <!-- Group description -->
+    <p>
+        <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
+        {{ current_category.desc }}
+    </p>
+
+    <!-- Dogs grid (card slider) -->
+    <div class="slider-block related-block">
 
         <div class="slider-inner">
 
@@ -69,42 +92,7 @@
 
                         {% for p in posts %}
 
-                            <a href="{{ p.get_absolute_url }}"
-                               class="dog-card-link"
-                               title="{{ p.title }}">
-
-                                <div class="dog-card">
-
-                                    {% if p.photo %}
-
-                                        <img src="{{ p.photo_card.url }}"
-                                             class="dog-card__image"
-                                             alt="{{ p.title }}"
-                                             height="300"
-                                             decoding="async"
-                                             fetchpriority="high"
-                                        >
-                                    {% endif %}
-
-                                    <div class="dog-card__info">
-
-                                        <p class="dog-card__title">
-                                            {{ p.title }}
-                                        </p>
-
-                                        <p class="dog-card__group">
-                                            {{ p.cat }}
-                                        </p>
-
-                                        <p class="dog-card__section">
-                                            {{ p.section }}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </a>
+                            {% include "woof/includes/dog_card.html" with dog=p %}
 
                         {% endfor %}
 
@@ -134,30 +122,11 @@
 
         </div>
 
+    <button class="slider-showmore" type="button" hidden
+            data-showmore
+            data-label-more="{% trans 'Show more' %}"
+            data-label-less="{% trans 'Show less' %}">{% trans "Show more" %}</button>
     </div>
-
-    <!-- Group sections -->
-    <p class="group-sections-inline">
-
-        <strong>{% blocktranslate trimmed %}Sections.{% endblocktranslate %}</strong>
-
-        {% for section in current_category.sections.all %}
-
-            {{ section.name }}{% if not forloop.last %}; {% endif %}
-
-        {% empty %}
-
-            {% trans "No sections." %}
-
-        {% endfor %}
-
-    </p>
-
-    <!-- Group description -->
-    <p>
-        <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
-        {{ current_category.desc }}
-    </p>
 
     <!-- Missing breed notice -->
     <p class="if-you-dont-see">

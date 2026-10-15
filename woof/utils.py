@@ -13,10 +13,10 @@ from .models import Category, Dogs
 logger = logging.getLogger(__name__)
 
 menu = [
-    {"title": _("All groups"), "url_name": "groups"},
     {"title": _("About us"), "url_name": "about"},
+    {"title": _("Groups"), "url_name": "groups"},
+    {"title": _("Breeds"), "url_name": "breeds"},
     {"title": _("Guides"), "url_name": "guides"},
-    {"title": _("Explore"), "url_name": "dog-explore"},
     {"title": _("Contact"), "url_name": "contact"},
 ]
 
@@ -148,12 +148,18 @@ OG_CARD_GAP2 = 34  # subtitle -> footer
 OG_CARD_SEAM_W = 26  # soft shadow strip at the photo edge
 
 
-def _og_font(name, size):
-    """Load a Pillow font from the committed og fonts (repo static/fonts/og)."""
+def _og_font(name, size, wght=None):
+    """Load a Pillow font from the committed og fonts (repo static/fonts/og).
+
+    ``wght`` sets the weight axis of the Nunito variable font (200–1000).
+    """
     from PIL import ImageFont
 
     path = Path(settings.BASE_DIR) / "static" / "fonts" / "og" / name
-    return ImageFont.truetype(str(path), size)
+    font = ImageFont.truetype(str(path), size)
+    if wght is not None:
+        font.set_variation_by_axes([wght])
+    return font
 
 
 def build_og_card_bytes(photo_file, credit=None):
@@ -215,24 +221,24 @@ def build_og_card_bytes(photo_file, credit=None):
     # title: auto-fit (like the homepage 96px title, proportional tracking)
     size_title = 94
     while size_title >= 70:
-        font_title = _og_font("ClashDisplay-Semibold.ttf", size_title)
+        font_title = _og_font("Nunito-Variable.ttf", size_title, wght=600)
         tr = size_title * (7 / 96)
         total_t, widths_t = widths_and_total(font_title, OG_CARD_TITLE, tr)
         if total_t <= HALF - 2 * OG_CARD_PAD:
             break
         size_title -= 2
 
-    font_sub = _og_font("SpaceGrotesk-Bold.ttf", 30)
+    font_sub = _og_font("Nunito-Variable.ttf", 30, wght=400)
     sub_tr = 30 * 0.09
     total_s, widths_s = widths_and_total(font_sub, OG_CARD_SUBTITLE, sub_tr)
 
-    font_f = _og_font("SpaceGrotesk-Bold.ttf", 16)
+    font_f = _og_font("Nunito-Variable.ttf", 16, wght=300)
     f_tr = 16 * 0.16
     total_f, widths_f = widths_and_total(font_f, OG_CARD_FOOTER, f_tr)
 
     credit_line = None
     if credit:
-        font_c = _og_font("SpaceGrotesk-Bold.ttf", 13)
+        font_c = _og_font("Nunito-Variable.ttf", 13, wght=300)
         c_tr = 0
         credit_line = f"* {credit}"
         total_c, widths_c = widths_and_total(font_c, credit_line, c_tr)

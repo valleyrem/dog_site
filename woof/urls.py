@@ -4,8 +4,8 @@ from django.utils.translation import gettext_lazy as _
 from .views import (
     breed_api,
     breed_og_image,
+    BreedsView,
     ContactFormView,
-    DogGroupsView,
     DogsCategory,
     DogsHome,
     DogsList,
@@ -57,7 +57,7 @@ urlpatterns = [
         ),
         name="privacy-policy",
     ),
-    path("explore/", DogGroupsView.as_view(), name="dog-explore"),
+    path("breeds/", BreedsView.as_view(), name="breeds"),
     path("groups/", GroupsPageView.as_view(), name="groups"),
     path(
         "guides/",
@@ -71,7 +71,7 @@ urlpatterns = [
         "guides/choosing_dog/",
         StaticPageView.as_view(
             template_name="woof/choosing_dog.html",
-            page_title=_("Choosing the right dog - Woof Dogs"),
+            page_title=_("Choosing the dog - Woof Dogs"),
         ),
         name="guide-choosing-dog",
     ),

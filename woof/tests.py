@@ -58,7 +58,7 @@ class ModelTests(TestCase):
             size="large",
         )
         self.assertEqual(dog.size_index, 4)
-        dog.size = "medium_large"
+        dog.size = "large"
         self.assertEqual(dog.size_index, 1)  # unmapped sizes fall back to 1
 
     def test_section_limit_per_category(self):
@@ -143,7 +143,7 @@ class PageSmokeTests(TestCase):
             "guide-behavior",
             "guide-living",
             "guide-puppy",
-            "dog-explore",
+            "breeds",
             "groups",
             "contact",
             "cookie-policy",

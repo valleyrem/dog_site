@@ -70,6 +70,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const prev = document.querySelector(".slider-prev");
   const next = document.querySelector(".slider-next");
   const dotsWrap = document.querySelector(".slider-dots");
+  const pagination = document.querySelector(".slider-pagination");
+
+  // Related / group-of-breeds blocks (post + category pages): on
+  // tablets and desktops the slider turns into a grid with a "Show more"
+  // button (4 columns on tablets, 5 on wide screens); phones keep the
+  // arrows slider with swipe.
+  const relatedBlock = track.closest(".related-block");
+  const relatedPerRow = () => (window.innerWidth >= 1024 ? 5 : 4);
+  let relatedShown = relatedPerRow();
+  const showMoreBtn = document.querySelector(".slider-showmore");
+  const moreLabel = showMoreBtn ? showMoreBtn.dataset.labelMore : "";
+  const lessLabel = showMoreBtn ? showMoreBtn.dataset.labelLess : "";
 
   // Above this page count we stop adding dots and group them
   // (on the home page with all breeds there are only ~9).
@@ -95,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let holdInterval = null;
 
   function getPerPage() {
-    if (window.innerWidth <= 767) return 1;
+    // phones and small tablets show two cards per view — flip by pairs
     if (window.innerWidth <= 912) return 2;
-    return 3;
+    return 4;
   }
 
   function getPages() {
@@ -140,6 +152,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function update() {
+    const gridMode = !!relatedBlock && window.innerWidth > 767;
+
+    if (gridMode) {
+      track.style.transform = "";
+      track.classList.remove("is-single");
+      if (pagination) pagination.style.display = "none";
+      if (dotsWrap) dotsWrap.style.display = "none";
+      items.forEach((card, index) => {
+        card.classList.toggle("is-more-hidden", index >= relatedShown);
+      });
+      const arrows = document.querySelectorAll(".slider-nav .slider-arrow");
+      arrows.forEach((a) => a.classList.add("is-hidden"));
+      if (showMoreBtn) {
+        const expandable = items.length > relatedPerRow();
+        const allShown = relatedShown >= items.length;
+        showMoreBtn.hidden = !expandable;
+        // the same button becomes "Show less" when every card is open
+        showMoreBtn.textContent = allShown ? lessLabel : moreLabel;
+        showMoreBtn.classList.toggle("is-showless", allShown);
+      }
+      return;
+    }
+
     const perPage = getPerPage();
 
     // A single card in the slider (e.g. a group with one breed):
@@ -150,7 +185,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gap = parseFloat(getComputedStyle(track).gap) || 0;
     const itemWidth = items[0].getBoundingClientRect().width + gap;
-    const shift = page * perPage * itemWidth;
+    // never slide past the last card: on an uneven count the final page
+    // stops flush with the tail of the track
+    const maxShift = Math.max(0, (items.length - perPage) * itemWidth);
+    const shift = Math.min(page * perPage * itemWidth, maxShift);
 
     track.style.transform = `translateX(-${shift}px)`;
 
@@ -165,8 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     prev.classList.toggle("disabled", page === 0);
     next.classList.toggle("disabled", page >= getPages() - 1);
-
-    const pagination = document.querySelector(".slider-pagination");
 
     const hideControls =
       (window.innerWidth > 912 && items.length <= 3) ||
@@ -223,6 +259,20 @@ document.addEventListener("DOMContentLoaded", () => {
       update();
     }
   });
+
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener("click", () => {
+      if (showMoreBtn.classList.contains("is-showless")) {
+        // collapse back to the initial row
+        relatedShown = relatedPerRow();
+        update();
+        track.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        relatedShown += relatedPerRow();
+        update();
+      }
+    });
+  }
 
   prev.addEventListener("click", () => {
     if (holdInterval) return;
@@ -409,10 +459,95 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Pause / play for the quotes marquee
+// home.html
+document.addEventListener("DOMContentLoaded", () => {
+  const marquee = document.querySelector(".breed-marquee");
+  const toggle = document.querySelector(".marquee-toggle");
+
+  if (!marquee || !toggle) return;
+
+  function setPaused(paused) {
+    marquee.classList.toggle("is-paused", paused);
+    toggle.setAttribute("aria-pressed", String(paused));
+
+    const label = paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause;
+
+    if (label) {
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("title", label);
+    }
+  }
+
+  toggle.addEventListener("click", () => {
+    setPaused(!marquee.classList.contains("is-paused"));
+  });
+});
+
 // Gallery / modal
 // post.html
 
 document.addEventListener("DOMContentLoaded", function () {
+  const mainImage = document.querySelector(".post-main-image .post-image");
+  // Only visible gallery images: the hidden .mini-gallery copy is skipped,
+  // the thumbnails of the media block are used instead.
+  const galleryImages = Array.from(
+    document.querySelectorAll(".gallery-image"),
+  ).filter((img) => img.offsetParent !== null);
+
+  if (!mainImage) return;
+
+  // the breed name lives in alt for screen readers; during a swap we clear
+  // it so the loading frame never flashes the title as raw text
+  const mainAlt = mainImage.alt;
+
+  // IMAGES
+
+  const images = [
+    {
+      src: mainImage.dataset.full || mainImage.src,
+      author: mainImage.dataset.author || "",
+    },
+    ...galleryImages.map((img) => ({
+      // thumbnails carry the large version in data-full
+      src: img.dataset.full || img.src,
+      author: img.dataset.author || "",
+    })),
+  ];
+
+  let currentIndex = 0;
+  let scrollY = 0;
+
+  // Thumbnails (left column of the media block) switch the main photo.
+  // Index 0 is the main photo, so the first thumbnail is 1.
+  function setActiveThumb(index) {
+    document.querySelectorAll(".post-thumb").forEach((thumb) => {
+      thumb.classList.toggle(
+        "is-active",
+        parseInt(thumb.dataset.index, 10) === index,
+      );
+    });
+    // dots under the photo
+    document.querySelectorAll(".post-image-dot").forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === index);
+    });
+  }
+
+  document.querySelectorAll(".post-thumb").forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const index = parseInt(thumb.dataset.index, 10);
+      if (Number.isNaN(index) || !images[index]) return;
+      // the photo already on screen: leave it be, no animation
+      if (index === currentIndex) return;
+      // an earlier thumbnail = going back, the animation mirrors
+      const back = index < currentIndex;
+      currentIndex = index;
+      updateMainImage(back ? "back" : "forward");
+      setActiveThumb(index);
+    });
+  });
+
+  // The modal is optional: the thumbnails above work without it.
   const modal = document.getElementById("modal");
 
   if (!modal) return;
@@ -424,41 +559,73 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevModalBtn = modal.querySelector(".modal-arrow.prev");
   const nextModalBtn = modal.querySelector(".modal-arrow.next");
 
-  const mainImage = document.querySelector(".post-image");
-  const galleryImages = Array.from(document.querySelectorAll(".gallery-image"));
-
-  if (!mainImage) return;
-
-  // IMAGES
-
-  const images = [
-    {
-      src: mainImage.src,
-      author: mainImage.dataset.author || "",
-    },
-    ...galleryImages.map((img) => ({
-      src: img.src,
-      author: img.dataset.author || "",
-    })),
-  ];
-
-  let currentIndex = 0;
-  let scrollY = 0;
-
   // MAIN IMAGE
 
-  function updateMainImage() {
+  function updateMainImage(direction) {
+    // forward: the strip moves left (new photo from the right);
+    // back: mirrored — new photo from the left, old one exits right
+    const back = direction === "back";
     const image = images[currentIndex];
 
-    mainImage.src = image.src;
-    mainImage.dataset.author = image.author || "";
+    // Card-strip switch: a copy of the current photo slides out to the
+    // left while the new one slides in from the right (see .is-leaving
+    // and .is-entering in the CSS). The new photo is preloaded first, so
+    // the strip never shows an empty frame.
+    // same photo as the one on screen — nothing to animate
+    if (mainImage.getAttribute("src") === image.src) return;
 
-    const postAuthor = document.getElementById("post-photo-author");
+    const swap = () => {
+      const viewport = mainImage.parentElement;
 
-    if (postAuthor) {
-      postAuthor.textContent = image.author || "";
-    }
+      const outgoing = mainImage.cloneNode(true);
+      outgoing.removeAttribute("id");
+      outgoing.classList.remove("is-entering", "is-entering-back");
+      outgoing.classList.add(back ? "is-leaving-back" : "is-leaving");
+      outgoing.addEventListener("animationend", () => outgoing.remove(), {
+        once: true,
+      });
+
+      if (viewport) viewport.insertBefore(outgoing, mainImage);
+
+      // clear the alt while the new photo decodes, then restore it — this
+      // stops the breed name from flashing in the frame before the image
+      // appears
+      mainImage.alt = "";
+      mainImage.src = image.src;
+      mainImage.decode().then(
+        () => {
+          mainImage.alt = mainAlt;
+        },
+        () => {
+          mainImage.alt = mainAlt;
+        },
+      );
+
+      mainImage.classList.remove("is-entering", "is-entering-back");
+      void mainImage.offsetWidth; // restart the animation
+      mainImage.classList.add(back ? "is-entering-back" : "is-entering");
+
+      // the credit changes together with the photo, never a moment
+      // before it — otherwise the author name flashes over the old image
+      mainImage.dataset.author = image.author || "";
+
+      const postAuthor = document.getElementById("post-photo-author");
+
+      if (postAuthor) {
+        postAuthor.textContent = image.author || "";
+      }
+    };
+
+    const preload = new Image();
+    preload.src = image.src;
+    // fully decode the new photo before swapping it in — otherwise the
+    // <img> briefly shows its alt text while the browser decodes
+    preload.decode().then(swap, swap);
   }
+
+  mainImage.addEventListener("animationend", () => {
+    mainImage.classList.remove("is-entering", "is-entering-back");
+  });
 
   const prevMain = document.querySelector(".main-img-arrow.prev");
 
@@ -469,7 +636,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     currentIndex = (currentIndex - 1 + images.length) % images.length;
 
-    updateMainImage();
+    updateMainImage("back");
   });
 
   nextMain?.addEventListener("click", function (e) {
@@ -477,7 +644,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     currentIndex = (currentIndex + 1) % images.length;
 
-    updateMainImage();
+    updateMainImage("forward");
   });
 
   // MODAL
@@ -514,18 +681,56 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Main image → modal
+  // Swipe the main photo (touch): left = next photo, right = previous.
+  // The thumbnails, the small arrows and the modal arrows all keep working.
+  const swipeViewport = mainImage.parentElement;
+  let mainSwipe = null;
+  let mainSwipeSuppress = 0;
+
+  if (swipeViewport) {
+    swipeViewport.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "touch") return;
+      mainSwipe = { x: e.clientX, y: e.clientY };
+      swipeViewport.setPointerCapture(e.pointerId);
+    });
+
+    swipeViewport.addEventListener("pointermove", (e) => {
+      if (!mainSwipe) return;
+      // only claim the gesture when it is clearly horizontal; a vertical
+      // drag keeps scrolling the page (touch-action: pan-y in the CSS)
+      if (
+        Math.abs(e.clientX - mainSwipe.x) > Math.abs(e.clientY - mainSwipe.y)
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    const releaseMainSwipe = (e) => {
+      if (!mainSwipe) return;
+      const dx = e.clientX - mainSwipe.x;
+      const dy = e.clientY - mainSwipe.y;
+      mainSwipe = null;
+
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        mainSwipeSuppress = Date.now();
+        currentIndex =
+          (currentIndex + (dx < 0 ? 1 : -1) + images.length) % images.length;
+        updateMainImage(dx < 0 ? "forward" : "back");
+        setActiveThumb(currentIndex);
+      }
+    };
+
+    swipeViewport.addEventListener("pointerup", releaseMainSwipe);
+    swipeViewport.addEventListener("pointercancel", releaseMainSwipe);
+  }
+
+  // Main image → modal (thumbnails never open the modal; they only swap
+  // the photo inside .post-main-image .post-image)
 
   mainImage.addEventListener("click", function () {
+    // a swipe just happened — don't open the modal on the same gesture
+    if (Date.now() - mainSwipeSuppress < 400) return;
     showModal(currentIndex);
-  });
-
-  // Gallery images → modal
-
-  galleryImages.forEach(function (img, index) {
-    img.addEventListener("click", function () {
-      showModal(index + 1);
-    });
   });
 
   // Modal arrows
@@ -870,30 +1075,65 @@ document.addEventListener("DOMContentLoaded", function () {
   currentIndex = 0;
 });
 
-// Post share script
+// Copy-link icon on the breadcrumb row
 // post.html
-const btn = document.getElementById("shareBtn");
+(() => {
+  const btn = document.getElementById("shareBtn");
+  if (!btn) return;
 
-if (btn) {
-  btn.addEventListener("click", async () => {
+  const toast = btn.querySelector(".post-copy-toast");
+  let timer = null;
+
+  // Fallback for browsers without the async clipboard API
+  const copyText = async (value) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(value);
+        return true;
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    const field = document.createElement("textarea");
+    field.value = value;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.top = "-1000px";
+    document.body.appendChild(field);
+    field.select();
     try {
-      await navigator.clipboard.writeText(window.location.href);
-
-      const text = btn.querySelector(".share-text");
-      const icon = btn.querySelector(".share-icon");
-
-      text.textContent = "Copied";
-      icon.textContent = "✔";
-
-      setTimeout(() => {
-        text.textContent = text.dataset.default;
-        icon.textContent = icon.dataset.default;
-      }, 1500);
+      document.execCommand("copy");
     } catch (err) {
       console.error(err);
     }
+    document.body.removeChild(field);
+    return true;
+  };
+
+  const showCopied = () => {
+    toast.textContent = btn.dataset.copied || "";
+    btn.classList.add("is-copied");
+    clearTimeout(timer);
+    timer = setTimeout(() => btn.classList.remove("is-copied"), 1600);
+  };
+
+  const copyLink = () => {
+    copyText(window.location.href)
+      .then((ok) => {
+        if (ok) showCopied();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  // The button lives on the breadcrumb row now — it listens for itself
+  btn.addEventListener("click", () => {
+    const selection = window.getSelection();
+    if (selection && selection.toString().trim().length) return;
+    copyLink();
   });
-}
+})();
 
 // Compare breeds
 // post.html
@@ -1520,3 +1760,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 })();
+
+// Reading progress bar under the header: fills to the right as the page
+// scrolls down, retreats to the left on the way up — how much is left to read.
+(function () {
+  const bar = document.querySelector(".reading-progress");
+  if (!bar) return;
+
+  const fill = bar.querySelector(".reading-progress__fill");
+  let ticking = false;
+
+  function update() {
+    const doc = document.documentElement;
+    const footer = document.querySelector(".site-footer");
+    // the bar completes when the footer enters the view, not after it
+    const max =
+      doc.scrollHeight - window.innerHeight - (footer ? footer.offsetHeight : 0);
+    const y = window.scrollY || doc.scrollTop || 0;
+
+    // no scrollable content — hide the strip
+    if (max <= 4) {
+      bar.classList.add("is-idle");
+      fill.style.width = "0%";
+      ticking = false;
+      return;
+    }
+
+    bar.classList.remove("is-idle");
+    const pct = Math.min(100, Math.max(0, (y / max) * 100));
+    fill.style.width = pct.toFixed(2) + "%";
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  window.addEventListener("resize", update, { passive: true });
+  update();
+})();
+
+// Breeds page: filter buttons over the static card grid
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBar = document.querySelector("[data-breeds-filter]");
+  const grid = document.querySelector("[data-breeds-grid]");
+
+  if (!filterBar || !grid) return;
+
+  const buttons = [...filterBar.querySelectorAll(".filter-btn")];
+  const cards = [...grid.querySelectorAll(".dog-card-link")];
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.filter;
+
+      buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
+
+      cards.forEach((card) => {
+        const keys = (card.dataset.filters || "").split(" ");
+        card.hidden = !(key === "all" || keys.includes(key));
+      });
+
+      // on phones jump to the top of the filtered grid, like an anchor
+      if (window.innerWidth <= 767) {
+        grid.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+});

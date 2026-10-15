@@ -19,7 +19,7 @@
         <span>/</span>
         <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
         <span>/</span>
-        <span class="current">{% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}</span>
+        <span class="current">{% blocktranslate trimmed %}Choosing the dog{% endblocktranslate %}</span>
     </div>
 </div>
 
@@ -27,17 +27,17 @@
 <!-- Choosing dog content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">{% blocktranslate trimmed %}Choosing the right dog{% endblocktranslate %}</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Choosing the dog{% endblocktranslate %}</h1>
 
 {% include 'woof/includes/guide_disclaimer.html' %}
 
 
     <div class="post-text-explore">
         <img
-            src="{% static 'guides4.webp' %}"
-            alt="{% trans 'Choosing the right dog' %}"
+            src="{% static 'choosing_a_dog.webp' %}"
+            alt="{% trans 'Choosing the dog' %}"
             class="guide-image guide-image-4"
-            width="260"
+            width="350"
             height="230"
             fetchpriority="high"
             decoding="async"
@@ -89,9 +89,65 @@
         <p class="cat-desc">{% blocktranslate trimmed %}Underestimating time requirements is one of the most common reasons for poor adaptation after adoption.{% endblocktranslate %}</p>
 
 
+        <p class="section-title">{% blocktranslate trimmed %}Questions to ask yourself first{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Before looking at breeds, answer these questions honestly:
+            — How many hours a day will the dog realistically be alone on a normal workday?
+            — Who will walk and feed the dog during holidays, illness, or travel?
+            — Can you absorb an unexpected veterinary bill tomorrow?
+            — Are any household members allergic, afraid of dogs, or unwilling to share space?
+            — How much physical activity can you genuinely offer every day, in any weather?{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}The answers define your candidate group of breeds much more accurately than any photo or advertisement. An active herding breed and a calm companion dog can live in the same apartment — but only one of them will be happy with your actual schedule.{% endblocktranslate %}</p>
+
+
+        <p class="section-title">{% blocktranslate trimmed %}Where to get a dog: the main options{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A responsible breeder lets you meet the parents, shows health test results, asks you questions in return, and takes the dog back if things go wrong. A contract, a microchip, and vaccination records should be provided without hesitation.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Shelters and rescues offer adult dogs with known histories, which is a real advantage: temperament and size are already visible. Ask the shelter honestly about the dog's behaviour with strangers, children, other animals, and alone at home.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Buying «from the hands» without documents, health information, or a chance to see the parents is the riskiest option: you have no way to predict health, temperament, or even the future size of the dog.{% endblocktranslate %}</p>
+
+
+        <p class="section-title">{% blocktranslate trimmed %}Puppy or adult dog{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}A puppy gives you influence over every habit but demands the most time: house training, socialization, night rest, and constant supervision for the first months. Expect interrupted sleep and limited freedom for the first year.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}An adult dog comes with an established character, usually calmer and already house-trained. Adaptation takes a few weeks to a few months, but you see what you are getting: energy level, attitude to people, and size.{% endblocktranslate %}</p>
+
+
+        <p class="section-title">{% blocktranslate trimmed %}Red flags when choosing{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Warning signs: the seller refuses to show the mother or the living conditions, pressures you to decide immediately, offers many breeds at once, has no documents, or sells puppies younger than eight weeks. A serious breeder asks as many questions as you do.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}In the litter itself, look for clear eyes, clean ears, a round belly without being bloated, and confident curiosity. A puppy that constantly hides or one that is aggressively protective of food is information worth taking seriously.{% endblocktranslate %}</p>
+
+
+        <p class="section-title">{% blocktranslate trimmed %}What owning a dog costs{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Budget beyond the purchase price:
+            — food and treats;
+            — regular veterinary care: vaccinations, parasite prevention, annual check-ups;
+            — insurance or a dedicated emergency fund;
+            — grooming, especially in long-haired breeds;
+            — equipment: collar or harness, leash, bed, bowls, transport box;
+            — boarding or a sitter when you travel;
+            — training or classes in the first year.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}Large breeds, long-haired breeds, and brachycephalic breeds tend to cost noticeably more over a lifetime. It is better to calculate a rough monthly figure before choosing than to discover it after.{% endblocktranslate %}</p>
+
+
+        <p class="section-title">{% blocktranslate trimmed %}Breed-specific checks{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}For any breed you consider, look up four things in advance: predispositions in the breed's health profile, the real adult size, the typical activity level, and how the coat needs to be maintained. These four facts predict daily life with the dog better than character descriptions on a breeder's page.{% endblocktranslate %}</p>
+
+        <p class="cat-desc">{% blocktranslate trimmed %}If you are choosing between several breeds, compare them on paper: hours alone, required activity, grooming time, and common health risks. The «feel» of a choice made this way stays stable much longer than the first emotional impression.{% endblocktranslate %}</p>
+
+
         <p class="section-title">{% blocktranslate trimmed %}Conclusion{% endblocktranslate %}</p>
 
-        <p class="cat-desc">{% blocktranslate trimmed %}Choosing the right dog is a structured decision based on compatibility, not preference alone.
+        <p class="cat-desc">{% blocktranslate trimmed %}Choosing a dog is a structured decision based on compatibility, not preference alone.
             When lifestyle, experience, and environment are aligned with the dog’s needs, long-term stability becomes significantly easier to achieve.{% endblocktranslate %}</p>
 
     </div>

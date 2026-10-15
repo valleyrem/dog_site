@@ -52,6 +52,84 @@ MARQUEE_QUOTES = {
             "David Hume",
         ),
     ],
+    "uk": [
+        (
+            "Собаки — не все наше життя, але вони роблять наше життя повноцінним.",
+            "Роджер Карас",
+        ),
+        (
+            "Деякі з наших найвеличніших історичних та мистецьких скарбів ми ставимо в музеях; інших ми беремо на прогулянки.",
+            "Роджер Карас",
+        ),
+        (
+            "У моменти радості кожен із нас хотів би мати хвіст, яким міг би вимахувати.",
+            "В. Г. Оден",
+        ),
+        (
+            "Собака — джентльмен; сподіваюся потрапити в її рай, а не в людський.",
+            "Марк Твен",
+        ),
+        ("Собака може бути ідеальним терапевтом.", "Джон Т. Розен"),
+        (
+            "Зв'язок із собакою такий тривалий, яким можуть бути лише зв'язки цієї землі.",
+            "Конрад Лоренц",
+        ),
+        (
+            "Погладжування, чухання та обійми собаки можуть заспокоювати розум і серце так само, як глибока медитація, і бути майже такими ж корисними для душі, як молитва.",
+            "Дін Кунц",
+        ),
+        (
+            "Собака — єдина істота на землі, яка любить тебе більше, ніж себе.",
+            "Джош Біллінгс",
+        ),
+        (
+            "Собаку створили спеціально для дітей. Він — бог жвавих ігор.",
+            "Генрі Ворд Бічер",
+        ),
+        (
+            "Собака природно любить людину більше за власний вид і дуже часто отримує у відповідь ласку.",
+            "Девід Юм",
+        ),
+    ],
+    "es": [
+        (
+            "Los perros no son toda nuestra vida, pero hacen nuestra vida completa.",
+            "Roger Caras",
+        ),
+        (
+            "Algunos de nuestros mayores tesoros históricos y artísticos los colocamos en museos; a otros los llevamos a pasear.",
+            "Roger Caras",
+        ),
+        (
+            "En momentos de alegría, todos hemos deseado tener una cola que pudiéramos mover.",
+            "W. H. Auden",
+        ),
+        (
+            "El perro es un caballero; espero ir a su cielo, no al de los hombres.",
+            "Mark Twain",
+        ),
+        ("Un perro puede ser un terapeuta perfecto.", "John T. Rosen"),
+        (
+            "El vínculo con un perro es tan duradero como pueden ser los lazos de esta tierra.",
+            "Konrad Lorenz",
+        ),
+        (
+            "Acariciar, rascar y abrazar a un perro puede calmar la mente y el corazón tanto como la meditación profunda, y ser casi tan bueno para el alma como la oración.",
+            "Dean Koontz",
+        ),
+        (
+            "Un perro es lo único en la tierra que te quiere más de lo que se quiere a sí mismo.",
+            "Josh Billings",
+        ),
+        (
+            "El perro fue creado especialmente para los niños. Es el dios del jolgorio.",
+            "Henry Ward Beecher",
+        ),
+        (
+            "Un perro ama naturalmente al hombre por encima de su propia especie, y muy a menudo recibe cariño a cambio.",
+            "David Hume",
+        ),
+    ],
     "ru": [
         (
             "Собаки — не вся наша жизнь, но они делают нашу жизнь полноценной.",
@@ -444,81 +522,125 @@ class ContactFormView(DataMixin, FormView):
         )
 
 
-class DogGroupsView(DataMixin, TemplateView):
-    """Curated breed collections (Explore page)."""
+class BreedsView(DataMixin, TemplateView):
+    """Every published breed as one grid with filter buttons (Breeds page)."""
 
-    template_name = "woof/dog_groups.html"
+    template_name = "woof/breeds.html"
+
+    # the curated collections the old Explore page used; each key is a
+    # filter button, the lookups stay here so the templates stay dumb
+    FILTERS = [
+        (
+            "small",
+            _("Small \U0001f43e"),
+            dict(size="small"),
+        ),
+        (
+            "medium",
+            _("Medium \U0001f539"),
+            dict(size="medium"),
+        ),
+        (
+            "large",
+            _("Large \U0001f9ae"),
+            dict(size="large"),
+        ),
+        (
+            "shortcoat",
+            _("Short coat \U0001f415"),
+            dict(coat_length__name_en__in=["Short"]),
+        ),
+        (
+            "longcoat",
+            _("Long coat \U0001f429"),
+            dict(coat_length__name_en__in=["Long"]),
+        ),
+        (
+            "first_time",
+            _("Great for first-time owners \U0001f195"),
+            dict(
+                trainability__in=["agreeable", "easy", "eager"],
+                activity_level__in=["calm", "regular"],
+            ),
+        ),
+        (
+            "experienced",
+            _("For experienced owners \U0001f4aa"),
+            dict(
+                activity_level__in=["high", "energetic"],
+                trainability__in=["independent", "stubborn"],
+            ),
+        ),
+        (
+            "family",
+            _("Best family \U0001f436"),
+            dict(
+                family_friendliness__in=["high", "excellent"],
+                barking_level__in=["necessary", "infrequent"],
+                activity_level__in=["calm", "regular"],
+            ),
+        ),
+        (
+            "trainable",
+            _("Easy to train \U0001f9e0"),
+            dict(trainability__in=["eager", "easy"]),
+        ),
+        (
+            "hypoallergenic",
+            _("Hypoallergenic breeds \U0001f33f"),
+            dict(hypoallergenic__in=["moderate", "high"]),
+        ),
+        (
+            "energy",
+            _("High energy \u26a1"),
+            dict(activity_level="energetic"),
+        ),
+        (
+            "apartment",
+            _("Apartment-friendly \U0001f3e2"),
+            dict(
+                size__in=["small", "medium"],
+                activity_level__in=["calm", "regular"],
+                barking_level__in=["necessary", "infrequent"],
+                coat_length__name_en__in=["Short", "Medium"],
+            ),
+        ),
+        (
+            "yard",
+            _("Best for houses with yard \U0001f3e1"),
+            dict(
+                size__in=["medium", "large"],
+                activity_level__in=["high", "energetic"],
+                barking_level__in=["vocal", "frequent"],
+            ),
+        ),
+    ]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        dogs = Dogs.objects.filter(is_published=True).select_related("cat", "section")
+        dogs = list(
+            Dogs.objects.filter(is_published=True)
+            .select_related("cat", "section")
+            .order_by("title")
+        )
 
-        context["groups"] = [
-            {
-                "title": _("Best family dogs 🐶"),
-                "dogs": dogs.filter(
-                    family_friendliness__in=["high", "excellent"],
-                    barking_level__in=["necessary", "infrequent"],
-                    activity_level__in=["calm", "regular"],
-                ),
-            },
-            {
-                "title": _("Great for first-time owners 🆕"),
-                "dogs": dogs.filter(
-                    trainability__in=["agreeable", "easy", "eager"],
-                    activity_level__in=["calm", "regular"],
-                ),
-            },
-            {
-                "title": _("For experienced owners 💪"),
-                "dogs": dogs.filter(
-                    activity_level__in=["high", "energetic"],
-                    trainability__in=["independent", "stubborn"],
-                ),
-            },
-            {
-                "title": _("Easy to train dogs 🧠"),
-                "dogs": dogs.filter(
-                    trainability__in=["agreeable", "easy", "eager"],
-                ),
-            },
-            {
-                "title": _("Hypoallergenic breeds 🌿"),
-                "dogs": dogs.filter(hypoallergenic__in=["moderate", "high"]),
-            },
-            {
-                "title": _("Small dogs 🐾"),
-                "dogs": dogs.filter(size__in=["xsmall", "small"]),
-            },
-            {
-                "title": _("Medium dogs 🔹"),
-                "dogs": dogs.filter(size="medium"),
-            },
-            {
-                "title": _("Large dogs 🐕"),
-                "dogs": dogs.filter(size__in=["large", "xlarge"]),
-            },
-            {
-                "title": _("Apartment-friendly dogs 🏢"),
-                "dogs": dogs.filter(
-                    size__in=["xsmall", "small", "medium"],
-                    activity_level__in=["calm", "regular"],
-                    barking_level__in=["necessary", "infrequent"],
-                    coat_length__name_en__in=["Short", "Medium"],
-                ),
-            },
-            {
-                "title": _("Best for houses with yard 🏡"),
-                "dogs": dogs.filter(
-                    size__in=["medium", "large", "xlarge"],
-                    activity_level__in=["high", "energetic"],
-                    barking_level__in=["vocal", "frequent"],
-                ),
-            },
+        # every dog gets the list of filter keys it belongs to
+        matches = {dog.id: [] for dog in dogs}
+        base = Dogs.objects.filter(is_published=True)
+        for key, _title, lookups in self.FILTERS:
+            for pk in base.filter(**lookups).values_list("id", flat=True):
+                if pk in matches:
+                    matches[pk].append(key)
+        for dog in dogs:
+            dog.filter_keys = " ".join(matches[dog.id])
+
+        context["dogs"] = dogs
+        context["filters"] = [
+            {"key": key, "title": title} for key, title, _lookups in self.FILTERS
         ]
 
-        return self.get_user_context(**context, title=_("Explore - Woof Dogs"))
+        return self.get_user_context(**context, title=_("Breeds - Woof Dogs"))
 
 
 class GroupsPageView(DataMixin, TemplateView):
@@ -557,7 +679,7 @@ def breed_api(request, pk):
             "photo": photo_url,
             "section": dog.section.name if dog.section else "",
             "varieties": dog.varieties,
-            "country": dog.country,
+            "country": dog.country.name if dog.country else "",
             "size": dog.get_size_display(),
             "life": dog.life_expectancy,
             "height": dog.height,
@@ -655,7 +777,7 @@ def sitemap_xml(request):
     for name, priority in (
         ("home", "1.0"),
         ("dogs_list", "0.8"),
-        ("dog-explore", "0.8"),
+        ("breeds", "0.8"),
         ("groups", "0.8"),
         ("guides", "0.7"),
         ("about", "0.5"),

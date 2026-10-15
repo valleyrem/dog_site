@@ -1,8 +1,15 @@
 :root {
-  --color-bg: #ffffff;
-  --main-text: #22272f;
+  /* 60–30–10: warm paper base · emerald brand · clay accents */
+  --color-bg: #f8f8f8;
+  --surface: #ffffff;
+  --main-text: #292e36;
+  --ink-soft: rgba(41, 46, 54, 0.55);
+  --line: rgba(41, 46, 54, 0.16);
   --main-accent: #028d6a;
+  --accent-deep: #0b3d31;
+  --clay: #c1704f;
   --button-bg: #f0ebe4;
+  --sec-accent: #c1704f;
 }
 @media (min-width: 300px) and (max-width: 767px) {
   body.sidebar-open {
@@ -32,6 +39,11 @@
   .footer-bottom {
     text-align: center;
   }
+
+  .footer-bottom p {
+    text-align: center;
+  }
+
   .footer-col ul li {
     margin-bottom: 0;
   }
@@ -82,10 +94,10 @@
   .sidebar-nav {
     position: fixed;
     display: flex;
-    padding: 20px 15px 30px;
-    top: 50px;
+    padding: 20px 15px 20px;
+    top: 55px;
     left: 50%;
-    justify-content: center;
+    justify-content: flex-start;
     transform: translateX(-50%);
     width: calc(100% - 5px);
     background: #fff;
@@ -99,16 +111,21 @@
     transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
-    text-align: center;
+    text-align: left;
     border: 0.5px solid var(--main-text);
+  }
+  .mobile-menu {
+    width: 100%;
   }
   .mobile-menu__list--top a {
     font-size: 16px;
-    font-family: "Clash Display", "Wix Madefor Display";
+    font-family: "Nunito", sans-serif;
   }
   .mobile-menu__list--top {
     display: flex;
-    gap: 10px;
+    /* a single vertical column now — the category list is gone */
+    flex-direction: column;
+    gap: 15px;
     justify-content: flex-start;
     margin: 0;
     padding-bottom: 10px;
@@ -130,11 +147,11 @@
   .mobile-menu__item a {
     font-size: 13px;
     display: block;
-    border-radius: 12px;
     color: var(--main-text);
     position: relative;
+    text-align: center;
     transition: all 0.2s ease;
-    font-family: "Space Grotesk", "Manrope";
+    font-family: "Nunito", sans-serif;
   }
   .mobile-menu__item a:hover,
   .mobile-menu__item.is-active a {
@@ -146,8 +163,8 @@
     font-weight: 400;
   }
   .site-footer {
-    padding: 10px 0;
-    margin: 0;
+    padding: 30px 0 24px;
+    margin-top: 24px;
   }
   .homepage {
     flex-direction: column;
@@ -157,7 +174,7 @@
   }
   .hero-content {
     gap: 30px;
-    padding: 30px 10px 30px;
+    padding: 30px 10px 70px;
     margin: 0;
   }
   .hero-inner {
@@ -171,10 +188,19 @@
     max-height: 380px;
   }
   .breed-marquee {
-    -webkit-mask-image: none;
-    mask-image: none;
     padding: 14px 0;
     font-size: 12px;
+  }
+
+  .breed-marquee__mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-toggle {
+    right: 8px;
+    width: 26px;
+    height: 26px;
   }
   .breed-marquee__item {
     letter-spacing: 0.02em;
@@ -191,11 +217,15 @@
   .homepage-title-1 {
     margin: 0;
     padding: 0;
-    font-size: 60px;
+    font-size: 48px;
     text-align: center;
   }
   .footer-col h4 {
     font-size: 15px;
+  }
+
+  .homepage .custom-select-placeholder {
+    font-size: 14px;
   }
   .homepage-subtitle {
     padding: 0 10px;
@@ -245,10 +275,11 @@
     height: 100%;
   }
   .section-title {
-    font-size: 18px;
-    margin: 0;
-    padding: 10px 0;
-    line-height: 1.4;
+    font-size: 20px;
+    margin: 34px 0 16px;
+    padding: 14px 0 0;
+    line-height: 1.3;
+    text-align: left;
   }
 
   .section-title-group {
@@ -257,19 +288,46 @@
 
   .catalog-structure {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 0;
   }
   .group-row {
     grid-template-columns: 1fr;
     gap: 0;
     height: auto;
     padding: 0;
-    border-radius: 12px;
   }
   .group-sections {
-    padding: 16px 18px;
-    gap: 10px;
-    height: 210px;
+    grid-template-columns: 22px minmax(0, 1fr);
+    grid-template-areas:
+      "num title"
+      "desc desc"
+      "more more";
+    padding: 22px 2px;
+    column-gap: 12px;
+    row-gap: 6px;
+    height: auto;
+  }
+
+  /* the body dissolves so the description spans both columns — like the
+     guide rows, it starts under the number */
+  .group-body {
+    display: contents;
+  }
+
+  .group-sections .group-number {
+    grid-area: num;
+  }
+
+  .group-sections .groups-link {
+    grid-area: title;
+  }
+
+  .group-sections .group-desc {
+    grid-area: desc;
+  }
+
+  .group-sections .group-more {
+    grid-area: more;
   }
 
   .group-desc {
@@ -277,17 +335,29 @@
   }
 
   .guide-card {
-    padding: 16px 18px;
-    gap: 10px;
-    height: 100%;
+    grid-template-columns: 22px minmax(0, 1fr);
+    grid-template-areas:
+      "num title"
+      "desc desc"
+      "more more";
+    column-gap: 12px;
+    row-gap: 8px;
+    padding: 22px 2px;
+    height: auto;
   }
 
   .group-dogs li {
     font-size: 15px;
   }
   .groups-link {
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
+  }
+
+  .guide-card p,
+  .group-desc {
+    line-height: 1.5;
+    font-size: 16px;
   }
   .dog-groups {
     width: 100%;
@@ -299,7 +369,17 @@
 
   .group-more,
   .guide-more {
-    margin-top: 10px;
+    grid-column: 1 / -1;
+
+    align-self: start;
+    margin-top: 8px;
+  }
+
+
+
+  /* the header is 50px on phones — anchored headings land just below it */
+  .section-title[id] {
+    scroll-margin-top: 66px;
   }
 
   .group-item {
@@ -313,7 +393,7 @@
     border-right: 0;
     padding: 10px 14px 10px 0;
     width: 100%;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
   }
   .slider-inner {
@@ -329,7 +409,7 @@
     margin: 0 auto;
   }
   .homepage .slider-block {
-    padding: 0 10px 30px;
+    padding: 20px 10px 30px;
   }
   .post-container .slider-wrapper,
   .layout-content .slider-wrapper {
@@ -345,36 +425,39 @@
     z-index: 2;
   }
   .dog-card-link {
-    display: flex;
-    justify-content: center;
+    /* block, not flex: as a flex container the link stretched the card to
+       the row height, which broke the square aspect-ratio on phones */
+    display: block;
   }
   .dog-slider .dog-card-link {
-    scroll-snap-align: center;
-    background-image: radial-gradient(#999 0.8px, transparent 0.8px);
-    flex: 0 0 100%;
+    /* two cards fit the screen width: basis halves the row, minus the gap */
+    scroll-snap-align: start;
+    flex: 0 0 calc((100% - 10px) / 2);
   }
   .dog-slider.single-card {
     justify-content: center;
   }
   .dog-slider-track {
-    gap: 20px;
+    gap: 10px;
   }
   .dog-card {
     width: 100%;
-    max-width: 330px;
-    height: 410px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    margin: 0 auto;
   }
-  .dog-card__image {
-  }
+
   .dog-card__title {
-    font-size: 21px;
+    font-size: 18px;
+    font-weight: 200;
   }
-  .dog-card__section {
-    font-size: 12px;
+
+  .dog-card__info {
+    padding: 12px 10px 14px;
   }
   .post-container {
     padding: 0;
-    text-align: justify;
+    text-align: left;
   }
   .breadcrumbs-wrapper {
     font-size: 16px;
@@ -383,6 +466,34 @@
     flex-direction: column;
     align-items: start;
     gap: 15px;
+  }
+
+  /* the share icon rides the crumb line's right edge (absolute so the
+     tuned breadcrumb → title spacing stays untouched) */
+  .breadcrumbs-wrapper .post-copy {
+    position: absolute;
+    right: 0;
+    top: 75px;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+
+  .breadcrumbs {
+    padding-right: 28px;
+  }
+
+  /* icon-only on phones — the crumb line stays compact */
+  .post-copy-label {
+    display: none;
+  }
+
+  /* the confirmation pops up to the left of the icon, not below it */
+  .breadcrumbs-wrapper .post-copy-toast {
+    left: auto;
+    right: calc(100% + 8px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
   }
   .desktop-text {
     display: none;
@@ -397,17 +508,17 @@
     margin: 0 0 10px;
   }
   .post-title {
-    font-size: 28px;
+    font-size: 36px;
     line-height: 1.3;
-    text-align: center;
-    margin: 5px auto 10px;
+    text-align: left;
+    margin: 6px 0 34px;
     width: fit-content;
   }
   .post-title-cat {
-    font-size: 28px;
+    font-size: 36px;
     line-height: 1.3;
-    text-align: center;
-    margin: 10px 0;
+    text-align: left;
+    margin: 6px 0 8px;
   }
   .post-navigation i,
   .btn-back i {
@@ -417,8 +528,8 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 65px 0 20px;
-    margin: 10px 0;
+    padding: 0;
+    margin: 0;
     background-image: none;
     background-position:
       right 5% top 65%,
@@ -426,6 +537,19 @@
       right 0 top 40%;
     background-size: 45px, 45px, 50px;
     background-repeat: no-repeat;
+  }
+
+  .post-container > .post-text {
+    margin-top: 14px;
+  }
+
+  .guide-image-1, .guide-image-2, .guide-image-3, .guide-image-4, .guide-image-5, .guide-image-6, .guide-image-7, .guide-image-8 {
+    width: 100%;
+    height: 100%;
+  }
+
+  .fullwidth-content > .compare-section, .fullwidth-content > .section-title, .fullwidth-content > .slider-block {
+    padding-bottom: 0;
   }
   .post-media::before,
   .slider-inner::before {
@@ -436,32 +560,48 @@
     width: 14px;
     height: 14px;
   }
+
+  .post-table {
+    height: 100%;
+  }
+  /* Prev / next card: stacked, one link per row */
   .post-media-nav {
-    left: 0;
-    top: 0;
-    right: 0;
-    width: auto;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 18px;
+    width: 100%;
   }
   .post-media-arrow {
-    font-size: 13px;
-    text-align: center;
+    font-size: 15px;
     min-width: 0;
-    max-width: 50%;
+    max-width: 100%;
     white-space: nowrap;
     flex: 0 1 auto;
   }
-  .post-media-arrow span {
+
+  .post-table__part {
+    padding: 20px 10px 22px;
+
+  }
+
+  .post-media-arrow-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     min-width: 0;
     max-width: 100%;
   }
-  .character-tags {
-    width: 100%;
-    text-align: center;
+  .post-media-arrow-photo {
+    width: 40px;
+    height: 40px;
+  }
+  /* phones: no zoom / arrow overlay — hover would stick after a tap */
+  .post-media-arrow-img {
+    transform: none !important;
+  }
+  .post-media-arrow-icon {
+    display: none;
   }
   .img-enlarge-hint {
     right: 5px;
@@ -516,7 +656,7 @@
   .post-image {
     width: 100%;
     margin: 0;
-    height: 400px;
+    height: 420px;
     object-fit: cover;
     cursor: pointer;
   }
@@ -535,10 +675,11 @@
     text-align: center;
     border-radius: 0;
   }
+
   .param-info:hover .param-tooltip {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-90%) translateY(-2px);
+    transform: translateX(-50% - 0px);
   }
   .photo-author {
     font-size: 14px;
@@ -565,32 +706,35 @@
   .modal-arrow.next {
     top: 50%;
   }
-  .breed-tag {
-    padding: 0 0 10px;
-    font-size: 16px;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
   .post-params-grid {
-    gap: 5px 10px;
-    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    grid-template-columns: 1fr;
     padding-top: 10px;
   }
   .param-card {
     padding: 5px 0;
     gap: 2px;
   }
+
+  .character-line {
+    font-size: 17px;
+    text-align: left;
+  }
   .param-card strong {
-    font-size: 15px;
+    font-size: 17px;
     width: fit-content;
     padding: 4px 10px 4px 0;
-    letter-spacing: 0.04em;
-    font-weight: 400;
+    font-weight: 350;
+
     text-align: start;
   }
   .param-card span {
     font-size: 13px;
+    text-align: start;
+  }
+
+  .param-card .param-tooltip {
+    text-align: center;
   }
   .param-title {
     gap: 5px;
@@ -598,7 +742,9 @@
   .mini-gallery {
     display: none;
   }
-  .gallery-image {
+  /* Only the (hidden) mini-gallery images keep this size; the post-media
+     thumbnails use .post-thumb-img and must stay square. */
+  .mini-gallery .gallery-image {
     width: 100%;
     height: 170px;
     object-fit: cover;
@@ -620,8 +766,13 @@
   .compare-table th,
   .compare-table td {
     line-height: 1.3;
-    font-size: 13px;
+    font-size: 15px;
     padding: 4px;
+  }
+
+  .control-dog-image {
+    width: 40px;
+    height: 40px;
   }
   .compare-breed-head {
     height: 100%;
@@ -657,7 +808,7 @@
     transform: none;
   }
   .current-post-dog {
-    font-size: 18px;
+    font-size: 15px;
   }
   .compare-table {
     margin: 5px auto;
@@ -729,10 +880,10 @@
     font-size: 18px;
   }
   .policy-container {
-    font-size: 16px;
+    font-size: 17px;
   }
   .bulleted-list li {
-    font-size: 16px;
+    font-size: 17px;
   }
   .cat-desc {
     text-align: justify;
@@ -748,7 +899,7 @@
     border: none;
   }
   .contact-list li {
-    font-size: 16px;
+    font-size: 17px;
     letter-spacing: 0.1px;
   }
   .policy-container form p,
@@ -772,10 +923,11 @@
     -webkit-text-stroke: 0.5px #1c2b27;
   }
   p {
-    font-size: 16px;
+    font-size: 17px;
     padding: 0;
     line-height: 1.8;
     margin: 10px 0;
+    text-align: justify;
   }
   h2 {
     font-size: 20px;
@@ -821,6 +973,11 @@
   .modal-arrow {
     display: none !important;
   }
+
+  .footer-col p {
+    text-align: center;
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
@@ -840,6 +997,11 @@
   .slider-nav {
     gap: 10px;
   }
+
+  .post-media > .post-media-photos {
+    align-self: center;
+  }
+
   .slider-arrow {
     width: 30px;
     height: 30px;
@@ -871,6 +1033,7 @@
   .breadcrumbs .current {
     min-width: 0;
     overflow-wrap: anywhere;
+    font-weight: 350;
   }
 
   /* Group page: long names truncate at the right edge,
@@ -903,12 +1066,26 @@
     height: 36px;
   }
 
+  /* phone arrows are bigger, so the pair sits a little further from the
+     right edge of the content line */
+  .slider-nav .slider-prev {
+    right: 46px;
+  }
+
   .guide-card {
-    height: 190px;
+    height: auto;
+  }
+
+  .post-title {
+    font-size: clamp(45px, 4.2vw, 52px);
+    margin: 12px 0 16px;
+    text-align: left;
+    width: fit-content;
   }
 
   .post-title-cat {
-    margin: 20px 0;
+    margin: 10px 0 6px;
+    font-size: clamp(45px, 4.2vw, 52px);
   }
 
   .post-text-cols {
@@ -918,7 +1095,7 @@
 
   .nav-left-list li a {
     padding: 0 2px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .homepage select,
@@ -931,11 +1108,12 @@
   }
 
   .post-media {
-    padding: 90px 0 0;
+    padding: 0;
   }
 
   .section-title {
     font-size: 25px;
+    text-align: left;
   }
 
   .hero-content {
@@ -944,6 +1122,7 @@
 
   .hero-left {
     gap: 50px;
+    order: 2;
   }
 
   .hero-inner {
@@ -951,11 +1130,11 @@
   }
 
   .hero-photo {
-    max-height: 700px;
+    max-height: 670px;
   }
 
   .homepage-title-1 {
-    font-size: 100px;
+    font-size: 72px;
     text-align: center;
   }
 
@@ -969,6 +1148,7 @@
 
   .homepage-subsubtitle {
     margin: 0 auto;
+    text-align: center;
   }
 
   .homepage .slider-inner {
@@ -990,15 +1170,13 @@
   .post-image {
     margin: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .character-tags {
-    width: 100%;
-    text-align: center;
-  }
 
   .main-img-arrow.prev {
-    left: -70px;
+    left: 6px;
     right: auto;
 
     bottom: auto;
@@ -1013,19 +1191,6 @@
     transform: translateY(-50%);
   }
 
-  .post-title,
-  .breed-tag {
-    text-align: center;
-    width: fit-content;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
-  .breed-tag {
-    text-align: center;
-    width: 100%;
-    justify-content: center;
-  }
 
   .post-right {
     width: 100%;
@@ -1045,9 +1210,64 @@
     gap: 30px;
   }
 
+  /* photos: the thumbs strip stands left of the photo (like on desktop),
+     the parameters panel stays below; the pair is centred with small
+     side margins */
+  .post-media-photos {
+    display: grid;
+    grid-template-columns: clamp(100px, 14vw, 160px) minmax(0, 1fr);
+    column-gap: 16px;
+    /* the strip stretches to the photo's height and ends flush with it */
+    align-items: stretch;
+    align-self: center;
+  }
+
+  .post-media-thumbs {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .post-thumb {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  .post-thumb-img {
+    /* no longer square: the thumbnail fills its stretched cell */
+    height: 100%;
+/*    aspect-ratio: auto;*/
+  }
+
+  .post-main-image {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  /* a narrow fixed photo: 430×520 keeps the frame stable between
+     photos of different shapes */
+  .main-img-viewport {
+    width: 430px;
+    height: 555px;
+  }
+
   .post-params-grid {
-    padding-left: 10px;
     padding-top: 10px;
+  }
+
+  .post-table__part {
+    padding: 22px 10px 24px;
+  }
+
+  .param-card strong {
+    font-size: 17px;
+  }
+
+  .value-row td {
+    font-size: 16px;
   }
 
   /* Tablet: let the param cards fill their grid cells so the
@@ -1057,24 +1277,19 @@
     height: 80px;
   }
 
-  .dog-groups,
-  .catalog-structure,
-  .guides-list {
+  .dog-groups {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .dog-card {
-    width: 300px;
+  .catalog-structure,
+  .guides-list {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .dog-card__title {
-    font-size: 20px;
-  }
-
-  .dog-card__image {
-    width: 100%;
-    height: 300px;
+    font-size: 17px;
   }
 
   .dog-slider {
@@ -1089,8 +1304,9 @@
   }
 
   .dog-slider .dog-card-link {
-    flex: 0 0 270px;
-    width: 270px;
+    /* flex-basis only: inside the 4-column grid the card must fill its
+       column (an explicit width would overlap the neighbouring card) */
+    flex: 0 0 240px;
   }
 
   .slider-inner {
@@ -1116,8 +1332,13 @@
     grid-template-columns: 1fr;
   }
 
+  .post-media > .post-media-photos {
+    align-self: center;
+  }
+
   .hero-left {
     gap: 30px;
+    order: 2;
   }
 
   .hero-photo {
@@ -1125,7 +1346,7 @@
   }
 
   .homepage-title-1 {
-    font-size: 110px;
+    font-size: 130px;
     text-align: center;
   }
 
@@ -1148,11 +1369,18 @@
   .homepage-subtitle {
     max-width: 100%;
     margin: 0 auto;
+    font-size: 35px;
+  }
+
+  .home-text-block-title {
+    font-size: 35px;
   }
 
   .homepage-subsubtitle {
     max-width: 700px;
     margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
   }
 
   .homepage select {
@@ -1187,14 +1415,63 @@
   .post-media {
     display: flex;
     flex-direction: column;
-    padding: 100px 0 0;
+    padding-top: 20px;
     margin: 10px 0 30px;
     gap: 30px;
+  }
+
+  /* photos: the thumbs strip stands left of the photo (like on desktop),
+     the parameters panel stays below; the pair is centred with small
+     side margins */
+  .post-media-photos {
+    display: grid;
+    grid-template-columns: clamp(100px, 14vw, 160px) minmax(0, 1fr);
+    column-gap: 16px;
+    /* the strip stretches to the photo's height and ends flush with it */
+    align-items: stretch;
+    align-self: center;
+  }
+
+  .post-media-thumbs {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .post-thumb {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  .post-thumb-img {
+    /* no longer square: the thumbnail fills its stretched cell */
+    height: 100%;
+/*    aspect-ratio: auto;*/
+  }
+
+  .post-main-image {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  /* a narrow fixed photo: 430×520 keeps the frame stable between
+     photos of different shapes */
+  .main-img-viewport {
+    width: 100%;
+    height: 100%;
   }
 
   .post-main-image,
   .post-image {
     margin: 0 auto;
+  }
+
+  .post-image {
+    height: 100%;
+    object-fit: cover;
   }
 
   .post-params-grid {
@@ -1207,17 +1484,12 @@
     display: none;
   }
 
-  .character-tags {
-    margin: 0 auto;
-  }
 
   .dog-card {
-    height: 360px;
+    height: auto;
   }
 
-  .dog-card__image {
-    height: 270px;
-  }
+
 
   .groups-link {
     text-align: left;
@@ -1238,11 +1510,11 @@
   }
 
   .dog-slider .dog-card-link {
-    flex: 0 0 calc((100% - 36px) / 3);
+    flex: 0 0 calc((100% - 54px) / 4.4);
   }
 
   .dog-card__title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .compare-select {
@@ -1257,29 +1529,22 @@
     top: 0;
   }
 
-  .post-title,
-  .post-title-cat {
-    font-size: 30px;
-    margin: 20px 0;
+  .post-title {
+    font-size: 45px;
+    margin: 12px 0 16px;
+    text-align: left;
+    width: fit-content;
   }
 
-  .post-title {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+  .post-title-cat {
+    font-size: 45px;
+    margin: 10px 0 6px;
   }
 
   .param-card {
     padding: 5px 20px 5px 0;
   }
 
-  .breed-tag {
-    padding: 6px 0;
-    font-size: 22px;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
 
   .post-right {
     gap: 0;
@@ -1306,14 +1571,9 @@
 
   .guides-list,
   .catalog-structure {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 
-  .breed-tag,
-  .section-title {
-    font-size: 20px;
-    margin: 10px auto 0;
-  }
 
   .layout-content .dog-slider::after,
   .dog-slider::after {
@@ -1331,7 +1591,7 @@
 
   .guides-list,
   .catalog-structure {
-    gap: 20px;
+    gap: 0 20px;
   }
 
   .param-card strong {
@@ -1367,7 +1627,7 @@
   }
 
   .main-img-arrow.prev {
-    left: -80px;
+    left: 6px;
     right: auto;
     bottom: auto;
     transform: translateY(-50%);
@@ -1426,6 +1686,19 @@
     padding: 18px 16px;
   }
 
+  /* the thumbnails strip on phones: five squares across the full width */
+  .post-media-thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cookie-banner__title {
+    text-align: left;
+  }
+
   .cookie-banner__actions {
     flex-direction: column;
     align-items: stretch;
@@ -1459,5 +1732,128 @@
   .cookie-table th,
   .cookie-table td {
     padding: 7px 8px;
+  }
+
+  .cookie-policy-consent-id {
+    font-size: 17px;
+  }
+}
+
+/* Tablet and desktop (768px+): breed sliders on group/category pages and
+   the post "Other breeds in this group" block become a plain 3-column
+   grid without arrows; a "Show more" button reveals the next cards.
+   Phones keep the arrows slider with swipe. */
+@media (min-width: 768px) {
+  /* NOTE: .slider-nav also wraps the .dog-slider track itself, so it
+     must stay visible — hide only the arrow buttons and the count. */
+  .related-block .slider-arrow,
+  .related-block .slider-pagination {
+    display: none;
+  }
+
+  .related-block .dog-slider-track {
+    display: grid;
+    grid-auto-flow: row;
+    /* four columns with the homepage slider's own gap (inherited from
+       .dog-slider-track) so the spacing matches the front page */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    transform: none !important;
+  }
+}
+
+/* Wide screens follow the front page: five cards in a row */
+@media (min-width: 1024px) {
+  .related-block .dog-slider-track {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Tablet and desktop: reserve stable heights inside the breed panel so
+   the media block does not jump from breed to breed (1- vs 2-line
+   titles, 1- vs 2-line group names, temperament rows, summary length).
+   Heights are the maximums measured across all breeds. */
+@media (min-width: 768px) {
+  .post-right {
+    justify-content: space-between;
+  }
+
+  .post-media > .post-media-photos {
+    align-self: center;
+}
+
+
+}
+
+/* Below the desktop layout the thumbnails strip keeps its own rules:
+   the phone block turns it into a five-column strip; tablets keep the
+   base vertical column (it stands left of the photo). */
+@media (max-width: 1024px) {
+  .post-table__part {
+    padding: 22px 10px 24px;
+  }
+
+  .post-thumb {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Post page (full width): keep the old page insets on smaller screens. */
+@media (max-width: 767px) {
+  .fullwidth-content .post-container,
+  .fullwidth-content .breadcrumbs-wrapper {
+    padding: 0 10px;
+  }
+
+  .fullwidth-content .breadcrumbs-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 65px 10px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fullwidth-content .post-container {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 912px) {
+  .fullwidth-content .breadcrumbs-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 90px 20px 0;
+  }
+}
+
+@media (min-width: 913px) and (max-width: 1024px) {
+  .fullwidth-content .breadcrumbs-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 75px 20px 0;
+  }
+}
+
+/* Post page (full width): page insets for the blocks outside the container. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .post-media-nav {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .fullwidth-content > .compare-section,
+  .fullwidth-content > .section-title,
+  .fullwidth-content > .slider-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullwidth-content > .compare-section,
+  .fullwidth-content > .section-title,
+  .fullwidth-content > .slider-block {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

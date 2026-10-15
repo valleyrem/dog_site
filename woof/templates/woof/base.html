@@ -33,7 +33,7 @@
 
     <link
         rel="preload"
-        href="{% static 'fonts/ClashDisplay-Variable.woff2' %}"
+        href="{% static 'fonts/Nunito-Variable-latin.woff2' %}"
         as="font"
         type="font/woff2"
         crossorigin
@@ -41,15 +41,7 @@
 
     <link
         rel="preload"
-        href="{% static 'fonts/SpaceGrotesk-Variable.woff2' %}"
-        as="font"
-        type="font/woff2"
-        crossorigin
-    >
-
-    <link
-        rel="preload"
-        href="{% static 'fonts/Manrope-Variable.woff2' %}"
+        href="{% static 'fonts/Nunito-Variable-cyrillic.woff2' %}"
         as="font"
         type="font/woff2"
         crossorigin
@@ -321,6 +313,14 @@
 
     </ul>
 
+    <!-- Reading progress: fills along the header's bottom edge as the page scrolls.
+         The homepage and the contact page opt out. -->
+    {% block reading_progress %}
+    <div class="reading-progress" aria-hidden="true">
+        <div class="reading-progress__fill"></div>
+    </div>
+    {% endblock %}
+
 </header>
 
 {% endblock %}
@@ -354,25 +354,6 @@
 
                 </ul>
 
-
-                <!-- Groups -->
-                <ul class="mobile-menu__list">
-
-                    {% for category in cats %}
-
-                        {% if category.pk != 10 %}
-
-                            <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
-                                <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
-                                    {{ category.name }}
-                                </a>
-                            </li>
-
-                        {% endif %}
-
-                    {% endfor %}
-
-                </ul>
 
             </div>
 
@@ -433,8 +414,8 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-choosing-dog' %}" title="{% trans 'Choosing the right dog' %}">
-                        {% trans "Choosing the right dog" %}
+                    <a href="{% url 'guide-choosing-dog' %}" title="{% trans 'Choosing the dog' %}">
+                        {% trans "Choosing the dog" %}
                     </a>
                 </li>
 

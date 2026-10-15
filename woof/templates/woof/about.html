@@ -32,16 +32,6 @@
 
     <div class="post-text-explore">
 
-        <img
-            src="{% static 'aboutus.webp' %}"
-            alt="{% trans 'About us' %}"
-            class="guide-image image-aboutus"
-            width="260"
-            height="230"
-            fetchpriority="high"
-            decoding="async"
-        >
-
         <p class="section-title">{% trans "Welcome!" %}</p>
 
         <p class="cat-desc">
@@ -92,9 +82,7 @@
                 <a href="https://www.fci.be"
                    target="_blank"
                    class="link-site"
-                   title="{% trans 'FCI website' %}">
-                    {% trans "FCI website" %}.
-                </a>
+                   title="{% trans 'FCI website' %}">{% trans "FCI website" %}.</a>
             </strong>
         </p>
 
@@ -103,9 +91,7 @@
             <strong>
                 <a href="{% url 'guides' %}"
                    class="link-site"
-                   title="{% trans 'Guides section' %}">
-                    {% trans "Guides section" %}.
-                </a>
+                   title="{% trans 'Guides section' %}">{% trans "Guides section" %}.</a>
             </strong>
         </p>
 

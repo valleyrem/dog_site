@@ -11,6 +11,7 @@ from woof.models import (
     Category,
     CoatLength,
     CoatType,
+    Country,
     Dogs,
     Section,
     Temperament,
@@ -410,7 +411,6 @@ class Command(BaseCommand):
 
             short_updates = {
                 "varieties_it": VARIETIES_IT,
-                "country_it": COUNTRY_IT,
                 "colors_it": COLORS_IT,
             }
             for fname, mapping in short_updates.items():
@@ -423,3 +423,11 @@ class Command(BaseCommand):
                         dog.save(update_fields=[fname])
                         count += 1
                 self.stdout.write(f"Dogs.{fname} filled: {count}")
+            country_filled = 0
+            for c in Country.objects.all():
+                it_val = COUNTRY_IT.get(c.name)
+                if it_val and not c.name_it:
+                    c.name_it = it_val
+                    c.save(update_fields=["name_it"])
+                    country_filled += 1
+            self.stdout.write(f"Country.name_it filled: {country_filled}")

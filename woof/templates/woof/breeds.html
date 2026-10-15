@@ -1,0 +1,71 @@
+{% extends 'woof/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs-wrapper">
+
+    <div class="breadcrumbs">
+
+        <a href="{% url 'home' %}"
+           title="{% trans 'Home' %}"
+           class="link-policies">
+            <img src="{% static 'house.svg' %}"
+                 alt="{% trans 'Home' %}"
+                 class="icon-bread"
+                 width="12"
+                 height="12"
+            >
+        </a>
+
+        <span>/</span>
+
+        <span class="current">{% blocktranslate trimmed %}Breeds{% endblocktranslate %}</span>
+
+    </div>
+
+</div>
+
+
+<!-- Breeds content -->
+<div class="post-container">
+
+    <!-- Page title -->
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Breeds{% endblocktranslate %}</h1>
+
+    <p class="section-title">{% blocktranslate trimmed %}Explore breeds by size, temperament, lifestyle and more.{% endblocktranslate %}</p>
+
+
+    <div class="post-text-explore">
+
+        <p class="cat-desc">{% blocktranslate trimmed %}This page helps you navigate dog breeds based on real-life needs rather than appearance alone.{% endblocktranslate %}</p>
+
+    </div>
+
+
+    <!-- Size filter -->
+    <div class="breeds-filter" data-breeds-filter>
+
+        <button type="button" class="filter-btn is-active" data-filter="all">{% blocktranslate trimmed %}All breeds{% endblocktranslate %}</button>
+
+        {% for f in filters %}
+            <button type="button" class="filter-btn" data-filter="{{ f.key }}">{{ f.title }}</button>
+        {% endfor %}
+
+    </div>
+
+
+    <!-- Every published breed -->
+    <div class="breeds-grid" data-breeds-grid>
+
+        {% for dog in dogs %}
+            {% include "woof/includes/dog_card.html" %}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

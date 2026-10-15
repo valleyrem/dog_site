@@ -1,4 +1,6 @@
 {% extends 'woof/base.html' %}
+
+{% block reading_progress %}{% endblock %}
 {% load i18n %}
 {% load static %}
 
@@ -117,7 +119,7 @@
                     {% endfor %}
 
                     <p class="form-oferta">
-                        {% blocktranslate trimmed %}By clicking "Send" button, you allow WoofDogs to process your information in accordance with our{% endblocktranslate %}
+                        {% blocktranslate trimmed %}By clicking «Send» button, you allow WoofDogs to process your information in accordance with our{% endblocktranslate %}
                         <a href="https://woofdogs.world/privacy-policy/"
                            target="_blank">{% blocktranslate trimmed %}Privacy Policy{% endblocktranslate %}</a>.
                     </p>

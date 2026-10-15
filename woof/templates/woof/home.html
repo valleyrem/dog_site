@@ -1,4 +1,6 @@
 {% extends 'woof/base.html' %}
+
+{% block reading_progress %}{% endblock %}
 {% load static %}
 {% load i18n %}
 {% load cards %}
@@ -55,7 +57,7 @@
 
         </ul>
 
-        <!-- Groups -->
+<!--        &lt;!&ndash; Groups &ndash;&gt;
         <ul class="mobile-menu__list">
 
             {% for category in cats %}
@@ -72,7 +74,7 @@
 
             {% endfor %}
 
-        </ul>
+        </ul>-->
 
     </div>
 
@@ -237,8 +239,8 @@
                         </div>
 
                         <p class="homepage-subsubtitle">
-                            {% blocktranslate trimmed %}A simple way to find a dog that really fits your lifestyle,
-                            your home, and your everyday rhythm — and feels like it belongs there{% endblocktranslate %}
+                            {% blocktranslate trimmed %}A simple way to find a dog that fits your lifestyle,
+                            home and everyday rhythm — and feels like it belongs there{% endblocktranslate %}
                         </p>
 
                     </div>
@@ -271,15 +273,6 @@
 
                 </div>
 
-                <!-- Hero scroll arrow -->
-                <a href="#explore"
-                   class="hero-arrow"
-                   title="{% trans 'Scroll down' %}">
-
-                    <div class="arrow-icon"></div>
-
-                </a>
-
             </div>
 
         </div>
@@ -287,13 +280,39 @@
     </div>
 
     <!-- Breed marquee -->
-    <div class="breed-marquee" aria-hidden="true">
+    <div class="breed-marquee">
 
-        <div class="breed-marquee__track">
+        <div class="breed-marquee__mask" aria-hidden="true">
 
-            {% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}{% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}
+            <div class="breed-marquee__track">
+
+                {% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}{% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}
+
+            </div>
 
         </div>
+
+        <button type="button"
+                class="marquee-toggle"
+                id="marqueeToggle"
+                aria-label="{% trans 'Pause' %}"
+                aria-pressed="false"
+                data-label-pause="{% trans 'Pause' %}"
+                data-label-play="{% trans 'Play' %}"
+                title="{% trans 'Pause' %}">
+
+            <svg class="marquee-icon marquee-icon--pause" width="10" height="12"
+                 viewBox="0 0 10 12" aria-hidden="true" focusable="false">
+                <rect x="0" y="0" width="3.4" height="12" fill="currentColor"/>
+                <rect x="6.6" y="0" width="3.4" height="12" fill="currentColor"/>
+            </svg>
+
+            <svg class="marquee-icon marquee-icon--play" width="10" height="12"
+                 viewBox="0 0 10 12" aria-hidden="true" focusable="false">
+                <path d="M0 0 10 6 0 12Z" fill="currentColor"/>
+            </svg>
+
+        </button>
 
     </div>
 
@@ -336,43 +355,7 @@
 
                         {% for dog in posts %}
 
-                            <a href="{{ dog.get_absolute_url }}"
-                               class="dog-card-link"
-                               title="{{ dog.title }}">
-
-                                <div class="dog-card">
-
-                                    {% if dog.photo %}
-
-                                        <img src="{{ dog.photo_card.url }}"
-                                             alt="{{ dog.title }}"
-                                             class="dog-card__image"
-                                             height="300"
-                                             loading="lazy"
-                                             decoding="async"
-                                        >
-
-                                    {% endif %}
-
-                                    <div class="dog-card__info">
-
-                                        <p class="dog-card__title">
-                                            {{ dog.title }}
-                                        </p>
-
-                                        <p class="dog-card__group">
-                                            {{ dog.cat }}
-                                        </p>
-
-                                        <p class="dog-card__section">
-                                            {{ dog.section }}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </a>
+                            {% include "woof/includes/dog_card.html" %}
 
                         {% endfor %}
 

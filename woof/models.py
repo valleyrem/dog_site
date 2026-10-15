@@ -28,6 +28,29 @@ class Temperament(models.Model):
         return self.name
 
 
+class Country(models.Model):
+    """Country of origin for breeds.
+
+    The base ``name`` field holds the English spelling; translations
+    (``name_ru``, ``name_de``, ...) are added by django-modeltranslation,
+    so choosing a country once in English shows it translated on the site
+    in every language automatically.
+    """
+
+    name = models.CharField(
+        max_length=100, unique=True, db_index=True, verbose_name="Country (English)"
+    )
+    sort_order = models.PositiveIntegerField(default=0, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Country of origin"
+        verbose_name_plural = "Countries of origin"
+
+
 class Dogs(models.Model):
     BARKING_CHOICES = [
         ("necessary", _("When necessary (rare, purposeful)")),
@@ -38,22 +61,15 @@ class Dogs(models.Model):
     ]
 
     SIZE_CHOICES = [
-        ("xsmall", _("XSmall")),
         ("small", _("Small")),
-        ("small_medium", _("Small to Medium")),
-        ("small_large", _("Small to Large")),
         ("medium", _("Medium")),
-        ("medium_large", _("Medium to Large")),
         ("large", _("Large")),
-        ("xlarge", _("XLarge")),
     ]
 
     SIZE_INDEX = {
-        "xsmall": 1,
-        "small": 2,
-        "medium": 3,
-        "large": 4,
-        "xlarge": 5,
+        "small": 1,
+        "medium": 2,
+        "large": 3,
     }
 
     COAT_LENGTH_CHOICES = [
@@ -127,8 +143,13 @@ class Dogs(models.Model):
 
     varieties = models.CharField(max_length=255, blank=True, verbose_name="Varieties")
 
-    country = models.CharField(
-        max_length=100, blank=True, verbose_name="Country / Region of origin"
+    country = models.ForeignKey(
+        "Country",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="dogs",
+        verbose_name="Country of origin",
     )
 
     # photo
@@ -218,6 +239,7 @@ class Dogs(models.Model):
 
     # description
     summary = models.TextField(blank=True, verbose_name="Summary")
+    history = models.TextField(blank=True, verbose_name="History & origin")
     care = models.TextField(blank=True, verbose_name="Care")
     living_conditions = models.TextField(blank=True, verbose_name="Conditions")
 

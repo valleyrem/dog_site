@@ -1,0 +1,42 @@
+{% comment %}
+One breed card, shared by every slider and grid: a patterned square
+with a small round photo, the group and the breed name. The pattern
+changes with the card's position in the row (:nth-child).
+{% endcomment %}
+<a href="{{ dog.get_absolute_url }}"
+   class="dog-card-link"
+   data-filters="{{ dog.filter_keys }}"
+   title="{{ dog.title }}">
+
+    <div class="dog-card">
+
+        <div class="dog-card__art" aria-hidden="true">
+
+            {% if dog.photo %}
+                {% comment %}
+                photo_card keeps the original portrait aspect, so the dog
+                fills the frame instead of the tight 4:3 crop photo_thumb
+                produced (cover then cut off the top and bottom).
+                {% endcomment %}
+                <img src="{{ dog.photo_card.url }}"
+                     alt=""
+                     class="dog-card__avatar"
+                     width="700"
+                     height="500"
+                     loading="lazy"
+                     decoding="async">
+            {% endif %}
+
+        </div>
+
+        <div class="dog-card__info">
+
+            <p class="dog-card__group">{{ dog.cat }}</p>
+
+            <p class="dog-card__title">{{ dog.title }}</p>
+
+        </div>
+
+    </div>
+
+</a>
