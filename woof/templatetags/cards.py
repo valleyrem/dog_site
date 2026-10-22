@@ -1,5 +1,7 @@
 from django import template
 
+from woof.utils import nobreak_range as utils_nobreak_range
+
 register = template.Library()
 
 # One soft accent colour per FCI group number (0 = outside classification).
@@ -58,3 +60,9 @@ def fci_pale(value):
 def fci_dark(value):
     """Readable version of the same hue (contrast ~3.0 on white) for text."""
     return FCI_DARK.get(value, "#9890AC")
+
+
+@register.filter
+def nobreak_range(value):
+    """См. woof.utils.nobreak_range (общая логика с API сравнения)."""
+    return utils_nobreak_range(value)

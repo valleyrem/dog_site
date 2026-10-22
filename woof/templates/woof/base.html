@@ -7,6 +7,10 @@
 
 <head>
 
+    <!-- Marks JS as available before first paint, so lazily-loaded breed
+         cards stay hidden until their photo loads (no title flash). -->
+    <script>document.documentElement.classList.add("js");</script>
+
     <!-- Google Tag Manager is NOT loaded here anymore.
          It is injected by woof/js/scripts.js ONLY after the visitor
          grants analytics consent through the cookie banner (GDPR). -->

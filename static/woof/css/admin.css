@@ -1,85 +1,198 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("/static/fonts/Nunito-Variable-cyrillic-ext.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: optional;
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/static/fonts/Nunito-Variable-cyrillic.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: optional;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/static/fonts/Nunito-Variable-latin-ext.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: optional;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/static/fonts/Nunito-Variable-latin.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: optional;
+}
+
+:root,
 html[data-theme="light"],
-:root {
-    --primary: #56208c;
-    --secondary: #417690;
-    --accent: #fbfbfb;
-    --primary-fg: #fbfbfb;
+html[data-theme="dark"] {
 
-    --body-fg: #04202c;
-    --body-bg: #fbfbfb;
-    --body-quiet-color: #666;
-    --body-medium-color: #444;
-    --body-loud-color: #1C2B27;
+  --primary: #028d6a;
+  --secondary: #0b3d31;
+  --accent: #028d6a;
+  --primary-fg: #ffffff;
 
-    --header-color: #fbfbfb;
-    --header-branding-color: var(--accent);
-    --header-bg: var(--secondary);
-    --header-link-color: var(--primary-fg);
+  --body-fg: #0b3d31;
+  --body-bg: #ffffff;
+  --body-quiet-color: #3f5f53;
+  --body-medium-color: #0b3d31;
+  --body-loud-color: #06241d;
 
-    --breadcrumbs-fg: #c4dce8;
-    --breadcrumbs-link-fg: var(--body-bg);
-    --breadcrumbs-bg: #264b5d;
+  --header-color: #0b3d31;
+  --header-branding-color: #0b3d31;
+  --header-bg: #ffffff;
+  --header-link-color: #0b3d31;
 
-    --link-fg: #417893;
-    --link-hover-color: #036;
-    --link-selected-fg: var(--secondary);
+  --breadcrumbs-fg: #4c6b5e;
+  --breadcrumbs-link-fg: #0b3d31;
+  --breadcrumbs-bg: #ffffff;
 
-    --hairline-color: #e8e8e8;
-    --border-color: #ccc;
+  --link-fg: #0b3d31;
+  --link-hover-color: #0b3d31;
+  --link-selected-fg: #0b3d31;
 
-    --error-fg: #ba2121;
+  --hairline-color: #d7e0db;
+  --border-color: #b7c7bf;
 
-    --message-success-bg: #dfd;
-    --message-warning-bg: #fbfbfb;
-    --message-error-bg: #ffefef;
+  --error-fg: #b23a2c;
 
-    --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
-    --selected-bg: #e4e4e4; /* E.g. selected table cells */
-    --selected-row: #c9d1c8;
+  --message-success-bg: #d8ebe4;
+  --message-warning-bg: #f5ecd0;
+  --message-error-bg: #f4dedb;
 
-    --button-fg: #fbfbfb;
-    --button-bg: var(--secondary);
-    --button-hover-bg: #205067;
-    --default-button-bg: #205067;
-    --default-button-hover-bg: var(--secondary);
-    --close-button-bg: #747474;
-    --close-button-hover-bg: #333;
-    --delete-button-bg: #ba2121;
-    --delete-button-hover-bg: #a41515;
+  --darkened-bg: #f4f7f5;
+  --selected-bg: #d3e7de;
+  --selected-row: #c8e0d6;
 
-    --object-tools-fg: var(--button-fg);
-    --object-tools-bg: var(--close-button-bg);
-    --object-tools-hover-bg: var(--close-button-hover-bg);
+  --button-fg: #ffffff;
+  --button-bg: #028d6a;
+  --button-hover-bg: #0b3d31;
+  --default-button-bg: #028d6a;
+  --default-button-hover-bg: #0b3d31;
+  --close-button-bg: #b23a2c;
+  --close-button-hover-bg: #8c2c20;
+  --delete-button-bg: #b23a2c;
+  --delete-button-hover-bg: #8c2c20;
 
-    --font-family-primary:
-        "Segoe UI",
-        system-ui,
-        Roboto,
-        "Helvetica Neue",
-        Arial,
-        sans-serif,
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Noto Color Emoji";
-    --font-family-monospace:
-        ui-monospace,
-        Menlo,
-        Monaco,
-        "Cascadia Mono",
-        "Segoe UI Mono",
-        "Roboto Mono",
-        "Oxygen Mono",
-        "Ubuntu Monospace",
-        "Source Code Pro",
-        "Fira Mono",
-        "Droid Sans Mono",
-        "Courier New",
-        monospace,
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Noto Color Emoji";
+  --object-tools-fg: #ffffff;
+  --object-tools-bg: #0b3d31;
+  --object-tools-hover-bg: #06231c;
 
-    color-scheme: light;
+  --font-family-primary: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-family-monospace: ui-monospace, Menlo, Monaco, "Cascadia Mono", monospace;
+
+  color-scheme: light;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="date"],
+input[type="datetime-local"],
+select,
+textarea,
+button,
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button,
+.related-widget-wrapper a,
+ul.errorlist,
+.messages .messagelist li {
+  border-radius: 0;
+}
+
+.module,
+.login-related,
+#content {
+  border-color: var(--hairline-color);
+}
+
+.results tbody tr:hover {
+  background-color: var(--selected-bg);
+}
+
+.selector .selector-chosen-title,
+.selector-chosen-title {
+  background: var(--header-bg);
+  color: var(--header-color);
+}
+
+.selector .selector-chosen-title label,
+.selector-chosen-title label {
+  color: var(--header-color);
+}
+
+.selector .selector-chosen .list-footer-display {
+  background: var(--selected-bg);
+  color: var(--header-color);
+}
+
+.selector .selector-chosen .list-footer-display__clear {
+  color: var(--header-color);
+}
+
+#site-name a:link,
+#site-name a:visited {
+  color: var(--header-color);
+}
+
+.module,
+#changelist-resulttable,
+.inline-group,
+.form-row fieldset,
+.messages .messagelist {
+  border: 1px solid var(--border-color);
+}
+
+.module > h2,
+.module > h3,
+.inline-group > h3 {
+  border-top: none;
+}
+
+#content-title,
+.module > h2,
+.module > h3,
+.inline-group > h3,
+.breadcrumbs,
+.submit-row input,
+.form-row label,
+.aligned label {
+  font-weight: 700;
+}
+
+#content a:link,
+#content a:visited,
+.breadcrumbs a:link,
+.breadcrumbs a:visited {
+  color: var(--link-fg);
+}
+
+#content a:hover,
+#content a:focus,
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+  color: var(--link-fg);
+  text-decoration: underline;
+}
+
+#content .object-tools a:link,
+#content .object-tools a:visited,
+#content .object-tools a:hover,
+#content .object-tools a:focus {
+  color: var(--object-tools-fg);
+  text-decoration: none;
 }

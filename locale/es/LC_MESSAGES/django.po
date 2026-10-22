@@ -2762,19 +2762,6 @@ msgid "%(years)s years"
 msgstr "%(years)s años"
 
 #: woof/templates/woof/post.html:238
-msgid "Height & Weight"
-msgstr "Altura y peso"
-
-#: woof/templates/woof/post.html:243
-#, python-format
-msgid "%(h)s cm, %(w)s kg"
-msgstr "%(h)s cm, %(w)s kg"
-
-#: woof/templates/woof/post.html:245
-msgid ""
-"Range includes values for both males and females. Individual values may vary "
-"by sex."
-msgstr "El rango incluye valores para ambos sexos. Los valores individuales pueden variar según el sexo."
 
 #: woof/templates/woof/post.html:254 woof/templates/woof/post.html:571
 msgid "Trainability"
@@ -2795,10 +2782,6 @@ msgstr "Apto para alérgicos"
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Apto para familias"
-
-#: woof/templates/woof/post.html:294 woof/templates/woof/post.html:569
-msgid "Coat"
-msgstr "Pelo"
 
 #: woof/templates/woof/post.html:311
 msgid "Colors"
@@ -2868,10 +2851,6 @@ msgstr "Comparar razas"
 #: woof/templates/woof/post.html:551
 msgid "Select breed"
 msgstr "Seleccionar raza"
-
-#: woof/templates/woof/post.html:568
-msgid "Height / Weight"
-msgstr "Altura / Peso"
 
 #: woof/templates/woof/post.html:572
 msgid "Activity"
@@ -4232,3 +4211,36 @@ msgstr "Razas - Woof Dogs"
 #: woof/views.py:617
 msgid "Groups - Woof Dogs"
 msgstr "Grupos - Woof Dogs"
+
+msgid "Group, section"
+msgstr "Grupo, sección"
+
+msgid "Coat type"
+msgstr "Tipo de pelaje"
+
+msgid "Coat length"
+msgstr "Longitud del pelaje"
+
+msgid "Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Las variedades dentro de una misma raza son variantes de perros reconocidas oficialmente, unidas por un único estándar y número de raza, pero que difieren en rasgos clave: tipo de pelaje, tamaño, peso o color. A veces las diferencias de color son tan significativas que esas líneas se separan en variedades distintas."
+
+msgid "More breeds"
+msgstr "Más razas"
+
+msgid "Photographs remain the property of their respective authors and are used under the licences of the platforms they come from (Pixabay, Unsplash, Pexels) or, for Wikimedia Commons images, under their respective Creative Commons licences, with credit shown beneath each photograph. Authors who wish an image to be removed or re-credited can contact us via the link below."
+msgstr "Las fotografías siguen siendo propiedad de sus respectivos autores y se utilizan según las licencias de las plataformas de las que proceden (Pixabay, Unsplash, Pexels) o, en el caso de las imágenes de Wikimedia Commons, según sus respectivas licencias Creative Commons, con el crédito indicado bajo cada fotografía. Los autores que deseen que se retire una imagen o que se les acredite de otra forma pueden contactarnos mediante el enlace de abajo."
+
+msgid "Contact page"
+msgstr "Página de contacto"
+
+msgid "This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —"
+msgstr "Este sitio no es comercial. Todas las imágenes se utilizan con la atribución de su autor. Si cree que algún contenido vulnera sus derechos, que el crédito es incorrecto o desea que se retire una imagen —"
+
+msgid "Height"
+msgstr "Altura"
+
+msgid "Weight"
+msgstr "Peso"
+
+msgid "and"
+msgstr "y"

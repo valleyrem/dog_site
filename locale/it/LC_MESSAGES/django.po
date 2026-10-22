@@ -3682,21 +3682,6 @@ msgid "%(years)s years"
 msgstr "%(years)s anni"
 
 #: woof/templates/woof/post.html:238
-msgid "Height & Weight"
-msgstr "Altezza e peso"
-
-#: woof/templates/woof/post.html:243
-#, python-format
-msgid "%(h)s cm, %(w)s kg"
-msgstr "%(h)s cm, %(w)s kg"
-
-#: woof/templates/woof/post.html:245
-msgid ""
-"Range includes values for both males and females. Individual values may vary "
-"by sex."
-msgstr ""
-"L'intervallo include i valori per maschi e femmine. I valori individuali "
-"possono variare in base al sesso."
 
 #: woof/templates/woof/post.html:254 woof/templates/woof/post.html:571
 msgid "Trainability"
@@ -3717,10 +3702,6 @@ msgstr "Adatto agli allergici"
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Adatto alle famiglie"
-
-#: woof/templates/woof/post.html:294 woof/templates/woof/post.html:569
-msgid "Coat"
-msgstr "Pelo"
 
 #: woof/templates/woof/post.html:311
 msgid "Colors"
@@ -3790,10 +3771,6 @@ msgstr "Confronta le razze"
 #: woof/templates/woof/post.html:551
 msgid "Select breed"
 msgstr "Seleziona razza"
-
-#: woof/templates/woof/post.html:568
-msgid "Height / Weight"
-msgstr "Altezza / Peso"
 
 #: woof/templates/woof/post.html:572
 msgid "Activity"
@@ -5453,3 +5430,36 @@ msgstr "Gruppi - Woof Dogs"
 
 #~ msgid "Questions may be sent to"
 #~ msgstr "Le domande possono essere inviate a"
+
+msgid "Group, section"
+msgstr "Gruppo, sezione"
+
+msgid "Coat type"
+msgstr "Tipo di pelo"
+
+msgid "Coat length"
+msgstr "Lunghezza del pelo"
+
+msgid "Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Le varietà all'interno di una razza sono varianti di cani ufficialmente riconosciute, accomunate da un unico standard e numero di razza, ma differenti per tratti chiave: tipo di pelo, taglia, peso o colore. A volte le differenze di colore sono così rilevanti che tali linee vengono distinte in varietà separate."
+
+msgid "More breeds"
+msgstr "Più razze"
+
+msgid "Photographs remain the property of their respective authors and are used under the licences of the platforms they come from (Pixabay, Unsplash, Pexels) or, for Wikimedia Commons images, under their respective Creative Commons licences, with credit shown beneath each photograph. Authors who wish an image to be removed or re-credited can contact us via the link below."
+msgstr "Le fotografie restano di proprietà dei rispettivi autori e sono utilizzate secondo le licenze delle piattaforme da cui provengono (Pixabay, Unsplash, Pexels) o, per le immagini di Wikimedia Commons, secondo le rispettive licenze Creative Commons, con l'attribuzione indicata sotto ogni fotografia. Gli autori che desiderano la rimozione di un'immagine o un'attribuzione diversa possono contattarci tramite il link qui sotto."
+
+msgid "Contact page"
+msgstr "Pagina dei contatti"
+
+msgid "This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —"
+msgstr "Questo sito non è commerciale. Tutte le immagini sono utilizzate con l'attribuzione dell'autore. Se ritieni che un contenuto violi i tuoi diritti, che l'attribuzione sia errata o desideri la rimozione di un'immagine —"
+
+msgid "Height"
+msgstr "Altezza"
+
+msgid "Weight"
+msgstr "Peso"
+
+msgid "and"
+msgstr "e"

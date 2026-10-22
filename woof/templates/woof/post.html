@@ -107,6 +107,25 @@
         <span class="img-enlarge-hint">{% trans "Click to enlarge" %}</span>
     </div>
 
+    {% if post.gallery.all %}
+    <button type="button"
+            class="main-img-arrow prev"
+            aria-label="{% trans 'Previous' %}">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M9 3 L5 7 L9 11" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <button type="button"
+            class="main-img-arrow next"
+            aria-label="{% trans 'Next' %}">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M5 3 L9 7 L5 11" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    {% endif %}
+
     {# Navigation dots: one per photo, the selected one is filled #}
     <div class="post-image-dots" aria-hidden="true">
         <span class="post-image-dot is-active"></span>
@@ -177,31 +196,27 @@
             <span class="post-table__label">{% trans "Parameters" %}</span>
 
         <div class="post-params-grid">
-
         <div class="param-card wide">
             <div class="top">
                 <span class="icon">🐾</span>
-                <span>{% blocktranslate trimmed %}Group{% endblocktranslate %}</span>
+                <span>{% blocktranslate trimmed %}Group, section{% endblocktranslate %}</span>
             </div>
             <strong>
                 <a href="{{ post.cat.get_absolute_url }}"
                    class="param-link"
-                   title="{{ post.cat }}">{{ post.cat }}</a>
+                   title="{{ post.cat }}">{{ post.cat }}</a>{% if post.section %}, {{ post.section }}{% endif %}
             </strong>
         </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">🧩</span>
-                <span>{% blocktranslate trimmed %}Section{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.section }}</strong>
-        </div>
-
-        <div class="param-card">
+        <div class="param-card wide">
             <div class="top">
                 <span class="icon">🧬</span>
                 <span>{% blocktranslate trimmed %}Varieties{% endblocktranslate %}</span>
+                <span class="param-info">
+                    ⓘ<span class="param-tooltip">
+                        {% blocktranslate trimmed %}Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties.{% endblocktranslate %}
+                    </span>
+                </span>
             </div>
             <strong>{{ post.varieties }}</strong>
         </div>
@@ -230,23 +245,38 @@
             <strong>{% blocktranslate trimmed with years=post.life_expectancy %}{{ years }} years{% endblocktranslate %}</strong>
         </div>
 
-    <div class="param-card">
-        <div class="top">
-            <span class="icon">↕️</span>
-
-            <span>
-                {% blocktranslate trimmed %}Height & Weight{% endblocktranslate %}
-            </span>
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">↕️</span>
+                <span>{% blocktranslate trimmed %}Height{% endblocktranslate %}</span>
+            </div>
+            <strong><span class="sex-mark">♂</span>&nbsp;{{ post.height_male|nobreak_range }}&nbsp;{% trans "cm" %}, <br class="sex-break"><span class="sex-mark">♀</span>&nbsp;{{ post.height_female|nobreak_range }}&nbsp;{% trans "cm" %}</strong>
         </div>
 
-        <strong>
-            {% blocktranslate trimmed with h=post.height w=post.weight %}{{ h }} cm, {{ w }} kg{% endblocktranslate %} <span class="param-info">
-                    ⓘ<span class="param-tooltip">
-                        {% blocktranslate trimmed %}Range includes values for both males and females. Individual values may vary by sex.{% endblocktranslate %}
-                    </span>
-                </span>
-        </strong>
-    </div>
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">⚖️</span>
+                <span>{% blocktranslate trimmed %}Weight{% endblocktranslate %}</span>
+            </div>
+            <strong><span class="sex-mark">♂</span>&nbsp;{{ post.weight_male|nobreak_range }}&nbsp;{% trans "kg" %}, <br class="sex-break"><span class="sex-mark">♀</span>&nbsp;{{ post.weight_female|nobreak_range }}&nbsp;{% trans "kg" %}</strong>
+        </div>
+
+        <div class="param-card">
+
+            <div class="top">
+                <span class="icon">🐩</span>
+                <span>{% blocktranslate trimmed %}Coat type{% endblocktranslate %}</span>
+            </div>
+            <strong>{{ post.coat_type.all|join:" / " }}</strong>
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🐩</span>
+                <span>{% blocktranslate trimmed %}Coat length{% endblocktranslate %}</span>
+            </div>
+            <strong>{{ post.coat_length.all|join:" / " }}</strong>
+        </div>
 
         <div class="param-card">
             <div class="top">
@@ -274,14 +304,6 @@
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">🌱</span>
-                <span>{% blocktranslate trimmed %}Allergy friendly{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_hypoallergenic_display }}</strong>
-        </div>
-
-        <div class="param-card">
-            <div class="top">
                 <span class="icon">🏡</span>
                 <span>{% blocktranslate trimmed %}Family friendly{% endblocktranslate %}</span>
             </div>
@@ -290,20 +312,19 @@
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">🐩</span>
-                <span>{% blocktranslate trimmed %}Coat{% endblocktranslate %}</span>
+                <span class="icon">🌱</span>
+                <span>{% blocktranslate trimmed %}Allergy friendly{% endblocktranslate %}</span>
             </div>
-            <strong>{% if post.coat_length.all %}{{ post.coat_length.all|join:" / " }}{% if post.coat_type.all %}, {% endif %}{% endif %}{{ post.coat_type.all|join:" / " }}</strong>
+            <strong>{{ post.get_hypoallergenic_display }}</strong>
         </div>
 
-            <div class="param-card wide">
-        <div class="top">
-            <span class="icon">🎨</span>
-            <span>{% blocktranslate trimmed %}Colors{% endblocktranslate %}</span>
+        <div class="param-card wide">
+            <div class="top">
+                <span class="icon">🎨</span>
+                <span>{% blocktranslate trimmed %}Colors{% endblocktranslate %}</span>
+            </div>
+            <strong>{{ post.colors }}</strong>
         </div>
-        <strong>{{ post.colors }}</strong>
-    </div>
-
     </div>
             </div>
             <!-- /post-table -->
@@ -327,6 +348,9 @@
 
     </div>
 
+    <p class="images-rule">{% blocktranslate trimmed %}This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —{% endblocktranslate %}
+        <a href="{% url 'contact' %}" class="link-policies">{% trans "contact us" %}</a>.</p>
+
     <!-- Breed texts: three columns under the media block -->
     <div class="post-text">
 
@@ -340,8 +364,8 @@
                        style="text-decoration: underline;">{% blocktranslate trimmed %}Pomeranian{% endblocktranslate %}</a>
                 </strong><br>
 
-                {% blocktranslate trimmed %}Varieties of German Spitz by size:{% endblocktranslate %}
-                <strong>{% blocktranslate trimmed %}Miniature, Medium, Giant{% endblocktranslate %}</strong><br>
+<!--                {% blocktranslate trimmed %}Varieties of German Spitz by size:{% endblocktranslate %}
+                <strong>{% blocktranslate trimmed %}Miniature, Medium, Giant{% endblocktranslate %}</strong><br>-->
             </p>
         {% endif %}
 
@@ -369,12 +393,6 @@
         <p class="section-title">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</p>
         <p class="cat-desc">{{ post.living_conditions }}</p>
     </div>
-
-<!--<p class="images-rule">
-                This website is non-commercial. All images are used with attribution.
-                If you believe any content violates your rights, your credit is incorrect, or you would like an image removed, please
-                <a href="{% url 'contact' %}" class="link-policies">{% blocktranslate trimmed %}contact us{% endblocktranslate %}</a>.
-            </p>-->
 
 </div>
 
@@ -410,68 +428,61 @@ title="{% trans 'Next' %}"
     <span class="modal-zoom" id="modal-zoom" aria-hidden="true">100%</span>
 </div>
 
+<!-- Related dogs -->
+{% if related_dogs and post.slug != 'dachshund' %}
+<h2 class="section-title">{% trans "Other breeds in this group" %}</h2>
+<div class="slider-block related-block">
+    <div class="slider-inner">
+        <div class="slider-nav">
+                <button class="slider-arrow slider-prev disabled">
+                    <img src="{% static 'left.svg' %}"
+                         alt="{% trans 'Previous page' %}"
+title="{% trans 'Previous' %}"
+                         class="icon-post"
+                         width="18"
+                         height="23"
+                    >
+                </button>
+    <div class="dog-slider">
+    <div class="dog-slider-track">
+        {% for dog in related_dogs %}
+
+            {% include "woof/includes/dog_card.html" %}
+
+        {% endfor %}
+    </div>
+
+</div>
+
+        <button class="slider-arrow slider-next">
+            <img src="{% static 'right.svg' %}"
+                 alt="{% trans 'Next page' %}"
+title="{% trans 'Next' %}"
+                 class="icon-post"
+                 width="18"
+                 height="23"
+            >
+        </button>
+
+            </div>
+
+            <div class="slider-pagination" aria-live="polite">
+                <span class="slider-current">1</span>
+                <span class="slider-separator">/</span>
+                <span class="slider-total">1</span>
+            </div>
+
+        </div>
+
+    <button class="slider-showmore" type="button" hidden
+            data-showmore
+            data-label-more="{% trans 'Show more' %}"
+            data-label-less="{% trans 'Show less' %}">{% trans "Show more" %}</button>
+    </div>
+
+{% endif %}
+
 <!-- Compare dogs -->
-<!-- Prev / next breed navigation (before the compare table) -->
-<nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
-
-    {% if prev_post %}
-        <a href="{{ prev_post.get_absolute_url }}"
-           class="post-media-arrow post-media-prev"
-           title="{% trans 'Previous' %}">
-            <span class="post-media-caption">{% trans "Previous breed" %}</span>
-            <span class="post-media-arrow-body">
-                {% if prev_post.photo %}
-                    <span class="post-media-arrow-photo">
-                        <img src="{{ prev_post.photo_card.url }}"
-                             class="post-media-arrow-img"
-                             alt=""
-                             loading="lazy"
-                             decoding="async">
-                        <span class="post-media-arrow-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 14 14"
-                                 fill="none" aria-hidden="true">
-                                <path d="M9 3 L5 7 L9 11" stroke="#fff"
-                                      stroke-width="1.6" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </span>
-                {% endif %}
-                <span class="post-media-arrow-title">{{ prev_post.title }}</span>
-            </span>
-        </a>
-    {% endif %}
-
-    {% if next_post %}
-        <a href="{{ next_post.get_absolute_url }}"
-           class="post-media-arrow post-media-next"
-           title="{% trans 'Next' %}">
-            <span class="post-media-caption">{% trans "Next breed" %}</span>
-            <span class="post-media-arrow-body">
-                <span class="post-media-arrow-title">{{ next_post.title }}</span>
-                {% if next_post.photo %}
-                    <span class="post-media-arrow-photo">
-                        <img src="{{ next_post.photo_card.url }}"
-                             class="post-media-arrow-img"
-                             alt=""
-                             loading="lazy"
-                             decoding="async">
-                        <span class="post-media-arrow-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 14 14"
-                                 fill="none" aria-hidden="true">
-                                <path d="M5 3 L9 7 L5 11" stroke="#fff"
-                                      stroke-width="1.6" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </span>
-                {% endif %}
-            </span>
-        </a>
-    {% endif %}
-
-</nav>
-
 <div class="compare-section">
 
     <h2 class="section-title">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</h2>
@@ -493,7 +504,7 @@ title="{% trans 'Next' %}"
                  <span class="control-dog-name">{{ post.title }}</span>
             </div>
 
-            <span class="vs">vs</span>
+            <span class="vs">{% trans "and" %}</span>
 
             <div id="breedBCustom" class="custom-select">
                 <button type="button"
@@ -556,8 +567,10 @@ title="{% trans 'Next' %}"
              data-i18n-varieties="{% trans 'Varieties' %}"
              data-i18n-origin="{% trans 'Origin' %}"
              data-i18n-size="{% trans 'Size' %}"
-             data-i18n-height-weight="{% trans 'Height / Weight' %}"
-             data-i18n-coat="{% trans 'Coat' %}"
+             data-i18n-height="{% trans 'Height' %}"
+             data-i18n-weight="{% trans 'Weight' %}"
+             data-i18n-coat-type="{% trans 'Coat type' %}"
+             data-i18n-coat-length="{% trans 'Coat length' %}"
              data-i18n-life="{% trans 'Life expectancy' %}"
              data-i18n-trainability="{% trans 'Trainability' %}"
              data-i18n-activity="{% trans 'Activity' %}"
@@ -572,58 +585,66 @@ title="{% trans 'Next' %}"
 
 </div>
 
-<!-- Related dogs -->
-{% if related_dogs and post.slug != 'dachshund' %}
-<h2 class="section-title">{% trans "Other breeds in this group" %}</h2>
-<div class="slider-block related-block">
-    <div class="slider-inner">
-        <div class="slider-nav">
-                <button class="slider-arrow slider-prev disabled">
-                    <img src="{% static 'left.svg' %}"
-                         alt="{% trans 'Previous page' %}"
-title="{% trans 'Previous' %}"
-                         class="icon-post"
-                         width="18"
-                         height="23"
-                    >
-                </button>
-    <div class="dog-slider">
-    <div class="dog-slider-track">
-        {% for dog in related_dogs %}
+<h2 class="section-title">{% trans "More breeds" %}</h2>
+<!-- Prev / next breed navigation (closing the page) -->
+<nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
 
-            {% include "woof/includes/dog_card.html" %}
+    {% if prev_post %}
+        <a href="{{ prev_post.get_absolute_url }}"
+           class="post-media-arrow post-media-prev"
+           title="{% trans 'Previous' %}">
+            <span class="post-media-caption">{% trans "Previous breed" %}</span>
+            <span class="post-media-arrow-body">
+                {% if prev_post.photo %}
+                    <span class="post-media-arrow-photo">
+                        <img src="{{ prev_post.photo_card.url }}"
+                             class="post-media-arrow-img"
+                             alt=""
+                             loading="lazy"
+                             decoding="async">
+                        <span class="post-media-arrow-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 14 14"
+                                 fill="none" aria-hidden="true">
+                                <path d="M9 3 L5 7 L9 11" stroke="#fff"
+                                      stroke-width="1.6" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                {% endif %}
+                <span class="post-media-arrow-title">{{ prev_post.title }}</span>
+            </span>
+        </a>
+    {% endif %}
 
-        {% endfor %}
-    </div>
+    {% if next_post %}
+        <a href="{{ next_post.get_absolute_url }}"
+           class="post-media-arrow post-media-next"
+           title="{% trans 'Next' %}">
+            <span class="post-media-caption">{% trans "Next breed" %}</span>
+            <span class="post-media-arrow-body">
+                <span class="post-media-arrow-title">{{ next_post.title }}</span>
+                {% if next_post.photo %}
+                    <span class="post-media-arrow-photo">
+                        <img src="{{ next_post.photo_card.url }}"
+                             class="post-media-arrow-img"
+                             alt=""
+                             loading="lazy"
+                             decoding="async">
+                        <span class="post-media-arrow-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 14 14"
+                                 fill="none" aria-hidden="true">
+                                <path d="M5 3 L9 7 L5 11" stroke="#fff"
+                                      stroke-width="1.6" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                {% endif %}
+            </span>
+        </a>
+    {% endif %}
 
-</div>
-
-        <button class="slider-arrow slider-next">
-            <img src="{% static 'right.svg' %}"
-                 alt="{% trans 'Next page' %}"
-title="{% trans 'Next' %}"
-                 class="icon-post"
-                 width="18"
-                 height="23"
-            >
-        </button>
-
-            </div>
-
-            <div class="slider-pagination" aria-live="polite">
-                <span class="slider-current">1</span>
-                <span class="slider-separator">/</span>
-                <span class="slider-total">1</span>
-            </div>
-
-        </div>
-
-    <button class="slider-showmore" type="button" hidden
-            data-showmore
-            data-label-more="{% trans 'Show more' %}"
-            data-label-less="{% trans 'Show less' %}">{% trans "Show more" %}</button>
-    </div>
-
-{% endif %}
+</nav>
 
 {% endblock %}

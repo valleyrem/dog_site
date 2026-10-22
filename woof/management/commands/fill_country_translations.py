@@ -1,4 +1,4 @@
-"""Fill Country translation fields (RU/DE/IT/SR) for every known country.
+"""Fill Country translation fields (RU/UK/DE/IT/SR/ES) for every known country.
 
 Picks the English name from the Country model and fills the four
 translations from the same dictionaries the content-fill commands use.
@@ -10,17 +10,16 @@ Usage:
 
 from django.core.management.base import BaseCommand
 
+from woof import lang_data
 from woof.models import Country
-from woof.management.commands.fill_ru_content import COUNTRY
-from woof.management.commands.fill_de_content import COUNTRY_DE
-from woof.management.commands.fill_it_content import COUNTRY_IT
-from woof.management.commands.fill_sr_content import COUNTRY_SR
 
 MAPPINGS = (
-    ("name_ru", COUNTRY),
-    ("name_de", COUNTRY_DE),
-    ("name_it", COUNTRY_IT),
-    ("name_sr_latn", COUNTRY_SR),
+    ("name_ru", lang_data.load("ru")["countries"]),
+    ("name_uk", lang_data.load("uk")["countries"]),
+    ("name_de", lang_data.load("de")["countries"]),
+    ("name_it", lang_data.load("it")["countries"]),
+    ("name_sr_latn", lang_data.load("sr_latn")["countries"]),
+    ("name_es", lang_data.load("es")["countries"]),
 )
 
 # The content dictionaries were built from the old free-text values and
@@ -35,10 +34,10 @@ KEY_FIXES = {
 
 
 class Command(BaseCommand):
-    help = "Fill Country translations (RU/DE/IT/SR) for all known countries."
+    help = "Fill Country translations (RU/UK/DE/IT/SR/ES) for all known countries."
 
     def handle(self, *args, **options):
-        all_keys = set(COUNTRY) | set(COUNTRY_DE) | set(COUNTRY_IT) | set(COUNTRY_SR)
+        all_keys = set().union(*(mapping for _attr, mapping in MAPPINGS))
         known = sorted(KEY_FIXES.get(k, k) for k in all_keys)
         added = updated = 0
 

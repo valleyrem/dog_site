@@ -11,7 +11,7 @@ from django.core.cache import cache
 
 from .forms import ContactForm
 from .models import Category, Dogs
-from .utils import DEFAULT_META_DESCRIPTION, DataMixin, build_og_card_bytes
+from .utils import DEFAULT_META_DESCRIPTION, DataMixin, build_og_card_bytes, sex_pair
 
 from django.templatetags.static import static as static_url
 
@@ -682,8 +682,8 @@ def breed_api(request, pk):
             "country": dog.country.name if dog.country else "",
             "size": dog.get_size_display(),
             "life": dog.life_expectancy,
-            "height": dog.height,
-            "weight": dog.weight,
+            "height": sex_pair(dog.height_male, dog.height_female, "cm"),
+            "weight": sex_pair(dog.weight_male, dog.weight_female, "kg"),
             "trainability": dog.get_trainability_display(),
             "activity": dog.get_activity_level_display(),
             "colors": dog.colors,
@@ -691,8 +691,8 @@ def breed_api(request, pk):
             "barking": dog.get_barking_level_display(),
             "hypoallergenic": dog.get_hypoallergenic_display(),
             "family_friendliness": dog.get_family_friendliness_display(),
-            "coat_length": ", ".join(c.name for c in dog.coat_length.all()),
-            "coat_type": ", ".join(c.name for c in dog.coat_type.all()),
+            "coat_length": " / ".join(c.name for c in dog.coat_length.all()),
+            "coat_type": " / ".join(c.name for c in dog.coat_type.all()),
         }
     )
 

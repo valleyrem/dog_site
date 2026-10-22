@@ -1,5 +1,4 @@
 :root {
-  /* 60–30–10: warm paper base · emerald brand · clay accents */
   --color-bg: #f8f8f8;
   --surface: #ffffff;
   --main-text: #292e36;
@@ -8,8 +7,6 @@
   --main-accent: #028d6a;
   --accent-deep: #0b3d31;
   --clay: #c1704f;
-  --button-bg: #f0ebe4;
-  --sec-accent: #c1704f;
 }
 @media (min-width: 300px) and (max-width: 767px) {
   body.sidebar-open {
@@ -50,10 +47,6 @@
   .num-list a {
     font-size: 16px;
   }
-  /*.site-header {
-        left: 0;
-        right: 0;
-    }*/
   .nav-main {
     display: flex;
     align-items: center;
@@ -123,7 +116,6 @@
   }
   .mobile-menu__list--top {
     display: flex;
-    /* a single vertical column now — the category list is gone */
     flex-direction: column;
     gap: 15px;
     justify-content: flex-start;
@@ -185,13 +177,15 @@
   }
   .hero-photo {
     width: 100%;
-    max-height: 380px;
+    max-height: 420px;
   }
   .breed-marquee {
     padding: 14px 0;
     font-size: 12px;
   }
-
+  .breeds-grid {
+    gap: 10px;
+  }
   .breed-marquee__mask {
     -webkit-mask-image: none;
     mask-image: none;
@@ -307,9 +301,6 @@
     row-gap: 6px;
     height: auto;
   }
-
-  /* the body dissolves so the description spans both columns — like the
-     guide rows, it starts under the number */
   .group-body {
     display: contents;
   }
@@ -374,10 +365,6 @@
     align-self: start;
     margin-top: 8px;
   }
-
-
-
-  /* the header is 50px on phones — anchored headings land just below it */
   .section-title[id] {
     scroll-margin-top: 66px;
   }
@@ -425,12 +412,9 @@
     z-index: 2;
   }
   .dog-card-link {
-    /* block, not flex: as a flex container the link stretched the card to
-       the row height, which broke the square aspect-ratio on phones */
     display: block;
   }
   .dog-slider .dog-card-link {
-    /* two cards fit the screen width: basis halves the row, minus the gap */
     scroll-snap-align: start;
     flex: 0 0 calc((100% - 10px) / 2);
   }
@@ -467,9 +451,6 @@
     align-items: start;
     gap: 15px;
   }
-
-  /* the share icon rides the crumb line's right edge (absolute so the
-     tuned breadcrumb → title spacing stays untouched) */
   .breadcrumbs-wrapper .post-copy {
     position: absolute;
     right: 0;
@@ -481,13 +462,9 @@
   .breadcrumbs {
     padding-right: 28px;
   }
-
-  /* icon-only on phones — the crumb line stays compact */
   .post-copy-label {
     display: none;
   }
-
-  /* the confirmation pops up to the left of the icon, not below it */
   .breadcrumbs-wrapper .post-copy-toast {
     left: auto;
     right: calc(100% + 8px);
@@ -543,12 +520,21 @@
     margin-top: 14px;
   }
 
-  .guide-image-1, .guide-image-2, .guide-image-3, .guide-image-4, .guide-image-5, .guide-image-6, .guide-image-7, .guide-image-8 {
+  .guide-image-1,
+  .guide-image-2,
+  .guide-image-3,
+  .guide-image-4,
+  .guide-image-5,
+  .guide-image-6,
+  .guide-image-7,
+  .guide-image-8 {
     width: 100%;
     height: 100%;
   }
 
-  .fullwidth-content > .compare-section, .fullwidth-content > .section-title, .fullwidth-content > .slider-block {
+  .fullwidth-content > .compare-section,
+  .fullwidth-content > .section-title,
+  .fullwidth-content > .slider-block {
     padding-bottom: 0;
   }
   .post-media::before,
@@ -564,7 +550,6 @@
   .post-table {
     height: 100%;
   }
-  /* Prev / next card: stacked, one link per row */
   .post-media-nav {
     flex-direction: column;
     align-items: stretch;
@@ -582,7 +567,6 @@
 
   .post-table__part {
     padding: 20px 10px 22px;
-
   }
 
   .post-media-arrow-title {
@@ -596,7 +580,6 @@
     width: 40px;
     height: 40px;
   }
-  /* phones: no zoom / arrow overlay — hover would stick after a tap */
   .post-media-arrow-img {
     transform: none !important;
   }
@@ -617,33 +600,32 @@
   }
 
   .main-img-arrow {
+    display: none;
     border: 0px solid var(--main-text);
   }
 
   .main-img-arrow.next {
+
     right: 6px;
     left: auto;
     top: 50%;
     bottom: auto;
     transform: translateY(-50%);
     font-size: 24px;
-    color: #1c2b27;
     border-radius: 0;
-    background: rgba(255, 255, 255, 0.2);
     width: 35px;
     height: 35px;
     z-index: 20;
   }
   .main-img-arrow.prev {
+
     left: 6px;
     right: auto;
     top: 50%;
     bottom: auto;
     transform: translateY(-50%);
     font-size: 24px;
-    color: #1c2b27;
     border-radius: 0;
-    background: rgba(255, 255, 255, 0.2);
     width: 35px;
     height: 35px;
     z-index: 20;
@@ -697,10 +679,10 @@
     width: 100%;
   }
   .images-rule {
-    margin: 0 0 15px;
-    font-size: 10px;
-    color: gray;
-    line-height: 1.2;
+    margin: 12px 0 0;
+    font-size: 11px;
+    line-height: 1.45;
+    padding: 0 10px;
   }
   .modal-arrow.prev,
   .modal-arrow.next {
@@ -736,14 +718,16 @@
   .param-card .param-tooltip {
     text-align: center;
   }
+  .param-tooltip {
+    width: 190px;
+  }
+
   .param-title {
     gap: 5px;
   }
   .mini-gallery {
     display: none;
   }
-  /* Only the (hidden) mini-gallery images keep this size; the post-media
-     thumbnails use .post-thumb-img and must stay square. */
   .mini-gallery .gallery-image {
     width: 100%;
     height: 170px;
@@ -981,7 +965,6 @@
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
-  /* Mobile language switch: full names don't fit — short en/ru */
   .lang-form-desktop {
     display: none;
   }
@@ -993,7 +976,6 @@
     padding: 5px 26px 5px 10px;
     letter-spacing: 0.4px;
   }
-  /* Slider on mobile: arrows at the sides, pagination below the slider */
   .slider-nav {
     gap: 10px;
   }
@@ -1016,8 +998,6 @@
 }
 
 @media (min-width: 300px) and (max-width: 767px) {
-  /* Breadcrumbs on mobile: first and last crumbs fully,
-       middle — ellipsis */
   .breadcrumbs {
     display: flex;
     align-items: center;
@@ -1035,9 +1015,6 @@
     overflow-wrap: anywhere;
     font-weight: 350;
   }
-
-  /* Group page: long names truncate at the right edge,
-       short ones stay whole */
   .group-breadcrumbs,
   .group-breadcrumbs .breadcrumbs {
     flex-wrap: nowrap;
@@ -1065,9 +1042,6 @@
     width: 36px;
     height: 36px;
   }
-
-  /* phone arrows are bigger, so the pair sits a little further from the
-     right edge of the content line */
   .slider-nav .slider-prev {
     right: 46px;
   }
@@ -1156,13 +1130,6 @@
     margin: 0;
   }
 
-  /*
-    .layout-content {
-        padding: 15px 20px 100px;
-        width: 768px;
-    }
-*/
-
   .post-main-image {
     margin: 0 auto;
   }
@@ -1174,7 +1141,6 @@
     object-fit: cover;
   }
 
-
   .main-img-arrow.prev {
     left: 6px;
     right: auto;
@@ -1184,13 +1150,12 @@
   }
 
   .main-img-arrow.next {
-    right: -70px;
+    right: 6px;
     left: auto;
-
+    color: white;
     bottom: auto;
     transform: translateY(-50%);
   }
-
 
   .post-right {
     width: 100%;
@@ -1209,17 +1174,13 @@
     flex-direction: column;
     gap: 30px;
   }
-
-  /* photos: the thumbs strip stands left of the photo (like on desktop),
-     the parameters panel stays below; the pair is centred with small
-     side margins */
   .post-media-photos {
     display: grid;
     grid-template-columns: clamp(100px, 14vw, 160px) minmax(0, 1fr);
     column-gap: 16px;
-    /* the strip stretches to the photo's height and ends flush with it */
     align-items: stretch;
     align-self: center;
+    margin: 0 auto;
   }
 
   .post-media-thumbs {
@@ -1236,9 +1197,7 @@
   }
 
   .post-thumb-img {
-    /* no longer square: the thumbnail fills its stretched cell */
     height: 100%;
-/*    aspect-ratio: auto;*/
   }
 
   .post-main-image {
@@ -1246,9 +1205,6 @@
     grid-row: 1;
     width: 100%;
   }
-
-  /* a narrow fixed photo: 430×520 keeps the frame stable between
-     photos of different shapes */
   .main-img-viewport {
     width: 430px;
     height: 555px;
@@ -1269,9 +1225,6 @@
   .value-row td {
     font-size: 16px;
   }
-
-  /* Tablet: let the param cards fill their grid cells so the
-     wide 3-column cells don't leave big empty gaps between cards. */
   .post-params-grid .param-card {
     width: 100%;
     height: 80px;
@@ -1304,8 +1257,6 @@
   }
 
   .dog-slider .dog-card-link {
-    /* flex-basis only: inside the 4-column grid the card must fill its
-       column (an explicit width would overlap the neighbouring card) */
     flex: 0 0 240px;
   }
 
@@ -1317,19 +1268,19 @@
     width: 100%;
     margin: 0 auto;
   }
-  .slider-arrow {
-    width: 36px;
-    height: 36px;
-  }
 
   .homepage {
     padding: 0 20px;
   }
 }
 
-@media (min-width: 913px) and (max-width: 1024px) {
+@media (min-width: 913px) and (max-width: 1032px) {
   .hero-inner {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    margin: 64px 20px 48px;
   }
 
   .post-media > .post-media-photos {
@@ -1419,15 +1370,10 @@
     margin: 10px 0 30px;
     gap: 30px;
   }
-
-  /* photos: the thumbs strip stands left of the photo (like on desktop),
-     the parameters panel stays below; the pair is centred with small
-     side margins */
   .post-media-photos {
     display: grid;
     grid-template-columns: clamp(100px, 14vw, 160px) minmax(0, 1fr);
     column-gap: 16px;
-    /* the strip stretches to the photo's height and ends flush with it */
     align-items: stretch;
     align-self: center;
   }
@@ -1446,9 +1392,7 @@
   }
 
   .post-thumb-img {
-    /* no longer square: the thumbnail fills its stretched cell */
     height: 100%;
-/*    aspect-ratio: auto;*/
   }
 
   .post-main-image {
@@ -1456,9 +1400,6 @@
     grid-row: 1;
     width: 100%;
   }
-
-  /* a narrow fixed photo: 430×520 keeps the frame stable between
-     photos of different shapes */
   .main-img-viewport {
     width: 100%;
     height: 100%;
@@ -1470,7 +1411,7 @@
   }
 
   .post-image {
-    height: 100%;
+    height: 650px;
     object-fit: cover;
   }
 
@@ -1484,12 +1425,9 @@
     display: none;
   }
 
-
   .dog-card {
     height: auto;
   }
-
-
 
   .groups-link {
     text-align: left;
@@ -1545,7 +1483,6 @@
     padding: 5px 20px 5px 0;
   }
 
-
   .post-right {
     gap: 0;
     width: 100%;
@@ -1557,7 +1494,7 @@
 
   .images-rule {
     font-size: 11px;
-    margin: 10px 0 0;
+    margin: 12px 0 0;
   }
 
   .site-header {
@@ -1573,7 +1510,6 @@
   .catalog-structure {
     grid-template-columns: 1fr 1fr;
   }
-
 
   .layout-content .dog-slider::after,
   .dog-slider::after {
@@ -1620,10 +1556,11 @@
   }
 
   .main-img-arrow.next {
-    right: -80px;
+    right: 6px;
     left: auto;
     bottom: auto;
     transform: translateY(-50%);
+    color: white;
   }
 
   .main-img-arrow.prev {
@@ -1651,11 +1588,6 @@
     gap: 30px;
   }
 }
-
-/* ==========================================================================
-   EXPERIMENT 2026 (mobile part): moved from styles.css
-   @media (max-width: 767px) => phone block 300-767px. Revert: delete block.
-   ========================================================================== */
 @media (min-width: 300px) and (max-width: 767px) {
   .nav-main {
     height: 54px;
@@ -1672,9 +1604,6 @@
     font-size: 22px;
   }
 }
-/* === END EXPERIMENT 2026 (mobile part) === */
-
-/* Cookie banner: phones */
 @media (min-width: 300px) and (max-width: 767px) {
   .cookie-banner {
     left: 8px;
@@ -1685,8 +1614,6 @@
   .cookie-banner__card {
     padding: 18px 16px;
   }
-
-  /* the thumbnails strip on phones: five squares across the full width */
   .post-media-thumbs {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1738,14 +1665,7 @@
     font-size: 17px;
   }
 }
-
-/* Tablet and desktop (768px+): breed sliders on group/category pages and
-   the post "Other breeds in this group" block become a plain 3-column
-   grid without arrows; a "Show more" button reveals the next cards.
-   Phones keep the arrows slider with swipe. */
 @media (min-width: 768px) {
-  /* NOTE: .slider-nav also wraps the .dog-slider track itself, so it
-     must stay visible — hide only the arrow buttons and the count. */
   .related-block .slider-arrow,
   .related-block .slider-pagination {
     display: none;
@@ -1754,39 +1674,29 @@
   .related-block .dog-slider-track {
     display: grid;
     grid-auto-flow: row;
-    /* four columns with the homepage slider's own gap (inherited from
-       .dog-slider-track) so the spacing matches the front page */
     grid-template-columns: repeat(4, minmax(0, 1fr));
     transform: none !important;
   }
 }
-
-/* Wide screens follow the front page: five cards in a row */
 @media (min-width: 1024px) {
   .related-block .dog-slider-track {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-
-/* Tablet and desktop: reserve stable heights inside the breed panel so
-   the media block does not jump from breed to breed (1- vs 2-line
-   titles, 1- vs 2-line group names, temperament rows, summary length).
-   Heights are the maximums measured across all breeds. */
 @media (min-width: 768px) {
   .post-right {
     justify-content: space-between;
   }
-
-  .post-media > .post-media-photos {
-    align-self: center;
 }
-
-
+/* Планшеты: стрелки у фото не прячутся до ховера, поэтому им нужен
+   плотный фон — полупрозрачный бокс на светлом снимке не читается.
+   Без backdrop-filter: на iPad блюр рисует пустой прямоугольник. */
+@media (min-width: 768px) and (max-width: 1032px) {
+  .main-img-arrow {
+    background: rgba(16, 22, 19, 0.55);
+    backdrop-filter: none;
+  }
 }
-
-/* Below the desktop layout the thumbnails strip keeps its own rules:
-   the phone block turns it into a five-column strip; tablets keep the
-   base vertical column (it stands left of the photo). */
 @media (max-width: 1024px) {
   .post-table__part {
     padding: 22px 10px 24px;
@@ -1797,8 +1707,6 @@
     width: 100%;
   }
 }
-
-/* Post page (full width): keep the old page insets on smaller screens. */
 @media (max-width: 767px) {
   .fullwidth-content .post-container,
   .fullwidth-content .breadcrumbs-wrapper {
@@ -1833,8 +1741,6 @@
     padding: 75px 20px 0;
   }
 }
-
-/* Post page (full width): page insets for the blocks outside the container. */
 @media (min-width: 768px) and (max-width: 1024px) {
   .post-media-nav {
     margin-left: 20px;

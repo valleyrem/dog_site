@@ -72,8 +72,10 @@ class DogsAdmin(admin.ModelAdmin):
         "living_conditions",
         "colors",
         "life_expectancy",
-        "height",
-        "weight",
+        "height_male",
+        "height_female",
+        "weight_male",
+        "weight_female",
     )
 
     list_editable = ("is_published",)
@@ -118,8 +120,10 @@ class DogsAdmin(admin.ModelAdmin):
         # characteristics
         "life_expectancy",
         "size",
-        "height",
-        "weight",
+        "height_male",
+        "height_female",
+        "weight_male",
+        "weight_female",
         "coat_length",
         "coat_type",
         "temperament",

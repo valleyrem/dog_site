@@ -16,8 +16,6 @@ class DogsTranslationOptions(TranslationOptions):
         "title",
         "varieties",
         "life_expectancy",
-        "height",
-        "weight",
         "colors",
         "summary",
         "history",

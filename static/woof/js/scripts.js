@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const prev = document.querySelector(".slider-prev");
   const next = document.querySelector(".slider-next");
+  const nav = document.querySelector(".slider-nav");
   const dotsWrap = document.querySelector(".slider-dots");
   const pagination = document.querySelector(".slider-pagination");
 
@@ -107,8 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let holdInterval = null;
 
   function getPerPage() {
-    // phones and small tablets show two cards per view — flip by pairs
+    // phones and small tablets show two cards per view — flip by pairs;
+    // the desktop grid lays out five columns, so flip full pages of five.
     if (window.innerWidth <= 912) return 2;
+    if (window.innerWidth >= 1024) return 5;
     return 4;
   }
 
@@ -164,6 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       const arrows = document.querySelectorAll(".slider-nav .slider-arrow");
       arrows.forEach((a) => a.classList.add("is-hidden"));
+      // no arrows above the cards -> the reserved strip is not needed
+      if (nav) nav.classList.add("no-controls");
       if (showMoreBtn) {
         const expandable = items.length > relatedPerRow();
         const allShown = relatedShown >= items.length;
@@ -224,6 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
     arrows.forEach((a) => {
       a.classList.toggle("is-hidden", hideControls);
     });
+
+    // With nothing to click (a group with one breed) the strip reserved
+    // above the cards for the arrows is empty space — collapse it.
+    if (nav) nav.classList.toggle("no-controls", hideControls);
   }
 
   function startHold(direction) {
@@ -533,6 +542,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Arrows stop at the ends: the first photo only offers "next", the last
+  // only "prev" (no wrap-around). With a single photo both stay hidden.
+  function updateArrows() {
+    const prev = document.querySelector(".main-img-arrow.prev");
+    const next = document.querySelector(".main-img-arrow.next");
+    if (prev) prev.style.display = currentIndex === 0 ? "none" : "";
+    if (next)
+      next.style.display = currentIndex === images.length - 1 ? "none" : "";
+  }
+
+  updateArrows();
+
   document.querySelectorAll(".post-thumb").forEach((thumb) => {
     thumb.addEventListener("click", () => {
       const index = parseInt(thumb.dataset.index, 10);
@@ -544,6 +565,7 @@ document.addEventListener("DOMContentLoaded", function () {
       currentIndex = index;
       updateMainImage(back ? "back" : "forward");
       setActiveThumb(index);
+      updateArrows();
     });
   });
 
@@ -633,18 +655,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   prevMain?.addEventListener("click", function (e) {
     e.stopPropagation();
-
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-
+    if (currentIndex === 0) return;
+    currentIndex -= 1;
     updateMainImage("back");
+    setActiveThumb(currentIndex);
+    updateArrows();
   });
 
   nextMain?.addEventListener("click", function (e) {
     e.stopPropagation();
-
-    currentIndex = (currentIndex + 1) % images.length;
-
+    if (currentIndex === images.length - 1) return;
+    currentIndex += 1;
     updateMainImage("forward");
+    setActiveThumb(currentIndex);
+    updateArrows();
   });
 
   // MODAL
@@ -1267,8 +1291,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${row("🧬", wrapper.dataset.i18nVarieties || "Varieties")}
                 ${row("🌍", wrapper.dataset.i18nOrigin || "Origin")}
                 ${row("🐕", wrapper.dataset.i18nSize || "Size")}
-                ${row("📏", wrapper.dataset.i18nHeightWeight || "Height / Weight")}
-                ${row("🐩", wrapper.dataset.i18nCoat || "Coat")}
+                ${row("↕️", wrapper.dataset.i18nHeight || "Height")}
+                ${row("⚖️", wrapper.dataset.i18nWeight || "Weight")}
+                ${row("🐩", wrapper.dataset.i18nCoatType || "Coat type")}
+                ${row("🐩", wrapper.dataset.i18nCoatLength || "Coat length")}
                 ${row("❤️", wrapper.dataset.i18nLife || "Life expectancy")}
                 ${row("💡", wrapper.dataset.i18nTrainability || "Trainability")}
                 ${row("🚀", wrapper.dataset.i18nActivity || "Activity")}
@@ -1321,19 +1347,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         [breedA.size, breedB.size],
 
-        [
-          `${breedA.height || "-"} cm / ${breedA.weight || "-"} kg`,
-          `${breedB.height || "-"} cm / ${breedB.weight || "-"} kg`,
-        ],
-        [
-          `${(breedA.coat_length || "").replaceAll(",", "/")}${
-            breedA.coat_length && breedA.coat_type ? ", " : ""
-          }${(breedA.coat_type || "").replaceAll(",", "/")}`.trim() || "-",
+        [breedA.height || "-", breedB.height || "-"],
 
-          `${(breedB.coat_length || "").replaceAll(",", "/")}${
-            breedB.coat_length && breedB.coat_type ? ", " : ""
-          }${(breedB.coat_type || "").replaceAll(",", "/")}`.trim() || "-",
-        ],
+        [breedA.weight || "-", breedB.weight || "-"],
+
+        [breedA.coat_type || "-", breedB.coat_type || "-"],
+
+        [breedA.coat_length || "-", breedB.coat_length || "-"],
 
         [
           `${breedA.life} ${wrapper.dataset.i18nYears || "years"}`,
@@ -1836,3 +1856,92 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Reveal a breed card only once its lazy photo has loaded, so the title
+// never appears before the image. The whole card fades in together (short,
+// flat opacity). Cards without a photo reveal immediately; without JS the
+// `.js` class is absent and cards render normally.
+(function () {
+  function reveal(card) {
+    card.classList.add("is-loaded");
+  }
+
+  function init(scope) {
+    (scope || document).querySelectorAll(".dog-card").forEach(function (card) {
+      var img = card.querySelector(".dog-card__avatar");
+      if (!img) {
+        reveal(card); // nothing to wait for
+        return;
+      }
+      if (img.complete) {
+        reveal(card); // already cached (or errored) — show right away
+      } else {
+        img.addEventListener("load", function () { reveal(card); }, { once: true });
+        img.addEventListener("error", function () { reveal(card); }, { once: true });
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () { init(); });
+})();
+
+// Post photo and its thumbnails: the same short fade-in as the breed
+// cards, so nothing is painted until the file has actually loaded.
+// The gallery swap reuses the same <img> element and keeps the class, and
+// the sliding clone copies it, so switching photos is unaffected.
+(function () {
+  var SELECTOR = ".post-image, .post-thumb-img";
+
+  function reveal(img) {
+    // next frame: if the file was already cached, the browser must paint
+    // the transparent state first, otherwise there is nothing to fade from
+    requestAnimationFrame(function () {
+      img.classList.add("is-loaded");
+    });
+  }
+
+  function init() {
+    document.querySelectorAll(SELECTOR).forEach(function (img) {
+      if (img.complete) {
+        reveal(img);
+        return;
+      }
+      img.addEventListener("load", function () { reveal(img); }, { once: true });
+      img.addEventListener("error", function () { reveal(img); }, { once: true });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+// Photo-credit note: on phones and small tablets it sits directly under the
+// photos, before the characteristics panel; on larger screens it stays under
+// the whole media block. The same element is moved, never duplicated, so
+// screen readers still meet the sentence once.
+(function () {
+  var rule = document.querySelector(".images-rule");
+  var media = document.querySelector(".post-media");
+  if (!rule || !media) return;
+
+  var right = media.querySelector(".post-right");
+  if (!right) return;
+
+  var mq = window.matchMedia("(max-width: 767px)");
+
+  function place() {
+    if (mq.matches) {
+      if (rule.parentNode !== media) media.insertBefore(rule, right);
+    } else if (rule.previousElementSibling !== media) {
+      media.parentNode.insertBefore(rule, media.nextSibling);
+    }
+  }
+
+  place();
+
+  if (mq.addEventListener) mq.addEventListener("change", place);
+  else if (mq.addListener) mq.addListener(place); // older Safari
+})();

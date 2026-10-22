@@ -38,7 +38,7 @@ class Country(models.Model):
     """
 
     name = models.CharField(
-        max_length=100, unique=True, db_index=True, verbose_name="Country (English)"
+        max_length=100, unique=True, db_index=True, verbose_name="Country"
     )
     sort_order = models.PositiveIntegerField(default=0, blank=True)
 
@@ -233,8 +233,18 @@ class Dogs(models.Model):
     life_expectancy = models.CharField(
         max_length=255, blank=True, verbose_name="Life expectancy"
     )
-    height = models.CharField(max_length=255, blank=True, verbose_name="Height")
-    weight = models.CharField(max_length=255, blank=True, verbose_name="Weight")
+    height_male = models.CharField(
+        max_length=50, blank=True, verbose_name="Height, male (cm)"
+    )
+    height_female = models.CharField(
+        max_length=50, blank=True, verbose_name="Height, female (cm)"
+    )
+    weight_male = models.CharField(
+        max_length=50, blank=True, verbose_name="Weight, male (kg)"
+    )
+    weight_female = models.CharField(
+        max_length=50, blank=True, verbose_name="Weight, female (kg)"
+    )
     colors = models.CharField(max_length=255, blank=True, verbose_name="Colors")
 
     # description

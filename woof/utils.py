@@ -56,6 +56,31 @@ def send_telegram_message(text):
     return True
 
 
+def nobreak_range(value):
+    """«63–68» → «63–68» без возможности переноса после тире.
+
+    U+2060 (word joiner) не даёт браузеру разорвать диапазон
+    «63–68» на две строки, но остаётся невидимым для читателя.
+    """
+    if not value:
+        return value
+    return str(value).replace("\u2013", "\u2013\u2060")
+
+
+def sex_pair(male, female, unit_key):
+    """Рост/вес по полу в том же виде, что и в карточках параметров:
+    «♂\u00a068–72\u00a0см, ♀\u00a063–68\u00a0см». unit_key — "cm" или "kg"."""
+    unit = str(_(unit_key))
+
+    def one(symbol, value):
+        if not value:
+            return ""
+        return f"{symbol}\u00a0{nobreak_range(value)}\u00a0{unit}"
+
+    parts = [p for p in (one("♂", male), one("♀", female)) if p]
+    return ", ".join(parts)
+
+
 def _lang_prefixes():
     """Prefixes of all non-default languages, e.g. ["ru", "de"]"""
     default = settings.LANGUAGE_CODE

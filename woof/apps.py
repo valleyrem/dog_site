@@ -5,3 +5,6 @@ class WoofConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "woof"
     verbose_name = "Dog breeds"
+
+    def ready(self):
+        import woof.signals  # noqa: F401  (register post_save receivers)

@@ -3665,21 +3665,6 @@ msgid "%(years)s years"
 msgstr "%(years)s лет"
 
 #: woof/templates/woof/post.html:238
-msgid "Height & Weight"
-msgstr "Рост и масса"
-
-#: woof/templates/woof/post.html:243
-#, python-format
-msgid "%(h)s cm, %(w)s kg"
-msgstr "%(h)s см, %(w)s кг"
-
-#: woof/templates/woof/post.html:245
-msgid ""
-"Range includes values for both males and females. Individual values may vary "
-"by sex."
-msgstr ""
-"Диапазон включает значения для кобелей и сук.\n"
-"            Индивидуальные значения могут различаться в зависимости от пола."
 
 #: woof/templates/woof/post.html:254 woof/templates/woof/post.html:571
 msgid "Trainability"
@@ -3700,10 +3685,6 @@ msgstr "Гипоаллергенность"
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Семейность"
-
-#: woof/templates/woof/post.html:294 woof/templates/woof/post.html:569
-msgid "Coat"
-msgstr "Шерсть"
 
 #: woof/templates/woof/post.html:311
 msgid "Colors"
@@ -3773,10 +3754,6 @@ msgstr "Сравнить породы"
 #: woof/templates/woof/post.html:551
 msgid "Select breed"
 msgstr "Выберите породу"
-
-#: woof/templates/woof/post.html:568
-msgid "Height / Weight"
-msgstr "Рост / Вес"
 
 #: woof/templates/woof/post.html:572
 msgid "Activity"
@@ -5451,3 +5428,42 @@ msgstr "Группы - Woof Dogs"
 #, python-format
 #~ msgid "Group %(n)s"
 #~ msgstr "Группа %(n)s"
+
+msgid "Group, section"
+msgstr "Группа, секция"
+
+msgid "Coat type"
+msgstr "Тип шерсти"
+
+msgid "Coat length"
+msgstr "Длина шерсти"
+
+msgid "Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Разновидности внутри одной породы — это официально признанные варианты собак, объединённые одним стандартом и номером породы, но различающиеся по ключевым признакам: типу шерсти, размеру, весу или окрасу. Иногда различия в окрасе настолько существенны, что такие линии выделяются в отдельные разновидности."
+
+msgid "More breeds"
+msgstr "Больше пород"
+
+msgid "Photographs remain the property of their respective authors and are used under the licences of the platforms they come from (Pixabay, Unsplash, Pexels) or, for Wikimedia Commons images, under their respective Creative Commons licences, with credit shown beneath each photograph. Authors who wish an image to be removed or re-credited can contact us via the link below."
+msgstr "Фотографии остаются собственностью их авторов и используются по лицензиям платформ, с которых они взяты (Pixabay, Unsplash, Pexels), а для изображений из Wikimedia Commons — по соответствующим лицензиям Creative Commons, с указанием авторства под каждой фотографией. Авторы, желающие удалить изображение или изменить указание авторства, могут связаться с нами по ссылке ниже."
+
+msgid "Contact page"
+msgstr "Страница контактов"
+
+msgid "This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —"
+msgstr "Сайт является некоммерческим. Все изображения используются с указанием авторства. Если вы считаете, что какой-то материал нарушает ваши права, указание авторства неверно или вы хотите удалить изображение —"
+
+msgid "Height"
+msgstr "Рост"
+
+msgid "Weight"
+msgstr "Вес"
+
+msgid "cm"
+msgstr "см"
+
+msgid "kg"
+msgstr "кг"
+
+msgid "and"
+msgstr "и"

@@ -3603,21 +3603,6 @@ msgid "%(years)s years"
 msgstr "%(years)s godina"
 
 #: woof/templates/woof/post.html:238
-msgid "Height & Weight"
-msgstr "Visina i težina"
-
-#: woof/templates/woof/post.html:243
-#, python-format
-msgid "%(h)s cm, %(w)s kg"
-msgstr "%(h)s cm, %(w)s kg"
-
-#: woof/templates/woof/post.html:245
-msgid ""
-"Range includes values for both males and females. Individual values may vary "
-"by sex."
-msgstr ""
-"Opseg uključuje vrednosti za mužjake i ženke. Pojedinačne vrednosti mogu "
-"varirati u zavisnosti od pola."
 
 #: woof/templates/woof/post.html:254 woof/templates/woof/post.html:571
 msgid "Trainability"
@@ -3638,10 +3623,6 @@ msgstr "Pogodan za alergičare"
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Pogodan za porodicu"
-
-#: woof/templates/woof/post.html:294 woof/templates/woof/post.html:569
-msgid "Coat"
-msgstr "Dlaka"
 
 #: woof/templates/woof/post.html:311
 msgid "Colors"
@@ -3711,10 +3692,6 @@ msgstr "Uporedi rase"
 #: woof/templates/woof/post.html:551
 msgid "Select breed"
 msgstr "Izaberi rasu"
-
-#: woof/templates/woof/post.html:568
-msgid "Height / Weight"
-msgstr "Visina / težina"
 
 #: woof/templates/woof/post.html:572
 msgid "Activity"
@@ -5339,3 +5316,36 @@ msgstr "Grupe - Woof Dogs"
 
 #~ msgid "Questions may be sent to"
 #~ msgstr "Pitanja možete poslati na"
+
+msgid "Group, section"
+msgstr "Grupa, sekcija"
+
+msgid "Coat type"
+msgstr "Tip dlake"
+
+msgid "Coat length"
+msgstr "Dužina dlake"
+
+msgid "Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Varijeteti unutar jedne rase su zvanično priznate varijante pasa, objedinjene jednim standardom i brojem rase, ali se razlikuju po ključnim osobinama: tipu dlake, veličini, težini ili boji. Ponekad su razlike u boji toliko značajne da se takve linije izdvajaju u odvojene varijetete."
+
+msgid "More breeds"
+msgstr "Više rasa"
+
+msgid "Photographs remain the property of their respective authors and are used under the licences of the platforms they come from (Pixabay, Unsplash, Pexels) or, for Wikimedia Commons images, under their respective Creative Commons licences, with credit shown beneath each photograph. Authors who wish an image to be removed or re-credited can contact us via the link below."
+msgstr "Fotografije ostaju vlasništvo njihovih autora i koriste se pod licencama platformi sa kojih potiču (Pixabay, Unsplash, Pexels), a za slike sa Wikimedia Commons — pod odgovarajućim Creative Commons licencama, uz navođenje autorstva ispod svake fotografije. Autori koji žele da se slika ukloni ili da se autorstvo drugačije navede mogu nas kontaktirati putem linka ispod."
+
+msgid "Contact page"
+msgstr "Stranica za kontakt"
+
+msgid "This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —"
+msgstr "Sajt je nekomercijalan. Sve slike se koriste uz navođenje autorstva. Ako smatrate da neki sadržaj krši vaša prava, da je autorstvo pogrešno navedeno ili želite da se slika ukloni —"
+
+msgid "Height"
+msgstr "Visina"
+
+msgid "Weight"
+msgstr "Težina"
+
+msgid "and"
+msgstr "i"
