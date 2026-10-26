@@ -5,8 +5,6 @@ All sensitive values come from environment variables (see django-environ).
 A `.env` file in the project root is read automatically.
 """
 
-import os
-import re
 from pathlib import Path
 
 import environ

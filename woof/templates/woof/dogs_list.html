@@ -6,32 +6,10 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
+{% blocktranslate trimmed asvar crumb_parent %}Groups{% endblocktranslate %}
+{% url 'groups' as crumb_parent_url %}
 <div class="breadcrumbs-wrapper group-breadcrumbs">
-    <div class="breadcrumbs">
-        <a href="{% url 'home' %}"
-           title="{% trans 'Home' %}"
-           class="link-policies">
-            <img src="{% static 'house.svg' %}"
-                 alt="{% trans 'Home' %}"
-                 class="icon-bread"
-                 width="12"
-                 height="12"
-            >
-        </a>
-
-        <span>/</span>
-
-        <a href="{% url 'groups' %}"
-           title="{% trans 'Groups' %}"
-           class="link-policies"><span class="desktop-text">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span><span class="mobile-text">…</span></a>
-
-        <span>/</span>
-
-        <span title="{{ current_category.name }}"
-              class="current">
-            {{ current_category.name }}
-        </span>
-    </div>
+    {% include "woof/includes/breadcrumbs.html" with parent_label=crumb_parent parent_url=crumb_parent_url parent_wide="1" current=current_category.name current_title=current_category.name %}
 </div>
 
 <!-- Dogs list content -->

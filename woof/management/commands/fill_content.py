@@ -1,125 +1,219 @@
-"""Fill translated short content (names, traits, group descriptions).
+"""Fill the site's translated content from ``woof/content/``.
 
-One idempotent command for every language. The per-language dictionaries live
-in ``woof/lang_data/<lang>.py`` (see that package for the data shape); this
-command applies whatever a language provides and skips what it omits.
+One command for everything textual: the dictionaries (FCI groups, sections,
+countries, coat types, coat lengths, temperaments) and every breed text in
+every language. The data itself lives in two generated modules — see
+``tools/build_content.py`` — so the site's content has a single source.
 
-    python manage.py fill_content            # every language with data
-    python manage.py fill_content --lang es  # one language
+Idempotent by design: only empty fields are written, so re-running never
+overwrites something edited by hand in the admin. The two exceptions are the
+admin-added breeds that carry ``traits``/``scalars`` in their entry: their
+five traits are applied as-is and ``size`` is authoritative (that is how a
+freshly added breed gets finished in one step).
 
-Only empty fields are written, so it is safe to re-run and will never
-overwrite values you edited by hand in the admin.
+    python manage.py fill_content                 # everything, all languages
+    python manage.py fill_content --slug saluki    # one breed
+    python manage.py fill_content --lang ru        # one language
+    python manage.py fill_content --dry-run        # report only, no writes
 """
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils import translation
 
-from woof import lang_data
-from woof.models import (
-    Category,
-    CoatLength,
-    CoatType,
-    Country,
-    Dogs,
-    Section,
-    Temperament,
-)
+from woof.content import BREEDS, VOCABULARY
+from woof.models import Category, CoatLength, CoatType, Country, Dogs, Temperament
 
-# vocabulary model -> DATA key holding {en_name: translated}
-VOCAB = (
-    (CoatType, "coat_types"),
-    (CoatLength, "coat_lengths"),
-    (Temperament, "temperaments"),
-    (Country, "countries"),
-)
+# modeltranslation suffix per language code in woof/content/
+SUFFIX = {
+    "en": "",
+    "ru": "_ru",
+    "uk": "_uk",
+    "de": "_de",
+    "it": "_it",
+    "es": "_es",
+    "sr_latn": "_sr_latn",
+}
+
+VOCABULARY_MODELS = {
+    "coat_types": (CoatType, "name"),
+    "coat_lengths": (CoatLength, "name"),
+    "temperaments": (Temperament, "name"),
+    "countries": (Country, "name"),
+}
 
 
 class Command(BaseCommand):
-    help = "Fill translated names, traits and group descriptions for a language."
+    help = "Fill translated content (vocabulary + breed texts) from woof/content/."
 
     def add_arguments(self, parser):
+        parser.add_argument("--slug", help="Only fill a single breed, by slug.")
         parser.add_argument(
             "--lang",
-            choices=sorted(lang_data.LANGUAGES),
-            help="Language suffix to fill (default: all).",
+            choices=sorted(SUFFIX),
+            help="Only fill a single language.",
+        )
+        parser.add_argument(
+            "--dry-run",
+            action="store_true",
+            help="Report what would change without writing anything.",
         )
 
     def handle(self, *args, **options):
-        suffixes = [options["lang"]] if options["lang"] else list(lang_data.LANGUAGES)
-        for suffix in suffixes:
-            data = lang_data.load(suffix)
-            if data is None:
-                raise CommandError(f"No language data module for {suffix!r}")
-            self._fill_language(suffix, data)
+        self.dry_run = options["dry_run"]
+        self.pending = 0
 
-    def _fill_language(self, suffix, data):
-        code = data["LANG_CODE"]
-        with translation.override(code):
-            self.stdout.write(self.style.MIGRATE_HEADING(f"--- {code} ({suffix}) ---"))
-            self._fill_names(Category, "name", data.get("category_names", {}), suffix)
-            self._fill_names(Section, "name", data.get("section_names", {}), suffix)
-            for model, key in VOCAB:
-                self._fill_names(model, "name", data.get(key, {}), suffix)
-            self._fill_category_desc(data.get("category_desc", {}), data.get("category_names", {}), suffix)
-            self._fill_dog_titles(data.get("titles", {}), suffix)
-            self._fill_dog_short(data.get("varieties", {}), "varieties", suffix)
-            self._fill_dog_short(data.get("colors", {}), "colors", suffix)
+        langs = [options["lang"]] if options["lang"] else list(SUFFIX)
 
-    def _fill_names(self, model, base_field, mapping, suffix):
-        """Translate ``<base_field>_<suffix>`` on vocabulary rows keyed by EN name."""
-        if not mapping:
-            return
-        fname = f"{base_field}_{suffix}"
-        updated = 0
-        for obj in model.objects.all():
-            val = mapping.get(obj.name)  # obj.name is EN when still empty
-            if val and not getattr(obj, fname):
-                setattr(obj, fname, val)
-                obj.save(update_fields=[fname])
-                updated += 1
-        self.stdout.write(f"{model.__name__}.{fname} filled: {updated}")
+        if options["slug"]:
+            if options["slug"] not in BREEDS:
+                raise CommandError(
+                    f"Unknown slug {options['slug']!r}. Known: {', '.join(sorted(BREEDS))}"
+                )
+            slugs = [options["slug"]]
+        else:
+            slugs = sorted(BREEDS)
 
-    def _fill_category_desc(self, desc_map, name_map, suffix):
-        """Category.desc_<suffix>, keyed by slug or by the English category name."""
-        if not desc_map:
-            return
-        fname = f"desc_{suffix}"
-        # it/sr dictionaries are keyed by the English name; map translated -> EN
-        rev_names = {v: k for k, v in name_map.items()}
-        updated = 0
-        for cat in Category.objects.all():
-            en_key = rev_names.get(cat.name) or cat.name
-            val = desc_map.get(cat.slug) or desc_map.get(en_key)
-            if val and not getattr(cat, fname):
-                setattr(cat, fname, val)
-                cat.save(update_fields=[fname])
-                updated += 1
-        self.stdout.write(f"Category.{fname} filled: {updated}")
+        if not options["slug"]:
+            self._vocabulary(langs)
+        self._breeds(slugs, langs)
 
-    def _fill_dog_titles(self, mapping, suffix):
-        if not mapping:
-            return
-        fname = f"title_{suffix}"
-        updated = 0
-        for dog in Dogs.objects.all():
-            val = mapping.get(dog.title)  # dog.title is EN when still empty
-            if val and not getattr(dog, fname):
-                setattr(dog, fname, val)
-                dog.save(update_fields=[fname])
-                updated += 1
-        self.stdout.write(f"Dogs.{fname} filled: {updated}")
+        tail = " (dry run, nothing written)" if self.dry_run else ""
+        style = self.style.WARNING if self.dry_run else self.style.SUCCESS
+        self.stdout.write(style(f"pending changes: {self.pending}{tail}"))
 
-    def _fill_dog_short(self, mapping, base_field, suffix):
-        """Translate varieties/colors from the English value of the base field."""
-        if not mapping:
-            return
-        fname = f"{base_field}_{suffix}"
-        updated = 0
-        for dog in Dogs.objects.all():
-            en = getattr(dog, base_field)
-            val = mapping.get(en)
-            if val and not getattr(dog, fname):
-                setattr(dog, fname, val)
-                dog.save(update_fields=[fname])
-                updated += 1
-        self.stdout.write(f"Dogs.{fname} filled: {updated}")
+    # -- helpers ---------------------------------------------------------
+
+    def _write(self, obj, field, value):
+        """Assign one field, unless it already holds the same value."""
+        if getattr(obj, field) == value:
+            return False
+        self.pending += 1
+        if not self.dry_run:
+            setattr(obj, field, value)
+        return True
+
+    def _save(self, obj, fields):
+        if fields and not self.dry_run:
+            obj.save(update_fields=sorted(set(fields)))
+
+    # -- vocabulary ------------------------------------------------------
+
+    def _vocabulary(self, langs):
+        self.stdout.write(self.style.MIGRATE_HEADING("--- vocabulary ---"))
+
+        # categories (by slug, with descriptions)
+        changed = 0
+        for slug, translations in VOCABULARY["categories"].items():
+            category = Category.objects.filter(slug=slug).first()
+            if category is None:
+                self.stdout.write(self.style.WARNING(f"  category {slug}: not found"))
+                continue
+            fields = self._apply(category, ("name", "desc"), translations, langs)
+            self._save(category, fields)
+            changed += bool(fields)
+        self.stdout.write(f"  categories: {changed} updated")
+
+        # sections (per category, by English name)
+        changed = 0
+        for cat_slug, sections in VOCABULARY["sections"].items():
+            category = Category.objects.filter(slug=cat_slug).first()
+            if category is None:
+                continue
+            for name_en, translations in sections.items():
+                section = category.sections.filter(name_en=name_en).first()
+                if section is None:
+                    self.stdout.write(
+                        self.style.WARNING(f"  section {cat_slug}/{name_en}: not found")
+                    )
+                    continue
+                fields = self._apply(section, ("name",), translations, langs)
+                self._save(section, fields)
+                changed += bool(fields)
+        self.stdout.write(f"  sections: {changed} updated")
+
+        # small dictionaries keyed by English name
+        for key, (model, field) in VOCABULARY_MODELS.items():
+            changed = 0
+            for name_en, translations in VOCABULARY[key].items():
+                obj = model.objects.filter(name_en=name_en).first()
+                if obj is None:
+                    self.stdout.write(self.style.WARNING(f"  {key} {name_en}: not found"))
+                    continue
+                fields = self._apply(obj, (field,), translations, langs)
+                self._save(obj, fields)
+                changed += bool(fields)
+            self.stdout.write(f"  {key}: {changed} updated")
+
+    def _apply(self, obj, fields, translations, langs):
+        """Write the missing translations of ``fields``; return saved fields."""
+        touched = []
+        for lang in langs:
+            values = translations.get(lang)
+            if not values:
+                continue
+            for field in fields:
+                value = values.get(field)
+                if not value:
+                    continue
+                if not getattr(obj, field + SUFFIX[lang], ""):
+                    if self._write(obj, field + SUFFIX[lang], value):
+                        touched.append(field + SUFFIX[lang])
+        return touched
+
+    # -- breeds ----------------------------------------------------------
+
+    def _breeds(self, slugs, langs):
+        self.stdout.write(self.style.MIGRATE_HEADING("--- breeds ---"))
+
+        for slug in slugs:
+            entry = BREEDS[slug]
+            dog = Dogs.objects.filter(slug=slug).first()
+            if dog is None:
+                self.stdout.write(self.style.WARNING(f"  {slug}: not found, skipped"))
+                continue
+
+            fields = []
+            for lang in langs:
+                translations = entry.get("texts", {}).get(lang)
+                if not translations:
+                    continue
+                for field, value in translations.items():
+                    if not getattr(dog, field + SUFFIX[lang], ""):
+                        if self._write(dog, field + SUFFIX[lang], value):
+                            fields.append(field + SUFFIX[lang])
+
+            for field, value in entry.get("scalars", {}).items():
+                current = getattr(dog, field)
+                if field == "size" or not current:
+                    if self._write(dog, field, value):
+                        fields.append(field)
+
+            for field, value in entry.get("traits", {}).items():
+                if self._write(dog, field, value):
+                    fields.append(field)
+
+            self._save(dog, fields)
+
+            relations = 0
+            for field, names in entry.get("m2m", {}).items():
+                relation = getattr(dog, field)
+                if relation.exists():
+                    continue
+                model = relation.model
+                objects = list(model.objects.filter(name_en__in=names))
+                if len(objects) != len(names):
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"  {slug}: unknown {field} names {sorted(names)}"
+                        )
+                    )
+                if objects:
+                    self.pending += 1
+                    relations += 1
+                    if not self.dry_run:
+                        relation.set(objects)
+
+            if fields or relations:
+                self.stdout.write(
+                    f"  {slug}: {len(fields)} fields"
+                    + (f", {relations} relation(s)" if relations else "")
+                )

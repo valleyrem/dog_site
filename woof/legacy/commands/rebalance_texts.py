@@ -21,7 +21,7 @@ Usage:
 from django.core.management.base import BaseCommand
 
 from woof.models import Dogs
-from woof.summary_edits import EDITS
+from woof.legacy.summary_edits import EDITS
 
 FIELDS = {
     "en": "summary",

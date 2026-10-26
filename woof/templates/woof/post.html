@@ -30,27 +30,10 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
+{% blocktranslate trimmed asvar crumb_parent %}Groups{% endblocktranslate %}
+{% url 'groups' as crumb_parent_url %}
 <div class="breadcrumbs-wrapper">
-    <div class="breadcrumbs">
-        <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
-            <img src="{% static 'house.svg' %}"
-                 alt="{% trans 'Home' %}"
-                 class="icon-bread"
-                 width="12"
-                 height="12"
-            ></a>
-        <span>/</span>
-        <a href="{% url 'groups' %}" title="{% trans 'Groups' %}" class="link-policies"><span class="desktop-text">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</span><span class="mobile-text">…</span></a>
-        <span>/</span>
-        <a href="{{ post.cat.get_absolute_url }}"
-            title="{{ post.cat.name }}"
-            class="link-policies">
-                <span class="desktop-text">{{ post.cat.name }}</span>
-                <span class="mobile-text">…</span>
-        </a>
-        <span>/</span>
-        <span class="current">{{ post.title }}</span>
-    </div>
+    {% include "woof/includes/breadcrumbs.html" with parent_label=crumb_parent parent_url=crumb_parent_url parent_wide="1" sub_label=post.cat.name sub_url=post.cat.get_absolute_url sub_wide="1" current=post.title %}
 
     <!-- Share/copy-link: rides the crumb line's right edge, out of the heading -->
     <button
@@ -523,26 +506,12 @@ title="{% trans 'Next' %}"
                     <span class="custom-select-caret" aria-hidden="true"></span>
                 </button>
 
+                {# Filled by scripts.js from the <select> below (one list, not two). #}
                 <ul id="breedBList"
                     class="custom-select-list"
                     role="listbox"
                     tabindex="-1"
-                    hidden>
-                    {% for dog in all_breeds %}
-                        {% if dog.id != post.id %}
-                        <li class="custom-select-item"
-                            role="option"
-                            data-value="{{ dog.id }}">
-                            <img src="{{ dog.photo_thumb.url }}"
-                                 alt=""
-                                 class="custom-select-opt-img"
-                                 loading="lazy"
-                                 decoding="async">
-                            <span>{{ dog.title }}</span>
-                        </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                    hidden></ul>
             </div>
 
             <select id="breedB"

@@ -1,3 +1,51 @@
+// Custom selects: the <option> list is rendered once by the server, and the
+// visible list is built from it here — so the same 100+ breeds are not sent
+// to the browser twice (and no thumbnails are fetched just for a dropdown).
+// Touch screens show no scrollbar on a scrollable list until it is dragged
+// (see the ::after fade in styles.css), so the hint has to be switched off
+// as soon as the end of the list is reached.
+function initListEndHint(list) {
+  if (!list) return;
+
+  const update = () => {
+    if (!list.clientHeight) return; // still hidden — nothing to measure
+    const atEnd = list.scrollTop + list.clientHeight >= list.scrollHeight - 2;
+    list.classList.toggle("is-at-end", atEnd);
+  };
+
+  list.addEventListener("scroll", update, { passive: true });
+  new MutationObserver(update).observe(list, {
+    attributes: true,
+    attributeFilter: ["hidden"],
+  });
+  update();
+}
+
+function fillListFromSelect(list, select) {
+  if (!list || !select || list.children.length) return;
+
+  initListEndHint(list);
+
+  const frag = document.createDocumentFragment();
+
+  Array.prototype.forEach.call(select.options, (option) => {
+    if (!option.value) return;
+
+    const item = document.createElement("li");
+    item.className = "custom-select-item";
+    item.setAttribute("role", "option");
+    item.dataset.value = option.value;
+
+    const label = document.createElement("span");
+    label.textContent = option.textContent.trim();
+    item.appendChild(label);
+
+    frag.appendChild(item);
+  });
+
+  list.appendChild(frag);
+}
+
 // Burger menu
 
 const burger = document.getElementById("burger-btn");
@@ -1177,9 +1225,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let breedA = null;
   let breedB = null;
 
-  // Custom select with photos
+  // Custom select over the <select id="breedB"> options
   if (trigger && list && triggerText) {
     const placeholderText = triggerText.textContent;
+
+    fillListFromSelect(list, selectB);
 
     function closeList() {
       list.hidden = true;
@@ -1457,11 +1507,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const list = document.getElementById(cfg.listId);
     const select = document.getElementById(cfg.selectId);
     const triggerText = document.getElementById(cfg.triggerTextId);
-    const triggerImg = cfg.triggerImgId
-      ? document.getElementById(cfg.triggerImgId)
-      : null;
 
     if (!custom || !trigger || !list || !select || !triggerText) return;
+
+    fillListFromSelect(list, select);
 
     function closeList() {
       list.hidden = true;
@@ -1504,15 +1553,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const span = item.querySelector("span");
       if (span) triggerText.textContent = span.textContent.trim();
 
-      if (triggerImg) {
-        const img = item.querySelector(".custom-select-opt-img");
-        if (img) {
-          triggerImg.src = img.src;
-          triggerImg.alt = span ? span.textContent.trim() : "";
-          triggerImg.hidden = false;
-        }
-      }
-
       closeList();
 
       if (item.dataset.value) {
@@ -1534,14 +1574,13 @@ document.addEventListener("DOMContentLoaded", () => {
     triggerTextId: "groupTriggerText",
   });
 
-  // Breeds: with photos, like in compare
+  // Breeds
   initNavSelect({
     customId: "breedCustom",
     triggerId: "breedTrigger",
     listId: "breedList",
     selectId: "breed-select-1",
     triggerTextId: "breedTriggerText",
-    triggerImgId: "breedTriggerImg",
   });
 });
 

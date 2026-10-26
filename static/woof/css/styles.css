@@ -2112,6 +2112,67 @@ p strong {
   box-shadow: 0 14px 34px rgba(34, 39, 47, 0.12);
 }
 
+/* Thin always-visible scrollbar: a long list (100+ breeds) otherwise looks
+   complete — nothing hints that there is more below. Squared like everything
+   else on the site, emerald thumb, faint track.
+   Chromium/WebKit get the ::-webkit-* rules (6px, square corners); Firefox
+   only understands the standard properties, so it gets those alone — mixing
+   both would make Chrome fall back to its own rounded thumb. */
+.custom-select-list::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.custom-select-list::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--line) 45%, transparent);
+}
+
+.custom-select-list::-webkit-scrollbar-thumb {
+  background: var(--main-accent);
+  border-radius: 0;
+  border: 0;
+}
+
+.custom-select-list::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-deep);
+}
+
+.custom-select-list::-webkit-scrollbar-button {
+  display: none;
+}
+
+@supports (-moz-appearance: none) {
+  .custom-select-list {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-accent) color-mix(in srgb, var(--line) 45%, transparent);
+  }
+}
+
+/* Touch screens (iPhone above all) ignore the styled scrollbar: nothing shows
+   until the visitor drags the list. A soft fade over the bottom edge does the
+   hinting instead; scripts.js drops it once the list is scrolled to the end. */
+@media (hover: none) and (pointer: coarse) {
+  .custom-select-list::after {
+    content: "";
+    display: block;
+    position: sticky;
+    bottom: 0;
+    height: 26px;
+    margin: -26px -6px 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--surface) 0%, transparent),
+      var(--surface) 88%
+    );
+    transition: opacity 0.15s ease;
+  }
+
+  .custom-select-list.is-at-end::after {
+    opacity: 0;
+  }
+}
+
 .custom-select-list[hidden],
 .custom-select-img[hidden] {
   display: none !important;
@@ -2131,14 +2192,6 @@ p strong {
 .custom-select-item:hover {
   background: var(--sand);
   color: var(--main-accent);
-}
-
-.custom-select-opt-img {
-  width: 36px;
-  height: 36px;
-
-  object-fit: cover;
-  flex-shrink: 0;
 }
 
 .homepage .custom-select-trigger {

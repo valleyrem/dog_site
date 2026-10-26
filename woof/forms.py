@@ -68,7 +68,3 @@ class ContactForm(forms.Form):
             lines.append(f"Email: {self.cleaned_data['email']}")
         lines.append(f"Message: {self.cleaned_data['content']}")
         return send_telegram_message("\n".join(lines))
-
-    def process_form(self):
-        """Send the message to Telegram. Returns True on success."""
-        return self.send_message_to_telegram()

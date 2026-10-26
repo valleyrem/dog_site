@@ -7,7 +7,7 @@ fields, so it is safe to run repeatedly. Run:
 
 from django.core.management.base import BaseCommand
 
-from woof.es_breed_data import BREED_TEXTS_ES
+from woof.legacy.es_breed_data import BREED_TEXTS_ES
 from woof.models import Dogs
 
 

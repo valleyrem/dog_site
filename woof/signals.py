@@ -12,11 +12,11 @@ Clearing every language key on save keeps the pages correct immediately.
 
 from django.conf import settings
 from django.core.cache import cache
-from django.db.models.signals import post_save
+from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
 from woof.models import Category, Dogs
-from woof.utils import CATS_CACHE_KEY
+from woof.utils import CATS_CACHE_KEY, bump_sitemap_version
 
 
 def clear_categories_cache():
@@ -26,11 +26,15 @@ def clear_categories_cache():
 
 
 @receiver(post_save, sender=Category)
-def category_saved(sender, instance, **kwargs):
+@receiver(post_delete, sender=Category)
+def category_changed(sender, instance, **kwargs):
     clear_categories_cache()
+    bump_sitemap_version()
 
 
 @receiver(post_save, sender=Dogs)
-def dogs_saved(sender, instance, **kwargs):
+@receiver(post_delete, sender=Dogs)
+def dogs_changed(sender, instance, **kwargs):
     # dog counts are embedded in the cached Category snapshot
     clear_categories_cache()
+    bump_sitemap_version()

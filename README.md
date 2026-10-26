@@ -19,23 +19,32 @@ dog_site/
 │   ├── urls.py            # Все URL приложения
 │   ├── forms.py           # ContactForm → отправка в Telegram (timeout 10с)
 │   ├── utils.py           # DataMixin (общий контекст), меню, кэш категорий
+│   ├── sitemap.py         # sitemap.xml (кэшируется) + robots.txt
+│   ├── og_card.py         # OG-картинка 1200×630 на Pillow
+│   ├── quotes.py          # цитаты для бегущей строки на главной
+│   ├── content/           # ВЕСЬ контент: breeds.py + vocabulary.py (см. «Контент»)
+│   ├── legacy/            # архив одноразовых скриптов наполнения (не команды)
 │   ├── admin.py           # Админка: галереи-инлайны, фильтры, превью
 │   ├── tests.py           # 12 smoke-тестов
-│   ├── templatetags/      # (пусто — библиотеки выпилены как неиспользуемые)
-│   ├── templates/woof/    # 23 шаблона
-│   └── migrations/        # 16 миграций
+│   ├── templatetags/      # cards.py: фильтры цвета FCI, nobreak_range
+│   ├── templates/woof/    # 26 шаблонов (включая includes/breadcrumbs.html)
+│   ├── management/commands/ # fill_content, fill_sex_params, warm_thumbnails
+│   └── migrations/        # 35 миграций
 │
 ├── templates/admin/       # Переопределение шаблона админки Django
 │
 ├── static/                # ВСЯ статика-исходники (в git)
-│   ├── fonts/             # ClashDisplay-*.woff2 — на них ссылается styles.css
-│   ├── woof/css/          # styles.css, mobile.css, dark.css, admin.css
+│   ├── fonts/             # Nunito-Variable-*.woff2 (+ og/ — шрифты для OG-картинок)
+│   ├── woof/css/          # styles.css, mobile.css, admin.css
 │   ├── woof/js/           # scripts.js
 │   └── *.png, favicon.ico # Иллюстрации главной, слайдер (1–20.png), логотип
 │
 ├── staticfiles/           # Генерится collectstatic'ом (НЕ в git)
 ├── media/                 # Локальный media (при USE_S3=True файлы в S3-бакете)
 ├── cache/                 # Файловый кэш Django (НЕ в git)
+│
+├── tools/
+│   └── build_content.py   # пересобирает woof/content/ из базы
 │
 ├── requirements.txt
 ├── Dockerfile             # python:3.13-slim, collectstatic при сборке, gunicorn
@@ -129,6 +138,43 @@ DEBUG=True .venv/bin/python manage.py runserver
 
 Сайт — http://127.0.0.1:8000 (в `ALLOWED_HOSTS` из `.env` только он),
 админка — /admin/. База — PostgreSQL, креды в `config/.env`.
+
+## Контент и переводы
+
+Все тексты сайта лежат в одном месте — `woof/content/`:
+
+| файл | что внутри |
+|---|---|
+| `breeds.py` | по записи на slug: тексты 7 языков, `m2m`, `traits`, `scalars` |
+| `vocabulary.py` | переводы словарей: группы, секции, страны, типы/длина шерсти, темперамент |
+
+```bash
+.venv/bin/python manage.py fill_content              # всё, все языки
+.venv/bin/python manage.py fill_content --lang ru    # один язык
+.venv/bin/python manage.py fill_content --slug saluki  # одна порода
+.venv/bin/python manage.py fill_content --dry-run    # только отчёт
+```
+
+Команда идемпотентна: пишет **только пустые** поля, поэтому не затирает
+правки из админки. Исключение — породы, у которых в записи есть
+`traits`/`scalars`: там пять признаков применяются как есть, а `size`
+считается авторитетным (так новая порода добивается одной командой).
+
+База — источник истины для того, что видят посетители; `woof/content/`
+— воспроизводимая копия. Наполнили что-то через админку и хотите
+зафиксировать это в репозитории:
+
+```bash
+.venv/bin/python tools/build_content.py   # пересобрать breeds.py/vocabulary.py из БД
+git diff woof/content/                    # посмотреть, что изменилось
+```
+
+Рост и вес по полу живут отдельно — `woof/sex_params_data.py` +
+`manage.py fill_sex_params` (значения задаются вручную для каждой породы).
+
+Одноразовые скрипты, которыми контент наполнялся вручную (6 модулей
+данных и 10 команд), сложены в `woof/legacy/` — они **не** регистрируются
+как команды и нужны только как документация, откуда взялись тексты.
 
 ## Тесты
 
@@ -236,6 +282,9 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 - `django-smart-selects` — библиотека без обновлений, проверена на
   Django 5.2 (виджет и /chaining/ работают), но однажды встанет вопрос
   замены на самописный JS-виджет.
+- `woof/legacy/` — архив одноразовых скриптов наполнения (~20k строк данных).
+  После того как `woof/content/` проверен на нескольких правках, папку
+  можно удалить целиком (история останется в git).
 - Локальный `media/` в git: бэкапом фото теперь служит S3-бакет;
   из трекинга media можно убрать (когда созреет решение).
 - Апгрейд до Django 6.0: требует Python >=3.12 (готово), deprecation-предупреждений

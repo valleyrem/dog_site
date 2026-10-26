@@ -31,7 +31,7 @@ def _merge(edits):
 
 for _name in BATCHES:
     try:
-        _module = import_module("woof.summary_edits.%s" % _name)
+        _module = import_module("woof.legacy.summary_edits.%s" % _name)
     except ModuleNotFoundError:
         continue
     _merge(_module.EDITS)

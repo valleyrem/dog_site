@@ -18,7 +18,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from woof.models import CoatLength, CoatType, Dogs, Temperament
 from woof.sex_params_data import SEX_PARAMS
-from woof.supplement_breed_data import BREEDS
+from woof.legacy.supplement_breed_data import BREEDS
 
 LONG_FIELDS = ("summary", "history", "care", "living_conditions")
 SHORT_FIELDS = ("colors", "varieties")

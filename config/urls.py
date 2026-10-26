@@ -7,7 +7,8 @@ from django.urls import include, path, re_path
 from django.views.static import serve
 
 from config.views import consent_log, set_language
-from woof.views import page_not_found, robots_txt, sitemap_xml
+from woof.sitemap import robots_txt, sitemap_xml
+from woof.views import page_not_found
 
 # URLs that must NOT get a language prefix.
 urlpatterns = [

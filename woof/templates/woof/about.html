@@ -5,23 +5,9 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
+{% trans "About us" as crumb_current %}
 <div class="breadcrumbs-wrapper">
-    <div class="breadcrumbs">
-        <a href="{% url 'home' %}"
-           title="{% trans 'Home' %}"
-           class="link-policies">
-            <img src="{% static 'house.svg' %}"
-                 alt="{% trans 'Home' %}"
-                 class="icon-bread"
-                 width="12"
-                 height="12"
-            >
-        </a>
-
-        <span>/</span>
-
-        <span class="current">{% trans "About us" %}</span>
-    </div>
+    {% include "woof/includes/breadcrumbs.html" with current=crumb_current %}
 </div>
 
 

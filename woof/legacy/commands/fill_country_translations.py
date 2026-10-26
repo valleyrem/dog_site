@@ -10,7 +10,7 @@ Usage:
 
 from django.core.management.base import BaseCommand
 
-from woof import lang_data
+from woof.legacy import lang_data
 from woof.models import Country
 
 MAPPINGS = (

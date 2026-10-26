@@ -151,19 +151,15 @@
                                         <span class="custom-select-caret" aria-hidden="true"></span>
                                     </button>
 
+                                    {% comment %}
+                                    The option list is rendered once, below: scripts.js
+                                    builds the visible list from these <option> tags.
+                                    {% endcomment %}
                                     <ul id="groupList"
                                         class="custom-select-list"
                                         role="listbox"
                                         tabindex="-1"
-                                        hidden>
-                                        {% for group in cats %}
-                                        <li class="custom-select-item"
-                                            role="option"
-                                            data-value="{{ group.get_absolute_url }}">
-                                            <span>{{ group.name }}</span>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
+                                        hidden></ul>
                                 </div>
 
                                 <select id="breed-select"
@@ -193,34 +189,18 @@
                                             aria-haspopup="listbox"
                                             aria-expanded="false">
                                         <span class="custom-select-value">
-                                            <img id="breedTriggerImg"
-                                                 class="custom-select-img"
-                                                 alt=""
-                                                 hidden>
                                             <span id="breedTriggerText"
                                                   class="custom-select-placeholder">{% trans "Find by breed" %}</span>
                                         </span>
                                         <span class="custom-select-caret" aria-hidden="true"></span>
                                     </button>
 
+                                    {# Filled by scripts.js from the <select> below. #}
                                     <ul id="breedList"
                                         class="custom-select-list"
                                         role="listbox"
                                         tabindex="-1"
-                                        hidden>
-                                        {% for dog in posts %}
-                                        <li class="custom-select-item"
-                                            role="option"
-                                            data-value="{{ dog.get_absolute_url }}">
-                                            <img src="{{ dog.photo_thumb.url }}"
-                                                 alt=""
-                                                 class="custom-select-opt-img"
-                                                 loading="lazy"
-                                                 decoding="async">
-                                            <span>{{ dog.title }}</span>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
+                                        hidden></ul>
                                 </div>
 
                                 <select id="breed-select-1"

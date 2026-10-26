@@ -5,33 +5,9 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
+{% blocktranslate trimmed asvar crumb_current %}Dog health & care{% endblocktranslate %}
 <div class="breadcrumbs-wrapper">
-
-    <div class="breadcrumbs">
-
-        <a href="{% url 'home' %}"
-           title="{% trans 'Home' %}"
-           class="link-policies">
-            <img src="{% static 'house.svg' %}"
-                 alt="{% trans 'Home' %}"
-                 class="icon-bread"
-                 width="12"
-                 height="12"
-            >
-        </a>
-
-        <span>/</span>
-
-        <a href="{% url 'guides' %}"
-           title="{% trans 'Dog guides' %}"
-           class="link-policies">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</a>
-
-        <span>/</span>
-
-        <span class="current">{% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}</span>
-
-    </div>
-
+    {% include "woof/includes/breadcrumbs.html" with section="guides" current=crumb_current %}
 </div>
 
 

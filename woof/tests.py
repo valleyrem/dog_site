@@ -57,8 +57,8 @@ class ModelTests(TestCase):
             photo="photos/test.jpg",
             size="large",
         )
-        self.assertEqual(dog.size_index, 4)
-        dog.size = "large"
+        self.assertEqual(dog.size_index, 3)  # small=1, medium=2, large=3
+        dog.size = "gigantic"
         self.assertEqual(dog.size_index, 1)  # unmapped sizes fall back to 1
 
     def test_section_limit_per_category(self):

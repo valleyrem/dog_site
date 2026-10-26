@@ -72,27 +72,6 @@ class Dogs(models.Model):
         "large": 3,
     }
 
-    COAT_LENGTH_CHOICES = [
-        ("short", "Short"),
-        ("medium", "Medium"),
-        ("long", "Long"),
-    ]
-
-    COAT_CHOICES = [
-        ("curly", "Curly"),
-        ("wavy", "Wavy"),
-        ("rough", "Rough-haired"),
-        ("corded", "Corded"),
-        ("hairless", "Hairless"),
-        ("short", "Short-haired"),
-        ("medium", "Medium-haired"),
-        ("long", "Long-haired"),
-        ("smooth", "Smooth-haired"),
-        ("wiry", "Wiry"),
-        ("silky", "Silky"),
-        ("double", "Double Coat"),
-    ]
-
     TRAINABILITY_CHOICES = [
         ("independent", _("Independent (thinks for itself)")),
         ("stubborn", _("May be stubborn (patience)")),
@@ -285,13 +264,6 @@ class Category(models.Model):
     fci_number = models.PositiveIntegerField(default=0)
 
     group_image = models.ImageField(upload_to="groups/", blank=True, null=True)
-
-    group_image_thumb = ImageSpecField(
-        source="group_image",
-        processors=[ResizeToFit(600, 600)],
-        format="WEBP",
-        options={"quality": 90},
-    )
 
     def __str__(self):
         return self.name

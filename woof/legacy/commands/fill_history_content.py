@@ -7,7 +7,7 @@ Idempotent: fills only empty values. Run:
 from django.core.management.base import BaseCommand
 from django.utils import translation
 
-from woof.history_data import (
+from woof.legacy.history_data import (
     HISTORY_DE,
     HISTORY_EN,
     HISTORY_IT,

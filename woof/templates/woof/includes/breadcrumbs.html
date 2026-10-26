@@ -1,0 +1,43 @@
+{% load i18n static %}
+{% comment %}
+The crumb row itself; pages wrap it in
+   `<div class="breadcrumbs-wrapper">…</div>` so a page can add its own
+   controls to the same flex row (the post page's share button).
+   Params (all optional except `current`):
+     current                              -- label of the last crumb
+     current_title                        -- optional title attribute for it
+     section="guides"                     -- insert the fixed "Dog guides" crumb
+     parent_label/parent_url/parent_wide  -- one crumb above the current one
+     sub_label/sub_url/sub_wide           -- a second crumb (post page: the group)
+   `*_wide` crumbs show "…" instead of the label on phones.
+{% endcomment %}
+<div class="breadcrumbs">
+
+    <a href="{% url 'home' %}" title="{% trans 'Home' %}" class="link-policies">
+        <img src="{% static 'house.svg' %}"
+             alt="{% trans 'Home' %}"
+             class="icon-bread"
+             width="12"
+             height="12">
+    </a>
+
+    <span>/</span>
+
+    {% if section == "guides" %}
+        <a href="{% url 'guides' %}" title="{% trans 'Dog guides' %}" class="link-policies">{% trans "Dog guides" %}</a>
+        <span>/</span>
+    {% endif %}
+
+    {% if parent_label %}
+        <a href="{{ parent_url }}" title="{{ parent_label }}" class="link-policies">{% if parent_wide %}<span class="desktop-text">{{ parent_label }}</span><span class="mobile-text">…</span>{% else %}{{ parent_label }}{% endif %}</a>
+        <span>/</span>
+    {% endif %}
+
+    {% if sub_label %}
+        <a href="{{ sub_url }}" title="{{ sub_label }}" class="link-policies">{% if sub_wide %}<span class="desktop-text">{{ sub_label }}</span><span class="mobile-text">…</span>{% else %}{{ sub_label }}{% endif %}</a>
+        <span>/</span>
+    {% endif %}
+
+    <span{% if current_title %} title="{{ current_title }}"{% endif %} class="current">{{ current }}</span>
+
+</div>

@@ -11,298 +11,25 @@ from django.core.cache import cache
 
 from .forms import ContactForm
 from .models import Category, Dogs
-from .utils import DEFAULT_META_DESCRIPTION, DataMixin, build_og_card_bytes, sex_pair
+from .og_card import build_og_card_bytes
+from .quotes import MARQUEE_QUOTES
+from .utils import DEFAULT_META_DESCRIPTION, DataMixin, sex_pair
 
 from django.templatetags.static import static as static_url
 
-MARQUEE_QUOTES = {
-    "en": [
-        ("Dogs are not our whole life, but they make our lives whole.", "Roger Caras"),
-        (
-            "Some of our greatest historical and artistic treasures we place in museums; others, we take for walks.",
-            "Roger Caras",
-        ),
-        (
-            "In moments of joy, all of us wished we possessed a tail we could wag.",
-            "W. H. Auden",
-        ),
-        (
-            "The dog is a gentleman; I hope to go to his heaven, not man's.",
-            "Mark Twain",
-        ),
-        ("A dog can be a perfect therapist.", "John T. Rosen"),
-        (
-            "The bond with a dog is as lasting as the ties of this earth can ever be.",
-            "Konrad Lorenz",
-        ),
-        (
-            "Petting, scratching, and cuddling a dog could be as soothing to the mind and heart as deep meditation and almost as good for the soul as prayer.",
-            "Dean Koontz",
-        ),
-        (
-            "A dog is the only thing on earth that loves you more than he loves himself.",
-            "Josh Billings",
-        ),
-        (
-            "The dog was created specially for children. He is the god of frolic.",
-            "Henry Ward Beecher",
-        ),
-        (
-            "A dog naturally loves a man above his own species, and very commonly meets with a return of affection.",
-            "David Hume",
-        ),
-    ],
-    "uk": [
-        (
-            "Собаки — не все наше життя, але вони роблять наше життя повноцінним.",
-            "Роджер Карас",
-        ),
-        (
-            "Деякі з наших найвеличніших історичних та мистецьких скарбів ми ставимо в музеях; інших ми беремо на прогулянки.",
-            "Роджер Карас",
-        ),
-        (
-            "У моменти радості кожен із нас хотів би мати хвіст, яким міг би вимахувати.",
-            "В. Г. Оден",
-        ),
-        (
-            "Собака — джентльмен; сподіваюся потрапити в її рай, а не в людський.",
-            "Марк Твен",
-        ),
-        ("Собака може бути ідеальним терапевтом.", "Джон Т. Розен"),
-        (
-            "Зв'язок із собакою такий тривалий, яким можуть бути лише зв'язки цієї землі.",
-            "Конрад Лоренц",
-        ),
-        (
-            "Погладжування, чухання та обійми собаки можуть заспокоювати розум і серце так само, як глибока медитація, і бути майже такими ж корисними для душі, як молитва.",
-            "Дін Кунц",
-        ),
-        (
-            "Собака — єдина істота на землі, яка любить тебе більше, ніж себе.",
-            "Джош Біллінгс",
-        ),
-        (
-            "Собаку створили спеціально для дітей. Він — бог жвавих ігор.",
-            "Генрі Ворд Бічер",
-        ),
-        (
-            "Собака природно любить людину більше за власний вид і дуже часто отримує у відповідь ласку.",
-            "Девід Юм",
-        ),
-    ],
-    "es": [
-        (
-            "Los perros no son toda nuestra vida, pero hacen nuestra vida completa.",
-            "Roger Caras",
-        ),
-        (
-            "Algunos de nuestros mayores tesoros históricos y artísticos los colocamos en museos; a otros los llevamos a pasear.",
-            "Roger Caras",
-        ),
-        (
-            "En momentos de alegría, todos hemos deseado tener una cola que pudiéramos mover.",
-            "W. H. Auden",
-        ),
-        (
-            "El perro es un caballero; espero ir a su cielo, no al de los hombres.",
-            "Mark Twain",
-        ),
-        ("Un perro puede ser un terapeuta perfecto.", "John T. Rosen"),
-        (
-            "El vínculo con un perro es tan duradero como pueden ser los lazos de esta tierra.",
-            "Konrad Lorenz",
-        ),
-        (
-            "Acariciar, rascar y abrazar a un perro puede calmar la mente y el corazón tanto como la meditación profunda, y ser casi tan bueno para el alma como la oración.",
-            "Dean Koontz",
-        ),
-        (
-            "Un perro es lo único en la tierra que te quiere más de lo que se quiere a sí mismo.",
-            "Josh Billings",
-        ),
-        (
-            "El perro fue creado especialmente para los niños. Es el dios del jolgorio.",
-            "Henry Ward Beecher",
-        ),
-        (
-            "Un perro ama naturalmente al hombre por encima de su propia especie, y muy a menudo recibe cariño a cambio.",
-            "David Hume",
-        ),
-    ],
-    "ru": [
-        (
-            "Собаки — не вся наша жизнь, но они делают нашу жизнь полноценной.",
-            "Роджер Карас",
-        ),
-        (
-            "Некоторые из наших величайших исторических и художественных сокровищ мы помещаем в музеи; другие — выводим на прогулку.",
-            "Роджер Карас",
-        ),
-        (
-            "В минуты радости всем нам хотелось бы иметь хвост, которым можно было бы вилять.",
-            "У. Х. Оден",
-        ),
-        (
-            "Собака — настоящий джентльмен. Надеюсь попасть в её рай, а не в человеческий.",
-            "Марк Твен",
-        ),
-        ("Собака может быть идеальным психотерапевтом.", "Джон Т. Розен"),
-        (
-            "Связь с собакой так же прочна, как только могут быть прочны земные узы.",
-            "Конрад Лоренц",
-        ),
-        (
-            "Гладить, чесать и обнимать собаку может быть для ума и сердца так же успокаивающе, как глубокая медитация, и почти так же полезно для души, как молитва.",
-            "Дин Кунц",
-        ),
-        (
-            "Собака — единственное существо на земле, которое любит вас больше, чем себя.",
-            "Джош Биллингс",
-        ),
-        (
-            "Собака была создана специально для детей. Она — бог веселья и игры.",
-            "Генри Уорд Бичер",
-        ),
-        (
-            "Собака по природе своей любит человека больше представителей собственного вида и очень часто получает от него ответную любовь.",
-            "Дэвид Юм",
-        ),
-    ],
-    "de": [
-        (
-            "Hunde sind nicht unser ganzes Leben, aber sie machen unser Leben vollständig.",
-            "Roger Caras",
-        ),
-        (
-            "Einige unserer größten historischen und künstlerischen Schätze stellen wir in Museen aus; andere führen wir spazieren.",
-            "Roger Caras",
-        ),
-        (
-            "In Momenten der Freude wünschten wir uns alle, einen Schwanz zum Wedeln zu haben.",
-            "W. H. Auden",
-        ),
-        (
-            "Der Hund ist ein Gentleman; ich hoffe, in seinen Himmel zu kommen, nicht in den des Menschen.",
-            "Mark Twain",
-        ),
-        ("Ein Hund kann ein perfekter Therapeut sein.", "John T. Rosen"),
-        (
-            "Die Bindung zu einem Hund ist so dauerhaft, wie die Bande dieser Erde nur sein können.",
-            "Konrad Lorenz",
-        ),
-        (
-            "Einen Hund zu streicheln, zu kraulen und zu knuddeln kann für Geist und Herz so wohltuend sein wie tiefe Meditation und für die Seele fast so gut wie ein Gebet.",
-            "Dean Koontz",
-        ),
-        (
-            "Ein Hund ist das einzige Wesen auf Erden, das dich mehr liebt als sich selbst.",
-            "Josh Billings",
-        ),
-        (
-            "Der Hund wurde eigens für die Kinder geschaffen. Er ist der Gott des Ausgelassenseins.",
-            "Henry Ward Beecher",
-        ),
-        (
-            "Ein Hund liebt den Menschen natürlicherweise mehr als seine eigene Art und findet sehr oft erwiderte Zuneigung.",
-            "David Hume",
-        ),
-    ],
-    "it": [
-        (
-            "I cani non sono tutta la nostra vita, ma rendono la nostra vita completa.",
-            "Roger Caras",
-        ),
-        (
-            "Alcuni dei nostri più grandi tesori storici e artistici li mettiamo nei musei; altri li portiamo a spasso.",
-            "Roger Caras",
-        ),
-        (
-            "Nei momenti di gioia vorremmo tutti avere una coda da scodinzolare.",
-            "W. H. Auden",
-        ),
-        (
-            "Il cane è un gentiluomo; spero di andare nel suo paradiso, non in quello dell'uomo.",
-            "Mark Twain",
-        ),
-        ("Un cane può essere un perfetto terapeuta.", "John T. Rosen"),
-        (
-            "Il legame con un cane è durevole quanto possono esserlo i legami di questa terra.",
-            "Konrad Lorenz",
-        ),
-        (
-            "Accarezzare e coccolare un cane può fare bene alla mente e al cuore quanto una meditazione profonda, e all'anima quasi quanto una preghiera.",
-            "Dean Koontz",
-        ),
-        (
-            "Il cane è l'unica creatura sulla terra che ti ama più di quanto ami se stessa.",
-            "Josh Billings",
-        ),
-        (
-            "Il cane è stato creato apposta per i bambini. È il dio dell'euforia.",
-            "Henry Ward Beecher",
-        ),
-        (
-            "Il cane ama l'uomo naturalmente più della propria specie e trova molto spesso affetto ricambiato.",
-            "David Hume",
-        ),
-    ],
-    "sr-latn": [
-        (
-            "Psi nisu ceo naš život, ali čine naš život potpunim.",
-            "Roger Caras",
-        ),
-        (
-            "Neke od naših najvećih istorijskih i umetničkih blaga stavljamo u muzeje; druge vodimo u šetnju.",
-            "Roger Caras",
-        ),
-        (
-            "U trenucima radosti svi bismo poželeli da imamo rep kojim možemo da mašemo.",
-            "W. H. Auden",
-        ),
-        (
-            "Pas je džentlmen; nadam se da ću stići na njegov raj, a ne na čovekov.",
-            "Mark Twain",
-        ),
-        ("Pas može biti savršen terapeut.", "John T. Rosen"),
-        (
-            "Veza sa psom traje koliko i sve veze koje na ovoj zemlji mogu trajati.",
-            "Konrad Lorenz",
-        ),
-        (
-            "Maženje i grljenje psa može umiriti um i srce kao duboka meditacija i biti za dušu gotovo isto što i molitva.",
-            "Dean Koontz",
-        ),
-        (
-            "Pas je jedino stvorenje na zemlji koje vas voli više nego što voli sebe.",
-            "Josh Billings",
-        ),
-        (
-            "Pas je stvoren posebno za decu. On je bog euforije.",
-            "Henry Ward Beecher",
-        ),
-        (
-            "Pas prirodno voli čoveka više nego sopstvenu vrstu i vrlo često nalazi uzvraćenu ljubav.",
-            "David Hume",
-        ),
-    ],
-}
 
 
 class DogFilterMixin:
-    """Apply optional ?size=&trainability=&coat= query filters."""
+    """Apply the optional ?size= and ?trainability= filters of the list pages."""
 
     def filter_by_query_params(self, qs):
         size = self.request.GET.get("size")
         trainability = self.request.GET.get("trainability")
-        coat = self.request.GET.get("coat")
 
         if size:
             qs = qs.filter(size=size)
         if trainability:
             qs = qs.filter(trainability=trainability)
-        if coat:
-            qs = qs.filter(coat_type=coat)
 
         return qs
 
@@ -500,7 +227,7 @@ class ContactFormView(DataMixin, FormView):
         )
 
     def form_valid(self, form):
-        if not form.process_form():
+        if not form.send_message_to_telegram():
             return JsonResponse(
                 {
                     "success": False,
@@ -616,24 +343,45 @@ class BreedsView(DataMixin, TemplateView):
         ),
     ]
 
+    @staticmethod
+    def _matches(dog, lookups):
+        """Does a loaded breed fall under a filter button?
+
+        The lookups in FILTERS are plain Django lookups, but they only touch
+        fields of the already loaded objects (plus coat_length, which is
+        prefetched), so evaluating them in Python costs nothing — unlike a
+        separate filter() query per button.
+        """
+        for lookup, expected in lookups.items():
+            if lookup.endswith("__name_en__in"):
+                field = lookup[: -len("__name_en__in")]
+                names = {getattr(obj, "name_en", "") for obj in getattr(dog, field).all()}
+                if not names.intersection(expected):
+                    return False
+            elif lookup.endswith("__in"):
+                if getattr(dog, lookup[: -len("__in")]) not in expected:
+                    return False
+            elif getattr(dog, lookup) != expected:
+                return False
+        return True
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         dogs = list(
             Dogs.objects.filter(is_published=True)
             .select_related("cat", "section")
+            .prefetch_related("coat_length")
             .order_by("title")
         )
 
         # every dog gets the list of filter keys it belongs to
-        matches = {dog.id: [] for dog in dogs}
-        base = Dogs.objects.filter(is_published=True)
-        for key, _title, lookups in self.FILTERS:
-            for pk in base.filter(**lookups).values_list("id", flat=True):
-                if pk in matches:
-                    matches[pk].append(key)
         for dog in dogs:
-            dog.filter_keys = " ".join(matches[dog.id])
+            dog.filter_keys = " ".join(
+                key
+                for key, _title, lookups in self.FILTERS
+                if self._matches(dog, lookups)
+            )
 
         context["dogs"] = dogs
         context["filters"] = [
@@ -699,138 +447,3 @@ def breed_api(request, pk):
 
 def page_not_found(request, exception):
     return render(request, "woof/404.html", status=404)
-
-
-@require_GET
-def sitemap_xml(request):
-    """Hand-written sitemap: breeds + categories + static pages, en & ru."""
-
-    from django.conf import settings
-    from django.urls import reverse
-    from django.utils import timezone
-    from django.utils.xmlutils import SimplerXMLGenerator
-    from io import StringIO
-
-    scheme = request.scheme
-    host = request.get_host()
-
-    def abs_url(path):
-        return f"{scheme}://{host}{path}"
-
-    def lang_urls(path):
-        """The path from reverse() has no language prefix (default language)."""
-        urls = {}
-        for code, _ in settings.LANGUAGES:
-            if code == settings.LANGUAGE_CODE:
-                urls[code] = abs_url(path)
-            elif path == "/":
-                urls[code] = abs_url("/" + code + "/")
-            else:
-                urls[code] = abs_url("/" + code + path)
-        return urls
-
-    out = StringIO()
-    xml = SimplerXMLGenerator(out, encoding="utf-8")
-    xml.startDocument()
-    xml.startElement(
-        "urlset",
-        {
-            "xmlns": "http://www.sitemaps.org/schemas/sitemap/0.9",
-            "xmlns:xhtml": "http://www.w3.org/1999/xhtml",
-        },
-    )
-
-    def add_url(loc, lastmod=None, changefreq="weekly", priority="0.6"):
-        xml.startElement("url", {})
-        xml.addQuickElement("loc", loc)
-        if lastmod:
-            xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
-        xml.addQuickElement("changefreq", changefreq)
-        xml.addQuickElement("priority", priority)
-        xml.endElement("url")
-
-    def add_bilingual(path, lastmod=None, changefreq="weekly", priority="0.6"):
-        urls = lang_urls(path)
-        for code, loc in urls.items():
-            xml.startElement("url", {})
-            xml.addQuickElement("loc", loc)
-            if lastmod:
-                xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
-            xml.addQuickElement("changefreq", changefreq)
-            xml.addQuickElement("priority", priority)
-            # xhtml:alternate for every other language
-            for other_code, other_loc in urls.items():
-                xml.startElement(
-                    "xhtml:link",
-                    {
-                        "rel": "alternate",
-                        "hreflang": (
-                            "sr-Latn" if other_code == "sr-latn" else other_code
-                        ),
-                        "href": other_loc,
-                    },
-                )
-                xml.endElement("xhtml:link")
-            xml.endElement("url")
-
-    # static pages
-    for name, priority in (
-        ("home", "1.0"),
-        ("dogs_list", "0.8"),
-        ("breeds", "0.8"),
-        ("groups", "0.8"),
-        ("guides", "0.7"),
-        ("about", "0.5"),
-        ("contact", "0.5"),
-    ):
-        add_bilingual(reverse(name), priority=priority)
-
-    # guide articles
-    for name, priority in (
-        ("guide-choosing-dog", "0.7"),
-        ("guide-training", "0.7"),
-        ("guide-health", "0.7"),
-        ("guide-behavior", "0.7"),
-        ("guide-living", "0.7"),
-        ("guide-puppy", "0.7"),
-        ("guide-feeding", "0.7"),
-        ("guide-games", "0.7"),
-    ):
-        add_bilingual(reverse(name), priority=priority)
-
-    # legal pages (low priority so search engines still see them)
-    for name, priority in (
-        ("privacy-policy", "0.3"),
-        ("terms-of-use", "0.3"),
-        ("cookie-policy", "0.3"),
-    ):
-        add_bilingual(reverse(name), priority=priority)
-
-    # categories
-    for cat in Category.objects.all():
-        add_bilingual(cat.get_absolute_url(), priority="0.7")
-
-    # breeds
-    for dog in Dogs.objects.filter(is_published=True).select_related("cat"):
-        add_bilingual(
-            dog.get_absolute_url(),
-            lastmod=dog.time_update or timezone.now(),
-            priority="0.6",
-        )
-
-    xml.endElement("urlset")
-    xml.endDocument()
-    return HttpResponse(out.getvalue(), content_type="application/xml; charset=utf-8")
-
-
-@require_GET
-def robots_txt(request):
-    from django.urls import reverse
-
-    lines = [
-        "User-agent: *",
-        "Allow: /",
-        "",
-        f"Sitemap: {request.scheme}://{request.get_host()}{reverse('sitemap')}",
-    ]
-    return HttpResponse("\n".join(lines), content_type="text/plain; charset=utf-8")
