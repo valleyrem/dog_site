@@ -3952,6 +3952,41 @@ body.swal2-shown {
   opacity: 0.8;
 }
 
+/* Letter row: one squared chip per first letter present on the page. */
+.breeds-letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 30px 0 0;
+}
+
+.letter-btn {
+  min-width: 28px;
+  padding: 3px 7px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.letter-btn:hover,
+.letter-btn.is-active {
+  color: var(--main-accent);
+  border-color: var(--main-accent);
+}
+
+.breeds-letters + .breeds-filter {
+  margin-top: 16px;
+}
+
 .breeds-filter {
   display: flex;
   flex-wrap: wrap;

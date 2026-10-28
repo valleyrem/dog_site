@@ -1874,24 +1874,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!filterBar || !grid) return;
 
+  const letterBar = document.querySelector("[data-breeds-letters]");
   const buttons = [...filterBar.querySelectorAll(".filter-btn")];
+  const letterButtons = letterBar
+    ? [...letterBar.querySelectorAll(".letter-btn")]
+    : [];
   const cards = [...grid.querySelectorAll(".dog-card-link")];
+
+  // Two independent groups (letter + collection) that combine with AND:
+  // "S" together with "Small" shows the small breeds whose name starts with S.
+  let activeLetter = "";
+  let activeFilter = "all";
+
+  function apply() {
+    cards.forEach((card) => {
+      const keys = (card.dataset.filters || "").split(" ");
+      const byLetter = !activeLetter || card.dataset.letter === activeLetter;
+      const byFilter = activeFilter === "all" || keys.includes(activeFilter);
+      card.hidden = !(byLetter && byFilter);
+    });
+
+    // on phones jump to the top of the filtered grid, like an anchor
+    if (window.innerWidth <= 767) {
+      grid.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  letterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const letter = btn.dataset.letter;
+      // clicking the same letter again clears the alphabet filter
+      activeLetter = activeLetter === letter ? "" : letter;
+      letterButtons.forEach((b) =>
+        b.classList.toggle("is-active", b.dataset.letter === activeLetter),
+      );
+      apply();
+    });
+  });
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const key = btn.dataset.filter;
 
-      buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
-
-      cards.forEach((card) => {
-        const keys = (card.dataset.filters || "").split(" ");
-        card.hidden = !(key === "all" || keys.includes(key));
-      });
-
-      // on phones jump to the top of the filtered grid, like an anchor
-      if (window.innerWidth <= 767) {
-        grid.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (key === "all") {
+        // "All breeds" clears everything, the alphabet included
+        activeFilter = "all";
+        activeLetter = "";
+        letterButtons.forEach((b) => b.classList.remove("is-active"));
+      } else if (activeFilter === key) {
+        // a second click on the active chip takes the filter off again
+        activeFilter = "all";
+      } else {
+        activeFilter = key;
       }
+
+      buttons.forEach((b) =>
+        b.classList.toggle("is-active", b.dataset.filter === activeFilter),
+      );
+      apply();
     });
   });
 });

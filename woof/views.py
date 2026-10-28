@@ -383,7 +383,14 @@ class BreedsView(DataMixin, TemplateView):
                 if self._matches(dog, lookups)
             )
 
+        # Alphabet: the first letter of the title *as shown*, so the row
+        # follows the page language (ru "Афганская борзая" -> А, sr "Španski" -> Š).
+        for dog in dogs:
+            first = dog.title.strip()[:1]
+            dog.first_letter = first.upper() if first.isalpha() else ""
+
         context["dogs"] = dogs
+        context["letters"] = sorted({dog.first_letter for dog in dogs if dog.first_letter})
         context["filters"] = [
             {"key": key, "title": title} for key, title, _lookups in self.FILTERS
         ]

@@ -105,7 +105,6 @@
     opacity: 1;
     pointer-events: auto;
     text-align: left;
-    border: 0.5px solid var(--main-text);
   }
   .mobile-menu {
     width: 100%;
@@ -223,7 +222,7 @@
   }
   .homepage-subtitle {
     padding: 0 10px;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
     text-align: center;
   }
@@ -235,6 +234,7 @@
   .homepage-search-block {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
   .homepage select {
     width: 230px;
@@ -961,6 +961,10 @@
   .footer-col p {
     text-align: center;
     font-size: 14px;
+  }
+
+  .slider-nav .slider-prev {
+    right: 50px;
   }
 }
 

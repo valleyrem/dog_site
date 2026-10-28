@@ -37,6 +37,13 @@
     </div>
 
 
+    <!-- Alphabet: first letter of the breed name in the current language -->
+    <div class="breeds-letters" data-breeds-letters>
+        {% for letter in letters %}
+            <button type="button" class="letter-btn" data-letter="{{ letter }}">{{ letter }}</button>
+        {% endfor %}
+    </div>
+
     <!-- Size filter -->
     <div class="breeds-filter" data-breeds-filter>
 
