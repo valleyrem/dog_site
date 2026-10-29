@@ -33,7 +33,7 @@ msgstr "E-mail"
 
 #: woof/forms.py:20
 msgid "Optional"
-msgstr "необязательно"
+msgstr "Необязательно"
 
 #: woof/forms.py:26
 msgid "Message"

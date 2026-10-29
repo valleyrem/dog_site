@@ -31,7 +31,7 @@ msgstr "E-mail"
 
 #: woof/forms.py:20
 msgid "Optional"
-msgstr "facoltativo"
+msgstr "Facoltativo"
 
 #: woof/forms.py:26
 msgid "Message"

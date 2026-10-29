@@ -32,7 +32,7 @@ msgstr "E-pošta"
 
 #: woof/forms.py:20
 msgid "Optional"
-msgstr "nije obavezno"
+msgstr "Nije obavezno"
 
 #: woof/forms.py:26
 msgid "Message"

@@ -21,8 +21,6 @@
 
     <p class="section-title">{% blocktranslate trimmed %}Thank you for helping improve this project{% endblocktranslate %}</p>
 
-    <p class="cat-desc">{% blocktranslate trimmed %}Feel free to reach out with any questions, suggestions, or feedback.{% endblocktranslate %}</p>
-
     <div class="hero-inner-contact">
 
         <div class="hero-left">
@@ -83,7 +81,7 @@
 
                         {% else %}
 
-                            <p>
+                            <p class="form-field">
                                 <label class="form-label"
                                        for="{{ f.id_for_label }}">
                                     {{ f.label }}:{% if f.field.required %} <span class="required-mark" aria-hidden="true">*</span>{% endif %}
@@ -123,6 +121,8 @@
 
 
         <div class="hero-right-contact">
+
+            <p class="cat-desc">{% blocktranslate trimmed %}Feel free to reach out with any questions, suggestions, or feedback.{% endblocktranslate %}</p>
 
             <div class="post-text-explore">
 

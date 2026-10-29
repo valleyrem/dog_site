@@ -577,6 +577,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Thumbnails (left column of the media block) switch the main photo.
   // Index 0 is the main photo, so the first thumbnail is 1.
+  // Warming up: a swap waits for the large file to arrive and decode, which
+  // on a phone is the whole "delay" you feel. Fetching the neighbours in the
+  // background — and the one under the finger a moment before it is needed —
+  // makes a swipe or a thumbnail tap land almost immediately.
+  const warmed = new Map();
+
+  function warm(index) {
+    const image = images[index];
+    if (!image || warmed.has(image.src)) return;
+    const pre = new Image();
+    pre.decoding = "async";
+    pre.src = image.src;
+    warmed.set(image.src, pre);
+    if (pre.decode) pre.decode().catch(function () {});
+  }
+
+  function warmNeighbours() {
+    const count = images.length;
+    if (count < 2) return;
+    // the same wrap the swipe uses: from the first photo one step back
+    // is the last one
+    warm((currentIndex + 1) % count);
+    warm((currentIndex - 1 + count) % count);
+  }
+
   function setActiveThumb(index) {
     document.querySelectorAll(".post-thumb").forEach((thumb) => {
       thumb.classList.toggle(
@@ -584,10 +609,7 @@ document.addEventListener("DOMContentLoaded", function () {
         parseInt(thumb.dataset.index, 10) === index,
       );
     });
-    // dots under the photo
-    document.querySelectorAll(".post-image-dot").forEach((dot, i) => {
-      dot.classList.toggle("is-active", i === index);
-    });
+    warmNeighbours();
   }
 
   // Arrows stop at the ends: the first photo only offers "next", the last
@@ -603,6 +625,11 @@ document.addEventListener("DOMContentLoaded", function () {
   updateArrows();
 
   document.querySelectorAll(".post-thumb").forEach((thumb) => {
+    // touch or mouse down: a few hundred milliseconds before the click
+    thumb.addEventListener("pointerdown", () => {
+      warm(parseInt(thumb.dataset.index, 10));
+    });
+
     thumb.addEventListener("click", () => {
       const index = parseInt(thumb.dataset.index, 10);
       if (Number.isNaN(index) || !images[index]) return;
@@ -686,7 +713,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
 
-    const preload = new Image();
+    // A warmed image is the same file and is already decoded, so its
+    // decode() resolves at once and the swap happens right away.
+    const preload = warmed.get(image.src) || new Image();
     preload.src = image.src;
     // fully decode the new photo before swapping it in — otherwise the
     // <img> briefly shows its alt text while the browser decodes
@@ -718,6 +747,13 @@ document.addEventListener("DOMContentLoaded", function () {
     setActiveThumb(currentIndex);
     updateArrows();
   });
+
+  // Once the page has settled, warm the first pair so the very first swipe
+  // does not wait for the network.
+  const onIdle =
+    window.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
+
+  onIdle(warmNeighbours);
 
   // MODAL
 
@@ -764,6 +800,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.pointerType !== "touch") return;
       mainSwipe = { x: e.clientX, y: e.clientY };
       swipeViewport.setPointerCapture(e.pointerId);
+      warmNeighbours();
     });
 
     swipeViewport.addEventListener("pointermove", (e) => {

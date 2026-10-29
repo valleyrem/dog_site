@@ -901,8 +901,11 @@
   .form-check-wrapper {
     width: 100%;
   }
+  .contact-layout form {
+    padding: 16px 14px 14px;
+  }
   #btn-custom {
-    margin: 0 0 10px;
+    margin: 0 0 10px auto;
   }
   .slider-next,
   .slider-prev {
@@ -1559,7 +1562,7 @@
   }
 
   #btn-custom {
-    font-weight: 300;
+    font-weight: 600;
   }
 
   .nav-main {

@@ -122,14 +122,6 @@
     </button>
     {% endif %}
 
-    {# Navigation dots: one per photo, the selected one is filled #}
-    <div class="post-image-dots" aria-hidden="true">
-        <span class="post-image-dot is-active"></span>
-        {% for photo in post.gallery.all %}
-            <span class="post-image-dot"></span>
-        {% endfor %}
-    </div>
-
     <div class="post-photo-author" id="post-photo-author">
         {% if post.photo_author %}
             {{ post.photo_author }}
