@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html
 
 from .models import (
     Dogs,
@@ -23,7 +23,7 @@ class DogImageInline(admin.TabularInline):
 
     def preview(self, obj):
         if obj.image:
-            return mark_safe(f"<img src='{obj.image.url}' width='80'>")
+            return format_html("<img src='{}' width='80' alt=''>", obj.image.url)
         return "—"
 
     preview.short_description = "Preview"
@@ -45,7 +45,9 @@ class DogsAdminForm(forms.ModelForm):
 
     class Meta:
         model = Dogs
-        fields = "__all__"
+        # the ModelAdmin below owns the field list; this form only overrides
+        # how the related country is labelled
+        fields = ()
 
 
 @admin.register(Dogs)
@@ -100,7 +102,6 @@ class DogsAdmin(admin.ModelAdmin):
         "title_de",
         "title_it",
         "title_sr_latn",
-        "title_uk",
         "title_es",
         "slug",
         "cat",
@@ -110,7 +111,6 @@ class DogsAdmin(admin.ModelAdmin):
         "varieties_de",
         "varieties_it",
         "varieties_sr_latn",
-        "varieties_uk",
         "varieties_es",
         "country",
         # photo
@@ -132,7 +132,6 @@ class DogsAdmin(admin.ModelAdmin):
         "colors_de",
         "colors_it",
         "colors_sr_latn",
-        "colors_uk",
         "colors_es",
         "trainability",
         "activity_level",
@@ -145,28 +144,24 @@ class DogsAdmin(admin.ModelAdmin):
         "summary_de",
         "summary_it",
         "summary_sr_latn",
-        "summary_uk",
         "summary_es",
         "history",
         "history_ru",
         "history_de",
         "history_it",
         "history_sr_latn",
-        "history_uk",
         "history_es",
         "care",
         "care_ru",
         "care_de",
         "care_it",
         "care_sr_latn",
-        "care_uk",
         "care_es",
         "living_conditions",
         "living_conditions_ru",
         "living_conditions_de",
         "living_conditions_it",
         "living_conditions_sr_latn",
-        "living_conditions_uk",
         "living_conditions_es",
         # general
         "is_published",
@@ -182,7 +177,7 @@ class DogsAdmin(admin.ModelAdmin):
 
     def get_html_photo(self, obj):
         if obj.photo:
-            return mark_safe(f"<img src='{obj.photo.url}' width='60'>")
+            return format_html("<img src='{}' width='60' alt=''>", obj.photo.url)
         return "No image"
 
     get_html_photo.short_description = "Cover"
@@ -209,7 +204,6 @@ class CountryAdmin(admin.ModelAdmin):
         "name_de",
         "name_it",
         "name_sr_latn",
-        "name_uk",
         "name_es",
         "sort_order",
     )
@@ -230,14 +224,12 @@ class CategoryAdmin(admin.ModelAdmin):
         "name_de",
         "name_it",
         "name_sr_latn",
-        "name_uk",
         "name_es",
         "desc",
         "desc_ru",
         "desc_de",
         "desc_it",
         "desc_sr_latn",
-        "desc_uk",
         "desc_es",
         "fci_number",
         "slug",
@@ -247,8 +239,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
     def group_preview(self, obj):
         if obj.group_image:
-            return mark_safe(
-                f'<img src="{obj.group_image.url}" width="120" style="object-fit: cover;">'
+            return format_html(
+                '<img src="{}" width="120" style="object-fit: cover;" alt="">',
+                obj.group_image.url,
             )
         return "—"
 
@@ -262,7 +255,7 @@ class SectionAdmin(admin.ModelAdmin):
     list_filter = ("category",)
     search_fields = ("name",)
 
-    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_uk", "name_es", "category")
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_es", "category")
 
 
 @admin.register(CoatType)
@@ -270,7 +263,7 @@ class CoatTypeAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
 
-    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_uk", "name_es")
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_es")
 
 
 @admin.register(CoatLength)
@@ -278,7 +271,7 @@ class CoatLengthAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
 
-    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_uk", "name_es")
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_es")
 
 
 @admin.register(Temperament)
@@ -286,7 +279,7 @@ class TemperamentAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
 
-    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_uk", "name_es")
+    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_es")
 
 
 admin.site.site_title = "Woof Dogs admin"

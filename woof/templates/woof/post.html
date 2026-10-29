@@ -67,7 +67,20 @@
         <span class="post-title-text">{{ post.title }}</span>
     </h1>
 
-    <div class="post-media">
+    <!-- Contents: every heading of the page, in the order it appears -->
+    <nav class="post-toc" aria-label="{% trans 'Contents' %}">
+        <a href="#overview">{% blocktranslate trimmed %}Photos & facts{% endblocktranslate %}</a>
+        <a href="#summary">{% blocktranslate trimmed %}Summary{% endblocktranslate %}</a>
+        {% if post.history %}<a href="#history">{% blocktranslate trimmed %}History{% endblocktranslate %}</a>{% endif %}
+        <a href="#care">{% blocktranslate trimmed %}Care{% endblocktranslate %}</a>
+        <a href="#conditions">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</a>
+        {% if similar_dogs %}<a href="#similar">{% blocktranslate trimmed %}Similar breeds{% endblocktranslate %}</a>{% endif %}
+        {% if related_dogs %}<a href="#group-breeds">{% trans "Same group" %}</a>{% endif %}
+        <a href="#compare">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</a>
+        <a href="#more-breeds">{% trans "More breeds" %}</a>
+    </nav>
+
+    <div class="post-media" id="overview">
 
         <!-- Left half of the row: main photo + thumbnails
              (the two-column media layout) -->
@@ -164,21 +177,22 @@
         <!-- Breed characteristics panel -->
         <div class="post-right">
 
-            <!-- Data table: two parts — character, parameters -->
+            <!-- Breed characteristics: character is one more parameter -->
             <div class="post-table">
 
-            {% if post.temperament.all %}
-            <div class="post-table__part post-table__part--character">
-                <span class="post-table__label">{% trans "Character" %}</span>
-                <p class="character-line">{% for tt in post.temperament.all %}{{ tt }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-            </div>
-            {% endif %}
-
-            <div class="post-table__part post-table__part--parameters">
-
-            <span class="post-table__label">{% trans "Parameters" %}</span>
+            <div class="post-table__part">
 
         <div class="post-params-grid">
+        {% if post.temperament.all %}
+        <div class="param-card wide">
+            <div class="top">
+                <span class="icon">💎</span>
+                <span>{% trans "Character" %}</span>
+            </div>
+            <strong>{% for tt in post.temperament.all %}{{ tt }}{% if not forloop.last %}, {% endif %}{% endfor %}</strong>
+        </div>
+        {% endif %}
+
         <div class="param-card wide">
             <div class="top">
                 <span class="icon">🐾</span>
@@ -195,7 +209,7 @@
             <div class="top">
                 <span class="icon">🧬</span>
                 <span>{% blocktranslate trimmed %}Varieties{% endblocktranslate %}</span>
-                <span class="param-info">
+                <span class="param-info" tabindex="0">
                     ⓘ<span class="param-tooltip">
                         {% blocktranslate trimmed %}Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties.{% endblocktranslate %}
                     </span>
@@ -296,7 +310,7 @@
         <div class="param-card">
             <div class="top">
                 <span class="icon">🌱</span>
-                <span>{% blocktranslate trimmed %}Allergy friendly{% endblocktranslate %}</span>
+                <span>{% blocktranslate trimmed %}Shedding{% endblocktranslate %}</span>
             </div>
             <strong>{{ post.get_hypoallergenic_display }}</strong>
         </div>
@@ -362,19 +376,28 @@
             </p>
         {% endif %}
 
-        <p class="section-title">{% blocktranslate trimmed %}Summary{% endblocktranslate %}</p>
+        <p class="section-title" id="summary">{% blocktranslate trimmed %}Summary{% endblocktranslate %}</p>
         <p class="cat-desc">{{ post.summary }}</p>
 
         {% if post.history %}
-            <p class="section-title">{% blocktranslate trimmed %}History & origin{% endblocktranslate %}</p>
+            <p class="section-title" id="history">{% blocktranslate trimmed %}History{% endblocktranslate %}</p>
             <p class="cat-desc">{{ post.history }}</p>
         {% endif %}
 
-        <p class="section-title">{% blocktranslate trimmed %}Care{% endblocktranslate %}</p>
+        <p class="section-title" id="care">{% blocktranslate trimmed %}Care{% endblocktranslate %}</p>
         <p class="cat-desc">{{ post.care }}</p>
 
-        <p class="section-title">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</p>
+        <p class="section-title" id="conditions">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</p>
         <p class="cat-desc">{{ post.living_conditions }}</p>
+
+        {% if similar_dogs %}
+            <!-- Same size, then same coat length, coat type and activity -->
+            <p class="section-title" id="similar">{% blocktranslate trimmed %}Similar breeds{% endblocktranslate %}</p>
+            <p class="post-similar-note">{% blocktranslate trimmed %}Chosen by size, coat length, coat type and activity level.{% endblocktranslate %}</p>
+            <p class="cat-desc post-similar">
+                {% for mate in similar_dogs %}<a href="{{ mate.get_absolute_url }}">{{ mate.title }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+            </p>
+        {% endif %}
     </div>
 
 </div>
@@ -411,9 +434,9 @@ title="{% trans 'Next' %}"
     <span class="modal-zoom" id="modal-zoom" aria-hidden="true">100%</span>
 </div>
 
-<!-- Related dogs -->
-{% if related_dogs and post.slug != 'dachshund' %}
-<h2 class="section-title">{% trans "Other breeds in this group" %}</h2>
+<!-- Related dogs: a group of one breed (the Dachshund) has nothing to show -->
+{% if related_dogs %}
+<h2 class="section-title" id="group-breeds">{% trans "Same group" %}</h2>
 <div class="slider-block related-block">
     <div class="slider-inner">
         <div class="slider-nav">
@@ -468,7 +491,7 @@ title="{% trans 'Next' %}"
 <!-- Compare dogs -->
 <div class="compare-section">
 
-    <h2 class="section-title">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</h2>
+    <h2 class="section-title" id="compare">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</h2>
 
     <div id="comparePanel" class="compare-panel hidden">
 
@@ -544,7 +567,7 @@ title="{% trans 'Next' %}"
              data-i18n-trainability="{% trans 'Trainability' %}"
              data-i18n-activity="{% trans 'Activity' %}"
              data-i18n-barking="{% trans 'Barking' %}"
-             data-i18n-allergy="{% trans 'Allergy-Friendly' %}"
+             data-i18n-allergy="{% trans 'Shedding' %}"
              data-i18n-family="{% trans 'Family friendly' %}"
              data-i18n-years="{% trans 'years' %}"></div>
 
@@ -554,7 +577,7 @@ title="{% trans 'Next' %}"
 
 </div>
 
-<h2 class="section-title">{% trans "More breeds" %}</h2>
+<h2 class="section-title" id="more-breeds">{% trans "More breeds" %}</h2>
 <!-- Prev / next breed navigation (closing the page) -->
 <nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
 

@@ -57,24 +57,6 @@
 
         </ul>
 
-<!--        &lt;!&ndash; Groups &ndash;&gt;
-        <ul class="mobile-menu__list">
-
-            {% for category in cats %}
-
-                {% if category.pk != 10 %}
-
-                    <li class="mobile-menu__item {% if category.pk == cat_selected %}is-active{% endif %}">
-                        <a href="{{ category.get_absolute_url }}" title="{{ category.name }}">
-                            {{ category.name }}
-                        </a>
-                    </li>
-
-                {% endif %}
-
-            {% endfor %}
-
-        </ul>-->
 
     </div>
 
@@ -125,7 +107,7 @@
                         </p>
 
                         <p class="homepage-subtitle">
-                            {% blocktranslate trimmed %}A little mess, a lot of <span class="love-word">love</span>{% endblocktranslate %}
+                            {% blocktranslate trimmed %}Every breed is <span class="accent-strong">unique</span>{% endblocktranslate %}
                         </p>
 
                         <!-- Search -->
@@ -219,8 +201,7 @@
                         </div>
 
                         <p class="homepage-subsubtitle">
-                            {% blocktranslate trimmed %}A simple way to find a dog that fits your lifestyle,
-                            home and everyday rhythm — and feels like it belongs there{% endblocktranslate %}
+                            {% blocktranslate trimmed %}Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own.{% endblocktranslate %}
                         </p>
 
                     </div>

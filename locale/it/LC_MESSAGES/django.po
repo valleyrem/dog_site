@@ -137,22 +137,6 @@ msgstr "Ha bisogno di molta attività"
 msgid "Very energetic (high endurance)"
 msgstr "Molto energico (grande resistenza)"
 
-#: woof/models.py:119
-msgid "No (not hypoallergenic)"
-msgstr "No (non ipoallergenico)"
-
-#: woof/models.py:120
-msgid "Low (sheds a lot)"
-msgstr "Bassa (perde molto pelo)"
-
-#: woof/models.py:121
-msgid "Moderate (some shedding)"
-msgstr "Media (perde un po' di pelo)"
-
-#: woof/models.py:122
-msgid "High (minimal shedding)"
-msgstr "Alta (perdita minima di pelo)"
-
 #: woof/models.py:126
 msgid "Low (better with adults, limited tolerance)"
 msgstr "Bassa (meglio con adulti, tolleranza limitata)"
@@ -977,15 +961,6 @@ msgstr ""
 "Una registrazione del genere rende anche molto più facile descrivere il "
 "problema con precisione a un educatore o a un veterinario in seguito."
 
-#: woof/templates/woof/behavior.html:168
-#: woof/templates/woof/choosing_dog.html:148
-#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
-#: woof/templates/woof/health.html:218
-#: woof/templates/woof/living_with_dog.html:166
-#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
-msgid "Conclusion"
-msgstr "Conclusione"
-
 #: woof/templates/woof/behavior.html:170
 msgid ""
 "Understanding dog behavior is primarily about interpretation rather than "
@@ -1763,11 +1738,6 @@ msgstr ""
 "Se non vedi una razza particolare su questo sito, può semplicemente "
 "significare che non è ancora stata aggiunta o che non abbiamo trovato "
 "immagini adatte con attribuzione chiara o diritti di utilizzo gratuiti 😊"
-
-#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
-#: woof/templates/woof/health.html:62
-msgid "What this guide covers"
-msgstr "Cosa tratta questa guida"
 
 #: woof/templates/woof/feeding.html:64
 msgid ""
@@ -3135,9 +3105,9 @@ msgstr ""
 "Quando gestiti correttamente, questi fattori aumentano significativamente "
 "sia la qualità sia la durata della vita del cane."
 
-#: woof/templates/woof/home.html:128
-msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
-msgstr "Un po' di caos, tanto <span class=\"love-word\">amore</span>"
+#: woof/templates/woof/home.html:110
+msgid "Every breed is <span class=\"accent-strong\">unique</span>"
+msgstr "Ogni razza è <span class=\"accent-strong\">unica</span>"
 
 #: woof/templates/woof/home.html:135 woof/templates/woof/home.html:138
 #: woof/templates/woof/home.html:149 woof/templates/woof/home.html:172
@@ -3149,13 +3119,6 @@ msgstr "Cerca per gruppo"
 msgid "Find by breed"
 msgstr "Cerca per razza"
 
-#: woof/templates/woof/home.html:242
-msgid ""
-"A simple way to find a dog that fits your lifestyle, home and everyday "
-"rhythm — and feels like it belongs there"
-msgstr ""
-"Un modo semplice per trovare un cane che si adatti al tuo stile di "
-"vita, alla tua casa e al tuo ritmo — e che sembri nato per stare lì"
 
 #: woof/templates/woof/home.html:261
 msgid "A happy dog"
@@ -3695,10 +3658,6 @@ msgstr "Livello di attività"
 msgid "Barking"
 msgstr "Abbaiare"
 
-#: woof/templates/woof/post.html:278
-msgid "Allergy friendly"
-msgstr "Adatto agli allergici"
-
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Adatto alle famiglie"
@@ -3739,10 +3698,6 @@ msgstr "Spitz tedesco"
 msgid "Summary"
 msgstr "In breve"
 
-#: woof/templates/woof/post.html:371
-msgid "History & origin"
-msgstr "Storia e origine"
-
 #: woof/templates/woof/post.html:375
 msgid "Care"
 msgstr "Cura"
@@ -3776,17 +3731,9 @@ msgstr "Seleziona razza"
 msgid "Activity"
 msgstr "Attività"
 
-#: woof/templates/woof/post.html:574
-msgid "Allergy-Friendly"
-msgstr "Adatto agli allergici"
-
 #: woof/templates/woof/post.html:576
 msgid "years"
 msgstr "anni"
-
-#: woof/templates/woof/post.html:586
-msgid "Other breeds in this group"
-msgstr "Altre razze di questo gruppo"
 
 #: woof/templates/woof/privacy_policy.html:36
 #: woof/templates/woof/terms_and_conditions.html:32
@@ -5463,3 +5410,114 @@ msgstr "Peso"
 
 msgid "and"
 msgstr "e"
+
+#: woof/templates/woof/breeds.html
+msgid "No breeds match these filters"
+msgstr "Nessuna razza corrisponde a questi filtri"
+#: woof/views.py
+msgid "Short coat"
+msgstr "Pelo corto"
+#: woof/views.py
+msgid "Long coat"
+msgstr "Pelo lungo"
+#: woof/views.py
+msgid "Small & Medium Size"
+msgstr "Piccole e medie"
+#: woof/views.py
+msgid "Large Size"
+msgstr "Grandi"
+#: woof/views.py
+msgid "Short & Medium Coat"
+msgstr "Pelo corto e medio"
+#: woof/views.py
+msgid "Low-Shedding"
+msgstr "Perdono poco pelo"
+#: woof/views.py
+msgid "Calm & Moderate"
+msgstr "Calmi e moderati"
+#: woof/views.py
+msgid "Active & Energetic"
+msgstr "Attivi ed energici"
+#: woof/views.py
+msgid "Independent & Strong-Willed"
+msgstr "Indipendenti e testardi"
+#: woof/views.py
+msgid "Cooperative & Easy to Train"
+msgstr "Collaborativi e facili da addestrare"
+#: woof/views.py
+msgid "Needs More Supervision"
+msgstr "Richiedono supervisione"
+#: woof/templates/woof/health.html
+msgid "Vaccination"
+msgstr "Vaccinazioni"
+#: woof/templates/woof/health.html
+msgid "Health rests on two simple things: everyday care and protection from infections. Vaccination is the second part — and the cheapest insurance a dog can have, because the diseases it prevents are either hard to treat or fatal, especially in puppies."
+msgstr "La salute si regge su due cose semplici: le cure quotidiane e la protezione dalle infezioni. Le vaccinazioni sono la seconda parte — e l’assicurazione più economica che un cane possa avere, perché le malattie che prevengono sono difficili da curare o letali, soprattutto nei cuccioli."
+#: woof/templates/woof/health.html
+msgid "Most dogs are vaccinated against rabies, distemper, adenovirus (infectious hepatitis), parvovirus and leptospirosis; in many countries parainfluenza comes in the same combination. Extra vaccines, such as kennel cough or Lyme disease, depend on the region and on whether the dog travels, goes to shows or spends time in the countryside."
+msgstr "La maggior parte dei cani è vaccinata contro rabbia, cimurro, adenovirus (epatite infettiva), parvovirosi e leptospirosi; in molti paesi il parainfluenza è nella stessa combinazione. I vaccini aggiuntivi — per esempio tosse dei canili o malattia di Lyme — dipendono dalla zona e dal fatto che il cane viaggi, vada alle mostre o passi tempo in campagna."
+#: woof/templates/woof/health.html
+msgid "There is a schedule, but not one for the whole world: puppies receive a series of injections, adults receive boosters, and the interval depends on the vaccine and on the law of the country — rabies is always fixed by law. Which vaccines and when is decided by your veterinarian; the dates and the product names are written into the international veterinary passport."
+msgstr "Un calendario esiste, ma non è uguale in tutto il mondo: i cuccioli ricevono una serie di iniezioni, gli adulti i richiami, e l’intervallo dipende dal vaccino e dalla legge del paese — la rabbia è sempre regolata per legge. Quali vaccini e quando lo decide il veterinario; date e nomi dei prodotti finiscono nel passaporto sanitario internazionale."
+#: woof/templates/woof/health.html
+msgid "A few practical points: on the day of the visit the dog should be healthy, deworming is done shortly before vaccination, and for a day or two afterwards it is worth skipping bathing, swimming and long journeys. Keep the passport at hand and copy the dates into your own notes or calendar — they are asked for when travelling, in boarding kennels, at shows and at the next visit."
+msgstr "Qualche punto pratico: il giorno della visita il cane deve essere sano, la sverminazione si fa poco prima del vaccino, e per un giorno o due dopo è meglio evitare bagni, nuoto e viaggi lunghi. Tieni il passaporto a portata di mano e copia le date nei tuoi appunti o in calendario: servono in viaggio, in pensione, alle mostre e alla visita successiva."
+#: woof/templates/woof/health.html
+msgid "Vaccination does not replace daily care, and daily care does not replace vaccination: together they are what keeps a dog healthy year after year."
+msgstr "Le vaccinazioni non sostituiscono le cure quotidiane, e le cure quotidiane non sostituiscono le vaccinazioni: insieme tengono il cane sano anno dopo anno."
+
+#: woof/templates/woof/behavior.html:168
+#: woof/templates/woof/choosing_dog.html:148
+#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
+#: woof/templates/woof/health.html:218
+#: woof/templates/woof/living_with_dog.html:166
+#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
+msgid "Conclusion"
+msgstr "Conclusione"
+
+#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
+#: woof/templates/woof/health.html:62
+msgid "What this guide covers"
+msgstr "Cosa tratta questa guida"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Search by breed name"
+msgstr "Cerca la razza per nome"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Contents"
+msgstr "Indice"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Similar breeds"
+msgstr "Razze simili"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Heavy shedding"
+msgstr "Perdita abbondante di pelo"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Noticeable shedding"
+msgstr "Perdita evidente di pelo"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Moderate shedding"
+msgstr "Perdita moderata di pelo"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Minimal shedding"
+msgstr "Perdita minima di pelo"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Shedding"
+msgstr "Perdita di pelo"
+#: woof/templates/woof/post.html
+msgid "History"
+msgstr "Storia"
+#: woof/templates/woof/post.html
+msgid "Photos & facts"
+msgstr "Foto e dati"
+#: woof/templates/woof/post.html
+msgid "Same group"
+msgstr "Stesso gruppo"
+#: woof/templates/woof/post.html
+msgid "Chosen by size, coat length, coat type and activity level."
+msgstr "Scelte per taglia, lunghezza del pelo, tipo di pelo e attività."
+#: woof/templates/woof/includes/guide_toc.html
+msgid "Show all contents"
+msgstr "Mostra tutti i contenuti"
+#: woof/templates/woof/home.html:242
+msgid "Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own."
+msgstr "Scopri il meraviglioso mondo dei cani, dai piccoli compagni giocosi ai fedeli compagni di avventura, ognuno con una personalità propria."

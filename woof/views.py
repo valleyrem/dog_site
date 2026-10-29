@@ -1,3 +1,5 @@
+from django.db.models import Case, Count, IntegerField, Q, Value, When
+from django.conf import settings
 from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
@@ -23,12 +25,16 @@ class DogFilterMixin:
     """Apply the optional ?size= and ?trainability= filters of the list pages."""
 
     def filter_by_query_params(self, qs):
+        # Unknown values are ignored rather than turned into an empty page.
+        sizes = {value for value, _label in Dogs.SIZE_CHOICES}
+        trainabilities = {value for value, _label in Dogs.TRAINABILITY_CHOICES}
+
         size = self.request.GET.get("size")
         trainability = self.request.GET.get("trainability")
 
-        if size:
+        if size in sizes:
             qs = qs.filter(size=size)
-        if trainability:
+        if trainability in trainabilities:
             qs = qs.filter(trainability=trainability)
 
         return qs
@@ -38,9 +44,18 @@ class StaticPageView(DataMixin, TemplateView):
     """Generic page that only needs a template and a title."""
 
     page_title = ""
+    page_heading = ""  # clean title for Article markup (no site suffix)
+    page_description = ""
+    page_is_article = False
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        if self.page_is_article:
+            context["article"] = {
+                "headline": self.page_heading or self.page_title,
+                "description": self.page_description,
+                "updated": settings.SITE_CONTENT_UPDATED,
+            }
         return self.get_user_context(**context, title=self.page_title)
 
 
@@ -118,17 +133,42 @@ class ShowPost(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         post = context["post"]
 
-        base_size = 0.9
-        step = 0.2
-        context["size_icons"] = [
-            {"active": i == post.size_index, "size": base_size + step * (i - 1)}
-            for i in range(1, 6)
-        ]
+        # previous/next breed in the same order the lists use (title, then
+        # id for equal names), wrapping around at the ends
+        dogs_qs = Dogs.objects.filter(is_published=True).order_by("title", "id")
+        earlier = Q(title__lt=post.title) | Q(title=post.title, id__lt=post.id)
+        later = Q(title__gt=post.title) | Q(title=post.title, id__gt=post.id)
+        context["prev_post"] = dogs_qs.filter(earlier).last() or dogs_qs.last()
+        context["next_post"] = dogs_qs.filter(later).first() or dogs_qs.first()
 
-        # previous/next posts (wrap around at the ends)
-        dogs_qs = Dogs.objects.filter(is_published=True).order_by("id")
-        context["prev_post"] = dogs_qs.filter(id__lt=post.id).last() or dogs_qs.last()
-        context["next_post"] = dogs_qs.filter(id__gt=post.id).first() or dogs_qs.first()
+        # Similar breeds: same size class first, then the same coat length,
+        # the same coat type and finally the same activity level. Size is the
+        # only hard requirement, so the block is never empty.
+        coat_ids = list(post.coat_length.values_list("id", flat=True))
+        type_ids = list(post.coat_type.values_list("id", flat=True))
+        context["similar_dogs"] = list(
+            Dogs.objects.filter(is_published=True, size=post.size)
+            .exclude(pk=post.pk)
+            .select_related("cat")
+            .annotate(
+                coat_hits=Count(
+                    "coat_length",
+                    filter=Q(coat_length__in=coat_ids),
+                    distinct=True,
+                ),
+                type_hits=Count(
+                    "coat_type",
+                    filter=Q(coat_type__in=type_ids),
+                    distinct=True,
+                ),
+                activity_hits=Case(
+                    When(activity_level=post.activity_level, then=Value(1)),
+                    default=Value(0),
+                    output_field=IntegerField(),
+                ),
+            )
+            .order_by("-coat_hits", "-type_hits", "-activity_hits", "title")[:6]
+        )
 
         # related breeds from the same group
         context["related_dogs"] = (
@@ -180,7 +220,9 @@ def breed_og_image(request, slug):
     if jpeg is None:
         with dog.photo.open("rb") as photo_file:
             jpeg = build_og_card_bytes(photo_file)
-        cache.set(key, jpeg, timeout=None)
+        # Not "forever": the file cache culls old entries anyway, and a month
+        # is plenty for a card that only depends on the photo.
+        cache.set(key, jpeg, timeout=60 * 60 * 24 * 30)
 
     response = HttpResponse(jpeg, content_type="image/jpeg")
     response["Cache-Control"] = "public, max-age=2592000, s-maxage=2592000"
@@ -250,96 +292,75 @@ class ContactFormView(DataMixin, FormView):
 
 
 class BreedsView(DataMixin, TemplateView):
-    """Every published breed as one grid with filter buttons (Breeds page)."""
+    """Every published breed as one grid with a multi-select filter panel."""
 
     template_name = "woof/breeds.html"
 
-    # the curated collections the old Explore page used; each key is a
-    # filter button, the lookups stay here so the templates stay dumb
+    # One row of filters, each covering a range of values from a single model
+    # field (the field name is in the comment next to it). Filters that belong
+    # to the same field are OR-ed, different fields are AND-ed.
     FILTERS = [
+        # size
         (
-            "small",
-            _("Small \U0001f43e"),
-            dict(size="small"),
+            "size-small-medium",
+            _("Small & Medium Size"),
+            "size",
+            {"size__in": ["small", "medium"]},
+        ),
+        ("size-large", _("Large Size"), "size", {"size": "large"}),
+        # coat_length
+        (
+            "coat-short-medium",
+            _("Short & Medium Coat"),
+            "coat",
+            {"coat_length__name_en__in": ["Short", "Medium"]},
+        ),
+        ("coat-long", _("Long coat"), "coat", {"coat_length__name_en__in": ["Long"]}),
+        # hypoallergenic
+        (
+            "low-shedding",
+            _("Low-Shedding"),
+            "shedding",
+            {"hypoallergenic__in": ["moderate", "high"]},
+        ),
+        # activity_level
+        (
+            "calm",
+            _("Calm & Moderate"),
+            "activity",
+            {"activity_level__in": ["calm", "regular"]},
         ),
         (
-            "medium",
-            _("Medium \U0001f539"),
-            dict(size="medium"),
+            "active",
+            _("Active & Energetic"),
+            "activity",
+            {"activity_level__in": ["high", "energetic"]},
+        ),
+        # trainability
+        (
+            "independent",
+            _("Independent & Strong-Willed"),
+            "training",
+            {"trainability__in": ["independent", "stubborn"]},
         ),
         (
-            "large",
-            _("Large \U0001f9ae"),
-            dict(size="large"),
+            "cooperative",
+            _("Cooperative & Easy to Train"),
+            "training",
+            {"trainability__in": ["agreeable", "eager", "easy"]},
         ),
+        # family_friendliness
         (
-            "shortcoat",
-            _("Short coat \U0001f415"),
-            dict(coat_length__name_en__in=["Short"]),
-        ),
-        (
-            "longcoat",
-            _("Long coat \U0001f429"),
-            dict(coat_length__name_en__in=["Long"]),
-        ),
-        (
-            "first_time",
-            _("Great for first-time owners \U0001f195"),
-            dict(
-                trainability__in=["agreeable", "easy", "eager"],
-                activity_level__in=["calm", "regular"],
-            ),
-        ),
-        (
-            "experienced",
-            _("For experienced owners \U0001f4aa"),
-            dict(
-                activity_level__in=["high", "energetic"],
-                trainability__in=["independent", "stubborn"],
-            ),
+            "supervision",
+            _("Needs More Supervision"),
+            "family",
+            {"family_friendliness__in": ["low", "medium"]},
         ),
         (
             "family",
-            _("Best family \U0001f436"),
-            dict(
-                family_friendliness__in=["high", "excellent"],
-                barking_level__in=["necessary", "infrequent"],
-                activity_level__in=["calm", "regular"],
-            ),
-        ),
-        (
-            "trainable",
-            _("Easy to train \U0001f9e0"),
-            dict(trainability__in=["eager", "easy"]),
-        ),
-        (
-            "hypoallergenic",
-            _("Hypoallergenic breeds \U0001f33f"),
-            dict(hypoallergenic__in=["moderate", "high"]),
-        ),
-        (
-            "energy",
-            _("High energy \u26a1"),
-            dict(activity_level="energetic"),
-        ),
-        (
-            "apartment",
-            _("Apartment-friendly \U0001f3e2"),
-            dict(
-                size__in=["small", "medium"],
-                activity_level__in=["calm", "regular"],
-                barking_level__in=["necessary", "infrequent"],
-                coat_length__name_en__in=["Short", "Medium"],
-            ),
-        ),
-        (
-            "yard",
-            _("Best for houses with yard \U0001f3e1"),
-            dict(
-                size__in=["medium", "large"],
-                activity_level__in=["high", "energetic"],
-                barking_level__in=["vocal", "frequent"],
-            ),
+            _("Family friendly"),
+            "family",
+            {"family_friendliness__in": ["high", "excellent"]},
         ),
     ]
 
@@ -375,26 +396,20 @@ class BreedsView(DataMixin, TemplateView):
             .order_by("title")
         )
 
-        # every dog gets the list of filter keys it belongs to
+        # every dog gets the keys of all the filters it matches, so the browser
+        # can combine them without asking the server again
         for dog in dogs:
             dog.filter_keys = " ".join(
                 key
-                for key, _title, lookups in self.FILTERS
+                for key, _title, _group, lookups in self.FILTERS
                 if self._matches(dog, lookups)
             )
 
-        # Alphabet: the first letter of the title *as shown*, so the row
-        # follows the page language (ru "Афганская борзая" -> А, sr "Španski" -> Š).
-        for dog in dogs:
-            first = dog.title.strip()[:1]
-            dog.first_letter = first.upper() if first.isalpha() else ""
-
         context["dogs"] = dogs
-        context["letters"] = sorted({dog.first_letter for dog in dogs if dog.first_letter})
         context["filters"] = [
-            {"key": key, "title": title} for key, title, _lookups in self.FILTERS
+            {"key": key, "title": title, "group": group}
+            for key, title, group, _lookups in self.FILTERS
         ]
-
         return self.get_user_context(**context, title=_("Breeds - Woof Dogs"))
 
 
@@ -421,12 +436,18 @@ def breed_api(request, pk):
         is_published=True,
     )
 
-    # A DB record may point to a missing file; degrade gracefully.
+    # A DB record may point to a missing file; degrade to "no photo" instead
+    # of rendering a broken image (one storage call, and the response below is
+    # cached for an hour so the compare table rarely repeats it).
     photo_url = ""
-    if dog.photo and dog.photo.storage.exists(dog.photo.name):
-        photo_url = dog.photo_medium.url
+    if dog.photo:
+        try:
+            if dog.photo.storage.exists(dog.photo.name):
+                photo_url = dog.photo_medium.url
+        except OSError:
+            photo_url = ""
 
-    return JsonResponse(
+    response = JsonResponse(
         {
             "id": dog.id,
             "title": dog.title,
@@ -450,6 +471,9 @@ def breed_api(request, pk):
             "coat_type": " / ".join(c.name for c in dog.coat_type.all()),
         }
     )
+    # The compare table asks for the same breeds again and again.
+    response["Cache-Control"] = "public, max-age=3600"
+    return response
 
 
 def page_not_found(request, exception):

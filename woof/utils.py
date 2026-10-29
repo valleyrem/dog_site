@@ -19,6 +19,16 @@ menu = [
     {"title": _("Contact"), "url_name": "contact"},
 ]
 
+# Open Graph locales are "xx_YY"; Django language codes are lowercase.
+OG_LOCALES = {
+    "en": "en_US",
+    "sr-latn": "sr_RS",
+    "ru": "ru_RU",
+    "de": "de_DE",
+    "it": "it_IT",
+    "es": "es_ES",
+}
+
 CATS_CACHE_KEY = "cats"
 CATS_CACHE_TIMEOUT = 60 * 15  # 15 minutes
 
@@ -137,6 +147,17 @@ class DataMixin:
         # SEO: description + hreflang alternates
         path = self.request.path
         context.setdefault("meta_description", DEFAULT_META_DESCRIPTION)
+        # Open Graph locale: the page's own plus every other language
+        context["og_locale"] = OG_LOCALES.get(
+            get_language(), OG_LOCALES[settings.LANGUAGE_CODE]
+        )
+        # Only languages the site actually serves: OG_LOCALES may list more.
+        context["og_locale_alternates"] = [
+            OG_LOCALES[code]
+            for code, _ in settings.LANGUAGES
+            if code in OG_LOCALES and OG_LOCALES[code] != context["og_locale"]
+        ]
+
         context["page_urls"] = [
             {
                 "code": code,
@@ -147,10 +168,6 @@ class DataMixin:
             }
             for code, _ in settings.LANGUAGES
         ]
-        context["page_url_en"] = context["page_urls"][0]["url"]
-        if len(context["page_urls"]) > 1:
-            context["page_url_ru"] = context["page_urls"][1]["url"]
-
         return context
 
     @staticmethod

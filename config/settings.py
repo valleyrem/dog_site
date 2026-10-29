@@ -43,9 +43,12 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # X-Forwarded-Proto (SECURE_PROXY_SSL_HEADER above) so request.is_secure()
 # and CSRF origin checks work behind it.
 
-# Cookies must never travel over plain HTTP.
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# Cookies must never travel over plain HTTP in production. Locally (DEBUG)
+# they stay non-secure so plain-http testing — e.g. from a phone on the same
+# network — keeps working.
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+LANGUAGE_COOKIE_SECURE = not DEBUG
 
 # Not readable by JavaScript (limits XSS blast radius for CSRF/session cookies).
 SESSION_COOKIE_HTTPONLY = True
@@ -71,9 +74,10 @@ INSTALLED_APPS = [
     "woof.apps.WoofConfig",
     "smart_selects",
     "imagekit",
-    # local-only tooling
-    "debug_toolbar",
 ]
+
+if DEBUG:  # local-only tooling; never shipped to the production middleware chain
+    INSTALLED_APPS.append("debug_toolbar")
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 
@@ -87,8 +91,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "config.middleware.ContentSecurityPolicyMiddleware",
 ]
+
+if DEBUG:
+    MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
 
 ROOT_URLCONF = "config.urls"
 
@@ -123,6 +130,9 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASS", default=""),
         "HOST": env("DB_HOST", default="127.0.0.1"),
         "PORT": env("DB_PORT", default="5432"),
+        # Reuse connections between requests instead of reconnecting each time.
+        "CONN_MAX_AGE": env.int("DB_CONN_MAX_AGE", default=60),
+        "CONN_HEALTH_CHECKS": True,
     },
 }
 
@@ -155,7 +165,6 @@ LANGUAGES = [
     ("en", "English"),
     ("sr-latn", "Srpski"),
     ("ru", "Русский"),
-    ("uk", "Українська"),
     ("de", "Deutsch"),
     ("it", "Italiano"),
     ("es", "Español"),
@@ -216,6 +225,13 @@ if USE_S3:
             # pre-signed ones (which expire after an hour).
             "querystring_auth": False,
             "url_protocol": "https:",
+            # Photos never change under the same name (imagekit adds content
+            # hashes, uploads get unique names), so let browsers and CDNs keep
+            # them for a year instead of refetching on every visit.
+            "object_parameters": {
+                # boto3 spells this one without a dash
+                "CacheControl": "public, max-age=31536000, immutable",
+            },
             # OCI Object Storage does not support AWS chunked payloads
             # (botocore >= 1.36 enables them by default); use unsigned
             # payloads over HTTPS instead.
@@ -250,8 +266,24 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
         "LOCATION": BASE_DIR / "cache",
+        # the share cards and the sitemap live here too — keep more than the
+        # default 300 entries so they are not culled and rebuilt constantly
+        "OPTIONS": {"MAX_ENTRIES": 2000},
     },
 }
+
+
+# Cached thumbnails: the default strategy asks the storage "does this file
+# exist?" on every <img> render — one HEAD request per image per page with
+# S3. "Optimistic" trusts the file and creates the variants when a photo is
+# uploaded instead (see warm_thumbnails for the deploy-time backfill).
+IMAGEKIT_CACHEFILE_STRATEGY = "imagekit.cachefiles.strategies.Optimistic"
+
+
+# The guides and the static pages have no timestamps in the database: they are
+# templates. One honest date is used for sitemap <lastmod> and for the Article
+# markup — bump it when the texts change.
+SITE_CONTENT_UPDATED = "2026-10-29"
 
 
 # Default primary key field type

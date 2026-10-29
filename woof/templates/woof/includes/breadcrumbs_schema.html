@@ -1,0 +1,20 @@
+{% comment %}
+BreadcrumbList for crawlers, built from the same crumbs as the visible bar.
+JSON-LD may sit in the body — search engines read it wherever it appears.
+{% endcomment %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {% for item in items %}
+        {
+            "@type": "ListItem",
+            "position": {{ item.position }},
+            "name": "{{ item.name|escapejs }}"
+            {% if item.url %},"item": "{{ item.url }}"{% endif %}
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+</script>

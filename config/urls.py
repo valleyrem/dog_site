@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import include, path, re_path
-from django.views.static import serve
 
 from config.views import consent_log, set_language
 from woof.sitemap import robots_txt, sitemap_xml
@@ -18,10 +17,21 @@ urlpatterns = [
     path("chaining/", include("smart_selects.urls")),
     path("sitemap.xml", sitemap_xml, name="sitemap"),
     path("robots.txt", robots_txt, name="robots"),
-    re_path(
-        r"^media/(?P<path>.*)$", serve, kwargs={"document_root": settings.MEDIA_ROOT}
-    ),
 ]
+
+if settings.DEBUG:
+    # Local development only: in production media lives on S3 and is served
+    # by the bucket, never by Django (django.views.static.serve is not meant
+    # for production traffic).
+    from django.views.static import serve
+
+    urlpatterns += [
+        re_path(
+            r"^media/(?P<path>.*)$",
+            serve,
+            kwargs={"document_root": settings.MEDIA_ROOT},
+        ),
+    ]
 
 # Language-prefixed pages. English is the default language and keeps the
 # prefix-less URLs (prefix_default_language=False), so all indexed URLs

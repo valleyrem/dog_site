@@ -169,9 +169,17 @@ a {
     background-color 0.2s ease;
 }
 
+/* Justified text only where the measure is wide; narrow columns stay ragged
+   right, which reads better and avoids rivers of white space. */
 .cat-desc {
   margin: 0;
-  text-align: justify;
+  text-align: left;
+}
+
+@media (min-width: 1025px) {
+  .cat-desc {
+    text-align: justify;
+  }
 }
 
 .fci-list {
@@ -914,7 +922,13 @@ body.cards-text .dog-card__group {
 
 .post-container {
   color: var(--main-text);
-  text-align: justify;
+  text-align: left;
+}
+
+@media (min-width: 1025px) {
+  .post-container {
+    text-align: justify;
+  }
 }
 .fullwidth-content .post-container {
   padding: 0 40px;
@@ -929,7 +943,6 @@ body.cards-text .dog-card__group {
 .fullwidth-content > .slider-block {
   padding-left: 40px;
   padding-right: 40px;
-  padding-bottom: 40px;
 }
 
 .post-header {
@@ -944,19 +957,19 @@ body.cards-text .dog-card__group {
 
 .post-title {
   margin: 0;
-  font-size: clamp(34px, 4.6vw, 52px);
+  font-size: clamp(34px, 4.6vw, 48px);
   line-height: 1.1;
   color: var(--accent-deep);
   font-family: "Nunito", sans-serif;
   width: fit-content;
   border-radius: 0;
   letter-spacing: 0.02em;
-  font-weight: 700;
+  font-weight: 600;
   text-wrap: balance;
 }
 
 .post-title-cat {
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-size: clamp(34px, 4.2vw, 48px);
   margin: 12px 0 0px;
   line-height: 1.1;
   color: var(--accent-deep);
@@ -964,7 +977,7 @@ body.cards-text .dog-card__group {
   width: fit-content;
   border-radius: 0;
   letter-spacing: 0.01em;
-  font-weight: 700;
+  font-weight: 600;
   text-wrap: balance;
 }
 .post-media-nav {
@@ -1171,9 +1184,9 @@ body.cards-text .dog-card__group {
   align-items: stretch;
   margin: 0 auto 10px;
   column-gap: 30px;
-  padding: 22px 24px 40px;
+  padding: 22px 0 40px;
   overflow: clip;
-  background: var(--surface);
+
 }
 .post-media > .post-media-photos {
   align-self: start;
@@ -1199,7 +1212,7 @@ body.cards-text .dog-card__group {
 }
 
 .post-image-dot.is-active {
-  background: var(--main-accent);
+/*  background: var(--main-accent);*/
   border: 0.5px solid var(--main-accent);
 }
 
@@ -1286,7 +1299,7 @@ body.cards-text .dog-card__group {
   }
   .post-container > .post-title {
     width: fit-content;
-    margin: 12px 0 30px;
+    margin: 12px 0 10px;
     text-align: left;
   }
 }
@@ -1461,36 +1474,11 @@ body.cards-text .dog-card__group {
 }
 
 .post-table__part {
-  padding: 10px 0 24px;
-  border-bottom: 1px solid var(--line);
-}
-
-.post-table__part:last-child {
-  border-bottom: none;
-}
-
-.post-table__label {
-  display: block;
-  margin-bottom: 14px;
-  font-family: "Nunito", sans-serif;
-  font-size: 11.5px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--main-accent);
+  padding: 0;
 }
 
 .post-table .post-params-grid {
   margin-top: 0;
-}
-.character-line {
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  font-size: 16px;
-  font-weight: 350;
-  line-height: 1.5;
-  color: var(--main-text);
 }
 
 .post-params-grid {
@@ -1608,7 +1596,7 @@ body.cards-text .dog-card__group {
   left: 50%;
   bottom: calc(100% + 8px);
   transform: translateX(calc(-50% - 6px));
-  width: 240px;
+  width: 260px;
   padding: 8px 10px;
   background: var(--surface);
   color: var(--main-text);
@@ -1629,10 +1617,156 @@ body.cards-text .dog-card__group {
   z-index: 100;
 }
 
-.param-info:hover .param-tooltip {
+/* Hover for the mouse, focus for the keyboard and for a tap on phones. */
+.param-info:hover .param-tooltip,
+.param-info:focus .param-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(calc(-50% - 6px)) translateY(-2px);
+}
+
+.param-info:focus {
+  outline: none;
+}
+
+/* Post page: contents row, guide links and "similar breeds" line. */
+/* Contents: built exactly like the filter buttons on the breeds page. */
+.post-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 20px;
+  margin: 0 0 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.post-toc a {
+  padding: 4px 0;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+@media (hover: hover) {
+  .post-toc a:hover {
+    color: var(--main-accent);
+  }
+}
+
+/* The heading you are reading keeps the accent of a picked filter. */
+.post-toc a.is-current {
+  color: var(--main-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Guides: a short contents list built from the section titles, styled like
+   the filter row on the breeds page but stacked and never underlined. */
+.guide-toc {
+  margin: 0 0 28px;
+}
+
+.guide-toc__title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--main-text);
+}
+
+.guide-toc__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.guide-toc__list a {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .guide-toc__list a:hover,
+  .guide-toc__toggle:hover {
+    color: var(--main-accent);
+  }
+}
+
+/* Five headings, then a switch for the rest. */
+.guide-toc.is-collapsed .guide-toc__list a:nth-child(n + 6) {
+  display: none;
+}
+
+.guide-toc__toggle {
+  margin: 10px 0 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.guide-toc__arrow {
+  display: inline-block;
+  margin-left: 6px;
+  border-top: 5px solid currentColor;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.guide-toc.is-open .guide-toc__arrow {
+  transform: rotate(180deg);
+}
+
+.guide-toc__less {
+  display: none;
+}
+
+.guide-toc.is-open .guide-toc__more {
+  display: none;
+}
+
+.guide-toc.is-open .guide-toc__less {
+  display: inline;
+}
+
+/* Says what the list below is based on: plain body text, just held apart. */
+.post-similar-note {
+  margin: 0 0 8px;
+}
+
+.post-similar a {
+  color: var(--main-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.post-similar a:hover {
+  border-color: var(--main-accent);
+}
+
+/* Anchors: keep the sticky header from covering the target. */
+.post-media[id],
+.section-title[id] {
+  scroll-margin-top: 60px;
 }
 
 .post-params-grid p {
@@ -1650,20 +1784,21 @@ body.cards-text .dog-card__group {
 .section-title {
   font-size: 30px;
   font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.01em;
   line-height: 1.25;
-  margin: 52px 0 24px;
+  margin: 34px 0 24px;
   text-wrap: balance;
 }
-.section-title[id] {
+/*.section-title[id] {
   scroll-margin-top: 76px;
-}
+}*/
+/* A short rule above the heading, a touch lighter than the old one. */
 .section-title:not(.section-title-group)::before {
   content: "";
   display: block;
   width: 44px;
-  height: 2px;
+  height: 1.5px;
   background: var(--main-accent);
   margin-bottom: 16px;
 }
@@ -2157,8 +2292,8 @@ p strong {
     display: block;
     position: sticky;
     bottom: 0;
-    height: 26px;
-    margin: -26px -6px 0;
+    height: 50px;
+    margin: -50px -6px 0;
     pointer-events: none;
     background: linear-gradient(
       to bottom,
@@ -2740,8 +2875,8 @@ p strong {
 .breed-marquee__item::after {
   content: "•";
   margin-left: 26px;
-  color: var(--clay);
-  font-size: 14px;
+  color: var(--main-accent);
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -2789,14 +2924,9 @@ p strong {
   line-height: 1.4;
   color: var(--main-text);
   letter-spacing: 0.02em;
-  font-weight: 400;
+  font-weight: 350;
   text-align: left;
   opacity: 0.95;
-}
-
-.love-word {
-  color: var(--main-accent);
-  font-weight: 800;
 }
 
 .accent-strong {
@@ -3426,7 +3556,7 @@ body.swal2-shown {
 .breadcrumbs {
   font-size: 13px;
   color: var(--ink-soft);
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.04em;
 }
 
@@ -3952,64 +4082,61 @@ body.swal2-shown {
   opacity: 0.8;
 }
 
-/* Letter row: one squared chip per first letter present on the page. */
-.breeds-letters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 30px 0 0;
+/* Search by name sits under the filter row. */
+.breeds-search {
+  margin: 0 0 30px;
 }
 
-.letter-btn {
-  min-width: 28px;
-  padding: 3px 7px;
-  background: none;
+.breeds-search__input {
+  width: min(100%, 320px);
+  padding: 7px 12px;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 0;
   font-family: "Nunito", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-size: 14px;
+  color: var(--main-text);
 }
 
-.letter-btn:hover,
-.letter-btn.is-active {
-  color: var(--main-accent);
+.breeds-search__input:focus {
+  outline: none;
   border-color: var(--main-accent);
 }
 
-.breeds-letters + .breeds-filter {
-  margin-top: 16px;
+.breeds-search__input::placeholder {
+  color: var(--ink-soft);
 }
 
+/* One row of filter buttons above the grid. */
 .breeds-filter {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 12px 26px;
-  margin: 30px 0 34px;
+  gap: 5px 20px;
+  margin: 30px 0 16px;
 }
 
 .filter-btn {
+  padding: 4px 0;
   background: none;
   border: none;
-  padding: 4px 0;
+  border-radius: 0;
   font-family: "Nunito", sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.04em;
+  text-align: left;
   color: var(--ink-soft);
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
-.filter-btn:hover {
-  color: var(--main-accent);
+/* Only where a pointer can hover: a tap on a phone would otherwise leave the
+   colour behind after the filter is switched off. */
+@media (hover: hover) {
+  .filter-btn:hover {
+    color: var(--main-accent);
+  }
 }
 
 .filter-btn.is-active {
@@ -4017,6 +4144,28 @@ body.swal2-shown {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* The picked filter carries a cross: click it again to switch it off.
+   The empty alternative text keeps screen readers from saying "times". */
+.filter-btn.is-active:not([data-filter="all"])::after {
+  content: "×" / "";
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--main-accent);
+  transform: translateY(-1px);
+}
+
+/* Shown when the selected filters match nothing. */
+.breeds-empty {
+  margin: 0 0 40px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
 .breeds-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4040,4 +4189,55 @@ body.swal2-shown {
 
 .dog-card-link[hidden] {
   display: none;
+}
+
+/* ---------------------------------------------------------------- print -- */
+@media print {
+  .site-header,
+  .sidebar-nav,
+  .cookie-banner,
+  .cookie-overlay,
+  .page-loader,
+  .site-footer,
+  .post-copy,
+  .post-toc,
+  .post-media-arrow,
+  .slider-block,
+  .compare-section,
+  .post-media-nav,
+  .breeds-filters,
+  .breeds-search,
+  .filters-reset,
+  #scroll-top-button {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .post-container,
+  .post-text,
+  .cat-desc,
+  .section-title {
+    color: #000 !important;
+    text-align: left !important;
+  }
+
+  .post-media,
+  .post-table,
+  .param-card {
+    break-inside: avoid;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .guide-image {
+    max-width: 60% !important;
+    margin: 12px 0 !important;
+  }
 }

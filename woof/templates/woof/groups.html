@@ -33,7 +33,7 @@
 
             {% for category in cats|dictsort:"fci_number" %}
 
-                {% if category.pk != 10 and category.slug != 'breeds-outside-fci-classification' %}
+                {% if category.slug != 'breeds-outside-fci-classification' %}
 
                     <a href="{{ category.get_absolute_url }}"
                        class="group-row"

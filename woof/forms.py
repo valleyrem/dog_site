@@ -55,10 +55,14 @@ class ContactForm(forms.Form):
 
     def clean_captcha(self):
         token = self.cleaned_data.get("captcha_token", "")
-        expected = cache.get(f"contact_captcha:{token}") if token else None
+        cache_key = f"contact_captcha:{token}"
+        expected = cache.get(cache_key) if token else None
         value = self.cleaned_data.get("captcha")
         if expected is None or value is None or value != expected:
             raise forms.ValidationError(_("Incorrect answer. Please try again."))
+        # One token, one message: otherwise a single solved captcha could be
+        # replayed for the whole 10-minute lifetime of the token.
+        cache.delete(cache_key)
         return value
 
     def send_message_to_telegram(self):

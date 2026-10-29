@@ -1866,74 +1866,80 @@ document.addEventListener("DOMContentLoaded", () => {
   update();
 })();
 
-// Breeds page: filter buttons over the static card grid
+// Breeds page: one row of filter buttons over the static card grid.
+// One filter at a time (like radio buttons), and clicking the active one
+// again clears it — that keeps the row readable instead of stacking filters.
 
 document.addEventListener("DOMContentLoaded", () => {
-  const filterBar = document.querySelector("[data-breeds-filter]");
+  const bar = document.querySelector("[data-breeds-filters]");
   const grid = document.querySelector("[data-breeds-grid]");
 
-  if (!filterBar || !grid) return;
+  if (!bar || !grid) return;
 
-  const letterBar = document.querySelector("[data-breeds-letters]");
-  const buttons = [...filterBar.querySelectorAll(".filter-btn")];
-  const letterButtons = letterBar
-    ? [...letterBar.querySelectorAll(".letter-btn")]
-    : [];
+  const emptyNote = document.querySelector("[data-breeds-empty]");
+  const search = document.querySelector("[data-breeds-search]");
+  const buttons = [...bar.querySelectorAll(".filter-btn")];
   const cards = [...grid.querySelectorAll(".dog-card-link")];
 
-  // Two independent groups (letter + collection) that combine with AND:
-  // "S" together with "Small" shows the small breeds whose name starts with S.
-  let activeLetter = "";
-  let activeFilter = "all";
+  let active = "all";
+  let query = "";
 
-  function apply() {
+  function apply(scroll) {
+    let shown = 0;
+
     cards.forEach((card) => {
       const keys = (card.dataset.filters || "").split(" ");
-      const byLetter = !activeLetter || card.dataset.letter === activeLetter;
-      const byFilter = activeFilter === "all" || keys.includes(activeFilter);
-      card.hidden = !(byLetter && byFilter);
+      const byFilter = active === "all" || keys.includes(active);
+      const byName = !query || (card.title || "").toLowerCase().includes(query);
+      const visible = byFilter && byName;
+      card.hidden = !visible;
+      if (visible) shown += 1;
     });
 
-    // on phones jump to the top of the filtered grid, like an anchor
-    if (window.innerWidth <= 767) {
-      grid.scrollIntoView({ behavior: "smooth", block: "start" });
+    // screen readers hear the result, and an empty grid gets an explanation
+    if (emptyNote) emptyNote.hidden = shown > 0;
+
+    // on phones the grid sits well below the buttons: glide to it, the way an
+    // anchor would (never on load, only after a real click)
+    if (scroll && window.innerWidth <= 767) {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      grid.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
     }
   }
 
-  letterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const letter = btn.dataset.letter;
-      // clicking the same letter again clears the alphabet filter
-      activeLetter = activeLetter === letter ? "" : letter;
-      letterButtons.forEach((b) =>
-        b.classList.toggle("is-active", b.dataset.letter === activeLetter),
-      );
-      apply();
+  function setActive(key, scroll) {
+    active = key;
+
+    buttons.forEach((btn) => {
+      const on = btn.dataset.filter === active;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
     });
-  });
+
+    apply(scroll);
+  }
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const key = btn.dataset.filter;
-
-      if (key === "all") {
-        // "All breeds" clears everything, the alphabet included
-        activeFilter = "all";
-        activeLetter = "";
-        letterButtons.forEach((b) => b.classList.remove("is-active"));
-      } else if (activeFilter === key) {
-        // a second click on the active chip takes the filter off again
-        activeFilter = "all";
-      } else {
-        activeFilter = key;
-      }
-
-      buttons.forEach((b) =>
-        b.classList.toggle("is-active", b.dataset.filter === activeFilter),
-      );
-      apply();
+      // "All breeds" always resets; a second click on the active filter too.
+      // Clearing shows every breed, so there is nothing to glide down to.
+      const clears = key === "all" || key === active;
+      setActive(clears ? "all" : key, !clears);
     });
   });
+
+  if (search) {
+    search.addEventListener("input", () => {
+      query = search.value.trim().toLowerCase();
+      apply(false);
+    });
+  }
+
+  setActive("all");
 });
 
 // Reveal a breed card only once its lazy photo has loaded, so the title
@@ -2023,4 +2029,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (mq.addEventListener) mq.addEventListener("change", place);
   else if (mq.addListener) mq.addListener(place); // older Safari
+})();
+
+// Contents: the link of the heading you are reading stays highlighted, the
+// same way a picked filter does on the breeds page.
+(function () {
+  var nav = document.querySelector(".post-toc");
+  if (!nav) return;
+
+  var links = [].slice.call(nav.querySelectorAll('a[href^="#"]'));
+  var targets = links
+    .map(function (link) {
+      return document.getElementById(link.getAttribute("href").slice(1));
+    })
+    .filter(Boolean);
+
+  if (!targets.length) return;
+
+  var current = null;
+
+  function update() {
+    var line = 120; // a heading counts as read once it reaches the top
+    var found = targets[0];
+    targets.forEach(function (target) {
+      if (target.getBoundingClientRect().top <= line) found = target;
+    });
+    if (found === current) return;
+    current = found;
+    links.forEach(function (link) {
+      var on = link.getAttribute("href") === "#" + found.id;
+      link.classList.toggle("is-current", on);
+      if (on) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () {
+      queued = false;
+      update();
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();
+
+// Guides: the contents list is built from the section titles already on the
+// page, so it can never drift away from the text. Five entries first, the rest
+// behind the switch.
+(function () {
+  var nav = document.querySelector(".guide-toc");
+  if (!nav) return;
+
+  var list = nav.querySelector("[data-guide-toc-list]");
+  var toggle = nav.querySelector("[data-guide-toc-toggle]");
+  var heads = [].slice.call(
+    document.querySelectorAll(".post-container .section-title")
+  );
+
+  if (!list || heads.length < 2) {
+    nav.remove();
+    return;
+  }
+
+  heads.forEach(function (head, index) {
+    if (!head.id) head.id = "guide-section-" + (index + 1);
+    var link = document.createElement("a");
+    link.href = "#" + head.id;
+    link.textContent = head.textContent.trim();
+    list.appendChild(link);
+  });
+
+  if (heads.length <= 5) {
+    nav.classList.remove("is-collapsed");
+    return;
+  }
+
+  toggle.hidden = false;
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("is-open");
+    nav.classList.toggle("is-collapsed", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+  });
 })();

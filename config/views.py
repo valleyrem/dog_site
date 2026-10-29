@@ -111,8 +111,11 @@ def consent_log(request):
     forwarded = request.META.get("HTTP_X_FORWARDED_FOR", "")
     remote = request.META.get("REMOTE_ADDR", "")
     if forwarded:
-        client_ip = forwarded.split(",")[0].strip()
-    elif remote:
+        # A proxy appends the address it saw, so the *last* entry is the one
+        # our own reverse proxy added. Taking the first would let a client
+        # choose its own key and walk around the flood guard below.
+        client_ip = forwarded.split(",")[-1].strip()
+    if not client_ip:
         client_ip = remote
 
     # Flood guard only: cap the number of consent events per client per

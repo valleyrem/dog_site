@@ -139,22 +139,6 @@ msgstr "Нужна большая активность"
 msgid "Very energetic (high endurance)"
 msgstr "Очень энергичная (высокая выносливость)"
 
-#: woof/models.py:119
-msgid "No (not hypoallergenic)"
-msgstr "Нет (не гипоаллергенная)"
-
-#: woof/models.py:120
-msgid "Low (sheds a lot)"
-msgstr "Низкая (сильно линяет)"
-
-#: woof/models.py:121
-msgid "Moderate (some shedding)"
-msgstr "Средняя (умеренная линька)"
-
-#: woof/models.py:122
-msgid "High (minimal shedding)"
-msgstr "Высокая (минимальная линька)"
-
 #: woof/models.py:126
 msgid "Low (better with adults, limited tolerance)"
 msgstr "Низкая (лучше со взрослыми, ограниченная терпимость)"
@@ -979,15 +963,6 @@ msgstr ""
 "Такая запись также сильно упрощает точное описание проблемы тренеру или "
 "ветеринару позже."
 
-#: woof/templates/woof/behavior.html:168
-#: woof/templates/woof/choosing_dog.html:148
-#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
-#: woof/templates/woof/health.html:218
-#: woof/templates/woof/living_with_dog.html:166
-#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
-msgid "Conclusion"
-msgstr "Вывод"
-
 #: woof/templates/woof/behavior.html:170
 msgid ""
 "Understanding dog behavior is primarily about interpretation rather than "
@@ -1773,11 +1748,6 @@ msgstr ""
 "Если вы не видите конкретную породу на этом сайте, это может означать, что "
 "её ещё не добавили или мы пока не нашли подходящих изображений с ясной "
 "атрибуцией или свободной лицензией 😊"
-
-#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
-#: woof/templates/woof/health.html:62
-msgid "What this guide covers"
-msgstr "Что охватывает этот гайд"
 
 #: woof/templates/woof/feeding.html:64
 msgid ""
@@ -3116,9 +3086,9 @@ msgstr ""
 "При правильном управлении эти факторы значительно увеличивают как качество, "
 "так и продолжительность жизни собаки."
 
-#: woof/templates/woof/home.html:128
-msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
-msgstr "Немного шалости, много <span class=\"love-word\">любви</span>"
+#: woof/templates/woof/home.html:110
+msgid "Every breed is <span class=\"accent-strong\">unique</span>"
+msgstr "Каждая порода <span class=\"accent-strong\">уникальна</span>"
 
 #: woof/templates/woof/home.html:135 woof/templates/woof/home.html:138
 #: woof/templates/woof/home.html:149 woof/templates/woof/home.html:172
@@ -3130,13 +3100,6 @@ msgstr "Поиск по группе"
 msgid "Find by breed"
 msgstr "Поиск по породе"
 
-#: woof/templates/woof/home.html:242
-msgid ""
-"A simple way to find a dog that fits your lifestyle, home and everyday "
-"rhythm — and feels like it belongs there"
-msgstr ""
-"Найдите собаку, которая подойдёт вашему дому, образу жизни и ритму — "
-"и почувствует, что она дома."
 
 #: woof/templates/woof/home.html:261
 msgid "A happy dog"
@@ -3678,10 +3641,6 @@ msgstr "Уровень активности"
 msgid "Barking"
 msgstr "Лай"
 
-#: woof/templates/woof/post.html:278
-msgid "Allergy friendly"
-msgstr "Гипоаллергенность"
-
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Семейность"
@@ -3722,10 +3681,6 @@ msgstr "Немецкий шпиц"
 msgid "Summary"
 msgstr "Общая информация"
 
-#: woof/templates/woof/post.html:371
-msgid "History & origin"
-msgstr "История и происхождение"
-
 #: woof/templates/woof/post.html:375
 msgid "Care"
 msgstr "Уход"
@@ -3759,17 +3714,9 @@ msgstr "Выберите породу"
 msgid "Activity"
 msgstr "Уровень активности"
 
-#: woof/templates/woof/post.html:574
-msgid "Allergy-Friendly"
-msgstr "Гипоаллергенность"
-
 #: woof/templates/woof/post.html:576
 msgid "years"
 msgstr "лет"
-
-#: woof/templates/woof/post.html:586
-msgid "Other breeds in this group"
-msgstr "Другие породы этой группы"
 
 #: woof/templates/woof/privacy_policy.html:36
 #: woof/templates/woof/terms_and_conditions.html:32
@@ -5467,3 +5414,114 @@ msgstr "кг"
 
 msgid "and"
 msgstr "и"
+
+#: woof/templates/woof/breeds.html
+msgid "No breeds match these filters"
+msgstr "По этим условиям пород не найдено"
+#: woof/views.py
+msgid "Short coat"
+msgstr "Короткая шерсть"
+#: woof/views.py
+msgid "Long coat"
+msgstr "Длинная шерсть"
+#: woof/views.py
+msgid "Small & Medium Size"
+msgstr "Маленькие и средние"
+#: woof/views.py
+msgid "Large Size"
+msgstr "Крупные"
+#: woof/views.py
+msgid "Short & Medium Coat"
+msgstr "Короткая и средняя шерсть"
+#: woof/views.py
+msgid "Low-Shedding"
+msgstr "Мало линяют"
+#: woof/views.py
+msgid "Calm & Moderate"
+msgstr "Спокойные и умеренные"
+#: woof/views.py
+msgid "Active & Energetic"
+msgstr "Активные и энергичные"
+#: woof/views.py
+msgid "Independent & Strong-Willed"
+msgstr "Самостоятельные и своенравные"
+#: woof/views.py
+msgid "Cooperative & Easy to Train"
+msgstr "Покладистые и легко обучаемые"
+#: woof/views.py
+msgid "Needs More Supervision"
+msgstr "Нужен присмотр"
+#: woof/templates/woof/health.html
+msgid "Vaccination"
+msgstr "Прививки"
+#: woof/templates/woof/health.html
+msgid "Health rests on two simple things: everyday care and protection from infections. Vaccination is the second part — and the cheapest insurance a dog can have, because the diseases it prevents are either hard to treat or fatal, especially in puppies."
+msgstr "Здоровье держится на двух простых вещах: повседневном уходе и защите от инфекций. Прививки — вторая часть, и это самая дешёвая страховка для собаки: болезни, от которых они защищают, лечить либо тяжело, либо уже поздно, особенно у щенков."
+#: woof/templates/woof/health.html
+msgid "Most dogs are vaccinated against rabies, distemper, adenovirus (infectious hepatitis), parvovirus and leptospirosis; in many countries parainfluenza comes in the same combination. Extra vaccines, such as kennel cough or Lyme disease, depend on the region and on whether the dog travels, goes to shows or spends time in the countryside."
+msgstr "Большинство собак прививают от бешенства, чумы плотоядных, аденовируса (инфекционного гепатита), парвовируса и лептоспироза; во многих странах парагрипп входит в ту же комплексную вакцину. Дополнительные прививки — например от питомникового кашля или болезни Лайма — зависят от региона и от того, ездит ли собака, бывает ли на выставках и проводит ли время за городом."
+#: woof/templates/woof/health.html
+msgid "There is a schedule, but not one for the whole world: puppies receive a series of injections, adults receive boosters, and the interval depends on the vaccine and on the law of the country — rabies is always fixed by law. Which vaccines and when is decided by your veterinarian; the dates and the product names are written into the international veterinary passport."
+msgstr "График существует, но единого для всего мира нет: щенкам делают серию инъекций, взрослым — ревакцинацию, а интервал зависит от вакцины и от закона страны (бешенство всегда регулируется законом). Какие прививки и когда — решает ваш ветеринар; даты и названия препаратов вписываются в международный ветеринарный паспорт."
+#: woof/templates/woof/health.html
+msgid "A few practical points: on the day of the visit the dog should be healthy, deworming is done shortly before vaccination, and for a day or two afterwards it is worth skipping bathing, swimming and long journeys. Keep the passport at hand and copy the dates into your own notes or calendar — they are asked for when travelling, in boarding kennels, at shows and at the next visit."
+msgstr "Несколько практических моментов: в день визита собака должна быть здоровой, глистов прогоняют незадолго до прививки, а день-два после неё лучше обойтись без купания, плавания и долгих поездок. Держите паспорт под рукой и дублируйте даты в своих заметках или календаре — их спрашивают в поездках, в передержке, на выставках и на следующем приёме."
+#: woof/templates/woof/health.html
+msgid "Vaccination does not replace daily care, and daily care does not replace vaccination: together they are what keeps a dog healthy year after year."
+msgstr "Прививки не заменяют повседневный уход, а уход не заменяет прививки: вместе они и держат собаку здоровой год за годом."
+
+#: woof/templates/woof/behavior.html:168
+#: woof/templates/woof/choosing_dog.html:148
+#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
+#: woof/templates/woof/health.html:218
+#: woof/templates/woof/living_with_dog.html:166
+#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
+msgid "Conclusion"
+msgstr "Вывод"
+
+#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
+#: woof/templates/woof/health.html:62
+msgid "What this guide covers"
+msgstr "Что охватывает этот гайд"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Search by breed name"
+msgstr "Поиск породы по названию"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Contents"
+msgstr "Содержание"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Similar breeds"
+msgstr "Похожие породы"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Heavy shedding"
+msgstr "Сильная линька"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Noticeable shedding"
+msgstr "Заметная линька"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Moderate shedding"
+msgstr "Умеренная линька"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Minimal shedding"
+msgstr "Минимальная линька"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Shedding"
+msgstr "Линька"
+#: woof/templates/woof/post.html
+msgid "History"
+msgstr "История"
+#: woof/templates/woof/post.html
+msgid "Photos & facts"
+msgstr "Фото и факты"
+#: woof/templates/woof/post.html
+msgid "Same group"
+msgstr "Та же группа"
+#: woof/templates/woof/post.html
+msgid "Chosen by size, coat length, coat type and activity level."
+msgstr "Подобрано по размеру, длине шерсти, типу шерсти и активности."
+#: woof/templates/woof/includes/guide_toc.html
+msgid "Show all contents"
+msgstr "Показать всё содержание"
+#: woof/templates/woof/home.html:242
+msgid "Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own."
+msgstr "Откройте для себя удивительный мир собак — от игривых маленьких компаньонов до верных спутников приключений, у каждой из которых свой характер."

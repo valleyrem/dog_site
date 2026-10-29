@@ -41,3 +41,6 @@ The crumb row itself; pages wrap it in
     <span{% if current_title %} title="{{ current_title }}"{% endif %} class="current">{{ current }}</span>
 
 </div>
+
+{% load seo %}
+{% breadcrumbs_schema current=current section=section parent_label=parent_label parent_url=parent_url sub_label=sub_label sub_url=sub_url %}

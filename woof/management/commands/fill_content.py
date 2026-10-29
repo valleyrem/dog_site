@@ -17,6 +17,7 @@ freshly added breed gets finished in one step).
     python manage.py fill_content --dry-run        # report only, no writes
 """
 
+from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from woof.content import BREEDS, VOCABULARY
@@ -26,12 +27,21 @@ from woof.models import Category, CoatLength, CoatType, Country, Dogs, Temperame
 SUFFIX = {
     "en": "",
     "ru": "_ru",
-    "uk": "_uk",
     "de": "_de",
     "it": "_it",
     "es": "_es",
     "sr_latn": "_sr_latn",
 }
+
+def active_languages():
+    """Languages the site serves right now.
+
+    A hidden language keeps its texts in woof/content/ but has no model
+    fields any more, so it must be skipped rather than crash on getattr().
+    """
+    live = {code.replace("-", "_") for code, _ in settings.LANGUAGES}
+    return [lang for lang in SUFFIX if lang in live]
+
 
 VOCABULARY_MODELS = {
     "coat_types": (CoatType, "name"),
@@ -61,7 +71,13 @@ class Command(BaseCommand):
         self.dry_run = options["dry_run"]
         self.pending = 0
 
-        langs = [options["lang"]] if options["lang"] else list(SUFFIX)
+        live = active_languages()
+        langs = [options["lang"]] if options["lang"] else live
+        for lang in langs:
+            if lang not in live:
+                raise CommandError(
+                    f"{lang} is not an enabled language (see settings.LANGUAGES)."
+                )
 
         if options["slug"]:
             if options["slug"] not in BREEDS:

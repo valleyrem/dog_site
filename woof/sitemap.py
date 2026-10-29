@@ -40,6 +40,10 @@ def _build_sitemap_xml(request):
     def abs_url(path):
         return f"{scheme}://{host}{path}"
 
+    def absolute(url):
+        """Storage URLs are already absolute (S3); local ones need the host."""
+        return url if url.startswith(("http://", "https://")) else abs_url(url)
+
     def lang_urls(path):
         """The path from reverse() has no language prefix (default language)."""
         urls = {}
@@ -52,6 +56,8 @@ def _build_sitemap_xml(request):
                 urls[code] = abs_url("/" + code + path)
         return urls
 
+    content_updated = timezone.datetime.fromisoformat(settings.SITE_CONTENT_UPDATED)
+
     out = StringIO()
     xml = SimplerXMLGenerator(out, encoding="utf-8")
     xml.startDocument()
@@ -60,6 +66,7 @@ def _build_sitemap_xml(request):
         {
             "xmlns": "http://www.sitemaps.org/schemas/sitemap/0.9",
             "xmlns:xhtml": "http://www.w3.org/1999/xhtml",
+            "xmlns:image": "http://www.google.com/schemas/sitemap-image/1.1",
         },
     )
 
@@ -72,7 +79,9 @@ def _build_sitemap_xml(request):
         xml.addQuickElement("priority", priority)
         xml.endElement("url")
 
-    def add_bilingual(path, lastmod=None, changefreq="weekly", priority="0.6"):
+    def add_bilingual(
+        path, lastmod=None, changefreq="weekly", priority="0.6", images=()
+    ):
         urls = lang_urls(path)
         for code, loc in urls.items():
             xml.startElement("url", {})
@@ -81,6 +90,13 @@ def _build_sitemap_xml(request):
                 xml.addQuickElement("lastmod", lastmod.strftime("%Y-%m-%d"))
             xml.addQuickElement("changefreq", changefreq)
             xml.addQuickElement("priority", priority)
+            # image sitemap: helps photos of breeds show up in image search
+            for image_url in images:
+                if not image_url:
+                    continue
+                xml.startElement("image:image", {})
+                xml.addQuickElement("image:loc", image_url)
+                xml.endElement("image:image")
             # xhtml:alternate for every other language
             for other_code, other_loc in urls.items():
                 xml.startElement(
@@ -106,7 +122,7 @@ def _build_sitemap_xml(request):
         ("about", "0.5"),
         ("contact", "0.5"),
     ):
-        add_bilingual(reverse(name), priority=priority)
+        add_bilingual(reverse(name), lastmod=content_updated, priority=priority)
 
     # guide articles
     for name, priority in (
@@ -119,7 +135,7 @@ def _build_sitemap_xml(request):
         ("guide-feeding", "0.7"),
         ("guide-games", "0.7"),
     ):
-        add_bilingual(reverse(name), priority=priority)
+        add_bilingual(reverse(name), lastmod=content_updated, priority=priority)
 
     # legal pages (low priority so search engines still see them)
     for name, priority in (
@@ -127,18 +143,32 @@ def _build_sitemap_xml(request):
         ("terms-of-use", "0.3"),
         ("cookie-policy", "0.3"),
     ):
-        add_bilingual(reverse(name), priority=priority)
+        add_bilingual(reverse(name), lastmod=content_updated, priority=priority)
 
     # categories
     for cat in Category.objects.all():
-        add_bilingual(cat.get_absolute_url(), priority="0.7")
+        add_bilingual(
+            cat.get_absolute_url(), lastmod=content_updated, priority="0.7"
+        )
 
-    # breeds
-    for dog in Dogs.objects.filter(is_published=True).select_related("cat"):
+    # breeds, with their photos
+    for dog in (
+        Dogs.objects.filter(is_published=True)
+        .select_related("cat")
+        .prefetch_related("gallery")
+    ):
+        images = []
+        if dog.photo:
+            images.append(absolute(dog.photo_card.url))
+        for gallery_photo in list(dog.gallery.all())[:2]:
+            if gallery_photo.image:
+                images.append(absolute(gallery_photo.image_large.url))
+
         add_bilingual(
             dog.get_absolute_url(),
             lastmod=dog.time_update or timezone.now(),
             priority="0.6",
+            images=images,
         )
 
     xml.endElement("urlset")

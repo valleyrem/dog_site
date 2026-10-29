@@ -87,11 +87,13 @@ class Dogs(models.Model):
         ("energetic", _("Very energetic (high endurance)")),
     ]
 
+    # The field measures shedding, so the labels say so: "hypoallergenic" is a
+    # medical promise a database cannot keep.
     HYPOALLERGENIC_CHOICES = [
-        ("no", _("No (not hypoallergenic)")),
-        ("low", _("Low (sheds a lot)")),
-        ("moderate", _("Moderate (some shedding)")),
-        ("high", _("High (minimal shedding)")),
+        ("no", _("Heavy shedding")),
+        ("low", _("Noticeable shedding")),
+        ("moderate", _("Moderate shedding")),
+        ("high", _("Minimal shedding")),
     ]
 
     FAMILY_FRIENDLINESS_CHOICES = [
@@ -206,7 +208,7 @@ class Dogs(models.Model):
         max_length=10,
         choices=HYPOALLERGENIC_CHOICES,
         default="no",
-        verbose_name="Hypoallergenic",
+        verbose_name="Shedding",
     )
 
     life_expectancy = models.CharField(

@@ -138,22 +138,6 @@ msgstr "Zahteva puno aktivnosti"
 msgid "Very energetic (high endurance)"
 msgstr "Veoma energičan (visoka izdržljivost)"
 
-#: woof/models.py:119
-msgid "No (not hypoallergenic)"
-msgstr "Ne (nije hipoalergen)"
-
-#: woof/models.py:120
-msgid "Low (sheds a lot)"
-msgstr "Nizak (mnogo linja)"
-
-#: woof/models.py:121
-msgid "Moderate (some shedding)"
-msgstr "Umeren (povremeno linja)"
-
-#: woof/models.py:122
-msgid "High (minimal shedding)"
-msgstr "Visok (minimalno linja)"
-
 #: woof/models.py:126
 msgid "Low (better with adults, limited tolerance)"
 msgstr "Nizak (bolje se slaže sa odraslima, ograničena tolerancija)"
@@ -962,15 +946,6 @@ msgstr ""
 "Takav zapis takođe mnogo olakšava da kasnije tačno opišete problem treneru "
 "ili veterinaru."
 
-#: woof/templates/woof/behavior.html:168
-#: woof/templates/woof/choosing_dog.html:148
-#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
-#: woof/templates/woof/health.html:218
-#: woof/templates/woof/living_with_dog.html:166
-#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
-msgid "Conclusion"
-msgstr "Zaključak"
-
 #: woof/templates/woof/behavior.html:170
 msgid ""
 "Understanding dog behavior is primarily about interpretation rather than "
@@ -1737,11 +1712,6 @@ msgstr ""
 "Ako na ovom sajtu ne vidite određenu rasu, to može jednostavno značiti da "
 "još nije dodata ili da nismo pronašli odgovarajuće fotografije sa jasnom "
 "atribucijom ili slobodnim pravima korišćenja 😊"
-
-#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
-#: woof/templates/woof/health.html:62
-msgid "What this guide covers"
-msgstr "Šta pokriva ovaj vodič"
 
 #: woof/templates/woof/feeding.html:64
 msgid ""
@@ -3063,9 +3033,9 @@ msgstr ""
 "Kada se pravilno vode, ovi faktori značajno povećavaju i kvalitet i dužinu "
 "života psa."
 
-#: woof/templates/woof/home.html:128
-msgid "A little mess, a lot of <span class=\"love-word\">love</span>"
-msgstr "Malo haosa, puno <span class=\"love-word\">ljubavi</span>"
+#: woof/templates/woof/home.html:110
+msgid "Every breed is <span class=\"accent-strong\">unique</span>"
+msgstr "Svaka rasa je <span class=\"accent-strong\">jedinstvena</span>"
 
 #: woof/templates/woof/home.html:135 woof/templates/woof/home.html:138
 #: woof/templates/woof/home.html:149 woof/templates/woof/home.html:172
@@ -3077,13 +3047,6 @@ msgstr "Pronađi po grupi"
 msgid "Find by breed"
 msgstr "Pronađi po rasi"
 
-#: woof/templates/woof/home.html:242
-msgid ""
-"A simple way to find a dog that fits your lifestyle, home and everyday "
-"rhythm — and feels like it belongs there"
-msgstr ""
-"Jednostavan način da pronađete psa koji odgovara vašem životnom stilu, "
-"domu i ritmu — i koji se tu oseća kao kod kuće"
 
 #: woof/templates/woof/home.html:261
 msgid "A happy dog"
@@ -3616,10 +3579,6 @@ msgstr "Nivo aktivnosti"
 msgid "Barking"
 msgstr "Lajanje"
 
-#: woof/templates/woof/post.html:278
-msgid "Allergy friendly"
-msgstr "Pogodan za alergičare"
-
 #: woof/templates/woof/post.html:286 woof/templates/woof/post.html:575
 msgid "Family friendly"
 msgstr "Pogodan za porodicu"
@@ -3660,10 +3619,6 @@ msgstr "Nemački špic"
 msgid "Summary"
 msgstr "Sažetak"
 
-#: woof/templates/woof/post.html:371
-msgid "History & origin"
-msgstr "Istorija i poreklo"
-
 #: woof/templates/woof/post.html:375
 msgid "Care"
 msgstr "Nega"
@@ -3697,17 +3652,9 @@ msgstr "Izaberi rasu"
 msgid "Activity"
 msgstr "Aktivnost"
 
-#: woof/templates/woof/post.html:574
-msgid "Allergy-Friendly"
-msgstr "Pogodan za alergičare"
-
 #: woof/templates/woof/post.html:576
 msgid "years"
 msgstr "godina"
-
-#: woof/templates/woof/post.html:586
-msgid "Other breeds in this group"
-msgstr "Ostale rase u ovoj grupi"
 
 #: woof/templates/woof/privacy_policy.html:36
 #: woof/templates/woof/terms_and_conditions.html:32
@@ -5349,3 +5296,114 @@ msgstr "Težina"
 
 msgid "and"
 msgstr "i"
+
+#: woof/templates/woof/breeds.html
+msgid "No breeds match these filters"
+msgstr "Nijedna rasa ne odgovara ovim filterima"
+#: woof/views.py
+msgid "Short coat"
+msgstr "Kratka dlaka"
+#: woof/views.py
+msgid "Long coat"
+msgstr "Duga dlaka"
+#: woof/views.py
+msgid "Small & Medium Size"
+msgstr "Mali i srednji"
+#: woof/views.py
+msgid "Large Size"
+msgstr "Veliki"
+#: woof/views.py
+msgid "Short & Medium Coat"
+msgstr "Kratka i srednja dlaka"
+#: woof/views.py
+msgid "Low-Shedding"
+msgstr "Malo linjaju"
+#: woof/views.py
+msgid "Calm & Moderate"
+msgstr "Mirni i umereni"
+#: woof/views.py
+msgid "Active & Energetic"
+msgstr "Aktivni i energični"
+#: woof/views.py
+msgid "Independent & Strong-Willed"
+msgstr "Samostalni i svojeglavi"
+#: woof/views.py
+msgid "Cooperative & Easy to Train"
+msgstr "Saradljivi i laki za dresuru"
+#: woof/views.py
+msgid "Needs More Supervision"
+msgstr "Potreban nadzor"
+#: woof/templates/woof/health.html
+msgid "Vaccination"
+msgstr "Vakcinacija"
+#: woof/templates/woof/health.html
+msgid "Health rests on two simple things: everyday care and protection from infections. Vaccination is the second part — and the cheapest insurance a dog can have, because the diseases it prevents are either hard to treat or fatal, especially in puppies."
+msgstr "Zdravlje počiva na dve jednostavne stvari: svakodnevnoj nezi i zaštiti od infekcija. Vakcinacija je drugi deo — i najjeftinije osiguranje koje pas može da ima, jer bolesti od kojih štiti teško se leče ili su smrtonosne, posebno kod štenadi."
+#: woof/templates/woof/health.html
+msgid "Most dogs are vaccinated against rabies, distemper, adenovirus (infectious hepatitis), parvovirus and leptospirosis; in many countries parainfluenza comes in the same combination. Extra vaccines, such as kennel cough or Lyme disease, depend on the region and on whether the dog travels, goes to shows or spends time in the countryside."
+msgstr "Većina pasa se vakciniše protiv besnila, štenećaka, adenovirusa (infektivnog hepatitisa), parvovirusa i leptospiroze; u mnogim zemljama parainfluenca je u istoj kombinaciji. Dodatne vakcine — na primer protiv kašlja u odgajivačnicama ili Lajmske bolesti — zavise od regiona i od toga da li pas putuje, ide na izložbe ili provodi vreme na selu."
+#: woof/templates/woof/health.html
+msgid "There is a schedule, but not one for the whole world: puppies receive a series of injections, adults receive boosters, and the interval depends on the vaccine and on the law of the country — rabies is always fixed by law. Which vaccines and when is decided by your veterinarian; the dates and the product names are written into the international veterinary passport."
+msgstr "Raspored postoji, ali nije isti za ceo svet: štenad dobija seriju injekcija, odrasli revakcinaciju, a interval zavisi od vakcine i od zakona zemlje — besnilo je uvek regulisano zakonom. Koje vakcine i kada odlučuje vaš veterinar; datumi i nazivi preparata upisuju se u međunarodni veterinarski pasoš."
+#: woof/templates/woof/health.html
+msgid "A few practical points: on the day of the visit the dog should be healthy, deworming is done shortly before vaccination, and for a day or two afterwards it is worth skipping bathing, swimming and long journeys. Keep the passport at hand and copy the dates into your own notes or calendar — they are asked for when travelling, in boarding kennels, at shows and at the next visit."
+msgstr "Nekoliko praktičnih stvari: na dan posete pas treba da bude zdrav, dehelmintizacija se radi neposredno pre vakcinacije, a dan-dva posle bolje je preskočiti kupanje, plivanje i duga putovanja. Drži pasoš pri ruci i prepiši datume u svoje beleške ili kalendar — traže ih na putovanjima, u pansionima, na izložbama i na sledećem pregledu."
+#: woof/templates/woof/health.html
+msgid "Vaccination does not replace daily care, and daily care does not replace vaccination: together they are what keeps a dog healthy year after year."
+msgstr "Vakcinacija ne zamenjuje svakodnevnu negu, a nega ne zamenjuje vakcinaciju: zajedno drže psa zdravim iz godine u godinu."
+
+#: woof/templates/woof/behavior.html:168
+#: woof/templates/woof/choosing_dog.html:148
+#: woof/templates/woof/feeding.html:204 woof/templates/woof/games.html:201
+#: woof/templates/woof/health.html:218
+#: woof/templates/woof/living_with_dog.html:166
+#: woof/templates/woof/puppy.html:164 woof/templates/woof/training.html:149
+msgid "Conclusion"
+msgstr "Zaključak"
+
+#: woof/templates/woof/feeding.html:62 woof/templates/woof/games.html:62
+#: woof/templates/woof/health.html:62
+msgid "What this guide covers"
+msgstr "Šta pokriva ovaj vodič"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Search by breed name"
+msgstr "Pretraga rase po imenu"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Contents"
+msgstr "Sadržaj"
+#: woof/templates/woof/post.html woof/templates/woof/breeds.html
+msgid "Similar breeds"
+msgstr "Slične rase"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Heavy shedding"
+msgstr "Jako linjanje"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Noticeable shedding"
+msgstr "Primetno linjanje"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Moderate shedding"
+msgstr "Umereno linjanje"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Minimal shedding"
+msgstr "Minimalno linjanje"
+#: woof/models.py woof/templates/woof/post.html
+msgid "Shedding"
+msgstr "Linjanje"
+#: woof/templates/woof/post.html
+msgid "History"
+msgstr "Istorija"
+#: woof/templates/woof/post.html
+msgid "Photos & facts"
+msgstr "Fotografije i činjenice"
+#: woof/templates/woof/post.html
+msgid "Same group"
+msgstr "Ista grupa"
+#: woof/templates/woof/post.html
+msgid "Chosen by size, coat length, coat type and activity level."
+msgstr "Izabrane po veličini, dužini dlake, tipu dlake i aktivnosti."
+#: woof/templates/woof/includes/guide_toc.html
+msgid "Show all contents"
+msgstr "Prikaži ceo sadržaj"
+#: woof/templates/woof/home.html:242
+msgid "Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own."
+msgstr "Otkrijte divan svet pasa, od razigranih malih saputnika do vernih drugova u avanturama, svaki sa svojom ličnošću."

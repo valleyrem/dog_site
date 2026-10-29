@@ -24,36 +24,40 @@
 
         <p class="cat-desc">{% blocktranslate trimmed %}This page helps you navigate dog breeds based on real-life needs rather than appearance alone.{% endblocktranslate %}</p>
 
-        <!-- Missing breed notice -->
-        <p class="if-you-dont-see">
-
-            <strong>{% blocktranslate trimmed %}*{% endblocktranslate %}</strong>
-            {% blocktranslate trimmed %}If you don’t see a particular breed on this website, it may simply mean
-            that it hasn’t been added yet, or that we haven’t found suitable images
-            with clear attribution or free usage rights 😊{% endblocktranslate %}
-
-        </p>
-
     </div>
 
 
-    <!-- Alphabet: first letter of the breed name in the current language -->
-    <div class="breeds-letters" data-breeds-letters>
-        {% for letter in letters %}
-            <button type="button" class="letter-btn" data-letter="{{ letter }}">{{ letter }}</button>
-        {% endfor %}
-    </div>
+    <!-- Filters: one row of buttons, one filter at a time (see
+         BreedsView.FILTERS for the values behind each). Clicking the active
+         button again shows every breed. -->
+    <div class="breeds-filter" data-breeds-filters>
 
-    <!-- Size filter -->
-    <div class="breeds-filter" data-breeds-filter>
-
-        <button type="button" class="filter-btn is-active" data-filter="all">{% blocktranslate trimmed %}All breeds{% endblocktranslate %}</button>
+        <button type="button"
+                class="filter-btn is-active"
+                data-filter="all"
+                aria-pressed="true">{% blocktranslate trimmed %}All breeds{% endblocktranslate %}</button>
 
         {% for f in filters %}
-            <button type="button" class="filter-btn" data-filter="{{ f.key }}">{{ f.title }}</button>
+            <button type="button"
+                    class="filter-btn"
+                    data-filter="{{ f.key }}"
+                    aria-pressed="false">{{ f.title }}</button>
         {% endfor %}
 
     </div>
+
+    <!-- Search by name: typing narrows the grid, the active filter stays on -->
+    <div class="breeds-search">
+        <input type="search"
+               id="breedsSearch"
+               class="breeds-search__input"
+               placeholder="{% trans 'Search by breed name' %}"
+               aria-label="{% trans 'Search by breed name' %}"
+               autocomplete="off"
+               data-breeds-search>
+    </div>
+
+    <p class="breeds-empty" data-breeds-empty role="status" hidden>{% blocktranslate trimmed %}No breeds match these filters{% endblocktranslate %}</p>
 
 
     <!-- Every published breed -->
@@ -64,6 +68,17 @@
         {% endfor %}
 
     </div>
+
+
+    <!-- Missing breed notice: it is a footnote, so it follows the grid -->
+    <p class="if-you-dont-see">
+
+        <strong>{% blocktranslate trimmed %}*{% endblocktranslate %}</strong>
+        {% blocktranslate trimmed %}If you don’t see a particular breed on this website, it may simply mean
+        that it hasn’t been added yet, or that we haven’t found suitable images
+        with clear attribution or free usage rights 😊{% endblocktranslate %}
+
+    </p>
 
 </div>
 

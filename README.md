@@ -23,12 +23,12 @@ dog_site/
 │   ├── og_card.py         # OG-картинка 1200×630 на Pillow
 │   ├── quotes.py          # цитаты для бегущей строки на главной
 │   ├── content/           # ВЕСЬ контент: breeds.py + vocabulary.py (см. «Контент»)
-│   ├── legacy/            # архив одноразовых скриптов наполнения (не команды)
 │   ├── admin.py           # Админка: галереи-инлайны, фильтры, превью
 │   ├── tests.py           # 12 smoke-тестов
 │   ├── templatetags/      # cards.py: фильтры цвета FCI, nobreak_range
-│   ├── templates/woof/    # 26 шаблонов (включая includes/breadcrumbs.html)
-│   ├── management/commands/ # fill_content, fill_sex_params, warm_thumbnails
+│   ├── templates/woof/    # 25 шаблонов (8 гайдов + includes/)
+│   ├── management/commands/ # fill_content, fill_sex_params, prune_temperament,
+│   │                        # warm_thumbnails, purge_consent_log
 │   └── migrations/        # 35 миграций
 │
 ├── templates/admin/       # Переопределение шаблона админки Django
@@ -145,7 +145,7 @@ DEBUG=True .venv/bin/python manage.py runserver
 
 | файл | что внутри |
 |---|---|
-| `breeds.py` | по записи на slug: тексты 7 языков, `m2m`, `traits`, `scalars` |
+| `breeds.py` | по записи на slug: тексты 6 языков, `m2m`, `traits`, `scalars` |
 | `vocabulary.py` | переводы словарей: группы, секции, страны, типы/длина шерсти, темперамент |
 
 ```bash
@@ -172,10 +172,6 @@ git diff woof/content/                    # посмотреть, что изм�
 Рост и вес по полу живут отдельно — `woof/sex_params_data.py` +
 `manage.py fill_sex_params` (значения задаются вручную для каждой породы).
 
-Одноразовые скрипты, которыми контент наполнялся вручную (6 модулей
-данных и 10 команд), сложены в `woof/legacy/` — они **не** регистрируются
-как команды и нужны только как документация, откуда взялись тексты.
-
 ## Тесты
 
 Без postgres, на SQLite:
@@ -184,6 +180,13 @@ git diff woof/content/                    # посмотреть, что изм�
 DJANGO_SETTINGS_MODULE=config.settings_test SECRET_KEY=test \
     .venv/bin/python manage.py test woof
 ```
+
+32 теста: модели, API породы, страницы, фильтры Breeds (строка кнопок,
+один фильтр за раз, матрица ключей у карточек, пустое состояние, canonical),
+навигация «предыдущая/следующая», кэш и инвалидация sitemap (включая картинки
+и дату контента), одноразовая капча, `/consent-log/` (дедупликация, обновление
+записи, троттлинг по XFF), переключение языка, JSON-LD (Article, Breadcrumb),
+блок «похожие породы», поле поиска.
 
 ## Деплой
 
@@ -197,7 +200,14 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 1. `python manage.py migrate` — создаёт переводные поля `*_en`/`*_ru`
    (миграции 0017/0018) — **до** восстановления данных.
 2. Данные — `pg_dump`/`pg_restore` с сервера БД либо `loaddata`.
-3. Реверс-прокси (traefik/caddy/nginx) обязан передавать заголовок
+3. `python manage.py warm_thumbnails` — догенерировать превью для новых
+   фото. Обязательный шаг: imagekit работает в стратегии `Optimistic`
+   (не проверяет существование файла на каждый `<img>`), поэтому варианты
+   должны быть созданы заранее — при загрузке через админку это происходит
+   автоматически, для старых фото — этой командой.
+4. Раз в месяц (cron): `python manage.py purge_consent_log --days 365` —
+   удаляет записи журнала согласий старше года (GDPR, storage limitation).
+5. Реверс-прокси (traefik/caddy/nginx) обязан передавать заголовок
    `X-Forwarded-Proto: https` — иначе `request.is_secure()` врёт и CSRF
    будет отвергать формы (см. «Безопасность»).
 
@@ -262,17 +272,40 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 | `X-Content-Type-Options: nosniff` | запрет MIME-sniffing |
 | `Referrer-Policy: same-origin` | внутренние URL не утекают в чужую аналитику |
 | `SECURE_PROXY_SSL_HEADER` | Django доверяет `X-Forwarded-Proto` от прокси: `request.is_secure()`, CSRF и абсолютные URL работают корректно |
+| `Content-Security-Policy` (`config/middleware.py`) | `base-uri`/`object-src`/`frame-ancestors`/`form-action` закрыты; скрипты, картинки и коннекты разрешены по схеме https (иначе ломаются GTM и фото из S3) |
+| cookie-флаги `Secure` | включаются автоматически при `DEBUG=False`; локально остаются `False`, иначе не работают тесты с телефона по http в локальной сети |
 
 Требование к деплою: реверс-прокси **обязан** передавать `X-Forwarded-Proto: https`
 на бэкенд — иначе `request.is_secure()` врёт, а CSRF на https-домене будет
 отвергать формы.
 
-**Про Content-Security-Policy**: CSP на уровне Django **не включён** —
-на сайте есть легитимные inline-скрипты (GTM-сниппет, скрытие прелоадера,
-обработчик контактной формы), которые строгий CSP блокирует. Если CSP
-понадобится, добавляй его на уровне Cloudflare / реверс-прокси (там же
-проще управлять nonce и отчётами о нарушениях), либо переводи inline-
-скрипты в внешние файлы и включай строгий CSP в settings.
+**Про Content-Security-Policy**: заголовок ставит
+`config.middleware.ContentSecurityPolicyMiddleware`. Политика намеренно
+мягкая там, где сайт от неё зависит: `script-src`/`img-src`/`connect-src`
+разрешены по схеме `https`, потому что GTM (грузится только после согласия
+на аналитику) тянет код с хостов Google, а фото лежат в S3/OCI. Жёсткие
+директивы — `base-uri 'self'`, `object-src 'none'`, `frame-ancestors 'none'`,
+`form-action 'self'`. Если захочешь строгий CSP с nonce — нужно вынести
+два инлайновых скрипта из `base.html` в файлы и согласовать это с GTM.
+
+Что ещё сделано в приложении:
+
+- `/media/` отдаётся Django **только при `DEBUG=True`** (в проде файлы из S3);
+- капча контактной формы одноразовая (токен удаляется после успешной проверки);
+- троттлинг `/consent-log/` считает IP по **последнему** адресу в
+  `X-Forwarded-For` — первый клиент подделывает сам;
+- журнал согласий чистится командой `purge_consent_log` (см. «Деплой»).
+
+## SEO-разметка
+
+- `BreadcrumbList` — на каждой странице с крошками, из тех же данных
+  (`woof/templatetags/seo.py`);
+- `Article` — на восьми гайдах (заголовок, описание, дата);
+- `Breed` — на странице породы, `WebSite` — на главной;
+- `og:locale` + `og:locale:alternate` для всех шести языков;
+- в sitemap — `<image:image>` (главное фото породы и два из галереи) и
+  `<lastmod>`: у пород из `time_update`, у статики и гайдов из
+  `settings.SITE_CONTENT_UPDATED` (поднимать при правке текстов).
 
 ## Технический долг / что дальше
 
@@ -282,9 +315,9 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 - `django-smart-selects` — библиотека без обновлений, проверена на
   Django 5.2 (виджет и /chaining/ работают), но однажды встанет вопрос
   замены на самописный JS-виджет.
-- `woof/legacy/` — архив одноразовых скриптов наполнения (~20k строк данных).
-  После того как `woof/content/` проверен на нескольких правках, папку
-  можно удалить целиком (история останется в git).
+- Кэш — файловый, внутри контейнера. При одной реплике всё хорошо; если
+  появится вторая, `sitemap`/`cats`/OG-карточки начнут расходиться —
+  тогда пора переезжать на Redis.
 - Локальный `media/` в git: бэкапом фото теперь служит S3-бакет;
   из трекинга media можно убрать (когда созреет решение).
 - Апгрейд до Django 6.0: требует Python >=3.12 (готово), deprecation-предупреждений

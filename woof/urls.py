@@ -72,6 +72,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/choosing_dog.html",
             page_title=_("Choosing the dog - Woof Dogs"),
+            page_heading=_("Choosing the dog"),
+            page_description=_("Learn how to choose a breed that matches your lifestyle, activity level and living space."),
+            page_is_article=True,
         ),
         name="guide-choosing-dog",
     ),
@@ -80,6 +83,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/training.html",
             page_title=_("Dog Training Fundamentals - Woof Dogs"),
+            page_heading=_("Dog training fundamentals"),
+            page_description=_("Understand basic training principles, communication and learning consistency."),
+            page_is_article=True,
         ),
         name="guide-training",
     ),
@@ -88,6 +94,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/health.html",
             page_title=_("Dog Health & Care - Woof Dogs"),
+            page_heading=_("Dog health & care"),
+            page_description=_("Learn about grooming, nutrition, preventive care and general health basics."),
+            page_is_article=True,
         ),
         name="guide-health",
     ),
@@ -96,6 +105,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/behavior.html",
             page_title=_("Dog Behavior - Woof Dogs"),
+            page_heading=_("Dog behavior"),
+            page_description=_("Discover how dogs communicate, express emotions and react to the world around them."),
+            page_is_article=True,
         ),
         name="guide-behavior",
     ),
@@ -104,6 +116,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/living_with_dog.html",
             page_title=_("Living with a Dog - Woof Dogs"),
+            page_heading=_("Living with a dog"),
+            page_description=_("Daily routines, home adaptation and long-term lifestyle organization with a dog."),
+            page_is_article=True,
         ),
         name="guide-living",
     ),
@@ -112,6 +127,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/puppy.html",
             page_title=_("Raising a Puppy - Woof Dogs"),
+            page_heading=_("Raising a puppy"),
+            page_description=_("Learn about early puppy development, socialization, routines and first-life stages."),
+            page_is_article=True,
         ),
         name="guide-puppy",
     ),
@@ -120,6 +138,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/feeding.html",
             page_title=_("Feeding your dog - Woof Dogs"),
+            page_heading=_("Feeding your dog"),
+            page_description=_("Learn how to choose food, feed by age and build a healthy drinking regime."),
+            page_is_article=True,
         ),
         name="guide-feeding",
     ),
@@ -128,6 +149,9 @@ urlpatterns = [
         StaticPageView.as_view(
             template_name="woof/games.html",
             page_title=_("Games & activities - Woof Dogs"),
+            page_heading=_("Games & activities"),
+            page_description=_("Discover safe games and activities that keep your dog active, engaged and happy."),
+            page_is_article=True,
         ),
         name="guide-games",
     ),

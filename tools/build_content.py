@@ -2,8 +2,8 @@
 
 База — источник истины: всё, что редактор поправил в админке, попадает в модуль
 как есть. Для 25 пород, добавленных через админку, дополнительно переносятся
-traits/scalars из старого woof/supplement_breed_data.py (там же остаётся
-поведение «size — авторитетно»).
+traits/scalars из предыдущей версии модуля (там же остаётся поведение
+«size — авторитетно»).
 """
 
 import io
@@ -44,7 +44,7 @@ FIELDS = (
     "living_conditions",
     "photo_author",
 )
-LANGS = {"en": "", "ru": "_ru", "uk": "_uk", "de": "_de", "it": "_it", "es": "_es", "sr_latn": "_sr_latn"}
+LANGS = {"en": "", "ru": "_ru", "de": "_de", "it": "_it", "es": "_es", "sr_latn": "_sr_latn"}
 
 
 def build_breeds():

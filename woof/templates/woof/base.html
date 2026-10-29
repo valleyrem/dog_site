@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load assets %}
 {% load lang_extras %}
 
 <!DOCTYPE html>
@@ -23,7 +24,12 @@
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    {% comment %}
+    Query strings are filters/sort state, not separate pages: the canonical
+    stays on the clean path so ?size=… does not index as a duplicate.
+    {% endcomment %}
+    <link rel="canonical"
+          href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
     {% for alt in page_urls %}
         <link rel="alternate" hreflang="{{ alt.hreflang }}" href="{{ alt.url }}">
@@ -34,8 +40,8 @@
     <!-- Styles -->
     {% block styles %}{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'woof/css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'woof/css/mobile.css' %}">
+    <link rel="stylesheet" href="{% asset 'woof/css/styles.css' %}">
+    <link rel="stylesheet" href="{% asset 'woof/css/mobile.css' %}">
 
     <link
         rel="preload"
@@ -60,7 +66,7 @@
 
 
     <!-- Global scripts -->
-    <script src="{% static 'woof/js/scripts.js' %}" defer></script>
+    <script src="{% asset 'woof/js/scripts.js' %}" defer></script>
 
 
     <!-- Open Graph -->
@@ -72,12 +78,16 @@
     <meta property="og:description"
           content="{{ og_description|default:meta_description }}">
 
+    <meta property="og:locale" content="{{ og_locale }}">
+    {% for locale in og_locale_alternates %}<meta property="og:locale:alternate" content="{{ locale }}">
+    {% endfor %}
+
     <meta property="og:site_name" content="Woof Dogs">
 
     <meta property="og:image:alt" content="{{ title }}">
 
     <meta property="og:url"
-          content="{{ request.build_absolute_uri }}">
+          content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
     {% if og_image %}
         <meta property="og:image"
@@ -92,6 +102,26 @@
     {% endif %}
 
     <meta name="twitter:card" content="summary_large_image">
+
+    {% if article %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "{{ article.headline|escapejs }}",
+            "description": "{{ article.description|escapejs }}",
+            "inLanguage": "{{ LANGUAGE_CODE }}",
+            "datePublished": "{{ article.updated }}",
+            "dateModified": "{{ article.updated }}",
+            "mainEntityOfPage": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Woof Dogs",
+                "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'home' %}"
+            }
+        }
+        </script>
+    {% endif %}
 
     {% block json_ld %}{% endblock %}
 
