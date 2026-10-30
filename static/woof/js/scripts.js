@@ -1405,16 +1405,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateTable() {
     wrapper.classList.add("is-changing");
 
+    // The names go in straight away: the table is created empty, and if the
+    // header waited for the animation the whole page would shift down when
+    // the two titles finally appeared.
+    document.querySelector(".breed-a-link").textContent = breedA.title;
+
+    document.querySelector(".breed-a-link").href = breedA.url;
+
+    document.querySelector(".breed-b-link").textContent = breedB.title;
+
+    document.querySelector(".breed-b-link").href = breedB.url;
+
     setTimeout(() => {
-      // HEADER
-
-      document.querySelector(".breed-a-link").textContent = breedA.title;
-
-      document.querySelector(".breed-a-link").href = breedA.url;
-
-      document.querySelector(".breed-b-link").textContent = breedB.title;
-
-      document.querySelector(".breed-b-link").href = breedB.url;
 
       // Select TRIGGER: photo + name of the chosen breed
 
@@ -1970,10 +1972,30 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (search) {
+    const clear = document.querySelector("[data-breeds-search-clear]");
+
+    // the cross shows only while there is something to clear
+    const syncClear = () => {
+      if (clear) clear.hidden = search.value.length === 0;
+    };
+
     search.addEventListener("input", () => {
       query = search.value.trim().toLowerCase();
       apply(false);
+      syncClear();
     });
+
+    if (clear) {
+      clear.addEventListener("click", () => {
+        search.value = "";
+        query = "";
+        apply(false);
+        syncClear();
+        search.focus();
+      });
+    }
+
+    syncClear();
   }
 
   setActive("all");

@@ -190,13 +190,8 @@ msgid "Welcome!"
 msgstr "¡Bienvenidos!"
 
 #: woof/templates/woof/about.html:38
-msgid ""
-"This project is created for fun and designed as a structured catalog of dog "
-"breeds, focused on clarity, comparison, and easy navigation.\n"
-"            The main classification system follows the <strong>FCI "
-"(Fédération Cynologique Internationale)</strong>."
-msgstr "Este proyecto se crea por diversión y está diseñado como un catálogo estructurado de razas de perros, centrado en la claridad, la comparación y la navegación sencilla. El sistema de clasificación principal sigue la <strong>FCI (Fédération Cynologique Internationale)</strong>."
-
+msgid "This project started as a personal, just-for-fun exercise: to learn to tell dog breeds apart, remember their names and find out more about each of them.\n            The classification of the <strong>FCI (Fédération Cynologique Internationale)</strong> was taken as the base."
+msgstr "Este proyecto nació por diversión: aprender a distinguir las razas de perros, recordar sus nombres y descubrir algo más sobre cada una.\n            Como base se tomó la clasificación de la <strong>FCI (Fédération Cynologique Internationale)</strong>."
 #: woof/templates/woof/about.html:42
 msgid "What is FCI"
 msgstr "Qué es la FCI"
@@ -1898,13 +1893,9 @@ msgstr "La variedad de juegos mantiene tanto la forma física como el equilibrio
 msgid "Explore all FCI dog groups and their sections"
 msgstr "Explora todos los grupos de perros de la FCI y sus secciones"
 
-#: woof/templates/woof/groups.html:45
-msgid ""
-"Explore the official <strong>FCI groups</strong> below — each group contains "
-"breeds with similar history, purpose, and characteristics. Discover "
-"individual breeds."
-msgstr "Explora los <strong>grupos oficiales de la FCI</strong> a continuación — cada grupo contiene razas con historia, propósito y características similares. Descubre razas individuales."
-
+#: woof/templates/woof/groups.html:27
+msgid "Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics."
+msgstr "Abajo están los <strong>grupos FCI</strong> oficiales: cada grupo reúne razas con una historia, un propósito y unas características similares."
 #: woof/templates/woof/groups.html:74 woof/templates/woof/groups.html:122
 msgid "Look more"
 msgstr "Ver más"
@@ -2347,9 +2338,8 @@ msgid ""
 msgstr "Cuando se gestiona adecuadamente, estos factores aumentan notablemente la calidad y la duración de la vida de un perro."
 
 #: woof/templates/woof/home.html:110
-msgid "Every breed is <span class=\"accent-strong\">unique</span>"
-msgstr "Cada raza es <span class=\"accent-strong\">única</span>"
-
+msgid "A little mess, a lot of <span class=\"accent-strong\">love</span>"
+msgstr "Un poco de desorden, mucho <span class=\"accent-strong\">amor</span>"
 #: woof/templates/woof/home.html:135 woof/templates/woof/home.html:138
 #: woof/templates/woof/home.html:149 woof/templates/woof/home.html:172
 msgid "Find by group"
@@ -4299,8 +4289,14 @@ msgstr "Fotos y datos"
 msgid "Same group"
 msgstr "Mismo grupo"
 #: woof/templates/woof/post.html
-msgid "Chosen by size, coat length, coat type and activity level."
-msgstr "Seleccionadas por tamaño, longitud del pelo, tipo de pelo y nivel de actividad."
+msgid "Chosen from all groups by size, coat length, coat type and activity level."
+msgstr "Elegidas de todos los grupos por tamaño, longitud del pelo, tipo de pelo y nivel de actividad."
 #: woof/templates/woof/includes/guide_toc.html
 msgid "Show all contents"
 msgstr "Mostrar todo el contenido"
+#: woof/templates/woof/groups.html:31
+msgid "The FCI recognises ten groups, and it sorts breeds by <strong>the job they were bred for</strong>, not by appearance. A sheepdog that gathers flocks, a hound that follows a scent trail and a pointer that freezes in front of game did different work, and centuries of it shaped their build, coat, jaws and even gait. Inside each group come <strong>sections</strong>, usually by region of origin or by coat. Size, coat type and colour are written into the breed standard, but they do not decide the group. That is why a small terrier and a large terrier sit side by side, while two dogs of the same size can belong to different groups."
+msgstr "La FCI reconoce diez grupos y ordena las razas por el <strong>trabajo para el que se criaron</strong>, no por su aspecto. Un perro pastor que reúne el rebaño, un sabueso que sigue un rastro y un perro de muestra que se queda inmóvil ante la caza hacían trabajos distintos, y siglos de esa labor moldearon su estructura, su pelo, sus mandíbulas y hasta su forma de andar. Dentro de cada grupo hay <strong>secciones</strong>, normalmente por región de origen o por pelo. El tamaño, el tipo de pelo y el color figuran en el estándar, pero no deciden el grupo. Por eso un terrier pequeño y uno grande están uno al lado del otro, mientras que dos perros del mismo tamaño pueden quedar en grupos diferentes."
+#: woof/templates/woof/breeds.html
+msgid "Clear"
+msgstr "Borrar"

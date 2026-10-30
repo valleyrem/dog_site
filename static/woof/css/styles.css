@@ -169,8 +169,6 @@ a {
     background-color 0.2s ease;
 }
 
-/* Justified text only where the measure is wide; narrow columns stay ragged
-   right, which reads better and avoids rivers of white space. */
 .cat-desc {
   margin: 0;
   text-align: left;
@@ -466,7 +464,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 20px 10px;
+  padding: 20px 10px 40px;
   width: 100%;
   max-width: none;
   background: var(--sand);
@@ -1340,6 +1338,17 @@ body.cards-text .dog-card__group {
   display: none;
 }
 
+.main-img-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='14' viewBox='0 0 8 14'%3E%3Cpath d='M1 1l6 6-6 6' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 14px;
+}
+
+.main-img-arrow.prev {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='14' viewBox='0 0 8 14'%3E%3Cpath d='M7 1L1 7l6 6' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
 .main-img-arrow.prev {
   left: 12px;
   right: auto;
@@ -1511,10 +1520,11 @@ body.cards-text .dog-card__group {
 }
 
 .param-card .sex-mark {
+
+  display: inline-block;
   font-size: 0.8em;
-  /* поднимаем ♂/♀ к оптическому центру строки: глифы символов
-     из fallback-шрифта сидят ниже цифр */
-  vertical-align: 0.12em;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .param-card .sex-break {
@@ -1585,7 +1595,6 @@ body.cards-text .dog-card__group {
   z-index: 100;
 }
 
-/* Hover for the mouse, focus for the keyboard and for a tap on phones. */
 .param-info:hover .param-tooltip,
 .param-info:focus .param-tooltip {
   opacity: 1;
@@ -1597,8 +1606,6 @@ body.cards-text .dog-card__group {
   outline: none;
 }
 
-/* Post page: contents row, guide links and "similar breeds" line. */
-/* Contents: built exactly like the filter buttons on the breeds page. */
 .post-toc {
   display: flex;
   flex-wrap: wrap;
@@ -1626,15 +1633,12 @@ body.cards-text .dog-card__group {
   }
 }
 
-/* The heading you are reading keeps the accent of a picked filter. */
 .post-toc a.is-current {
   color: var(--main-accent);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-/* Guides: a short contents list built from the section titles, styled like
-   the filter row on the breeds page but stacked and never underlined. */
 .guide-toc {
   margin: 0 0 28px;
 }
@@ -1670,7 +1674,6 @@ body.cards-text .dog-card__group {
   }
 }
 
-/* Five headings, then a switch for the rest. */
 .guide-toc.is-collapsed .guide-toc__list a:nth-child(n + 6) {
   display: none;
 }
@@ -1715,7 +1718,6 @@ body.cards-text .dog-card__group {
   display: inline;
 }
 
-/* Says what the list below is based on: plain body text, just held apart. */
 .post-similar-note {
   margin: 0 0 8px;
 }
@@ -1731,10 +1733,9 @@ body.cards-text .dog-card__group {
   border-color: var(--main-accent);
 }
 
-/* Anchors: keep the sticky header from covering the target. */
 .post-media[id],
 .section-title[id] {
-  scroll-margin-top: 60px;
+  scroll-margin-top: 80px;
 }
 
 .post-params-grid p {
@@ -1758,10 +1759,7 @@ body.cards-text .dog-card__group {
   margin: 34px 0 24px;
   text-wrap: balance;
 }
-/*.section-title[id] {
-  scroll-margin-top: 76px;
-}*/
-/* A short rule above the heading, a touch lighter than the old one. */
+
 .section-title:not(.section-title-group)::before {
   content: "";
   display: block;
@@ -2215,12 +2213,6 @@ p strong {
   box-shadow: 0 14px 34px rgba(34, 39, 47, 0.12);
 }
 
-/* Thin always-visible scrollbar: a long list (100+ breeds) otherwise looks
-   complete — nothing hints that there is more below. Squared like everything
-   else on the site, emerald thumb, faint track.
-   Chromium/WebKit get the ::-webkit-* rules (6px, square corners); Firefox
-   only understands the standard properties, so it gets those alone — mixing
-   both would make Chrome fall back to its own rounded thumb. */
 .custom-select-list::-webkit-scrollbar {
   width: 3px;
   height: 3px;
@@ -2251,9 +2243,6 @@ p strong {
   }
 }
 
-/* Touch screens (iPhone above all) ignore the styled scrollbar: nothing shows
-   until the visitor drags the list. A soft fade over the bottom edge does the
-   hinting instead; scripts.js drops it once the list is scrolled to the end. */
 @media (hover: none) and (pointer: coarse) {
   .custom-select-list::after {
     content: "";
@@ -2553,6 +2542,9 @@ p strong {
 }
 
 .compare-breed-link {
+  display: block;
+
+  min-height: 1.35em;
   color: var(--main-accent);
   text-decoration: none;
   transition: 0.2s ease;
@@ -2844,7 +2836,7 @@ p strong {
   content: "•";
   margin-left: 26px;
   color: var(--main-accent);
-  font-size: 12px;
+  font-size: 8px;
   line-height: 1;
 }
 
@@ -3188,7 +3180,6 @@ p strong {
   order: -1;
 }
 
-/* The opening line sits in this column so the form can start level with it. */
 .hero-right-contact > .cat-desc:first-child {
   margin-bottom: 14px;
 }
@@ -3212,7 +3203,6 @@ p strong {
   margin: 0;
 }
 
-/* Contact form: a paper card with editorial underline fields. */
 .contact-layout form {
   padding: 22px 24px 20px;
   background: var(--surface);
@@ -3233,7 +3223,7 @@ p strong {
   font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  /* a touch darker than --ink-soft: 13px text still needs a readable contrast */
+
   color: rgba(41, 46, 54, 0.72);
   text-align: left;
 }
@@ -3264,7 +3254,7 @@ p strong {
 
 .policy-container input::placeholder,
 .policy-container textarea::placeholder {
-  /* same tint as the message field: both come from one rule now */
+
   color: rgba(34, 39, 47, 0.35);
   opacity: 1;
 }
@@ -3371,14 +3361,12 @@ body.swal2-shown {
   color: var(--ink-soft);
 }
 
-/* Send reads like the "read more" links on groups and guides: no fill,
-   no border, just the word and an accent arrow. */
 #btn-custom {
   display: flex;
   width: fit-content;
   align-items: center;
   position: relative;
-  /* the send link closes the form on the right, the way "read more" closes a card */
+
   margin: 0 0 0 auto;
   padding: 0;
   font-family: "Nunito", sans-serif;
@@ -3403,7 +3391,6 @@ body.swal2-shown {
   transition: transform 0.25s ease;
 }
 
-/* the arrow drifts on hover and steps aside while the form is sending */
 #btn-custom:hover::after {
   transform: translateX(6px);
 }
@@ -3744,12 +3731,6 @@ body.swal2-shown {
     opacity: 1;
   }
 }
-.param-link {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .lang-form-mobile {
   display: none;
 }
@@ -4102,19 +4083,26 @@ body.swal2-shown {
   opacity: 0.8;
 }
 
-/* Search by name sits under the filter row. */
 .breeds-search {
   margin: 0 0 30px;
 }
 
-.breeds-search__input {
+.breeds-search__field {
+  position: relative;
   width: min(100%, 320px);
-  padding: 7px 12px;
+  margin: 10px 0;
+}
+
+.breeds-search__input {
+  width: 100%;
+  padding: 7px 34px 7px 12px;
+  margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 0;
   font-family: "Nunito", sans-serif;
   font-size: 14px;
+  font-weight: 300;
   color: var(--main-text);
 }
 
@@ -4127,7 +4115,41 @@ body.swal2-shown {
   color: var(--ink-soft);
 }
 
-/* One row of filter buttons above the grid. */
+.breeds-search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.breeds-search__clear {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.breeds-search__clear:hover {
+  color: var(--main-accent);
+}
+
+.breeds-search__clear[hidden] {
+  display: none;
+}
+
 .breeds-filter {
   display: flex;
   flex-wrap: wrap;
@@ -4151,8 +4173,6 @@ body.swal2-shown {
   transition: color 0.2s ease;
 }
 
-/* Only where a pointer can hover: a tap on a phone would otherwise leave the
-   colour behind after the filter is switched off. */
 @media (hover: hover) {
   .filter-btn:hover {
     color: var(--main-accent);
@@ -4165,19 +4185,18 @@ body.swal2-shown {
   text-underline-offset: 4px;
 }
 
-/* The picked filter carries a cross: click it again to switch it off.
-   The empty alternative text keeps screen readers from saying "times". */
-.filter-btn.is-active:not([data-filter="all"])::after {
-  content: "×" / "";
-  display: inline-block;
+.filter-btn__cross {
+  display: none;
   margin-left: 6px;
   font-size: 13px;
   line-height: 1;
   color: var(--main-accent);
-  transform: translateY(-1px);
 }
 
-/* Shown when the selected filters match nothing. */
+.filter-btn.is-active .filter-btn__cross {
+  display: inline-block;
+}
+
 .breeds-empty {
   margin: 0 0 40px;
   font-size: 15px;
@@ -4197,8 +4216,9 @@ body.swal2-shown {
 @media (min-width: 768px) {
   .breeds-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 30px;
+    gap: 10px;
   }
+
 }
 
 @media (min-width: 1024px) {
@@ -4211,7 +4231,6 @@ body.swal2-shown {
   display: none;
 }
 
-/* ---------------------------------------------------------------- print -- */
 @media print {
   .site-header,
   .sidebar-nav,

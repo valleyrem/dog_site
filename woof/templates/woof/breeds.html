@@ -41,20 +41,28 @@
             <button type="button"
                     class="filter-btn"
                     data-filter="{{ f.key }}"
-                    aria-pressed="false">{{ f.title }}</button>
+                    aria-pressed="false">{{ f.title }}<span class="filter-btn__cross" aria-hidden="true">×</span></button>
         {% endfor %}
 
     </div>
 
     <!-- Search by name: typing narrows the grid, the active filter stays on -->
     <div class="breeds-search">
-        <input type="search"
-               id="breedsSearch"
-               class="breeds-search__input"
-               placeholder="{% trans 'Search by breed name' %}"
-               aria-label="{% trans 'Search by breed name' %}"
-               autocomplete="off"
-               data-breeds-search>
+        <div class="breeds-search__field">
+            <input type="search"
+                   id="breedsSearch"
+                   class="breeds-search__input"
+                   placeholder="{% trans 'Search by breed name' %}"
+                   aria-label="{% trans 'Search by breed name' %}"
+                   autocomplete="off"
+                   data-breeds-search>
+            <button type="button"
+                    class="breeds-search__clear"
+                    aria-label="{% trans 'Clear' %}"
+                    title="{% trans 'Clear' %}"
+                    data-breeds-search-clear
+                    hidden>×</button>
+        </div>
     </div>
 
     <p class="breeds-empty" data-breeds-empty role="status" hidden>{% blocktranslate trimmed %}No breeds match these filters{% endblocktranslate %}</p>

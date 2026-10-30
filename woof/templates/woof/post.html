@@ -104,22 +104,14 @@
     </div>
 
     {% if post.gallery.all %}
+    {% comment %}The chevron is a CSS background: an inline SVG inside a
+    backdrop-filtered button does not paint on iPadOS.{% endcomment %}
     <button type="button"
             class="main-img-arrow prev"
-            aria-label="{% trans 'Previous' %}">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M9 3 L5 7 L9 11" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
+            aria-label="{% trans 'Previous' %}"></button>
     <button type="button"
             class="main-img-arrow next"
-            aria-label="{% trans 'Next' %}">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M5 3 L9 7 L5 11" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
+            aria-label="{% trans 'Next' %}"></button>
     {% endif %}
 
     <div class="post-photo-author" id="post-photo-author">
@@ -181,7 +173,8 @@
                 <span class="icon">💎</span>
                 <span>{% trans "Character" %}</span>
             </div>
-            <strong>{% for tt in post.temperament.all %}{{ tt }}{% if not forloop.last %}, {% endif %}{% endfor %}</strong>
+            {# first trait capitalised, the rest in lower case after a comma #}
+            <strong>{% for tt in post.temperament.all %}{% if forloop.first %}{{ tt }}{% else %}{{ tt|lower }}{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %}</strong>
         </div>
         {% endif %}
 
@@ -190,11 +183,7 @@
                 <span class="icon">🐾</span>
                 <span>{% blocktranslate trimmed %}Group, section{% endblocktranslate %}</span>
             </div>
-            <strong>
-                <a href="{{ post.cat.get_absolute_url }}"
-                   class="param-link"
-                   title="{{ post.cat }}">{{ post.cat }}</a>{% if post.section %}, {{ post.section }}{% endif %}
-            </strong>
+            <strong>{{ post.cat }}{% if post.section %}, {{ post.section }}{% endif %}</strong>
         </div>
 
         <div class="param-card wide">
@@ -385,7 +374,7 @@
         {% if similar_dogs %}
             <!-- Same size, then same coat length, coat type and activity -->
             <p class="section-title" id="similar">{% blocktranslate trimmed %}Similar breeds{% endblocktranslate %}</p>
-            <p class="post-similar-note">{% blocktranslate trimmed %}Chosen by size, coat length, coat type and activity level.{% endblocktranslate %}</p>
+            <p class="post-similar-note">{% blocktranslate trimmed %}Chosen from all groups by size, coat length, coat type and activity level.{% endblocktranslate %}</p>
             <p class="cat-desc post-similar">
                 {% for mate in similar_dogs %}<a href="{{ mate.get_absolute_url }}">{{ mate.title }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
             </p>

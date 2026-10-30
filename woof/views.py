@@ -181,13 +181,9 @@ class ShowPost(DataMixin, DetailView):
         # SEO: page description + share image for this breed
         context["meta_description"] = post.summary or DEFAULT_META_DESCRIPTION
 
-        # Share preview (Telegram/WhatsApp/iMessage): title, group, character
-        traits = [str(t) for t in post.temperament.all()[:4]]
-        context["og_description"] = (
-            (f"{post.cat.name} · " + " · ".join(traits))
-            if traits
-            else str(post.cat.name)
-        )
+        # Share preview (Telegram/WhatsApp/iMessage): the title and the group.
+        # Character traits are deliberately left out of the link preview.
+        context["og_description"] = str(post.cat.name)
 
         # branded share card (breed photo + "woof dogs" panel), generated on demand
         if post.photo:

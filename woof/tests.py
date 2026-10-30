@@ -241,7 +241,9 @@ class BreedsFilterTests(TestCase):
     def test_row_has_buttons_including_reset(self):
         html = self.client.get(reverse("breeds")).content.decode()
         self.assertIn('data-filter="all"', html)
-        self.assertEqual(html.count('class="filter-btn'), 12)
+        # 11 filters plus the "all breeds" reset; the cross span is not a button
+        self.assertEqual(html.count('data-filter="'), 12)
+        self.assertIn("filter-btn__cross", html)
         self.assertNotIn("data-filter-group", html)  # one filter at a time
         self.assertNotIn("<fieldset", html)
         self.assertNotIn("data-filters-toggle", html)

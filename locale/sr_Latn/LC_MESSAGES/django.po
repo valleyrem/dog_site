@@ -213,17 +213,8 @@ msgid "Welcome!"
 msgstr "Dobrodošli!"
 
 #: woof/templates/woof/about.html:38
-msgid ""
-"This project is created for fun and designed as a structured catalog of dog "
-"breeds, focused on clarity, comparison, and easy navigation.\n"
-"            The main classification system follows the <strong>FCI "
-"(Fédération Cynologique Internationale)</strong>."
-msgstr ""
-"Ovaj projekat je nastao iz zabave i zamišljen je kao strukturisan katalog "
-"rasa pasa, usmeren na jasnoću, poređenje i jednostavnu navigaciju.\n"
-"            Glavni sistem klasifikacije prati standarde <strong>FCI "
-"(Fédération Cynologique Internationale)</strong>."
-
+msgid "This project started as a personal, just-for-fun exercise: to learn to tell dog breeds apart, remember their names and find out more about each of them.\n            The classification of the <strong>FCI (Fédération Cynologique Internationale)</strong> was taken as the base."
+msgstr "Ovaj projekat je nastao iz zabave: da naučim da razlikujem rase pasa, zapamtim njihova imena i saznam više o svakoj.\n            Kao osnova uzeta je klasifikacija <strong>FCI (Fédération Cynologique Internationale)</strong>."
 #: woof/templates/woof/about.html:42
 msgid "What is FCI"
 msgstr "Šta je FCI"
@@ -2435,15 +2426,9 @@ msgstr "Raznovrsnost igara održava i fizičku kondiciju i psihološku ravnotež
 msgid "Explore all FCI dog groups and their sections"
 msgstr "Istražite sve FCI grupe pasa i njihove sekcije"
 
-#: woof/templates/woof/groups.html:45
-msgid ""
-"Explore the official <strong>FCI groups</strong> below — each group contains "
-"breeds with similar history, purpose, and characteristics. Discover "
-"individual breeds."
-msgstr ""
-"Ispod istražite zvanične <strong>FCI grupe</strong> — svaka grupa sadrži "
-"rase slične istorije, namene i karakteristika. Otkrijte pojedinačne rase."
-
+#: woof/templates/woof/groups.html:27
+msgid "Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics."
+msgstr "Ispod su zvanične <strong>FCI grupe</strong>: svaka grupa okuplja rase slične istorije, namene i karakteristika."
 #: woof/templates/woof/groups.html:74 woof/templates/woof/groups.html:123
 msgid "Look more"
 msgstr "Pogledaj više"
@@ -3034,9 +3019,8 @@ msgstr ""
 "života psa."
 
 #: woof/templates/woof/home.html:110
-msgid "Every breed is <span class=\"accent-strong\">unique</span>"
-msgstr "Svaka rasa je <span class=\"accent-strong\">jedinstvena</span>"
-
+msgid "A little mess, a lot of <span class=\"accent-strong\">love</span>"
+msgstr "Malo haosa, puno <span class=\"accent-strong\">ljubavi</span>"
 #: woof/templates/woof/home.html:135 woof/templates/woof/home.html:138
 #: woof/templates/woof/home.html:149 woof/templates/woof/home.html:172
 msgid "Find by group"
@@ -5399,11 +5383,17 @@ msgstr "Fotografije i činjenice"
 msgid "Same group"
 msgstr "Ista grupa"
 #: woof/templates/woof/post.html
-msgid "Chosen by size, coat length, coat type and activity level."
-msgstr "Izabrane po veličini, dužini dlake, tipu dlake i aktivnosti."
+msgid "Chosen from all groups by size, coat length, coat type and activity level."
+msgstr "Izabrane iz svih grupa po veličini, dužini dlake, tipu dlake i aktivnosti."
 #: woof/templates/woof/includes/guide_toc.html
 msgid "Show all contents"
 msgstr "Prikaži ceo sadržaj"
 #: woof/templates/woof/home.html:242
 msgid "Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own."
 msgstr "Otkrijte divan svet pasa, od razigranih malih saputnika do vernih drugova u avanturama, svaki sa svojom ličnošću."
+#: woof/templates/woof/groups.html:31
+msgid "The FCI recognises ten groups, and it sorts breeds by <strong>the job they were bred for</strong>, not by appearance. A sheepdog that gathers flocks, a hound that follows a scent trail and a pointer that freezes in front of game did different work, and centuries of it shaped their build, coat, jaws and even gait. Inside each group come <strong>sections</strong>, usually by region of origin or by coat. Size, coat type and colour are written into the breed standard, but they do not decide the group. That is why a small terrier and a large terrier sit side by side, while two dogs of the same size can belong to different groups."
+msgstr "FCI poznaje deset grupa i deli rase po <strong>poslu za koji su stvarane</strong>, a ne po izgledu. Pas čuvar stada koji okuplja ovce, gonič koji prati trag i ptičar koji se ukoči pred divljači radili su različite poslove, a vekovi takvog rada oblikovali su njihovu građu, dlaku, vilice i čak hod. Unutar svake grupe postoje <strong>sekcije</strong>, najčešće po regionu porekla ili po dlaci. Veličina, tip dlake i boja upisani su u standard, ali ne određuju grupu. Zato mali i veliki terijer stoje jedan uz drugi, dok dva psa iste veličine mogu završiti u različitim grupama."
+#: woof/templates/woof/breeds.html
+msgid "Clear"
+msgstr "Obriši"

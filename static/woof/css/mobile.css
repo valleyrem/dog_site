@@ -380,7 +380,7 @@
     margin-top: 8px;
   }
   .section-title[id] {
-    scroll-margin-top: 40px;
+    scroll-margin-top: 60px;
   }
 
   .group-item {
@@ -473,9 +473,6 @@
     margin: 0;
   }
 
-/*  .breadcrumbs {
-    padding-right: 28px;
-  }*/
   .post-copy-label {
     display: none;
   }
@@ -1115,6 +1112,7 @@
   .hero-left {
     gap: 50px;
     order: 2;
+    align-items: center;
   }
 
   .hero-inner {
@@ -1271,7 +1269,7 @@
   }
 
   .dog-slider-track {
-    gap: 18px;
+    gap: 10px;
   }
 
   .dog-slider .dog-card-link {
@@ -1706,12 +1704,11 @@
     justify-content: space-between;
   }
 }
-/* Планшеты: стрелки у фото не прячутся до ховера, поэтому им нужен
-   плотный фон — полупрозрачный бокс на светлом снимке не читается.
-   Без backdrop-filter: на iPad блюр рисует пустой прямоугольник. */
+
 @media (min-width: 768px) and (max-width: 1032px) {
   .main-img-arrow {
-    background: rgba(16, 22, 19, 0.55);
+
+    background-color: rgba(16, 22, 19, 0.55);
     backdrop-filter: none;
   }
 }
