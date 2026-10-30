@@ -3169,7 +3169,7 @@ p strong {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  gap: 30px;
+  gap: 50px;
   align-items: stretch;
 
   padding: 0;
@@ -3203,11 +3203,9 @@ p strong {
   margin: 0;
 }
 
-.contact-layout form {
+/*.contact-layout form {
   padding: 22px 24px 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
+}*/
 
 .policy-container form p,
 .form-field,
@@ -3367,7 +3365,7 @@ body.swal2-shown {
   align-items: center;
   position: relative;
 
-  margin: 0 0 0 auto;
+  margin: 20px 0 0 auto;
   padding: 0;
   font-family: "Nunito", sans-serif;
   font-size: 12px;
@@ -4216,7 +4214,7 @@ body.swal2-shown {
 @media (min-width: 768px) {
   .breeds-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
+    gap: 26px;
   }
 
 }

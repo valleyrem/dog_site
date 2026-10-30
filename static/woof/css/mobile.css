@@ -436,7 +436,7 @@
     justify-content: center;
   }
   .dog-slider-track {
-    gap: 10px;
+    gap: 26px;
   }
   .dog-card {
     width: 100%;
@@ -898,9 +898,9 @@
   .form-check-wrapper {
     width: 100%;
   }
-  .contact-layout form {
+/*  .contact-layout form {
     padding: 16px 14px 14px;
-  }
+  }*/
   #btn-custom {
     margin: 0 0 10px auto;
   }
@@ -1112,7 +1112,6 @@
   .hero-left {
     gap: 50px;
     order: 2;
-    align-items: center;
   }
 
   .hero-inner {
@@ -1269,7 +1268,7 @@
   }
 
   .dog-slider-track {
-    gap: 10px;
+    gap: 26px;
   }
 
   .dog-slider .dog-card-link {
