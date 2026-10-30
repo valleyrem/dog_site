@@ -80,7 +80,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Rough'],
    'coat_length': ['Short', 'Medium'],
-   'temperament': ['Intelligent', 'Playful', 'Brave', 'Friendly', 'Energetic'],
+   'temperament': ['Playful', 'Brave', 'Friendly', 'Intelligent', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -145,7 +145,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Independent', 'Dignified', 'Brave', 'Protective'],
+   'temperament': ['Independent', 'Dignified', 'Brave', 'Loyal', 'Protective'],
   },
   'texts': {
    'en': {
@@ -210,7 +210,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Affectionate', 'Playful', 'Energetic', 'Independent'],
+   'temperament': ['Independent', 'Playful', 'Loyal', 'Affectionate', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -271,11 +271,88 @@ BREEDS = {
    },
   },
  },
+ 'american-bulldog': {
+  'traits': {
+   'activity_level': 'high',
+   'barking_level': 'necessary',
+   'family_friendliness': 'high',
+   'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
+  },
+  'scalars': {
+   'colors': 'White, white with brindle, fawn, red or brown patches, solid colour (rare)',
+   'life_expectancy': '10–12',
+   'size': 'large',
+  },
+  'm2m': {
+   'coat_type': ['Smooth'],
+   'coat_length': ['Short'],
+   'temperament': ['Brave', 'Loyal', 'Confident', 'Protective', 'Energetic'],
+  },
+  'texts': {
+   'en': {
+    'title': 'American Bulldog',
+    'varieties': 'No variations',
+    'life_expectancy': '10–12',
+    'colors': 'White, white with brindle, fawn, red or brown patches, solid colour (rare)',
+    'summary': 'The American Bulldog is a powerful, athletic working dog descended from the old English bulldogs that settlers brought to North America. It was kept on farms for generations to catch and hold feral hogs and cattle and to guard the yard — work that shaped a broad chest, strong jaws and a fast, springy stride. The breed is confident, loyal and protective: devoted to its family, reserved with strangers, and serious about anything it considers its duty. Behind the sturdy look sits a dog that needs to move, to work and to have rules; apartment life and long idle hours suit it badly.',
+    'history': 'The American Bulldog comes from the working bulldogs that British and Irish settlers brought to the southern United States in the 18th and 19th centuries. On farms the dog was not a fighter but a catch dog: it found feral hogs and cattle, caught them by the ear or nose and held them until people arrived. By the second half of the 20th century the type was close to disappearing, and two breeders are usually credited with saving it — John D. Johnson, whose heavier «bully» type still carries his name, and Alan Scott, who kept a leaner, more agile working type. The FCI does not recognise the breed: it is registered by other kennel clubs and remains, above all, a practical farm and family guard dog.',
+    'care': 'The short, dense coat needs little more than a weekly rub with a rubber mitt or a bristle brush; the breed sheds steadily, but the hair is easy to collect. Ears, teeth and nails are the usual routine. The real work is exercise: an adult American Bulldog needs an hour or more of genuine activity a day — brisk walks, running, tug, pulling, search games — and a task suits it far better than the same short route every day. Because the breed is strong and not always sociable with other dogs, training starts early and stays consistent: a reliable recall and a firm «leave it» are safety equipment here, not tricks. Watch the joints (hips and elbows) and keep the dog lean: extra weight on a heavy frame shows up later as lameness.',
+    'living_conditions': "A house with a fenced garden is the natural setting; a flat fits badly unless the owner's day is built around long, active walks. The breed is affectionate with its own people and usually good with children, but its size and enthusiasm mean small children need supervision. With other dogs it can be selective, especially with dogs of the same sex, so introductions should be deliberate. Early, frequent socialization and clear rules are what make a strong dog pleasant to live with. This is a breed for owners who want a companion for training, hiking and daily work rather than a decorative sofa dog.",
+    'photo_author': 'Genadi Yakovlev @gy1610 / Pexels',
+   },
+   'ru': {
+    'title': 'Американский бульдог',
+    'varieties': 'Без разновидностей',
+    'colors': 'Белый, белый с тигровыми, палевыми, рыжими или коричневыми пятнами, однотонный (редко)',
+    'summary': 'Американский бульдог — мощная, атлетичная рабочая собака, потомок старых английских бульдогов, привезённых переселенцами в Северную Америку. Веками его держали на фермах: он находил диких свиней и быков, хватал их за ухо или за нос и держал до прихода людей, а заодно сторожил двор — эта работа и сложила широкую грудь, крепкие челюсти и быстрый пружинистый шаг. Порода уверенная, преданная и защитная: к своим привязана, к чужим сдержанна, к тому, что считает своим делом, относится серьёзно. За крепкой внешностью — собака, которой нужно двигаться, работать и жить по правилам; квартира и долгие часы без дела ей не подходят.',
+    'history': 'Порода происходит от рабочих бульдогов, которых британские и ирландские переселенцы привезли на юг США в XVIII–XIX веках. На фермах такой пёс был не бойцом, а ловчей собакой: находил диких свиней и скот, хватал за ухо или нос и удерживал до прихода людей. К середине XX века тип почти исчез, и обычно называют двух заводчиков, которые его сохранили: Джон Д. Джонсон, чей более тяжёлый «булли»-тип до сих пор носит его имя, и Алан Скотт, который держал более сухой и подвижный рабочий тип. FCI породу не признаёт: её регистрируют другие клубы, и она по-прежнему остаётся прежде всего практичной фермерской и сторожевой собакой.',
+    'care': 'Короткая плотная шерсть требует немногого: раз в неделю пройтись резиновой рукавицей или щёткой. Шерсть сыплется ровно, но убирается легко. Уши, зубы и когти — обычная рутина. Настоящая работа — движение: взрослому американскому бульдогу нужно час и больше настоящей активности в день — быстрые прогулки, бег, перетягивание, буксировка, поисковые игры; дело подходит ему гораздо больше, чем один и тот же короткий маршрут. Поскольку порода сильная и не всегда дружелюбна к другим собакам, обучение начинается рано и идёт последовательно: надёжный подзыв и твёрдое «нельзя» здесь не трюки, а техника безопасности. Следите за суставами (локти и бёдра) и за весом: лишние килограммы на тяжёлом корпусе позже оборачиваются хромотой.',
+    'living_conditions': 'Естественная среда — дом с огороженным участком; квартира подходит плохо, если день владельца не построен вокруг долгих активных прогулок. К своим собака ласкова и обычно хорошо ладит с детьми, но из-за размера и темперамента маленькие дети требуют присмотра. С другими собаками бывает избирательна, особенно с однополыми, поэтому знакомства нужны обдуманные. Ранняя и частая социализация плюс чёткие правила — то, что делает сильную собаку удобной в быту. Это порода для тех, кто ищет компаньона для дрессировки, походов и ежедневной работы, а не украшение дивана.',
+   },
+   'de': {
+    'title': 'American Bulldog',
+    'varieties': 'Keine Varietäten',
+    'colors': 'Weiß, weiß mit gestromten, fahlen, roten oder braunen Flecken, einfarbig (selten)',
+    'summary': 'Der American Bulldog ist ein kräftiger, athletischer Arbeitshund, ein Nachfahre der alten englischen Bulldoggen, die Siedler nach Nordamerika brachten. Über Generationen lebte er auf Farmen, um wilde Schweine und Rinder zu stellen und festzuhalten und den Hof zu bewachen – diese Arbeit formte breite Brust, kräftige Kiefer und einen schnellen, federnden Gang. Die Rasse ist selbstbewusst, treu und schützend: der eigenen Familie zugetan, Fremden gegenüber zurückhaltend und in allem, was sie als ihre Aufgabe ansieht, ernst. Hinter dem robusten Äußeren steckt ein Hund, der sich bewegen, arbeiten und Regeln haben muss; Wohnungshaltung und lange untätige Stunden passen schlecht zu ihm.',
+    'history': 'Der American Bulldog stammt von den Arbeitsbulldoggen ab, die britische und irische Siedler im 18. und 19. Jahrhundert in den Süden der USA brachten. Auf den Farmen war der Hund kein Kämpfer, sondern ein Fanghund: Er fand wilde Schweine und Rinder, packte sie am Ohr oder an der Schnauze und hielt sie fest, bis Menschen kamen. In der zweiten Hälfte des 20. Jahrhunderts war der Typ fast verschwunden; zwei Züchter gelten als seine Retter – John D. Johnson, dessen schwererer «Bully»-Typ noch heute seinen Namen trägt, und Alan Scott, der einen trockeneren, beweglicheren Arbeitstyp bewahrte. Die FCI erkennt die Rasse nicht an; sie wird von anderen kennel clubs registriert und ist bis heute vor allem ein praktischer Farm- und Wachhund.',
+    'care': 'Das kurze, dichte Fell braucht wenig: einmal pro Woche eine Gummibürste oder einen Handschuh. Der Hund haart gleichmäßig, die Haare lassen sich aber leicht sammeln. Ohren, Zähne und Krallen sind die übliche Routine. Die eigentliche Arbeit ist Bewegung: Ein ausgewachsener American Bulldog braucht eine Stunde und mehr echte Aktivität am Tag – zügige Spaziergänge, Laufen, Zerrspiele, Ziehen, Suchspiele; eine Aufgabe bekommt ihm deutlich besser als dieselbe kurze Runde. Weil die Rasse kräftig und gegenüber Artgenossen nicht immer verträglich ist, beginnt die Erziehung früh und bleibt konsequent: ein zuverlässiger Rückruf und ein sicheres «Aus» sind hier Sicherheitsausrüstung, keine Kunststücke. Achten Sie auf die Gelenke (Hüfte, Ellbogen) und auf das Gewicht – überzählige Kilos auf einem schweren Rahmen zeigen sich später als Lahmheit.',
+    'living_conditions': 'Ein Haus mit eingezäuntem Garten ist der natürliche Rahmen; eine Wohnung passt schlecht, wenn der Tag des Besitzers nicht um lange, aktive Spaziergänge herum gebaut ist. Der eigenen Familie ist der Hund zugewandt und meist gut mit Kindern, doch Größe und Temperament verlangen bei kleinen Kindern Aufsicht. Bei anderen Hunden ist er wählerisch, besonders bei gleichgeschlechtlichen, deshalb sollten Begegnungen bewusst gestaltet werden. Frühe, häufige Sozialisierung und klare Regeln machen einen starken Hund alltagstauglich. Diese Rasse ist für Menschen, die einen Begleiter für Training, Wanderungen und tägliche Arbeit suchen – keinen Sofaschmuck.',
+   },
+   'it': {
+    'title': 'American Bulldog',
+    'varieties': 'Nessuna varietà',
+    'colors': 'Bianco, bianco con macchie tigrate, fulve, rosse o marroni, tinta unita (raro)',
+    'summary': "L'American Bulldog è un cane da lavoro potente e atletico, discendente degli antichi bulldog inglesi portati in Nord America dai coloni. Per generazioni ha vissuto nelle fattorie per fermare e trattenere maiali e bovini inselvatichiti e per sorvegliare il cortile: quel lavoro ha plasmato petto ampio, mascelle robuste e un passo rapido ed elastico. La razza è sicura di sé, leale e protettiva: affezionata alla propria famiglia, riservata con gli estranei, seria in tutto ciò che considera un dovere. Dietro l'aspetto robusto c'è un cane che ha bisogno di muoversi, di lavorare e di regole; la vita in appartamento e le lunghe ore di inattività gli si addicono poco.",
+    'history': "L'American Bulldog deriva dai bulldog da lavoro che i coloni britannici e irlandesi portarono nel sud degli Stati Uniti tra Settecento e Ottocento. Nelle fattorie il cane non era un combattente ma un cane da presa: individuava maiali e bovini inselvatichiti, li afferrava per l'orecchio o per il naso e li tratteneva fino all'arrivo delle persone. Nella seconda metà del Novecento il tipo era quasi scomparso; due allevatori sono considerati i suoi salvatori: John D. Johnson, il cui tipo «bully» più pesante porta ancora il suo nome, e Alan Scott, che conservò un tipo da lavoro più asciutto e agile. La FCI non riconosce la razza: la registrano altri club cinofili e resta soprattutto un cane pratico da fattoria e da guardia.",
+    'care': "Il pelo corto e compatto richiede poco: una passata a settimana con una spazzola di gomma o un guanto. Perde pelo in modo costante, ma i peli si raccolgono facilmente. Orecchie, denti e unghie sono la routine. Il vero lavoro è il movimento: un American Bulldog adulto ha bisogno di un'ora o più di attività reale al giorno — camminate svelte, corsa, tiro alla fune, trainare, giochi di ricerca; un compito gli si addice molto più dello stesso percorso breve. Poiché la razza è forte e non sempre socievole con i suoi simili, l'educazione inizia presto e resta coerente: un richiamo affidabile e un «lascia» sicuro qui sono attrezzatura di sicurezza, non trucchi. Attenzione alle articolazioni (anche e gomiti) e al peso: i chili di troppo su una struttura pesante si trasformano più tardi in zoppia.",
+    'living_conditions': "La casa con giardino recintato è l'ambiente naturale; l'appartamento è inadatto se la giornata del proprietario non è costruita intorno a lunghe passeggiate attive. È affettuoso con la propria famiglia e di solito buono con i bambini, ma dimensioni ed entusiasmo richiedono la sorveglianza con i più piccoli. Con gli altri cani può essere selettivo, soprattutto con quelli dello stesso sesso, quindi gli incontri vanno preparati. Socializzazione precoce e regole chiare rendono un cane forte piacevole da gestire. È una razza per chi cerca un compagno di addestramento, escursioni e lavoro quotidiano, non un ornamento da divano.",
+   },
+   'es': {
+    'title': 'Bulldog americano',
+    'varieties': 'Sin variaciones',
+    'colors': 'Blanco, blanco con manchas atigradas, leonadas, rojas o marrones, color sólido (raro)',
+    'summary': 'El American Bulldog es un perro de trabajo potente y atlético, descendiente de los antiguos bulldogs ingleses que los colonos llevaron a Norteamérica. Durante generaciones vivió en granjas para sujetar y retener cerdos y vacas asilvestrados y para vigilar el patio: ese trabajo modeló un pecho amplio, mandíbulas fuertes y un paso rápido y elástico. La raza es segura de sí misma, leal y protectora: unida a su familia, reservada con los desconocidos y seria con todo lo que considera su deber. Detrás del aspecto robusto hay un perro que necesita moverse, trabajar y tener reglas; la vida en piso y las horas largas sin hacer nada le sientan mal.',
+    'history': 'El American Bulldog procede de los bulldogs de trabajo que los colonos británicos e irlandeses llevaron al sur de Estados Unidos en los siglos XVIII y XIX. En las granjas no era un perro de pelea, sino un perro de presa: localizaba cerdos y vacas asilvestrados, los agarraba por la oreja o el hocico y los retenía hasta que llegaban las personas. A mediados del siglo XX el tipo casi había desaparecido; se suele atribuir su rescate a dos criadores: John D. Johnson, cuyo tipo «bully» más pesado aún lleva su nombre, y Alan Scott, que mantuvo un tipo de trabajo más seco y ágil. La FCI no reconoce la raza: la registran otros clubs caninos y sigue siendo, sobre todo, un perro práctico de granja y guardia.',
+    'care': 'El pelo corto y denso exige poco: un repaso semanal con un guante o cepillo de goma. Suelta pelo de forma constante, pero se recoge con facilidad. Orejas, dientes y uñas son la rutina. El trabajo de verdad es el movimiento: un American Bulldog adulto necesita una hora o más de actividad real al día —paseos rápidos, carrera, tiro de cuerda, arrastre, juegos de búsqueda—; una tarea le conviene mucho más que el mismo recorrido corto de siempre. Como la raza es fuerte y no siempre sociable con sus congéneres, la educación empieza pronto y se mantiene constante: una llamada fiable y un «déjalo» firme aquí son equipo de seguridad, no trucos. Vigile las articulaciones (caderas y codos) y el peso: los kilos de más sobre una estructura pesada acaban apareciendo como cojera.',
+    'living_conditions': 'La casa con jardín cercado es su entorno natural; un piso encaja mal si el día del dueño no gira en torno a paseos largos y activos. Es cariñoso con los suyos y normalmente bueno con los niños, pero su tamaño y su entusiasmo exigen supervisión con los más pequeños. Con otros perros puede ser selectivo, sobre todo con los del mismo sexo, así que las presentaciones deben prepararse. La socialización temprana y las reglas claras son lo que hace agradable a un perro fuerte. Es una raza para quien busca un compañero de adiestramiento, excursiones y trabajo diario, no un adorno de sofá.',
+   },
+   'sr_latn': {
+    'title': 'Američki buldog',
+    'varieties': 'Nema varijeteta',
+    'colors': 'Bela, bela sa tigrastim, žutosmeđim, crvenim ili braon šarama, jednobojna (retko)',
+    'summary': 'Američki buldog je snažan, atletski radni pas, potomak starih engleskih buldoga koje su doseljenici doneli u Severnu Ameriku. Generacijama je živeo na farmama: pronalazio je divlje svinje i goveda, hvatao ih za uvo ili njušku i držao dok ljudi ne dođu, a uz to čuvao dvorište — taj posao je oblikovao široka prsa, jake vilice i brz, elastičan hod. Rasa je samouverena, odana i zaštitnička: privržena svojoj porodici, uzdržana prema strancima i ozbiljna u svemu što smatra svojom dužnošću. Iza čvrstog izgleda stoji pas kome je potrebno kretanje, posao i pravila; stan i dugi sati bez obaveza mu ne odgovaraju.',
+    'history': 'Američki buldog potiče od radnih buldoga koje su britanski i irski doseljenici doneli na jug Sjedinjenih Država u 18. i 19. veku. Na farmama taj pas nije bio borac nego pas za hvatanje: nalazio je divlje svinje i goveda, hvatao ih za uvo ili njušku i zadržavao dok ljudi ne stignu. Do sredine 20. veka tip je gotovo nestao, a njegovo spašavanje obično se pripisuje dvojici odgajivača — Džonu D. Džonsonu, po kome se i danas naziva teži „bully” tip, i Alanu Skotu, koji je sačuvao suvlji i pokretljiviji radni tip. FCI ne priznaje rasu; registruju je drugi kinološki klubovi i ona i danas ostaje pre svega praktičan farmarski i čuvarski pas.',
+    'care': 'Kratka, gusta dlaka zahteva malo: jednom nedeljno proći gumenom rukavicom ili četkom. Linja se ravnomerno, ali dlaka se lako skuplja. Uši, zubi i nokti su uobičajena rutina. Pravi posao je kretanje: odraslom američkom buldogu treba sat i više istinske aktivnosti dnevno — brze šetnje, trčanje, povlačenje užeta, vuča, igre traženja; zadatak mu prija mnogo više od iste kratke rute. Pošto je rasa jaka i nije uvek druželjubiva prema drugim psima, obuka počinje rano i ostaje dosledna: pouzdan poziv i čvrsto „ostavi” ovde su sigurnosna oprema, ne trikovi. Pazite na zglobove (kukove i laktove) i na težinu — višak kilograma na teškom telu kasnije se pokazuje kao hramanje.',
+    'living_conditions': 'Kuća sa ograđenim dvorištem je prirodno okruženje; stan slabo odgovara ako vlasnikov dan nije organizovan oko dugih, aktivnih šetnji. Prema svojima je privržen i obično dobar sa decom, ali zbog veličine i temperamenta mala deca traže nadzor. Sa drugim psima ume da bude izbirljiv, naročito sa psima istog pola, pa susrete treba pažljivo pripremati. Rana i česta socijalizacija uz jasna pravila čine jakog psa prijatnim za život. Ovo je rasa za one koji traže saputnika za obuku, planinarenje i svakodnevni rad, a ne ukras na kauču.',
+   },
+  },
+ },
  'american-cocker-spaniel': {
   'm2m': {
    'coat_type': ['Silky', 'Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Affectionate', 'Playful', 'Gentle', 'Intelligent', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -340,7 +417,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Playful', 'Alert', 'Energetic', 'Affectionate'],
+   'temperament': ['Playful', 'Intelligent', 'Affectionate', 'Alert', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -401,11 +478,88 @@ BREEDS = {
    },
   },
  },
+ 'american-pit-bull-terrier': {
+  'traits': {
+   'activity_level': 'energetic',
+   'barking_level': 'infrequent',
+   'family_friendliness': 'high',
+   'hypoallergenic': 'moderate',
+   'trainability': 'eager',
+  },
+  'scalars': {
+   'colors': 'Any colour or pattern, except merle',
+   'life_expectancy': '12–14',
+   'size': 'medium',
+  },
+  'm2m': {
+   'coat_type': ['Smooth'],
+   'coat_length': ['Short'],
+   'temperament': ['Playful', 'Loyal', 'Affectionate', 'Confident', 'Energetic'],
+  },
+  'texts': {
+   'en': {
+    'title': 'American Pit Bull Terrier',
+    'varieties': 'No variations',
+    'life_expectancy': '12–14',
+    'colors': 'Any colour or pattern, except merle',
+    'summary': 'The American Pit Bull Terrier is a medium-sized, muscular dog built for work and movement: a broad chest, a short back and a coat that asks almost nothing. The breed descends from the bull-and-terrier dogs brought to the United States in the 19th century and was bred for dog sports and farm work; in the first half of the 20th century it became the classic American family dog. It is remarkably people-oriented — affectionate, playful and tireless with its own family — and usually gets on with people far better than with other dogs. Behind the friendly face is a strong, tenacious dog that needs exercise, training and firm, calm rules from the first month.',
+    'history': 'The breed grew out of the bull-and-terrier dogs that British immigrants brought to the United States in the 19th century, when blood sports were still legal and a tough, agile all-rounder was valued both in the ring and on the farm. After the sport was banned the dogs moved into everyday life: they guarded yards, caught livestock, hunted and pulled carts. The United Kennel Club registered the American Pit Bull Terrier in 1898, and by the 1920s it was one of the most popular family dogs in the country — Petey of the «Our Gang» films is one of them. The AKC never registered the breed, recognising the American Staffordshire Terrier instead, and the FCI follows it; the pit bull line, however, has been kept pure by its own registries.',
+    'care': 'The short coat is the easy part: a weekly rub with a rubber mitt is enough, and the dog is dry minutes after a walk in the rain. Ears, teeth and nails are the usual routine. What the breed really asks for is movement and engagement: at least an hour of genuine activity a day — running, springy games, tug, pulling, scent work — plus mental work, because a bored pit bull invents its own entertainment. Training starts early: this is a strong, tenacious dog with a high prey drive, so a reliable recall, a solid «leave it» and calm behaviour on the lead are safety equipment. Watch for skin allergies, and keep the dog lean — extra weight loads joints that already carry a lot of muscle.',
+    'living_conditions': "A house with a secure garden suits the breed best; a flat works only if the owner's day is built around long, active walks. With people it is famously affectionate, and with children usually patient and playful, though its enthusiasm needs supervision with the smallest ones. With other dogs it can be selective, often with those of the same sex, so introductions must be deliberate and the lead is not optional in shared spaces. Early, wide socialization and clear rules are what make a strong dog easy to live with. This is a breed for owners who want a training partner and a running companion, not a decorative pet.",
+    'photo_author': 'Leonardo Merlo / Pexels',
+   },
+   'ru': {
+    'title': 'Американский питбультерьер',
+    'varieties': 'Без разновидностей',
+    'colors': 'Любой окрас и рисунок, кроме мраморного',
+    'summary': 'Американский питбультерьер — средняя по размеру, мускулистая собака, сложенная для работы и движения: широкая грудь, короткая спина и шерсть, которая почти ничего не требует. Порода происходит от буль-энд-терьеров, привезённых в США в XIX веке, разводилась для собачьих состязаний и фермерской работы, а в первой половине XX века стала классической американской семейной собакой. Она удивительно ориентирована на людей — ласковая, игривая и неутомимая со своей семьёй — и обычно ладит с человеком гораздо лучше, чем с другими собаками. За дружелюбной мордой — сильная, настойчивая собака, которой нужны движение, обучение и твёрдые спокойные правила с первого месяца.',
+    'history': 'Порода сложилась из буль-энд-терьеров, которых британские переселенцы привезли в США в XIX веке, когда кровавые зрелища были ещё легальны, а на ринге и на ферме ценился выносливый и ловкий универсал. После запрета зрелищ собаки ушли в обычную жизнь: сторожили дворы, ловили скот, охотились, возили тележки. United Kennel Club зарегистрировал породу в 1898 году, а к 1920-м она была одной из самых популярных семейных собак страны — вспомните Пита из фильмов «Наша банда». AKC породу так и не зарегистрировал, признав вместо неё американского стаффордширского терьера, за ним следует и FCI; линию питбуля при этом сохранили собственные реестры.',
+    'care': 'Короткая шерсть — самая простая часть: раз в неделю пройтись резиновой рукавицей, и после прогулки под дождём собака высыхает за минуты. Уши, зубы и когти — обычная рутина. Настоящая потребность — движение и занятость: минимум час настоящей активности в день — бег, прыгучие игры, перетягивание, буксировка, поиск по запаху — плюс умственная работа, потому что скучающий питбуль придумывает развлечения сам. Обучение начинать рано: это сильная, настойчивая собака с высоким охотничьим инстинктом, поэтому надёжный подзыв, твёрдое «нельзя» и спокойное поведение на поводке — техника безопасности. Следите за кожными аллергиями и за весом: лишние килограммы нагружают суставы, которые и так несут много мышц.',
+    'living_conditions': 'Дом с надёжно огороженным участком подходит лучше всего; квартира — только если день владельца построен вокруг долгих активных прогулок. С людьми собака по-настоящему ласкова, с детьми обычно терпелива и игрива, хотя с самыми маленькими нужен присмотр. С другими собаками бывает избирательна, часто с однополыми, поэтому знакомства — обдуманные, а поводок в общих местах не опция. Ранняя и широкая социализация и чёткие правила — то, что делает сильную собаку удобной в быту. Это порода для тех, кто ищет партнёра для дрессировки и бега, а не декоративного питомца.',
+   },
+   'de': {
+    'title': 'American Pit Bull Terrier',
+    'varieties': 'Keine Varietäten',
+    'colors': 'Jede Farbe und jede Zeichnung, außer Merle',
+    'summary': 'Der American Pit Bull Terrier ist ein mittelgroßer, muskulöser Hund, gebaut für Arbeit und Bewegung: breite Brust, kurzer Rücken, ein Fell, das fast nichts verlangt. Die Rasse geht auf die Bull-and-Terrier zurück, die britische Einwanderer im 19. Jahrhundert in die USA brachten; gezüchtet für Hundesport und Farmarbeit, wurde sie in der ersten Hälfte des 20. Jahrhunderts zum klassischen amerikanischen Familienhund. Sie ist außergewöhnlich menschenbezogen – liebevoll, verspielt und unermüdlich mit der eigenen Familie – und kommt mit Menschen meist deutlich besser aus als mit anderen Hunden. Hinter dem freundlichen Gesicht steckt ein kräftiger, beharrlicher Hund, der Bewegung, Erziehung und klare, ruhige Regeln vom ersten Monat an braucht.',
+    'history': 'Die Rasse entstand aus den Bull-and-Terriern, die britische Einwanderer im 19. Jahrhundert in die Vereinigten Staaten brachten, als blutige Vorführungen noch erlaubt waren und im Ring wie auf dem Hof ein zäher, wendiger Allrounder gefragt war. Nach dem Verbot zogen die Hunde in den Alltag: Sie bewachten Höfe, fingen Vieh, jagten und zogen Karren. Der United Kennel Club registrierte den American Pit Bull Terrier 1898, und in den 1920er-Jahren war er einer der beliebtesten Familienhunde des Landes – Petey aus den «Our Gang»-Filmen ist einer. Die AKC hat die Rasse nie registriert und führt stattdessen den American Staffordshire Terrier, die FCI folgt ihr; die Pit-Bull-Linie wurde jedoch von eigenen Registern rein gehalten.',
+    'care': 'Das kurze Fell ist das Einfachste: einmal pro Woche mit einem Gummihandschuh darüber, und nach einem Regenspaziergang ist der Hund in Minuten trocken. Ohren, Zähne und Krallen sind die übliche Routine. Wirklich verlangt werden Bewegung und Beschäftigung: mindestens eine Stunde echte Aktivität am Tag – Laufen, Sprungspiele, Zerrspiele, Ziehen, Fährtenarbeit – und dazu Kopfarbeit, denn ein gelangweilter Pit Bull erfindet seine Unterhaltung selbst. Die Erziehung beginnt früh: Das ist ein kräftiger, beharrlicher Hund mit hohem Jagdtrieb, deshalb sind ein zuverlässiger Rückruf, ein sicheres «Aus» und ruhiges Verhalten an der Leine Sicherheitsausrüstung. Achten Sie auf Hautallergien und auf das Gewicht – überzählige Kilos belasten Gelenke, die ohnehin viel Muskulatur tragen.',
+    'living_conditions': 'Ein Haus mit sicher eingezäuntem Garten passt am besten; eine Wohnung nur, wenn der Tag des Besitzers um lange, aktive Spaziergänge herum gebaut ist. Mit Menschen ist der Hund berühmt liebevoll, mit Kindern meist geduldig und verspielt, bei den kleinsten braucht es dennoch Aufsicht. Bei anderen Hunden ist er wählerisch, oft bei gleichgeschlechtlichen, deshalb müssen Begegnungen bewusst gestaltet werden – und in belebten Gegenden ist die Leine keine Option. Frühe, breite Sozialisierung und klare Regeln machen einen starken Hund alltagstauglich. Diese Rasse ist für Menschen, die einen Trainings- und Laufpartner suchen, kein dekoratives Haustier.',
+   },
+   'it': {
+    'title': 'American Pit Bull Terrier',
+    'varieties': 'Nessuna varietà',
+    'colors': 'Qualsiasi colore e disegno, tranne il merle',
+    'summary': "L'American Pit Bull Terrier è un cane di taglia media, muscoloso, costruito per il lavoro e il movimento: petto largo, dorso corto e un pelo che non chiede quasi nulla. La razza discende dai bull-and-terrier portati negli Stati Uniti dai coloni britannici nell'Ottocento; allevata per le gare cinofile e il lavoro in fattoria, nella prima metà del Novecento è diventata il classico cane di famiglia americano. È straordinariamente legata alle persone — affettuosa, giocosa e instancabile con la propria famiglia — e di solito va d'accordo con gli esseri umani molto meglio che con gli altri cani. Dietro la faccia amichevole c'è un cane forte e tenace, che ha bisogno di movimento, educazione e regole chiare e calme fin dal primo mese.",
+    'history': "La razza nasce dai bull-and-terrier che gli immigrati britannici portarono negli Stati Uniti nell'Ottocento, quando gli spettacoli cruenti erano ancora legali e sul ring come in fattoria serviva un tuttofare resistente e agile. Dopo il divieto i cani passarono alla vita quotidiana: sorvegliavano i cortili, prendevano il bestiame, cacciavano e trainavano carretti. Lo United Kennel Club registrò l'American Pit Bull Terrier nel 1898 e negli anni Venti era uno dei cani di famiglia più diffusi del paese — Petey dei film «Our Gang» è uno di loro. L'AKC non ha mai registrato la razza, riconoscendo invece l'American Staffordshire Terrier, e la FCI la segue; la linea pit bull è però stata mantenuta pura dai propri registri.",
+    'care': "Il pelo corto è la parte più semplice: una passata a settimana con un guanto di gomma, e dopo una passeggiata sotto la pioggia il cane è asciutto in pochi minuti. Orecchie, denti e unghie sono la routine. La vera richiesta è movimento e impegno: almeno un'ora di attività reale al giorno — corsa, giochi di salto, tiro alla fune, trainare, ricerca olfattiva — più lavoro mentale, perché un pit bull annoiato si inventa il proprio divertimento. L'educazione inizia presto: è un cane forte e tenace con un forte istinto predatorio, quindi richiamo affidabile, un «lascia» solido e calma al guinzaglio sono attrezzatura di sicurezza. Attenzione alle allergie cutanee e al peso: i chili di troppo caricano articolazioni che già sostengono molta muscolatura.",
+    'living_conditions': "La casa con giardino ben recintato è la soluzione migliore; l'appartamento funziona solo se la giornata del proprietario è costruita intorno a lunghe passeggiate attive. Con le persone è famoso per l'affetto, con i bambini di solito paziente e giocoso, anche se con i più piccoli serve sorveglianza. Con gli altri cani può essere selettivo, spesso con quelli dello stesso sesso, perciò gli incontri vanno preparati e nei luoghi affollati il guinzaglio non è un'opzione. Socializzazione precoce e ampia, più regole chiare, rendono un cane forte facile da gestire. È una razza per chi cerca un partner di addestramento e di corsa, non un animale decorativo.",
+   },
+   'es': {
+    'title': 'Pit bull terrier americano',
+    'varieties': 'Sin variaciones',
+    'colors': 'Cualquier color y dibujo, excepto merle',
+    'summary': 'El American Pit Bull Terrier es un perro de tamaño medio y musculoso, construido para el trabajo y el movimiento: pecho ancho, lomo corto y un pelo que apenas pide cuidados. La raza desciende de los bull-and-terrier que los inmigrantes británicos llevaron a Estados Unidos en el siglo XIX; criada para las competiciones caninas y el trabajo en la granja, en la primera mitad del siglo XX se convirtió en el perro de familia clásico del país. Es extraordinariamente apegado a las personas —cariñoso, juguetón e incansable con su propia familia— y suele llevarse con los humanos mucho mejor que con otros perros. Detrás de la cara amistosa hay un perro fuerte y tenaz, que necesita ejercicio, educación y reglas claras y tranquilas desde el primer mes.',
+    'history': 'La raza surgió de los bull-and-terrier que los inmigrantes británicos llevaron a Estados Unidos en el siglo XIX, cuando los espectáculos cruentos aún eran legales y en el ring y en la granja se valoraba un todoterreno resistente y ágil. Tras la prohibición, los perros pasaron a la vida cotidiana: vigilaban patios, sujetaban ganado, cazaban y tiraban de carros. El United Kennel Club registró al American Pit Bull Terrier en 1898 y en los años veinte era uno de los perros de familia más populares del país: Petey, de las películas de «Our Gang», es uno de ellos. La AKC nunca registró la raza y reconoció en su lugar al American Staffordshire Terrier, y la FCI la sigue; la línea pit bull, sin embargo, se ha mantenido pura en sus propios registros.',
+    'care': 'El pelo corto es lo más fácil: un repaso semanal con un guante de goma y, tras un paseo bajo la lluvia, el perro está seco en minutos. Orejas, dientes y uñas son la rutina. Lo que de verdad exige es movimiento y ocupación: al menos una hora de actividad real al día —carrera, juegos de salto, tiro de cuerda, arrastre, búsqueda olfativa— más trabajo mental, porque un pit bull aburrido se inventa su propio entretenimiento. La educación empieza pronto: es un perro fuerte y tenaz con gran instinto de presa, así que una llamada fiable, un «déjalo» sólido y la calma con la correa son equipo de seguridad. Vigile las alergias cutáneas y el peso: los kilos de más cargan articulaciones que ya sostienen mucha musculatura.',
+    'living_conditions': 'La casa con jardín bien cercado es lo que mejor le sienta; un piso solo funciona si el día del dueño gira en torno a paseos largos y activos. Con las personas es famoso por su afecto, y con los niños suele ser paciente y juguetón, aunque con los más pequeños hace falta supervisión. Con otros perros puede ser selectivo, a menudo con los del mismo sexo, así que las presentaciones deben prepararse y en zonas concurridas la correa no es opcional. La socialización temprana y amplia, junto con reglas claras, es lo que hace manejable a un perro fuerte. Es una raza para quien busca un compañero de adiestramiento y de carrera, no un animal decorativo.',
+   },
+   'sr_latn': {
+    'title': 'Američki pit bul terijer',
+    'varieties': 'Nema varijeteta',
+    'colors': 'Bilo koja boja i šara, osim merle',
+    'summary': 'Američki pit bul terijer je pas srednje veličine i mišićav, građen za rad i kretanje: široka prsa, kratka leđa i dlaka koja gotovo ništa ne traži. Rasa potiče od bul-end-terijera koje su britanski doseljenici doneli u Sjedinjene Države u 19. veku; gajena za kinološka takmičenja i rad na farmi, u prvoj polovini 20. veka postala je klasičan američki porodični pas. Izuzetno je vezana za ljude — privržena, razigrana i neumorna sa svojom porodicom — i obično se sa ljudima slaže mnogo bolje nego sa drugim psima. Iza prijateljskog lica stoji jak, istrajan pas kome su potrebni kretanje, obuka i jasna, mirna pravila od prvog meseca.',
+    'history': 'Rasa je nastala od bul-end-terijera koje su britanski doseljenici doneli u SAD u 19. veku, kada su krvave predstave još bile legalne i kada se na ringu i na farmi cenio izdržljiv i okretan univerzalac. Posle zabrane, psi su prešli u svakodnevni život: čuvali su dvorišta, hvatali stoku, lovili i vukli kola. United Kennel Club registrovao je američkog pit bul terijera 1898, a dvadesetih godina 20. veka bio je jedan od najpopularnijih porodičnih pasa u zemlji — Peti iz filmova „Our Gang” je jedan od njih. AKC rasu nikada nije registrovao i priznao je umesto nje američkog stafordširskog terijera, a FCI ga prati; liniju pit bula ipak su sačuvali sopstveni registri.',
+    'care': 'Kratka dlaka je najlakši deo: jednom nedeljno gumenom rukavicom i posle šetnje po kiši pas se osuši za nekoliko minuta. Uši, zubi i nokti su uobičajena rutina. Prava potreba su kretanje i zaposlenost: najmanje sat istinske aktivnosti dnevno — trčanje, igre skakanja, povlačenje užeta, vuča, rad na tragu — plus mentalni rad, jer dosadnom pit bulu sopstvena zabava pada na pamet. Obuka počinje rano: to je jak, istrajan pas sa izraženim lovnim nagonom, pa su pouzdan poziv, čvrsto „ostavi” i mirno ponašanje na povodcu sigurnosna oprema. Pazite na alergije kože i na težinu — višak kilograma opterećuje zglobove koji ionako nose mnogo mišića.',
+    'living_conditions': 'Kuća sa sigurno ograđenim dvorištem najbolje odgovara; stan funkcioniše samo ako je vlasnikov dan organizovan oko dugih, aktivnih šetnji. Sa ljudima je poznat po privrženosti, sa decom je obično strpljiv i razigran, iako najmanji traže nadzor. Sa drugim psima ume da bude izbirljiv, često sa psima istog pola, pa susrete treba pažljivo pripremati, a u gužvi povodac nije opcija. Rana i široka socijalizacija uz jasna pravila čine jakog psa lakim za život. Ovo je rasa za one koji traže partnera za obuku i trčanje, a ne ukrasnog ljubimca.',
+   },
+  },
+ },
  'american-staffordshire-terrier': {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Loyal', 'Affectionate', 'Courageous', 'Playful'],
+   'temperament': ['Playful', 'Loyal', 'Affectionate', 'Confident', 'Courageous'],
   },
   'texts': {
    'en': {
@@ -470,7 +624,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Calm', 'Loyal', 'Protective', 'Independent', 'Alert'],
+   'temperament': ['Independent', 'Loyal', 'Alert', 'Protective', 'Calm'],
   },
   'texts': {
    'en': {
@@ -600,7 +754,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Affectionate', 'Protective', 'Independent', 'Calm', 'Active'],
+   'temperament': ['Independent', 'Affectionate', 'Protective', 'Calm', 'Active'],
   },
   'texts': {
    'en': {
@@ -665,7 +819,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Rough'],
    'coat_length': ['Medium'],
-   'temperament': ['Playful', 'Alert', 'Friendly', 'Loyal', 'Eager'],
+   'temperament': ['Playful', 'Friendly', 'Loyal', 'Alert', 'Eager'],
   },
   'texts': {
    'en': {
@@ -730,7 +884,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Gentle', 'Intelligent', 'Independent', 'Calm'],
+   'temperament': ['Independent', 'Intelligent', 'Loyal', 'Gentle', 'Calm'],
   },
   'texts': {
    'en': {
@@ -793,21 +947,21 @@ BREEDS = {
  },
  'beagle': {
   'traits': {
-   'trainability': 'stubborn',
    'activity_level': 'energetic',
    'barking_level': 'frequent',
    'family_friendliness': 'excellent',
    'hypoallergenic': 'low',
+   'trainability': 'stubborn',
   },
   'scalars': {
-   'size': 'small',
-   'life_expectancy': '12–15',
    'colors': 'Tricolour, Lemon & White, Red & White, Black & White, Tan & White',
+   'life_expectancy': '12–15',
+   'size': 'small',
   },
   'm2m': {
    'coat_type': ['Smooth', 'Double coat'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Even-tempered', 'Alert', 'Confident', 'Playful'],
+   'temperament': ['Playful', 'Intelligent', 'Alert', 'Confident', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -872,7 +1026,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Curly'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Gentle', 'Playful', 'Brave', 'Energetic'],
+   'temperament': ['Playful', 'Brave', 'Affectionate', 'Gentle', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -935,16 +1089,16 @@ BREEDS = {
  },
  'belgian-shepherd-dog': {
   'traits': {
-   'trainability': 'eager',
    'activity_level': 'energetic',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'low',
+   'trainability': 'eager',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '12–14',
    'colors': 'Black, Fawn, Mahogany, Red, Gray',
+   'life_expectancy': '12–14',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Double coat'],
@@ -1014,7 +1168,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Curly', 'Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Affectionate', 'Playful', 'Gentle', 'Intelligent', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -1079,7 +1233,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Brave', 'Friendly', 'Confident', 'Intelligent'],
+   'temperament': ['Brave', 'Friendly', 'Intelligent', 'Loyal', 'Confident'],
   },
   'texts': {
    'en': {
@@ -1144,7 +1298,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Affectionate', 'Gentle', 'Confident', 'Intelligent', 'Even-tempered'],
+   'temperament': ['Intelligent', 'Affectionate', 'Gentle', 'Confident', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -1205,11 +1359,165 @@ BREEDS = {
    },
   },
  },
+ 'bluetick-coonhound': {
+  'traits': {
+   'activity_level': 'energetic',
+   'barking_level': 'frequent',
+   'family_friendliness': 'high',
+   'hypoallergenic': 'moderate',
+   'trainability': 'independent',
+  },
+  'scalars': {
+   'colors': 'Blue-ticked (black and blue ticking on white) with black patches and tan trim',
+   'life_expectancy': '11–12',
+   'size': 'large',
+  },
+  'm2m': {
+   'coat_type': ['Smooth'],
+   'coat_length': ['Short'],
+   'temperament': ['Independent', 'Friendly', 'Loyal', 'Alert', 'Energetic'],
+  },
+  'texts': {
+   'en': {
+    'title': 'Bluetick Coonhound',
+    'varieties': 'No variations',
+    'life_expectancy': '11–12',
+    'colors': 'Blue-ticked (black and blue ticking on white) with black patches and tan trim',
+    'summary': 'The Bluetick Coonhound is an American scenthound with a coat like a speckled egg: white covered in fine black and blue ticking, with black patches and tan trim. It was bred to trail raccoons through the woods at night and to announce the trail in a loud, carrying bawl, and it still works exactly like that. At home the breed is easy-going and friendly, deeply attached to its people; on a scent it is a different animal — independent, tireless, able to follow a cold trail for hours and, unfortunately, able to ignore a recall while the nose is working. It is a hound for someone who likes that trade: a sweet, funny companion with a real working mind and a voice that carries a long way.',
+    'history': 'The breed was put together in the United States, mainly in Louisiana and the South, from French hounds — above all the Grand Bleu de Gascogne — crossed with English and American foxhounds and with the black-and-tan Virginia foxhound. The aim was a dog with a good nose, the stamina to trail all night and the sense to stay on the scent in swamps and thickets. Blue ticking became its trademark, and the United Kennel Club registered the Bluetick Coonhound in 1946; it has been the state dog of Tennessee since 1965. The AKC admitted the breed to its Hound Group in 2009; the FCI does not recognise it.',
+    'care': 'The short, dense coat is easy: a weekly rub with a rubber mitt, and a bath only when the dog has found something truly interesting to roll in. The ears are long and floppy and need checking and drying, and the breed tends to drool a little after a drink. Exercise should be generous — an hour or more daily — and always with nose work: trailing, searching, hide-and-seek, or better still a real tracking session on a long line. Training is the harder part: this is an independent scenthound, so a reliable recall takes patience and many repetitions in increasingly distracting places, and in open country a long line is normal equipment. Watch weight, ears and hips, and remember that a bored coonhound sings — loudly — which the neighbours notice.',
+    'living_conditions': 'A house with a securely fenced garden is close to essential: a hound on a scent will go over, under or through a fence that looks adequate. A flat works only if the owner can give long daily walks plus nose work, and if the neighbours tolerate the voice. Indoors the breed is calm, friendly and, between hunts, surprisingly lazy — it will happily spend hours on the sofa. It is good with children and usually with other dogs, since coonhounds traditionally work in packs. This is a breed for someone who enjoys training a nose-driven dog and has time for it, rather than for a household that expects instant obedience.',
+    'photo_author': 'Acmecanine / Pixabay',
+   },
+   'ru': {
+    'title': 'Блютик-кунхаунд',
+    'varieties': 'Без разновидностей',
+    'colors': 'Синяя крапина (чёрно-синие точки по белому), чёрные пятна и рыжие подпалины',
+    'summary': 'Блютик-кунхаунд — американская гончая с шерстью как у крапчатого яйца: белая в мелкую чёрно-синюю крапину, с чёрными пятнами и рыжими подпалинами. Его выводили, чтобы ночью идти по следу енота и объявлять след громким, далеко слышным лаем, — и он до сих пор работает именно так. Дома это спокойная, дружелюбная собака, сильно привязанная к своим людям; на следу она другая: независимая, неутомимая, способная идти по холодному следу часами и, к сожалению, способная не услышать подзыв, когда работает нос. Это гончая для того, кому такой обмен нравится: мягкий, смешной компаньон с настоящим рабочим умом и голосом, который слышно очень далеко.',
+    'history': 'Породу собрали в США, в основном в Луизиане и на юге, из французских гончих — прежде всего большого голубого гасконского гончего — в смеси с английскими и американскими фоксхаундами и с чёрно-подпалым виргинским фоксхаундом. Целью была собака с хорошим носом, выносливостью идти всю ночь и умением держаться следа в болотах и зарослях. Фирменной стала «синяя крапина»: United Kennel Club зарегистрировал породу в 1946 году, а с 1965-го блютик — официальная собака штата Теннесси. AKC принял её в группу гончих в 2009 году; FCI породу не признаёт.',
+    'care': 'Короткая плотная шерсть не доставляет хлопот: раз в неделю резиновой рукавицей, а купание — только когда собака нашла что-то по-настоящему интересное, чтобы в этом вываляться. Уши длинные и висячие, их нужно осматривать и просушивать, а после воды порода немного слюнявит. Движения нужно много — час и больше в день — и обязательно с работой носом: след, поиск, прятки, а лучше настоящее занятие по трекингу на длинном поводке. С обучением сложнее: это независимая гончая, поэтому надёжный подзыв требует терпения и долгих повторений во всё более отвлекающих местах, а длинный поводок на открытом пространстве — обычная экипировка. Следите за весом, ушами и суставами, и помните: скучающий кунхаунд поёт — громко, и соседи это замечают.',
+    'living_conditions': 'Дом с надёжно огороженным садом почти обязателен: гончая на следу пройдёт через забор, под ним или сквозь него, даже если он кажется достаточным. Квартира подходит, если владелец может давать долгие прогулки и работу носом и если соседи терпят голос. В доме порода спокойная, дружелюбная и между охотами на удивление ленивая — легко проведёт на диване несколько часов. Хорошо ладит с детьми и обычно с другими собаками: кунхаундов традиционно используют в сворах. Это порода для того, кто любит заниматься с собакой, ведомой носом, и имеет на это время, а не для семьи, которая ждёт мгновенного послушания.',
+   },
+   'de': {
+    'title': 'Bluetick Coonhound',
+    'varieties': 'Keine Varietäten',
+    'colors': 'Blau getupft (schwarz-blaue Tupfen auf Weiß) mit schwarzen Platten und lohfarbenen Abzeichen',
+    'summary': 'Der Bluetick Coonhound ist ein amerikanischer Laufhund mit einem Fell wie ein gesprenkeltes Ei: weiß mit feiner schwarz-blauer Tupfung, schwarzen Platten und lohfarbenen Abzeichen. Gezüchtet wurde er, um nachts die Fährte von Waschbären zu verfolgen und sie mit lautem, weit tragendem Hals zu melden – und genau so arbeitet er bis heute. Zu Hause ist er umgänglich und freundlich, seinen Menschen tief verbunden; auf der Fährte ist er ein anderer Hund: eigenständig, unermüdlich, stundenlang in der Lage, einer kalten Spur zu folgen, und leider auch in der Lage, einen Rückruf zu überhören, wenn die Nase arbeitet. Es ist ein Hund für Menschen, die diesen Tausch mögen: ein sanfter, komischer Begleiter mit echtem Arbeitsverstand und einer weit tragenden Stimme.',
+    'history': 'Die Rasse entstand in den USA, vor allem in Louisiana und im Süden, aus französischen Laufhunden – allen voran der Grand Bleu de Gascogne – gekreuzt mit englischen und amerikanischen Foxhounds und mit dem schwarz-lohfarbenen Virginia Foxhound. Gesucht war ein Hund mit guter Nase, genug Ausdauer für eine ganze Nacht und dem Vermögen, in Sümpfen und Dickicht auf der Fährte zu bleiben. Die blaue Tupfung wurde zum Markenzeichen; der United Kennel Club registrierte den Bluetick Coonhound 1946, und seit 1965 ist er der Staatshund von Tennessee. Die AKC nahm die Rasse 2009 in ihre Hound Group auf; die FCI erkennt sie nicht an.',
+    'care': 'Das kurze, dichte Fell ist unkompliziert: einmal pro Woche mit einem Gummihandschuh darüber, gebadet wird nur, wenn der Hund etwas wirklich Interessantes zum Wälzen gefunden hat. Die Ohren sind lang und hängend, müssen kontrolliert und getrocknet werden, und nach dem Trinken neigt die Rasse zu etwas Sabbern. Bewegung braucht es reichlich – eine Stunde und mehr täglich – und dazu Nasenarbeit: Fährte, Suche, Versteckspiele, besser noch echtes Trailen an der Schleppleine. Die Erziehung ist der schwierigere Teil: Das ist ein eigenständiger Laufhund, ein zuverlässiger Rückruf braucht Geduld und viele Wiederholungen an immer ablenkungsreicheren Orten, und in offenem Gelände gehört die Schleppleine zur Grundausstattung. Achten Sie auf Gewicht, Ohren und Hüften – und bedenken Sie: Ein gelangweilter Coonhound singt, laut, und die Nachbarn merken es.',
+    'living_conditions': 'Ein Haus mit sicher eingezäuntem Garten ist fast unverzichtbar: Ein Hund auf der Fährte geht über, unter oder durch einen Zaun, der ausreichend aussieht. Eine Wohnung funktioniert nur, wenn lange Spaziergänge und Nasenarbeit täglich möglich sind und die Nachbarn die Stimme tolerieren. Drinnen ist die Rasse ruhig, freundlich und zwischen zwei Jagden erstaunlich faul – sie liegt gern stundenlang auf dem Sofa. Mit Kindern ist sie gut, mit anderen Hunden meist auch, denn Coonhounds arbeiten traditionell in Meuten. Diese Rasse ist für Menschen, die gern mit einem nasengeführten Hund arbeiten und die Zeit dafür haben, nicht für Haushalte, die sofortigen Gehorsam erwarten.',
+   },
+   'it': {
+    'title': 'Bluetick Coonhound',
+    'varieties': 'Nessuna varietà',
+    'colors': 'Punteggiato blu (punteggio nero e blu su bianco) con pezzature nere e rifiniture fulve',
+    'summary': "Il Bluetick Coonhound è un segugio americano con un mantello da uovo macchiettato: bianco con fine punteggiatura nera e blu, pezzature nere e rifiniture fulve. Fu allevato per seguire di notte la traccia dei procioni e annunciarla con un latrato forte e portante, e ancora oggi lavora esattamente così. In casa è tranquillo e socievole, profondamente legato ai suoi umani; sulla traccia è un altro cane: indipendente, instancabile, capace di seguire un'orma fredda per ore e, purtroppo, capace di ignorare un richiamo quando lavora il naso. È un cane per chi apprezza questo scambio: un compagno dolce e buffo con una vera mente da lavoro e una voce che si sente lontano.",
+    'history': "La razza fu costruita negli Stati Uniti, soprattutto in Louisiana e nel Sud, da segugi francesi — innanzitutto il Grand Bleu de Gascogne — incrociati con foxhound inglesi e americani e con il foxhound della Virginia nero-fulvo. Si cercava un cane con buon naso, resistenza per seguire tutta la notte e la capacità di restare sulla traccia in paludi e boscaglie. La punteggiatura blu divenne il marchio di fabbrica: lo United Kennel Club registrò il Bluetick Coonhound nel 1946 e dal 1965 è il cane ufficiale dello stato del Tennessee. L'AKC lo accolse nell'Hound Group nel 2009; la FCI non lo riconosce.",
+    'care': "Il pelo corto e folto è semplice: una passata settimanale con un guanto di gomma, e il bagno solo quando il cane ha trovato qualcosa di davvero interessante in cui rotolarsi. Le orecchie sono lunghe e pendenti, vanno controllate e asciugate, e dopo aver bevuto la razza tende a sbavare un po'. Il movimento deve essere generoso — un'ora o più al giorno — e sempre con lavoro di naso: traccia, ricerca, nascondino, meglio ancora un vero trailing al guinzaglio lungo. L'educazione è la parte più difficile: è un segugio indipendente, quindi un richiamo affidabile richiede pazienza e molte ripetizioni in luoghi sempre più distraenti, e in aperta campagna il guinzaglio lungo è dotazione normale. Attenzione a peso, orecchie e anche, e ricordate: un coonhound annoiato canta, forte, e i vicini se ne accorgono.",
+    'living_conditions': "La casa con giardino ben recintato è quasi indispensabile: un segugio sulla traccia passa sopra, sotto o attraverso una recinzione che sembra sufficiente. L'appartamento funziona solo se il proprietario può garantire passeggiate lunghe e lavoro olfattivo ogni giorno e se i vicini tollerano la voce. In casa la razza è calma, socievole e, tra una caccia e l'altra, sorprendentemente pigra: sta volentieri sul divano per ore. Va d'accordo con i bambini e di solito con gli altri cani, perché i coonhound lavorano tradizionalmente in muta. È una razza per chi ama lavorare con un cane guidato dal naso e ha il tempo per farlo, non per famiglie che si aspettano obbedienza immediata.",
+   },
+   'es': {
+    'title': 'Bluetick coonhound',
+    'varieties': 'Sin variaciones',
+    'colors': 'Punteado azul (punteado negro y azul sobre blanco) con manchas negras y ribetes fuego',
+    'summary': 'El Bluetick Coonhound es un sabueso estadounidense con un manto de huevo moteado: blanco con fino punteado negro y azul, manchas negras y ribetes color fuego. Se crió para seguir de noche el rastro de los mapaches y anunciarlo con un ladrido grave y potente, y todavía hoy trabaja exactamente así. En casa es tranquilo y amistoso, muy unido a sus personas; sobre el rastro es otro perro: independiente, incansable, capaz de seguir una pista fría durante horas y, por desgracia, capaz de ignorar una llamada cuando trabaja la nariz. Es un perro para quien aprecia ese intercambio: un compañero dulce y divertido con una verdadera mente de trabajo y una voz que se oye muy lejos.',
+    'history': 'La raza se formó en Estados Unidos, sobre todo en Luisiana y el sur, a partir de sabuesos franceses —en primer lugar el Grand Bleu de Gascogne— cruzados con foxhounds ingleses y americanos y con el foxhound de Virginia negro y fuego. Se buscaba un perro con buen olfato, resistencia para seguir toda la noche y la capacidad de mantenerse en el rastro entre pantanos y matorrales. El punteado azul se convirtió en su seña de identidad: el United Kennel Club registró al Bluetick Coonhound en 1946 y desde 1965 es el perro oficial del estado de Tennessee. La AKC lo admitió en su Hound Group en 2009; la FCI no lo reconoce.',
+    'care': 'El pelo corto y denso es sencillo: un repaso semanal con un guante de goma y baño solo cuando el perro ha encontrado algo realmente interesante en lo que revolcarse. Las orejas son largas y caídas, hay que revisarlas y secarlas, y después de beber la raza tiende a babear un poco. El ejercicio debe ser generoso —una hora o más al día— y siempre con trabajo de nariz: rastro, búsqueda, escondite, mejor aún un rastreo real con correa larga. La educación es la parte difícil: es un sabueso independiente, así que una llamada fiable exige paciencia y muchas repeticiones en lugares cada vez más distraídos, y en campo abierto la correa larga es equipo habitual. Vigile el peso, las orejas y las caderas, y recuerde: un coonhound aburrido canta, fuerte, y los vecinos se enteran.',
+    'living_conditions': 'La casa con jardín bien cercado es casi imprescindible: un sabueso sobre el rastro pasa por encima, por debajo o a través de una valla que parece suficiente. Un piso solo funciona si el dueño puede dar paseos largos y trabajo olfativo a diario y si los vecinos toleran la voz. Dentro es tranquilo, amistoso y, entre cacería y cacería, sorprendentemente perezoso: se queda horas en el sofá. Se lleva bien con los niños y normalmente con otros perros, porque los coonhound trabajan tradicionalmente en jauría. Es una raza para quien disfruta trabajando con un perro guiado por la nariz y tiene tiempo para ello, no para familias que esperan obediencia instantánea.',
+   },
+   'sr_latn': {
+    'title': 'Blutik kunhaund',
+    'varieties': 'Nema varijeteta',
+    'colors': 'Plavo tačkasta (crno-plave tačke na belom) sa crnim šarama i riđim oznakama',
+    'summary': 'Blutik kunhaund je američki gonič sa dlakom kao pegavo jaje: bela sa sitnim crno-plavim tačkicama, crnim šarama i riđim oznakama. Uzgajan je da noću prati trag rakuna i da ga objavi glasnim, daleko čujnim lavežom — i danas radi upravo tako. U kući je miran i druželjubiv, duboko vezan za svoje ljude; na tragu je drugi pas: samostalan, neumoran, u stanju da satima prati hladan trag i, nažalost, u stanju da ne čuje poziv kada radi nos. To je gonič za onoga kome se takva razmena dopada: blag, duhovit saputnik sa pravim radnim umom i glasom koji se čuje veoma daleko.',
+    'history': 'Rasa je nastala u SAD, uglavnom u Luizijani i na jugu, od francuskih goniča — pre svega velikog plavog gaskonjskog goniča — ukrštenih sa engleskim i američkim fokshaundima i sa crno-riđim virdžinijskim fokshaundom. Cilj je bio pas sa dobrim nosom, izdržljivošću da prati celu noć i umećem da se drži traga u močvarama i šipražju. Plave tačkice postale su zaštitni znak: United Kennel Club registrovao je blutik kunhaunda 1946, a od 1965. to je zvanični pas države Tenesi. AKC ga je primio u grupu goniča 2009; FCI rasu ne priznaje.',
+    'care': 'Kratka, gusta dlaka je jednostavna: jednom nedeljno gumenom rukavicom, a kupanje samo kada pas nađe nešto zaista zanimljivo u čemu bi se valjao. Uši su duge i viseće, treba ih pregledati i sušiti, a posle vode rasa malo balavi. Kretanja treba mnogo — sat i više dnevno — i obavezno sa radom nosom: trag, traženje, igre skrivanja, a najbolje pravo praćenje na dugom povodcu. Sa obukom je teže: to je samostalan gonič, pa pouzdan poziv traži strpljenje i mnogo ponavljanja na sve zahtevnijim mestima, a dug povodac je na otvorenom uobičajena oprema. Pazite na težinu, uši i kukove i zapamtite: dosadan kunhaund peva — glasno, i komšije to primete.',
+    'living_conditions': 'Kuća sa sigurno ograđenim dvorištem je gotovo neophodna: gonič na tragu preći će preko ograde, ispod nje ili kroz nju, iako izgleda dovoljna. Stan funkcioniše samo ako vlasnik može da obezbedi duge šetnje i rad nosom svakog dana i ako komšije trpe glas. U kući je rasa mirna, druželjubiva i između lovova iznenađujuće lenja — rado provede sate na kauču. Dobra je sa decom i obično sa drugim psima, jer kunhaundi tradicionalno rade u čoporu. Ovo je rasa za onoga ko voli da radi sa psom vođenim nosom i ima vremena za to, a ne za domove koji očekuju trenutnu poslušnost.',
+   },
+  },
+ },
+ 'boerboel': {
+  'traits': {
+   'activity_level': 'regular',
+   'barking_level': 'necessary',
+   'family_friendliness': 'excellent',
+   'hypoallergenic': 'moderate',
+   'trainability': 'stubborn',
+  },
+  'scalars': {
+   'colors': 'Fawn, red, brown or brindle, usually with a black mask',
+   'life_expectancy': '9–11',
+   'size': 'large',
+  },
+  'm2m': {
+   'coat_type': ['Smooth'],
+   'coat_length': ['Short'],
+   'temperament': ['Brave', 'Loyal', 'Confident', 'Protective', 'Calm'],
+  },
+  'texts': {
+   'en': {
+    'title': 'Boerboel',
+    'varieties': 'No variations',
+    'life_expectancy': '9–11',
+    'colors': 'Fawn, red, brown or brindle, usually with a black mask',
+    'summary': 'The Boerboel is a South African mastiff built to guard a farm and the people on it: heavy-boned, powerful and, for its size, surprisingly agile. The name comes from «boer» — farmer — and the breed grew out of the big dogs the settlers brought to the Cape, mixed over three centuries with local dogs and mastiff types. It is calm and steady rather than aggressive: a Boerboel watches first and acts only when it decides that something is wrong, and with its own family it is famously patient and affectionate. A dog of this size and strength needs an owner who is confident, consistent and willing to train and socialize it from the first months — it is not a breed that raises itself.',
+    'history': "The Boerboel is the only South African mastiff breed. The name comes from the Boers — Dutch, German and Huguenot farmers who settled the Cape from the 17th century. They brought large guard dogs with them, bullenbijters among others, and these mixed over three centuries of farm life with local dogs and later with mastiff and bulldog types. The result was a general-purpose farm dog: guard, cattle dog, hunter and family companion. In the 1980s South African breeders began to record the type seriously, and the South African Boerboel Breeders' Society was founded in 1983 to keep a single standard. The FCI does not recognise the breed; the AKC admitted it to its Working Group in 2015.",
+    'care': 'The short, dense coat needs almost nothing: a weekly rub with a rubber mitt is enough, and the breed sheds moderately. Because the dog is heavy, the nails need regular attention and the ears should be checked. Exercise is daily but moderate: two good walks plus play and some mental work are enough — the Boerboel is not a marathon runner, and too much jumping and hard landing does not suit joints that already carry a lot of weight. Training starts early and is kind but firm: this is a big, strong dog with a guarding instinct, and it learns best with clear rules from the first months, wide socialization and a calm owner. Watch weight, hips, elbows and eyes, and keep the dog fit rather than heavy.',
+    'living_conditions': 'A house with a fenced garden is the natural setting; a flat is a poor idea for a dog of this size and guarding instinct. The breed is affectionate and patient with its own family, children included, but its size means games need supervision and visitors should be introduced deliberately. Boerboels are territorial and take their guarding duty seriously, so a secure boundary and clear rules about who comes in are part of daily life. This is a breed for an experienced owner who wants a calm, imposing family guardian and will put time into training and socialization — not a first dog and not a status symbol.',
+    'photo_author': '@traphitho / Pexels',
+   },
+   'ru': {
+    'title': 'Бурбуль',
+    'varieties': 'Без разновидностей',
+    'colors': 'Палевый, рыжий, коричневый или тигровый, обычно с чёрной маской',
+    'summary': 'Бурбуль — южноафриканский мастиф, выведенный охранять ферму и людей на ней: тяжёлый костяк, большая сила и на удивление хорошая для такого размера подвижность. Название идёт от слова «boer» — фермер, а сама порода сложилась из крупных собак, которых переселенцы привезли на Кап, и за три века смешалась с местными собаками и мастифообразными. Он спокойный и выдержанный, а не агрессивный: бурбуль сначала смотрит и действует только тогда, когда решит, что что-то не так, а со своей семьёй он на удивление терпелив и ласков. Собаке такого размера и силы нужен уверенный, последовательный владелец, готовый заниматься ею и социализировать её с первых месяцев: это не та порода, которая воспитает себя сама.',
+    'history': 'Бурбуль — единственная южноафриканская порода мастифов. Имя идёт от буров — голландских, немецких и гугенотских фермеров, осваивавших Кап с XVII века. Они привезли с собой крупных сторожевых собак, среди них булленбейцеров, и те за три века фермерской жизни смешались с местными собаками, а позже с мастифами и бульдогами. Получился универсальный фермерский пёс: сторож, пастух, охотник и семейный компаньон. В 1980-х южноафриканские заводчики начали серьёзно записывать тип, а в 1983 году основали Общество заводчиков бурбулей (SABBS), чтобы держать единый стандарт. FCI породу не признаёт; AKC принял её в рабочую группу в 2015 году.',
+    'care': 'Короткая плотная шерсть почти ничего не требует: раз в неделю резиновой рукавицей, линька умеренная. Поскольку собака тяжёлая, когтям нужно регулярное внимание, а уши стоит проверять. Движение — ежедневное и умеренное: две хорошие прогулки плюс игры и немного умственной работы достаточно; бурбуль не марафонец, а избыток прыжков и жёстких приземлений не идёт на пользу суставам, которые и так несут немалый вес. Обучение начинается рано и идёт ласково, но твёрдо: это большая сильная собака с охранным инстинктом, лучше всего она учится при ясных правилах с первых месяцев, широкой социализации и спокойном владельце. Следите за весом, бёдрами, локтями и глазами, и держите собаку в форме, а не в тяжёлом теле.',
+    'living_conditions': 'Дом с огороженным участком — естественная среда; квартира — плохая идея для собаки такого размера и с таким охранным инстинктом. К своей семье, включая детей, порода ласкова и терпелива, но из-за размера игры требуют присмотра, а гостей лучше вводить в дом осознанно. Бурбули территориальны и относятся к охране серьёзно, поэтому крепкая граница участка и понятные правила о том, кто заходит, — часть повседневности. Это порода для опытного владельца, который хочет спокойного, внушительного семейного охранника и готов вкладываться в обучение и социализацию: не первая собака и не символ статуса.',
+   },
+   'de': {
+    'title': 'Boerboel',
+    'varieties': 'Keine Varietäten',
+    'colors': 'Falb, rot, braun oder gestromt, meist mit schwarzer Maske',
+    'summary': 'Der Boerboel ist ein südafrikanischer Mastiff, gezüchtet, um eine Farm und die Menschen darauf zu bewachen: schwere Knochen, große Kraft und für seine Größe erstaunlich beweglich. Der Name kommt von «boer» – Bauer –, und die Rasse entstand aus den großen Hunden, die Siedler ans Kap brachten, über drei Jahrhunderte gemischt mit einheimischen Hunden und Mastiff-Typen. Er ist ruhig und gelassen statt aggressiv: Ein Boerboel beobachtet zuerst und handelt erst, wenn er meint, dass etwas nicht stimmt; mit seiner eigenen Familie ist er berühmt geduldig und liebevoll. Ein Hund dieser Größe und Kraft braucht einen selbstsicheren, konsequenten Halter, der von den ersten Monaten an erzieht und sozialisiert – keine Rasse, die sich selbst erzieht.',
+    'history': "Der Boerboel ist die einzige südafrikanische Mastiff-Rasse. Der Name stammt von den Buren – niederländischen, deutschen und hugenottischen Bauern, die ab dem 17. Jahrhundert das Kap besiedelten. Sie brachten große Wachhunde mit, unter anderem Bullenbeißer, und diese mischten sich über drei Jahrhunderte Farmleben mit einheimischen Hunden und später mit Mastiff- und Bulldoggentypen. Das Ergebnis war ein Allrounder für den Hof: Wächter, Viehhund, Jäger und Familienbegleiter. In den 1980er-Jahren begannen südafrikanische Züchter, den Typ ernsthaft zu erfassen, und 1983 wurde die South African Boerboel Breeders' Society gegründet, um einen einzigen Standard zu halten. Die FCI erkennt die Rasse nicht an; die AKC nahm sie 2015 in ihre Working Group auf.",
+    'care': 'Das kurze, dichte Fell braucht fast nichts: einmal pro Woche mit einem Gummihandschuh darüber genügt, das Haar haart mäßig. Weil der Hund schwer ist, brauchen die Krallen regelmäßige Aufmerksamkeit, und die Ohren sollten kontrolliert werden. Bewegung täglich und in Maßen: zwei gute Spaziergänge plus Spiel und etwas Kopfarbeit reichen – der Boerboel ist kein Marathonläufer, und zu viel Springen und hartes Landen bekommt Gelenken nicht, die ohnehin viel Gewicht tragen. Die Erziehung beginnt früh und ist freundlich, aber klar: Das ist ein großer, kräftiger Hund mit Wachinstinkt, er lernt am besten mit klaren Regeln von den ersten Monaten an, breiter Sozialisierung und einem ruhigen Halter. Achten Sie auf Gewicht, Hüften, Ellbogen und Augen und halten Sie den Hund fit statt schwer.',
+    'living_conditions': 'Ein Haus mit eingezäuntem Garten ist der natürliche Rahmen; eine Wohnung ist für einen Hund dieser Größe und mit diesem Wachinstinkt eine schlechte Idee. Der eigenen Familie, Kinder eingeschlossen, ist die Rasse zugewandt und geduldig, doch wegen der Größe brauchen Spiele Aufsicht und Besucher sollten bewusst eingeführt werden. Boerboels sind territorial und nehmen ihre Wachaufgabe ernst, deshalb gehören eine sichere Grundstücksgrenze und klare Regeln dazu, wer hereinkommt, zum Alltag. Diese Rasse ist für erfahrene Halter, die einen ruhigen, imposanten Familienwächter wollen und Zeit in Erziehung und Sozialisierung investieren – kein Ersthund und kein Statussymbol.',
+   },
+   'it': {
+    'title': 'Boerboel',
+    'varieties': 'Nessuna varietà',
+    'colors': 'Fulvo, rosso, marrone o tigrato, di solito con maschera nera',
+    'summary': 'Il Boerboel è un mastino sudafricano allevato per sorvegliare una fattoria e le persone che ci vivono: ossatura pesante, grande forza e, per la taglia, una mobilità sorprendente. Il nome viene da «boer» — contadino — e la razza è nata dai cani grandi che i coloni portarono al Capo, mescolati in tre secoli con cani locali e tipi mastino. È calmo e posato più che aggressivo: un Boerboel prima osserva e agisce solo quando ritiene che qualcosa non vada, e con la propria famiglia è notoriamente paziente e affettuoso. Un cane di questa taglia e forza richiede un proprietario sicuro, coerente e disposto a educarlo e socializzarlo dai primi mesi: non è una razza che si alleva da sola.',
+    'history': "Il Boerboel è l'unica razza mastino sudafricana. Il nome viene dai boeri — coloni olandesi, tedeschi e ugonotti che dal Seicento si stabilirono al Capo. Portarono con sé grandi cani da guardia, tra cui i bullenbijter, che in tre secoli di vita agricola si mescolarono con cani locali e poi con tipi mastino e bulldog. Ne uscì un cane da fattoria tuttofare: guardiano, cane da bestiame, cacciatore e compagno di famiglia. Negli anni Ottanta gli allevatori sudafricani iniziarono a registrare seriamente il tipo e nel 1983 nacque la South African Boerboel Breeders' Society per tenere un unico standard. La FCI non riconosce la razza; l'AKC l'ha accolta nel Working Group nel 2015.",
+    'care': "Il pelo corto e folto non chiede quasi nulla: una passata settimanale con un guanto di gomma basta, e la muta è moderata. Poiché il cane è pesante, le unghie richiedono attenzione regolare e le orecchie vanno controllate. Il movimento va fatto ogni giorno e con misura: due buone passeggiate più gioco e un po' di lavoro mentale bastano; il Boerboel non è un maratoneta, e troppi salti e atterraggi duri non fanno bene ad articolazioni che già portano molto peso. L'educazione inizia presto ed è gentile ma ferma: è un cane grande e forte con istinto di guardia, impara meglio con regole chiare fin dai primi mesi, socializzazione ampia e un proprietario calmo. Vigile peso, anche, gomiti e occhi, e tenga il cane in forma, non pesante.",
+    'living_conditions': "La casa con giardino recintato è l'ambiente naturale; un appartamento è una cattiva idea per un cane di questa taglia e con questo istinto di guardia. È affettuoso e paziente con la propria famiglia, bambini compresi, ma la taglia impone sorveglianza nei giochi e gli ospiti vanno introdotti con criterio. I Boerboel sono territoriali e prendono sul serio il compito di guardia, quindi un confine sicuro e regole chiare su chi entra fanno parte del quotidiano. È una razza per proprietari esperti che vogliono un guardiano di famiglia calmo e imponente e sono pronti a investire in educazione e socializzazione: non è un primo cane né un simbolo di status.",
+   },
+   'es': {
+    'title': 'Boerboel',
+    'varieties': 'Sin variaciones',
+    'colors': 'Leonado, rojo, marrón o atigrado, normalmente con máscara negra',
+    'summary': 'El Boerboel es un mastín sudafricano criado para vigilar una granja y a las personas que viven en ella: hueso pesado, mucha fuerza y, para su tamaño, una agilidad sorprendente. El nombre viene de «boer» —granjero— y la raza nació de los perros grandes que los colonos llevaron al Cabo, mezclados durante tres siglos con perros locales y tipos mastín. Es tranquilo y sosegado más que agresivo: un Boerboel observa primero y actúa solo cuando considera que algo va mal, y con su propia familia es famoso por su paciencia y su afecto. Un perro de este tamaño y fuerza necesita un dueño seguro, constante y dispuesto a educarlo y socializarlo desde los primeros meses: no es una raza que se eduque sola.',
+    'history': "El Boerboel es la única raza mastín sudafricana. El nombre procede de los bóeres, colonos neerlandeses, alemanes y hugonotes que se asentaron en el Cabo desde el siglo XVII. Trajeron consigo grandes perros guardianes, entre ellos bullenbijters, y estos se mezclaron durante tres siglos de vida agrícola con perros locales y más tarde con tipos mastín y bulldog. El resultado fue un perro de granja todoterreno: guardián, perro de ganado, cazador y compañero de familia. En los años ochenta los criadores sudafricanos empezaron a registrar el tipo con rigor y en 1983 se fundó la South African Boerboel Breeders' Society para mantener un único estándar. La FCI no reconoce la raza; la AKC la admitió en su Working Group en 2015.",
+    'care': 'El pelo corto y denso casi no pide nada: un repaso semanal con un guante de goma basta y la muda es moderada. Como el perro es pesado, las uñas requieren atención regular y conviene revisar las orejas. El ejercicio debe ser diario y moderado: dos buenos paseos más juego y algo de trabajo mental son suficientes; el Boerboel no es un maratoniano y los saltos excesivos y los aterrizajes duros no sientan bien a unas articulaciones que ya cargan mucho peso. La educación empieza pronto y es amable pero firme: es un perro grande y fuerte con instinto de guardia, aprende mejor con reglas claras desde los primeros meses, socialización amplia y un dueño tranquilo. Vigile el peso, las caderas, los codos y los ojos, y mantenga al perro en forma, no pesado.',
+    'living_conditions': 'La casa con jardín cercado es el entorno natural; un piso es una mala idea para un perro de este tamaño y este instinto de guardia. Es cariñoso y paciente con su propia familia, niños incluidos, pero el tamaño obliga a supervisar los juegos y las visitas deben presentarse con criterio. Los Boerboel son territoriales y se toman en serio la guardia, así que un límite seguro y reglas claras sobre quién entra forman parte del día a día. Es una raza para dueños con experiencia que quieren un guardián familiar tranquilo e imponente y están dispuestos a invertir en educación y socialización: no es un primer perro ni un símbolo de estatus.',
+   },
+   'sr_latn': {
+    'title': 'Burboel',
+    'varieties': 'Nema varijeteta',
+    'colors': 'Žućkasta, crvena, braon ili tigrasta, obično sa crnom maskom',
+    'summary': 'Burboel je južnoafrički mastif uzgajan da čuva farmu i ljude na njoj: teška kost, velika snaga i, za tu veličinu, iznenađujuća pokretljivost. Ime dolazi od „boer” — farmer — a rasa je nastala od velikih pasa koje su doseljenici doneli na Rt dobre nade, kroz tri veka mešanih sa lokalnim psima i tipovima mastifa. Miran je i staložen, a ne agresivan: burboel prvo posmatra i deluje tek kada proceni da nešto nije u redu, a sa svojom porodicom je poznat po strpljenju i privrženosti. Pas ove veličine i snage traži sigurnog, doslednog vlasnika koji je spreman da ga obučava i socijalizuje od prvih meseci — to nije rasa koja se sama vaspitava.',
+    'history': "Burboel je jedina južnoafrička rasa mastifa. Ime potiče od Bura — holandskih, nemačkih i hugenotskih farmera koji su se od 17. veka naseljavali na Rtu. Sa sobom su doveli velike pse čuvare, među njima i bulenbajcere, a oni su se kroz tri veka farmerskog života mešali sa lokalnim psima i kasnije sa tipovima mastifa i buldoga. Rezultat je bio svestrani farmarski pas: čuvar, pas za stoku, lovac i porodični saputnik. Osamdesetih godina južnoafrički odgajivači počeli su ozbiljno da beleže tip, a 1983. osnovano je društvo South African Boerboel Breeders' Society da bi se zadržao jedan standard. FCI rasu ne priznaje; AKC ju je primio u radnu grupu 2015.",
+    'care': 'Kratka, gusta dlaka gotovo ništa ne traži: jednom nedeljno gumenom rukavicom je dovoljno, a linjanje je umereno. Pošto je pas težak, noktima je potrebna redovna pažnja, a uši treba pregledati. Kretanje treba da bude svakodnevno i umereno: dve dobre šetnje plus igra i malo mentalnog rada su dovoljne — burboel nije maratonac, a previše skakanja i tvrdih doskoka ne prija zglobovima koji ionako nose mnogo težine. Obuka počinje rano i ide blago, ali čvrsto: to je veliki, snažan pas sa čuvarskim nagonom, najbolje uči uz jasna pravila od prvih meseci, široku socijalizaciju i mirnog vlasnika. Pazite na težinu, kukove, laktove i oči i držite psa u formi, a ne u teškom telu.',
+    'living_conditions': 'Kuća sa ograđenim dvorištem je prirodno okruženje; stan je loša ideja za psa ove veličine i ovakvog čuvarskog nagona. Prema svojoj porodici, uključujući decu, rasa je privržena i strpljiva, ali zbog veličine igre traže nadzor, a goste treba uvoditi promišljeno. Burboeli su teritorijalni i čuvanje shvataju ozbiljno, pa su sigurna granica i jasna pravila o tome ko ulazi deo svakodnevice. Ovo je rasa za iskusnog vlasnika koji želi mirnog, impozantnog porodičnog čuvara i spreman je da uloži u obuku i socijalizaciju — nije prvi pas i nije statusni simbol.',
+   },
+  },
+ },
  'bolognese': {
   'm2m': {
    'coat_type': ['Wavy'],
    'coat_length': ['Long'],
-   'temperament': ['Affectionate', 'Calm', 'Playful', 'Intelligent', 'Loyal'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Affectionate', 'Calm'],
   },
   'texts': {
    'en': {
@@ -1274,7 +1582,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Energetic', 'Eager', 'Loyal', 'Affectionate'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Energetic', 'Eager'],
   },
   'texts': {
    'en': {
@@ -1339,7 +1647,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wiry'],
    'coat_length': ['Short'],
-   'temperament': ['Affectionate', 'Alert', 'Intelligent', 'Courageous', 'Eager'],
+   'temperament': ['Intelligent', 'Affectionate', 'Alert', 'Courageous', 'Eager'],
   },
   'texts': {
    'en': {
@@ -1404,7 +1712,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Silky', 'Curly'],
    'coat_length': ['Medium'],
-   'temperament': ['Dignified', 'Independent', 'Gentle', 'Intelligent', 'Calm'],
+   'temperament': ['Independent', 'Dignified', 'Intelligent', 'Gentle', 'Calm'],
   },
   'texts': {
    'en': {
@@ -1469,7 +1777,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Loyal', 'Energetic', 'Playful', 'Affectionate'],
+   'temperament': ['Playful', 'Loyal', 'Affectionate', 'Confident', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -1530,11 +1838,88 @@ BREEDS = {
    },
   },
  },
+ 'boykin-spaniel': {
+  'traits': {
+   'activity_level': 'high',
+   'barking_level': 'infrequent',
+   'family_friendliness': 'excellent',
+   'hypoallergenic': 'moderate',
+   'trainability': 'eager',
+  },
+  'scalars': {
+   'colors': 'Solid liver (chocolate), sometimes with small white marks on the chest and toes',
+   'life_expectancy': '10–14',
+   'size': 'medium',
+  },
+  'm2m': {
+   'coat_type': ['Wavy'],
+   'coat_length': ['Medium'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Eager', 'Active'],
+  },
+  'texts': {
+   'en': {
+    'title': 'Boykin Spaniel',
+    'varieties': 'No variations',
+    'life_expectancy': '10–14',
+    'colors': 'Solid liver (chocolate), sometimes with small white marks on the chest and toes',
+    'summary': 'The Boykin Spaniel is a medium-sized American spaniel bred for one narrow job: working from a boat. It had to be small enough to ride in front of a hunter in a shallow duck boat, calm enough not to tip it, and strong enough to swim and retrieve all morning — and that is exactly what the breed still is. Boykins are friendly, eager and remarkably attached to their people: they learn quickly, get on with children and other dogs, and are often described as a big dog in a smaller package. Behind the easy-going manner sits a real working spaniel that needs exercise, water and something to do every day.',
+    'history': 'The breed began in South Carolina in the early 20th century. The story goes that a small brown dog followed a man to church in Camden, was given to Alexander White, and then passed to his friend L. Whitaker Boykin, whose name the breed carries. Around those two men and the swamps and lakes of the Wateree River the little flushing-and-retrieving spaniel was shaped: it hunted wild turkey, flushed birds and retrieved waterfowl from a boat. The Boykin became the state dog of South Carolina in 1985, was recognised by the United Kennel Club in the 1980s and joined the AKC Sporting Group in 2009. The FCI does not recognise it.',
+    'care': 'The medium-length coat is flat to slightly wavy with feathering on the ears, legs and chest: a weekly brush and occasional tidying of the feathering are enough, and the breed sheds moderately. Because the ears are long and floppy, they need regular checking and drying after water. Exercise is the main item on the list: an hour or more a day, and it does best with a job — retrieving, swimming, searching, long walks. Boykins are eager to please and pick up training quickly, so short, cheerful sessions work better than long drills. The coat has almost no undercoat of the kind that traps heat, so watch the dog in cold water, and keep an eye on the ears, eyes and joints, which the breed is known to have issues with.',
+    'living_conditions': 'A house with a garden is ideal, but the breed adapts to a flat surprisingly well provided the day includes real exercise. More important than space is company: Boykins are people dogs and can struggle when left alone for long stretches. They usually fit into a family with children and get along with other pets, especially when raised with them. This is a good first sporting dog for an active owner and a poor choice for someone who wants a decorative companion — the breed needs to be doing something with its person, whether that is hunting, hiking or a long game of fetch.',
+    'photo_author': 'Julissa Pires @julissapires / Pexels',
+   },
+   'ru': {
+    'title': 'Бойкин-спаниель',
+    'varieties': 'Без разновидностей',
+    'colors': 'Однотонный печёночный (шоколадный), иногда небольшие белые отметины на груди и пальцах',
+    'summary': 'Бойкин-спаниель — американский спаниель среднего размера, выведенный под одну узкую задачу: работать с лодки. Он должен был быть достаточно маленьким, чтобы сидеть перед охотником в неглубокой лодке, достаточно спокойным, чтобы её не перевернуть, и достаточно сильным, чтобы плавать и подавать дичь всё утро — именно такой порода остаётся и сегодня. Бойкины дружелюбные, старательные и очень привязанные к своим людям: быстро учатся, ладят с детьми и другими собаками, и про них часто говорят, что это большая собака в компактной упаковке. За покладистым нравом — настоящий рабочий спаниель, которому нужны движение, вода и дело каждый день.',
+    'history': 'Порода началась в Южной Каролине в начале XX века. Легенда гласит, что маленький коричневый пёс пришёл за человеком в церковь в Кэмдене, был подарен Александру Уайту, а затем попал к его другу Л. Уитакеру Бойкину, чьё имя порода и носит. Вокруг этих двух людей и болот с озёрами реки Уотери и сложился маленький спаниель, который поднимал птицу и подавал дичь: он охотился на диких индеек, выгонял птицу и доставал водоплавающих из лодки. В 1985 году бойкин стал официальной собакой штата Южная Каролина, в 1980-х его признал United Kennel Club, а в 2009-м он вошёл в спортивную группу AKC. FCI породу не признаёт.',
+    'care': 'Шерсть средней длины, прямая или слегка волнистая, с очёсами на ушах, лапах и груди: достаточно расчёсывать раз в неделю и иногда подравнивать очёсы, линька умеренная. Уши длинные и висячие, поэтому их нужно регулярно осматривать и просушивать после воды. Главный пункт — движение: час и больше в день, и лучше всего с делом — подача, плавание, поиск, долгие прогулки. Бойкины стараются угодить и быстро схватывают обучение, поэтому короткие весёлые занятия работают лучше долгих муштр. Подшёрстка, удерживающего тепло, у породы почти нет, поэтому следите за собакой в холодной воде, а также за ушами, глазами и суставами, по которым у породы есть известные риски.',
+    'living_conditions': 'Идеален дом с садом, но порода неплохо приспосабливается и к квартире, если в дне есть настоящая нагрузка. Важнее места — компания: бойкины очень привязаны к людям и плохо переносят долгое одиночество. Обычно хорошо вписываются в семью с детьми и ладят с другими питомцами, особенно если росли вместе. Это хорошая первая охотничья собака для активного владельца и плохой выбор для того, кто хочет декоративного компаньона: породе нужно что-то делать вместе с человеком — охотиться, ходить в походы или подолгу играть в апорт.',
+   },
+   'de': {
+    'title': 'Boykin Spaniel',
+    'varieties': 'Keine Varietäten',
+    'colors': 'Einfarbig leberfarben (schokoladenbraun), manchmal kleine weiße Abzeichen an Brust und Zehen',
+    'summary': 'Der Boykin Spaniel ist ein mittelgroßer amerikanischer Spaniel, gezüchtet für eine einzige, enge Aufgabe: die Arbeit vom Boot aus. Er musste klein genug sein, um vor dem Jäger in einem flachen Entenboot zu sitzen, ruhig genug, um es nicht zum Kentern zu bringen, und kräftig genug, um den ganzen Morgen zu schwimmen und zu apportieren – und genau das ist die Rasse bis heute. Boykins sind freundlich, eifrig und außergewöhnlich an ihre Menschen gebunden: Sie lernen schnell, verstehen sich mit Kindern und anderen Hunden, und man beschreibt sie oft als großen Hund im kleineren Format. Hinter dem umgänglichen Wesen steckt ein echter Arbeitsspaniel, der Bewegung, Wasser und jeden Tag eine Aufgabe braucht.',
+    'history': 'Die Rasse entstand Anfang des 20. Jahrhunderts in South Carolina. Der Überlieferung nach folgte ein kleiner brauner Hund einem Mann in Camden zur Kirche, kam zu Alexander White und dann zu dessen Freund L. Whitaker Boykin, dessen Namen die Rasse trägt. Rund um diese beiden Männer und die Sümpfe und Seen des Wateree River wurde der kleine Stöber- und Apportierspaniel geformt: Er jagte wilde Truthähne, stöberte Federwild auf und holte Wasservögel vom Boot aus. 1985 wurde der Boykin zum Staatshund von South Carolina, in den 1980er-Jahren erkannte ihn der United Kennel Club an, 2009 kam er in die Sporting Group der AKC. Die FCI erkennt die Rasse nicht an.',
+    'care': 'Das mittellange Fell ist glatt bis leicht gewellt, mit Befederung an Ohren, Läufen und Brust: wöchentliches Bürsten und gelegentliches Ausdünnen der Befederung genügen, das Haar haart mäßig. Weil die Ohren lang und hängend sind, müssen sie regelmäßig kontrolliert und nach dem Wasser getrocknet werden. Der wichtigste Punkt ist Bewegung: eine Stunde und mehr am Tag, am besten mit einer Aufgabe – Apportieren, Schwimmen, Suchen, lange Spaziergänge. Boykins wollen gefallen und lernen schnell, deshalb wirken kurze, fröhliche Einheiten besser als lange Drillübungen. Die Rasse hat kaum Unterwolle, die Wärme staut, also achten Sie auf den Hund im kalten Wasser und behalten Sie Ohren, Augen und Gelenke im Blick, für die bei dieser Rasse bekannte Risiken bestehen.',
+    'living_conditions': 'Ein Haus mit Garten ist ideal, doch die Rasse fügt sich überraschend gut in eine Wohnung, wenn der Tag echte Bewegung bietet. Wichtiger als Platz ist Gesellschaft: Boykins sind Menschenhunde und leiden, wenn sie lange allein bleiben. In einer Familie mit Kindern finden sie meist gut ihren Platz und vertragen sich mit anderen Haustieren, besonders wenn sie damit aufwachsen. Für einen aktiven Halter ist das ein guter erster Jagdhund, für jemanden, der einen dekorativen Begleiter sucht, eine schlechte Wahl – die Rasse muss mit ihrem Menschen etwas tun: jagen, wandern oder lange Ballspiele.',
+   },
+   'it': {
+    'title': 'Boykin Spaniel',
+    'varieties': 'Nessuna varietà',
+    'colors': 'Fegato unito (cioccolato), a volte piccole macchie bianche su petto e dita',
+    'summary': "Il Boykin Spaniel è uno spaniel americano di taglia media, allevato per un compito molto preciso: lavorare dalla barca. Doveva essere abbastanza piccolo per stare davanti al cacciatore in una barca bassa, abbastanza calmo da non farla ribaltare e abbastanza forte per nuotare e riportare tutta la mattina — ed è esattamente ciò che la razza è ancora oggi. I Boykin sono socievoli, desiderosi di piacere e legatissimi ai loro umani: imparano in fretta, vanno d'accordo con bambini e altri cani e vengono spesso descritti come un cane grande in formato ridotto. Dietro l'aria tranquilla c'è uno spaniel da lavoro vero, che ogni giorno ha bisogno di movimento, acqua e qualcosa da fare.",
+    'history': "La razza nasce nel South Carolina all'inizio del Novecento. La tradizione racconta che un piccolo cane marrone seguì un uomo in chiesa a Camden, passò ad Alexander White e poi al suo amico L. Whitaker Boykin, il cui nome la razza porta. Attorno a questi due uomini e alle paludi e ai laghi del fiume Wateree prese forma il piccolo spaniel da cerca e riporto: cacciava tacchini selvatici, alzava la selvaggina e recuperava gli uccelli acquatici dalla barca. Nel 1985 il Boykin è diventato cane di stato del South Carolina, negli anni Ottanta è stato riconosciuto dallo United Kennel Club e nel 2009 è entrato nello Sporting Group dell'AKC. La FCI non lo riconosce.",
+    'care': "Il pelo di media lunghezza è liscio o leggermente ondulato, con frange su orecchie, zampe e petto: basta una spazzolata settimanale e una rifinitura occasionale delle frange, e la muta è moderata. Poiché le orecchie sono lunghe e pendenti, vanno controllate regolarmente e asciugate dopo l'acqua. Il punto principale è il movimento: un'ora o più al giorno, meglio se con un compito — riporto, nuoto, ricerca, passeggiate lunghe. I Boykin vogliono piacere e imparano in fretta, quindi sessioni brevi e allegre funzionano meglio degli esercizi lunghi. Il mantello non ha quasi sottopelo che trattenga il calore: attenzione al cane in acqua fredda, e tenete d'occhio orecchie, occhi e articolazioni, per cui la razza ha rischi noti.",
+    'living_conditions': "La casa con giardino è ideale, ma la razza si adatta bene anche a un appartamento se la giornata offre movimento vero. Più dello spazio conta la compagnia: i Boykin sono cani da persone e soffrono se restano soli a lungo. In famiglia, con i bambini, di solito si inseriscono bene e vanno d'accordo con gli altri animali, soprattutto se cresciuti insieme. È un buon primo cane da caccia per un proprietario attivo e una cattiva scelta per chi cerca un compagno decorativo: la razza deve fare qualcosa con il suo umano, che sia caccia, escursioni o lunghi giochi di riporto.",
+   },
+   'es': {
+    'title': 'Boykin spaniel',
+    'varieties': 'Sin variaciones',
+    'colors': 'Hígado uniforme (chocolate), a veces con pequeñas marcas blancas en el pecho y los dedos',
+    'summary': 'El Boykin Spaniel es un spaniel estadounidense de tamaño medio criado para una tarea muy concreta: trabajar desde una barca. Debía ser lo bastante pequeño para ir delante del cazador en una barca baja, lo bastante tranquilo para no volcarla y lo bastante fuerte para nadar y cobrar toda la mañana; eso es exactamente lo que la raza sigue siendo. Los Boykin son amistosos, deseosos de agradar y muy apegados a sus personas: aprenden rápido, se llevan bien con niños y otros perros y suelen describirse como un perro grande en un formato pequeño. Detrás del carácter afable hay un spaniel de trabajo real que cada día necesita ejercicio, agua y algo que hacer.',
+    'history': 'La raza nació en Carolina del Sur a principios del siglo XX. La tradición cuenta que un pequeño perro marrón siguió a un hombre hasta la iglesia en Camden, pasó a Alexander White y luego a su amigo L. Whitaker Boykin, cuyo nombre lleva la raza. Alrededor de esos dos hombres y de los pantanos y lagos del río Wateree se formó el pequeño spaniel de muestra y cobro: cazaba pavos salvajes, levantaba las aves y cobraba las acuáticas desde la barca. En 1985 el Boykin se convirtió en perro oficial del estado de Carolina del Sur, en los años ochenta lo reconoció el United Kennel Club y en 2009 entró en el Sporting Group de la AKC. La FCI no lo reconoce.',
+    'care': 'El pelo de longitud media es liso o ligeramente ondulado, con flecos en orejas, patas y pecho: basta con un cepillado semanal y un repaso ocasional de los flecos, y la muda es moderada. Como las orejas son largas y caídas, hay que revisarlas con regularidad y secarlas después del agua. El punto principal es el ejercicio: una hora o más al día, y mejor con una tarea: cobro, natación, búsqueda, paseos largos. Los Boykin quieren agradar y aprenden rápido, así que las sesiones cortas y alegres funcionan mejor que los ejercicios largos. El manto casi no tiene subpelo que retenga el calor: cuidado con el perro en agua fría, y vigile orejas, ojos y articulaciones, para los que la raza tiene riesgos conocidos.',
+    'living_conditions': 'La casa con jardín es lo ideal, pero la raza se adapta sorprendentemente bien a un piso si el día incluye ejercicio de verdad. Más que el espacio importa la compañía: los Boykin son perros de personas y lo pasan mal cuando se quedan solos mucho tiempo. Suelen encajar en una familia con niños y se llevan bien con otras mascotas, sobre todo si crecen con ellas. Es un buen primer perro de caza para un dueño activo y una mala elección para quien busca un compañero decorativo: la raza necesita hacer algo con su persona, ya sea cazar, caminar o jugar largos ratos al cobro.',
+   },
+   'sr_latn': {
+    'title': 'Bojkin spanijel',
+    'varieties': 'Nema varijeteta',
+    'colors': 'Jednobojna džigerica (čokoladna), ponekad male bele oznake na grudima i prstima',
+    'summary': 'Bojkin spanijel je američki spanijel srednje veličine, uzgajan za jedan uzak posao: rad iz čamca. Morao je biti dovoljno mali da sedi ispred lovca u plitkom čamcu, dovoljno miran da ga ne prevrne i dovoljno snažan da pliva i donosi ceo dan — i upravo je to ova rasa i danas. Bojkini su druželjubivi, željni da ugode i izuzetno vezani za svoje ljude: brzo uče, slažu se sa decom i drugim psima, a često ih opisuju kao velikog psa u manjem pakovanju. Iza pitomog ponašanja stoji pravi radni spanijel kome su svakog dana potrebni kretanje, voda i neki zadatak.',
+    'history': 'Rasa je nastala u Južnoj Karolini početkom 20. veka. Predanje kaže da je mali braon pas pratio čoveka u crkvu u Kamdenu, došao do Aleksandra Vajta, a zatim do njegovog prijatelja L. Vitakera Bojkina, čije ime rasa i nosi. Oko te dve ličnosti i močvara i jezera reke Voteri oblikovan je mali spanijel koji diže i donosi divljač: lovio je divlje ćurke, dizao ptice i donosio vodene ptice iz čamca. Godine 1985. bojkin je postao zvanični pas države Južna Karolina, osamdesetih ga je priznao United Kennel Club, a 2009. ušao je u sportsku grupu AKC. FCI rasu ne priznaje.',
+    'care': 'Dlaka srednje dužine je ravna do blago talasasta, sa resama na ušima, nogama i grudima: dovoljno je nedeljno četkanje i povremeno skraćivanje resa, a linjanje je umereno. Pošto su uši duge i viseće, treba ih redovno pregledati i sušiti posle vode. Glavna stavka je kretanje: sat i više dnevno, najbolje sa zadatkom — donošenje, plivanje, traženje, duge šetnje. Bojkini žele da ugode i brzo uče, pa kratke vesele vežbe rade bolje od dugih mushtri. Dlaka gotovo nema podsdlaku koja zadržava toplotu, zato pazite na psa u hladnoj vodi, a pratite i uši, oči i zglobove, kod kojih ova rasa ima poznate rizike.',
+    'living_conditions': 'Kuća sa dvorištem je idealna, ali rasa se iznenađujuće dobro prilagođava i stanu ako dan sadrži pravo kretanje. Važnije od prostora je društvo: bojkini su psi za ljude i loše podnose duga samoća. Obično se dobro uklapaju u porodicu sa decom i slažu se sa drugim ljubimcima, naročito ako odrastu s njima. Ovo je dobar prvi lovački pas za aktivnog vlasnika i loš izbor za onoga ko traži ukrasnog saputnika: rasa mora nešto da radi sa svojim čovekom — da li lovi, planinari ili dugo igra donošenje.',
+   },
+  },
+ },
  'brussels-griffon': {
   'm2m': {
    'coat_type': ['Wiry', 'Smooth', 'Double coat'],
    'coat_length': ['Short', 'Medium'],
-   'temperament': ['Loyal', 'Affectionate', 'Alert', 'Playful', 'Confident'],
+   'temperament': ['Playful', 'Loyal', 'Affectionate', 'Alert', 'Confident'],
   },
   'texts': {
    'en': {
@@ -1599,7 +1984,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Courageous', 'Affectionate', 'Calm', 'Loyal', 'Independent'],
+   'temperament': ['Independent', 'Loyal', 'Affectionate', 'Courageous', 'Calm'],
   },
   'texts': {
    'en': {
@@ -1664,7 +2049,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Energetic', 'Playful', 'Courageous', 'Independent'],
+   'temperament': ['Independent', 'Playful', 'Loyal', 'Courageous', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -1729,7 +2114,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Loyal', 'Protective', 'Brave', 'Eager'],
+   'temperament': ['Brave', 'Loyal', 'Confident', 'Protective', 'Eager'],
   },
   'texts': {
    'en': {
@@ -1794,7 +2179,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Independent', 'Protective', 'Alert', 'Energetic'],
+   'temperament': ['Independent', 'Intelligent', 'Alert', 'Protective', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -1859,7 +2244,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Silky', 'Wavy'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Gentle', 'Playful', 'Intelligent', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -1922,16 +2307,16 @@ BREEDS = {
  },
  'chesapeake-bay-retriever': {
   'traits': {
-   'trainability': 'stubborn',
    'activity_level': 'high',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'low',
+   'trainability': 'stubborn',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '10–13',
    'colors': 'Brown, Sedge, Deadgrass',
+   'life_expectancy': '10–13',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
@@ -1999,11 +2384,11 @@ BREEDS = {
  },
  'chihuahua': {
   'traits': {
-   'trainability': 'stubborn',
    'activity_level': 'calm',
    'barking_level': 'frequent',
    'family_friendliness': 'medium',
    'hypoallergenic': 'moderate',
+   'trainability': 'stubborn',
   },
   'scalars': {
    'colors': 'Black, Black & Tan, Blue & Tan, Chocolate, Chocolate & Tan, Cream, Fawn, Fawn & White, Red, Black Brindling, Black Mask, Black Sabling, Spotted on White, White Markings, Merle Markings',
@@ -2011,7 +2396,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Silky', 'Smooth'],
    'coat_length': ['Short', 'Long'],
-   'temperament': ['Alert', 'Confident', 'Intelligent', 'Loyal', 'Playful'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Alert', 'Confident'],
   },
   'texts': {
    'en': {
@@ -2076,7 +2461,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Rough'],
    'coat_length': ['Long'],
-   'temperament': ['Intelligent', 'Loyal', 'Gentle', 'Friendly', 'Active'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Gentle', 'Active'],
   },
   'texts': {
    'en': {
@@ -2141,7 +2526,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Courageous', 'Active', 'Independent', 'Calm'],
+   'temperament': ['Independent', 'Loyal', 'Courageous', 'Calm', 'Active'],
   },
   'texts': {
    'en': {
@@ -2206,7 +2591,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth', 'Wiry'],
    'coat_length': ['Long', 'Short'],
-   'temperament': ['Playful', 'Brave', 'Alert', 'Confident', 'Independent'],
+   'temperament': ['Independent', 'Playful', 'Brave', 'Alert', 'Confident'],
   },
   'texts': {
    'en': {
@@ -2271,7 +2656,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Energetic', 'Playful', 'Friendly', 'Intelligent'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Loyal', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -2336,7 +2721,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Loyal', 'Alert', 'Protective', 'Courageous'],
+   'temperament': ['Intelligent', 'Loyal', 'Alert', 'Courageous', 'Protective'],
   },
   'texts': {
    'en': {
@@ -2401,7 +2786,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Short'],
-   'temperament': ['Calm', 'Friendly', 'Alert', 'Eager', 'Active'],
+   'temperament': ['Friendly', 'Alert', 'Calm', 'Eager', 'Active'],
   },
   'texts': {
    'en': {
@@ -2466,7 +2851,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat', 'Rough'],
    'coat_length': ['Short', 'Long'],
-   'temperament': ['Intelligent', 'Loyal', 'Alert', 'Active', 'Eager'],
+   'temperament': ['Intelligent', 'Loyal', 'Alert', 'Eager', 'Active'],
   },
   'texts': {
    'en': {
@@ -2529,21 +2914,21 @@ BREEDS = {
  },
  'english-pointer': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'energetic',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '12–14',
    'colors': 'Lemon & White, Orange & White, Liver & White, Black & White, Tricolour',
+   'life_expectancy': '12–14',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Dignified', 'Active', 'Even-tempered', 'Gentle', 'Alert'],
+   'temperament': ['Dignified', 'Gentle', 'Alert', 'Active', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -2608,7 +2993,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Silky', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Gentle', 'Playful', 'Friendly', 'Energetic'],
+   'temperament': ['Playful', 'Friendly', 'Affectionate', 'Gentle', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -2673,7 +3058,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Affectionate', 'Even-tempered', 'Playful', 'Intelligent', 'Loyal'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Affectionate', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -2738,7 +3123,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Confident', 'Loyal', 'Courageous', 'Alert', 'Intelligent'],
+   'temperament': ['Intelligent', 'Loyal', 'Alert', 'Confident', 'Courageous'],
   },
   'texts': {
    'en': {
@@ -2803,7 +3188,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Energetic', 'Eager', 'Friendly', 'Loyal'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Energetic', 'Eager'],
   },
   'texts': {
    'en': {
@@ -2866,21 +3251,21 @@ BREEDS = {
  },
  'german-spaniel': {
   'traits': {
-   'trainability': 'eager',
    'activity_level': 'high',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'low',
+   'trainability': 'eager',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '12–14',
    'colors': 'Brown, Brown Roan, Red, Red Roan',
+   'life_expectancy': '12–14',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Active', 'Friendly', 'Confident', 'Even-tempered', 'Eager'],
+   'temperament': ['Friendly', 'Confident', 'Eager', 'Active', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -2945,7 +3330,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Loyal', 'Playful', 'Alert', 'Intelligent', 'Affectionate'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Affectionate', 'Alert'],
   },
   'texts': {
    'en': {
@@ -3010,7 +3395,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Gentle', 'Friendly', 'Eager', 'Loyal'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Gentle', 'Eager'],
   },
   'texts': {
    'en': {
@@ -3073,21 +3458,21 @@ BREEDS = {
  },
  'gordon-setter': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'energetic',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '11–13',
    'colors': 'Black & Tan',
+   'life_expectancy': '11–13',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Silky'],
    'coat_length': ['Medium'],
-   'temperament': ['Dignified', 'Friendly', 'Intelligent', 'Even-tempered', 'Loyal'],
+   'temperament': ['Dignified', 'Friendly', 'Intelligent', 'Loyal', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -3152,7 +3537,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Gentle', 'Intelligent', 'Loyal', 'Friendly'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Gentle', 'Confident'],
   },
   'texts': {
    'en': {
@@ -3215,21 +3600,21 @@ BREEDS = {
  },
  'greyhound': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'regular',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '10–13',
    'colors': 'Black, White, Red, Blue, Fallow, Brindle, Parti-colour',
+   'life_expectancy': '10–13',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Affectionate', 'Even-tempered', 'Gentle', 'Calm'],
+   'temperament': ['Intelligent', 'Affectionate', 'Gentle', 'Calm', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -3294,7 +3679,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Protective', 'Even-tempered', 'Brave', 'Intelligent'],
+   'temperament': ['Brave', 'Intelligent', 'Loyal', 'Protective', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -3357,21 +3742,21 @@ BREEDS = {
  },
  'hungarian-short-haired-pointer-vizsla': {
   'traits': {
-   'trainability': 'eager',
    'activity_level': 'energetic',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'eager',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '12–14',
    'colors': 'Russet Gold, Dark Sandy Gold',
+   'life_expectancy': '12–14',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Friendly', 'Intelligent', 'Affectionate', 'Even-tempered', 'Energetic'],
+   'temperament': ['Friendly', 'Intelligent', 'Affectionate', 'Energetic', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -3434,16 +3819,16 @@ BREEDS = {
  },
  'hungarian-wire-haired-pointer': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'energetic',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '12–14',
    'colors': 'Russet Gold, Dark Sandy Gold',
+   'life_expectancy': '12–14',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Wiry', 'Double coat'],
@@ -3511,21 +3896,21 @@ BREEDS = {
  },
  'ibizan-podenco': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'energetic',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '11–14',
    'colors': 'White, Red, White & Red, Fawn',
+   'life_expectancy': '11–14',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Rough', 'Smooth'],
    'coat_length': ['Short', 'Medium'],
-   'temperament': ['Intelligent', 'Loyal', 'Calm', 'Affectionate', 'Active'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Calm', 'Active'],
   },
   'texts': {
    'en': {
@@ -3588,16 +3973,16 @@ BREEDS = {
  },
  'irish-red-setter': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'energetic',
    'barking_level': 'medium',
    'family_friendliness': 'excellent',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'm2m': {
    'coat_type': ['Silky'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Affectionate', 'Energetic', 'Playful', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -3662,7 +4047,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wiry'],
    'coat_length': ['Medium'],
-   'temperament': ['Calm', 'Dignified', 'Gentle', 'Friendly', 'Courageous'],
+   'temperament': ['Dignified', 'Friendly', 'Gentle', 'Courageous', 'Calm'],
   },
   'texts': {
    'en': {
@@ -3727,7 +4112,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Affectionate', 'Playful', 'Gentle', 'Active'],
+   'temperament': ['Playful', 'Loyal', 'Affectionate', 'Gentle', 'Active'],
   },
   'texts': {
    'en': {
@@ -3792,7 +4177,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wiry'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Gentle', 'Friendly', 'Intelligent', 'Playful'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -3855,21 +4240,21 @@ BREEDS = {
  },
  'jack-russell-terrier': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'energetic',
    'barking_level': 'frequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'small',
-   'life_expectancy': '13–16',
    'colors': 'White, White & Black, White & Tan, White Black & Tan',
+   'life_expectancy': '13–16',
+   'size': 'small',
   },
   'm2m': {
    'coat_type': ['Wiry', 'Smooth'],
    'coat_length': ['Short', 'Medium'],
-   'temperament': ['Brave', 'Friendly', 'Intelligent', 'Active', 'Alert'],
+   'temperament': ['Brave', 'Friendly', 'Intelligent', 'Alert', 'Active'],
   },
   'texts': {
    'en': {
@@ -3934,7 +4319,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Alert', 'Brave', 'Independent', 'Intelligent'],
+   'temperament': ['Independent', 'Brave', 'Intelligent', 'Loyal', 'Alert'],
   },
   'texts': {
    'en': {
@@ -3999,7 +4384,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Playful', 'Alert', 'Friendly', 'Intelligent', 'Loyal'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Loyal', 'Alert'],
   },
   'texts': {
    'en': {
@@ -4064,7 +4449,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Affectionate', 'Energetic', 'Eager', 'Loyal'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Energetic', 'Eager'],
   },
   'texts': {
    'en': {
@@ -4129,7 +4514,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Gentle', 'Friendly', 'Eager', 'Loyal'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Gentle', 'Eager'],
   },
   'texts': {
    'en': {
@@ -4192,21 +4577,21 @@ BREEDS = {
  },
  'large-munsterlander': {
   'traits': {
-   'trainability': 'eager',
    'activity_level': 'energetic',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'low',
+   'trainability': 'eager',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '11–13',
    'colors': 'Black & White, Blue Roan, Black',
+   'life_expectancy': '11–13',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Active', 'Intelligent', 'Affectionate', 'Eager', 'Loyal'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Eager', 'Active'],
   },
   'texts': {
    'en': {
@@ -4269,21 +4654,21 @@ BREEDS = {
  },
  'miniature-pinscher': {
   'traits': {
-   'trainability': 'stubborn',
    'activity_level': 'energetic',
    'barking_level': 'frequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'stubborn',
   },
   'scalars': {
-   'size': 'small',
-   'life_expectancy': '12–16',
    'colors': 'Deer Red, Reddish-Brown, Dark Red Brown, Black & Tan',
+   'life_expectancy': '12–16',
+   'size': 'small',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Playful', 'Alert', 'Confident', 'Energetic', 'Courageous'],
+   'temperament': ['Playful', 'Alert', 'Confident', 'Courageous', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -4348,7 +4733,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Alert', 'Intelligent', 'Playful', 'Active'],
+   'temperament': ['Playful', 'Intelligent', 'Affectionate', 'Alert', 'Active'],
   },
   'texts': {
    'en': {
@@ -4413,7 +4798,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Brave', 'Alert', 'Energetic', 'Active'],
+   'temperament': ['Brave', 'Loyal', 'Alert', 'Energetic', 'Active'],
   },
   'texts': {
    'en': {
@@ -4478,7 +4863,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Affectionate', 'Energetic', 'Alert', 'Eager'],
+   'temperament': ['Intelligent', 'Affectionate', 'Alert', 'Energetic', 'Eager'],
   },
   'texts': {
    'en': {
@@ -4543,7 +4928,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Gentle', 'Playful', 'Intelligent', 'Loyal', 'Even-tempered'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Gentle', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -4608,7 +4993,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Rough', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Affectionate', 'Independent', 'Friendly', 'Confident', 'Even-tempered'],
+   'temperament': ['Independent', 'Friendly', 'Affectionate', 'Confident', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -4669,7 +5054,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Independent', 'Loyal', 'Affectionate', 'Dignified', 'Confident'],
+   'temperament': ['Independent', 'Dignified', 'Loyal', 'Affectionate', 'Confident'],
   },
   'texts': {
    'en': {
@@ -4734,7 +5119,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Affectionate', 'Playful', 'Active', 'Alert'],
+   'temperament': ['Playful', 'Intelligent', 'Affectionate', 'Alert', 'Active'],
   },
   'texts': {
    'en': {
@@ -4799,7 +5184,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Intelligent', 'Playful', 'Alert', 'Loyal', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Loyal', 'Alert'],
   },
   'texts': {
    'en': {
@@ -4864,7 +5249,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Curly'],
    'coat_length': ['Long'],
-   'temperament': ['Intelligent', 'Loyal', 'Active', 'Playful', 'Eager'],
+   'temperament': ['Playful', 'Intelligent', 'Loyal', 'Eager', 'Active'],
   },
   'texts': {
    'en': {
@@ -4929,7 +5314,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wiry', 'Smooth'],
    'coat_length': ['Short', 'Long'],
-   'temperament': ['Intelligent', 'Independent', 'Affectionate', 'Active', 'Alert'],
+   'temperament': ['Independent', 'Intelligent', 'Affectionate', 'Alert', 'Active'],
   },
   'texts': {
    'en': {
@@ -4992,21 +5377,21 @@ BREEDS = {
  },
  'portuguese-water-dog': {
   'traits': {
-   'trainability': 'eager',
    'activity_level': 'high',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'high',
+   'trainability': 'eager',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '11–13',
    'colors': 'Black, White, Brown, Black & White, Brown & White',
+   'life_expectancy': '11–13',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Curly', 'Wavy'],
    'coat_length': ['Medium', 'Long'],
-   'temperament': ['Active', 'Intelligent', 'Loyal', 'Affectionate', 'Alert'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Alert', 'Active'],
   },
   'texts': {
    'en': {
@@ -5071,7 +5456,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Even-tempered', 'Playful', 'Intelligent', 'Affectionate', 'Friendly'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -5201,7 +5586,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Affectionate', 'Energetic', 'Alert', 'Playful'],
+   'temperament': ['Playful', 'Intelligent', 'Affectionate', 'Alert', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -5264,21 +5649,21 @@ BREEDS = {
  },
  'rhodesian-ridgeback': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'high',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '10–12',
    'colors': 'Light Wheaten, Red Wheaten',
+   'life_expectancy': '10–12',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Dignified', 'Intelligent', 'Loyal', 'Courageous', 'Independent'],
+   'temperament': ['Independent', 'Dignified', 'Intelligent', 'Loyal', 'Courageous'],
   },
   'texts': {
    'en': {
@@ -5343,7 +5728,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Curly', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Calm', 'Eager', 'Affectionate', 'Gentle'],
+   'temperament': ['Intelligent', 'Affectionate', 'Gentle', 'Calm', 'Eager'],
   },
   'texts': {
    'en': {
@@ -5408,7 +5793,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Loyal', 'Calm', 'Courageous', 'Protective'],
+   'temperament': ['Loyal', 'Confident', 'Courageous', 'Protective', 'Calm'],
   },
   'texts': {
    'en': {
@@ -5473,7 +5858,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Rough', 'Smooth', 'Double coat'],
    'coat_length': ['Short'],
-   'temperament': ['Gentle', 'Friendly', 'Calm', 'Intelligent', 'Loyal'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Gentle', 'Calm'],
   },
   'texts': {
    'en': {
@@ -5536,16 +5921,16 @@ BREEDS = {
  },
  'saluki': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'regular',
    'barking_level': 'necessary',
    'family_friendliness': 'high',
    'hypoallergenic': 'high',
+   'trainability': 'independent',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Independent', 'Dignified', 'Gentle', 'Intelligent'],
+   'temperament': ['Independent', 'Dignified', 'Intelligent', 'Loyal', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -5610,7 +5995,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Gentle', 'Playful', 'Friendly', 'Intelligent', 'Affectionate'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Affectionate', 'Gentle'],
   },
   'texts': {
    'en': {
@@ -5675,7 +6060,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Wiry', 'Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Confident', 'Courageous', 'Independent', 'Alert', 'Intelligent'],
+   'temperament': ['Independent', 'Intelligent', 'Alert', 'Confident', 'Courageous'],
   },
   'texts': {
    'en': {
@@ -5740,7 +6125,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Calm', 'Loyal', 'Independent', 'Dignified', 'Intelligent'],
+   'temperament': ['Independent', 'Dignified', 'Intelligent', 'Loyal', 'Calm'],
   },
   'texts': {
    'en': {
@@ -5805,7 +6190,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Long'],
-   'temperament': ['Affectionate', 'Playful', 'Friendly', 'Intelligent', 'Loyal'],
+   'temperament': ['Playful', 'Friendly', 'Intelligent', 'Loyal', 'Affectionate'],
   },
   'texts': {
    'en': {
@@ -5870,7 +6255,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Intelligent', 'Independent', 'Energetic', 'Friendly', 'Loyal'],
+   'temperament': ['Independent', 'Friendly', 'Intelligent', 'Loyal', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -5935,7 +6320,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Gentle', 'Intelligent', 'Calm', 'Active'],
+   'temperament': ['Intelligent', 'Loyal', 'Gentle', 'Calm', 'Active'],
   },
   'texts': {
    'en': {
@@ -5998,21 +6383,21 @@ BREEDS = {
  },
  'slovakian-hound': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'high',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'low',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '12–14',
    'colors': 'Black & Tan',
+   'life_expectancy': '12–14',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Active', 'Courageous', 'Loyal', 'Energetic', 'Eager'],
+   'temperament': ['Loyal', 'Courageous', 'Energetic', 'Eager', 'Active'],
   },
   'texts': {
    'en': {
@@ -6075,21 +6460,21 @@ BREEDS = {
  },
  'spanish-greyhound': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'regular',
    'barking_level': 'infrequent',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '12–15',
    'colors': 'Fawn, Brindle, Black, Chestnut, Cinnamon, Yellow, Red, White, Pied',
+   'life_expectancy': '12–15',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Intelligent', 'Affectionate', 'Gentle', 'Loyal', 'Calm'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Gentle', 'Calm'],
   },
   'texts': {
    'en': {
@@ -6152,21 +6537,21 @@ BREEDS = {
  },
  'stabijhoun': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'regular',
    'barking_level': 'infrequent',
    'family_friendliness': 'excellent',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '12–14',
    'colors': 'Brown & White, Chocolate & White, White & Orange',
+   'life_expectancy': '12–14',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Silky'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Even-tempered', 'Affectionate', 'Intelligent', 'Calm'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Calm', 'Even-tempered'],
   },
   'texts': {
    'en': {
@@ -6229,16 +6614,16 @@ BREEDS = {
  },
  'tibetan-mastiff': {
   'traits': {
-   'trainability': 'stubborn',
    'activity_level': 'regular',
    'barking_level': 'infrequent',
    'family_friendliness': 'medium',
    'hypoallergenic': 'low',
+   'trainability': 'stubborn',
   },
   'scalars': {
-   'size': 'large',
-   'life_expectancy': '10–12',
    'colors': 'Black, Black & Tan, Blue Grey, Cream, Golden, Red, Red & Tan',
+   'life_expectancy': '10–12',
+   'size': 'large',
   },
   'm2m': {
    'coat_type': ['Double coat'],
@@ -6306,16 +6691,16 @@ BREEDS = {
  },
  'tibetan-terrier': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'regular',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'small',
-   'life_expectancy': '12–15',
    'colors': 'White, Golden, Cream, Grey, Smoke, Black, Parti-colour, Tricolour',
+   'life_expectancy': '12–15',
+   'size': 'small',
   },
   'm2m': {
    'coat_type': ['Wavy', 'Double coat'],
@@ -6385,7 +6770,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Confident', 'Energetic', 'Friendly', 'Intelligent', 'Loyal'],
+   'temperament': ['Friendly', 'Intelligent', 'Loyal', 'Confident', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -6450,7 +6835,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short', 'Long'],
-   'temperament': ['Intelligent', 'Loyal', 'Protective', 'Energetic', 'Affectionate'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Protective', 'Energetic'],
   },
   'texts': {
    'en': {
@@ -6513,16 +6898,16 @@ BREEDS = {
  },
  'welsh-terrier': {
   'traits': {
-   'trainability': 'agreeable',
    'activity_level': 'high',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'agreeable',
   },
   'scalars': {
-   'size': 'small',
-   'life_expectancy': '12–15',
    'colors': 'Black & Tan, Black Grizzle & Tan',
+   'life_expectancy': '12–15',
+   'size': 'small',
   },
   'm2m': {
    'coat_type': ['Wiry', 'Double coat'],
@@ -6590,16 +6975,16 @@ BREEDS = {
  },
  'wetterhoun': {
   'traits': {
-   'trainability': 'independent',
    'activity_level': 'high',
    'barking_level': 'medium',
    'family_friendliness': 'high',
    'hypoallergenic': 'moderate',
+   'trainability': 'independent',
   },
   'scalars': {
-   'size': 'medium',
-   'life_expectancy': '12–14',
    'colors': 'Black, Brown, Black & White, Brown & White',
+   'life_expectancy': '12–14',
+   'size': 'medium',
   },
   'm2m': {
    'coat_type': ['Curly'],
@@ -6669,7 +7054,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Affectionate', 'Calm', 'Gentle', 'Playful', 'Intelligent'],
+   'temperament': ['Playful', 'Intelligent', 'Affectionate', 'Gentle', 'Calm'],
   },
   'texts': {
    'en': {
@@ -6734,7 +7119,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Brave', 'Playful', 'Alert', 'Active', 'Confident'],
+   'temperament': ['Playful', 'Brave', 'Alert', 'Confident', 'Active'],
   },
   'texts': {
    'en': {
@@ -6799,7 +7184,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Hairless', 'Smooth'],
    'coat_length': ['Short'],
-   'temperament': ['Loyal', 'Affectionate', 'Calm', 'Alert', 'Intelligent'],
+   'temperament': ['Intelligent', 'Loyal', 'Affectionate', 'Alert', 'Calm'],
   },
   'texts': {
    'en': {
@@ -6864,7 +7249,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Double coat'],
    'coat_length': ['Medium'],
-   'temperament': ['Loyal', 'Friendly', 'Brave', 'Active', 'Intelligent'],
+   'temperament': ['Brave', 'Friendly', 'Intelligent', 'Loyal', 'Active'],
   },
   'texts': {
    'en': {
@@ -6929,7 +7314,7 @@ BREEDS = {
   'm2m': {
    'coat_type': ['Silky'],
    'coat_length': ['Long'],
-   'temperament': ['Affectionate', 'Energetic', 'Brave', 'Intelligent', 'Independent'],
+   'temperament': ['Independent', 'Brave', 'Intelligent', 'Affectionate', 'Energetic'],
   },
   'texts': {
    'en': {

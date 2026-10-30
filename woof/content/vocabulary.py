@@ -1595,6 +1595,21 @@ VOCABULARY = {
    'en': {
     'name': 'South Africa',
    },
+   'ru': {
+    'name': 'Южная Африка',
+   },
+   'de': {
+    'name': 'Südafrika',
+   },
+   'it': {
+    'name': 'Sudafrica',
+   },
+   'es': {
+    'name': 'Sudáfrica',
+   },
+   'sr_latn': {
+    'name': 'Južna Afrika',
+   },
   },
   'Spain': {
    'en': {
