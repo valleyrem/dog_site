@@ -19,6 +19,19 @@ menu = [
     {"title": _("Contact"), "url_name": "contact"},
 ]
 
+# Pages that belong to a main-menu section without being its own menu item.
+MENU_PARENTS = {
+    "category": "groups",
+    "guide-choosing-dog": "guides",
+    "guide-training": "guides",
+    "guide-health": "guides",
+    "guide-behavior": "guides",
+    "guide-living": "guides",
+    "guide-puppy": "guides",
+    "guide-feeding": "guides",
+    "guide-games": "guides",
+}
+
 # Open Graph locales are "xx_YY"; Django language codes are lowercase.
 OG_LOCALES = {
     "en": "en_US",
@@ -137,6 +150,8 @@ class DataMixin:
         context = kwargs
 
         context["menu"] = menu.copy()
+        url_name = self.request.resolver_match.url_name
+        context["menu_active"] = MENU_PARENTS.get(url_name, url_name)
         context["cats"] = self._get_categories()
         context.setdefault("cat_selected", 0)
         context.setdefault("is_home", False)

@@ -18,17 +18,17 @@
     <!-- Page title -->
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Groups{% endblocktranslate %}</h1>
 
-    <p class="section-title">{% blocktranslate trimmed %}Explore all FCI dog groups and their sections{% endblocktranslate %}</p>
+    <p class="section-title">{% blocktranslate trimmed %}Classification{% endblocktranslate %}</p>
 
 
     <div class="post-text-explore">
 
         <p class="cat-desc">
-            {% blocktranslate trimmed %}Explore the official <strong>FCI groups</strong> below — each group contains breeds with similar history, purpose, and characteristics.{% endblocktranslate %}
+            {% blocktranslate trimmed %}We chose the FCI classification as a convenient basis: below are ten groups that bring together breeds of similar origin and purpose. The list is still incomplete — new breeds will be added.{% endblocktranslate %}
         </p>
 
         <p class="cat-desc">
-            {% blocktranslate trimmed %}The FCI recognises ten groups, and it sorts breeds by <strong>the job they were bred for</strong>, not by appearance. A sheepdog that gathers flocks, a hound that follows a scent trail and a pointer that freezes in front of game did different work, and centuries of it shaped their build, coat, jaws and even gait. Inside each group come <strong>sections</strong>, usually by region of origin or by coat. Size, coat type and colour are written into the breed standard, but they do not decide the group. That is why a small terrier and a large terrier sit side by side, while two dogs of the same size can belong to different groups.{% endblocktranslate %}
+            {% blocktranslate trimmed %}The FCI groups dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour.</p><p class="cat-desc">Within groups there are <strong>sections</strong>, which may differ by origin or coat type. Size, colour and other outward traits are taken into account in breed standards, but they do not determine the group. That is why a small and a large terrier can belong to one group, while dogs of similar size can belong to different ones.{% endblocktranslate %}
         </p>
 
 
@@ -53,7 +53,7 @@
                                     {{ category.name }}
                                 </span>
 
-                                <span class="group-desc">{{ category.desc }}</span>
+                                <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
 
                             </div>
 
@@ -101,7 +101,7 @@
                                     {{ category.name }}
                                 </span>
 
-                                <span class="group-desc">{{ category.desc }}</span>
+                                <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
 
                             </div>
 

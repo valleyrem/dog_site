@@ -36,6 +36,20 @@ function fillListFromSelect(list, select) {
     item.setAttribute("role", "option");
     item.dataset.value = option.value;
 
+    // the thumbnail's address travels on the <option>; the browser fetches
+    // the picture only when the list is opened (loading="lazy")
+    if (option.dataset.thumb) {
+      const img = document.createElement("img");
+      img.className = "custom-select-opt-img";
+      img.src = option.dataset.thumb;
+      img.alt = "";
+      img.width = 34;
+      img.height = 34;
+      img.loading = "lazy";
+      img.decoding = "async";
+      item.appendChild(img);
+    }
+
     const label = document.createElement("span");
     label.textContent = option.textContent.trim();
     item.appendChild(label);
@@ -546,11 +560,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   const mainImage = document.querySelector(".post-main-image .post-image");
-  // Only visible gallery images: the hidden .mini-gallery copy is skipped,
-  // the thumbnails of the media block are used instead.
+  // The photos are the thumbnails of the media block, picked by structure:
+  // asking "is it visible" gave a different count depending on when the
+  // layout was ready.
   const galleryImages = Array.from(
-    document.querySelectorAll(".gallery-image"),
-  ).filter((img) => img.offsetParent !== null);
+    document.querySelectorAll(".post-thumb .gallery-image"),
+  );
 
   if (!mainImage) return;
 
@@ -609,6 +624,23 @@ document.addEventListener("DOMContentLoaded", function () {
         parseInt(thumb.dataset.index, 10) === index,
       );
     });
+
+    // a scrolling strip of thumbnails follows the active one; only the strip
+    // moves, never the page
+    const active = document.querySelector(".post-thumb.is-active");
+    const strip = active && active.parentElement;
+    if (strip) {
+      const a = active.getBoundingClientRect();
+      const b = strip.getBoundingClientRect();
+      if (strip.scrollWidth > strip.clientWidth + 1) {
+        strip.scrollLeft +=
+          a.left - b.left - (b.width - a.width) / 2;
+      }
+      if (strip.scrollHeight > strip.clientHeight + 1) {
+        strip.scrollTop +=
+          a.top - b.top - (b.height - a.height) / 2;
+      }
+    }
     warmNeighbours();
   }
 
@@ -620,6 +652,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (prev) prev.style.display = currentIndex === 0 ? "none" : "";
     if (next)
       next.style.display = currentIndex === images.length - 1 ? "none" : "";
+  }
+
+  // "3 / 8" on the photo, so a visitor can see there are more of them
+  const counter = document.createElement("span");
+  counter.className = "post-photo-count";
+  counter.setAttribute("aria-hidden", "true");
+  function setCount(index) {
+    counter.textContent = index + 1 + " / " + images.length;
+  }
+  if (images.length > 1 && mainImage.parentElement) {
+    setCount(0);
+    mainImage.parentElement.appendChild(counter);
   }
 
   updateArrows();
@@ -662,6 +706,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // forward: the strip moves left (new photo from the right);
     // back: mirrored — new photo from the left, old one exits right
     const back = direction === "back";
+    // "instant": the photo is replaced in place, with no slide (used when the
+    // modal closes, so nothing moves on a page that is already in view)
+    const instant = direction === "instant";
     const image = images[currentIndex];
 
     // Card-strip switch: a copy of the current photo slides out to the
@@ -670,8 +717,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // the strip never shows an empty frame.
     // same photo as the one on screen — nothing to animate
     if (mainImage.getAttribute("src") === image.src) return;
+    setCount(currentIndex);
 
     const swap = () => {
+      if (instant) {
+        mainImage.src = image.src;
+        mainImage.dataset.author = image.author || "";
+        const author = document.getElementById("post-photo-author");
+        if (author) author.textContent = image.author || "";
+        return;
+      }
+
       const viewport = mainImage.parentElement;
 
       const outgoing = mainImage.cloneNode(true);
@@ -757,7 +813,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // MODAL
 
+  // The phone's Back button closes the modal instead of leaving the page: an
+  // entry is pushed when the modal opens and taken off when it closes.
+  let modalHistory = false;
+
   function showModal(index) {
+    if (!modal.classList.contains("active") && !modalHistory) {
+      history.pushState({ modal: true }, "");
+      modalHistory = true;
+    }
+
     currentIndex = index;
 
     const image = images[currentIndex];
@@ -778,6 +843,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeModal() {
     modal.classList.remove("active");
 
+    if (modalHistory) {
+      modalHistory = false;
+      history.back();
+    }
+
     document.documentElement.classList.remove("no-scroll");
     document.body.classList.remove("no-scroll");
 
@@ -787,6 +857,12 @@ document.addEventListener("DOMContentLoaded", function () {
       top: scrollY,
       behavior: "auto",
     });
+
+    // the photo the modal stopped on becomes the one on the page and the
+    // active thumbnail (a no-op when the modal ended on the same photo)
+    updateMainImage("instant");
+    setActiveThumb(currentIndex);
+    updateArrows();
   }
 
   // Swipe the main photo (touch): left = next photo, right = previous.
@@ -1113,6 +1189,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // TOUCH / SWIPE
   // =========================
 
+  window.addEventListener("popstate", function () {
+    if (!modal.classList.contains("active")) return;
+    modalHistory = false;
+    closeModal();
+  });
+
   let startX = 0;
   let startY = 0;
 
@@ -1383,7 +1465,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${row("🐩", wrapper.dataset.i18nCoatType || "Coat type")}
                 ${row("🐩", wrapper.dataset.i18nCoatLength || "Coat length")}
                 ${row("❤️", wrapper.dataset.i18nLife || "Life expectancy")}
-                ${row("💡", wrapper.dataset.i18nTrainability || "Trainability")}
+                ${row("🎓", wrapper.dataset.i18nTrainability || "Trainability")}
                 ${row("🚀", wrapper.dataset.i18nActivity || "Activity")}
                 ${row("📢", wrapper.dataset.i18nBarking || "Barking")}
                 ${row("🌱", wrapper.dataset.i18nAllergy || "Allergy-Friendly")}
@@ -1461,9 +1543,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
 
       rows.forEach((row, index) => {
-        row.querySelector(".value-a").textContent = values[index][0];
+        setWithSexMarks(row.querySelector(".value-a"), values[index][0]);
 
-        row.querySelector(".value-b").textContent = values[index][1];
+        setWithSexMarks(row.querySelector(".value-b"), values[index][1]);
       });
 
       wrapper.classList.remove("is-changing");
@@ -1630,6 +1712,8 @@ document.addEventListener("DOMContentLoaded", () => {
 (function () {
   const STORAGE_KEY = "woof_consent";
   const CONSENT_VERSION = 1;
+  // Garante guidance: ask again after about six months.
+  const CONSENT_MAX_AGE_MS = 183 * 24 * 60 * 60 * 1000;
   const GTM_ID = "GTM-NJCSC592";
 
   const banner = document.getElementById("cookie-banner");
@@ -1644,12 +1728,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("cookie-close");
   const analyticsToggle = document.getElementById("cookie-analytics-toggle");
 
-  function readConsent() {
+  function readConsent(ignoreAge) {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return null;
       const data = JSON.parse(raw);
       if (!data || data.v !== CONSENT_VERSION) return null;
+      if (!ignoreAge && !(Date.now() - data.ts < CONSENT_MAX_AGE_MS)) return null;
       return data;
     } catch (e) {
       return null;
@@ -1657,7 +1742,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function saveConsent(analytics) {
-    const existing = readConsent();
+    const existing = readConsent(true);
     const data = {
       v: CONSENT_VERSION,
       // Stability of the ID across re-choices is intentional: Art. 7 GDPR
@@ -1905,9 +1990,13 @@ document.addEventListener("DOMContentLoaded", () => {
   update();
 })();
 
-// Breeds page: one row of filter buttons over the static card grid.
-// One filter at a time (like radio buttons), and clicking the active one
-// again clears it — that keeps the row readable instead of stacking filters.
+// Breeds page: filters, search, comparison and the "Find my breed" quiz over
+// the static card grid.
+// Filters come in groups (size, coat, activity...): a group allows one choice
+// and different groups add up. Everything is decided in the browser from the
+// keys in each card's data-filters, so no request is needed to narrow the
+// list. The state lives in the address (?filter=a,b&q=text), which makes a
+// selection shareable and survives the back button.
 
 document.addEventListener("DOMContentLoaded", () => {
   const bar = document.querySelector("[data-breeds-filters]");
@@ -1916,27 +2005,117 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!bar || !grid) return;
 
   const emptyNote = document.querySelector("[data-breeds-empty]");
+  const countNote = document.querySelector("[data-breeds-count]");
   const search = document.querySelector("[data-breeds-search]");
+  const moreToggle = document.querySelector("[data-breeds-more-toggle]");
+  const morePanel = document.querySelector("[data-breeds-more]");
+  const resetBtn = document.querySelector("[data-breeds-reset]");
   const buttons = [...bar.querySelectorAll(".filter-btn")];
-  const cards = [...grid.querySelectorAll(".dog-card-link")];
+  const allBtn = buttons.find((b) => b.dataset.filter === "all");
+  const filterBtns = buttons.filter((b) => b.dataset.filter !== "all");
+  const selects = [...document.querySelectorAll("[data-breeds-select]")];
 
-  let active = "all";
+  // accents, case and punctuation do not matter: "Bichon Frise" is found by
+  // "bichon-frise" and "Dogue de Bordeaux" by "dogue bordeaux"
+  const norm = (text) =>
+    (text || "")
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .trim();
+
+  const items = [...grid.querySelectorAll(".dog-card-link")].map((el) => ({
+    el,
+    keys: new Set((el.dataset.filters || "").split(" ").filter(Boolean)),
+    text: norm(el.dataset.search || el.title),
+  }));
+
+  // which group every key belongs to (buttons and drop-down options)
+  const groupOfKey = {};
+  filterBtns.forEach((b) => (groupOfKey[b.dataset.filter] = b.dataset.group));
+  selects.forEach((sel) =>
+    [...sel.options].forEach((o) => {
+      if (o.value) groupOfKey[o.value] = sel.dataset.group;
+      o.dataset.base = o.textContent;
+    })
+  );
+
+  let chosen = {}; // group -> key
+  let tokens = [];
   let query = "";
+
+  function fits(item, choice, skipGroup, extraKey) {
+    for (const g in choice) {
+      if (g !== skipGroup && !item.keys.has(choice[g])) return false;
+    }
+    if (extraKey && !item.keys.has(extraKey)) return false;
+    return tokens.every((t) => item.text.includes(t));
+  }
+
+  function writeUrl() {
+    const url = new URL(window.location.href);
+    const keys = Object.values(chosen);
+    if (keys.length) url.searchParams.set("filter", keys.join(","));
+    else url.searchParams.delete("filter");
+    if (query) url.searchParams.set("q", query);
+    else url.searchParams.delete("q");
+    try {
+      history.replaceState(null, "", url);
+    } catch (e) {
+      /* the page works without the address */
+    }
+  }
 
   function apply(scroll) {
     let shown = 0;
 
-    cards.forEach((card) => {
-      const keys = (card.dataset.filters || "").split(" ");
-      const byFilter = active === "all" || keys.includes(active);
-      const byName = !query || (card.title || "").toLowerCase().includes(query);
-      const visible = byFilter && byName;
-      card.hidden = !visible;
+    items.forEach((item) => {
+      const visible = fits(item, chosen);
+      item.el.hidden = !visible;
       if (visible) shown += 1;
     });
 
+    // the number next to a button: what the list would be if it were chosen
+    filterBtns.forEach((btn) => {
+      const g = btn.dataset.group;
+      const key = btn.dataset.filter;
+      const on = chosen[g] === key;
+      const n = items.filter((i) => fits(i, chosen, g, key)).length;
+      const slot = btn.querySelector("[data-count]");
+      if (slot) slot.textContent = n;
+      btn.disabled = n === 0 && !on;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+
+    selects.forEach((sel) => {
+      const g = sel.dataset.group;
+      sel.value = chosen[g] || "";
+      [...sel.options].forEach((o) => {
+        if (!o.value) return;
+        const n = items.filter((i) => fits(i, chosen, g, o.value)).length;
+        o.textContent = `${o.dataset.base} (${n})`;
+        o.disabled = n === 0 && chosen[g] !== o.value;
+      });
+    });
+
+    const any = Object.keys(chosen).length > 0;
+    if (allBtn) {
+      allBtn.classList.toggle("is-active", !any);
+      allBtn.setAttribute("aria-pressed", String(!any));
+    }
+    if (resetBtn) resetBtn.hidden = !any && !query;
+
     // screen readers hear the result, and an empty grid gets an explanation
     if (emptyNote) emptyNote.hidden = shown > 0;
+    if (countNote && countNote.dataset.template) {
+      countNote.textContent = countNote.dataset.template
+        .replace("{shown}", shown)
+        .replace("{total}", items.length);
+    }
+
+    writeUrl();
 
     // on phones the grid sits well below the buttons: glide to it, the way an
     // anchor would (never on load, only after a real click)
@@ -1949,38 +2128,73 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function setActive(key, scroll) {
-    active = key;
-
-    buttons.forEach((btn) => {
-      const on = btn.dataset.filter === active;
-      btn.classList.toggle("is-active", on);
-      btn.setAttribute("aria-pressed", String(on));
-    });
-
+  function choose(key, group, scroll) {
+    if (key) chosen[group] = key;
+    else delete chosen[group];
     apply(scroll);
   }
 
-  buttons.forEach((btn) => {
+  function resetFilters() {
+    chosen = {};
+  }
+
+  filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      const g = btn.dataset.group;
       const key = btn.dataset.filter;
-      // "All breeds" always resets; a second click on the active filter too.
-      // Clearing shows every breed, so there is nothing to glide down to.
-      const clears = key === "all" || key === active;
-      setActive(clears ? "all" : key, !clears);
+      // a second click on the active button clears its group; clearing shows
+      // more breeds, so there is nothing to glide down to
+      const clears = chosen[g] === key;
+      choose(clears ? "" : key, g, !clears);
     });
   });
 
+  if (allBtn) {
+    allBtn.addEventListener("click", () => {
+      resetFilters();
+      apply(false);
+    });
+  }
+
+  selects.forEach((sel) =>
+    sel.addEventListener("change", () => choose(sel.value, sel.dataset.group, false))
+  );
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      resetFilters();
+      setQuery("");
+      if (search) search.value = "";
+      syncClear();
+      apply(false);
+    });
+  }
+
+  if (moreToggle && morePanel) {
+    moreToggle.addEventListener("click", () => {
+      const open = morePanel.hidden;
+      morePanel.hidden = !open;
+      moreToggle.setAttribute("aria-expanded", String(open));
+      moreToggle.textContent = open
+        ? moreToggle.dataset.labelLess
+        : moreToggle.dataset.labelMore;
+    });
+  }
+
+  function setQuery(value) {
+    query = value.trim();
+    tokens = norm(query).split(" ").filter(Boolean);
+  }
+
+  const clear = document.querySelector("[data-breeds-search-clear]");
+  // the cross shows only while there is something to clear
+  function syncClear() {
+    if (clear && search) clear.hidden = search.value.length === 0;
+  }
+
   if (search) {
-    const clear = document.querySelector("[data-breeds-search-clear]");
-
-    // the cross shows only while there is something to clear
-    const syncClear = () => {
-      if (clear) clear.hidden = search.value.length === 0;
-    };
-
     search.addEventListener("input", () => {
-      query = search.value.trim().toLowerCase();
+      setQuery(search.value);
       apply(false);
       syncClear();
     });
@@ -1988,17 +2202,216 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clear) {
       clear.addEventListener("click", () => {
         search.value = "";
-        query = "";
+        setQuery("");
         apply(false);
         syncClear();
         search.focus();
       });
     }
-
-    syncClear();
   }
 
-  setActive("all");
+  // ---- comparison ----------------------------------------------------
+  const MAX_COMPARE = 3;
+  const picked = [];
+  const cmpBar = document.querySelector("[data-bc-bar]");
+  const cmpText = document.querySelector("[data-bc-text]");
+  const cmpOpen = document.querySelector("[data-bc-open]");
+  const cmpClear = document.querySelector("[data-bc-clear]");
+  const cmpDialog = document.querySelector("[data-bc-dialog]");
+  const cmpTable = document.querySelector("[data-bc-table]");
+  const canDialog = typeof HTMLDialogElement === "function";
+
+  function syncCompare() {
+    items.forEach((item) => {
+      const btn = item.el.querySelector(".bc-toggle");
+      if (!btn) return;
+      const on = picked.includes(item.el.dataset.id);
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", String(on));
+      btn.title = on ? grid.dataset.compareRemove : grid.dataset.compareAdd;
+      btn.textContent = on ? "✓ " + grid.dataset.compareAdded : "+ " + grid.dataset.compareLabel;
+      btn.disabled = !on && picked.length >= MAX_COMPARE;
+    });
+    if (!cmpBar) return;
+    cmpBar.hidden = picked.length === 0;
+    document.body.classList.toggle("has-compare-bar", picked.length > 0);
+    const base = cmpText.dataset.template.replace("{n}", picked.length);
+    cmpText.textContent = picked.length < 2 ? `${base} · ${cmpText.dataset.hint}` : base;
+    cmpOpen.disabled = picked.length < 2;
+  }
+
+  if (canDialog && cmpBar && cmpDialog && cmpTable) {
+    items.forEach((item) => {
+      const host = item.el.querySelector(".dog-card");
+      if (!host) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "bc-toggle";
+      btn.addEventListener("click", (e) => {
+        // the card is a link: the button must not open the breed
+        e.preventDefault();
+        e.stopPropagation();
+        const id = item.el.dataset.id;
+        const at = picked.indexOf(id);
+        if (at >= 0) picked.splice(at, 1);
+        else if (picked.length < MAX_COMPARE) picked.push(id);
+        syncCompare();
+      });
+      host.appendChild(btn);
+    });
+
+    cmpClear.addEventListener("click", () => {
+      picked.length = 0;
+      syncCompare();
+    });
+
+    const lang = document.documentElement.lang || "en";
+    const prefix = lang === "en" ? "" : `/${lang}`;
+    const d = cmpTable.dataset;
+    const years = d.i18nYears || "years";
+    const rows = [
+      [d.i18nVarieties, (b) => b.varieties],
+      [d.i18nOrigin, (b) => b.country],
+      [d.i18nSize, (b) => b.size],
+      [d.i18nHeight, (b) => b.height],
+      [d.i18nWeight, (b) => b.weight],
+      [d.i18nCoatType, (b) => b.coat_type],
+      [d.i18nCoatLength, (b) => b.coat_length],
+      [d.i18nLife, (b) => (b.life ? `${b.life} ${years}` : "")],
+      [d.i18nTrainability, (b) => b.trainability],
+      [d.i18nActivity, (b) => b.activity],
+      [d.i18nBarking, (b) => b.barking],
+      [d.i18nAllergy, (b) => b.hypoallergenic],
+      [d.i18nFamily, (b) => b.family_friendliness],
+    ];
+
+    function cell(tag, text) {
+      const c = document.createElement(tag);
+      setWithSexMarks(c, text || "-");
+      return c;
+    }
+
+    async function showCompare() {
+      const breeds = await Promise.all(
+        picked.map((id) =>
+          fetch(`${prefix}/api/breed/${id}/`).then((r) => r.json())
+        )
+      );
+
+      const table = document.createElement("table");
+      table.className = "bc-table";
+
+      const head = document.createElement("tr");
+      head.appendChild(document.createElement("th"));
+      breeds.forEach((b) => {
+        // photo box and two-line name have a fixed size, so the header is
+        // equally tall for every breed
+        const th = document.createElement("th");
+        const box = document.createElement("div");
+        box.className = "bc-head";
+        const pic = document.createElement("span");
+        pic.className = "bc-head__photo";
+        if (b.photo) {
+          const img = document.createElement("img");
+          img.src = b.photo;
+          img.alt = "";
+          img.loading = "lazy";
+          pic.appendChild(img);
+        }
+        const a = document.createElement("a");
+        a.href = b.url;
+        a.textContent = b.title;
+        box.append(pic, a);
+        th.appendChild(box);
+        head.appendChild(th);
+      });
+      table.appendChild(head);
+
+      rows.forEach(([label, get]) => {
+        const tr = document.createElement("tr");
+        tr.appendChild(cell("th", label));
+        breeds.forEach((b) => tr.appendChild(cell("td", get(b))));
+        table.appendChild(tr);
+      });
+
+      cmpTable.replaceChildren(table);
+    }
+
+    cmpOpen.addEventListener("click", () => {
+      if (picked.length < 2) return;
+      cmpTable.replaceChildren();
+      cmpDialog.showModal();
+      cmpDialog.focus({ preventScroll: true });
+      showCompare().catch(() => cmpDialog.close());
+    });
+    cmpDialog
+      .querySelector("[data-bc-close]")
+      .addEventListener("click", () => cmpDialog.close());
+    cmpDialog.addEventListener("click", (e) => {
+      if (e.target === cmpDialog) cmpDialog.close();
+    });
+  }
+
+  // ---- "Find my breed" -----------------------------------------------
+  const quizOpen = document.querySelector("[data-breeds-quiz-open]");
+  const quizDialog = document.querySelector("[data-quiz-dialog]");
+  const quizForm = document.querySelector("[data-quiz-form]");
+  const quizNone = document.querySelector("[data-quiz-none]");
+
+  if (quizOpen && quizDialog && quizForm && canDialog) {
+    quizOpen.addEventListener("click", () => {
+      if (quizNone) quizNone.hidden = true;
+      quizDialog.showModal();
+      quizDialog.focus({ preventScroll: true });
+    });
+    quizDialog
+      .querySelector("[data-quiz-close]")
+      .addEventListener("click", () => quizDialog.close());
+    quizDialog.addEventListener("click", (e) => {
+      if (e.target === quizDialog) quizDialog.close();
+    });
+    // a breed page links here with ?quiz=1
+    if (new URLSearchParams(location.search).has("quiz")) quizOpen.click();
+
+    quizForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const answer = {};
+      new FormData(quizForm).forEach((value) => {
+        if (value && groupOfKey[value]) answer[groupOfKey[value]] = value;
+      });
+      // strict answers can leave nothing: say so instead of an empty page
+      const left = items.filter((i) =>
+        Object.values(answer).every((k) => i.keys.has(k))
+      );
+      if (!left.length) {
+        if (quizNone) quizNone.hidden = false;
+        return;
+      }
+      chosen = answer;
+      setQuery("");
+      if (search) search.value = "";
+      syncClear();
+      quizDialog.close();
+      apply(true);
+    });
+  } else if (quizOpen) {
+    quizOpen.hidden = true;
+  }
+
+  // ---- start: take the state from the address -------------------------
+  const params = new URLSearchParams(window.location.search);
+  (params.get("filter") || "")
+    .split(",")
+    .filter((k) => groupOfKey[k])
+    .forEach((k) => (chosen[groupOfKey[k]] = k));
+  setQuery(params.get("q") || "");
+  if (search) search.value = query;
+  syncClear();
+  if (morePanel && selects.some((s) => chosen[s.dataset.group])) {
+    moreToggle.click();
+  }
+  apply(false);
+  syncCompare();
 });
 
 // Reveal a breed card only once its lazy photo has loaded, so the title
@@ -2062,9 +2475,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 
-// Photo-credit note: on phones and small tablets it sits directly under the
-// photos, before the characteristics panel; on larger screens it stays under
-// the whole media block. The same element is moved, never duplicated, so
+// Photo-credit note: on phones and tablets (where the photos and the
+// characteristics panel are stacked) it sits directly under the photos; on
+// larger screens it stays under the whole media block. The same element is moved, never duplicated, so
 // screen readers still meet the sentence once.
 (function () {
   var rule = document.querySelector(".images-rule");
@@ -2074,7 +2487,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var right = media.querySelector(".post-right");
   if (!right) return;
 
-  var mq = window.matchMedia("(max-width: 767px)");
+  var mq = window.matchMedia("(max-width: 1032px)");
 
   function place() {
     if (mq.matches) {
@@ -2090,66 +2503,23 @@ document.addEventListener("DOMContentLoaded", () => {
   else if (mq.addListener) mq.addListener(place); // older Safari
 })();
 
-// Contents: the link of the heading you are reading stays highlighted, the
-// same way a picked filter does on the breeds page.
-(function () {
-  var nav = document.querySelector(".post-toc");
-  if (!nav) return;
-
-  var links = [].slice.call(nav.querySelectorAll('a[href^="#"]'));
-  var targets = links
-    .map(function (link) {
-      return document.getElementById(link.getAttribute("href").slice(1));
-    })
-    .filter(Boolean);
-
-  if (!targets.length) return;
-
-  var current = null;
-
-  function update() {
-    var line = 120; // a heading counts as read once it reaches the top
-    var found = targets[0];
-    targets.forEach(function (target) {
-      if (target.getBoundingClientRect().top <= line) found = target;
-    });
-    if (found === current) return;
-    current = found;
-    links.forEach(function (link) {
-      var on = link.getAttribute("href") === "#" + found.id;
-      link.classList.toggle("is-current", on);
-      if (on) link.setAttribute("aria-current", "true");
-      else link.removeAttribute("aria-current");
-    });
-  }
-
-  var queued = false;
-  function onScroll() {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(function () {
-      queued = false;
-      update();
-    });
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  update();
-})();
-
 // Guides: the contents list is built from the section titles already on the
-// page, so it can never drift away from the text. Five entries first, the rest
-// behind the switch.
+// page, so it can never drift away from the text. Five entries first (four on
+// a breed page), the rest behind the switch.
 (function () {
   var nav = document.querySelector(".guide-toc");
   if (!nav) return;
 
   var list = nav.querySelector("[data-guide-toc-list]");
   var toggle = nav.querySelector("[data-guide-toc-toggle]");
-  var heads = [].slice.call(
-    document.querySelectorAll(".post-container .section-title")
-  );
+  var heads = [].slice
+    .call(document.querySelectorAll(
+        ".post-container .section-title, #group-breeds"
+      ))
+    .filter(function (head) {
+      return !head.closest("[hidden]");
+    });
+  var limit = nav.classList.contains("guide-toc--short") ? 4 : 5;
 
   if (!list || heads.length < 2) {
     nav.remove();
@@ -2164,7 +2534,7 @@ document.addEventListener("DOMContentLoaded", () => {
     list.appendChild(link);
   });
 
-  if (heads.length <= 5) {
+  if (heads.length <= limit) {
     nav.classList.remove("is-collapsed");
     return;
   }
@@ -2176,3 +2546,206 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.setAttribute("aria-expanded", String(open));
   });
 })();
+
+// Breed page: the strip of breeds seen earlier in this tab.
+(function () {
+  // Recently viewed: this tab only (sessionStorage), nothing is kept after
+  // the tab is closed.
+  var page = document.querySelector("[data-recent-url]");
+  var block = document.getElementById("recent-block");
+  var grid = document.getElementById("recent-grid");
+  if (!page || !block || !grid) return;
+
+  var KEY = "woof_recent_" + (document.documentElement.lang || "en");
+  var here = {
+    u: page.dataset.recentUrl,
+    t: page.dataset.recentTitle,
+    i: page.dataset.recentImg || "",
+  };
+  var seen = [];
+  try {
+    seen = JSON.parse(sessionStorage.getItem(KEY) || "[]");
+    if (!Array.isArray(seen)) seen = [];
+  } catch (err) {
+    seen = [];
+  }
+
+  var others = seen.filter(function (item) {
+    return item && item.u && item.u !== here.u;
+  });
+
+  try {
+    sessionStorage.setItem(
+      KEY,
+      JSON.stringify([here].concat(others).slice(0, 9)),
+    );
+  } catch (err) {}
+
+  // eight on a computer; the phone layout hides the last two in CSS
+  others = others.slice(0, 8);
+  if (!others.length) return;
+
+  others.forEach(function (item) {
+    var a = document.createElement("a");
+    a.className = "recent-card";
+    a.href = item.u;
+    if (item.i) {
+      var img = document.createElement("img");
+      img.src = item.i;
+      img.alt = "";
+      img.loading = "lazy";
+      img.decoding = "async";
+      a.appendChild(img);
+    }
+    var name = document.createElement("span");
+    name.textContent = item.t;
+    a.appendChild(name);
+    grid.appendChild(a);
+  });
+
+  block.hidden = false;
+})();
+
+// Breed page: "Find my breed" opens the quiz right here; the answers are then
+// carried to the Breeds page as filters.
+(function () {
+  var open = document.querySelector("[data-post-quiz-open]");
+  var dialog = document.querySelector("[data-quiz-dialog]");
+  var form = document.querySelector("[data-quiz-form]");
+  if (!open || !dialog || !form || !dialog.showModal) return;
+  if (document.querySelector("[data-breeds-grid]")) return;
+
+  open.addEventListener("click", function (e) {
+    e.preventDefault();
+    dialog.showModal();
+    dialog.focus({ preventScroll: true });
+  });
+  dialog
+    .querySelector("[data-quiz-close]")
+    .addEventListener("click", function () {
+      dialog.close();
+    });
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close();
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var keys = [];
+    new FormData(form).forEach(function (value) {
+      if (value) keys.push(value);
+    });
+    var target = dialog.dataset.quizTarget || "/breeds/";
+    window.location.href = keys.length
+      ? target + "?filter=" + encodeURIComponent(keys.join(",")).replace(/%2C/g, ",")
+      : target;
+  });
+})();
+
+
+// Breed page: the compare panel opens from a quiet button instead of sitting open
+(function () {
+  const toggle = document.querySelector("[data-compare-toggle]");
+  const panel = document.getElementById("compare");
+  if (!toggle || !panel) return;
+
+  function setOpen(open) {
+    panel.hidden = !open;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.classList.toggle("is-open", open);
+  }
+
+  toggle.addEventListener("click", () => setOpen(panel.hidden));
+  if (location.hash === "#compare") setOpen(true);
+})();
+
+
+// A link or #hash that points into a closed FAQ item opens it
+(function () {
+  function openFor(id) {
+    var el = id && document.getElementById(id);
+    var item = el && el.closest("details");
+    if (item) item.open = true;
+  }
+  openFor(location.hash.slice(1));
+  window.addEventListener("hashchange", function () {
+    openFor(location.hash.slice(1));
+  });
+})();
+
+// FAQ: opening one question closes the one that was open
+(function () {
+  var items = [].slice.call(document.querySelectorAll("details.post-faq__item"));
+  if (items.length < 2) return;
+
+  items.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+      items.forEach(function (other) {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+})();
+
+// Group page: on phones the description is shortened to whole sentences (about
+// 300 characters) with a switch for the rest. Cutting at a full stop instead of
+// by lines leaves no ellipsis for the browser to draw over the text.
+(function () {
+  var box = document.querySelector(".group-intro");
+  if (!box) return;
+
+  var desc = box.querySelector("[data-group-intro-desc]");
+  var toggle = box.querySelector("[data-group-intro-toggle]");
+  if (!desc || !toggle) return;
+
+  var LIMIT = 300;
+  var phone = window.matchMedia("(max-width: 767px)");
+  var full = desc.textContent.trim();
+  var short = full;
+
+  var ends = [];
+  full.replace(/[.!?…](?=\s|$)/g, function (m, at) {
+    ends.push(at + 1);
+    return m;
+  });
+  var fit = ends.filter(function (at) { return at <= LIMIT; });
+  var cut = fit.length ? fit[fit.length - 1] : ends[0];
+  if (cut && cut < full.length) short = full.slice(0, cut);
+
+  function render() {
+    var open = box.classList.contains("is-open");
+    var cutOn = phone.matches && short !== full;
+    desc.textContent = cutOn && !open ? short : full;
+    box.classList.toggle("is-cut", cutOn);
+  }
+
+  toggle.hidden = false;
+  toggle.addEventListener("click", function () {
+    var open = box.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(open));
+    render();
+  });
+
+  render();
+  if (phone.addEventListener) phone.addEventListener("change", render);
+})();
+
+// Height and weight come as "♂ 68–72 cm, ♀ 63–68 cm": the two signs go into
+// their own spans so the CSS can line them up with the digits.
+function setWithSexMarks(el, text) {
+  el.textContent = "";
+  String(text)
+    .split(/([♂♀])/)
+    .forEach(function (part) {
+      if (!part) return;
+      if (part === "♂" || part === "♀") {
+        var mark = document.createElement("span");
+        mark.className = "sex-mark";
+        mark.textContent = part;
+        el.appendChild(mark);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
+}

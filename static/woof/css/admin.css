@@ -189,6 +189,14 @@ ul.errorlist,
   text-decoration: underline;
 }
 
+#content .submit-row a.deletelink:link,
+#content .submit-row a.deletelink:visited,
+#content .submit-row a.deletelink:hover,
+#content .submit-row a.deletelink:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 #content .object-tools a:link,
 #content .object-tools a:visited,
 #content .object-tools a:hover,

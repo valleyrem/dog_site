@@ -7,7 +7,15 @@ from django.test import TestCase
 from django.urls import reverse
 from PIL import Image
 
-from .models import Category, CoatLength, CoatType, DogImage, Dogs, Section
+from .models import (
+    Category,
+    CoatLength,
+    CoatType,
+    ContactMessage,
+    DogImage,
+    Dogs,
+    Section,
+)
 
 
 def make_photo(name="photo.png"):
@@ -244,9 +252,7 @@ class BreedsFilterTests(TestCase):
         # 11 filters plus the "all breeds" reset; the cross span is not a button
         self.assertEqual(html.count('data-filter="'), 12)
         self.assertIn("filter-btn__cross", html)
-        self.assertNotIn("data-filter-group", html)  # one filter at a time
-        self.assertNotIn("<fieldset", html)
-        self.assertNotIn("data-filters-toggle", html)
+        self.assertIn('data-group="size"', html)  # one choice per group
         self.assertIn("data-filters-empty" if False else "data-breeds-empty", html)
 
     def test_cards_list_every_matching_filter(self):
@@ -264,6 +270,7 @@ class BreedsFilterTests(TestCase):
                 "calm",
                 "cooperative",
                 "family",
+                "quiet",
             },
         )
         self.assertEqual(
@@ -274,9 +281,22 @@ class BreedsFilterTests(TestCase):
                 "active",
                 "independent",
                 "supervision",
+                "talkative",
             },
         )
         self.assertNotIn("zuchon", keys)  # drafts never reach the grid
+
+    def test_cards_carry_search_text_and_id(self):
+        html = self.client.get(reverse("breeds")).content.decode()
+        self.assertIn('data-search="Beagle', html)
+        self.assertIn(f'data-id="{self.small_dog.pk}"', html)
+
+    def test_extra_filters_cover_barking_country_coat_type(self):
+        groups = [
+            g["group"]
+            for g in self.client.get(reverse("breeds")).context["extra_filters"]
+        ]
+        self.assertEqual(groups, ["country", "coattype", "barking"])
 
     def test_no_leftover_alphabet_or_dropdown(self):
         html = self.client.get(reverse("breeds")).content.decode()
@@ -555,3 +575,81 @@ class SeoTests(TestCase):
         body = response.content.decode()
         self.assertIn("<image:loc>", body)
         self.assertIn(settings.SITE_CONTENT_UPDATED, body)
+
+
+class ContactMessageTests(TestCase):
+    def _send(self, **extra):
+        from unittest import mock
+
+        from django.core.cache import cache
+
+        cache.set("contact_captcha:t", 7, 600)
+        data = {"content": "Hello there", "captcha_token": "t", "captcha": 7}
+        data.update(extra)
+        with mock.patch("woof.forms.send_telegram_message") as notice:
+            response = self.client.post(reverse("contact"), data)
+        return response, notice
+
+    def test_message_is_stored_and_telegram_gets_no_text(self):
+        response, notice = self._send(email="a@example.com")
+        self.assertEqual(response.status_code, 200)
+        msg = ContactMessage.objects.get()
+        self.assertEqual((msg.email, msg.message), ("a@example.com", "Hello there"))
+        text = notice.call_args.args[0]
+        self.assertNotIn("Hello there", text)
+        self.assertNotIn("a@example.com", text)
+
+    def test_email_is_optional(self):
+        self._send()
+        self.assertEqual(ContactMessage.objects.get().email, "")
+
+
+class BreedPageExtrasTests(TestCase):
+    """Health concerns, scales, differences and the updated note on the post."""
+
+    @classmethod
+    def setUpTestData(cls):
+        cat = Category.objects.create(name="Group", slug="group", fci_number=1)
+        cls.dog = Dogs.objects.create(
+            title="Alpha", slug="alpha", cat=cat, size="medium",
+            activity_level="calm", weight_male="10", weight_female="12",
+        )
+        cls.mate = Dogs.objects.create(
+            title="Beta", slug="beta", cat=cat, size="medium",
+            activity_level="energetic", weight_male="30", weight_female="28",
+        )
+
+    def test_updated_note(self):
+        html = self.client.get(self.dog.get_absolute_url()).content.decode()
+        self.assertNotIn("post-health", html)
+        self.assertNotIn('class="level"', html)
+        self.assertIn("post-updated", html)
+        self.assertIn("guide-toc--short", html)
+
+    def test_breed_page_shows_lifestyle_and_faq(self):
+        Dogs.objects.filter(pk=self.dog.pk).update(
+            daily_life="Two walks a day.",
+            good_fit="Love walks\nWork from home",
+            think_twice="Travel a lot",
+        )
+        html = self.client.get(self.dog.get_absolute_url()).content.decode()
+        self.assertIn('id="faq"', html)
+        self.assertIn("<li>Work from home</li>", html)
+        self.assertIn('id="daily"', html)
+
+    def test_care_is_shown_as_labelled_lines(self):
+        Dogs.objects.filter(pk=self.dog.pk).update(
+            care="Coat: Brush weekly.\nBack: See a vet if it hurts.",
+        )
+        html = self.client.get(self.dog.get_absolute_url()).content.decode()
+        self.assertIn('id="care"', html)
+        self.assertIn("<strong>Coat:</strong> Brush weekly.", html)
+        self.assertIn("<strong>Back:</strong> See a vet if it hurts.", html)
+        self.assertNotIn('id="health"', html)
+
+    def test_similar_breeds_say_how_they_differ(self):
+        from woof.views import breed_differences
+
+        notes = breed_differences(self.dog, self.mate)
+        self.assertIn("more energetic", [str(n) for n in notes])
+        self.assertIn("heavier", [str(n) for n in notes])

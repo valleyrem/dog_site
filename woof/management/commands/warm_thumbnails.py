@@ -12,7 +12,7 @@ Usage:
 
 from django.core.management.base import BaseCommand
 
-from woof.models import Category, Dogs, DogImage
+from woof.models import Dogs, DogImage
 
 
 class Command(BaseCommand):
@@ -41,13 +41,5 @@ class Command(BaseCommand):
                     count += 1
                 except Exception as exc:  # noqa: BLE001
                     self.stderr.write(f"  skip gallery {img.pk} {spec}: {exc}")
-
-        cats = Category.objects.filter(group_image__isnull=False)
-        for cat in cats:
-            try:
-                cat.group_image_thumb.generate()
-                count += 1
-            except Exception as exc:  # noqa: BLE001
-                self.stderr.write(f"  skip group {cat.slug} thumb: {exc}")
 
         self.stdout.write(self.style.SUCCESS(f"Warmed {count} thumbnails."))

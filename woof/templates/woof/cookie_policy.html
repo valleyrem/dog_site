@@ -15,11 +15,9 @@
 <div class="policy-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">
-        <strong>{% blocktranslate trimmed %}Cookie Policy{% endblocktranslate %}</strong>
-    </h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Cookie Policy{% endblocktranslate %}</h1>
 
-    <p>{% blocktranslate trimmed %}Last updated: September 10, 2026{% endblocktranslate %}</p>
+    <p>{% blocktranslate trimmed %}Last updated: November 3, 2026{% endblocktranslate %}</p>
 
 
     <!-- Cookie declaration -->
@@ -49,6 +47,12 @@
                 <td><strong>django_language</strong></td>
                 <td>{% blocktranslate trimmed %}Session{% endblocktranslate %}</td>
                 <td>{% blocktranslate trimmed %}Necessary. Remembers the site language you selected in the language switcher. Set only after you choose a language. Stores no personal data.{% endblocktranslate %}</td>
+            </tr>
+
+            <tr>
+                <td><strong>woof_consent</strong></td>
+                <td>{% blocktranslate trimmed %}6 months, then we ask again{% endblocktranslate %}</td>
+                <td>{% blocktranslate trimmed %}Necessary. Stored in your browser (local storage), not as a cookie: remembers your cookie choice and a random consent ID. Contains no personal data.{% endblocktranslate %}</td>
             </tr>
 
             <tr>
@@ -97,12 +101,6 @@
                title="{% trans 'Chrome' %}">{% blocktranslate trimmed %}Chrome{% endblocktranslate %}</a>
         </li>
 
-        <li>
-            <a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies"
-               target="_blank"
-               class="link-policies"
-               title="{% trans 'Internet Explorer' %}">{% blocktranslate trimmed %}Internet Explorer{% endblocktranslate %}</a>
-        </li>
 
         <li>
             <a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
@@ -130,36 +128,6 @@
                target="_blank"
                class="link-policies"
                title="{% trans 'Opera' %}">{% blocktranslate trimmed %}Opera{% endblocktranslate %}</a>
-        </li>
-
-    </ul>
-
-
-    <!-- Advertising opt-out -->
-    <p>{% blocktranslate trimmed %}Additionally, most ad networks offer options to opt out of targeted advertising.
-        For more information, visit:{% endblocktranslate %}</p>
-
-    <ul class="bulleted-list">
-
-        <li>
-            <a href="https://optout.aboutads.info/"
-               target="_blank"
-               class="link-policies"
-               title="{% trans 'Digital Advertising Alliance' %}">{% blocktranslate trimmed %}Digital Advertising Alliance{% endblocktranslate %}</a>
-        </li>
-
-        <li>
-            <a href="https://youradchoices.ca/"
-               target="_blank"
-               class="link-policies"
-               title="{% trans 'Digital Advertising Alliance of Canada' %}">{% blocktranslate trimmed %}Digital Advertising Alliance of Canada{% endblocktranslate %}</a>
-        </li>
-
-        <li>
-            <a href="https://www.edaa.eu/"
-               target="_blank"
-               class="link-policies"
-               title="{% trans 'European Interactive Digital Advertising Alliance' %}">{% blocktranslate trimmed %}European Interactive Digital Advertising Alliance{% endblocktranslate %}</a>
         </li>
 
     </ul>

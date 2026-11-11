@@ -1,0 +1,6 @@
+{% if change %}
+<div class="submit-row dog-neighbours">
+    {% if prev_dog %}<input type="submit" name="_save_prev" value="← Save and previous: {{ prev_dog.title }}">{% endif %}
+    {% if next_dog %}<input type="submit" name="_save_next" value="Save and next: {{ next_dog.title }} →">{% endif %}
+</div>
+{% endif %}

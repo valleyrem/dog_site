@@ -22,6 +22,7 @@
         "{{ request.scheme }}://{{ request.get_host }}{{ post.photo_card.url }}"
     ],
     {% endif %}
+    "dateModified": "{{ post.time_update|date:'c' }}",
     "inLanguage": "{{ LANGUAGE_CODE }}"
 }
 </script>
@@ -61,24 +62,14 @@
 </div>
 
 <!-- Main post content -->
-<div class="post-container">
+<div class="post-container"
+     data-recent-url="{{ post.get_absolute_url }}"
+     data-recent-title="{{ post.title }}"
+     data-recent-img="{% if post.photo %}{{ post.photo_thumb.url }}{% endif %}">
 
     <h1 class="post-title">
         <span class="post-title-text">{{ post.title }}</span>
     </h1>
-
-    <!-- Contents: every heading of the page, in the order it appears -->
-    <nav class="post-toc" aria-label="{% trans 'Contents' %}">
-        <a href="#overview">{% blocktranslate trimmed %}Photos & facts{% endblocktranslate %}</a>
-        <a href="#summary">{% blocktranslate trimmed %}Summary{% endblocktranslate %}</a>
-        {% if post.history %}<a href="#history">{% blocktranslate trimmed %}History{% endblocktranslate %}</a>{% endif %}
-        <a href="#care">{% blocktranslate trimmed %}Care{% endblocktranslate %}</a>
-        <a href="#conditions">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</a>
-        {% if similar_dogs %}<a href="#similar">{% blocktranslate trimmed %}Similar breeds{% endblocktranslate %}</a>{% endif %}
-        {% if related_dogs %}<a href="#group-breeds">{% trans "Same group" %}</a>{% endif %}
-        <a href="#compare">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</a>
-        <a href="#more-breeds">{% trans "More breeds" %}</a>
-    </nav>
 
     <div class="post-media" id="overview">
 
@@ -166,11 +157,15 @@
 
             <div class="post-table__part">
 
+        <div class="post-brief" id="summary">
+            <p class="post-brief__text">{{ post.summary }}</p>
+        </div>
+
         <div class="post-params-grid">
         {% if post.temperament.all %}
         <div class="param-card wide">
             <div class="top">
-                <span class="icon">💎</span>
+                <span class="icon">🎭</span>
                 <span>{% trans "Character" %}</span>
             </div>
             {# first trait capitalised, the rest in lower case after a comma #}
@@ -256,45 +251,15 @@
             <strong>{{ post.coat_length.all|join:" / " }}</strong>
         </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">💡</span>
-                <span>{% blocktranslate trimmed %}Trainability{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_trainability_display }}</strong>
-        </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">🚀</span>
-                <span>{% blocktranslate trimmed %}Activity level{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_activity_level_display }}</strong>
-        </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">📢</span>
-                <span>{% blocktranslate trimmed %}Barking{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_barking_level_display }}</strong>
-        </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">🏡</span>
-                <span>{% blocktranslate trimmed %}Family friendly{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_family_friendliness_display }}</strong>
-        </div>
 
-        <div class="param-card">
-            <div class="top">
-                <span class="icon">🌱</span>
-                <span>{% blocktranslate trimmed %}Shedding{% endblocktranslate %}</span>
-            </div>
-            <strong>{{ post.get_hypoallergenic_display }}</strong>
-        </div>
+
+
+
+
+
 
         <div class="param-card wide">
             <div class="top">
@@ -308,19 +273,6 @@
             <!-- /post-table -->
 
     </div>
-
-    {% if post.gallery.all %}
-    <div class="mini-gallery">
-        {% for photo in post.gallery.all|slice:":4" %}
-            <img src="{{ photo.image_large.url }}"
-                 class="gallery-image"
-                 alt="{{ post.title }}"
-                 loading="lazy"
-                 decoding="async"
-                 data-author="{{ photo.author|escapejs }}">
-        {% endfor %}
-    </div>
-    {% endif %}
 
 </div>
 
@@ -347,6 +299,13 @@
             </p>
         {% endif %}
 
+        <div class="post-scales">
+            {% include "woof/includes/post_scales.html" %}
+        </div>
+
+        <!-- Contents: built by scripts.js from the headings below, four first -->
+        {% include "woof/includes/guide_toc.html" with short=True %}
+
         {% if post.slug == "keeshond-wolfspitz" or post.slug == "pomeranian" %}
             <p class="varieties-note">
                 {% blocktranslate trimmed %}German Spitz link:{% endblocktranslate %}
@@ -357,28 +316,65 @@
             </p>
         {% endif %}
 
-        <p class="section-title" id="summary">{% blocktranslate trimmed %}Summary{% endblocktranslate %}</p>
-        <p class="cat-desc">{{ post.summary }}</p>
-
         {% if post.history %}
-            <p class="section-title" id="history">{% blocktranslate trimmed %}History{% endblocktranslate %}</p>
-            <p class="cat-desc">{{ post.history }}</p>
+        <p class="section-title" id="history">{% trans "Origins" %}</p>
+        <p class="cat-desc">{{ post.history }}</p>
         {% endif %}
 
-        <p class="section-title" id="care">{% blocktranslate trimmed %}Care{% endblocktranslate %}</p>
-        <p class="cat-desc">{{ post.care }}</p>
+        <p class="section-title" id="daily">{% trans "Lifestyle" %}</p>
+        <div class="post-day">{{ post.daily_life|rich_lines }}</div>
 
-        <p class="section-title" id="conditions">{% blocktranslate trimmed %}Conditions{% endblocktranslate %}</p>
-        <p class="cat-desc">{{ post.living_conditions }}</p>
-
-        {% if similar_dogs %}
-            <!-- Same size, then same coat length, coat type and activity -->
-            <p class="section-title" id="similar">{% blocktranslate trimmed %}Similar breeds{% endblocktranslate %}</p>
-            <p class="post-similar-note">{% blocktranslate trimmed %}Chosen from all groups by size, coat length, coat type and activity level.{% endblocktranslate %}</p>
-            <p class="cat-desc post-similar">
-                {% for mate in similar_dogs %}<a href="{{ mate.get_absolute_url }}">{{ mate.title }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
-            </p>
+        {% if post.care %}
+        <p class="section-title" id="care">{% trans "Care essentials" %}</p>
+        <p class="images-rule post-care-note">{% trans "Practical advice, not a medical opinion. For any health question, ask your vet." %}</p>
+        <div class="post-day">{{ post.care|rich_lines }}</div>
+        <p class="cat-desc post-care-link">{% url 'guide-health' as health_url %}{% blocktranslate trimmed %}More about everyday health in the <a href="{{ health_url }}" class="link-policies">dog health & care guide</a>.{% endblocktranslate %}</p>
         {% endif %}
+
+        {% if post.quirks %}
+        <p class="section-title" id="quirks">{% trans "Fun facts" %}</p>
+        <p class="cat-desc">{{ post.quirks|linebreaksbr }}</p>
+        {% endif %}
+
+        <p class="section-title" id="faq">{% trans "FAQ" %}</p>
+        <div class="post-faq">
+            {% if post.good_fit %}
+            <details class="post-faq__item">
+                <summary>{% trans "This breed is a great fit if you" %}</summary>
+                <ul>{% for line in post.good_fit.splitlines %}{% if line.strip %}<li>{{ line }}</li>{% endif %}{% endfor %}</ul>
+            </details>
+            {% endif %}
+            {% if post.think_twice %}
+            <details class="post-faq__item">
+                <summary>{% trans "It may not be a fit if you" %}</summary>
+                <ul>{% for line in post.think_twice.splitlines %}{% if line.strip %}<li>{{ line }}</li>{% endif %}{% endfor %}</ul>
+            </details>
+            {% endif %}
+            <details class="post-faq__item">
+                <summary>{% trans "Is it suitable for allergy sufferers?" %}</summary>
+                <p>{% if post.hypoallergenic %}<strong>{{ post.get_hypoallergenic_display }}.</strong> {% endif %}{% trans "No dog is completely hypoallergenic: allergens come from saliva, skin and dander, not only from hair. Reactions are individual, so spend time with the dog before you decide and talk to an allergist if you are unsure." %}</p>
+            </details>
+            {% if similar_dogs %}
+            <details class="post-faq__item" id="similar">
+                <summary>{% blocktranslate trimmed with name=post.title %}Which breeds are similar to {{ name }}?{% endblocktranslate %}</summary>
+                <p class="post-similar-note">{% blocktranslate trimmed %}Chosen from all groups: breeds of the same size, ordered by how closely their coat length, coat type and activity level match. The notes show how each breed differs from this one.{% endblocktranslate %}</p>
+                <ul class="post-similar">
+                    {% for mate in similar_dogs %}
+                    <li><a href="{{ mate.get_absolute_url }}">{{ mate.title }}</a><span class="post-similar-diff">{% for note in mate.differences %}{{ note }}{% if not forloop.last %}, {% endif %}{% endfor %}</span></li>
+                    {% endfor %}
+                </ul>
+            </details>
+            {% endif %}
+            <details class="post-faq__item">
+                <summary>{% blocktranslate trimmed with name=post.title %}Compare {{ name }} with another breed{% endblocktranslate %}</summary>
+                {% include "woof/includes/compare_panel.html" %}
+            </details>
+            <details class="post-faq__item">
+                <summary>{% trans "Which other breeds might suit me?" %}</summary>
+                {% url 'breeds' as breeds_url %}
+                <p>{% blocktranslate trimmed %}Visit the <a href="{{ breeds_url }}" class="link-policies">Breeds</a> page: with the filters and the quiz there you can get to know the breeds better.{% endblocktranslate %}</p>
+            </details>
+        </div>
     </div>
 
 </div>
@@ -469,96 +465,12 @@ title="{% trans 'Next' %}"
 
 {% endif %}
 
-<!-- Compare dogs -->
-<div class="compare-section">
-
-    <h2 class="section-title" id="compare">{% blocktranslate trimmed %}Compare breeds{% endblocktranslate %}</h2>
-
-    <div id="comparePanel" class="compare-panel hidden">
-
-        <div class="compare-wrap">
-
-        <div class="compare-controls">
-
-            <div id="breedA"
-                 class="current-post-dog"
-                 data-id="{{ post.id }}">
-                 <img class="control-dog-image"
-                      src="{{ post.photo_thumb.url }}"
-                      alt="{{ post.title }}"
-                      loading="lazy"
-                      decoding="async">
-                 <span class="control-dog-name">{{ post.title }}</span>
-            </div>
-
-            <span class="vs">{% trans "and" %}</span>
-
-            <div id="breedBCustom" class="custom-select">
-                <button type="button"
-                        id="breedBTrigger"
-                        class="custom-select-trigger"
-                        aria-haspopup="listbox"
-                        aria-expanded="false">
-                    <span class="custom-select-value">
-                        <img id="breedBTriggerImg"
-                             class="custom-select-img"
-                             alt=""
-                             hidden>
-                        <span id="breedBTriggerText"
-                              class="custom-select-placeholder">{% trans "Select breed" %}</span>
-                    </span>
-                    <span class="custom-select-caret" aria-hidden="true"></span>
-                </button>
-
-                {# Filled by scripts.js from the <select> below (one list, not two). #}
-                <ul id="breedBList"
-                    class="custom-select-list"
-                    role="listbox"
-                    tabindex="-1"
-                    hidden></ul>
-            </div>
-
-            <select id="breedB"
-                    class="compare-select"
-                    title="{% trans 'Select breed' %}"
-                    hidden
-                    aria-hidden="true">
-                <option value="">{% trans "Select breed" %}</option>
-
-                {% for dog in all_breeds %}
-                    {% if dog.id != post.id %}
-                        <option value="{{ dog.id }}">
-                            {{ dog.title }}
-                        </option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-
-        </div>
-
-        <div id="compareTableWrapper"
-             data-i18n-varieties="{% trans 'Varieties' %}"
-             data-i18n-origin="{% trans 'Origin' %}"
-             data-i18n-size="{% trans 'Size' %}"
-             data-i18n-height="{% trans 'Height' %}"
-             data-i18n-weight="{% trans 'Weight' %}"
-             data-i18n-coat-type="{% trans 'Coat type' %}"
-             data-i18n-coat-length="{% trans 'Coat length' %}"
-             data-i18n-life="{% trans 'Life expectancy' %}"
-             data-i18n-trainability="{% trans 'Trainability' %}"
-             data-i18n-activity="{% trans 'Activity' %}"
-             data-i18n-barking="{% trans 'Barking' %}"
-             data-i18n-allergy="{% trans 'Shedding' %}"
-             data-i18n-family="{% trans 'Family friendly' %}"
-             data-i18n-years="{% trans 'years' %}"></div>
-
-        </div>
-
-    </div>
-
+<!-- Recently viewed: filled by scripts.js from this tab's own history -->
+<div class="recent-block" id="recent-block" hidden>
+    <h2 class="section-title" id="recent">{% trans "Recently viewed" %}</h2>
+    <div class="recent-grid" id="recent-grid"></div>
 </div>
 
-<h2 class="section-title" id="more-breeds">{% trans "More breeds" %}</h2>
 <!-- Prev / next breed navigation (closing the page) -->
 <nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
 
@@ -619,5 +531,9 @@ title="{% trans 'Next' %}"
     {% endif %}
 
 </nav>
+
+<p class="post-updated">{% blocktranslate trimmed with date=post.time_update|date:"j E Y" %}Breed classification follows the <a href="https://www.fci.be/" target="_blank" rel="noopener" class="link-policies">FCI</a> nomenclature. Last updated: {{ date }}.{% endblocktranslate %}</p>
+
+{% include "woof/includes/quiz_dialog.html" %}
 
 {% endblock %}

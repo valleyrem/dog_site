@@ -41,10 +41,17 @@
     </p>
 
     <!-- Group description -->
-    <p>
-        <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
-        {{ current_category.desc }}
-    </p>
+    <div class="group-intro">
+        <p class="group-intro__text">
+            <strong>{% blocktranslate trimmed %}In short.{% endblocktranslate %}</strong>
+            <span data-group-intro-desc>{{ current_category.desc }}</span>
+        </p>
+        <button type="button" class="guide-toc__toggle group-intro__toggle" aria-expanded="false" data-group-intro-toggle hidden>
+            <span class="guide-toc__more">{% trans "Read in full" %}</span>
+            <span class="guide-toc__less">{% trans "Collapse" %}</span>
+            <span class="guide-toc__arrow" aria-hidden="true"></span>
+        </button>
+    </div>
 
     <!-- Dogs grid (card slider) -->
     <div class="slider-block related-block">

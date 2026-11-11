@@ -1,10 +1,11 @@
 import logging
-from datetime import datetime
 
 from django import forms
 from django.core.cache import cache
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from .models import ContactMessage
 from .utils import send_telegram_message
 
 logger = logging.getLogger(__name__)
@@ -65,10 +66,23 @@ class ContactForm(forms.Form):
         cache.delete(cache_key)
         return value
 
-    def send_message_to_telegram(self):
-        current_time = datetime.now().strftime("%H:%M, %d %b %Y")
-        lines = [current_time]
-        if self.cleaned_data.get("email"):
-            lines.append(f"Email: {self.cleaned_data['email']}")
-        lines.append(f"Message: {self.cleaned_data['content']}")
-        return send_telegram_message("\n".join(lines))
+    def save_message(self):
+        """Store the message in the database; Telegram only gets a notice.
+
+        The notice carries no text and no e-mail — the message itself lives
+        only in the site database and is read in the admin.
+        """
+        try:
+            message = ContactMessage.objects.create(
+                email=self.cleaned_data.get("email", ""),
+                message=self.cleaned_data["content"],
+            )
+        except Exception:
+            logger.exception("Failed to save a contact message")
+            return False
+        local = timezone.localtime(message.created_at)
+        send_telegram_message(
+            f"New contact message #{message.pk} ({local.strftime('%H:%M, %d %b %Y')}).\n"
+            "Open the admin to read it."
+        )
+        return True

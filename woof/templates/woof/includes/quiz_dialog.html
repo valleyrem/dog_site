@@ -1,0 +1,51 @@
+{% load i18n %}
+<dialog class="bc-dialog bc-quiz" tabindex="-1" data-quiz-dialog data-quiz-target="{% url 'breeds' %}" aria-labelledby="quizTitle">
+    <form method="dialog" data-quiz-form>
+        <div class="bc-dialog__head">
+            <h2 class="bc-dialog__title" id="quizTitle">{% trans "Find my breed" %}</h2>
+            <button type="button" class="bc-dialog__close" data-quiz-close aria-label="{% trans 'Close' %}"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg></button>
+        </div>
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "Where do you live?" %}</legend>
+            <label><input type="radio" name="home" value="" checked> {% trans "A house with a garden, or it does not matter" %}</label>
+            <label><input type="radio" name="home" value="size-small-medium"> {% trans "An apartment or a small home" %}</label>
+        </fieldset>
+
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "How active are you?" %}</legend>
+            <label><input type="radio" name="activity" value="" checked> {% trans "Either is fine" %}</label>
+            <label><input type="radio" name="activity" value="calm"> {% trans "Relaxed, with short walks" %}</label>
+            <label><input type="radio" name="activity" value="active"> {% trans "Active, with long walks and sports" %}</label>
+        </fieldset>
+
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "Are there children in your home?" %}</legend>
+            <label><input type="radio" name="family" value="" checked> {% trans "No, or it does not matter" %}</label>
+            <label><input type="radio" name="family" value="family"> {% trans "Yes, I need a family-friendly dog" %}</label>
+        </fieldset>
+
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "Have you trained a dog before?" %}</legend>
+            <label><input type="radio" name="training" value="" checked> {% trans "Yes, I am experienced" %}</label>
+            <label><input type="radio" name="training" value="cooperative"> {% trans "No, this is my first dog" %}</label>
+        </fieldset>
+
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "How do you feel about dog hair at home?" %}</legend>
+            <label><input type="radio" name="shedding" value="" checked> {% trans "It does not bother me" %}</label>
+            <label><input type="radio" name="shedding" value="low-shedding"> {% trans "As little as possible" %}</label>
+        </fieldset>
+
+        <fieldset class="bc-quiz__q">
+            <legend>{% trans "Do you need a quiet dog?" %}</legend>
+            <label><input type="radio" name="barking" value="" checked> {% trans "Not really" %}</label>
+            <label><input type="radio" name="barking" value="quiet"> {% trans "Yes, neighbours are close" %}</label>
+        </fieldset>
+
+        <p class="bc-quiz__none" data-quiz-none hidden>{% trans "No breed matches all your answers. Try changing one of them." %}</p>
+
+        <div class="bc-quiz__actions">
+            <button type="submit" class="bc-bar__btn bc-bar__btn--main">{% trans "Show matching breeds" %}</button>
+        </div>
+    </form>
+</dialog>

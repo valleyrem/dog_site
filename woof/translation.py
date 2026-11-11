@@ -15,13 +15,14 @@ class DogsTranslationOptions(TranslationOptions):
     fields = (
         "title",
         "varieties",
-        "life_expectancy",
         "colors",
         "summary",
         "history",
         "care",
-        "living_conditions",
-        "photo_author",
+        "good_fit",
+        "think_twice",
+        "daily_life",
+        "quirks",
     )
 
 
@@ -30,7 +31,7 @@ class CountryTranslationOptions(TranslationOptions):
 
 
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ("name", "desc")
+    fields = ("name", "desc", "short_desc")
 
 
 class SectionTranslationOptions(TranslationOptions):

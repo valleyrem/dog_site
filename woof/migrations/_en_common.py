@@ -1,0 +1,8 @@
+MDR1 = "Some dogs of this breed carry the MDR1 gene mutation, which makes certain medicines act more strongly than usual. Tell your vet about the breed and consider a genetic test."
+JOINTS = "Joints: Large breeds more often have problems with the hip and elbow joints. While the puppy is growing, avoid long runs and jumping, and keep its weight normal throughout its life."
+STOMACH = "Stomach: Large deep-chested dogs can suffer from bloat (gastric torsion). Feed small portions and avoid active play right after meals; a swollen, hard belly, restlessness and unproductive retching are a reason to go to the vet urgently."
+BRACHY = "Breathing: Short-muzzled dogs have narrow airways, so heat, excitement and exertion tire them quickly. Noisy, snoring breathing and panting at rest are a reason to take the dog to the vet."
+BACK = "Back: With the long body and short legs, the spinal discs are vulnerable. Sudden pain, an unsteady gait or reluctance to move is a reason to see the vet immediately."
+KNEES = "Knees: Small breeds often have a kneecap that slips out of place. If the dog suddenly limps or hops on a hind leg, show it to the vet."
+NECK = "Neck: Very small dogs have a sensitive trachea, so a harness suits walks better than a collar."
+ANES = "Anesthesia: Sighthounds have little body fat, so they are sensitive to some anaesthetic drugs. Before an operation or any procedure with sedation, remind the vet that you have a sighthound."

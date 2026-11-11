@@ -1,0 +1,4 @@
+{% extends "admin/change_form.html" %}
+
+{% block submit_buttons_top %}{{ block.super }}{% include "woof/admin/dog_neighbours.html" %}{% endblock %}
+{% block submit_buttons_bottom %}{{ block.super }}{% include "woof/admin/dog_neighbours.html" %}{% endblock %}

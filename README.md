@@ -17,7 +17,7 @@ dog_site/
 │   ├── models.py          # Dogs, Category, Section, DogImage, CoatType, CoatLength
 │   ├── views.py           # StaticPageView, списки/карточки, breed API, контакт
 │   ├── urls.py            # Все URL приложения
-│   ├── forms.py           # ContactForm → отправка в Telegram (timeout 10с)
+│   ├── forms.py           # ContactForm → ContactMessage в БД + уведомление в Telegram без текста
 │   ├── utils.py           # DataMixin (общий контекст), меню, кэш категорий
 │   ├── sitemap.py         # sitemap.xml (кэшируется) + robots.txt
 │   ├── og_card.py         # OG-картинка 1200×630 на Pillow
@@ -28,7 +28,8 @@ dog_site/
 │   ├── templatetags/      # cards.py: фильтры цвета FCI, nobreak_range
 │   ├── templates/woof/    # 25 шаблонов (8 гайдов + includes/)
 │   ├── management/commands/ # fill_content, fill_sex_params, prune_temperament,
-│   │                        # warm_thumbnails, purge_consent_log
+│   │                        # warm_thumbnails, purge_consent_log,
+│   │                        # purge_contact_messages
 │   └── migrations/        # 35 миграций
 │
 ├── templates/admin/       # Переопределение шаблона админки Django
@@ -207,6 +208,8 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
    автоматически, для старых фото — этой командой.
 4. Раз в месяц (cron): `python manage.py purge_consent_log --days 365` —
    удаляет записи журнала согласий старше года (GDPR, storage limitation).
+   Так же раз в месяц: `python manage.py purge_contact_messages --days 365` —
+   удаляет сообщения из контактной формы старше года (как обещано в Privacy Policy).
 5. Реверс-прокси (traefik/caddy/nginx) обязан передавать заголовок
    `X-Forwarded-Proto: https` — иначе `request.is_secure()` врёт и CSRF
    будет отвергать формы (см. «Безопасность»).
@@ -220,7 +223,7 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 | `ALLOWED_HOSTS` | список через запятую |
 | `DATABASE_NAME/USER/PASS` | PostgreSQL |
 | `DB_HOST/PORT` | PostgreSQL |
-| `TOKEN`, `CHAT_ID` | Telegram-бот контактной формы |
+| `TOKEN`, `CHAT_ID` | Telegram-бот: только уведомления (о сообщении из формы и о выборе в cookie-баннере), без текста сообщений |
 | `USE_S3` | хранить media в S3-бакете (см. «Media и S3») |
 | `S3_ACCESS_KEY_ID/SECRET_ACCESS_KEY` | креды S3 |
 | `S3_ENDPOINT_URL`, `S3_BUCKET_NAME`, `S3_REGION` | параметры бакета |
@@ -294,7 +297,8 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 - капча контактной формы одноразовая (токен удаляется после успешной проверки);
 - троттлинг `/consent-log/` считает IP по **последнему** адресу в
   `X-Forwarded-For` — первый клиент подделывает сам;
-- журнал согласий чистится командой `purge_consent_log` (см. «Деплой»).
+- журнал согласий и сообщения формы чистятся командами `purge_consent_log` и
+  `purge_contact_messages` (см. «Деплой»).
 
 ## SEO-разметка
 

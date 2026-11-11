@@ -6,6 +6,8 @@ changes with the card's position in the row (:nth-child).
 <a href="{{ dog.get_absolute_url }}"
    class="dog-card-link"
    data-filters="{{ dog.filter_keys }}"
+   data-search="{{ dog.search_text }}"
+   data-id="{{ dog.pk }}"
    title="{{ dog.title }}">
 
     <div class="dog-card">

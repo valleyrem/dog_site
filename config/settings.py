@@ -283,7 +283,7 @@ IMAGEKIT_CACHEFILE_STRATEGY = "imagekit.cachefiles.strategies.Optimistic"
 # The guides and the static pages have no timestamps in the database: they are
 # templates. One honest date is used for sitemap <lastmod> and for the Article
 # markup — bump it when the texts change.
-SITE_CONTENT_UPDATED = "2026-10-29"
+SITE_CONTENT_UPDATED = "2026-11-03"
 
 
 # Default primary key field type

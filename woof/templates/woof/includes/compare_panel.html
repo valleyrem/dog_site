@@ -1,0 +1,87 @@
+{% load i18n %}
+<!-- Compare dogs -->
+<div class="compare-section" id="compare"{% if hidden %} hidden{% endif %}>
+
+    <div id="comparePanel" class="compare-panel hidden">
+
+        <div class="compare-wrap">
+
+        <div class="compare-controls">
+
+            <div id="breedA"
+                 class="current-post-dog"
+                 data-id="{{ post.id }}">
+                 <img class="control-dog-image"
+                      src="{% if post.photo %}{{ post.photo_thumb.url }}{% endif %}"
+                      alt="{{ post.title }}"
+                      loading="lazy"
+                      decoding="async">
+                 <span class="control-dog-name">{{ post.title }}</span>
+            </div>
+
+            <span class="vs">{% trans "and" %}</span>
+
+            <div id="breedBCustom" class="custom-select">
+                <button type="button"
+                        id="breedBTrigger"
+                        class="custom-select-trigger"
+                        aria-haspopup="listbox"
+                        aria-expanded="false">
+                    <span class="custom-select-value">
+                        <img id="breedBTriggerImg"
+                             class="custom-select-img"
+                             alt=""
+                             hidden>
+                        <span id="breedBTriggerText"
+                              class="custom-select-placeholder">{% trans "Select breed" %}</span>
+                    </span>
+                    <span class="custom-select-caret" aria-hidden="true"></span>
+                </button>
+
+                {# Filled by scripts.js from the <select> below (one list, not two). #}
+                <ul id="breedBList"
+                    class="custom-select-list"
+                    role="listbox"
+                    tabindex="-1"
+                    hidden></ul>
+            </div>
+
+            <select id="breedB"
+                    class="compare-select"
+                    title="{% trans 'Select breed' %}"
+                    hidden
+                    aria-hidden="true">
+                <option value="">{% trans "Select breed" %}</option>
+
+                {% for dog in all_breeds %}
+                    {% if dog.id != post.id %}
+                        <option value="{{ dog.id }}"{% if dog.photo %} data-thumb="{{ dog.photo_thumb.url }}"{% endif %}>
+                            {{ dog.title }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div id="compareTableWrapper"
+             data-i18n-varieties="{% trans 'Varieties' %}"
+             data-i18n-origin="{% trans 'Origin' %}"
+             data-i18n-size="{% trans 'Size' %}"
+             data-i18n-height="{% trans 'Height' %}"
+             data-i18n-weight="{% trans 'Weight' %}"
+             data-i18n-coat-type="{% trans 'Coat type' %}"
+             data-i18n-coat-length="{% trans 'Coat length' %}"
+             data-i18n-life="{% trans 'Life expectancy' %}"
+             data-i18n-trainability="{% trans 'Trainability' %}"
+             data-i18n-activity="{% trans 'Activity' %}"
+             data-i18n-barking="{% trans 'Barking' %}"
+             data-i18n-allergy="{% trans 'Shedding' %}"
+             data-i18n-family="{% trans 'Family friendly' %}"
+             data-i18n-years="{% trans 'years' %}"></div>
+
+        </div>
+
+    </div>
+
+</div>

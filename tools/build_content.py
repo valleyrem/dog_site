@@ -41,7 +41,6 @@ FIELDS = (
     "summary",
     "history",
     "care",
-    "living_conditions",
     "photo_author",
 )
 LANGS = {"en": "", "ru": "_ru", "de": "_de", "it": "_it", "es": "_es", "sr_latn": "_sr_latn"}
@@ -167,7 +166,7 @@ dump(
     str(BASE_DIR / "woof" / "content" / "breeds.py"),
     "Per-breed content, one entry per slug.\n\n"
     "  texts    -- per language: title, varieties, life_expectancy, colors, summary,\n"
-    "              history, care, living_conditions, photo_author (empty values omitted)\n"
+    "              history, care, photo_author (empty values omitted)\n"
     "  m2m      -- coat_type / coat_length / temperament, by English name\n"
     "  traits   -- the five single-select traits (only for admin-added breeds)\n"
     "  scalars  -- size / life_expectancy / colors (only for admin-added breeds;\n"

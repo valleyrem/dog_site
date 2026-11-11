@@ -8,6 +8,7 @@ from django.utils import translation
 from django.views.decorators.http import require_GET
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 
+import re
 import secrets
 from django.core.cache import cache
 
@@ -116,6 +117,57 @@ class DogsCategory(DataMixin, DogFilterMixin, ListView):
         )
 
 
+# Ordered scales, mildest first: a breed is "calmer" or "quieter" than another
+# when it sits lower on the same scale.
+_ACTIVITY = ["calm", "regular", "high", "energetic"]
+_BARKING = ["necessary", "infrequent", "medium", "frequent", "vocal"]
+# the model lists shedding from heavy to minimal, so a bigger index sheds less
+_SHEDDING = ["no", "low", "moderate", "high"]
+
+
+def _mean_weight(dog):
+    """Average of the numbers in both weight fields ("25-32", "8"), or None."""
+    numbers = [
+        float(n.replace(",", "."))
+        for text in (dog.weight_male, dog.weight_female)
+        for n in re.findall(r"\d+(?:[.,]\d+)?", text or "")
+    ]
+    return sum(numbers) / len(numbers) if numbers else None
+
+
+def breed_differences(base, other):
+    """Up to two short phrases on how `other` differs from `base`."""
+
+    def step(scale, a, b):
+        if a in scale and b in scale:
+            return scale.index(b) - scale.index(a)
+        return 0
+
+    found = []
+
+    move = step(_ACTIVITY, base.activity_level, other.activity_level)
+    if move:
+        found.append(_("calmer") if move < 0 else _("more energetic"))
+
+    mine, theirs = _mean_weight(base), _mean_weight(other)
+    if mine and theirs:
+        ratio = theirs / mine
+        if ratio < 0.75:
+            found.append(_("lighter"))
+        elif ratio > 1.33:
+            found.append(_("heavier"))
+
+    move = step(_BARKING, base.barking_level, other.barking_level)
+    if abs(move) >= 2:
+        found.append(_("quieter") if move < 0 else _("barks more"))
+
+    move = step(_SHEDDING, base.hypoallergenic, other.hypoallergenic)
+    if abs(move) >= 2:
+        found.append(_("sheds more") if move < 0 else _("sheds less"))
+
+    return found[:2] or [_("very similar overall")]
+
+
 class ShowPost(DataMixin, DetailView):
     model = Dogs
     template_name = "woof/post.html"
@@ -167,8 +219,11 @@ class ShowPost(DataMixin, DetailView):
                     output_field=IntegerField(),
                 ),
             )
-            .order_by("-coat_hits", "-type_hits", "-activity_hits", "title")[:6]
+            .order_by("-coat_hits", "-type_hits", "-activity_hits", "title")[:5]
         )
+
+        for mate in context["similar_dogs"]:
+            mate.differences = breed_differences(post, mate)
 
         # related breeds from the same group
         context["related_dogs"] = (
@@ -265,7 +320,7 @@ class ContactFormView(DataMixin, FormView):
         )
 
     def form_valid(self, form):
-        if not form.send_message_to_telegram():
+        if not form.save_message():
             return JsonResponse(
                 {
                     "success": False,
@@ -360,6 +415,13 @@ class BreedsView(DataMixin, TemplateView):
         ),
     ]
 
+    # Barking is not in the button row: it lives in the "More filters" panel
+    # next to the country, temperament and coat-type drop-downs.
+    BARKING_FILTERS = [
+        ("quiet", _("Quiet"), {"barking_level__in": ["necessary", "infrequent"]}),
+        ("talkative", _("Talkative"), {"barking_level__in": ["frequent", "vocal"]}),
+    ]
+
     @staticmethod
     def _matches(dog, lookups):
         """Does a loaded breed fall under a filter button?
@@ -387,24 +449,74 @@ class BreedsView(DataMixin, TemplateView):
 
         dogs = list(
             Dogs.objects.filter(is_published=True)
-            .select_related("cat", "section")
-            .prefetch_related("coat_length")
+            .select_related("cat", "section", "country")
+            .prefetch_related("coat_length", "coat_type")
             .order_by("title")
         )
+
+        countries, coat_types = {}, {}
 
         # every dog gets the keys of all the filters it matches, so the browser
         # can combine them without asking the server again
         for dog in dogs:
-            dog.filter_keys = " ".join(
+            keys = [
                 key
                 for key, _title, _group, lookups in self.FILTERS
                 if self._matches(dog, lookups)
-            )
+            ]
+            keys += [
+                key
+                for key, _title, lookups in self.BARKING_FILTERS
+                if self._matches(dog, lookups)
+            ]
+            if dog.country_id:
+                keys.append(f"country-{dog.country_id}")
+                countries[dog.country_id] = dog.country.name
+            for c in dog.coat_type.all():
+                keys.append(f"coattype-{c.pk}")
+                coat_types[c.pk] = c.name
+            dog.filter_keys = " ".join(keys)
+
+            # what the search box looks through: names (both spellings),
+            # varieties, origin and group
+            parts = [dog.title, dog.title_en, dog.varieties, dog.cat.name]
+            if dog.country_id:
+                parts.append(dog.country.name)
+            dog.search_text = " ".join(p for p in dict.fromkeys(parts) if p)
+
+        def options(prefix, names):
+            return [
+                {"key": f"{prefix}-{pk}", "title": name}
+                for pk, name in sorted(names.items(), key=lambda kv: kv[1])
+            ]
 
         context["dogs"] = dogs
         context["filters"] = [
             {"key": key, "title": title, "group": group}
             for key, title, group, _lookups in self.FILTERS
+        ]
+        context["extra_filters"] = [
+            {
+                "group": "country",
+                "label": _("Country"),
+                "any": _("Any country"),
+                "options": options("country", countries),
+            },
+            {
+                "group": "coattype",
+                "label": _("Coat type"),
+                "any": _("Any coat type"),
+                "options": options("coattype", coat_types),
+            },
+            {
+                "group": "barking",
+                "label": _("Barking"),
+                "any": _("Any barking level"),
+                "options": [
+                    {"key": key, "title": title}
+                    for key, title, _lookups in self.BARKING_FILTERS
+                ],
+            },
         ]
         return self.get_user_context(**context, title=_("Breeds - Woof Dogs"))
 

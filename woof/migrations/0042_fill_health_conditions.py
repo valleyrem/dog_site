@@ -1,0 +1,183 @@
+from django.db import migrations
+
+# key: (en, ru, de, it, es, sr_latn)
+CONDITIONS = {
+    "hip": ("Hip dysplasia", "Дисплазия тазобедренных суставов", "Hüftdysplasie", "Displasia dell'anca", "Displasia de cadera", "Displazija kuka"),
+    "elbow": ("Elbow dysplasia", "Дисплазия локтевых суставов", "Ellbogendysplasie", "Displasia del gomito", "Displasia de codo", "Displazija lakta"),
+    "patella": ("Patellar luxation", "Вывих коленной чашечки", "Patellaluxation", "Lussazione della rotula", "Luxación de rótula", "Luksacija patele"),
+    "pra": ("Progressive retinal atrophy", "Прогрессирующая атрофия сетчатки", "Progressive Retinaatrophie (PRA)", "Atrofia retinica progressiva", "Atrofia retiniana progresiva", "Progresivna atrofija retine"),
+    "cataract": ("Cataracts", "Катаракта", "Katarakt (Grauer Star)", "Cataratta", "Cataratas", "Katarakta"),
+    "bloat": ("Bloat (gastric torsion)", "Заворот желудка", "Magendrehung", "Torsione gastrica", "Torsión gástrica", "Torzija želuca"),
+    "brachy": ("Brachycephalic airway syndrome", "Брахиоцефалический синдром", "Brachyzephales Syndrom", "Sindrome brachicefalica", "Síndrome braquicefálico", "Brahicefalični sindrom"),
+    "ivdd": ("Back problems (disc disease)", "Проблемы со спиной (грыжи дисков)", "Rückenprobleme (Bandscheibenvorfall)", "Problemi alla schiena (ernia del disco)", "Problemas de espalda (hernia discal)", "Problemi sa leđima (diskus hernija)"),
+    "heart": ("Heart disease", "Болезни сердца", "Herzerkrankungen", "Malattie cardiache", "Enfermedades cardíacas", "Srčana oboljenja"),
+    "mitral": ("Mitral valve disease", "Заболевание митрального клапана", "Mitralklappenerkrankung", "Malattia della valvola mitrale", "Enfermedad de la válvula mitral", "Bolest mitralne valvule"),
+    "dcm": ("Dilated cardiomyopathy", "Дилатационная кардиомиопатия", "Dilatative Kardiomyopathie", "Cardiomiopatia dilatativa", "Miocardiopatía dilatada", "Dilatativna kardiomiopatija"),
+    "epilepsy": ("Epilepsy", "Эпилепсия", "Epilepsie", "Epilessia", "Epilepsia", "Epilepsija"),
+    "allergy": ("Skin allergies", "Кожные аллергии", "Hautallergien", "Allergie cutanee", "Alergias cutáneas", "Kožne alergije"),
+    "ear": ("Ear infections", "Воспаления ушей", "Ohrenentzündungen", "Otiti", "Otitis", "Upale ušiju"),
+    "dental": ("Dental problems", "Проблемы с зубами", "Zahnprobleme", "Problemi dentali", "Problemas dentales", "Problemi sa zubima"),
+    "obesity": ("Obesity", "Ожирение", "Übergewicht", "Obesità", "Obesidad", "Gojaznost"),
+    "thyroid": ("Hypothyroidism", "Гипотиреоз", "Schilddrüsenunterfunktion", "Ipotiroidismo", "Hipotiroidismo", "Hipotireoza"),
+    "vwd": ("Von Willebrand disease", "Болезнь Виллебранда", "Von-Willebrand-Krankheit", "Malattia di von Willebrand", "Enfermedad de von Willebrand", "Von Willebrandova bolest"),
+    "deaf": ("Deafness", "Глухота", "Taubheit", "Sordità", "Sordera", "Gluvoća"),
+    "cancer": ("Certain cancers", "Некоторые виды рака", "Bestimmte Krebserkrankungen", "Alcuni tumori", "Ciertos tipos de cáncer", "Pojedini oblici raka"),
+    "eyelid": ("Eyelid problems", "Проблемы с веками", "Lidfehlstellungen", "Problemi alle palpebre", "Problemas de párpados", "Problemi sa kapcima"),
+    "folds": ("Skin-fold infections", "Воспаления кожных складок", "Hautfaltenentzündungen", "Infezioni delle pieghe cutanee", "Infecciones de los pliegues de la piel", "Infekcije kožnih nabora"),
+    "dryeye": ("Dry eye", "Сухость глаз", "Trockenes Auge", "Occhio secco", "Ojo seco", "Suvo oko"),
+    "glaucoma": ("Glaucoma", "Глаукома", "Glaukom", "Glaucoma", "Glaucoma", "Glaukom"),
+    "mdr1": ("Drug sensitivity (MDR1)", "Чувствительность к лекарствам (MDR1)", "Medikamentenempfindlichkeit (MDR1)", "Sensibilità ai farmaci (MDR1)", "Sensibilidad a fármacos (MDR1)", "Osetljivost na lekove (MDR1)"),
+    "cea": ("Collie eye anomaly", "Аномалия глаз колли", "Collie-Augenanomalie", "Anomalia oculare del Collie", "Anomalía ocular del collie", "Anomalija oka kod koli pasa"),
+    "kidney": ("Kidney disease", "Болезни почек", "Nierenerkrankungen", "Malattie renali", "Enfermedades renales", "Bolesti bubrega"),
+    "stones": ("Bladder stones", "Мочекаменная болезнь", "Blasensteine", "Calcoli vescicali", "Cálculos vesicales", "Kamenje u bešici"),
+    "dermoid": ("Dermoid sinus", "Дермоидный синус", "Dermoidsinus", "Seno dermoide", "Seno dermoide", "Dermoidni sinus"),
+    "dm": ("Degenerative myelopathy", "Дегенеративная миелопатия", "Degenerative Myelopathie", "Mielopatia degenerativa", "Mielopatía degenerativa", "Degenerativna mijelopatija"),
+    "heat": ("Heat sensitivity", "Чувствительность к жаре", "Hitzeempfindlichkeit", "Sensibilità al caldo", "Sensibilidad al calor", "Osetljivost na vrućinu"),
+    "addison": ("Addison's disease", "Болезнь Аддисона", "Morbus Addison", "Morbo di Addison", "Enfermedad de Addison", "Adisonova bolest"),
+    "anesthesia": ("Sensitivity to anesthesia", "Чувствительность к наркозу", "Narkoseempfindlichkeit", "Sensibilità all'anestesia", "Sensibilidad a la anestesia", "Osetljivost na anesteziju"),
+    "legg": ("Legg–Calvé–Perthes disease", "Болезнь Легга–Кальве–Пертеса", "Morbus Legg-Calvé-Perthes", "Malattia di Legg-Calvé-Perthes", "Enfermedad de Legg-Calvé-Perthes", "Leg-Kalve-Pertesova bolest"),
+    "copper": ("Copper storage disease", "Болезнь накопления меди", "Kupferspeicherkrankheit", "Malattia da accumulo di rame", "Enfermedad por acumulación de cobre", "Bolest nakupljanja bakra"),
+    "trachea": ("Collapsing trachea", "Коллапс трахеи", "Trachealkollaps", "Collasso tracheale", "Colapso traqueal", "Kolaps traheje"),
+    "sun": ("Sun and cold sensitivity", "Чувствительность кожи к солнцу и холоду", "Empfindliche Haut (Sonne, Kälte)", "Pelle sensibile a sole e freddo", "Sensibilidad de la piel al sol y al frío", "Osetljivost kože na sunce i hladnoću"),
+}
+
+# Typical, widely documented concerns for each breed (a general guide, not a
+# diagnosis). Breeds without reliable information are left empty and the
+# block is simply not shown for them.
+BREEDS = {
+    "afghan-hound": "cataract hip anesthesia",
+    "airedale-terrier": "hip allergy thyroid",
+    "akita": "hip bloat thyroid",
+    "alaskan-malamute": "hip cataract thyroid",
+    "american-bulldog": "hip elbow allergy",
+    "american-cocker-spaniel": "ear cataract pra",
+    "american-eskimo-dog": "pra hip patella",
+    "american-pit-bull-terrier": "hip allergy thyroid",
+    "american-staffordshire-terrier": "hip allergy thyroid",
+    "anatolian-shepherd-dog": "hip elbow bloat",
+    "australian-shepherd": "mdr1 hip cea epilepsy",
+    "azawakh": "anesthesia bloat",
+    "basset-hound": "ivdd ear eyelid bloat",
+    "beagle": "ear obesity epilepsy",
+    "bedlington-terrier": "copper pra kidney",
+    "belgian-shepherd-dog": "hip elbow epilepsy",
+    "bichon-frise": "allergy patella dental stones",
+    "black-and-tan-coonhound": "ear hip bloat",
+    "bloodhound": "bloat ear eyelid hip",
+    "bluetick-coonhound": "ear hip obesity",
+    "boerboel": "hip elbow heart",
+    "bolognese": "patella dental allergy",
+    "border-collie": "hip cea epilepsy mdr1",
+    "border-terrier": "patella heart",
+    "borzoi": "bloat anesthesia dcm",
+    "boxer": "cancer heart hip bloat",
+    "boykin-spaniel": "hip pra ear",
+    "brussels-griffon": "brachy patella dental",
+    "bulldog": "brachy folds hip heat",
+    "bull-terrier": "deaf kidney heart allergy",
+    "cane-corso": "hip elbow bloat",
+    "catahoula-leopard-dog": "deaf hip",
+    "cavalier-king-charles-spaniel": "mitral dryeye ear",
+    "chesapeake-bay-retriever": "hip pra thyroid",
+    "chihuahua": "patella dental mitral",
+    "collie-rough": "cea mdr1 bloat",
+    "czechoslovakian-wolfdog": "hip dm",
+    "dachshund": "ivdd obesity dental",
+    "dalmatian": "deaf stones allergy",
+    "dobermann": "dcm vwd bloat",
+    "drever": "ivdd ear obesity",
+    "dutch-shepherd-dog": "hip elbow",
+    "english-pointer": "hip deaf",
+    "english-setter": "hip deaf ear thyroid",
+    "french-bulldog": "brachy ivdd folds allergy",
+    "german-shepherd-dog": "hip elbow dm bloat",
+    "german-shorthaired-pointer": "hip bloat ear",
+    "german-spaniel": "ear hip",
+    "german-spitz": "patella dental allergy",
+    "golden-retriever": "cancer hip elbow allergy",
+    "gordon-setter": "hip bloat pra",
+    "great-dane": "bloat dcm hip cancer",
+    "greyhound": "anesthesia bloat cancer",
+    "hovawart": "hip elbow cancer",
+    "hungarian-short-haired-pointer-vizsla": "hip epilepsy cancer",
+    "hungarian-wire-haired-pointer": "hip ear",
+    "ibizan-podenco": "anesthesia",
+    "irish-red-setter": "bloat pra hip",
+    "irish-wolfhound": "dcm bloat cancer",
+    "italian-sighthound": "patella dental anesthesia",
+    "italian-spinone": "hip ear bloat",
+    "jack-russell-terrier": "patella legg deaf",
+    "keeshond-wolfspitz": "patella hip thyroid",
+    "kleiner-munsterlander": "hip ear",
+    "labrador-retriever": "hip elbow obesity ear",
+    "large-munsterlander": "hip ear",
+    "miniature-pinscher": "patella legg dental",
+    "nederlandse-kooikerhondje": "vwd patella",
+    "norwegian-elkhound-grey": "hip pra kidney",
+    "nova-scotia-duck-tolling-retriever": "hip pra",
+    "old-english-sheepdog": "hip deaf cataract bloat",
+    "otterhound": "hip bloat ear",
+    "pekingese": "brachy dryeye ivdd folds",
+    "pembroke-welsh-corgi": "ivdd hip obesity",
+    "pomeranian": "patella dental trachea",
+    "poodle": "pra addison hip",
+    "portuguese-water-dog": "pra hip addison",
+    "pug": "brachy folds obesity heat",
+    "puli": "hip ear cataract",
+    "rat-terrier": "patella allergy",
+    "rhodesian-ridgeback": "dermoid hip elbow",
+    "romagna-water-dog": "ear hip",
+    "rottweiler": "hip elbow cancer bloat",
+    "saint-bernard": "bloat hip dcm eyelid",
+    "saluki": "anesthesia heart cancer",
+    "samoyed": "hip pra kidney",
+    "scottish-terrier": "vwd cancer allergy",
+    "shar-pei": "folds allergy eyelid kidney",
+    "shih-tzu": "brachy dryeye ear dental",
+    "siberian-husky": "hip cataract pra",
+    "sloughi": "anesthesia pra",
+    "slovakian-hound": "ear hip",
+    "spanish-greyhound": "anesthesia",
+    "stabijhoun": "hip ear",
+    "tibetan-mastiff": "hip elbow thyroid",
+    "tibetan-terrier": "pra cataract hip",
+    "treeing-walker-coonhound": "ear hip",
+    "weimaraner": "bloat hip thyroid",
+    "welsh-terrier": "allergy glaucoma epilepsy",
+    "wetterhoun": "hip ear",
+    "whippet": "anesthesia heart",
+    "wire-fox-terrier": "allergy cataract epilepsy",
+    "xoloitzcuintli": "dental sun",
+    "yorkshire-terrier": "patella dental trachea",
+}
+
+LANGS = ("en", "ru", "de", "it", "es", "sr_latn")
+
+
+def fill(apps, schema_editor):
+    HealthCondition = apps.get_model("woof", "HealthCondition")
+    Dogs = apps.get_model("woof", "Dogs")
+
+    made = {}
+    for key, names in CONDITIONS.items():
+        obj = HealthCondition.objects.filter(name=names[0]).first()
+        if obj is None:
+            obj = HealthCondition(name=names[0])
+        for lang, text in zip(LANGS, names):
+            field = "name" if lang == "en" else f"name_{lang}"
+            if not getattr(obj, field, None):
+                setattr(obj, field, text)
+        obj.save()
+        made[key] = obj
+
+    for slug, keys in BREEDS.items():
+        dog = Dogs.objects.filter(slug=slug).first()
+        if dog is None or dog.health.exists():
+            continue
+        dog.health.add(*[made[k] for k in keys.split()])
+
+
+class Migration(migrations.Migration):
+    dependencies = [("woof", "0041_health_condition")]
+
+    operations = [migrations.RunPython(fill, migrations.RunPython.noop)]

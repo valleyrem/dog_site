@@ -15,9 +15,9 @@
 <div class="post-container">
 
     <!-- Page title -->
-    <h1 class="post-title-cat">{% blocktranslate trimmed %}Breeds{% endblocktranslate %}</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Breed catalogue{% endblocktranslate %}</h1>
 
-    <p class="section-title">{% blocktranslate trimmed %}Explore breeds by size, temperament, lifestyle and more.{% endblocktranslate %}</p>
+    <p class="section-title">{% blocktranslate trimmed %}Filter by size, coat and lifestyle.{% endblocktranslate %}</p>
 
 
     <div class="post-text-explore">
@@ -27,9 +27,9 @@
     </div>
 
 
-    <!-- Filters: one row of buttons, one filter at a time (see
-         BreedsView.FILTERS for the values behind each). Clicking the active
-         button again shows every breed. -->
+    <!-- Filters: one row of buttons. Each button belongs to a group (size,
+         coat, activity...); a group allows one choice, different groups add
+         up. Clicking the active button again clears its group. -->
     <div class="breeds-filter" data-breeds-filters>
 
         <button type="button"
@@ -41,19 +41,58 @@
             <button type="button"
                     class="filter-btn"
                     data-filter="{{ f.key }}"
-                    aria-pressed="false">{{ f.title }}<span class="filter-btn__cross" aria-hidden="true">×</span></button>
+                    data-group="{{ f.group }}"
+                    aria-pressed="false">{{ f.title }}<span class="filter-btn__count" data-count aria-hidden="true"></span><span class="filter-btn__cross" aria-hidden="true">×</span></button>
         {% endfor %}
 
     </div>
 
-    <!-- Search by name: typing narrows the grid, the active filter stays on -->
+    <!-- Tools: more filters, reset, quiz -->
+    <div class="breeds-tools">
+
+        <button type="button"
+                class="breeds-tool"
+                data-breeds-more-toggle
+                aria-expanded="false"
+                aria-controls="breedsMore"
+                data-label-more="{% trans 'More filters' %}"
+                data-label-less="{% trans 'Fewer filters' %}">{% trans "More filters" %}</button>
+
+        <button type="button"
+                class="breeds-tool breeds-tool--reset"
+                data-breeds-reset
+                hidden>{% trans "Reset filters" %}</button>
+
+        <button type="button"
+                class="breeds-tool breeds-tool--accent"
+                data-breeds-quiz-open>{% trans "Find my breed" %} 💡</button>
+
+    </div>
+
+    <div class="breeds-more" id="breedsMore" data-breeds-more hidden>
+        {% for g in extra_filters %}
+            {% if g.options %}
+                <label class="breeds-select">
+                    <span class="breeds-select__label">{{ g.label }}</span>
+                    <select data-breeds-select data-group="{{ g.group }}">
+                        <option value="">{{ g.any }}</option>
+                        {% for o in g.options %}
+                            <option value="{{ o.key }}">{{ o.title }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Search: names, varieties, country and group; accents are ignored -->
     <div class="breeds-search">
         <div class="breeds-search__field">
             <input type="search"
                    id="breedsSearch"
                    class="breeds-search__input"
-                   placeholder="{% trans 'Search by breed name' %}"
-                   aria-label="{% trans 'Search by breed name' %}"
+                   placeholder="{% trans 'Try “dachshund”, “Germany”, etc.' %}"
+                   aria-label="{% trans 'Try “dachshund”, “Germany”, etc.' %}"
                    autocomplete="off"
                    data-breeds-search>
             <button type="button"
@@ -65,11 +104,21 @@
         </div>
     </div>
 
-    <p class="breeds-empty" data-breeds-empty role="status" hidden>{% blocktranslate trimmed %}No breeds match these filters{% endblocktranslate %}</p>
+    <p class="breeds-count"
+       data-breeds-count
+       data-template="{% trans 'Showing {shown} of {total} breeds' %}"
+       role="status"
+       aria-live="polite"></p>
+
+    <p class="breeds-empty" data-breeds-empty hidden>{% blocktranslate trimmed %}No breeds match these filters{% endblocktranslate %}</p>
 
 
     <!-- Every published breed -->
-    <div class="breeds-grid" data-breeds-grid>
+    <div class="breeds-grid" data-breeds-grid
+         data-compare-add="{% trans 'Add to comparison' %}"
+         data-compare-remove="{% trans 'Remove from comparison' %}"
+         data-compare-label="{% trans 'Compare' %}"
+         data-compare-added="{% trans 'Added' %}">
 
         {% for dog in dogs %}
             {% include "woof/includes/dog_card.html" %}
@@ -89,5 +138,41 @@
     </p>
 
 </div>
+
+
+{% comment %} ---- Compare bar and dialog ---- {% endcomment %}
+<div class="bc-bar" data-bc-bar hidden>
+    <span class="bc-bar__text" data-bc-text
+          data-template="{% trans '{n} selected' %}"
+          data-hint="{% trans 'Choose 2 or 3 breeds to compare' %}"></span>
+    <button type="button" class="bc-bar__btn" data-bc-clear>{% trans "Clear" %}</button>
+    <button type="button" class="bc-bar__btn bc-bar__btn--main" data-bc-open>{% trans "Compare" %}</button>
+</div>
+
+<dialog class="bc-dialog" tabindex="-1" data-bc-dialog aria-labelledby="bcTitle">
+    <div class="bc-dialog__head">
+        <h2 class="bc-dialog__title" id="bcTitle">{% trans "Compare" %}</h2>
+        <button type="button" class="bc-dialog__close" data-bc-close aria-label="{% trans 'Close' %}"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="bc-dialog__body"
+         data-bc-table
+         data-i18n-varieties="{% trans 'Varieties' %}"
+         data-i18n-origin="{% trans 'Origin' %}"
+         data-i18n-size="{% trans 'Size' %}"
+         data-i18n-height="{% trans 'Height' %}"
+         data-i18n-weight="{% trans 'Weight' %}"
+         data-i18n-coat-type="{% trans 'Coat type' %}"
+         data-i18n-coat-length="{% trans 'Coat length' %}"
+         data-i18n-life="{% trans 'Life expectancy' %}"
+         data-i18n-trainability="{% trans 'Trainability' %}"
+         data-i18n-activity="{% trans 'Activity' %}"
+         data-i18n-barking="{% trans 'Barking' %}"
+         data-i18n-allergy="{% trans 'Shedding' %}"
+         data-i18n-family="{% trans 'Family friendly' %}"
+         data-i18n-years="{% trans 'years' %}"></div>
+</dialog>
+
+{% comment %} ---- "Find my breed": every answer is one filter key ---- {% endcomment %}
+{% include "woof/includes/quiz_dialog.html" %}
 
 {% endblock %}

@@ -190,7 +190,7 @@
                                         aria-hidden="true">
                                     <option value="">{% trans "Find by breed" %}</option>
                                     {% for dog in posts %}
-                                        <option value="{{ dog.get_absolute_url }}">
+                                        <option value="{{ dog.get_absolute_url }}"{% if dog.photo %} data-thumb="{{ dog.photo_thumb.url }}"{% endif %}>
                                             {{ dog.title }}
                                         </option>
                                     {% endfor %}

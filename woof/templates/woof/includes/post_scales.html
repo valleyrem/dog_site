@@ -1,0 +1,51 @@
+{% load i18n cards %}
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🌱</span>
+                <span>{% blocktranslate trimmed %}Shedding{% endblocktranslate %}</span>
+            </div>
+            {% scale post "hypoallergenic" True %}
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🏡</span>
+                <span>{% blocktranslate trimmed %}Family friendly{% endblocktranslate %}</span>
+            </div>
+            {% scale post "family_friendliness" %}
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">📢</span>
+                <span>{% blocktranslate trimmed %}Barking{% endblocktranslate %}</span>
+            </div>
+            {% scale post "barking_level" %}
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🚀</span>
+                <span>{% blocktranslate trimmed %}Activity level{% endblocktranslate %}</span>
+            </div>
+            {% scale post "activity_level" %}
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🎓</span>
+                <span>{% blocktranslate trimmed %}Trainability{% endblocktranslate %}</span>
+            </div>
+            {% scale post "trainability" %}
+        </div>
+
+        {% if post.prey_drive %}
+        <div class="param-card">
+            <div class="top">
+                <span class="icon">🐇</span>
+                <span>{% blocktranslate trimmed %}Prey drive{% endblocktranslate %}</span>
+            </div>
+            {% scale post "prey_drive" %}
+        </div>
+        {% endif %}

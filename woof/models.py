@@ -103,6 +103,12 @@ class Dogs(models.Model):
         ("excellent", _("Excellent (very gentle, great with kids)")),
     ]
 
+    PREY_CHOICES = [
+        ("low", _("Low")),
+        ("moderate", _("Moderate")),
+        ("high", _("High (chases small animals)")),
+    ]
+
     # main
     title = models.CharField(max_length=255, verbose_name="Breed")
     slug = models.SlugField(
@@ -232,7 +238,32 @@ class Dogs(models.Model):
     summary = models.TextField(blank=True, verbose_name="Summary")
     history = models.TextField(blank=True, verbose_name="History & origin")
     care = models.TextField(blank=True, verbose_name="Care")
-    living_conditions = models.TextField(blank=True, verbose_name="Conditions")
+    good_fit = models.TextField(
+        blank=True,
+        verbose_name="Good fit if",
+        help_text="One short point per line.",
+    )
+    think_twice = models.TextField(
+        blank=True,
+        verbose_name="Think twice if",
+        help_text="One short point per line.",
+    )
+    daily_life = models.TextField(
+        blank=True,
+        verbose_name="A day with the breed",
+        help_text="One line per topic, written as \"Walks: ...\" (the part before the colon is bold). "
+        "Start a line with \"- \" for a bullet; **word** is bold.",
+    )
+    quirks = models.TextField(
+        blank=True,
+        verbose_name="What surprises owners",
+        help_text="Two or three real-life observations.",
+    )
+
+    # more parameters
+    prey_drive = models.CharField(
+        max_length=20, blank=True, choices=PREY_CHOICES, verbose_name="Prey drive"
+    )
 
     # general
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Time created")
@@ -263,9 +294,13 @@ class Category(models.Model):
         max_length=255, unique=True, db_index=True, verbose_name="URL"
     )
     desc = models.TextField(blank=True, verbose_name="Description")
+    short_desc = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Short description",
+        help_text="One sentence for the group card on the Groups page.",
+    )
     fci_number = models.PositiveIntegerField(default=0)
-
-    group_image = models.ImageField(upload_to="groups/", blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -354,3 +389,19 @@ class ConsentLog(models.Model):
 
     def __str__(self):
         return f"{self.action} {self.consent_id}"
+
+
+class ContactMessage(models.Model):
+    """A message sent through the contact form, kept in the site database."""
+
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    email = models.EmailField(blank=True, default="")
+    message = models.TextField()
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Contact message"
+        verbose_name_plural = "Contact messages"
+
+    def __str__(self):
+        return f"{self.created_at:%Y-%m-%d %H:%M} {self.email or '—'}"
