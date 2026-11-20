@@ -17,7 +17,7 @@ FACTS = {
             "Labradori su prvi izbor za pse vodiče i pse pomoćnike za osobe sa invaliditetom.",
         ),
         (
-            "The thick, tapering \"otter tail\" works as a rudder in the water, and the paws are slightly webbed.",
+            'The thick, tapering "otter tail" works as a rudder in the water, and the paws are slightly webbed.',
             "Толстый конусообразный «хвост выдры» служит рулём в воде, а между пальцами есть небольшие перепонки.",
             "Die dicke, sich verjüngende „Otterrute“ dient im Wasser als Steuer, und die Pfoten haben leichte Schwimmhäute.",
             "La coda «da lontra», spessa e rastremata, funziona da timone in acqua e le zampe sono leggermente palmate.",
@@ -69,7 +69,7 @@ FACTS = {
             "Mali psi poput kojkerhondjea pojavljuju se na holandskim slikama 17. veka, među njima na delima Jana Stena i Rembranta.",
         ),
         (
-            "Long black hairs on the tips of the ears are called \"earrings\" and are a feature of the breed standard.",
+            'Long black hairs on the tips of the ears are called "earrings" and are a feature of the breed standard.',
             "Длинные чёрные волоски на кончиках ушей называют «серёжками», и они прописаны в стандарте породы.",
             "Lange schwarze Haare an den Ohrspitzen heißen „Ohrringe“ und gehören zum Rassestandard.",
             "I lunghi peli neri sulle punte delle orecchie si chiamano «orecchini» e fanno parte dello standard di razza.",
@@ -113,7 +113,7 @@ FACTS = {
             "Lejdi iz Dizni filma „Dama i Skitnica“ je američki koker španijel.",
         ),
         (
-            "The name \"cocker\" comes from the woodcock, a bird that the dog was bred to flush from cover.",
+            'The name "cocker" comes from the woodcock, a bird that the dog was bred to flush from cover.',
             "Слово «кокер» происходит от вальдшнепа (woodcock) — птицы, которую собака должна была поднимать из укрытия.",
             "Der Name „Cocker“ kommt von der Waldschnepfe (woodcock), einem Vogel, den der Hund aus der Deckung aufstöbern sollte.",
             "Il nome «cocker» deriva dalla beccaccia (woodcock), un uccello che il cane doveva stanare dal riparo.",
@@ -131,7 +131,7 @@ FACTS = {
     ],
     "nova-scotia-duck-tolling-retriever": [
         (
-            "It \"tolls\" ducks: it plays and jumps along the shore in sight of the birds until curious ducks swim in close.",
+            'It "tolls" ducks: it plays and jumps along the shore in sight of the birds until curious ducks swim in close.',
             "Он «подманивает» уток: играет и прыгает вдоль берега на виду у птиц, пока любопытные утки не подплывут близко.",
             "Er „lockt“ Enten an: Er spielt und springt am Ufer im Sichtfeld der Vögel, bis neugierige Enten nahe heranschwimmen.",
             "«Richiama» le anatre: gioca e salta lungo la riva in vista degli uccelli finché le anatre curiose non si avvicinano a nuoto.",
@@ -139,7 +139,7 @@ FACTS = {
             "„Mami“ patke: igra se i skače duž obale pred očima ptica sve dok radoznale patke ne priplivaju blizu.",
         ),
         (
-            "When it spots a duck, a Toller often lets out a loud, excited shriek that fans call the \"Toller scream\".",
+            'When it spots a duck, a Toller often lets out a loud, excited shriek that fans call the "Toller scream".',
             "Заметив утку, толлер часто издаёт громкий возбуждённый визг, который поклонники называют «воплем толлера».",
             "Wenn er eine Ente entdeckt, stößt ein Toller oft einen lauten, aufgeregten Schrei aus, den Fans „Toller-Schrei“ nennen.",
             "Quando avvista un'anatra, il Toller spesso emette uno strillo forte ed eccitato che gli appassionati chiamano «Toller scream».",
@@ -157,7 +157,7 @@ FACTS = {
     ],
     "wetterhoun": [
         (
-            "Its name means \"water dog\" in Frisian, and it was used to hunt otters in the canals of Friesland.",
+            'Its name means "water dog" in Frisian, and it was used to hunt otters in the canals of Friesland.',
             "Название по-фризски означает «водяная собака», и её использовали для охоты на выдр в каналах Фрисландии.",
             "Sein Name bedeutet auf Friesisch „Wasserhund“, und er wurde zur Otterjagd in den Kanälen Frieslands eingesetzt.",
             "Il nome significa «cane d'acqua» in frisone ed era usato per cacciare le lontre nei canali della Frisia.",
@@ -199,7 +199,7 @@ FACTS = {
             "Portugalski ribari učili su ove pse da teraju ribu u mreže, donose izgubljenu opremu i prenose poruke između čamaca.",
         ),
         (
-            "The traditional \"lion clip\" shaves the back half of the dog while the chest and joints stay fluffy for warmth in the water.",
+            'The traditional "lion clip" shaves the back half of the dog while the chest and joints stay fluffy for warmth in the water.',
             "Традиционная «львиная стрижка» оставляет заднюю половину собаки выбритой, а грудь и суставы пушистыми для тепла в воде.",
             "Der traditionelle „Löwenschnitt“ schert die hintere Hälfte des Hundes, während Brust und Gelenke zum Wärmen im Wasser flauschig bleiben.",
             "Il tradizionale «taglio a leone» rasa la metà posteriore del cane, mentre petto e articolazioni restano soffici per scaldare in acqua.",

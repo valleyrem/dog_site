@@ -13,7 +13,7 @@ EN = {
         "quirks": [
             "Dobermanns have an unusually well-developed sense of hearing and notice quiet sounds that people may not hear. That is why they often become alert at even a barely audible noise.",
             "The Dobermann has a short coat with a very sparse undercoat. It is therefore sensitive to cold, often needs warm clothing in winter, and at home often looks for a spot close to a source of heat.",
-            "Dobermanns are sometimes called \"Velcro dogs\": they bond strongly with their people, like to be nearby and often follow their owner from room to room.",
+            'Dobermanns are sometimes called "Velcro dogs": they bond strongly with their people, like to be nearby and often follow their owner from room to room.',
         ],
     },
     "rottweiler": {
@@ -26,7 +26,7 @@ EN = {
         "quirks": [
             "The breed's name comes from the German town of Rottweil, where the ancestors of today's Rottweilers were used to accompany cattle and guard the property of butchers. They were called \"butchers' dogs\".",
             "There is a well-known story that butchers tied purses with their takings to Rottweilers' collars, trusting the dogs to guard the money on the way back from the market. However, there is little reliable historical evidence of this tradition.",
-            "Some Rottweilers make a low, vibrating rumble when they are relaxed and enjoying company. Owners often call this sound \"Rottie talk\", although it should not be confused with warning growling.",
+            'Some Rottweilers make a low, vibrating rumble when they are relaxed and enjoying company. Owners often call this sound "Rottie talk", although it should not be confused with warning growling.',
         ],
     },
     "cane-corso": {
@@ -37,7 +37,7 @@ EN = {
             JOINTS,
         ],
         "quirks": [
-            "The breed's name probably comes from the Latin cohors, meaning \"yard\", \"farmstead\" or \"guarded territory\". This reflects the Cane Corso's traditional role as a protector of the home and farm.",
+            'The breed\'s name probably comes from the Latin cohors, meaning "yard", "farmstead" or "guarded territory". This reflects the Cane Corso\'s traditional role as a protector of the home and farm.',
             "On farms in southern Italy the Cane Corso was used to guard property, manage livestock and hunt large game, including wild boar.",
             "In the middle of the 20th century the breed was on the verge of extinction. In the 1970s Italian enthusiasts began to restore it, searching the rural areas of the south for surviving dogs.",
         ],
@@ -60,7 +60,7 @@ EN = {
     "saint-bernard": {
         "summary": "One of the largest breeds, with a massive build, a broad head and a thick coat. Good-natured, patient and calm, it bonds strongly with people and usually gets on well with children.",
         "care": [
-            "Coat: Brush the coat two or three times a week, and every day when it sheds, especially on long-haired dogs. Brush the long hair on the \"trousers\" and tail particularly thoroughly: it collects dirt.",
+            'Coat: Brush the coat two or three times a week, and every day when it sheds, especially on long-haired dogs. Brush the long hair on the "trousers" and tail particularly thoroughly: it collects dirt.',
             "Ears, paws and teeth: After meals, wipe the muzzle and mouth: drool is normal. Wipe the paws after walks.",
             "Worth knowing: Avoid heat and provide a cool place to rest.",
             STOMACH,
@@ -68,8 +68,8 @@ EN = {
         ],
         "quirks": [
             "The legendary Saint Bernard called Barry lived at the hospice on the Great St Bernard Pass in the early 19th century. He is credited with saving about 40 people who had got lost in the mountains. Today his mounted body is kept in the Natural History Museum in Bern.",
-            "The image of the Saint Bernard with a brandy barrel round its neck comes from Edwin Landseer's painting \"Alpine Mastiffs Reanimating a Distressed Traveller\", painted in 1820. However, there is no evidence that rescue dogs actually wore such barrels.",
-            "The popularity of Saint Bernards grew in many countries thanks to the comedy \"Beethoven\" (1992) and its sequels. The film's hero is a huge, good-natured Saint Bernard who keeps getting into funny situations.",
+            'The image of the Saint Bernard with a brandy barrel round its neck comes from Edwin Landseer\'s painting "Alpine Mastiffs Reanimating a Distressed Traveller", painted in 1820. However, there is no evidence that rescue dogs actually wore such barrels.',
+            'The popularity of Saint Bernards grew in many countries thanks to the comedy "Beethoven" (1992) and its sequels. The film\'s hero is a huge, good-natured Saint Bernard who keeps getting into funny situations.',
         ],
     },
     "bulldog": {
@@ -95,19 +95,19 @@ EN = {
         ],
         "quirks": [
             "In 1978 Guinness World Records named the Shar-Pei the rarest dog breed in the world. At that time the breed really was on the verge of extinction.",
-            "The name \"Shar-Pei\" translates from Chinese as \"sand skin\". It refers to the short, harsh coat that feels like sandpaper.",
+            'The name "Shar-Pei" translates from Chinese as "sand skin". It refers to the short, harsh coat that feels like sandpaper.',
             "Like the Chow Chow, the Shar-Pei has a blue-black tongue. This pigmentation is considered one of the distinguishing features of both breeds.",
         ],
     },
     "hovawart": {
         "summary": "A large, sturdy and well-balanced dog with a long coat and an attentive gaze. Devoted to its family, with a strong guarding instinct and an independent streak.",
         "care": [
-            "Coat: Brush the long, slightly wavy coat two or three times a week, and every day when it sheds. Occasionally trim the hair on the \"breeches\" and tail.",
+            'Coat: Brush the long, slightly wavy coat two or three times a week, and every day when it sheds. Occasionally trim the hair on the "breeches" and tail.',
             "Ears, paws and teeth: After walks, wipe the paws and check the coat for burrs.",
             JOINTS,
         ],
         "quirks": [
-            "The breed's name comes from the Middle High German words Hova (\"yard\", \"farmstead\") and Wart (\"guardian\"). Hovawarts were bred to guard homes and farms, and such dogs are mentioned in medieval German laws.",
+            'The breed\'s name comes from the Middle High German words Hova ("yard", "farmstead") and Wart ("guardian"). Hovawarts were bred to guard homes and farms, and such dogs are mentioned in medieval German laws.',
             "Hovawarts have three recognised colours: black, black and tan, and blond, from pale golden to a rich reddish shade.",
             "The modern breed was restored in Germany in the 20th century. One of the main centres of its formation was the Black Forest region, where enthusiasts looked for dogs resembling the old Hovawarts.",
         ],
@@ -130,7 +130,7 @@ EN = {
     "tibetan-mastiff": {
         "summary": "A large, powerful dog with a thick double coat, a broad head and a full mane around the neck. Independent, calm and territorial, with a strong guarding instinct and wary of strangers.",
         "care": [
-            "Coat: Brush the thick double coat two or three times a week, and every day during the heavy annual shed. Brush the \"mane\" and \"trousers\" particularly thoroughly. Bathe once every few months and dry the undercoat well.",
+            'Coat: Brush the thick double coat two or three times a week, and every day during the heavy annual shed. Brush the "mane" and "trousers" particularly thoroughly. Bathe once every few months and dry the undercoat well.',
             JOINTS,
         ],
         "quirks": [
@@ -148,8 +148,8 @@ EN = {
             KNEES,
         ],
         "quirks": [
-            "The Miniature Pinscher is called the \"king of toy dogs\" thanks to its proud bearing, bold character and energy. Despite its small size, it is nothing like a timid lapdog.",
-            "The breed's characteristic high, rhythmic gait is called the \"hackney\" gait, after the breed of horse known for the same expressive step. This trait is natural to the Miniature Pinscher and needs no special training.",
+            'The Miniature Pinscher is called the "king of toy dogs" thanks to its proud bearing, bold character and energy. Despite its small size, it is nothing like a timid lapdog.',
+            'The breed\'s characteristic high, rhythmic gait is called the "hackney" gait, after the breed of horse known for the same expressive step. This trait is natural to the Miniature Pinscher and needs no special training.',
             "The Miniature Pinscher is an independent German breed, not a scaled-down copy of the Dobermann. Originally such dogs were used to catch rats and other rodents in houses, stables and barns.",
         ],
     },

@@ -3,7 +3,18 @@ from importlib import import_module
 from django.db import migrations
 
 FIXES = ["_fun_fix_a", "_fun_fix_b"]
-PARTS = ["_fun_1", "_fun_2", "_fun_3", "_fun_5", "_fun_6", "_fun_7", "_fun_8", "_fun_9", "_fun_11", "_fun_12"]
+PARTS = [
+    "_fun_1",
+    "_fun_2",
+    "_fun_3",
+    "_fun_5",
+    "_fun_6",
+    "_fun_7",
+    "_fun_8",
+    "_fun_9",
+    "_fun_11",
+    "_fun_12",
+]
 LANGS = ("en", "ru", "de", "it", "es", "sr_latn")
 
 

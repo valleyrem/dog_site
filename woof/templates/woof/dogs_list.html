@@ -54,7 +54,7 @@
     </div>
 
     <!-- Dogs grid (card slider) -->
-    <div class="slider-block related-block">
+    <div class="slider-block related-block" data-initial-desktop="10" data-initial-tablet="8">
 
         <div class="slider-inner">
 
@@ -116,10 +116,9 @@
     <!-- Missing breed notice -->
     <p class="if-you-dont-see">
 
-        <strong>{% blocktranslate trimmed %}*{% endblocktranslate %}</strong>
         {% blocktranslate trimmed %}If you don’t see a particular breed on this website, it may simply mean
         that it hasn’t been added yet, or that we haven’t found suitable images
-        with clear attribution or free usage rights 😊{% endblocktranslate %}
+        with clear attribution or free usage rights.{% endblocktranslate %}
 
     </p>
 

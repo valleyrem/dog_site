@@ -19,6 +19,9 @@ menu = [
     {"title": _("Contact"), "url_name": "contact"},
 ]
 
+# Footer and the mobile menu also list the home page; the top bar does not.
+menu_with_home = [{"title": _("Home"), "url_name": "home"}] + menu
+
 # Pages that belong to a main-menu section without being its own menu item.
 MENU_PARENTS = {
     "category": "groups",
@@ -46,8 +49,8 @@ CATS_CACHE_KEY = "cats"
 CATS_CACHE_TIMEOUT = 60 * 15  # 15 minutes
 
 DEFAULT_META_DESCRIPTION = _(
-    "Woof Dogs — the world's dog breeds grouped by FCI classification: "
-    "temperament, size, care and more."
+    "Woof Dogs — a dog breed guide: breeds from around the world, care "
+    "and interesting facts."
 )
 
 
@@ -150,6 +153,7 @@ class DataMixin:
         context = kwargs
 
         context["menu"] = menu.copy()
+        context["menu_with_home"] = menu_with_home.copy()
         url_name = self.request.resolver_match.url_name
         context["menu_active"] = MENU_PARENTS.get(url_name, url_name)
         context["cats"] = self._get_categories()

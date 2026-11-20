@@ -51,6 +51,27 @@ class Country(models.Model):
         verbose_name_plural = "Countries of origin"
 
 
+class NativeLanguage(models.Model):
+    """Language of a breed's native name, shown after it: "Deutscher Boxer (German)".
+
+    The base ``name`` holds the English spelling; modeltranslation adds the
+    other languages, so it is chosen once from a list and shows translated
+    on the site everywhere.
+    """
+
+    name = models.CharField(
+        max_length=60, unique=True, db_index=True, verbose_name="Language"
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Native name language"
+        verbose_name_plural = "Native name languages"
+
+
 class Dogs(models.Model):
     BARKING_CHOICES = [
         ("necessary", _("When necessary (rare, purposeful)")),
@@ -139,6 +160,13 @@ class Dogs(models.Model):
         verbose_name="Country of origin",
     )
 
+    native_name = models.CharField(
+        max_length=120,
+        blank=True,
+        verbose_name="Native name",
+        help_text="Name in the country of origin (FCI original name). Not translated.",
+    )
+
     # photo
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Main photo")
 
@@ -161,6 +189,22 @@ class Dogs(models.Model):
         processors=[ResizeToFit(700, 500)],
         format="WEBP",
         options={"quality": 82},
+    )
+
+    native_language = models.ForeignKey(
+        NativeLanguage,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="dogs",
+        verbose_name="Native name language",
+    )
+
+    fci_standard = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="FCI standard number",
+        help_text="Official FCI breed number. Leave empty for breeds outside the FCI.",
     )
 
     photo_author = models.CharField(
@@ -251,8 +295,8 @@ class Dogs(models.Model):
     daily_life = models.TextField(
         blank=True,
         verbose_name="A day with the breed",
-        help_text="One line per topic, written as \"Walks: ...\" (the part before the colon is bold). "
-        "Start a line with \"- \" for a bullet; **word** is bold.",
+        help_text='One line per topic, written as "Walks: ..." (the part before the colon is bold). '
+        'Start a line with "- " for a bullet; **word** is bold.',
     )
     quirks = models.TextField(
         blank=True,
@@ -324,6 +368,12 @@ class Section(models.Model):
         verbose_name="Category",
     )
 
+    position = models.PositiveSmallIntegerField(
+        default=0,
+        verbose_name="Position",
+        help_text="Sections with a lower number come first; equal ones go by name.",
+    )
+
     def __str__(self):
         return self.name
 
@@ -334,7 +384,7 @@ class Section(models.Model):
     class Meta:
         verbose_name = "Section"
         verbose_name_plural = "Sections"
-        ordering = ["name"]
+        ordering = ["position", "name"]
 
 
 class DogImage(models.Model):

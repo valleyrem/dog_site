@@ -41,7 +41,7 @@ FACTS = {
         "en": [
             "It tops the best-known ranking of dog intelligence, by the psychologist Stanley Coren.",
             "A Border Collie named Chaser learned the names of more than 1,000 objects, a record confirmed in scientific tests.",
-            "Its famous \"eye\", a fixed intent stare, is how it herds sheep, and it may use the same stare on children, cats and bikes.",
+            'Its famous "eye", a fixed intent stare, is how it herds sheep, and it may use the same stare on children, cats and bikes.',
         ],
         "ru": [
             "Возглавляет самый известный рейтинг интеллекта собак психолога Стэнли Корена.",
@@ -124,7 +124,7 @@ FACTS = {
     "puli": {
         "en": [
             "The cords form slowly: a puppy has a soft fluffy coat, and cords start to appear at about a year old.",
-            "A Puli can leap straight up on the spot, sometimes at head height. Owners call it \"popping\".",
+            'A Puli can leap straight up on the spot, sometimes at head height. Owners call it "popping".',
             "It is an alert watchdog and announces every visitor loudly.",
         ],
         "ru": [
@@ -136,7 +136,7 @@ FACTS = {
     "boxer": {
         "en": [
             "Boxers use their front paws in play, like little boxers, and this may be where the name comes from.",
-            "When happy, a Boxer wiggles its whole body into a \"kidney bean\" shape and may jump with joy.",
+            'When happy, a Boxer wiggles its whole body into a "kidney bean" shape and may jump with joy.',
             "It matures slowly and keeps a playful, puppy-like character well into adulthood.",
         ],
         "ru": [
@@ -159,7 +159,7 @@ FACTS = {
     },
     "dobermann": {
         "en": [
-            "Dobermanns are often called \"Velcro dogs\" because they stick close to their person.",
+            'Dobermanns are often called "Velcro dogs" because they stick close to their person.',
             "A short coat with almost no undercoat means a Dobermann feels the cold, so many wear a jacket in winter.",
             "It is very sensitive and learns best from calm, fair training with plenty of praise.",
         ],
@@ -183,7 +183,7 @@ FACTS = {
     },
     "hovawart": {
         "en": [
-            "The name Hovawart means \"yard keeper\": the dog watches over the farm.",
+            'The name Hovawart means "yard keeper": the dog watches over the farm.',
             "It comes in three colours: black, black and gold, and blond.",
             "It is slow to mature and may keep a puppy's playfulness until about three years old.",
         ],
@@ -207,7 +207,7 @@ FACTS = {
     },
     "miniature-pinscher": {
         "en": [
-            "Its nickname is the \"King of Toys\", for its confident, proud attitude.",
+            'Its nickname is the "King of Toys", for its confident, proud attitude.',
             "It has a high-stepping gait, like a little trotting horse.",
             "Many Min Pins like to climb on furniture, and some find their way onto the highest shelf.",
         ],
@@ -220,7 +220,7 @@ FACTS = {
     "rottweiler": {
         "en": [
             "Many Rottweilers lean against your legs, and may try to sit on your lap despite their size.",
-            "Rottweilers \"talk\": a low, rumbling sound that owners compare to purring.",
+            'Rottweilers "talk": a low, rumbling sound that owners compare to purring.',
             "A Rottweiler grows up slowly and can stay playful like a puppy until two or three years old.",
         ],
         "ru": [
@@ -243,7 +243,7 @@ FACTS = {
     },
     "shar-pei": {
         "en": [
-            "The name Shar Pei means \"sand skin\", for its rough, bristly coat.",
+            'The name Shar Pei means "sand skin", for its rough, bristly coat.',
             "The tongue is blue-black, a distinctive feature that few other breeds share.",
             "A puppy is the most wrinkled, and the folds are deepest on the head and neck.",
         ],

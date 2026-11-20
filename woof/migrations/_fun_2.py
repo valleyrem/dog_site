@@ -17,7 +17,7 @@ FACTS = {
             "Glatka dlaka gotovo nema podlaku, pa mnogi dobermani zimi nose jaknu i traže mesto kraj radijatora.",
         ),
         (
-            "Dobermanns are nicknamed \"velcro dogs\" because they stick to their person and follow them from room to room.",
+            'Dobermanns are nicknamed "velcro dogs" because they stick to their person and follow them from room to room.',
             "Доберманов называют «собаками-липучками»: они прилипают к хозяину и ходят за ним из комнаты в комнату.",
             "Dobermänner heißen auch „Klettenhunde“, weil sie an ihrem Menschen kleben und ihm von Zimmer zu Zimmer folgen.",
             "I dobermann sono soprannominati «cani velcro» perché si attaccano alla loro persona e la seguono di stanza in stanza.",
@@ -43,7 +43,7 @@ FACTS = {
             "Mesari su psu vezivali kesu s novcem oko vrata kada su goneli stoku na pijacu.",
         ),
         (
-            "When content, a Rottweiler often rumbles with a low purr-like growl that owners call \"rottie talk\".",
+            'When content, a Rottweiler often rumbles with a low purr-like growl that owners call "rottie talk".',
             "Довольный ротвейлер часто издаёт низкое мурчащее ворчание, которое владельцы называют «ротвейлерским разговором».",
             "Wenn er zufrieden ist, brummt ein Rottweiler oft mit einem tiefen schnurrartigen Knurren, das Besitzer „Rotti-Gespräch“ nennen.",
             "Quando è contento, il rottweiler spesso emette un brontolio basso simile a fusa, che i proprietari chiamano «rottie talk».",
@@ -165,7 +165,7 @@ FACTS = {
             "Ginisova knjiga rekorda je 1978. navela šar-peja kao najređu rasu pasa na svetu.",
         ),
         (
-            "Its name means \"sand skin\" in Chinese, after the short, harsh coat that feels like sandpaper.",
+            'Its name means "sand skin" in Chinese, after the short, harsh coat that feels like sandpaper.',
             "Название по-китайски означает «песчаная кожа»: шерсть короткая и жёсткая, как наждачная бумага.",
             "Sein Name bedeutet auf Chinesisch „Sandhaut“, nach dem kurzen, harten Fell, das sich wie Schmirgelpapier anfühlt.",
             "Il nome significa «pelle di sabbia» in cinese, per il pelo corto e ruvido che ricorda la carta vetrata.",
@@ -183,7 +183,7 @@ FACTS = {
     ],
     "hovawart": [
         (
-            "The name is Old German for \"farm guardian\", and medieval law texts already mention such dogs.",
+            'The name is Old German for "farm guardian", and medieval law texts already mention such dogs.',
             "Название на староверхненемецком означает «страж усадьбы», а такие собаки упоминаются ещё в средневековых законах.",
             "Der Name bedeutet im Altdeutschen „Hofwächter“, und schon mittelalterliche Rechtstexte erwähnen solche Hunde.",
             "Il nome in antico tedesco significa «guardiano della fattoria», e già i testi giuridici medievali citano cani di questo tipo.",
@@ -217,7 +217,7 @@ FACTS = {
             "Kaže se da ime potiče od načina na koji se propne i udara prednjim šapama kao u boksu.",
         ),
         (
-            "When happy, a Boxer bends its body into a curve and wiggles, a move owners call the \"kidney bean dance\".",
+            'When happy, a Boxer bends its body into a curve and wiggles, a move owners call the "kidney bean dance".',
             "Когда боксёр рад, он изгибает тело дугой и виляет всем корпусом, владельцы называют это «танцем фасолины».",
             "Wenn ein Boxer sich freut, krümmt er den Körper zu einem Bogen und wackelt, was Besitzer „Kidneybohnen-Tanz“ nennen.",
             "Quando è felice, il boxer curva il corpo e scodinzola con tutto il corpo, una mossa che i proprietari chiamano «danza del fagiolo».",
@@ -261,7 +261,7 @@ FACTS = {
     ],
     "miniature-pinscher": [
         (
-            "It is called the \"King of Toys\" for its proud, high-stepping walk that looks like a trotting horse.",
+            'It is called the "King of Toys" for its proud, high-stepping walk that looks like a trotting horse.',
             "Его называют «королём игрушечных собак» за гордую, высоко поднимающую лапы походку, как у рысистой лошади.",
             "Er heißt „König der Zwerge“ wegen seines stolzen, hoch aufgesetzten Gangs, der an ein trabendes Pferd erinnert.",
             "È chiamato «re dei toy» per il passo fiero e a ginocchia alte che ricorda un cavallo al trotto.",

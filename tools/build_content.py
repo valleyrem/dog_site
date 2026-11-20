@@ -43,7 +43,14 @@ FIELDS = (
     "care",
     "photo_author",
 )
-LANGS = {"en": "", "ru": "_ru", "de": "_de", "it": "_it", "es": "_es", "sr_latn": "_sr_latn"}
+LANGS = {
+    "en": "",
+    "ru": "_ru",
+    "de": "_de",
+    "it": "_it",
+    "es": "_es",
+    "sr_latn": "_sr_latn",
+}
 
 
 def build_breeds():
@@ -108,16 +115,21 @@ def build_vocabulary():
                 (s.name_en or s.name): per_language(s)
                 for s in c.sections.all().order_by("name_en")
             }
-            for c in Category.objects.prefetch_related("sections").order_by("fci_number")
+            for c in Category.objects.prefetch_related("sections").order_by(
+                "fci_number"
+            )
         },
         "countries": {
-            (c.name_en or c.name): per_language(c) for c in Country.objects.order_by("name")
+            (c.name_en or c.name): per_language(c)
+            for c in Country.objects.order_by("name")
         },
         "coat_types": {
-            (c.name_en or c.name): per_language(c) for c in CoatType.objects.order_by("name")
+            (c.name_en or c.name): per_language(c)
+            for c in CoatType.objects.order_by("name")
         },
         "coat_lengths": {
-            (c.name_en or c.name): per_language(c) for c in CoatLength.objects.order_by("name")
+            (c.name_en or c.name): per_language(c)
+            for c in CoatLength.objects.order_by("name")
         },
         "temperaments": {
             (c.name_en or c.name): per_language(c)

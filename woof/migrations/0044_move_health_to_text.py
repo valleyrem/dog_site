@@ -12,9 +12,7 @@ def copy(apps, schema_editor):
         values = {}
         for lang in LANGS:
             suffix = "" if lang == "en" else f"_{lang}"
-            lines = [
-                getattr(c, f"name{suffix}", None) or c.name for c in conditions
-            ]
+            lines = [getattr(c, f"name{suffix}", None) or c.name for c in conditions]
             field = f"health_weak{suffix}"
             if not getattr(dog, field, None):
                 values[field] = "\n".join(lines)

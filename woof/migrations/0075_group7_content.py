@@ -7,9 +7,22 @@ DOGS = {
         "prey": "high",
         "en": {
             "summary": "Elegant, athletic and eager. The English Pointer is a lean field dog with tireless energy, a gentle nature at home and a passion for running and scent.",
-            "care": ["The short sleek coat needs a weekly rub with a hound glove. Check the ears and nails.", "Plan for two hours or more of running a day. It has little body fat, so give a coat in cold weather."],
-            "good_fit": ["Are very active and love running or hiking", "Have a secure fence and plenty of space", "Want a gentle, affectionate athlete", "Enjoy training and field games"],
-            "think_twice": ["Want a calm, low-energy dog", "Are away from home most of the day", "Have small pets such as rabbits or birds", "Cannot give daily running"],
+            "care": [
+                "The short sleek coat needs a weekly rub with a hound glove. Check the ears and nails.",
+                "Plan for two hours or more of running a day. It has little body fat, so give a coat in cold weather.",
+            ],
+            "good_fit": [
+                "Are very active and love running or hiking",
+                "Have a secure fence and plenty of space",
+                "Want a gentle, affectionate athlete",
+                "Enjoy training and field games",
+            ],
+            "think_twice": [
+                "Want a calm, low-energy dog",
+                "Are away from home most of the day",
+                "Have small pets such as rabbits or birds",
+                "Cannot give daily running",
+            ],
             "daily": [
                 "Two hours or more a day, including real running in a secure space. On walks it follows scent and movement, so keep it on a lead where it is not fenced.",
                 "It needs company and exercise and may chew, dig or bark when bored. Do not leave an unexercised Pointer alone for long.",
@@ -19,13 +32,30 @@ DOGS = {
                 "Running, field trials, agility, scent games and fetch. It learns well with positive training.",
                 "A long active outing morning and evening and a calm rest between.",
             ],
-            "quirks": ["When it finds a scent, the Pointer freezes with one front paw lifted and its nose aimed at the source.", "Puppies often \"point\" at birds, toys or butterflies from very early age.", "Its thin coat and low body fat mean it feels the cold, so it appreciates a jacket and a warm bed."],
+            "quirks": [
+                "When it finds a scent, the Pointer freezes with one front paw lifted and its nose aimed at the source.",
+                'Puppies often "point" at birds, toys or butterflies from very early age.',
+                "Its thin coat and low body fat mean it feels the cold, so it appreciates a jacket and a warm bed.",
+            ],
         },
         "ru": {
             "summary": "Элегантный, спортивный и старательный. Английский пойнтер — поджарая полевая собака с неутомимой энергией, мягким характером дома и страстью к бегу и запахам.",
-            "care": ["Короткую гладкую шерсть раз в неделю протирайте рукавицей. Проверяйте уши и когти.", "Рассчитывайте на два часа и больше бега в день. Жира у собаки мало, поэтому в холод надевайте одежду."],
-            "good_fit": ["Очень активны и любите бег или походы", "Есть надёжный забор и много места", "Хотите мягкого ласкового спортсмена", "Любите дрессировку и полевые игры"],
-            "think_twice": ["Хотите спокойную собаку с небольшой энергией", "Большую часть дня не бываете дома", "Дома мелкие животные, например кролики или птицы", "Не можете обеспечить ежедневный бег"],
+            "care": [
+                "Короткую гладкую шерсть раз в неделю протирайте рукавицей. Проверяйте уши и когти.",
+                "Рассчитывайте на два часа и больше бега в день. Жира у собаки мало, поэтому в холод надевайте одежду.",
+            ],
+            "good_fit": [
+                "Очень активны и любите бег или походы",
+                "Есть надёжный забор и много места",
+                "Хотите мягкого ласкового спортсмена",
+                "Любите дрессировку и полевые игры",
+            ],
+            "think_twice": [
+                "Хотите спокойную собаку с небольшой энергией",
+                "Большую часть дня не бываете дома",
+                "Дома мелкие животные, например кролики или птицы",
+                "Не можете обеспечить ежедневный бег",
+            ],
             "daily": [
                 "Два часа и больше в день, включая настоящий бег в безопасном месте. На прогулке идёт за запахом и движением, поэтому там, где нет забора, держите на поводке.",
                 "Ей нужны компания и нагрузка, от скуки она может грызть, рыть землю и лаять. Не оставляйте непогулявшего пойнтера надолго.",
@@ -35,16 +65,33 @@ DOGS = {
                 "Бег, полевые испытания, аджилити, игры на поиск и апорт. Она хорошо учится на поощрении.",
                 "Долгая активная прогулка утром и вечером и спокойный отдых между ними.",
             ],
-            "quirks": ["Найдя запах, пойнтер замирает с поднятой передней лапой и носом, направленным на источник.", "Щенки часто «делают стойку» на птиц, игрушки и бабочек с самого раннего возраста.", "Тонкая шерсть и мало жира делают её чувствительной к холоду, поэтому ей нужны куртка и тёплая лежанка."],
+            "quirks": [
+                "Найдя запах, пойнтер замирает с поднятой передней лапой и носом, направленным на источник.",
+                "Щенки часто «делают стойку» на птиц, игрушки и бабочек с самого раннего возраста.",
+                "Тонкая шерсть и мало жира делают её чувствительной к холоду, поэтому ей нужны куртка и тёплая лежанка.",
+            ],
         },
     },
     "english-setter": {
         "prey": "high",
         "en": {
             "summary": "Gentle, elegant and friendly. The English Setter is a graceful gundog with a soft nature, a flowing coat and a love of company, outdoors and at home.",
-            "care": ["The long silky feathering needs brushing three or four times a week to prevent knots. Clean the ears weekly, and bath as needed.", "Plan for an hour and a half to two hours of exercise a day."],
-            "good_fit": ["Are active and enjoy long walks and running", "Want a sweet-natured, social family dog", "Do not mind regular brushing", "Have a secure garden"],
-            "think_twice": ["Are away from home most of the day", "Dislike grooming and burrs in the coat", "Want a dog that comes back every time", "Have small pets"],
+            "care": [
+                "The long silky feathering needs brushing three or four times a week to prevent knots. Clean the ears weekly, and bath as needed.",
+                "Plan for an hour and a half to two hours of exercise a day.",
+            ],
+            "good_fit": [
+                "Are active and enjoy long walks and running",
+                "Want a sweet-natured, social family dog",
+                "Do not mind regular brushing",
+                "Have a secure garden",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Dislike grooming and burrs in the coat",
+                "Want a dog that comes back every time",
+                "Have small pets",
+            ],
             "daily": [
                 "An hour and a half to two hours a day, with chances to run. Keep it on a lead in unfenced places, since it follows scent.",
                 "It dislikes being alone and may chew or bark when bored. It does best when someone is home.",
@@ -54,13 +101,30 @@ DOGS = {
                 "Running, scent games, field work and obedience. Gentle training and rewards work best.",
                 "Active morning and evening, calm time with the family in between.",
             ],
-            "quirks": ["The English Setter's coat is often called \"belton\", a speckled mix of colours that makes every dog's pattern unique.", "Feathering on the ears, chest, legs and tail collects burrs, so a check after a woodland walk saves time.", "Setters mature slowly and may stay playful for two years or more."],
+            "quirks": [
+                "The English Setter's coat is often called \"belton\", a speckled mix of colours that makes every dog's pattern unique.",
+                "Feathering on the ears, chest, legs and tail collects burrs, so a check after a woodland walk saves time.",
+                "Setters mature slowly and may stay playful for two years or more.",
+            ],
         },
         "ru": {
             "summary": "Мягкий, элегантный и дружелюбный. Английский сеттер — грациозная легавая с нежным характером, струящейся шерстью и любовью к компании на улице и дома.",
-            "care": ["Длинную шелковистую шерсть расчёсывайте три–четыре раза в неделю, чтобы не было колтунов. Раз в неделю чистите уши, мойте по необходимости.", "Рассчитывайте на полтора–два часа нагрузки в день."],
-            "good_fit": ["Активны и любите долгие прогулки и бег", "Хотите мягкую общительную семейную собаку", "Не против регулярной расчёски", "Есть огороженный двор"],
-            "think_twice": ["Большую часть дня не бываете дома", "Не любите уход за шерстью и репьи", "Хотите собаку, которая каждый раз возвращается", "Дома мелкие животные"],
+            "care": [
+                "Длинную шелковистую шерсть расчёсывайте три–четыре раза в неделю, чтобы не было колтунов. Раз в неделю чистите уши, мойте по необходимости.",
+                "Рассчитывайте на полтора–два часа нагрузки в день.",
+            ],
+            "good_fit": [
+                "Активны и любите долгие прогулки и бег",
+                "Хотите мягкую общительную семейную собаку",
+                "Не против регулярной расчёски",
+                "Есть огороженный двор",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Не любите уход за шерстью и репьи",
+                "Хотите собаку, которая каждый раз возвращается",
+                "Дома мелкие животные",
+            ],
             "daily": [
                 "Полтора–два часа в день с возможностью побегать. В местах без забора держите на поводке: она идёт за запахом.",
                 "Она не любит оставаться одна и от скуки может грызть вещи и лаять. Ей лучше, когда кто-то дома.",
@@ -70,16 +134,33 @@ DOGS = {
                 "Бег, игры на поиск, полевая работа и послушание. Лучше всего работают мягкая дрессировка и поощрение.",
                 "Активные утро и вечер и спокойное время с семьёй между ними.",
             ],
-            "quirks": ["Окрас английского сеттера часто называют «бельтон»: крапчатая смесь цветов, у каждой собаки свой узор.", "Длинная шерсть на ушах, груди, лапах и хвосте собирает репьи, поэтому осмотр после лесной прогулки экономит время.", "Сеттеры взрослеют медленно и могут оставаться игривыми два года и дольше."],
+            "quirks": [
+                "Окрас английского сеттера часто называют «бельтон»: крапчатая смесь цветов, у каждой собаки свой узор.",
+                "Длинная шерсть на ушах, груди, лапах и хвосте собирает репьи, поэтому осмотр после лесной прогулки экономит время.",
+                "Сеттеры взрослеют медленно и могут оставаться игривыми два года и дольше.",
+            ],
         },
     },
     "german-shorthaired-pointer": {
         "prey": "high",
         "en": {
             "summary": "Versatile, intelligent and tireless. The German Shorthaired Pointer is an all-round hunting dog and sporting partner that needs a very active family and a real job to do.",
-            "care": ["The short coat needs a weekly brush. Check the ears and wipe after muddy walks.", "Plan for two hours or more of exercise a day, including running and mental training."],
-            "good_fit": ["Are very active and love running or hiking", "Enjoy training and dog sports", "Have a secure fence", "Are home a lot"],
-            "think_twice": ["Want a calm dog for a small flat", "Are away from home most of the day", "Have small pets", "Cannot give daily running and training"],
+            "care": [
+                "The short coat needs a weekly brush. Check the ears and wipe after muddy walks.",
+                "Plan for two hours or more of exercise a day, including running and mental training.",
+            ],
+            "good_fit": [
+                "Are very active and love running or hiking",
+                "Enjoy training and dog sports",
+                "Have a secure fence",
+                "Are home a lot",
+            ],
+            "think_twice": [
+                "Want a calm dog for a small flat",
+                "Are away from home most of the day",
+                "Have small pets",
+                "Cannot give daily running and training",
+            ],
             "daily": [
                 "Two hours or more a day, with real running, swimming or cycling alongside. Without enough exercise it becomes restless and destructive.",
                 "It needs company and activity. Left alone and bored, it may bark, chew or dig.",
@@ -89,13 +170,30 @@ DOGS = {
                 "Fetch, swimming, agility, tracking, field work and obedience. It learns quickly, so give it a real job.",
                 "Active outings morning and evening and play and training between.",
             ],
-            "quirks": ["It is a true all-rounder: it can point, retrieve from land and water and track, and is happy to do all three.", "Many love swimming and will jump into any water, so a towel in the car is useful.", "It matures slowly and stays puppy-like and bouncy for two or three years."],
+            "quirks": [
+                "It is a true all-rounder: it can point, retrieve from land and water and track, and is happy to do all three.",
+                "Many love swimming and will jump into any water, so a towel in the car is useful.",
+                "It matures slowly and stays puppy-like and bouncy for two or three years.",
+            ],
         },
         "ru": {
             "summary": "Универсальная, умная и неутомимая собака. Курцхаар — охотничий универсал и спортивный партнёр, которому нужна очень активная семья и настоящее дело.",
-            "care": ["Короткую шерсть расчёсывайте раз в неделю. Проверяйте уши и вытирайте после грязных прогулок.", "Рассчитывайте на два часа и больше нагрузки в день, включая бег и умственные занятия."],
-            "good_fit": ["Очень активны и любите бег или походы", "Любите дрессировку и собачий спорт", "Есть надёжный забор", "Часто бываете дома"],
-            "think_twice": ["Хотите спокойную собаку для маленькой квартиры", "Большую часть дня не бываете дома", "Дома мелкие животные", "Не можете ежедневно давать бег и занятия"],
+            "care": [
+                "Короткую шерсть расчёсывайте раз в неделю. Проверяйте уши и вытирайте после грязных прогулок.",
+                "Рассчитывайте на два часа и больше нагрузки в день, включая бег и умственные занятия.",
+            ],
+            "good_fit": [
+                "Очень активны и любите бег или походы",
+                "Любите дрессировку и собачий спорт",
+                "Есть надёжный забор",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Хотите спокойную собаку для маленькой квартиры",
+                "Большую часть дня не бываете дома",
+                "Дома мелкие животные",
+                "Не можете ежедневно давать бег и занятия",
+            ],
             "daily": [
                 "Два часа и больше в день с настоящим бегом, плаванием или велосипедом. Без достаточной нагрузки она становится беспокойной и разрушительной.",
                 "Ей нужны компания и занятия. Оставшись одна и заскучав, может лаять, грызть вещи и рыть землю.",
@@ -105,16 +203,33 @@ DOGS = {
                 "Апорт, плавание, аджилити, работа по следу, полевая работа и послушание. Она быстро учится, дайте ей настоящее дело.",
                 "Активные прогулки утром и вечером, а между ними игры и занятия.",
             ],
-            "quirks": ["Это настоящий универсал: она делает стойку, подаёт дичь с суши и из воды и работает по следу, и ей нравится всё это.", "Многие обожают плавать и прыгают в любую воду, поэтому в машине пригодится полотенце.", "Она взрослеет медленно и остаётся щенком — шумным и прыгучим — два–три года."],
+            "quirks": [
+                "Это настоящий универсал: она делает стойку, подаёт дичь с суши и из воды и работает по следу, и ей нравится всё это.",
+                "Многие обожают плавать и прыгают в любую воду, поэтому в машине пригодится полотенце.",
+                "Она взрослеет медленно и остаётся щенком — шумным и прыгучим — два–три года.",
+            ],
         },
     },
     "gordon-setter": {
         "prey": "high",
         "en": {
             "summary": "Loyal, dignified and steady. The Gordon Setter is a strong, black-and-tan gundog with a devoted nature and the stamina for a full day outdoors.",
-            "care": ["The long silky coat needs brushing at least weekly, and more after woodland walks. Clean the ears regularly.", "Plan for one and a half to two hours of exercise a day, once fully grown."],
-            "good_fit": ["Are active and enjoy long walks", "Want a loyal, steady family dog", "Have a garden and a secure fence", "Do not mind regular brushing"],
-            "think_twice": ["Are away from home most of the day", "Want a quick learner at young age", "Have small pets", "Cannot give daily exercise"],
+            "care": [
+                "The long silky coat needs brushing at least weekly, and more after woodland walks. Clean the ears regularly.",
+                "Plan for one and a half to two hours of exercise a day, once fully grown.",
+            ],
+            "good_fit": [
+                "Are active and enjoy long walks",
+                "Want a loyal, steady family dog",
+                "Have a garden and a secure fence",
+                "Do not mind regular brushing",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Want a quick learner at young age",
+                "Have small pets",
+                "Cannot give daily exercise",
+            ],
             "daily": [
                 "One and a half to two hours a day once grown. Keep puppies from over-exercising. Use a lead or long line, as it follows scent.",
                 "It dislikes long hours alone and may bark or chew. Company and exercise help.",
@@ -124,13 +239,30 @@ DOGS = {
                 "Long walks, scent games, field work and obedience. Training takes time, as the breed matures slowly.",
                 "A long outing morning and evening and rest between.",
             ],
-            "quirks": ["The Gordon matures slowly and can stay playful for three years or more, so patience pays off.", "Its black-and-tan silky coat attracts burrs, so a brush after a walk is part of the routine.", "It is the heaviest of the setters and has a sturdy build for long days afield."],
+            "quirks": [
+                "The Gordon matures slowly and can stay playful for three years or more, so patience pays off.",
+                "Its black-and-tan silky coat attracts burrs, so a brush after a walk is part of the routine.",
+                "It is the heaviest of the setters and has a sturdy build for long days afield.",
+            ],
         },
         "ru": {
             "summary": "Преданный, достойный и уравновешенный. Гордон-сеттер — сильная чёрно-подпалая легавая с преданным характером и выносливостью на целый день на улице.",
-            "care": ["Длинную шелковистую шерсть расчёсывайте не реже раза в неделю, а после лесных прогулок чаще. Регулярно чистите уши.", "Рассчитывайте на полтора–два часа нагрузки в день, когда собака полностью выросла."],
-            "good_fit": ["Активны и любите долгие прогулки", "Хотите преданную уравновешенную семейную собаку", "Есть двор и надёжный забор", "Не против регулярной расчёски"],
-            "think_twice": ["Большую часть дня не бываете дома", "Хотите, чтобы собака быстро училась в юном возрасте", "Дома мелкие животные", "Не можете давать ежедневную нагрузку"],
+            "care": [
+                "Длинную шелковистую шерсть расчёсывайте не реже раза в неделю, а после лесных прогулок чаще. Регулярно чистите уши.",
+                "Рассчитывайте на полтора–два часа нагрузки в день, когда собака полностью выросла.",
+            ],
+            "good_fit": [
+                "Активны и любите долгие прогулки",
+                "Хотите преданную уравновешенную семейную собаку",
+                "Есть двор и надёжный забор",
+                "Не против регулярной расчёски",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Хотите, чтобы собака быстро училась в юном возрасте",
+                "Дома мелкие животные",
+                "Не можете давать ежедневную нагрузку",
+            ],
             "daily": [
                 "Полтора–два часа в день, когда вырос. Щенков не перегружайте. Используйте поводок или длинную верёвку: он идёт за запахом.",
                 "Долгое одиночество ему не нравится, он может лаять и грызть вещи. Помогают компания и нагрузка.",
@@ -140,32 +272,66 @@ DOGS = {
                 "Долгие прогулки, игры на поиск, полевая работа и послушание. Дрессировка требует времени, ведь порода взрослеет медленно.",
                 "Долгая прогулка утром и вечером и отдых между ними.",
             ],
-            "quirks": ["Гордон взрослеет медленно и может оставаться игривым три года и дольше, поэтому терпение окупается.", "Чёрно-подпалая шелковистая шерсть собирает репьи, поэтому расчёска после прогулки входит в распорядок.", "Это самый тяжёлый из сеттеров с крепким телосложением для долгих дней на охоте."],
+            "quirks": [
+                "Гордон взрослеет медленно и может оставаться игривым три года и дольше, поэтому терпение окупается.",
+                "Чёрно-подпалая шелковистая шерсть собирает репьи, поэтому расчёска после прогулки входит в распорядок.",
+                "Это самый тяжёлый из сеттеров с крепким телосложением для долгих дней на охоте.",
+            ],
         },
     },
     "hungarian-short-haired-pointer-vizsla": {
         "prey": "high",
         "en": {
             "summary": "Affectionate, energetic and sensitive. The Vizsla is a golden-red gundog that wants to be with its people all day, and thrives with an active family.",
-            "care": ["The short coat needs a weekly rub with a hound glove. Check the ears and nails.", "Plan for two hours or more of running and training a day. It has little fat, so give a coat in cold weather."],
-            "good_fit": ["Are very active and love running or hiking", "Are home a lot or can take the dog along", "Want an affectionate, sensitive dog", "Enjoy training and dog sports"],
-            "think_twice": ["Are away from home most of the day", "Want an independent dog", "Prefer a calm, low-energy pet", "Use harsh training methods"],
+            "care": [
+                "The short coat needs a weekly rub with a hound glove. Check the ears and nails.",
+                "Plan for two hours or more of running and training a day. It has little fat, so give a coat in cold weather.",
+            ],
+            "good_fit": [
+                "Are very active and love running or hiking",
+                "Are home a lot or can take the dog along",
+                "Want an affectionate, sensitive dog",
+                "Enjoy training and dog sports",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Want an independent dog",
+                "Prefer a calm, low-energy pet",
+                "Use harsh training methods",
+            ],
             "daily": [
                 "Two hours or more a day, with real running. Walks alone are not enough: add fetch, swimming or cycling.",
-                "A Vizsla is known as a \"velcro dog\" that wants to be with its people. Alone it can become anxious and destructive, so build short absences gently.",
+                'A Vizsla is known as a "velcro dog" that wants to be with its people. Alone it can become anxious and destructive, so build short absences gently.',
                 "Affectionate and quiet indoors when exercised, happy to lean on you or lie on the sofa.",
                 "Gentle and playful with children, but its energy can bowl over small ones.",
                 "Usually friendly with dogs. Birds and small pets may trigger its instinct.",
                 "Fetch, agility, scent games, field work and obedience. It is sensitive, so training should be positive.",
                 "Active morning and evening with company between.",
             ],
-            "quirks": ["The Vizsla is often called a \"velcro dog\" because it stays so close to its people.", "The golden-red coat has little smell and sheds lightly, though it offers little protection from cold.", "It tends to be sensitive to harsh voices, and it responds best to calm, rewarding training."],
+            "quirks": [
+                'The Vizsla is often called a "velcro dog" because it stays so close to its people.',
+                "The golden-red coat has little smell and sheds lightly, though it offers little protection from cold.",
+                "It tends to be sensitive to harsh voices, and it responds best to calm, rewarding training.",
+            ],
         },
         "ru": {
             "summary": "Ласковая, энергичная и чуткая собака. Венгерская выжла — золотисто-рыжая легавая, которая хочет быть с людьми весь день и расцветает в активной семье.",
-            "care": ["Короткую шерсть раз в неделю протирайте рукавицей. Проверяйте уши и когти.", "Рассчитывайте на два часа и больше бега и занятий в день. Жира у неё мало, поэтому в холод надевайте одежду."],
-            "good_fit": ["Очень активны и любите бег или походы", "Часто бываете дома или можете брать собаку с собой", "Хотите ласковую чуткую собаку", "Любите дрессировку и собачий спорт"],
-            "think_twice": ["Большую часть дня не бываете дома", "Хотите самостоятельную собаку", "Предпочитаете спокойного питомца с небольшой энергией", "Используете жёсткие методы дрессировки"],
+            "care": [
+                "Короткую шерсть раз в неделю протирайте рукавицей. Проверяйте уши и когти.",
+                "Рассчитывайте на два часа и больше бега и занятий в день. Жира у неё мало, поэтому в холод надевайте одежду.",
+            ],
+            "good_fit": [
+                "Очень активны и любите бег или походы",
+                "Часто бываете дома или можете брать собаку с собой",
+                "Хотите ласковую чуткую собаку",
+                "Любите дрессировку и собачий спорт",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Хотите самостоятельную собаку",
+                "Предпочитаете спокойного питомца с небольшой энергией",
+                "Используете жёсткие методы дрессировки",
+            ],
             "daily": [
                 "Два часа и больше в день с настоящим бегом. Одних прогулок мало: добавьте апорт, плавание или велосипед.",
                 "Выжлу называют «собакой-липучкой»: она хочет быть рядом с людьми. Оставшись одна, может тревожиться и всё портить, поэтому приучайте к отлучкам мягко.",
@@ -175,16 +341,33 @@ DOGS = {
                 "Апорт, аджилити, игры на поиск, полевая работа и послушание. Она чувствительна, поэтому дрессировка должна быть доброй.",
                 "Активные утро и вечер, а между ними компания.",
             ],
-            "quirks": ["Выжлу часто называют «собакой-липучкой»: так близко она держится к людям.", "Золотисто-рыжая шерсть почти не пахнет и мало линяет, но от холода почти не защищает.", "Она чувствительна к резкому голосу и лучше всего реагирует на спокойную дрессировку с поощрением."],
+            "quirks": [
+                "Выжлу часто называют «собакой-липучкой»: так близко она держится к людям.",
+                "Золотисто-рыжая шерсть почти не пахнет и мало линяет, но от холода почти не защищает.",
+                "Она чувствительна к резкому голосу и лучше всего реагирует на спокойную дрессировку с поощрением.",
+            ],
         },
     },
     "hungarian-wire-haired-pointer": {
         "prey": "high",
         "en": {
             "summary": "Affectionate, hardy and keen. The Wirehaired Vizsla is a versatile gundog with a weatherproof coat, a loving nature and plenty of stamina.",
-            "care": ["The wiry coat needs brushing once or twice a week and a light hand-strip or trim a few times a year. Wipe the beard after drinking.", "Plan for two hours or more of exercise a day, including running and swimming."],
-            "good_fit": ["Are very active and love the outdoors", "Want a loyal, affectionate and trainable dog", "Are home a lot", "Enjoy dog sports or field work"],
-            "think_twice": ["Are away from home most of the day", "Prefer a calm dog", "Have small pets", "Use harsh training"],
+            "care": [
+                "The wiry coat needs brushing once or twice a week and a light hand-strip or trim a few times a year. Wipe the beard after drinking.",
+                "Plan for two hours or more of exercise a day, including running and swimming.",
+            ],
+            "good_fit": [
+                "Are very active and love the outdoors",
+                "Want a loyal, affectionate and trainable dog",
+                "Are home a lot",
+                "Enjoy dog sports or field work",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Prefer a calm dog",
+                "Have small pets",
+                "Use harsh training",
+            ],
             "daily": [
                 "Two hours or more a day. The wiry coat suits wet and cold weather, and it loves water.",
                 "It bonds closely with the family and does not do well alone for long hours. Company helps.",
@@ -194,13 +377,30 @@ DOGS = {
                 "Fetch, swimming, tracking, field work and obedience. It is eager to please.",
                 "Active outings morning and evening and company between.",
             ],
-            "quirks": ["The wire coat and beard shed rain and mud, so it copes well with wet weather and water work.", "It is slightly heavier and hardier than its short-haired cousin, with a wiry, weatherproof coat.", "It is affectionate and sensitive, and rewards patient, gentle training."],
+            "quirks": [
+                "The wire coat and beard shed rain and mud, so it copes well with wet weather and water work.",
+                "It is slightly heavier and hardier than its short-haired cousin, with a wiry, weatherproof coat.",
+                "It is affectionate and sensitive, and rewards patient, gentle training.",
+            ],
         },
         "ru": {
             "summary": "Ласковая, выносливая и увлечённая собака. Жёсткошёрстная выжла — универсальная легавая с непромокаемой шерстью, добрым характером и большой выносливостью.",
-            "care": ["Жёсткую шерсть расчёсывайте один–два раза в неделю и несколько раз в год слегка тримминговать или подстригать. После питья протирайте бороду.", "Рассчитывайте на два часа и больше нагрузки в день, включая бег и плавание."],
-            "good_fit": ["Очень активны и любите проводить время на улице", "Хотите преданную ласковую и обучаемую собаку", "Часто бываете дома", "Любите собачий спорт или полевую работу"],
-            "think_twice": ["Большую часть дня не бываете дома", "Предпочитаете спокойную собаку", "Дома мелкие животные", "Используете жёсткую дрессировку"],
+            "care": [
+                "Жёсткую шерсть расчёсывайте один–два раза в неделю и несколько раз в год слегка тримминговать или подстригать. После питья протирайте бороду.",
+                "Рассчитывайте на два часа и больше нагрузки в день, включая бег и плавание.",
+            ],
+            "good_fit": [
+                "Очень активны и любите проводить время на улице",
+                "Хотите преданную ласковую и обучаемую собаку",
+                "Часто бываете дома",
+                "Любите собачий спорт или полевую работу",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Предпочитаете спокойную собаку",
+                "Дома мелкие животные",
+                "Используете жёсткую дрессировку",
+            ],
             "daily": [
                 "Два часа и больше в день. Жёсткая шерсть подходит для сырой и холодной погоды, и собака любит воду.",
                 "Она тесно привязана к семье и плохо переносит долгое одиночество. Помогает компания.",
@@ -210,16 +410,33 @@ DOGS = {
                 "Апорт, плавание, работа по следу, полевая работа и послушание. Она старается угодить.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["Жёсткая шерсть и борода отталкивают дождь и грязь, поэтому собака хорошо переносит сырую погоду и работу в воде.", "Она немного тяжелее и выносливее короткошёрстной родственницы, с жёсткой непромокаемой шерстью.", "Она ласкова и чутка и отвечает на терпеливую мягкую дрессировку."],
+            "quirks": [
+                "Жёсткая шерсть и борода отталкивают дождь и грязь, поэтому собака хорошо переносит сырую погоду и работу в воде.",
+                "Она немного тяжелее и выносливее короткошёрстной родственницы, с жёсткой непромокаемой шерстью.",
+                "Она ласкова и чутка и отвечает на терпеливую мягкую дрессировку.",
+            ],
         },
     },
     "irish-red-setter": {
         "prey": "high",
         "en": {
             "summary": "Friendly, lively and affectionate. The Irish Setter is a glossy red gundog with a cheerful, outgoing nature that loves to run and loves company.",
-            "care": ["The silky feathering needs brushing three or four times a week. Clean the ears weekly.", "Plan for two hours or more of running and play a day. Feed several small meals, since the breed is prone to bloat."],
-            "good_fit": ["Are very active and love running", "Want a friendly, outgoing family dog", "Have a large secure garden", "Do not mind regular brushing"],
-            "think_twice": ["Want a calm dog for a small flat", "Are away from home most of the day", "Want a dog that matures quickly", "Cannot give daily running"],
+            "care": [
+                "The silky feathering needs brushing three or four times a week. Clean the ears weekly.",
+                "Plan for two hours or more of running and play a day. Feed several small meals, since the breed is prone to bloat.",
+            ],
+            "good_fit": [
+                "Are very active and love running",
+                "Want a friendly, outgoing family dog",
+                "Have a large secure garden",
+                "Do not mind regular brushing",
+            ],
+            "think_twice": [
+                "Want a calm dog for a small flat",
+                "Are away from home most of the day",
+                "Want a dog that matures quickly",
+                "Cannot give daily running",
+            ],
             "daily": [
                 "Two hours or more a day, with real running. Keep it on a lead where it is not fenced, as it follows scent and birds.",
                 "It dislikes being alone and may chew or bark. Company and exercise help.",
@@ -229,13 +446,30 @@ DOGS = {
                 "Running, fetch, agility, field work and obedience. Training works with patience and rewards, as it matures slowly.",
                 "Active outings morning and evening and company between.",
             ],
-            "quirks": ["The Irish Setter stays puppy-like for a long time, and many are playful for two to three years.", "It is among the breeds at higher risk of bloat, so feed small meals and avoid exercise right after eating.", "Its mahogany-red coat is silky and sheds dirt, but it needs regular brushing to prevent tangles."],
+            "quirks": [
+                "The Irish Setter stays puppy-like for a long time, and many are playful for two to three years.",
+                "It is among the breeds at higher risk of bloat, so feed small meals and avoid exercise right after eating.",
+                "Its mahogany-red coat is silky and sheds dirt, but it needs regular brushing to prevent tangles.",
+            ],
         },
         "ru": {
             "summary": "Дружелюбный, живой и ласковый. Ирландский красный сеттер — блестящая рыжая легавая с весёлым общительным характером, которая любит бегать и любит компанию.",
-            "care": ["Шелковистую шерсть расчёсывайте три–четыре раза в неделю. Раз в неделю чистите уши.", "Рассчитывайте на два часа и больше бега и игр в день. Кормите несколькими небольшими порциями: порода склонна к заворотам желудка."],
-            "good_fit": ["Очень активны и любите бег", "Хотите дружелюбную общительную семейную собаку", "Есть большой огороженный двор", "Не против регулярной расчёски"],
-            "think_twice": ["Хотите спокойную собаку для маленькой квартиры", "Большую часть дня не бываете дома", "Хотите, чтобы собака быстро повзрослела", "Не можете ежедневно давать бег"],
+            "care": [
+                "Шелковистую шерсть расчёсывайте три–четыре раза в неделю. Раз в неделю чистите уши.",
+                "Рассчитывайте на два часа и больше бега и игр в день. Кормите несколькими небольшими порциями: порода склонна к заворотам желудка.",
+            ],
+            "good_fit": [
+                "Очень активны и любите бег",
+                "Хотите дружелюбную общительную семейную собаку",
+                "Есть большой огороженный двор",
+                "Не против регулярной расчёски",
+            ],
+            "think_twice": [
+                "Хотите спокойную собаку для маленькой квартиры",
+                "Большую часть дня не бываете дома",
+                "Хотите, чтобы собака быстро повзрослела",
+                "Не можете ежедневно давать бег",
+            ],
             "daily": [
                 "Два часа и больше в день с настоящим бегом. Там, где нет забора, держите на поводке: он идёт за запахом и птицами.",
                 "Он не любит оставаться один и может грызть вещи и лаять. Помогают компания и нагрузка.",
@@ -245,16 +479,33 @@ DOGS = {
                 "Бег, апорт, аджилити, полевая работа и послушание. Дрессировка идёт на терпении и поощрении: порода взрослеет медленно.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["Ирландский сеттер долго остаётся щенком, и многие игривы до двух–трёх лет.", "Порода относится к группе повышенного риска заворота желудка, поэтому кормите небольшими порциями и не нагружайте сразу после еды.", "Красновато-коричневая шёлковая шерсть отталкивает грязь, но требует регулярной расчёски против колтунов."],
+            "quirks": [
+                "Ирландский сеттер долго остаётся щенком, и многие игривы до двух–трёх лет.",
+                "Порода относится к группе повышенного риска заворота желудка, поэтому кормите небольшими порциями и не нагружайте сразу после еды.",
+                "Красновато-коричневая шёлковая шерсть отталкивает грязь, но требует регулярной расчёски против колтунов.",
+            ],
         },
     },
     "italian-spinone": {
         "prey": "moderate",
         "en": {
             "summary": "Gentle, patient and good-natured. The Italian Spinone is a big, shaggy gundog with a calm, affectionate nature and a methodical working style.",
-            "care": ["The rough, wiry coat needs brushing weekly and hand-stripping a couple of times a year. Wipe the beard and moustache after meals and clean the ears.", "Plan for an hour and a half of walking a day at a steady pace."],
-            "good_fit": ["Want a gentle, patient big dog", "Enjoy steady walks and outdoor time", "Do not mind a beard that collects water and food", "Have space"],
-            "think_twice": ["Dislike drool and a wet beard", "Want a quick, energetic runner", "Live in a small flat", "Are away from home most of the day"],
+            "care": [
+                "The rough, wiry coat needs brushing weekly and hand-stripping a couple of times a year. Wipe the beard and moustache after meals and clean the ears.",
+                "Plan for an hour and a half of walking a day at a steady pace.",
+            ],
+            "good_fit": [
+                "Want a gentle, patient big dog",
+                "Enjoy steady walks and outdoor time",
+                "Do not mind a beard that collects water and food",
+                "Have space",
+            ],
+            "think_twice": [
+                "Dislike drool and a wet beard",
+                "Want a quick, energetic runner",
+                "Live in a small flat",
+                "Are away from home most of the day",
+            ],
             "daily": [
                 "An hour and a half a day at a steady trot or walk. It is not a sprinter but loves the countryside.",
                 "It bonds closely with its family and does not like being left alone for long hours.",
@@ -264,13 +515,30 @@ DOGS = {
                 "Walks, field work, scent games and obedience. It learns steadily, so be patient and kind.",
                 "Calm outings morning and evening and plenty of time lying with the family.",
             ],
-            "quirks": ["The Spinone works at a slower, more methodical pace than most pointers, and it is happy to trot all day.", "Its rough, wiry coat and thick skin protect it in brambles and cold water.", "The beard and moustache soak up water and food, so a wipe after meals is part of life."],
+            "quirks": [
+                "The Spinone works at a slower, more methodical pace than most pointers, and it is happy to trot all day.",
+                "Its rough, wiry coat and thick skin protect it in brambles and cold water.",
+                "The beard and moustache soak up water and food, so a wipe after meals is part of life.",
+            ],
         },
         "ru": {
             "summary": "Мягкий, терпеливый и добродушный. Итальянский спиноне — большая лохматая легавая со спокойным ласковым характером и неторопливым стилем работы.",
-            "care": ["Жёсткую шерсть расчёсывайте раз в неделю и пару раз в год тримминговать. После еды протирайте бороду и усы, чистите уши.", "Рассчитывайте на полтора часа ходьбы в день в спокойном темпе."],
-            "good_fit": ["Хотите мягкую терпеливую крупную собаку", "Любите неспешные прогулки и время на природе", "Не против бороды, которая собирает воду и еду", "Есть место"],
-            "think_twice": ["Не любите слюни и мокрую бороду", "Хотите быстрого энергичного бегуна", "Живёте в маленькой квартире", "Большую часть дня не бываете дома"],
+            "care": [
+                "Жёсткую шерсть расчёсывайте раз в неделю и пару раз в год тримминговать. После еды протирайте бороду и усы, чистите уши.",
+                "Рассчитывайте на полтора часа ходьбы в день в спокойном темпе.",
+            ],
+            "good_fit": [
+                "Хотите мягкую терпеливую крупную собаку",
+                "Любите неспешные прогулки и время на природе",
+                "Не против бороды, которая собирает воду и еду",
+                "Есть место",
+            ],
+            "think_twice": [
+                "Не любите слюни и мокрую бороду",
+                "Хотите быстрого энергичного бегуна",
+                "Живёте в маленькой квартире",
+                "Большую часть дня не бываете дома",
+            ],
             "daily": [
                 "Полтора часа в день ровным шагом или рысью. Это не спринтер, но он любит сельскую местность.",
                 "Он тесно привязан к семье и не любит надолго оставаться один.",
@@ -280,16 +548,33 @@ DOGS = {
                 "Прогулки, полевая работа, игры на поиск и послушание. Он учится ровно, поэтому будьте терпеливы и добры.",
                 "Спокойные прогулки утром и вечером и много времени рядом с семьёй.",
             ],
-            "quirks": ["Спиноне работает медленнее и методичнее большинства легавых и готов рысить весь день.", "Жёсткая шерсть и плотная кожа защищают его в колючих зарослях и холодной воде.", "Борода и усы впитывают воду и еду, поэтому протирание после еды — часть жизни."],
+            "quirks": [
+                "Спиноне работает медленнее и методичнее большинства легавых и готов рысить весь день.",
+                "Жёсткая шерсть и плотная кожа защищают его в колючих зарослях и холодной воде.",
+                "Борода и усы впитывают воду и еду, поэтому протирание после еды — часть жизни.",
+            ],
         },
     },
     "kleiner-munsterlander": {
         "prey": "high",
         "en": {
             "summary": "Devoted, bright and versatile. The Small Munsterlander is a medium-sized gundog with a silky coat and a loving nature that suits an active family.",
-            "care": ["The silky coat with feathering needs brushing two or three times a week, and a check for burrs after walks. Clean the ears weekly.", "Plan for an hour and a half to two hours of exercise a day."],
-            "good_fit": ["Are active and enjoy the outdoors", "Want a friendly, trainable medium-sized dog", "Have a garden", "Enjoy field work or dog sports"],
-            "think_twice": ["Are away from home most of the day", "Want a calm, low-energy dog", "Have small pets", "Cannot give daily exercise"],
+            "care": [
+                "The silky coat with feathering needs brushing two or three times a week, and a check for burrs after walks. Clean the ears weekly.",
+                "Plan for an hour and a half to two hours of exercise a day.",
+            ],
+            "good_fit": [
+                "Are active and enjoy the outdoors",
+                "Want a friendly, trainable medium-sized dog",
+                "Have a garden",
+                "Enjoy field work or dog sports",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Want a calm, low-energy dog",
+                "Have small pets",
+                "Cannot give daily exercise",
+            ],
             "daily": [
                 "An hour and a half to two hours a day, with real running and games. Keep on a lead where there is no fence.",
                 "It bonds closely and dislikes long hours alone. Company and exercise help.",
@@ -299,13 +584,30 @@ DOGS = {
                 "Fetch, swimming, tracking, field work and obedience. It is intelligent and eager to learn.",
                 "Active outings morning and evening and company between.",
             ],
-            "quirks": ["The Small Munsterlander has a brown-and-white coat, often with a brown head, and it is smaller than the Large Munsterlander.", "It is an all-round gundog that points, retrieves and tracks, and it enjoys water.", "Feathering on the legs and tail collects burrs, so a quick check after a woodland walk is wise."],
+            "quirks": [
+                "The Small Munsterlander has a brown-and-white coat, often with a brown head, and it is smaller than the Large Munsterlander.",
+                "It is an all-round gundog that points, retrieves and tracks, and it enjoys water.",
+                "Feathering on the legs and tail collects burrs, so a quick check after a woodland walk is wise.",
+            ],
         },
         "ru": {
             "summary": "Преданная, умная и разносторонняя собака. Малый мюнстерлендер — легавая среднего размера с шелковистой шерстью и ласковым характером, которая подходит активной семье.",
-            "care": ["Шелковистую шерсть с оперением расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулки. Раз в неделю чистите уши.", "Рассчитывайте на полтора–два часа нагрузки в день."],
-            "good_fit": ["Активны и любите проводить время на природе", "Хотите дружелюбную обучаемую собаку среднего размера", "Есть двор", "Любите полевую работу или собачий спорт"],
-            "think_twice": ["Большую часть дня не бываете дома", "Хотите спокойную собаку с небольшой энергией", "Дома мелкие животные", "Не можете давать ежедневную нагрузку"],
+            "care": [
+                "Шелковистую шерсть с оперением расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулки. Раз в неделю чистите уши.",
+                "Рассчитывайте на полтора–два часа нагрузки в день.",
+            ],
+            "good_fit": [
+                "Активны и любите проводить время на природе",
+                "Хотите дружелюбную обучаемую собаку среднего размера",
+                "Есть двор",
+                "Любите полевую работу или собачий спорт",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Хотите спокойную собаку с небольшой энергией",
+                "Дома мелкие животные",
+                "Не можете давать ежедневную нагрузку",
+            ],
             "daily": [
                 "Полтора–два часа в день с настоящим бегом и играми. Там, где нет забора, держите на поводке.",
                 "Она тесно привязана и не любит долгого одиночества. Помогают компания и нагрузка.",
@@ -315,16 +617,33 @@ DOGS = {
                 "Апорт, плавание, работа по следу, полевая работа и послушание. Она умна и любит учиться.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["У малого мюнстерлендера коричнево-белая шерсть, часто с коричневой головой, и он меньше большого.", "Это универсальная легавая: она делает стойку, подаёт дичь, идёт по следу и любит воду.", "Длинная шерсть на лапах и хвосте собирает репьи, поэтому после лесной прогулки полезно осмотреть собаку."],
+            "quirks": [
+                "У малого мюнстерлендера коричнево-белая шерсть, часто с коричневой головой, и он меньше большого.",
+                "Это универсальная легавая: она делает стойку, подаёт дичь, идёт по следу и любит воду.",
+                "Длинная шерсть на лапах и хвосте собирает репьи, поэтому после лесной прогулки полезно осмотреть собаку.",
+            ],
         },
     },
     "large-munsterlander": {
         "prey": "high",
         "en": {
             "summary": "Loyal, intelligent and energetic. The Large Munsterlander is a black-and-white gundog with a steady nature that does best with an active owner and a purpose.",
-            "care": ["The long silky coat with feathering needs brushing two or three times a week and burr checks after walks. Clean the ears weekly.", "Plan for two hours or more of exercise and training a day."],
-            "good_fit": ["Are very active and enjoy the outdoors", "Want a loyal, trainable dog", "Have a garden and a secure fence", "Enjoy field work or dog sports"],
-            "think_twice": ["Are away from home most of the day", "Want a calm, low-energy dog", "Have small pets", "Are a first-time owner"],
+            "care": [
+                "The long silky coat with feathering needs brushing two or three times a week and burr checks after walks. Clean the ears weekly.",
+                "Plan for two hours or more of exercise and training a day.",
+            ],
+            "good_fit": [
+                "Are very active and enjoy the outdoors",
+                "Want a loyal, trainable dog",
+                "Have a garden and a secure fence",
+                "Enjoy field work or dog sports",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Want a calm, low-energy dog",
+                "Have small pets",
+                "Are a first-time owner",
+            ],
             "daily": [
                 "Two hours or more a day, with running, swimming and training. Keep it on a lead where there is no fence.",
                 "It bonds closely and dislikes long hours alone. Bored, it may chew or bark.",
@@ -334,13 +653,30 @@ DOGS = {
                 "Fetch, water work, tracking, field work and obedience. It is intelligent but can be strong-willed, so train with patience.",
                 "Active outings morning and evening and company between.",
             ],
-            "quirks": ["Its black-and-white coat and black head make it easy to spot in the field.", "It is a strong swimmer and is happy to retrieve from water.", "Munsterlanders are often described as enthusiast dogs: they love work and need a purpose."],
+            "quirks": [
+                "Its black-and-white coat and black head make it easy to spot in the field.",
+                "It is a strong swimmer and is happy to retrieve from water.",
+                "Munsterlanders are often described as enthusiast dogs: they love work and need a purpose.",
+            ],
         },
         "ru": {
             "summary": "Преданная, умная и энергичная собака. Большой мюнстерлендер — чёрно-белая легавая с уравновешенным характером, которой лучше всего с активным хозяином и настоящим делом.",
-            "care": ["Длинную шелковистую шерсть с оперением расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулок. Раз в неделю чистите уши.", "Рассчитывайте на два часа и больше нагрузки и занятий в день."],
-            "good_fit": ["Очень активны и любите проводить время на природе", "Хотите преданную обучаемую собаку", "Есть двор и надёжный забор", "Любите полевую работу или собачий спорт"],
-            "think_twice": ["Большую часть дня не бываете дома", "Хотите спокойную собаку с небольшой энергией", "Дома мелкие животные", "Это ваша первая собака"],
+            "care": [
+                "Длинную шелковистую шерсть с оперением расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулок. Раз в неделю чистите уши.",
+                "Рассчитывайте на два часа и больше нагрузки и занятий в день.",
+            ],
+            "good_fit": [
+                "Очень активны и любите проводить время на природе",
+                "Хотите преданную обучаемую собаку",
+                "Есть двор и надёжный забор",
+                "Любите полевую работу или собачий спорт",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Хотите спокойную собаку с небольшой энергией",
+                "Дома мелкие животные",
+                "Это ваша первая собака",
+            ],
             "daily": [
                 "Два часа и больше в день с бегом, плаванием и занятиями. Там, где нет забора, держите на поводке.",
                 "Она тесно привязана и не любит долгого одиночества. От скуки может грызть вещи и лаять.",
@@ -350,16 +686,33 @@ DOGS = {
                 "Апорт, работа в воде, работа по следу, полевая работа и послушание. Она умна, но может быть упорной, поэтому занимайтесь терпеливо.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["Чёрно-белая шерсть и чёрная голова делают её хорошо заметной в поле.", "Это сильный пловец, она охотно подаёт дичь из воды.", "Мюнстерлендеров часто называют собаками для увлечённых людей: они любят работу и нуждаются в деле."],
+            "quirks": [
+                "Чёрно-белая шерсть и чёрная голова делают её хорошо заметной в поле.",
+                "Это сильный пловец, она охотно подаёт дичь из воды.",
+                "Мюнстерлендеров часто называют собаками для увлечённых людей: они любят работу и нуждаются в деле.",
+            ],
         },
     },
     "stabijhoun": {
         "prey": "moderate",
         "en": {
             "summary": "Friendly, calm and people-loving. The Stabijhoun is a rare Dutch all-round dog with a gentle, devoted nature, equally happy as a family companion and a countryside walker.",
-            "care": ["The medium-long coat needs brushing once or twice a week and burr checks after walks. Clean the ears and keep nails short.", "Plan for about an hour and a half of walking and play a day."],
-            "good_fit": ["Want a friendly, calm family dog", "Enjoy country walks", "Have a garden", "Are home often"],
-            "think_twice": ["Are away from home most of the day", "Want a guard dog", "Want a dog that is easy to find", "Dislike mud and wet fur"],
+            "care": [
+                "The medium-long coat needs brushing once or twice a week and burr checks after walks. Clean the ears and keep nails short.",
+                "Plan for about an hour and a half of walking and play a day.",
+            ],
+            "good_fit": [
+                "Want a friendly, calm family dog",
+                "Enjoy country walks",
+                "Have a garden",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Want a guard dog",
+                "Want a dog that is easy to find",
+                "Dislike mud and wet fur",
+            ],
             "daily": [
                 "About an hour and a half a day. It enjoys steady walks, sniffing and swimming.",
                 "It bonds closely with the family and does not like being alone for long hours.",
@@ -369,13 +722,30 @@ DOGS = {
                 "Walks, scent games, swimming and tracking. It learns well with gentle training.",
                 "A steady rhythm of walks and rest. It enjoys a regular routine.",
             ],
-            "quirks": ["The Stabijhoun is a rare breed from Friesland in the Netherlands, so finding a puppy takes patience.", "It is calm and friendly, and it is often described as a laid-back all-round dog.", "The feathered coat sheds dirt and water, though a check for burrs is wise after countryside walks."],
+            "quirks": [
+                "The Stabijhoun is a rare breed from Friesland in the Netherlands, so finding a puppy takes patience.",
+                "It is calm and friendly, and it is often described as a laid-back all-round dog.",
+                "The feathered coat sheds dirt and water, though a check for burrs is wise after countryside walks.",
+            ],
         },
         "ru": {
             "summary": "Дружелюбная, спокойная и любящая людей собака. Стабихун — редкая голландская универсальная собака с мягким преданным характером, одинаково довольная ролью семейного компаньона и спутника на прогулках за городом.",
-            "care": ["Шерсть средней длины расчёсывайте один–два раза в неделю и проверяйте на репьи после прогулок. Чистите уши и стригите когти.", "Рассчитывайте примерно на полтора часа ходьбы и игр в день."],
-            "good_fit": ["Хотите дружелюбную спокойную семейную собаку", "Любите загородные прогулки", "Есть двор", "Часто бываете дома"],
-            "think_twice": ["Большую часть дня не бываете дома", "Хотите сторожевую собаку", "Хотите породу, которую легко найти", "Не любите грязь и мокрую шерсть"],
+            "care": [
+                "Шерсть средней длины расчёсывайте один–два раза в неделю и проверяйте на репьи после прогулок. Чистите уши и стригите когти.",
+                "Рассчитывайте примерно на полтора часа ходьбы и игр в день.",
+            ],
+            "good_fit": [
+                "Хотите дружелюбную спокойную семейную собаку",
+                "Любите загородные прогулки",
+                "Есть двор",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Хотите сторожевую собаку",
+                "Хотите породу, которую легко найти",
+                "Не любите грязь и мокрую шерсть",
+            ],
             "daily": [
                 "Около полутора часов в день. Любит неспешные прогулки, обнюхивание и плавание.",
                 "Она тесно привязана к семье и не любит долго оставаться одна.",
@@ -385,16 +755,33 @@ DOGS = {
                 "Прогулки, игры на поиск, плавание и работа по следу. Она хорошо учится при мягкой дрессировке.",
                 "Ровный ритм прогулок и отдыха. Ей нравится постоянный распорядок.",
             ],
-            "quirks": ["Стабихун — редкая порода из Фрисландии в Нидерландах, поэтому на поиск щенка нужно запастись терпением.", "Она спокойна и дружелюбна, её часто описывают как неторопливую универсальную собаку.", "Оперённая шерсть отталкивает грязь и воду, но после загородных прогулок полезно проверить её на репьи."],
+            "quirks": [
+                "Стабихун — редкая порода из Фрисландии в Нидерландах, поэтому на поиск щенка нужно запастись терпением.",
+                "Она спокойна и дружелюбна, её часто описывают как неторопливую универсальную собаку.",
+                "Оперённая шерсть отталкивает грязь и воду, но после загородных прогулок полезно проверить её на репьи.",
+            ],
         },
     },
     "weimaraner": {
         "prey": "high",
         "en": {
             "summary": "Elegant, intelligent and devoted. The Weimaraner is a silver-grey gundog with a strong bond to its family, great stamina and a need for a lot of company and activity.",
-            "care": ["The short sleek coat needs a weekly rub with a hound glove. Check the ears, and give a coat in cold weather.", "Plan for two hours or more of vigorous exercise a day, plus training."],
-            "good_fit": ["Are very active and love running or hiking", "Are home a lot or can take the dog along", "Can give firm, kind training", "Have experience with strong-willed dogs"],
-            "think_twice": ["Are away from home most of the day", "Are a first-time owner", "Have small pets or cats", "Cannot give two hours of exercise a day"],
+            "care": [
+                "The short sleek coat needs a weekly rub with a hound glove. Check the ears, and give a coat in cold weather.",
+                "Plan for two hours or more of vigorous exercise a day, plus training.",
+            ],
+            "good_fit": [
+                "Are very active and love running or hiking",
+                "Are home a lot or can take the dog along",
+                "Can give firm, kind training",
+                "Have experience with strong-willed dogs",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Are a first-time owner",
+                "Have small pets or cats",
+                "Cannot give two hours of exercise a day",
+            ],
             "daily": [
                 "Two hours or more of vigorous exercise a day: running, hiking or cycling. Without it a Weimaraner turns destructive.",
                 "It struggles with being alone and is prone to separation anxiety. Build short absences gradually and never leave it unexercised for long hours.",
@@ -404,13 +791,30 @@ DOGS = {
                 "Running, field work, tracking, agility and obedience. It learns fast and needs a job.",
                 "Active outings morning and evening and plenty of company between.",
             ],
-            "quirks": ["The silver-grey coat and light amber or blue-grey eyes make the Weimaraner unmistakable, and it is often nicknamed the \"grey ghost\".", "It is one of the breeds most often linked to separation anxiety because it wants to be with its person all day.", "Puppies are born with faint stripes that fade as the coat develops."],
+            "quirks": [
+                'The silver-grey coat and light amber or blue-grey eyes make the Weimaraner unmistakable, and it is often nicknamed the "grey ghost".',
+                "It is one of the breeds most often linked to separation anxiety because it wants to be with its person all day.",
+                "Puppies are born with faint stripes that fade as the coat develops.",
+            ],
         },
         "ru": {
             "summary": "Элегантная, умная и преданная собака. Веймаранер — серебристо-серая легавая с сильной привязанностью к семье, отличной выносливостью и потребностью в компании и активности.",
-            "care": ["Короткую гладкую шерсть раз в неделю протирайте рукавицей. Проверяйте уши, а в холод надевайте одежду.", "Рассчитывайте на два часа и больше активной нагрузки в день и на занятия."],
-            "good_fit": ["Очень активны и любите бег или походы", "Часто бываете дома или можете брать собаку с собой", "Можете заниматься твёрдо и доброжелательно", "Есть опыт с собаками с сильным характером"],
-            "think_twice": ["Большую часть дня не бываете дома", "Это ваша первая собака", "Дома мелкие животные или кошки", "Не можете давать два часа нагрузки в день"],
+            "care": [
+                "Короткую гладкую шерсть раз в неделю протирайте рукавицей. Проверяйте уши, а в холод надевайте одежду.",
+                "Рассчитывайте на два часа и больше активной нагрузки в день и на занятия.",
+            ],
+            "good_fit": [
+                "Очень активны и любите бег или походы",
+                "Часто бываете дома или можете брать собаку с собой",
+                "Можете заниматься твёрдо и доброжелательно",
+                "Есть опыт с собаками с сильным характером",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Это ваша первая собака",
+                "Дома мелкие животные или кошки",
+                "Не можете давать два часа нагрузки в день",
+            ],
             "daily": [
                 "Два часа и больше активной нагрузки в день: бег, походы или велосипед. Без этого веймаранер становится разрушительным.",
                 "Одиночество даётся ему тяжело, он склонен к тревоге разлуки. Приучайте к коротким отлучкам постепенно и не оставляйте без нагрузки надолго.",
@@ -420,7 +824,11 @@ DOGS = {
                 "Бег, полевая работа, поиск по следу, аджилити и послушание. Он быстро учится и нуждается в деле.",
                 "Активные прогулки утром и вечером и много компании между ними.",
             ],
-            "quirks": ["Серебристо-серая шерсть и светлые янтарные или серо-голубые глаза делают веймаранера узнаваемым, его часто называют «серым призраком».", "Это одна из пород, которую чаще всего связывают с тревогой разлуки, ведь она хочет быть с хозяином весь день.", "Щенки рождаются с едва заметными полосами, которые исчезают по мере роста шерсти."],
+            "quirks": [
+                "Серебристо-серая шерсть и светлые янтарные или серо-голубые глаза делают веймаранера узнаваемым, его часто называют «серым призраком».",
+                "Это одна из пород, которую чаще всего связывают с тревогой разлуки, ведь она хочет быть с хозяином весь день.",
+                "Щенки рождаются с едва заметными полосами, которые исчезают по мере роста шерсти.",
+            ],
         },
     },
 }

@@ -100,8 +100,8 @@ FACTS = {
     "old-english-sheepdog": {
         "en": [
             "For decades it was the face of Dulux paints in British advertising, which made it one of the best-known dogs in the country.",
-            "A popular story says that tails were docked to show a working dog, hence the nickname \"Bobtail\". Today many are born with a short tail.",
-            "The breed standard describes its bark as a \"pot-casse\": a loud, ringing sound, like a cracked pot.",
+            'A popular story says that tails were docked to show a working dog, hence the nickname "Bobtail". Today many are born with a short tail.',
+            'The breed standard describes its bark as a "pot-casse": a loud, ringing sound, like a cracked pot.',
         ],
         "ru": [
             "Десятилетиями она была лицом британской рекламы красок Dulux и стала одной из самых узнаваемых собак страны.",
@@ -125,7 +125,7 @@ FACTS = {
         "en": [
             "Hungarian herders say the breed came with the Magyars over a thousand years ago; the plural of Puli is Pulik.",
             "The cords form slowly: a puppy has a soft fluffy coat, and cords start to appear at about a year old.",
-            "A Puli can leap straight up on the spot, sometimes at head height, a habit nicknamed \"popping\".",
+            'A Puli can leap straight up on the spot, sometimes at head height, a habit nicknamed "popping".',
         ],
         "ru": [
             "Венгерские пастухи говорят, что порода пришла с мадьярами более тысячи лет назад; множественное число от «пули» — «пулик».",

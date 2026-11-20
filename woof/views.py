@@ -1,13 +1,23 @@
 from django.db.models import Case, Count, IntegerField, Q, Value, When
 from django.conf import settings
-from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
+from modeltranslation.utils import build_localized_fieldname
+from django.http import (
+    Http404,
+    HttpResponse,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect,
+    JsonResponse,
+)
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.utils import translation
+from django.utils import timezone, translation
 from django.views.decorators.http import require_GET
 from django.views.generic import DetailView, FormView, ListView, TemplateView
 
+from datetime import date
+from pathlib import Path
+import random
 import re
 import secrets
 from django.core.cache import cache
@@ -19,7 +29,6 @@ from .quotes import MARQUEE_QUOTES
 from .utils import DEFAULT_META_DESCRIPTION, DataMixin, sex_pair
 
 from django.templatetags.static import static as static_url
-
 
 
 class DogFilterMixin:
@@ -48,16 +57,44 @@ class StaticPageView(DataMixin, TemplateView):
     page_heading = ""  # clean title for Article markup (no site suffix)
     page_description = ""
     page_is_article = False
+    page_created = ""  # ISO date; shown with the update date on guides
+    page_updated = ""  # ISO date; overrides the site-wide update date
+    page_og_key = ""  # guide key in GUIDE_OG: gives the page its own share card
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        if self.page_created:
+            context["page_created"] = date.fromisoformat(self.page_created)
+            context["page_updated"] = date.fromisoformat(
+                self.page_updated or settings.SITE_CONTENT_UPDATED
+            )
+        elif self.page_updated:
+            context["page_updated"] = date.fromisoformat(self.page_updated)
         if self.page_is_article:
             context["article"] = {
                 "headline": self.page_heading or self.page_title,
                 "description": self.page_description,
                 "updated": settings.SITE_CONTENT_UPDATED,
             }
+        if self.page_description:
+            context["meta_description"] = self.page_description
+        if self.page_og_key:
+            context["og_image"] = self.request.build_absolute_uri(
+                reverse("guide_og", kwargs={"key": self.page_og_key})
+            )
         return self.get_user_context(**context, title=self.page_title)
+
+
+HOME_GUIDE_KEYS = [
+    "choosing",
+    "puppy",
+    "training",
+    "health",
+    "behavior",
+    "living",
+    "feeding",
+    "games",
+]
 
 
 class DogsHome(DataMixin, TemplateView):
@@ -65,16 +102,38 @@ class DogsHome(DataMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = (
+        dogs = list(
             Dogs.objects.filter(is_published=True)
-            .select_related("cat", "section")
+            .select_related("cat", "section", "country")
             .order_by("title")
         )
+        context["posts"] = dogs
+        if dogs:
+            # one breed per calendar day; the button on the page picks others
+            context["breed_of_day"] = dogs[timezone.localdate().toordinal() % len(dogs)]
+            context["breeds_data"] = [
+                {
+                    "u": dog.get_absolute_url(),
+                    "t": dog.title,
+                    "g": str(dog.cat),
+                    "p": dog.photo_medium.url if dog.photo else "",
+                    "s": dog.summary,
+                    "z": dog.get_size_display(),
+                    "w": "\n".join(
+                        sex_pair(dog.weight_male, dog.weight_female, "kg").split(", ")
+                    ),
+                    "l": dog.life_expectancy
+                    and _("%(years)s years") % {"years": dog.life_expectancy},
+                    "o": dog.country.name if dog.country else "",
+                }
+                for dog in dogs
+            ]
+        context["home_guides"] = random.sample(HOME_GUIDE_KEYS, 3)
         context["quotes"] = MARQUEE_QUOTES.get(
             translation.get_language(), MARQUEE_QUOTES["en"]
         )
         context["is_home"] = True
-        return self.get_user_context(**context, title="Woof Dogs")
+        return self.get_user_context(**context, title=_("Woof Dogs — Dog Breed Guide"))
 
 
 class DogsList(DataMixin, DogFilterMixin, ListView):
@@ -90,7 +149,14 @@ class DogsList(DataMixin, DogFilterMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        return self.get_user_context(**context, title=_("Dog Breeds - Woof Dogs"))
+        return self.get_user_context(
+            **context,
+            title=_("Dog Breeds - Woof Dogs"),
+            meta_description=_(
+                "Browse all dog breeds on one page and compare size, coat, "
+                "temperament and care needs."
+            ),
+        )
 
 
 class DogsCategory(DataMixin, DogFilterMixin, ListView):
@@ -110,9 +176,13 @@ class DogsCategory(DataMixin, DogFilterMixin, ListView):
         context = super().get_context_data(**kwargs)
         category = get_object_or_404(Category, slug=self.kwargs["cat_slug"])
         context["current_category"] = category
+        context["og_image"] = self.request.build_absolute_uri(
+            reverse("group_og", kwargs={"slug": category.slug})
+        )
         return self.get_user_context(
             **context,
             title=_("{name} - Woof Dogs").format(name=category.name),
+            meta_description=category.short_desc or DEFAULT_META_DESCRIPTION,
             cat_selected=category.pk,
         )
 
@@ -168,6 +238,10 @@ def breed_differences(base, other):
     return found[:2] or [_("very similar overall")]
 
 
+# old breed slugs -> current ones, so the old links keep working
+RENAMED_BREEDS = {"anatolian-shepherd-dog": "kangal-shepherd-dog"}
+
+
 class ShowPost(DataMixin, DetailView):
     model = Dogs
     template_name = "woof/post.html"
@@ -180,6 +254,19 @@ class ShowPost(DataMixin, DetailView):
             cat__slug=self.kwargs["cat_slug"],
             is_published=True,
         ).select_related("cat", "section")
+
+    def get(self, request, *args, **kwargs):
+        # a breed that moved to another group keeps its old links working
+        if not self.get_queryset().exists():
+            slug = RENAMED_BREEDS.get(kwargs["post_slug"], kwargs["post_slug"])
+            moved = (
+                Dogs.objects.filter(slug=slug, is_published=True)
+                .select_related("cat")
+                .first()
+            )
+            if moved:
+                return HttpResponsePermanentRedirect(moved.get_absolute_url())
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -253,32 +340,84 @@ class ShowPost(DataMixin, DetailView):
         )
 
 
-def breed_og_image(request, slug):
-    """Serve the branded 1200x630 share card for a breed.
+OG_CACHE_DAYS = 30
 
-    Photo on the left (cover-cropped like the homepage hero), the "woof
-    dogs" brand panel on the right. Generated once per photo and cached;
-    the key includes the photo file name, so a new upload invalidates it.
-    """
-    dog = Dogs.objects.filter(slug=slug, is_published=True).first()
+# guide URL key -> (heading, photo of the guide)
+GUIDE_OG = {
+    "choosing_dog": (_("Choosing the dog"), "choosing_a_dog.webp"),
+    "training": (_("Training"), "dog_training_fundamentals.webp"),
+    "health": (_("Dog health & care"), "dog_health_care.webp"),
+    "behavior": (_("Dog behavior"), "dog_behavior.webp"),
+    "living-with-dog": (_("Living with a dog"), "living_with_a_dog.webp"),
+    "puppy": (_("Raising a puppy"), "raising_a_puppy.webp"),
+    "feeding": (_("Feeding your dog"), "feeding_your_dog.webp"),
+    "games": (_("Games & activities"), "games_activities.webp"),
+}
+
+
+def _og_response(key, build):
+    """JPEG response for a share card; ``build`` renders it on a cache miss."""
+    jpeg = cache.get(key)
+    if jpeg is None:
+        jpeg = build()
+        cache.set(key, jpeg, timeout=60 * 60 * 24 * OG_CACHE_DAYS)
+    response = HttpResponse(jpeg, content_type="image/jpeg")
+    response["Cache-Control"] = "public, max-age=2592000, s-maxage=2592000"
+    response["Content-Length"] = str(len(jpeg))
+    return response
+
+
+def breed_og_image(request, slug):
+    """Share card for a breed: its main photo, name and group."""
+    dog = (
+        Dogs.objects.filter(slug=slug, is_published=True).select_related("cat").first()
+    )
     if dog is None:
         raise Http404("No published dog matches the given slug.")
     if not dog.photo:
         return HttpResponseRedirect(static_url("og-cover.jpg"))
 
-    key = f"og_breed:{dog.photo.name}"
-    jpeg = cache.get(key)
-    if jpeg is None:
+    def build():
         with dog.photo.open("rb") as photo_file:
-            jpeg = build_og_card_bytes(photo_file)
-        # Not "forever": the file cache culls old entries anyway, and a month
-        # is plenty for a card that only depends on the photo.
-        cache.set(key, jpeg, timeout=60 * 60 * 24 * 30)
+            return build_og_card_bytes(photo_file, str(dog.title), str(dog.cat.name))
 
-    response = HttpResponse(jpeg, content_type="image/jpeg")
-    response["Cache-Control"] = "public, max-age=2592000, s-maxage=2592000"
-    response["Content-Length"] = str(len(jpeg))
-    return response
+    return _og_response(
+        f"og2:breed:{translation.get_language()}:{dog.photo.name}:{dog.title}", build
+    )
+
+
+def group_og_image(request, slug):
+    """Share card for a breed group: the group picture and its name."""
+    category = get_object_or_404(Category, slug=slug)
+    image = (
+        "nofci.webp"
+        if category.slug == "breeds-outside-fci-classification"
+        else f"group{category.fci_number}.webp"
+    )
+    path = Path(settings.BASE_DIR) / "static" / image
+    if not path.exists():
+        return HttpResponseRedirect(static_url("og-cover.jpg"))
+
+    def build():
+        return build_og_card_bytes(path, str(category.name))
+
+    return _og_response(
+        f"og2:group:{translation.get_language()}:{category.slug}:{category.name}", build
+    )
+
+
+def guide_og_image(request, key):
+    """Share card for a guide: the guide picture and its heading."""
+    if key not in GUIDE_OG:
+        raise Http404("No such guide.")
+    heading, image = GUIDE_OG[key]
+
+    def build():
+        return build_og_card_bytes(
+            Path(settings.BASE_DIR) / "static" / image, str(heading)
+        )
+
+    return _og_response(f"og2:guide:{translation.get_language()}:{key}", build)
 
 
 class ContactFormView(DataMixin, FormView):
@@ -306,7 +445,14 @@ class ContactFormView(DataMixin, FormView):
                 "captcha_token": cap["token"],
             }
         )
-        return self.get_user_context(**context, title=_("Contact - Woof Dogs"))
+        return self.get_user_context(
+            **context,
+            title=_("Contact - Woof Dogs"),
+            meta_description=_(
+                "Contact Woof Dogs: questions, corrections, photo credits or "
+                "suggestions for new breeds."
+            ),
+        )
 
     def form_invalid(self, form):
         # Refresh the captcha, so a failed attempt always shows a new example.
@@ -418,8 +564,8 @@ class BreedsView(DataMixin, TemplateView):
     # Barking is not in the button row: it lives in the "More filters" panel
     # next to the country, temperament and coat-type drop-downs.
     BARKING_FILTERS = [
-        ("quiet", _("Quiet"), {"barking_level__in": ["necessary", "infrequent"]}),
-        ("talkative", _("Talkative"), {"barking_level__in": ["frequent", "vocal"]}),
+        ("quiet", _("Rarely bark"), {"barking_level__in": ["necessary", "infrequent"]}),
+        ("talkative", _("Bark often"), {"barking_level__in": ["frequent", "vocal"]}),
     ]
 
     @staticmethod
@@ -434,7 +580,9 @@ class BreedsView(DataMixin, TemplateView):
         for lookup, expected in lookups.items():
             if lookup.endswith("__name_en__in"):
                 field = lookup[: -len("__name_en__in")]
-                names = {getattr(obj, "name_en", "") for obj in getattr(dog, field).all()}
+                names = {
+                    getattr(obj, "name_en", "") for obj in getattr(dog, field).all()
+                }
                 if not names.intersection(expected):
                     return False
             elif lookup.endswith("__in"):
@@ -444,20 +592,32 @@ class BreedsView(DataMixin, TemplateView):
                 return False
         return True
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    @staticmethod
+    def _search_fields(dog):
+        """Text the search box looks through: names and varieties in every site
+        language (so "таксы" finds the dachshund on the English page too),
+        origin and group."""
+        languages = [code for code, _name in settings.LANGUAGES]
+        titles = [
+            getattr(dog, build_localized_fieldname("title", code), "") or ""
+            for code in languages
+        ]
+        varieties = [
+            getattr(dog, build_localized_fieldname("varieties", code), "") or ""
+            for code in languages
+        ]
+        parts = [dog.title, dog.title_en, *titles, dog.varieties, *varieties]
+        parts.append(dog.cat.name)
+        if dog.country_id:
+            parts.append(dog.country.name)
+        dog.search_text = " ".join(p for p in dict.fromkeys(parts) if p)
+        dog.search_names = "|".join(dict.fromkeys(t for t in [dog.title, *titles] if t))
 
-        dogs = list(
-            Dogs.objects.filter(is_published=True)
-            .select_related("cat", "section", "country")
-            .prefetch_related("coat_length", "coat_type")
-            .order_by("title")
-        )
-
+    def _annotate(self, dogs):
+        """Give every dog the keys of all the filters it matches, so the browser
+        can combine them without asking the server again. Returns the countries
+        and coat types that occur, as {pk: name}."""
         countries, coat_types = {}, {}
-
-        # every dog gets the keys of all the filters it matches, so the browser
-        # can combine them without asking the server again
         for dog in dogs:
             keys = [
                 key
@@ -476,49 +636,75 @@ class BreedsView(DataMixin, TemplateView):
                 keys.append(f"coattype-{c.pk}")
                 coat_types[c.pk] = c.name
             dog.filter_keys = " ".join(keys)
+            self._search_fields(dog)
+        return countries, coat_types
 
-            # what the search box looks through: names (both spellings),
-            # varieties, origin and group
-            parts = [dog.title, dog.title_en, dog.varieties, dog.cat.name]
-            if dog.country_id:
-                parts.append(dog.country.name)
-            dog.search_text = " ".join(p for p in dict.fromkeys(parts) if p)
-
-        def options(prefix, names):
-            return [
-                {"key": f"{prefix}-{pk}", "title": name}
-                for pk, name in sorted(names.items(), key=lambda kv: kv[1])
-            ]
-
-        context["dogs"] = dogs
-        context["filters"] = [
-            {"key": key, "title": title, "group": group}
-            for key, title, group, _lookups in self.FILTERS
+    def _filter_buttons(self):
+        group_labels = {
+            "size": _("Size"),
+            "coat": _("Coat"),
+            "activity": _("Activity level"),
+            "training": _("Trainability"),
+            "family": _("Family"),
+        }
+        # low-shedding and barking are choices of their own, but they sit in the
+        # coat and activity rows (a row may show two groups, one choice each)
+        row_of = {"shedding": "coat", "barking": "activity"}
+        entries = [(key, title, group) for key, title, group, _lookups in self.FILTERS]
+        last_activity = max(i for i, e in enumerate(entries) if e[2] == "activity")
+        entries[last_activity + 1 : last_activity + 1] = [
+            (key, title, "barking") for key, title, _lookups in self.BARKING_FILTERS
         ]
+        return [
+            {
+                "key": key,
+                "title": title,
+                "group": group,
+                "row": row_of.get(group, group),
+                "row_label": group_labels[row_of.get(group, group)],
+            }
+            for key, title, group in entries
+        ]
+
+    @staticmethod
+    def _options(prefix, names):
+        return [
+            {"key": f"{prefix}-{pk}", "title": name}
+            for pk, name in sorted(names.items(), key=lambda kv: kv[1])
+        ]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dogs = list(
+            Dogs.objects.filter(is_published=True)
+            .select_related("cat", "section", "country")
+            .prefetch_related("coat_length", "coat_type")
+            .order_by("title")
+        )
+        countries, coat_types = self._annotate(dogs)
+        context["dogs"] = dogs
+        context["filters"] = self._filter_buttons()
         context["extra_filters"] = [
             {
                 "group": "country",
                 "label": _("Country"),
                 "any": _("Any country"),
-                "options": options("country", countries),
+                "options": self._options("country", countries),
             },
             {
                 "group": "coattype",
                 "label": _("Coat type"),
                 "any": _("Any coat type"),
-                "options": options("coattype", coat_types),
-            },
-            {
-                "group": "barking",
-                "label": _("Barking"),
-                "any": _("Any barking level"),
-                "options": [
-                    {"key": key, "title": title}
-                    for key, title, _lookups in self.BARKING_FILTERS
-                ],
+                "options": self._options("coattype", coat_types),
             },
         ]
-        return self.get_user_context(**context, title=_("Breeds - Woof Dogs"))
+        return self.get_user_context(
+            **context,
+            title=_("Breeds - Woof Dogs"),
+            meta_description=_(
+                "Find a dog breed by size, coat, activity level and other traits."
+            ),
+        )
 
 
 class GroupsPageView(DataMixin, TemplateView):
@@ -531,7 +717,14 @@ class GroupsPageView(DataMixin, TemplateView):
         context["cats"] = Category.objects.prefetch_related("sections").order_by(
             "fci_number"
         )
-        return self.get_user_context(**context, title=_("Groups - Woof Dogs"))
+        return self.get_user_context(
+            **context,
+            title=_("Groups - Woof Dogs"),
+            meta_description=_(
+                "All FCI dog groups and their sections, with the breeds that "
+                "belong to each."
+            ),
+        )
 
 
 @require_GET

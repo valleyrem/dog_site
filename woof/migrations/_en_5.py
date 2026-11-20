@@ -12,13 +12,13 @@ EN = {
         "quirks": [
             "Two Pomeranians were among the few dogs that survived the sinking of the Titanic in 1912. About twelve dogs were on board, and only three were saved: two Pomeranians and a Pekingese.",
             "The ancestors of the modern Pomeranian were considerably larger and could weigh up to 13 kg. Over time the breed was made smaller.",
-            "The Pomeranian is easy to recognise by its full ruff, like a \"mane\", and its tail curled over the back.",
+            'The Pomeranian is easy to recognise by its full ruff, like a "mane", and its tail curled over the back.',
         ],
     },
     "siberian-husky": {
         "summary": "A medium-sized, sturdy dog with a thick coat, upright ears and a bushy tail. Hardy, sociable and energetic, it loves movement and company and copes badly with boredom.",
         "care": [
-            "Coat: Brush the thick coat two or three times a week, and every day during the heavy shed twice a year. The undercoat is easiest to comb out with a metal \"rake\" comb.",
+            'Coat: Brush the thick coat two or three times a week, and every day during the heavy shed twice a year. The undercoat is easiest to comb out with a metal "rake" comb.',
             "Worth knowing: Do not clip a Husky with clippers.",
         ],
         "quirks": [
@@ -47,7 +47,7 @@ EN = {
             "Worth knowing: Do not clip it with clippers: the coat protects against both cold and heat.",
         ],
         "quirks": [
-            "The upturned corners of the lips create the famous \"Sammy smile\". This shape of muzzle is thought to help reduce drooling and keep saliva from freezing in the cold.",
+            'The upturned corners of the lips create the famous "Sammy smile". This shape of muzzle is thought to help reduce drooling and keep saliva from freezing in the cold.',
             "The breed is named after the Samoyedic peoples of Siberia, alongside whom these dogs lived and worked: herding reindeer, guarding camps and helping with hunting.",
             "The Samoyed's soft undercoat can be spun into a yarn known as chiengora. Warm scarves, sweaters and other items are knitted from it.",
         ],
@@ -129,7 +129,7 @@ EN = {
         ],
         "quirks": [
             "Among the Aztecs the Xolo was considered a guide of the souls of the dead to the underworld. The breed's name is linked to the god Xolotl, who was depicted in the form of a dog.",
-            "The Pixar film \"Coco\" introduced the breed to audiences around the world through Dante, a cheerful hairless dog that resembles a Xoloitzcuintli.",
+            'The Pixar film "Coco" introduced the breed to audiences around the world through Dante, a cheerful hairless dog that resembles a Xoloitzcuintli.',
             "Both hairless and coated puppies can be born in the same litter. The skin of hairless dogs feels warm to the touch because no coat covers it, but their body temperature is the same as in other dogs.",
         ],
     },
@@ -137,7 +137,7 @@ EN = {
         "summary": "A fluffy, cheerful and sociable dog with a thick silvery-grey coat and dark markings around the eyes. Strongly attached to its family, clever and fond of being the centre of attention.",
         "care": [
             "Coat: Brush the thick coat two or three times a week, and every day during the heavy shed. The dog stays clean and hardly smells. Bathe a few times a year, no more often.",
-            "Ears, paws and teeth: Wipe the dark \"spectacles\" around the eyes with a soft damp cloth.",
+            'Ears, paws and teeth: Wipe the dark "spectacles" around the eyes with a soft damp cloth.',
         ],
         "quirks": [
             "In the 18th century the Keeshond became a symbol of the Dutch Patriot movement, which opposed the ruling House of Orange. The breed's name is linked to a dog called Kees, which belonged to one of the movement's leaders.",

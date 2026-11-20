@@ -58,6 +58,195 @@ function fillListFromSelect(list, select) {
   });
 
   list.appendChild(frag);
+  initListSearch(list);
+}
+
+// A search line at the top of a long drop-down list: it narrows the items as
+// the visitor types (accents and case ignored, a plural ending is forgiven)
+function initListSearch(list) {
+  if (
+    !list ||
+    !list.dataset.listSearch ||
+    list.querySelector(".custom-select-search")
+  )
+    return;
+
+  const norm = (text) =>
+    (text || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .trim();
+
+  const row = document.createElement("li");
+  row.className = "custom-select-search";
+  const input = document.createElement("input");
+  input.type = "search";
+  input.className = "custom-select-search__input";
+  input.placeholder = list.dataset.listSearch;
+  input.setAttribute("aria-label", list.dataset.listSearch);
+  input.autocomplete = "off";
+  row.appendChild(input);
+  list.insertBefore(row, list.firstChild);
+
+  const none = document.createElement("li");
+  none.className = "custom-select-none";
+  none.textContent = list.dataset.listEmpty || "";
+  none.hidden = true;
+  list.appendChild(none);
+
+  // the search line stays at the top; only the breeds under it scroll, and
+  // they end at its lower edge
+  const scroller = document.createElement("div");
+  scroller.className = "custom-select-scroll";
+  list.classList.add("custom-select-list--search");
+  [...list.querySelectorAll(".custom-select-item")].forEach((el) =>
+    scroller.appendChild(el),
+  );
+  scroller.appendChild(none);
+  list.appendChild(scroller);
+  initListEndHint(scroller);
+
+  const items = [...scroller.querySelectorAll(".custom-select-item")].map(
+    (el) => ({
+      el,
+      text: norm(el.textContent),
+    }),
+  );
+
+  const filter = () => {
+    const tokens = norm(input.value).split(" ").filter(Boolean);
+    let shown = 0;
+    items.forEach((item) => {
+      const ok = tokens.every(
+        (t) =>
+          item.text.includes(t) ||
+          (t.length >= 5 && item.text.includes(t.slice(0, -1))),
+      );
+      item.el.hidden = !ok;
+      if (ok) shown += 1;
+    });
+    none.hidden = shown > 0;
+    scroller.scrollTop = 0;
+    // a short list has nothing below it: switch the fade at the bottom off
+    scroller.dispatchEvent(new Event("scroll"));
+  };
+
+  input.addEventListener("input", filter);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const first = items.find((item) => !item.el.hidden);
+      if (first) first.el.click();
+    }
+  });
+
+  // every opening starts with an empty line; a keyboard (not a phone) gets the cursor
+  new MutationObserver(() => {
+    if (list.hidden) return;
+    input.value = "";
+    filter();
+    if (window.matchMedia("(hover: hover)").matches)
+      input.focus({ preventScroll: true });
+  }).observe(list, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+// The comparison table of the dialog (breeds page and a breed page): a photo
+// and name for every breed in the header, then one row for every parameter.
+// The labels come from data-i18n-* of the container.
+function renderCompareTable(container, breeds) {
+  const d = container.dataset;
+  const years = d.i18nYears || "years";
+  const rows = [
+    ["varieties", d.i18nVarieties, (b) => b.varieties],
+    ["origin", d.i18nOrigin, (b) => b.country],
+    ["size", d.i18nSize, (b) => b.size],
+    ["height", d.i18nHeight, (b) => b.height],
+    ["weight", d.i18nWeight, (b) => b.weight],
+    ["cointype", d.i18nCoatType, (b) => b.coat_type],
+    ["coatlen", d.i18nCoatLength, (b) => b.coat_length],
+    ["life", d.i18nLife, (b) => (b.life ? `${b.life} ${years}` : "")],
+    ["training", d.i18nTrainability, (b) => b.trainability],
+    ["activity", d.i18nActivity, (b) => b.activity],
+    ["barking", d.i18nBarking, (b) => b.barking],
+    ["shedding", d.i18nAllergy, (b) => b.hypoallergenic],
+    ["family", d.i18nFamily, (b) => b.family_friendliness],
+  ];
+
+  const cell = (tag, text) => {
+    const c = document.createElement(tag);
+    setWithSexMarks(c, text || "-");
+    return c;
+  };
+
+  const table = document.createElement("table");
+  table.className = "bc-table";
+
+  const head = document.createElement("tr");
+  head.appendChild(document.createElement("th"));
+  breeds.forEach((b) => {
+    // photo box and two-line name have a fixed size, so the header is
+    // equally tall for every breed
+    const th = document.createElement("th");
+    const box = document.createElement("div");
+    box.className = "bc-head";
+    const pic = document.createElement("span");
+    pic.className = "bc-head__photo";
+    if (b.photo) {
+      const img = document.createElement("img");
+      img.src = b.photo;
+      img.alt = "";
+      img.loading = "lazy";
+      pic.appendChild(img);
+    }
+    const a = document.createElement("a");
+    a.href = b.url;
+    a.textContent = b.title;
+    box.append(pic, a);
+    th.appendChild(box);
+    head.appendChild(th);
+  });
+  table.appendChild(head);
+
+  rows.forEach(([icon, label, get]) => {
+    const tr = document.createElement("tr");
+    const th = document.createElement("th");
+    const mark = document.createElement("span");
+    mark.className = `bc-param__icon pi pi--${icon}`;
+    mark.setAttribute("aria-hidden", "true");
+    const name = document.createElement("span");
+    name.textContent = label;
+    const wrap = document.createElement("span");
+    wrap.className = "bc-param";
+    wrap.append(mark, name);
+    th.appendChild(wrap);
+    tr.appendChild(th);
+    breeds.forEach((b) => tr.appendChild(cell("td", get(b))));
+    table.appendChild(tr);
+  });
+
+  container.replaceChildren(table);
+}
+
+// A dialog taller than the screen: the fade at its bottom (styles.css) goes
+// away when the end is reached
+function initDialogFade(dialog) {
+  if (!dialog) return;
+  const update = () => {
+    const atEnd =
+      dialog.scrollTop + dialog.clientHeight >= dialog.scrollHeight - 2;
+    dialog.classList.toggle("is-at-end", atEnd);
+  };
+  dialog.addEventListener("scroll", update, { passive: true });
+  new MutationObserver(update).observe(dialog, {
+    childList: true,
+    subtree: true,
+  });
+  new MutationObserver(update).observe(dialog, {
+    attributes: true,
+    attributeFilter: ["open"],
+  });
 }
 
 // Burger menu
@@ -137,10 +326,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Related / group-of-breeds blocks (post + category pages): on
   // tablets and desktops the slider turns into a grid with a "Show more"
-  // button (4 columns on tablets, 5 on wide screens); phones keep the
+  // button (4 columns); phones keep the
   // arrows slider with swipe.
   const relatedBlock = track.closest(".related-block");
-  const relatedPerRow = () => (window.innerWidth >= 1024 ? 5 : 4);
+  // group pages (data-initial-*) open with two rows: 5x2 on desktops, 4x2 on tablets
+  const relatedPerRow = () => {
+    const key = window.innerWidth < 1024 ? "initialTablet" : "initialDesktop";
+    const fallback = window.innerWidth < 1024 ? 4 : 5;
+    return (
+      (relatedBlock && parseInt(relatedBlock.dataset[key], 10)) || fallback
+    );
+  };
   let relatedShown = relatedPerRow();
   const showMoreBtn = document.querySelector(".slider-showmore");
   const moreLabel = showMoreBtn ? showMoreBtn.dataset.labelMore : "";
@@ -172,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getPerPage() {
     // phones and small tablets show two cards per view — flip by pairs;
     // the desktop grid lays out five columns, so flip full pages of five.
-    if (window.innerWidth <= 912) return 2;
+    if (window.innerWidth <= 767) return 2;
     if (window.innerWidth >= 1024) return 5;
     return 4;
   }
@@ -530,29 +726,86 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Pause / play for the quotes marquee
+// Quotes slider, one quote at a time
 // home.html
 document.addEventListener("DOMContentLoaded", () => {
-  const marquee = document.querySelector(".breed-marquee");
-  const toggle = document.querySelector(".marquee-toggle");
+  const root = document.querySelector("[data-quote-slider]");
+  if (!root) return;
 
-  if (!marquee || !toggle) return;
+  const slides = Array.from(root.querySelectorAll(".quote-slider__slide"));
+  if (slides.length < 2) return;
 
-  function setPaused(paused) {
-    marquee.classList.toggle("is-paused", paused);
-    toggle.setAttribute("aria-pressed", String(paused));
+  const dotsBox = root.querySelector("[data-quote-dots]");
+  const dots = [];
+  let current = 0;
 
-    const label = paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause;
+  const show = (i) => {
+    slides[current].classList.remove("is-active");
+    dots[current].classList.remove("is-active");
+    dots[current].removeAttribute("aria-current");
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add("is-active");
+    dots[current].classList.add("is-active");
+    dots[current].setAttribute("aria-current", "true");
+    schedule();
+  };
 
-    if (label) {
-      toggle.setAttribute("aria-label", label);
-      toggle.setAttribute("title", label);
-    }
+  // the quotes turn by themselves; any turn (also a manual one) restarts the wait
+  let timer = null;
+  let hovered = false;
+  let visible = true;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function schedule() {
+    clearTimeout(timer);
+    if (reduce) return;
+    timer = setTimeout(() => {
+      if (document.hidden || hovered || !visible) schedule();
+      else show(current + 1);
+    }, 8000);
   }
+  root.addEventListener("mouseenter", () => (hovered = true));
+  root.addEventListener("mouseleave", () => (hovered = false));
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      (entries) => (visible = entries[0].isIntersecting),
+    ).observe(root);
+  }
+  schedule();
 
-  toggle.addEventListener("click", () => {
-    setPaused(!marquee.classList.contains("is-paused"));
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "quote-slider__dot" + (i === 0 ? " is-active" : "");
+    dot.setAttribute("aria-label", String(i + 1));
+    if (i === 0) dot.setAttribute("aria-current", "true");
+    dot.addEventListener("click", () => show(i));
+    dotsBox.appendChild(dot);
+    dots.push(dot);
   });
+
+  // a swipe to the side turns the quote
+  const stage = root.querySelector(".quote-slider__stage");
+  let startX = 0;
+  let startY = 0;
+  stage.addEventListener(
+    "touchstart",
+    (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
+  stage.addEventListener(
+    "touchend",
+    (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        show(current + (dx < 0 ? 1 : -1));
+      }
+    },
+    { passive: true },
+  );
 });
 
 // Gallery / modal
@@ -633,12 +886,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const a = active.getBoundingClientRect();
       const b = strip.getBoundingClientRect();
       if (strip.scrollWidth > strip.clientWidth + 1) {
-        strip.scrollLeft +=
-          a.left - b.left - (b.width - a.width) / 2;
+        strip.scrollLeft += a.left - b.left - (b.width - a.width) / 2;
       }
       if (strip.scrollHeight > strip.clientHeight + 1) {
-        strip.scrollTop +=
-          a.top - b.top - (b.height - a.height) / 2;
+        strip.scrollTop += a.top - b.top - (b.height - a.height) / 2;
       }
     }
     warmNeighbours();
@@ -806,8 +1057,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Once the page has settled, warm the first pair so the very first swipe
   // does not wait for the network.
-  const onIdle =
-    window.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
+  const onIdle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
 
   onIdle(warmNeighbours);
 
@@ -1327,255 +1577,109 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 // Compare breeds
-// post.html
+// post.html: the other breed is chosen in a select, the button opens the same
+// dialog as on the breeds page
 document.addEventListener("DOMContentLoaded", () => {
-  const panel = document.getElementById("comparePanel");
-  const selectA = document.getElementById("breedA");
+  const breedA = document.getElementById("breedA");
   const selectB = document.getElementById("breedB");
-  const wrapper = document.getElementById("compareTableWrapper");
   const customSelect = document.getElementById("breedBCustom");
   const trigger = document.getElementById("breedBTrigger");
   const list = document.getElementById("breedBList");
   const triggerImg = document.getElementById("breedBTriggerImg");
   const triggerText = document.getElementById("breedBTriggerText");
+  const openBtn = document.querySelector("[data-compare-open]");
+  const dialog = document.querySelector("[data-bc-dialog]");
+  const table = document.querySelector("[data-bc-table]");
 
-  if (!selectA || !selectB || !wrapper) return;
+  if (
+    !breedA ||
+    !selectB ||
+    !trigger ||
+    !list ||
+    !triggerText ||
+    !openBtn ||
+    !dialog ||
+    !table
+  )
+    return;
 
-  let breedA = null;
-  let breedB = null;
+  const clearBtn = document.getElementById("breedBClear");
+  const placeholder = triggerText.textContent;
 
-  // Custom select over the <select id="breedB"> options
-  if (trigger && list && triggerText) {
-    const placeholderText = triggerText.textContent;
+  fillListFromSelect(list, selectB);
+  initDialogFade(dialog);
 
-    fillListFromSelect(list, selectB);
+  function closeList() {
+    list.hidden = true;
+    trigger.setAttribute("aria-expanded", "false");
+  }
 
-    function closeList() {
-      list.hidden = true;
-      trigger.setAttribute("aria-expanded", "false");
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const willOpen = list.hidden;
+    list.hidden = !willOpen;
+    trigger.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  list.addEventListener("click", (e) => {
+    const item = e.target.closest(".custom-select-item");
+    if (!item) return;
+    selectB.value = item.dataset.value;
+    // the chosen breed, with its photo, stays in the select
+    const thumb = item.querySelector(".custom-select-opt-img");
+    if (triggerImg) {
+      triggerImg.hidden = !thumb;
+      if (thumb) triggerImg.src = thumb.src;
     }
+    triggerText.textContent = item.textContent.trim();
+    openBtn.disabled = !selectB.value;
+    if (clearBtn) clearBtn.hidden = !selectB.value;
+    customSelect.classList.toggle("has-value", !!selectB.value);
+    closeList();
+  });
 
-    trigger.addEventListener("click", (e) => {
+  // the cross puts the select back to "Select breed"
+  if (clearBtn) {
+    clearBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const willOpen = list.hidden;
-      list.hidden = !willOpen;
-      trigger.setAttribute("aria-expanded", String(willOpen));
-    });
-
-    list.addEventListener("click", (e) => {
-      const item = e.target.closest(".custom-select-item");
-      if (!item) return;
-      selectB.value = item.dataset.value;
-      closeList();
-      selectB.dispatchEvent(new Event("change", { bubbles: true }));
-    });
-
-    document.addEventListener("click", (e) => {
-      if (customSelect && !e.target.closest("#breedBCustom")) {
-        closeList();
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && list && !list.hidden) closeList();
-    });
-
-    // reset the trigger
-    window.__resetBreedB = function () {
       selectB.value = "";
-      triggerImg.hidden = true;
-      triggerImg.removeAttribute("src");
-      triggerText.textContent = placeholderText;
-    };
-  }
-
-  async function loadBreed(id) {
-    const lang = document.documentElement.lang || "en";
-    const prefix = lang === "en" ? "" : `/${lang}`;
-    const res = await fetch(`${prefix}/api/breed/${id}/`);
-    return await res.json();
-  }
-
-  function row(icon, label) {
-    return `
-        <tr class="value-row">
-            <td class="param-name">
-                <span class="param-title">
-                    <span class="param-icon">${icon}</span>
-                    ${label}
-                </span>
-            </td>
-            <td class="value-a">-</td>
-            <td class="value-b">-</td>
-        </tr>
-    `;
-  }
-
-  function createTable() {
-    wrapper.innerHTML = `
-            <div class="compare-table-header">
-                <button id="compareCloseBtn"
-                        class="compare-close-btn">
-                    <svg width="15" height="15" viewBox="0 0 15 15"
-                         fill="none" aria-hidden="true">
-                        <path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5"
-                              stroke="currentColor" stroke-width="1.1"
-                              stroke-linecap="round"/>
-                    </svg>
-                </button>
-            </div>
-
-            <table class="compare-table">
-
-                <tr class="header-row">
-
-    <th class="parameter-header"></th>
-
-    <th>
-        <div class="compare-breed-head">
-
-            <div class="compare-breed-info">
-
-                <a class="compare-breed-link breed-a-link"></a>
-
-            </div>
-
-        </div>
-    </th>
-
-    <th>
-        <div class="compare-breed-head">
-
-            <div class="compare-breed-info">
-
-                <a class="compare-breed-link breed-b-link"></a>
-
-            </div>
-
-        </div>
-    </th>
-
-</tr>
-
-                ${row("🧬", wrapper.dataset.i18nVarieties || "Varieties")}
-                ${row("🌍", wrapper.dataset.i18nOrigin || "Origin")}
-                ${row("🐕", wrapper.dataset.i18nSize || "Size")}
-                ${row("↕️", wrapper.dataset.i18nHeight || "Height")}
-                ${row("⚖️", wrapper.dataset.i18nWeight || "Weight")}
-                ${row("🐩", wrapper.dataset.i18nCoatType || "Coat type")}
-                ${row("🐩", wrapper.dataset.i18nCoatLength || "Coat length")}
-                ${row("❤️", wrapper.dataset.i18nLife || "Life expectancy")}
-                ${row("🎓", wrapper.dataset.i18nTrainability || "Trainability")}
-                ${row("🚀", wrapper.dataset.i18nActivity || "Activity")}
-                ${row("📢", wrapper.dataset.i18nBarking || "Barking")}
-                ${row("🌱", wrapper.dataset.i18nAllergy || "Allergy-Friendly")}
-                ${row("🏡", wrapper.dataset.i18nFamily || "Family friendly")}
-
-            </table>
-        `;
-
-    document.getElementById("compareCloseBtn").addEventListener("click", () => {
-      wrapper.classList.add("is-changing");
-
-      setTimeout(() => {
-        wrapper.innerHTML = "";
-        if (window.__resetBreedB) window.__resetBreedB();
-      }, 180);
+      if (triggerImg) triggerImg.hidden = true;
+      triggerText.textContent = placeholder;
+      openBtn.disabled = true;
+      clearBtn.hidden = true;
+      customSelect.classList.remove("has-value");
+      closeList();
     });
   }
 
-  function updateTable() {
-    wrapper.classList.add("is-changing");
+  document.addEventListener("click", (e) => {
+    if (customSelect && !e.target.closest("#breedBCustom")) closeList();
+  });
 
-    // The names go in straight away: the table is created empty, and if the
-    // header waited for the animation the whole page would shift down when
-    // the two titles finally appeared.
-    document.querySelector(".breed-a-link").textContent = breedA.title;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !list.hidden) closeList();
+  });
 
-    document.querySelector(".breed-a-link").href = breedA.url;
+  const lang = document.documentElement.lang || "en";
+  const prefix = lang === "en" ? "" : `/${lang}`;
+  const load = (id) =>
+    fetch(`${prefix}/api/breed/${id}/`).then((r) => r.json());
 
-    document.querySelector(".breed-b-link").textContent = breedB.title;
+  openBtn.addEventListener("click", () => {
+    if (!selectB.value) return;
+    table.replaceChildren();
+    dialog.showModal();
+    dialog.focus({ preventScroll: true });
+    Promise.all([load(breedA.dataset.id), load(selectB.value)])
+      .then((breeds) => renderCompareTable(table, breeds))
+      .catch(() => dialog.close());
+  });
 
-    document.querySelector(".breed-b-link").href = breedB.url;
-
-    setTimeout(() => {
-
-      // Select TRIGGER: photo + name of the chosen breed
-
-      triggerImg.src = breedB.photo;
-      triggerImg.alt = breedB.title;
-      triggerImg.hidden = false;
-      triggerText.textContent = breedB.title;
-
-      // VALUES
-
-      const rows = document.querySelectorAll(".value-row");
-
-      const values = [
-        [breedA.varieties, breedB.varieties],
-
-        [breedA.country, breedB.country],
-
-        [breedA.size, breedB.size],
-
-        [breedA.height || "-", breedB.height || "-"],
-
-        [breedA.weight || "-", breedB.weight || "-"],
-
-        [breedA.coat_type || "-", breedB.coat_type || "-"],
-
-        [breedA.coat_length || "-", breedB.coat_length || "-"],
-
-        [
-          `${breedA.life} ${wrapper.dataset.i18nYears || "years"}`,
-          `${breedB.life} ${wrapper.dataset.i18nYears || "years"}`,
-        ],
-
-        [breedA.trainability, breedB.trainability],
-
-        [breedA.activity, breedB.activity],
-
-        [breedA.barking || "-", breedB.barking || "-"],
-
-        [breedA.hypoallergenic || "-", breedB.hypoallergenic || "-"],
-
-        [breedA.family_friendliness || "-", breedB.family_friendliness || "-"],
-      ];
-
-      rows.forEach((row, index) => {
-        setWithSexMarks(row.querySelector(".value-a"), values[index][0]);
-
-        setWithSexMarks(row.querySelector(".value-b"), values[index][1]);
-      });
-
-      wrapper.classList.remove("is-changing");
-    }, 120);
-  }
-
-  selectB.addEventListener("change", async () => {
-    const idA = selectA.dataset.id;
-    const idB = selectB.value;
-
-    if (!idA || !idB) {
-      wrapper.classList.add("is-changing");
-
-      setTimeout(() => {
-        wrapper.innerHTML = "";
-      }, 180);
-
-      return;
-    }
-
-    if (!wrapper.querySelector(".compare-table")) {
-      createTable();
-    }
-
-    const [a, b] = await Promise.all([loadBreed(idA), loadBreed(idB)]);
-
-    breedA = a;
-    breedB = b;
-
-    updateTable();
+  dialog
+    .querySelector("[data-bc-close]")
+    .addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
   });
 });
 
@@ -1684,6 +1788,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && list && !list.hidden) closeList();
     });
+
+    // These selects are links: coming back to the page (Back button, swipe)
+    // the browser may restore it as it was left, so the chosen name is put
+    // back to the hint
+    const hint = triggerText.textContent;
+    window.addEventListener("pageshow", (e) => {
+      if (!e.persisted) return;
+      select.value = "";
+      triggerText.textContent = hint;
+      closeList();
+    });
   }
 
   // Groups: as text, no photos
@@ -1734,7 +1849,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!raw) return null;
       const data = JSON.parse(raw);
       if (!data || data.v !== CONSENT_VERSION) return null;
-      if (!ignoreAge && !(Date.now() - data.ts < CONSENT_MAX_AGE_MS)) return null;
+      if (!ignoreAge && !(Date.now() - data.ts < CONSENT_MAX_AGE_MS))
+        return null;
       return data;
     } catch (e) {
       return null;
@@ -1958,7 +2074,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const footer = document.querySelector(".site-footer");
     // the bar completes when the footer enters the view, not after it
     const max =
-      doc.scrollHeight - window.innerHeight - (footer ? footer.offsetHeight : 0);
+      doc.scrollHeight -
+      window.innerHeight -
+      (footer ? footer.offsetHeight : 0);
     const y = window.scrollY || doc.scrollTop || 0;
 
     // no scrollable content — hide the strip
@@ -2009,11 +2127,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const search = document.querySelector("[data-breeds-search]");
   const moreToggle = document.querySelector("[data-breeds-more-toggle]");
   const morePanel = document.querySelector("[data-breeds-more]");
-  const resetBtn = document.querySelector("[data-breeds-reset]");
+  const resetBtns = [...document.querySelectorAll("[data-breeds-reset]")];
   const buttons = [...bar.querySelectorAll(".filter-btn")];
   const allBtn = buttons.find((b) => b.dataset.filter === "all");
   const filterBtns = buttons.filter((b) => b.dataset.filter !== "all");
   const selects = [...document.querySelectorAll("[data-breeds-select]")];
+  const chosenBox = document.querySelector("[data-breeds-chosen]");
 
   // accents, case and punctuation do not matter: "Bichon Frise" is found by
   // "bichon-frise" and "Dogue de Bordeaux" by "dogue bordeaux"
@@ -2038,7 +2157,84 @@ document.addEventListener("DOMContentLoaded", () => {
     [...sel.options].forEach((o) => {
       if (o.value) groupOfKey[o.value] = sel.dataset.group;
       o.dataset.base = o.textContent;
-    })
+    }),
+  );
+
+  // the drop-downs are the site's own custom selects; the <select> stays
+  // hidden and keeps the value, the list only shows and sets it
+  const customs = selects.map((sel) => {
+    const box = sel.closest("[data-breeds-custom]");
+    const list = box.querySelector("[data-breeds-list]");
+    const trigger = box.querySelector(".custom-select-trigger");
+    fillListFromSelect(list, sel);
+    const close = () => {
+      list.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+    };
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = list.hidden;
+      customs.forEach((c) => c && c.close());
+      list.hidden = !willOpen;
+      trigger.setAttribute("aria-expanded", String(willOpen));
+    });
+    list.addEventListener("click", (e) => {
+      const item = e.target.closest(".custom-select-item");
+      if (!item || item.classList.contains("is-disabled")) return;
+      sel.value = item.dataset.value;
+      sel.dispatchEvent(new Event("change"));
+      close();
+    });
+    return {
+      sel,
+      box,
+      list,
+      close,
+      text: box.querySelector("[data-breeds-trigger-text]"),
+    };
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("[data-breeds-custom]"))
+      customs.forEach((c) => c.close());
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") customs.forEach((c) => c.close());
+  });
+
+  // the shown value, the counts and the unavailable options follow the <select>
+  function syncCustoms() {
+    customs.forEach((c) => {
+      const chosenOpt = c.sel.selectedOptions[0];
+      c.text.textContent = c.sel.value
+        ? chosenOpt.dataset.base
+        : c.sel.options[0].textContent;
+      c.box.classList.toggle("has-value", !!c.sel.value);
+      c.list.querySelectorAll(".custom-select-item").forEach((li) => {
+        const o = [...c.sel.options].find((x) => x.value === li.dataset.value);
+        if (!o) return;
+        let count = li.querySelector(".custom-select-count");
+        if (!count) {
+          count = document.createElement("span");
+          count.className = "custom-select-count";
+          li.appendChild(count);
+        }
+        count.textContent = o.textContent.slice(o.dataset.base.length).trim();
+        li.classList.toggle("is-disabled", o.disabled);
+        li.classList.toggle("is-selected", o.value === c.sel.value);
+        li.setAttribute("aria-selected", String(o.value === c.sel.value));
+      });
+    });
+  }
+
+  // the name of every filter, for the line of chosen filters under the count
+  const titleOfKey = {};
+  filterBtns.forEach(
+    (b) => (titleOfKey[b.dataset.filter] = b.childNodes[0].textContent.trim()),
+  );
+  selects.forEach((sel) =>
+    [...sel.options].forEach((o) => {
+      if (o.value) titleOfKey[o.value] = o.dataset.base;
+    }),
   );
 
   let chosen = {}; // group -> key
@@ -2050,7 +2246,82 @@ document.addEventListener("DOMContentLoaded", () => {
       if (g !== skipGroup && !item.keys.has(choice[g])) return false;
     }
     if (extraKey && !item.keys.has(extraKey)) return false;
-    return tokens.every((t) => item.text.includes(t));
+    // a word also matches without its last letter, so "таксы" finds "такса"
+    // and "dachshunds" finds "dachshund"
+    return tokens.every(
+      (t) =>
+        item.text.includes(t) ||
+        (t.length >= 5 && item.text.includes(t.slice(0, -1))),
+    );
+  }
+
+  // typo help: the closest breed names to what was typed
+  const suggestBox = document.querySelector("[data-breeds-suggest]");
+
+  function distance(a, b) {
+    const prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      let diag = prev[0];
+      prev[0] = i;
+      for (let j = 1; j <= b.length; j++) {
+        const keep = prev[j];
+        prev[j] = Math.min(
+          prev[j] + 1,
+          prev[j - 1] + 1,
+          diag + (a[i - 1] === b[j - 1] ? 0 : 1),
+        );
+        diag = keep;
+      }
+    }
+    return prev[b.length];
+  }
+
+  function suggest() {
+    if (!suggestBox) return;
+    suggestBox.textContent = "";
+    const q = tokens.join(" ");
+    if (q.length < 3) {
+      suggestBox.hidden = true;
+      return;
+    }
+    const allowed = q.length >= 7 ? 2 : 1;
+    const found = [];
+    items.forEach((item) => {
+      let best = Infinity;
+      (item.el.dataset.names || item.el.title).split("|").forEach((name) => {
+        const n = norm(name);
+        best = Math.min(best, distance(q, n));
+        // one word of the query against one word of the name
+        if (tokens.length === 1) {
+          n.split(" ").forEach((w) => {
+            if (w.length >= 3) best = Math.min(best, distance(q, w));
+          });
+        }
+      });
+      if (best > 0 && best <= allowed) found.push({ item, best });
+    });
+    found.sort((a, b) => a.best - b.best);
+    const top = found.slice(0, 3);
+    if (!top.length) {
+      suggestBox.hidden = true;
+      return;
+    }
+    suggestBox.append(suggestBox.dataset.label + " ");
+    top.forEach(({ item }, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "breeds-suggest__btn";
+      b.textContent = item.el.title;
+      b.addEventListener("click", () => {
+        if (search) search.value = item.el.title;
+        setQuery(item.el.title);
+        syncClear();
+        apply();
+      });
+      suggestBox.append(b);
+      if (i < top.length - 1) suggestBox.append(", ");
+    });
+    suggestBox.hidden = false;
   }
 
   function writeUrl() {
@@ -2092,6 +2363,10 @@ document.addEventListener("DOMContentLoaded", () => {
     selects.forEach((sel) => {
       const g = sel.dataset.group;
       sel.value = chosen[g] || "";
+      const clearBtn = sel
+        .closest("[data-breeds-custom]")
+        .querySelector("[data-breeds-select-clear]");
+      if (clearBtn) clearBtn.hidden = !sel.value;
       [...sel.options].forEach((o) => {
         if (!o.value) return;
         const n = items.filter((i) => fits(i, chosen, g, o.value)).length;
@@ -2099,16 +2374,92 @@ document.addEventListener("DOMContentLoaded", () => {
         o.disabled = n === 0 && chosen[g] !== o.value;
       });
     });
+    syncCustoms();
 
     const any = Object.keys(chosen).length > 0;
     if (allBtn) {
       allBtn.classList.toggle("is-active", !any);
       allBtn.setAttribute("aria-pressed", String(!any));
     }
-    if (resetBtn) resetBtn.hidden = !any && !query;
+    // the reset under the list (phones) only helps when the list is long
+    resetBtns.forEach((b) => {
+      const below = b.closest(".breeds-reset-bottom");
+      b.hidden = (!any && !query) || (below && shown <= 8);
+    });
+
+    // chosen filters in one line, each with a cross to take it off
+    if (chosenBox) {
+      chosenBox.textContent = "";
+      // the word in the search is a chip too, the first one
+      if (query) {
+        const shownWord =
+          query.length > 24 ? query.slice(0, 24).trim() + "…" : query;
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chosen-chip chosen-chip--query";
+        chip.setAttribute("aria-label", query);
+        chip.appendChild(document.createTextNode(`“${shownWord}”`));
+        const cross = document.createElement("span");
+        cross.setAttribute("aria-hidden", "true");
+        cross.textContent = "×";
+        chip.appendChild(cross);
+        chip.addEventListener("click", () => {
+          setQuery("");
+          if (search) search.value = "";
+          syncClear();
+          apply(false);
+        });
+        chosenBox.appendChild(chip);
+      }
+      Object.keys(chosen).forEach((g) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chosen-chip";
+        chip.setAttribute("aria-label", titleOfKey[chosen[g]]);
+        chip.appendChild(document.createTextNode(titleOfKey[chosen[g]]));
+        const cross = document.createElement("span");
+        cross.setAttribute("aria-hidden", "true");
+        cross.textContent = "×";
+        chip.appendChild(cross);
+        chip.addEventListener("click", () => {
+          choose("", g, false);
+          // the last chip is gone: the filters fold back
+          if (
+            !Object.keys(chosen).length &&
+            morePanel &&
+            moreToggle &&
+            !morePanel.hidden
+          ) {
+            moreToggle.click();
+          }
+          // phones: back up to the search line
+          if (
+            !Object.keys(chosen).length &&
+            window.matchMedia("(max-width: 767px)").matches
+          ) {
+            const top = document.querySelector(".breeds-search");
+            if (top) {
+              const margin =
+                parseFloat(getComputedStyle(top).scrollMarginTop) || 0;
+              window.scrollTo(
+                0,
+                Math.max(
+                  0,
+                  top.getBoundingClientRect().top + window.scrollY - margin,
+                ),
+              );
+            }
+          }
+        });
+        chosenBox.appendChild(chip);
+      });
+      chosenBox.hidden = !any && !query;
+    }
 
     // screen readers hear the result, and an empty grid gets an explanation
     if (emptyNote) emptyNote.hidden = shown > 0;
+    if (shown > 0 && suggestBox) suggestBox.hidden = true;
+    else suggest();
     if (countNote && countNote.dataset.template) {
       countNote.textContent = countNote.dataset.template
         .replace("{shown}", shown)
@@ -2117,11 +2468,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     writeUrl();
 
-    // on phones the grid sits well below the buttons: glide to it, the way an
-    // anchor would (never on load, only after a real click)
+    // on phones the grid sits well below the buttons: glide to the line
+    // "Showing ... breeds" just above it (never on load, only after a real
+    // click)
     if (scroll && window.innerWidth <= 767) {
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      grid.scrollIntoView({
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      (countNote || grid).scrollIntoView({
         behavior: reduce ? "auto" : "smooth",
         block: "start",
       });
@@ -2142,10 +2496,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const g = btn.dataset.group;
       const key = btn.dataset.filter;
-      // a second click on the active button clears its group; clearing shows
-      // more breeds, so there is nothing to glide down to
+      // a second click on the active button clears its group
       const clears = chosen[g] === key;
-      choose(clears ? "" : key, g, !clears);
+      choose(clears ? "" : key, g, false);
     });
   });
 
@@ -2157,18 +2510,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   selects.forEach((sel) =>
-    sel.addEventListener("change", () => choose(sel.value, sel.dataset.group, false))
+    sel.addEventListener("change", () =>
+      choose(sel.value, sel.dataset.group, false),
+    ),
   );
 
-  if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
+  // the cross next to a drop-down puts it back to "Any ..." without opening it
+  document.querySelectorAll("[data-breeds-select-clear]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const sel = btn
+        .closest("[data-breeds-custom]")
+        .querySelector("[data-breeds-select]");
+      if (sel) choose("", sel.dataset.group, false);
+    }),
+  );
+
+  resetBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
       resetFilters();
       setQuery("");
       if (search) search.value = "";
       syncClear();
       apply(false);
-    });
-  }
+      // reset also folds the filter panel back
+      if (morePanel && moreToggle && !morePanel.hidden) moreToggle.click();
+      // the reset under the list takes the visitor back to the top of the page
+      if (btn.closest(".breeds-reset-bottom")) {
+        const reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      }
+    }),
+  );
 
   if (moreToggle && morePanel) {
     moreToggle.addEventListener("click", () => {
@@ -2197,6 +2571,15 @@ document.addEventListener("DOMContentLoaded", () => {
       setQuery(search.value);
       apply(false);
       syncClear();
+    });
+
+    // on Enter (the search key of a phone keyboard) glide down to the results;
+    // typing itself never moves the page
+    search.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      apply(true);
+      search.blur();
     });
 
     if (clear) {
@@ -2229,18 +2612,32 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.toggle("is-on", on);
       btn.setAttribute("aria-pressed", String(on));
       btn.title = on ? grid.dataset.compareRemove : grid.dataset.compareAdd;
-      btn.textContent = on ? "✓ " + grid.dataset.compareAdded : "+ " + grid.dataset.compareLabel;
+      if (!btn.firstChild) {
+        // both labels sit in one grid cell, so the button keeps one size
+        const add = document.createElement("span");
+        add.className = "bc-toggle__add";
+        add.textContent = "+ " + grid.dataset.compareLabel;
+        const done = document.createElement("span");
+        done.className = "bc-toggle__done";
+        const mark = document.createElement("span");
+        mark.className = "pi pi--check";
+        mark.setAttribute("aria-hidden", "true");
+        done.append(mark, " " + grid.dataset.compareAdded);
+        btn.append(add, done);
+      }
       btn.disabled = !on && picked.length >= MAX_COMPARE;
     });
     if (!cmpBar) return;
     cmpBar.hidden = picked.length === 0;
     document.body.classList.toggle("has-compare-bar", picked.length > 0);
     const base = cmpText.dataset.template.replace("{n}", picked.length);
-    cmpText.textContent = picked.length < 2 ? `${base} · ${cmpText.dataset.hint}` : base;
+    cmpText.textContent =
+      picked.length < 2 ? `${base} · ${cmpText.dataset.hint}` : base;
     cmpOpen.disabled = picked.length < 2;
   }
 
   if (canDialog && cmpBar && cmpDialog && cmpTable) {
+    initDialogFade(cmpDialog);
     items.forEach((item) => {
       const host = item.el.querySelector(".dog-card");
       if (!host) return;
@@ -2267,74 +2664,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const lang = document.documentElement.lang || "en";
     const prefix = lang === "en" ? "" : `/${lang}`;
-    const d = cmpTable.dataset;
-    const years = d.i18nYears || "years";
-    const rows = [
-      [d.i18nVarieties, (b) => b.varieties],
-      [d.i18nOrigin, (b) => b.country],
-      [d.i18nSize, (b) => b.size],
-      [d.i18nHeight, (b) => b.height],
-      [d.i18nWeight, (b) => b.weight],
-      [d.i18nCoatType, (b) => b.coat_type],
-      [d.i18nCoatLength, (b) => b.coat_length],
-      [d.i18nLife, (b) => (b.life ? `${b.life} ${years}` : "")],
-      [d.i18nTrainability, (b) => b.trainability],
-      [d.i18nActivity, (b) => b.activity],
-      [d.i18nBarking, (b) => b.barking],
-      [d.i18nAllergy, (b) => b.hypoallergenic],
-      [d.i18nFamily, (b) => b.family_friendliness],
-    ];
-
-    function cell(tag, text) {
-      const c = document.createElement(tag);
-      setWithSexMarks(c, text || "-");
-      return c;
-    }
 
     async function showCompare() {
       const breeds = await Promise.all(
         picked.map((id) =>
-          fetch(`${prefix}/api/breed/${id}/`).then((r) => r.json())
-        )
+          fetch(`${prefix}/api/breed/${id}/`).then((r) => r.json()),
+        ),
       );
-
-      const table = document.createElement("table");
-      table.className = "bc-table";
-
-      const head = document.createElement("tr");
-      head.appendChild(document.createElement("th"));
-      breeds.forEach((b) => {
-        // photo box and two-line name have a fixed size, so the header is
-        // equally tall for every breed
-        const th = document.createElement("th");
-        const box = document.createElement("div");
-        box.className = "bc-head";
-        const pic = document.createElement("span");
-        pic.className = "bc-head__photo";
-        if (b.photo) {
-          const img = document.createElement("img");
-          img.src = b.photo;
-          img.alt = "";
-          img.loading = "lazy";
-          pic.appendChild(img);
-        }
-        const a = document.createElement("a");
-        a.href = b.url;
-        a.textContent = b.title;
-        box.append(pic, a);
-        th.appendChild(box);
-        head.appendChild(th);
-      });
-      table.appendChild(head);
-
-      rows.forEach(([label, get]) => {
-        const tr = document.createElement("tr");
-        tr.appendChild(cell("th", label));
-        breeds.forEach((b) => tr.appendChild(cell("td", get(b))));
-        table.appendChild(tr);
-      });
-
-      cmpTable.replaceChildren(table);
+      renderCompareTable(cmpTable, breeds);
     }
 
     cmpOpen.addEventListener("click", () => {
@@ -2381,7 +2718,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       // strict answers can leave nothing: say so instead of an empty page
       const left = items.filter((i) =>
-        Object.values(answer).every((k) => i.keys.has(k))
+        Object.values(answer).every((k) => i.keys.has(k)),
       );
       if (!left.length) {
         if (quizNone) quizNone.hidden = false;
@@ -2407,9 +2744,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setQuery(params.get("q") || "");
   if (search) search.value = query;
   syncClear();
-  if (morePanel && selects.some((s) => chosen[s.dataset.group])) {
-    moreToggle.click();
-  }
   apply(false);
   syncCompare();
 });
@@ -2433,13 +2767,27 @@ document.addEventListener("DOMContentLoaded", () => {
       if (img.complete) {
         reveal(card); // already cached (or errored) — show right away
       } else {
-        img.addEventListener("load", function () { reveal(card); }, { once: true });
-        img.addEventListener("error", function () { reveal(card); }, { once: true });
+        img.addEventListener(
+          "load",
+          function () {
+            reveal(card);
+          },
+          { once: true },
+        );
+        img.addEventListener(
+          "error",
+          function () {
+            reveal(card);
+          },
+          { once: true },
+        );
       }
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () { init(); });
+  document.addEventListener("DOMContentLoaded", function () {
+    init();
+  });
 })();
 
 // Post photo and its thumbnails: the same short fade-in as the breed
@@ -2463,8 +2811,20 @@ document.addEventListener("DOMContentLoaded", () => {
         reveal(img);
         return;
       }
-      img.addEventListener("load", function () { reveal(img); }, { once: true });
-      img.addEventListener("error", function () { reveal(img); }, { once: true });
+      img.addEventListener(
+        "load",
+        function () {
+          reveal(img);
+        },
+        { once: true },
+      );
+      img.addEventListener(
+        "error",
+        function () {
+          reveal(img);
+        },
+        { once: true },
+      );
     });
   }
 
@@ -2513,13 +2873,20 @@ document.addEventListener("DOMContentLoaded", () => {
   var list = nav.querySelector("[data-guide-toc-list]");
   var toggle = nav.querySelector("[data-guide-toc-toggle]");
   var heads = [].slice
-    .call(document.querySelectorAll(
-        ".post-container .section-title, #group-breeds"
-      ))
+    .call(
+      document.querySelectorAll(
+        ".post-container .section-title, .policy-container .section-title, #group-breeds",
+      ),
+    )
     .filter(function (head) {
       return !head.closest("[hidden]");
     });
-  var limit = nav.classList.contains("guide-toc--short") ? 4 : 5;
+  // legal pages (guide-toc--all) always list every section
+  var limit = nav.classList.contains("guide-toc--all")
+    ? Infinity
+    : nav.classList.contains("guide-toc--short")
+      ? 4
+      : 5;
 
   if (!list || heads.length < 2) {
     nav.remove();
@@ -2637,11 +3004,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     var target = dialog.dataset.quizTarget || "/breeds/";
     window.location.href = keys.length
-      ? target + "?filter=" + encodeURIComponent(keys.join(",")).replace(/%2C/g, ",")
+      ? target +
+        "?filter=" +
+        encodeURIComponent(keys.join(",")).replace(/%2C/g, ",")
       : target;
   });
 })();
-
 
 // Breed page: the compare panel opens from a quiet button instead of sitting open
 (function () {
@@ -2659,7 +3027,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (location.hash === "#compare") setOpen(true);
 })();
 
-
 // A link or #hash that points into a closed FAQ item opens it
 (function () {
   function openFor(id) {
@@ -2675,7 +3042,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // FAQ: opening one question closes the one that was open
 (function () {
-  var items = [].slice.call(document.querySelectorAll("details.post-faq__item"));
+  var items = [].slice.call(
+    document.querySelectorAll("details.post-faq__item"),
+  );
   if (items.length < 2) return;
 
   items.forEach(function (item) {
@@ -2703,20 +3072,33 @@ document.addEventListener("DOMContentLoaded", () => {
   var phone = window.matchMedia("(max-width: 767px)");
   var full = desc.textContent.trim();
   var short = full;
+  var rest = document.createElement("span");
+  rest.className = "group-intro__rest";
+  rest.hidden = true;
+  desc.parentNode.insertBefore(rest, desc.nextSibling);
 
   var ends = [];
   full.replace(/[.!?…](?=\s|$)/g, function (m, at) {
     ends.push(at + 1);
     return m;
   });
-  var fit = ends.filter(function (at) { return at <= LIMIT; });
+  var fit = ends.filter(function (at) {
+    return at <= LIMIT;
+  });
   var cut = fit.length ? fit[fit.length - 1] : ends[0];
   if (cut && cut < full.length) short = full.slice(0, cut);
+  var tail = full.slice(short.length).trim();
 
+  // the visible part ends its paragraph and the rest is a paragraph of its own;
+  // on a phone that second paragraph waits behind the button, elsewhere it is
+  // simply shown
   function render() {
     var open = box.classList.contains("is-open");
-    var cutOn = phone.matches && short !== full;
-    desc.textContent = cutOn && !open ? short : full;
+    var split = short !== full;
+    var cutOn = phone.matches && split;
+    desc.textContent = split ? short : full;
+    rest.textContent = split ? tail : "";
+    rest.hidden = !split || (cutOn && !open);
     box.classList.toggle("is-cut", cutOn);
   }
 
@@ -2731,6 +3113,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (phone.addEventListener) phone.addEventListener("change", render);
 })();
 
+// Groups page: on phones only the first paragraph is shown, the rest sits
+// behind the same "Read in full" switch as on a group page.
+(function () {
+  var box = document.querySelector(".groups-intro");
+  var toggle = box && box.querySelector("[data-groups-intro-toggle]");
+  if (!toggle) return;
+
+  toggle.addEventListener("click", function () {
+    var open = box.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+})();
+
 // Height and weight come as "♂ 68–72 cm, ♀ 63–68 cm": the two signs go into
 // their own spans so the CSS can line them up with the digits.
 function setWithSexMarks(el, text) {
@@ -2741,7 +3136,8 @@ function setWithSexMarks(el, text) {
       if (!part) return;
       if (part === "♂" || part === "♀") {
         var mark = document.createElement("span");
-        mark.className = "sex-mark";
+        mark.className =
+          "sex-mark " + (part === "♂" ? "sex-mark--m" : "sex-mark--f");
         mark.textContent = part;
         el.appendChild(mark);
       } else {
@@ -2749,3 +3145,170 @@ function setWithSexMarks(el, text) {
       }
     });
 }
+
+// Homepage "breed of the day": the button swaps in another breed from the
+// list the page carries as JSON (no request). Without JS the button stays
+// hidden and the day's breed is just a plain block.
+(function () {
+  var root = document.querySelector("[data-breed-day]");
+  var dataEl = document.getElementById("home-breeds");
+  var next = root && root.querySelector("[data-breed-day-next]");
+  if (!root || !dataEl || !next) return;
+
+  var breeds;
+  try {
+    breeds = JSON.parse(dataEl.textContent);
+  } catch (e) {
+    return;
+  }
+  if (!breeds || breeds.length < 2) return;
+
+  var current = root.dataset.current;
+  var links = root.querySelectorAll("[data-day-link]");
+  var photo = root.querySelector("[data-day-photo]");
+  var set = function (sel, text) {
+    var el = root.querySelector(sel);
+    if (el) el.textContent = text;
+  };
+
+  next.hidden = false;
+  next.addEventListener("click", function () {
+    var pool = breeds.filter(function (b) {
+      return b.u !== current;
+    });
+    var pick = pool[Math.floor(Math.random() * pool.length)];
+    current = pick.u;
+    links.forEach(function (a) {
+      a.setAttribute("href", pick.u);
+    });
+    if (photo && pick.p) photo.setAttribute("src", pick.p);
+    set("[data-day-group]", pick.g);
+    set("[data-day-title]", pick.t);
+    set("[data-day-summary]", pick.s);
+    set("[data-day-size]", pick.z || "");
+    var weightEl = root.querySelector("[data-day-weight]");
+    if (weightEl) setWithSexMarks(weightEl, pick.w || "");
+    set("[data-day-life]", pick.l || "");
+    set("[data-day-origin]", pick.o || "");
+  });
+})();
+
+/* Enjoy photos: a click opens the photo large in a dialog; it closes with the
+   cross, Esc or a click outside the photo. */
+(function () {
+  var dialog = document.querySelector("[data-enjoy-lightbox]");
+  var frames = document.querySelectorAll(".enjoy-photo__frame");
+  if (!dialog || !frames.length || typeof dialog.showModal !== "function")
+    return;
+
+  var img = dialog.querySelector("[data-enjoy-img]");
+  var credit = dialog.querySelector("[data-enjoy-credit]");
+
+  var largest = function (frame) {
+    var source = frame.querySelector("source[srcset]");
+    if (source) {
+      var parts = source.getAttribute("srcset").split(",");
+      var last = parts[parts.length - 1].trim().split(/\s+/)[0];
+      if (last) return last;
+    }
+    return (
+      frame.querySelector(".enjoy-slide__img") || frame.querySelector("img")
+    ).currentSrc;
+  };
+
+  var opened = null;
+  var byKey = false;
+
+  var open = function (frame) {
+    opened = frame;
+    var photo =
+      frame.querySelector(".enjoy-slide__img") || frame.querySelector("img");
+    var author = frame.querySelector(".post-photo-author");
+    img.src = largest(frame);
+    img.alt = photo.alt;
+    credit.textContent = author ? author.textContent : "";
+    dialog.showModal();
+  };
+
+  frames.forEach(function (frame) {
+    frame.setAttribute("role", "button");
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("click", function () {
+      byKey = false;
+      open(frame);
+    });
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        byKey = true;
+        open(frame);
+      }
+    });
+  });
+
+  dialog
+    .querySelector("[data-enjoy-close]")
+    .addEventListener("click", function () {
+      dialog.close();
+    });
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close();
+  });
+  // A swipe down closes the dialog on touch screens: the photo follows the
+  // finger and goes if it was pulled far enough
+  var startY = null;
+  var pull = 0;
+  var pulled = [img, credit];
+
+  var drag = function (y) {
+    pulled.forEach(function (el) {
+      el.style.transition = "none";
+      el.style.transform = y ? "translateY(" + y + "px)" : "";
+      el.style.opacity = y ? String(Math.max(0.35, 1 - y / 400)) : "";
+    });
+  };
+
+  var release = function () {
+    pulled.forEach(function (el) {
+      el.style.transition = "transform 0.2s ease, opacity 0.2s ease";
+      el.style.transform = "";
+      el.style.opacity = "";
+    });
+  };
+
+  dialog.addEventListener(
+    "touchstart",
+    function (e) {
+      startY = e.touches.length === 1 ? e.touches[0].clientY : null;
+      pull = 0;
+    },
+    { passive: true },
+  );
+
+  dialog.addEventListener(
+    "touchmove",
+    function (e) {
+      if (startY === null) return;
+      pull = Math.max(0, e.touches[0].clientY - startY);
+      drag(pull);
+    },
+    { passive: true },
+  );
+
+  dialog.addEventListener("touchend", function () {
+    if (startY === null) return;
+    var far = pull > 90;
+    startY = null;
+    pull = 0;
+    if (far) {
+      dialog.close();
+    }
+    release();
+  });
+
+  dialog.addEventListener("close", function () {
+    img.removeAttribute("src");
+    // after a tap or click the photo must not keep a focus ring
+    if (opened && !byKey) opened.blur();
+  });
+})();

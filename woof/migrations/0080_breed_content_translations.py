@@ -5,7 +5,29 @@ from django.db import migrations
 from woof.migrations._content import apply_translations
 
 PARTS = [
-    "_tr_1a", "_tr_1b", "_tr_2a", "_tr_2b", "_tr_2c", "_tr_3a", "_tr_3b", "_tr_5a", "_tr_5b", "_tr_5c", "_tr_6a", "_tr_6b", "_tr_7a", "_tr_7b", "_tr_7c", "_tr_8a", "_tr_8b", "_tr_9a", "_tr_9b", "_tr_11a", "_tr_11b", "_tr_12a", "_tr_12b",
+    "_tr_1a",
+    "_tr_1b",
+    "_tr_2a",
+    "_tr_2b",
+    "_tr_2c",
+    "_tr_3a",
+    "_tr_3b",
+    "_tr_5a",
+    "_tr_5b",
+    "_tr_5c",
+    "_tr_6a",
+    "_tr_6b",
+    "_tr_7a",
+    "_tr_7b",
+    "_tr_7c",
+    "_tr_8a",
+    "_tr_8b",
+    "_tr_9a",
+    "_tr_9b",
+    "_tr_11a",
+    "_tr_11b",
+    "_tr_12a",
+    "_tr_12b",
 ]
 
 
@@ -36,7 +58,10 @@ DACHSHUND_QUIRKS = {
 def forwards(apps, schema_editor):
     Dogs = apps.get_model("woof", "Dogs")
     Dogs.objects.filter(slug="dachshund").update(
-        **{f"quirks_{lang}": "\n".join(lines) for lang, lines in DACHSHUND_QUIRKS.items()}
+        **{
+            f"quirks_{lang}": "\n".join(lines)
+            for lang, lines in DACHSHUND_QUIRKS.items()
+        }
     )
     for part in PARTS:
         module = import_module(f"woof.migrations.{part}")

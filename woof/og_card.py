@@ -1,175 +1,187 @@
-"""Branded 1200x630 share card (breed photo + "woof dogs" panel).
+"""Branded 1200x630 share cards (photo on the left, title on a doodle panel).
 
-Rendered with Pillow from the committed og fonts; called by the
-``breed_og_image`` view, which caches the result per photo file.
+Rendered with Pillow from the committed og fonts and the site doodles; used
+for breeds, groups and guides. The views cache the result.
 """
 
+from io import BytesIO
 from pathlib import Path
 
 from django.conf import settings
 
-
-OG_CARD_TITLE = "woof dogs"
-OG_CARD_SUBTITLE = "A little mess, a lot of love"
-OG_CARD_FOOTER = "breeds · groups · guides"
+OG_CARD_BRAND = "woof dogs"
 
 OG_CARD_W = 1200
 OG_CARD_H = 630
-OG_CARD_HALF = 600  # left half: photo; right half: brand panel
-OG_CARD_PAD = 44
-OG_CARD_GAP1 = 48  # title -> subtitle
-OG_CARD_GAP2 = 34  # subtitle -> footer
+OG_CARD_HALF = 600  # left half: photo; right half: title panel
+OG_CARD_PAD = 60
 OG_CARD_SEAM_W = 26  # soft shadow strip at the photo edge
 
+GREEN = "#028d6a"
+TEXT_DARK = "#22272f"
+GRAY = (134, 137, 143)
 
-def _og_font(name, size, wght=None):
-    """Load a Pillow font from the committed og fonts (repo static/fonts/og).
+# (file, centre x, centre y, size, rotation) on the right panel
+OG_CARD_DOODLES = [
+    ("heart_pink_3", 668, 66, 72, -14),
+    ("dashes_yellow_2", 800, 44, 62, 20),
+    ("dashes_pink_3", 1000, 46, 66, -25),
+    ("heart_mint_4", 1128, 72, 60, 12),
+    ("dashes_mint_4", 1162, 190, 52, -20),
+    ("heart_yellow_5", 664, 560, 74, 10),
+    ("dashes_pink_6", 790, 588, 60, -30),
+    ("heart_mint_1", 935, 588, 56, -8),
+    ("heart_pink_6", 1055, 584, 50, 15),
+    ("dashes_yellow_5", 1150, 560, 66, 18),
+]
 
-    ``wght`` sets the weight axis of the Nunito variable font (200–1000).
-    """
+
+def _static_path(*parts):
+    return Path(settings.BASE_DIR).joinpath("static", *parts)
+
+
+def _og_font(size, wght):
     from PIL import ImageFont
 
-    path = Path(settings.BASE_DIR) / "static" / "fonts" / "og" / name
-    font = ImageFont.truetype(str(path), size)
-    if wght is not None:
-        font.set_variation_by_axes([wght])
+    font = ImageFont.truetype(
+        str(_static_path("fonts", "og", "Nunito-Variable.ttf")), size
+    )
+    font.set_variation_by_axes([wght])
     return font
 
 
-def build_og_card_bytes(photo_file, credit=None):
-    """Render the 1200x630 share card (photo left, brand right) as JPEG bytes.
+def _paste_doodle(canvas, name, cx, cy, size, rot):
+    from PIL import Image
 
-    Mirrors the homepage hero: photo column (object-fit: cover) on the left,
-    "woof dogs" + slogan + footer in the site's fonts and colors on the right.
-    When ``credit`` is given, a small "* credit" footnote is drawn below the
-    footer.
+    im = Image.open(_static_path(f"doodle_{name}.webp")).convert("RGBA")
+    k = size / max(im.size)
+    im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+    im = im.rotate(rot, expand=True, resample=Image.BICUBIC)
+    canvas.paste(im, (round(cx - im.width / 2), round(cy - im.height / 2)), im)
+
+
+def build_og_card_bytes(photo_file, title, subtitle="", credit=None):
+    """Render the share card as JPEG bytes.
+
+    Photo cover-cropped on the left; on the right the ``title`` in the site's
+    green, an optional ``subtitle``, the brand line and scattered doodles.
+    With ``credit`` a small "* credit" chip sits at the bottom of the photo.
     """
-    from io import BytesIO
+    from PIL import Image, ImageDraw, ImageOps
 
-    from PIL import Image, ImageChops, ImageDraw, ImageOps
+    W, H, HALF = OG_CARD_W, OG_CARD_H, OG_CARD_HALF
 
-    W, H = OG_CARD_W, OG_CARD_H
-    HALF = OG_CARD_HALF
-    GREEN = "#028d6a"
-    TEXT_DARK = "#22272f"
-    GRAY = (134, 137, 143)
-
-    # ---- left: photo, cover-cropped to 600x630 (like .hero-photo) ----
-    img = Image.open(photo_file)
-    img = ImageOps.exif_transpose(img)
-    img = img.convert("RGB")
-    pw, ph = img.size
-    scale = max(HALF / pw, H / ph)
-    sw, sh = int(pw * scale + 0.5), int(ph * scale + 0.5)
-    img = img.resize((sw, sh), Image.LANCZOS)
-    img = img.crop(
-        (
-            (sw - HALF) // 2,
-            (sh - H) // 2,
-            (sw - HALF) // 2 + HALF,
-            (sh - H) // 2 + H,
-        )
-    )
-
+    img = ImageOps.exif_transpose(Image.open(photo_file))
     canvas = Image.new("RGB", (W, H), "#ffffff")
-    canvas.paste(img, (0, 0))
+    if "A" in img.getbands():
+        # a cut-out picture (group tiles): centred on a soft panel, not cropped
+        panel = Image.new("RGB", (HALF, H), "#f6f1ec")
+        k = min(540 / img.width, 570 / img.height)
+        img = img.convert("RGBA").resize(
+            (round(img.width * k), round(img.height * k)), Image.LANCZOS
+        )
+        panel.paste(img, ((HALF - img.width) // 2, (H - img.height) // 2), img)
+        canvas.paste(panel, (0, 0))
+    else:
+        img = img.convert("RGB")
+        scale = max(HALF / img.width, H / img.height)
+        sw, sh = round(img.width * scale), round(img.height * scale)
+        img = img.resize((sw, sh), Image.LANCZOS)
+        left, top = (sw - HALF) // 2, (sh - H) // 2
+        canvas.paste(img.crop((left, top, left + HALF, top + H)), (0, 0))
 
-    # soft shadow at the seam (echoes .hero-photo box-shadow)
+    # soft shadow at the seam
     grad = Image.new("L", (OG_CARD_SEAM_W, H), 0)
     for i in range(OG_CARD_SEAM_W):
         a = int(255 * 0.10 * (1 - i / OG_CARD_SEAM_W) ** 2)
-        for y in range(H):
-            grad.putpixel((i, y), a)
+        grad.paste(a, (i, 0, i + 1, H))
     canvas.paste(
         Image.new("RGB", (OG_CARD_SEAM_W, H), (28, 43, 39)),
         (HALF - OG_CARD_SEAM_W, 0),
         grad,
     )
 
+    for doodle in OG_CARD_DOODLES:
+        _paste_doodle(canvas, *doodle)
+
     d = ImageDraw.Draw(canvas)
 
-    def widths_and_total(font, text, tracking):
-        ws = [d.textlength(ch, font=font) for ch in text]
-        return sum(ws) + tracking * (len(text) - 1), ws
+    def measure(text, font, tr):
+        return sum(d.textlength(ch, font=font) for ch in text) + tr * (len(text) - 1)
 
-    # title: auto-fit (like the homepage 96px title, proportional tracking)
-    size_title = 94
-    while size_title >= 70:
-        font_title = _og_font("Nunito-Variable.ttf", size_title, wght=600)
-        tr = size_title * (7 / 96)
-        total_t, widths_t = widths_and_total(font_title, OG_CARD_TITLE, tr)
-        if total_t <= HALF - 2 * OG_CARD_PAD:
-            break
-        size_title -= 2
+    def wrap(text, font, tr, maxw):
+        lines, cur = [], ""
+        for word in text.split():
+            trial = f"{cur} {word}".strip()
+            if cur and measure(trial, font, tr) > maxw:
+                lines.append(cur)
+                cur = word
+            else:
+                cur = trial
+        return lines + [cur]
 
-    font_sub = _og_font("Nunito-Variable.ttf", 30, wght=400)
-    sub_tr = 30 * 0.09
-    total_s, widths_s = widths_and_total(font_sub, OG_CARD_SUBTITLE, sub_tr)
+    maxw = W - HALF - 2 * OG_CARD_PAD
+    # biggest type that fits in two lines, else in three
+    for max_lines in (2, 3):
+        for size in range(84, 41, -2):
+            font_title = _og_font(size, 600)
+            tr_title = size * (7 / 96)
+            lines = wrap(title, font_title, tr_title, maxw)
+            if len(lines) <= max_lines and all(
+                measure(x, font_title, tr_title) <= maxw for x in lines
+            ):
+                break
+        else:
+            continue
+        break
 
-    font_f = _og_font("Nunito-Variable.ttf", 16, wght=300)
-    f_tr = 16 * 0.16
-    total_f, widths_f = widths_and_total(font_f, OG_CARD_FOOTER, f_tr)
+    blocks = [(line, font_title, GREEN, tr_title, round(size * 0.22)) for line in lines]
+    if subtitle:
+        font_sub = _og_font(30, 400)
+        sub_lines = wrap(subtitle, font_sub, 30 * 0.09, maxw)[:2]
+        blocks[-1] = blocks[-1][:4] + (40,)
+        blocks += [(x, font_sub, TEXT_DARK, 30 * 0.09, 10) for x in sub_lines]
+        blocks[-1] = blocks[-1][:4] + (34,)
+    else:
+        blocks[-1] = blocks[-1][:4] + (34,)
+    blocks.append((OG_CARD_BRAND, _og_font(20, 300), GRAY, 20 * 0.16, 0))
 
-    credit_line = None
+    def ink(text, font, tr):
+        probe = Image.new("L", (W, 300), 0)
+        pd = ImageDraw.Draw(probe)
+        x = 0
+        for ch in text:
+            pd.text((x, 0), ch, font=font, fill=255)
+            x += d.textlength(ch, font=font) + tr
+        return probe.getbbox()
+
+    boxes = [ink(t, f, tr) for t, f, _c, tr, _g in blocks]
+    total = sum(b[3] - b[1] for b in boxes) + sum(b[4] for b in blocks)
+    y = (H - total) / 2
+    cx = HALF + (W - HALF) / 2
+    for (text, font, color, tr, gap), bb in zip(blocks, boxes):
+        x = cx - measure(text, font, tr) / 2
+        for ch in text:
+            d.text((x, y - bb[1]), ch, font=font, fill=color)
+            x += d.textlength(ch, font=font) + tr
+        y += bb[3] - bb[1] + gap
+
     if credit:
-        font_c = _og_font("Nunito-Variable.ttf", 13, wght=300)
-        c_tr = 0
-        credit_line = f"* {credit}"
-        total_c, widths_c = widths_and_total(font_c, credit_line, c_tr)
-
-    def probe_y(font, color, text, tracking):
-        probe = Image.new("RGB", (W, H), "#ffffff")
-        dd = ImageDraw.Draw(probe)
-        x = HALF + OG_CARD_PAD
-        for ch, w in [(c, d.textlength(c, font=font)) for c in text]:
-            dd.text((x, 0), ch, font=font, fill=color)
-            x += w + tracking
-        diff = ImageChops.difference(
-            probe, Image.new("RGB", probe.size, (255, 255, 255))
-        ).convert("L")
-        return diff.getbbox()  # (left, top, right, bottom) painted at y=0
-
-    _, t0, _, b0 = probe_y(font_title, GREEN, OG_CARD_TITLE, tr)
-    _, ts0, _, bs0 = probe_y(font_sub, TEXT_DARK, OG_CARD_SUBTITLE, sub_tr)
-    _, tf0, _, bf0 = probe_y(font_f, GRAY, OG_CARD_FOOTER, f_tr)
-    if credit_line:
-        _, tc0, _, bc0 = probe_y(font_c, GRAY, credit_line, c_tr)
-
-    block_h = (b0 - t0) + OG_CARD_GAP1 + (bs0 - ts0) + OG_CARD_GAP2 + (bf0 - tf0)
-    y_title = (H - block_h) / 2 - t0
-    y_sub = y_title + (b0 - t0) + OG_CARD_GAP1 - ts0
-    y_footer = y_sub + (bs0 - ts0) + OG_CARD_GAP2 - tf0
-
-    def draw_line(text, widths, tracking, y, font, color):
-        x = HALF + OG_CARD_PAD
-        for ch, w in zip(text, widths):
-            d.text((x, y), ch, font=font, fill=color)
-            x += w + tracking
-
-    draw_line(OG_CARD_TITLE, widths_t, tr, y_title, font_title, GREEN)
-    draw_line(OG_CARD_SUBTITLE, widths_s, sub_tr, y_sub, font_sub, TEXT_DARK)
-    draw_line(OG_CARD_FOOTER, widths_f, f_tr, y_footer, font_f, GRAY)
-
-    # photo credit: small chip pinned to the bottom-left of the photo
-    # (mirrors .post-photo-author on the site: translucent, rounded, ~13px)
-    if credit_line:
+        font_c = _og_font(13, 300)
+        line = f"* {credit}"
+        bc = ink(line, font_c, 0)
         pad_x, pad_y = 10, 5
-        radius = 5
-        chip_w = int(total_c + 2 * pad_x)
-        chip_h = int((bc0 - tc0) + 2 * pad_y)
-        cx = 10
-        cy = HALF - chip_h - 10
-        chip = Image.new("RGB", (chip_w, chip_h), (28, 43, 39))
-        chip_mask = Image.new("L", (chip_w, chip_h), 0)
-        ImageDraw.Draw(chip_mask).rounded_rectangle(
-            [0, 0, chip_w - 1, chip_h - 1], radius=radius, fill=51
+        chip_w = int(measure(line, font_c, 0) + 2 * pad_x)
+        chip_h = int((bc[3] - bc[1]) + 2 * pad_y)
+        cx0, cy0 = 10, H - chip_h - 10
+        mask = Image.new("L", (chip_w, chip_h), 0)
+        ImageDraw.Draw(mask).rounded_rectangle(
+            [0, 0, chip_w - 1, chip_h - 1], radius=5, fill=51
         )
-        canvas.paste(chip, (cx, cy), chip_mask)
-        y_c = cy + (chip_h - (bc0 - tc0)) / 2 - tc0
-        x = cx + pad_x
-        for ch, w in zip(credit_line, widths_c):
-            d.text((x, y_c), ch, font=font_c, fill=(255, 255, 255))
-            x += w + c_tr
+        canvas.paste(Image.new("RGB", (chip_w, chip_h), (28, 43, 39)), (cx0, cy0), mask)
+        d.text(
+            (cx0 + pad_x, cy0 + pad_y - bc[1]), line, font=font_c, fill=(255, 255, 255)
+        )
 
     out = BytesIO()
     canvas.save(out, "JPEG", quality=92, optimize=True)

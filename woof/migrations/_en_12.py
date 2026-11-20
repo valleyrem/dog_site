@@ -9,7 +9,7 @@ EN = {
         ],
         "quirks": [
             "The breed descends from English Foxhounds brought to America. The Treeing Walker Coonhound is considered one of the fastest hounds bred for raccoon hunting.",
-            "The word \"treeing\" refers to driving quarry up a tree. The dog chases the raccoon until it climbs a tree, then stays at its base and shows the hunter the spot with loud barking.",
+            'The word "treeing" refers to driving quarry up a tree. The dog chases the raccoon until it climbs a tree, then stays at its base and shows the hunter the spot with loud barking.',
             "The breed's characteristic colouring is white with black and tan patches. Because of its colouring and head shape, the Treeing Walker Coonhound can look like a large Beagle from a distance.",
         ],
     },
@@ -69,7 +69,7 @@ EN = {
             "Ears, paws and teeth: It helps to clean the beard after eating and drinking. Also check the ears regularly, keep the teeth clean and trim the claws.",
         ],
         "quirks": [
-            "The breed's name comes from the Portuguese word barbado, meaning \"bearded\", and is linked to the long hair around the muzzle.",
+            'The breed\'s name comes from the Portuguese word barbado, meaning "bearded", and is linked to the long hair around the muzzle.',
             "The Barbado da Terceira took shape on the island of Terceira in the Azores archipelago. It was bred to herd livestock on hilly volcanic pastures.",
             "In 2005 a census counted only 222 dogs of this breed. Later their number rose above a thousand, and the population is gradually recovering thanks to the efforts of local enthusiasts.",
         ],
@@ -83,7 +83,7 @@ EN = {
         ],
         "quirks": [
             "The American Bulldog was bred as an all-round farm dog in the southern United States: it guarded the homestead, helped manage livestock and caught feral hogs.",
-            "Today American Bulldogs are divided into two main types: the more massive \"bully\" and the lighter, athletic working type.",
+            'Today American Bulldogs are divided into two main types: the more massive "bully" and the lighter, athletic working type.',
             "The American Bulldog can jump vertically to a height of more than 90 cm. This jumping ability is linked to its well-developed muscles and athletic build.",
         ],
     },
@@ -97,7 +97,7 @@ EN = {
         "quirks": [
             "In the United States the breed was used not only as a companion but also on farms: the dogs helped manage cattle, hunt and catch semi-wild hogs.",
             "Weight pulling is an official sport for the breed: a dog in a harness drags a loaded sled or cart a short distance.",
-            "When Pit Bulls are happy, many wag their whole back end and spin on the spot in what owners call the \"happy dance\".",
+            'When Pit Bulls are happy, many wag their whole back end and spin on the spot in what owners call the "happy dance".',
         ],
     },
     "boykin-spaniel": {
@@ -109,7 +109,7 @@ EN = {
         "quirks": [
             "The Boykin Spaniel is the official dog of the state of South Carolina. It received this status in 1985.",
             "According to local legend, the breed's history began with a small stray dog found near a church in Spartanburg. It later came to the hunter Whit Boykin, who played a part in developing the breed.",
-            "The Boykin Spaniel is called \"the little brown dog that doesn't rock the boat\". Thanks to its compact size it could sit comfortably in small hunting boats without upsetting their balance.",
+            'The Boykin Spaniel is called "the little brown dog that doesn\'t rock the boat". Thanks to its compact size it could sit comfortably in small hunting boats without upsetting their balance.',
         ],
     },
     "bluetick-coonhound": {

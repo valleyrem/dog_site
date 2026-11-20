@@ -1,7 +1,7 @@
 FACTS = {
     "shih-tzu": [
         (
-            "Its Chinese name means \"lion dog\", and the breed lived in the imperial palaces as a companion of the court.",
+            'Its Chinese name means "lion dog", and the breed lived in the imperial palaces as a companion of the court.',
             "Китайское название означает «львиная собака», и порода жила в императорских дворцах как спутница двора.",
             "Sein chinesischer Name bedeutet „Löwenhund“, und die Rasse lebte in den kaiserlichen Palästen als Begleiter des Hofes.",
             "Il nome cinese significa «cane leone» e la razza viveva nei palazzi imperiali come compagna della corte.",
@@ -43,7 +43,7 @@ FACTS = {
             "Mali španijeli poput ovih pojavljuju se na portretima Van Dajka i drugih starih majstora, sklupčani u krilu plemića.",
         ),
         (
-            "The chestnut-and-white Blenheim variety often has a round chestnut spot on its head, called the \"lozenge\" or \"Blenheim spot\".",
+            'The chestnut-and-white Blenheim variety often has a round chestnut spot on its head, called the "lozenge" or "Blenheim spot".',
             "У каштаново-белого бленхейма на лбу часто есть круглое каштановое пятнышко, его называют «ромбом» или «бленхеймским пятном».",
             "Die kastanienbraun-weiße Blenheim-Variante hat oft einen runden kastanienbraunen Fleck auf dem Kopf, den „Rhombus“ oder „Blenheim-Fleck“.",
             "La varietà Blenheim marrone e bianca ha spesso sulla testa una macchia tonda castana, detta «losanga» o «macchia Blenheim».",
@@ -53,7 +53,7 @@ FACTS = {
     ],
     "pug": [
         (
-            "A group of pugs is called a \"grumble\".",
+            'A group of pugs is called a "grumble".',
             "Группа мопсов по-английски называется «grumble», то есть «ворчание».",
             "Eine Gruppe Möpse heißt auf Englisch „grumble“, also „Brummen“.",
             "Un gruppo di carlini in inglese si chiama «grumble», cioè «brontolio».",
@@ -61,7 +61,7 @@ FACTS = {
             "Grupa mopsova na engleskom se zove „grumble“, što znači „gunđanje“.",
         ),
         (
-            "The breed's old motto is \"multum in parvo\", Latin for \"a lot in a little\".",
+            'The breed\'s old motto is "multum in parvo", Latin for "a lot in a little".',
             "Старый девиз породы — «multum in parvo», по-латыни «многое в малом».",
             "Das alte Motto der Rasse lautet „multum in parvo“, lateinisch für „viel in wenig“.",
             "L'antico motto della razza è «multum in parvo», latino per «molto in poco».",
@@ -79,7 +79,7 @@ FACTS = {
     ],
     "french-bulldog": [
         (
-            "Its big, upright \"bat ears\" are the breed's trademark, unlike the folded ears of the English Bulldog.",
+            'Its big, upright "bat ears" are the breed\'s trademark, unlike the folded ears of the English Bulldog.',
             "Большие стоячие «ушки-летучие мыши» — фирменный знак породы, в отличие от сложенных ушей английского бульдога.",
             "Die großen, aufrechten „Fledermausohren“ sind das Markenzeichen der Rasse, anders als die gefalteten Ohren der Englischen Bulldogge.",
             "Le grandi orecchie erette «da pipistrello» sono il marchio della razza, a differenza delle orecchie ripiegate del bulldog inglese.",
@@ -95,7 +95,7 @@ FACTS = {
             "Rasu su započeli engleski čipkari koji su se preselili u Francusku, a potom je postala moda u pariskim kafeima i među umetnicima.",
         ),
         (
-            "Frenchies rarely bark, but they snort, grunt and \"talk\" in a whole range of funny sounds.",
+            'Frenchies rarely bark, but they snort, grunt and "talk" in a whole range of funny sounds.',
             "Французские бульдоги редко лают, но фыркают, хрюкают и «разговаривают» целым набором смешных звуков.",
             "Französische Bulldoggen bellen selten, aber sie schnaufen, grunzen und „reden“ mit einer ganzen Palette lustiger Laute.",
             "I bouledogue francesi abbaiano di rado, ma sbuffano, grugniscono e «parlano» con un'intera gamma di suoni buffi.",
@@ -105,7 +105,7 @@ FACTS = {
     ],
     "bichon-frise": [
         (
-            "The name means \"curly lap dog\" in French, and King Henry III of France is said to have carried his bichons in a basket on a ribbon.",
+            'The name means "curly lap dog" in French, and King Henry III of France is said to have carried his bichons in a basket on a ribbon.',
             "Название по-французски означает «кудрявая комнатная собачка», а король Генрих III, как рассказывают, носил своих бишонов в корзинке на ленте.",
             "Der Name bedeutet auf Französisch „gelockter Schoßhund“, und König Heinrich III. von Frankreich soll seine Bichons in einem Korb an einem Band getragen haben.",
             "Il nome significa «cagnolino riccio da grembo» in francese e si dice che re Enrico III di Francia portasse i suoi bichon in un cestino appeso a un nastro.",
@@ -165,7 +165,7 @@ FACTS = {
             "U carskom Pekingu pekinezeri su živeli u palati, a obični ljudi morali su da se poklone kada bi neki prošao.",
         ),
         (
-            "Small \"sleeve\" Pekingese were said to be carried in the wide sleeves of court robes.",
+            'Small "sleeve" Pekingese were said to be carried in the wide sleeves of court robes.',
             "Совсем маленьких «рукавных» пекинесов, как говорят, носили в широких рукавах придворных одежд.",
             "Winzige „Ärmel“-Pekingesen sollen in den weiten Ärmeln der Hofgewänder getragen worden sein.",
             "Si dice che i piccoli pechinesi «da manica» venissero portati nelle ampie maniche delle vesti di corte.",
@@ -209,7 +209,7 @@ FACTS = {
     ],
     "poodle": [
         (
-            "The name comes from the German \"pudeln\", to splash, because the Poodle began as a water retriever.",
+            'The name comes from the German "pudeln", to splash, because the Poodle began as a water retriever.',
             "Название происходит от немецкого «pudeln» — плескаться, потому что пудель начинал как собака для подачи дичи из воды.",
             "Der Name kommt vom deutschen „pudeln“, im Wasser planschen, denn der Pudel begann als Wasserapportierer.",
             "Il nome deriva dal tedesco «pudeln», sguazzare, perché il barboncino nacque come cane da riporto in acqua.",

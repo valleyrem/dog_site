@@ -167,7 +167,7 @@ FIX = {
     },
     "miniature-pinscher": {
         0: (
-            "It is nicknamed the \"King of Toys\" for its regal bearing, bold manner and jaunty attitude.",
+            'It is nicknamed the "King of Toys" for its regal bearing, bold manner and jaunty attitude.',
             "Его называют «королём игрушечных собак» за величественную осанку, смелость и задорный характер.",
             "Er heißt „König der Zwerge“ wegen seiner königlichen Haltung, seiner Kühnheit und seines forschen Auftretens.",
             "È chiamato «re dei toy» per il portamento regale, l'audacia e il carattere sbarazzino.",
@@ -175,7 +175,7 @@ FIX = {
             "Zove se „kralj toy pasa“ zbog kraljevskog držanja, smelosti i vedrog držanja.",
         ),
         1: (
-            "Its prancing walk is called the \"hackney gait\" after the Hackney horse, and it is natural, not taught.",
+            'Its prancing walk is called the "hackney gait" after the Hackney horse, and it is natural, not taught.',
             "Его высокую парадную походку называют «хакни» — по породе лошадей хакни, и она врождённая, этому не учат.",
             "Sein tänzelnder Gang heißt „Hackney-Gang“ nach dem Hackney-Pferd, und er ist angeboren, nicht antrainiert.",
             "Il suo passo saltellante si chiama «hackney gait» dal cavallo Hackney ed è naturale, non insegnato.",

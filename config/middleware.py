@@ -1,5 +1,7 @@
 """Project middleware."""
 
+from django.conf import settings
+
 
 class ContentSecurityPolicyMiddleware:
     """Add a Content-Security-Policy header.
@@ -34,4 +36,6 @@ class ContentSecurityPolicyMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
         response.headers.setdefault("Content-Security-Policy", self.CSP)
+        if request.get_host().split(":")[0] not in settings.INDEXABLE_HOSTS:
+            response.headers["X-Robots-Tag"] = "noindex, nofollow"
         return response

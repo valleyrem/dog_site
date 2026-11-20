@@ -43,7 +43,7 @@ FACTS = {
             "Reklamna zvezda Spads Mekenzi, žurkaški maskot jednog piva osamdesetih, bio je bul terijer.",
         ),
         (
-            "In Victorian England the all-white version was nicknamed the \"White Cavalier\" and was a fashionable gentleman's dog.",
+            'In Victorian England the all-white version was nicknamed the "White Cavalier" and was a fashionable gentleman\'s dog.',
             "В викторианской Англии полностью белых бультерьеров называли «белыми кавалерами», и они были модными собаками джентльменов.",
             "Im viktorianischen England hieß die ganz weiße Variante „White Cavalier“ und war ein modischer Herrenhund.",
             "Nell'Inghilterra vittoriana la versione tutta bianca era detta «White Cavalier» ed era un cane alla moda tra i gentiluomini.",
@@ -105,7 +105,7 @@ FACTS = {
     ],
     "border-terrier": [
         (
-            "Its head is described in the standard as \"otter-like\": broad, with a short muzzle.",
+            'Its head is described in the standard as "otter-like": broad, with a short muzzle.',
             "Голова в стандарте описана как «выдровая»: широкая, с короткой мордой.",
             "Sein Kopf wird im Standard als „otterartig“ beschrieben: breit, mit kurzem Fang.",
             "La testa è descritta dallo standard come «da lontra»: larga, con il muso corto.",
@@ -183,7 +183,7 @@ FACTS = {
     ],
     "airedale-terrier": [
         (
-            "It is the largest of the terriers and is nicknamed the \"King of Terriers\".",
+            'It is the largest of the terriers and is nicknamed the "King of Terriers".',
             "Это самый крупный из терьеров, его называют «королём терьеров».",
             "Er ist der größte aller Terrier und trägt den Beinamen „König der Terrier“.",
             "È il più grande dei terrier ed è soprannominato «re dei terrier».",

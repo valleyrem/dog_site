@@ -10,7 +10,7 @@ EN = {
         ],
         "quirks": [
             "The first cloned dog. In 2005 an Afghan Hound called Snuppy became the first successfully cloned dog in the world. The puppy was born in South Korea as the result of a scientific experiment.",
-            "Pablo Picasso's muse. The artist kept an Afghan Hound called Kabul. The dog inspired him to paint \"Femme au chien\" (1962).",
+            'Pablo Picasso\'s muse. The artist kept an Afghan Hound called Kabul. The dog inspired him to paint "Femme au chien" (1962).',
             "An unusual hairstyle is part of the natural look. On the Afghan Hound's back there is a characteristic patch of short hair, called the \"saddle\". It contrasts with the long silky coat on the rest of the body and is one of the breed's distinguishing features.",
         ],
     },
@@ -38,7 +38,7 @@ EN = {
         ],
         "quirks": [
             "The Whippet can reach a speed of about 55–60 km/h, so it is considered one of the fastest dog breeds. Over short distances it can accelerate sharply, like a sprinter.",
-            "Whippets are known as \"cat-like dogs\": they love to curl up on soft sofas, warm themselves under a blanket and spend time in comfort. Unlike many other sighthounds, the Whippet often adapts well to flat life: at home it is usually calm and rests a lot, and it burns off its energy on walks and while running.",
+            'Whippets are known as "cat-like dogs": they love to curl up on soft sofas, warm themselves under a blanket and spend time in comfort. Unlike many other sighthounds, the Whippet often adapts well to flat life: at home it is usually calm and rests a lot, and it burns off its energy on walks and while running.',
             "Whippets take part in coursing competitions: they chase an artificial lure that moves across a field and imitates a running hare. This lets them express their natural hunting instincts without live quarry.",
         ],
     },
@@ -51,7 +51,7 @@ EN = {
             STOMACH,
         ],
         "quirks": [
-            "The Russian name of the breed is linked to the word \"borzy\", meaning \"swift, nimble\". Russian nobles used Borzois to hunt wolves, usually in whole packs.",
+            'The Russian name of the breed is linked to the word "borzy", meaning "swift, nimble". Russian nobles used Borzois to hunt wolves, usually in whole packs.',
             "The Borzoi can reach a speed of roughly 56–64 km/h. On a hunt several dogs chased the wolf and held it until the hunter arrived.",
             "Until 1936 the breed was called the Russian Wolfhound in English-speaking countries. Later the official name became Borzoi.",
         ],
@@ -123,7 +123,7 @@ EN = {
         ],
         "quirks": [
             "The Greyhound is considered the fastest dog breed: over a short distance it can reach a speed of about 70 km/h.",
-            "Despite its outstanding running ability, Greyhounds spend most of the day sleeping and resting. That is why they are sometimes called \"45-mph couch potatoes\".",
+            'Despite its outstanding running ability, Greyhounds spend most of the day sleeping and resting. That is why they are sometimes called "45-mph couch potatoes".',
             "The Greyhound is mentioned in the King James Bible, in the Book of Proverbs, 30:31. The English original uses the word greyhound, although other translations interpret this verse differently.",
         ],
     },

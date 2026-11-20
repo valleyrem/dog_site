@@ -4,9 +4,9 @@ EN = {
     "scottish-terrier": {
         "summary": "A small, sturdy dog with short legs, a wiry coat, expressive eyebrows and a beard. Independent, bold and self-assured, it keeps strong hunting instincts.",
         "care": [
-            "Coat: The wiry coat should be brushed two or three times a week and clipped or hand-stripped every two to three months. The hair on the beard and \"skirt\" gets dirty quickly.",
+            'Coat: The wiry coat should be brushed two or three times a week and clipped or hand-stripped every two to three months. The hair on the beard and "skirt" gets dirty quickly.',
             "Ears, paws and teeth: Wipe the beard after eating and drinking.",
-            "Worth knowing: Wipe the beard and \"skirt\" after walks in wet weather.",
+            'Worth knowing: Wipe the beard and "skirt" after walks in wet weather.',
         ],
         "quirks": [
             "The Scottish Terrier has a wiry coat with a soft undercoat, thick eyebrows and a beard, which give it a recognisable silhouette.",
@@ -34,14 +34,14 @@ EN = {
         ],
         "quirks": [
             "The Wire Fox Terrier is the record-holder at the Westminster show: the breed has won the top title of Best in Show 15 times, more often than any other breed.",
-            "Asta, the dog in the film \"The Thin Man\" (1934), was a Wire Fox Terrier. His appearance on screen helped the breed become popular.",
+            'Asta, the dog in the film "The Thin Man" (1934), was a Wire Fox Terrier. His appearance on screen helped the breed become popular.',
             "Snowy, the faithful companion of Tintin in Hergé's famous Belgian comics, is also a Wire Fox Terrier.",
         ],
     },
     "yorkshire-terrier": {
         "summary": "A miniature dog with a long silky coat, a compact build and expressive eyes. Despite its size, it is bold, curious and energetic, and bonds strongly with its owners.",
         "care": [
-            "Coat: Brush the long silky coat every day to prevent tangles, or give it a short \"puppy\" clip, which is easier to look after. Gather the hair on the top of the head with a band or trim it so it does not get in the eyes and the bowl. Bathe every two to three weeks.",
+            'Coat: Brush the long silky coat every day to prevent tangles, or give it a short "puppy" clip, which is easier to look after. Gather the hair on the top of the head with a band or trim it so it does not get in the eyes and the bowl. Bathe every two to three weeks.',
             "Ears, paws and teeth: Clean the teeth often: small dogs have more problems with them.",
             "Worth knowing: Put clothes on it in cold weather.",
             KNEES,
@@ -60,7 +60,7 @@ EN = {
             "Ears, paws and teeth: After digging, wipe the paws and check the claws.",
         ],
         "quirks": [
-            "The breed standard describes the head shape as \"otter-like\": broad, with a short, strong muzzle and small ears.",
+            'The breed standard describes the head shape as "otter-like": broad, with a short, strong muzzle and small ears.',
             "Border Terriers were bred for fox hunting alongside riders. The dog had to keep up with the horsemen and then pursue the fox right into its underground refuge.",
             "The Border Terrier has thick, relatively loose skin. This feature helped protect the dog from bites and scratches in fights with foxes in narrow burrows.",
         ],
@@ -96,7 +96,7 @@ EN = {
             "Ears, paws and teeth: Also check the ears regularly, clean the teeth and trim the claws. Wipe the beard with a damp cloth after meals.",
         ],
         "quirks": [
-            "The Airedale Terrier is called the \"King of Terriers\". It is the largest of the terrier breeds.",
+            'The Airedale Terrier is called the "King of Terriers". It is the largest of the terrier breeds.',
             "The Airedale loves water: the breed was developed to hunt otters, so many Airedales swim willingly.",
             "The Airedale's wiry coat is not clipped with clippers but hand-stripped: the dead coat is removed by hand to preserve its structure and colour.",
         ],
@@ -121,7 +121,7 @@ EN = {
             "Eyes: These terriers can have hereditary lens luxation. Redness, cloudiness or pain in an eye is a reason to take the dog to the vet urgently.",
         ],
         "quirks": [
-            "In the film \"The Mask\" (1994), a Jack Russell Terrier called Milo became one of the most memorable characters. He was played by a dog called Max, who won audiences over with his intelligence and funny tricks.",
+            'In the film "The Mask" (1994), a Jack Russell Terrier called Milo became one of the most memorable characters. He was played by a dog called Max, who won audiences over with his intelligence and funny tricks.',
             "Jack Russell Terriers are known for their ability to jump high: despite their small size, they can clear obstacles taller than themselves.",
             "Jack Russell Terriers often have a characteristic habit of digging. It is an expression of the hunting instinct: their ancestors searched for foxes and other quarry in burrows.",
         ],

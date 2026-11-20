@@ -27,66 +27,9 @@
     </div>
 
 
-    <!-- Filters: one row of buttons. Each button belongs to a group (size,
-         coat, activity...); a group allows one choice, different groups add
-         up. Clicking the active button again clears its group. -->
-    <div class="breeds-filter" data-breeds-filters>
-
-        <button type="button"
-                class="filter-btn is-active"
-                data-filter="all"
-                aria-pressed="true">{% blocktranslate trimmed %}All breeds{% endblocktranslate %}</button>
-
-        {% for f in filters %}
-            <button type="button"
-                    class="filter-btn"
-                    data-filter="{{ f.key }}"
-                    data-group="{{ f.group }}"
-                    aria-pressed="false">{{ f.title }}<span class="filter-btn__count" data-count aria-hidden="true"></span><span class="filter-btn__cross" aria-hidden="true">×</span></button>
-        {% endfor %}
-
-    </div>
-
-    <!-- Tools: more filters, reset, quiz -->
-    <div class="breeds-tools">
-
-        <button type="button"
-                class="breeds-tool"
-                data-breeds-more-toggle
-                aria-expanded="false"
-                aria-controls="breedsMore"
-                data-label-more="{% trans 'More filters' %}"
-                data-label-less="{% trans 'Fewer filters' %}">{% trans "More filters" %}</button>
-
-        <button type="button"
-                class="breeds-tool breeds-tool--reset"
-                data-breeds-reset
-                hidden>{% trans "Reset filters" %}</button>
-
-        <button type="button"
-                class="breeds-tool breeds-tool--accent"
-                data-breeds-quiz-open>{% trans "Find my breed" %} 💡</button>
-
-    </div>
-
-    <div class="breeds-more" id="breedsMore" data-breeds-more hidden>
-        {% for g in extra_filters %}
-            {% if g.options %}
-                <label class="breeds-select">
-                    <span class="breeds-select__label">{{ g.label }}</span>
-                    <select data-breeds-select data-group="{{ g.group }}">
-                        <option value="">{{ g.any }}</option>
-                        {% for o in g.options %}
-                            <option value="{{ o.key }}">{{ o.title }}</option>
-                        {% endfor %}
-                    </select>
-                </label>
-            {% endif %}
-        {% endfor %}
-    </div>
-
     <!-- Search: names, varieties, country and group; accents are ignored -->
     <div class="breeds-search">
+        <label class="breeds-search__title" for="breedsSearch">{% trans "Search" %}:</label>
         <div class="breeds-search__field">
             <input type="search"
                    id="breedsSearch"
@@ -104,13 +47,120 @@
         </div>
     </div>
 
+    <!-- Quiz: under the search -->
+    <div class="breeds-quiz">
+        <button type="button"
+                class="guide-more"
+                data-breeds-quiz-open>{% trans "Find my breed" %}</button>
+    </div>
+
+    <!-- Filter panel: one line of actions, then the filters as labelled
+         rows (each row is one group: size, coat, activity...), then the
+         extra drop-downs. A group allows one choice, different groups add
+         up. Clicking the active button again clears its group. -->
+    <div class="breeds-panel">
+
+        {% regroup filters by row as filter_groups %}
+        <div class="breeds-filter" data-breeds-filters>
+
+            <div class="filter-row filter-row--all">
+                <div class="filter-row__chips">
+                    <button type="button"
+                            class="guide-more guide-more--filters"
+                            data-breeds-more-toggle
+                            aria-expanded="false"
+                            aria-controls="breedsMore"
+                            data-label-more="{% trans 'All filters' %}"
+                            data-label-less="{% trans 'All filters' %}">{% trans "All filters" %}</button>
+
+                    <span class="filter-row__actions">
+                        <button type="button"
+                                class="breeds-tool breeds-tool--reset"
+                                data-breeds-reset
+                                hidden>{% trans "Reset" %}</button>
+
+                    </span>
+                </div>
+            </div>
+
+            <!-- Every filter lives here, closed until the button is pressed -->
+            <div class="breeds-filters-body" id="breedsMore" data-breeds-more hidden>
+
+            {% for g in filter_groups %}
+                <div class="filter-row">
+                    <span class="filter-row__label">{{ g.list.0.row_label }}</span>
+                    <div class="filter-row__chips">
+                        {% for f in g.list %}
+                            <button type="button"
+                                    class="filter-btn"
+                                    data-filter="{{ f.key }}"
+                                    data-group="{{ f.group }}"
+                                    aria-pressed="false">{{ f.title }}<span class="filter-btn__count" data-count aria-hidden="true"></span><span class="filter-btn__cross" aria-hidden="true">×</span></button>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+
+                <div class="breeds-more">
+        {% for g in extra_filters %}
+            {% if g.options %}
+                <div class="breeds-select">
+                    <span class="breeds-select__label">{{ g.label }}</span>
+                    <span class="breeds-select__box custom-select" data-breeds-custom>
+                        <button type="button"
+                                class="custom-select-trigger"
+                                aria-haspopup="listbox"
+                                aria-expanded="false">
+                            <span class="custom-select-value">
+                                <span class="custom-select-placeholder" data-breeds-trigger-text>{{ g.any }}</span>
+                            </span>
+                            <span class="custom-select-caret" aria-hidden="true"></span>
+                        </button>
+                        <button type="button"
+                                class="custom-select-clear"
+                                data-breeds-select-clear
+                                aria-label="{{ g.any }}"
+                                title="{{ g.any }}"
+                                hidden>
+                            <svg width="11" height="11" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                        </button>
+                        <ul class="custom-select-list"
+                            data-breeds-list
+                            {% if g.options|length > 10 %}data-list-search="{% trans 'Search' %}"{% endif %}
+                            role="listbox"
+                            tabindex="-1"
+                            hidden></ul>
+                        <select data-breeds-select data-group="{{ g.group }}" hidden aria-hidden="true">
+                            <option value="">{{ g.any }}</option>
+                            {% for o in g.options %}
+                                <option value="{{ o.key }}">{{ o.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <p class="breeds-count"
        data-breeds-count
        data-template="{% trans 'Showing {shown} of {total} breeds' %}"
        role="status"
        aria-live="polite"></p>
 
+    <!-- What is chosen, in one line; each can be removed from here -->
+    <div class="breeds-chosen" data-breeds-chosen hidden></div>
+
     <p class="breeds-empty" data-breeds-empty hidden>{% blocktranslate trimmed %}No breeds match these filters{% endblocktranslate %}</p>
+
+    <!-- Typo help: shown only when a search finds nothing -->
+    <p class="breeds-suggest" data-breeds-suggest data-label="{% trans 'Did you mean:' %}" hidden></p>
 
 
     <!-- Every published breed -->
@@ -127,13 +177,21 @@
     </div>
 
 
+    <!-- Phones: a second reset under the list -->
+    <div class="breeds-reset-bottom">
+        <button type="button"
+                class="breeds-tool breeds-tool--reset"
+                data-breeds-reset
+                hidden>{% trans "Reset" %}</button>
+    </div>
+
+
     <!-- Missing breed notice: it is a footnote, so it follows the grid -->
     <p class="if-you-dont-see">
 
-        <strong>{% blocktranslate trimmed %}*{% endblocktranslate %}</strong>
         {% blocktranslate trimmed %}If you don’t see a particular breed on this website, it may simply mean
         that it hasn’t been added yet, or that we haven’t found suitable images
-        with clear attribution or free usage rights 😊{% endblocktranslate %}
+        with clear attribution or free usage rights.{% endblocktranslate %}
 
     </p>
 

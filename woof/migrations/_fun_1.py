@@ -17,7 +17,7 @@ FACTS = {
             "Kraljica Viktorija držala je koli pse u Balmoralu, a njena naklonost učinila je rasu modernom daleko izvan Škotske.",
         ),
         (
-            "The ears are carried semi-erect with the tips folding forward, and this \"tipped\" look is part of the breed's typical expression.",
+            'The ears are carried semi-erect with the tips folding forward, and this "tipped" look is part of the breed\'s typical expression.',
             "Уши стоят полустоя с загнутыми вперёд кончиками, и этот «сломанный» кончик — часть фирменного выражения морды колли.",
             "Die Ohren sind halb aufgerichtet, die Spitzen kippen nach vorn, und dieser Look gehört zum typischen Ausdruck der Rasse.",
             "Le orecchie sono semi-erette con la punta ripiegata in avanti, e questo aspetto fa parte dell'espressione tipica della razza.",
@@ -43,7 +43,7 @@ FACTS = {
             "Ime Bobtejl odnosi se na kratak rep, a neka štenad se rađaju bez repa.",
         ),
         (
-            "Its bark is described in the breed standard as loud with a \"pot-casse\" ring, like a cracked pot.",
+            'Its bark is described in the breed standard as loud with a "pot-casse" ring, like a cracked pot.',
             "Лай бобтейла в стандарте породы описан как громкий, с «надтреснутым» звуком, будто бьют по треснувшему горшку.",
             "Sein Bellen wird im Rassestandard als laut mit einem „Pot-casse“-Klang beschrieben, wie ein gesprungener Topf.",
             "Il suo abbaio è descritto nello standard come forte, con un suono «pot-casse», come quello di una pentola incrinata.",
@@ -165,7 +165,7 @@ FACTS = {
             "Border koli po imenu Čejzer naučila je imena 1.022 igračke, a istraživači su potvrdili da ih je prepoznavala po imenu.",
         ),
         (
-            "It herds with \"the eye\", a fixed stare that steers the sheep without a single bite or bark.",
+            'It herds with "the eye", a fixed stare that steers the sheep without a single bite or bark.',
             "Он пасёт «взглядом» — пристальным, немигающим, который направляет овец без единого укуса и лая.",
             "Er hütet mit dem „Auge“, einem festen Blick, der die Schafe ohne Biss und Gebell lenkt.",
             "Pascola con «l'occhio», uno sguardo fisso che guida le pecore senza un morso né un abbaio.",

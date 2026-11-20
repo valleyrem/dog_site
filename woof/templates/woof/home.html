@@ -13,7 +13,7 @@
     "name": "Woof Dogs",
     "url": "{{ request.scheme }}://{{ request.get_host }}",
     "inLanguage": "{{ LANGUAGE_CODE }}",
-    "description": "Woof Dogs — dog breeds grouped by FCI classification."
+    "description": "{{ meta_description|escapejs }}"
 }
 </script>
 {% endblock %}
@@ -45,7 +45,7 @@
         <!-- Main menu -->
         <ul class="mobile-menu__list--top">
 
-            {% for m in menu %}
+            {% for m in menu_with_home %}
 
                 <li class="mobile-menu__item {% if request.resolver_match.url_name == m.url_name %}is-active{% endif %}">
                     <a href="{% url m.url_name %}" title="{{ m.title }}">
@@ -90,8 +90,29 @@
 <!-- Homepage content -->
 <div class="homepage">
 
-    <!-- Hero -->
+    <!-- Hero: the garden photo fills the block, the text sits on it -->
     <div class="hero-block-1 wave">
+
+        <picture class="hero-bg">
+            <source media="(max-width: 767px)" type="image/webp"
+                    srcset="{% static 'woof/img/hero-dog-mobile-700.webp' %} 700w,
+                            {% static 'woof/img/hero-dog-mobile-1100.webp' %} 1100w"
+                    sizes="100vw">
+            <source type="image/webp"
+                    srcset="{% static 'woof/img/hero-dog-1-1000.webp' %} 1000w,
+                            {% static 'woof/img/hero-dog-1-1600.webp' %} 1600w,
+                            {% static 'woof/img/hero-dog-1-2000.webp' %} 2000w"
+                    sizes="100vw">
+            <img class="hero-bg__img"
+                 src="{% static 'woof/img/hero-dog-1.jpg' %}"
+                 alt="{% trans 'Dogs in a garden' %}"
+                 width="1600"
+                 height="1067"
+                 fetchpriority="high"
+                 decoding="async">
+        </picture>
+
+        <div class="post-photo-author hero-credit">Elina Volkova / Pexels</div>
 
         <div class="hero-center">
 
@@ -102,9 +123,9 @@
                     <!-- Hero left -->
                     <div class="hero-left">
 
-                        <p class="homepage-title-1">
+                        <h1 class="homepage-title-1">
                             woof dogs
-                        </p>
+                        </h1>
 
                         <p class="homepage-subtitle">
                             {% blocktranslate trimmed %}A little mess, a lot of <span class="accent-strong">love</span>{% endblocktranslate %}
@@ -179,6 +200,8 @@
 
                                     {# Filled by scripts.js from the <select> below. #}
                                     <ul id="breedList"
+                                        data-list-search="{% trans 'Search' %}"
+                                        data-list-empty="{% trans 'No breeds match these filters' %}"
                                         class="custom-select-list"
                                         role="listbox"
                                         tabindex="-1"
@@ -200,35 +223,11 @@
 
                         </div>
 
+
+
                         <p class="homepage-subsubtitle">
                             {% blocktranslate trimmed %}Discover the wonderful world of dogs, from playful little companions to loyal adventure buddies, each with a personality of their own.{% endblocktranslate %}
                         </p>
-
-                    </div>
-
-                    <!-- Hero right -->
-                    <div class="hero-right">
-
-                        <div class="hero-photo-box">
-
-                            <picture>
-                                <source type="image/webp"
-                                        srcset="{% static 'woof/img/hero-dog-3-700.webp' %} 700w,
-                                                {% static 'woof/img/hero-dog-3-1100.webp' %} 1100w,
-                                                {% static 'woof/img/hero-dog-3.webp' %} 1400w"
-                                        sizes="(min-width: 1025px) 42vw, 100vw">
-                                <img class="hero-photo"
-                                     src="{% static 'woof/img/hero-dog-3.jpg' %}"
-                                     alt="{% trans 'A happy dog' %}"
-                                     width="1400"
-                                     height="1700"
-                                     fetchpriority="high"
-                                     decoding="async">
-                            </picture>
-
-                            <div class="post-photo-author">Xie Heguo / Unsplash</div>
-
-                        </div>
 
                     </div>
 
@@ -240,49 +239,26 @@
 
     </div>
 
-    <!-- Breed marquee -->
-    <div class="breed-marquee">
+    <!-- Quotes -->
+    <section class="quote-slider" data-quote-slider>
 
-        <div class="breed-marquee__mask" aria-hidden="true">
-
-            <div class="breed-marquee__track">
-
-                {% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}{% for q in quotes %}<span class="breed-marquee__item"><span class="breed-marquee__quote">{{ q.0 }}</span>&nbsp;<span class="breed-marquee__author">— {{ q.1 }}</span></span>{% endfor %}
-
-            </div>
-
+        <div class="quote-slider__stage" aria-live="polite">
+            {% for q in quotes %}<figure class="quote-slider__slide{% if forloop.first %} is-active{% endif %}">
+                <blockquote class="quote-slider__text">{{ q.0 }}</blockquote>
+                <figcaption class="quote-slider__author">{{ q.1 }}</figcaption>
+            </figure>{% endfor %}
         </div>
 
-        <button type="button"
-                class="marquee-toggle"
-                id="marqueeToggle"
-                aria-label="{% trans 'Pause' %}"
-                aria-pressed="false"
-                data-label-pause="{% trans 'Pause' %}"
-                data-label-play="{% trans 'Play' %}"
-                title="{% trans 'Pause' %}">
+        <div class="quote-slider__dots" data-quote-dots></div>
 
-            <svg class="marquee-icon marquee-icon--pause" width="10" height="12"
-                 viewBox="0 0 10 12" aria-hidden="true" focusable="false">
-                <rect x="0" y="0" width="3.4" height="12" fill="currentColor"/>
-                <rect x="6.6" y="0" width="3.4" height="12" fill="currentColor"/>
-            </svg>
-
-            <svg class="marquee-icon marquee-icon--play" width="10" height="12"
-                 viewBox="0 0 10 12" aria-hidden="true" focusable="false">
-                <path d="M0 0 10 6 0 12Z" fill="currentColor"/>
-            </svg>
-
-        </button>
-
-    </div>
+    </section>
 
     <!-- {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %} -->
     <div class="home-text-block" id="explore">
 
-        <h1 class="home-text-block-title">
+        <h2 class="home-text-block-title">
             {% blocktranslate trimmed %}Breed profiles{% endblocktranslate %}
-        </h1>
+        </h2>
 
         <p class="homepage-subsubtitle">
             {% blocktranslate trimmed %}Explore breeds by size, temperament,<br> lifestyle and more.{% endblocktranslate %}
@@ -348,7 +324,190 @@
 
         </div>
 
+        <div class="home-guides__more">
+            <a href="{% url 'breeds' %}" class="guide-more home-guides__all">{% trans "Browse all breeds" %}</a>
+        </div>
+
     </div>
+
+    <!-- Breed of the day -->
+    {% if breed_of_day %}
+    {% with dog=breed_of_day %}
+    <section class="home-section home-section--day"
+             data-breed-day
+             data-current="{{ dog.get_absolute_url }}"
+             aria-labelledby="breed-day-heading">
+
+        <div class="home-section__head">
+            <h2 class="home-text-block-title" id="breed-day-heading">{% trans "Breed of the day" %}</h2>
+        </div>
+
+        <div class="home-day">
+
+            <a href="{{ dog.get_absolute_url }}" class="home-day__photo" data-day-link tabindex="-1" aria-hidden="true">
+                {% if dog.photo %}
+                <img src="{{ dog.photo_medium.url }}"
+                     alt=""
+                     width="1200"
+                     height="857"
+                     loading="lazy"
+                     decoding="async"
+                     data-day-photo>
+                {% endif %}
+            </a>
+
+            <div class="home-day__body">
+                <p class="home-day__group" data-day-group>{{ dog.cat }}</p>
+                <h3 class="home-day__title"><a href="{{ dog.get_absolute_url }}" data-day-link data-day-title>{{ dog.title }}</a></h3>
+                <div class="home-day__side">
+                    <p class="home-day__summary" data-day-summary>{{ dog.summary }}</p>
+                    <div class="home-day__actions">
+                        <button type="button" class="guide-more guide-more--swap" data-breed-day-next hidden>{% trans "Another one" %}</button>
+                        <a href="{{ dog.get_absolute_url }}" class="guide-more" data-day-link>{% trans "Learn more" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-day__facts home-day__facts--left">
+                <div class="home-fact">
+                    <span class="home-fact__label"><span class="icon pi pi--size" aria-hidden="true"></span>{% trans "Size" %}</span>
+                    <strong data-day-size>{{ dog.get_size_display }}</strong>
+                </div>
+                <div class="home-fact">
+                    <span class="home-fact__label"><span class="icon pi pi--weight" aria-hidden="true"></span>{% trans "Weight" %}</span>
+                    <strong data-day-weight>{{ dog|day_weight }}</strong>
+                </div>
+            </div>
+
+            <div class="home-day__facts home-day__facts--right">
+                <div class="home-fact">
+                    <span class="home-fact__label"><span class="icon pi pi--life" aria-hidden="true"></span>{% trans "Life expectancy" %}</span>
+                    <strong data-day-life>{% if dog.life_expectancy %}{% blocktranslate trimmed with years=dog.life_expectancy %}{{ years }} years{% endblocktranslate %}{% endif %}</strong>
+                </div>
+                <div class="home-fact">
+                    <span class="home-fact__label"><span class="icon pi pi--origin" aria-hidden="true"></span>{% trans "Origin" %}</span>
+                    <strong data-day-origin>{{ dog.country.name }}</strong>
+                </div>
+            </div>
+
+            <span class="home-day__doodle home-day__doodle--1" aria-hidden="true"></span>
+            <span class="home-day__doodle home-day__doodle--2" aria-hidden="true"></span>
+            <span class="home-day__doodle home-day__doodle--3" aria-hidden="true"></span>
+            <span class="home-day__doodle home-day__doodle--4" aria-hidden="true"></span>
+
+        </div>
+
+    </section>
+    {{ breeds_data|json_script:"home-breeds" }}
+    {% endwith %}
+    {% endif %}
+
+    <!-- Guides -->
+    <section class="home-section home-guides" aria-labelledby="home-guides-heading">
+
+        <div class="home-section__head">
+            <h2 class="home-text-block-title" id="home-guides-heading">{% blocktranslate trimmed %}Dog guides{% endblocktranslate %}</h2>
+            <p class="homepage-subsubtitle">{% blocktranslate trimmed %}General information about pet care{% endblocktranslate %}</p>
+        </div>
+
+        <div class="home-guides__grid">
+
+            {% if "choosing" in home_guides %}
+            <a href="{% url 'guide-choosing-dog' %}" title="{% trans 'Choosing the dog' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'choosing_a_dog.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Choosing the dog{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Learn how to choose a breed that matches your lifestyle,
+                    activity level and living space.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "puppy" in home_guides %}
+            <a href="{% url 'guide-puppy' %}" title="{% trans 'Raising a puppy' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'raising_a_puppy.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Learn about early puppy development,
+                    socialization, routines and first-life stages.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "training" in home_guides %}
+            <a href="{% url 'guide-training' %}" title="{% trans 'Training' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'dog_training_fundamentals.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Training{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Understand basic training principles,
+                    communication and learning consistency.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "health" in home_guides %}
+            <a href="{% url 'guide-health' %}" title="{% trans 'Dog health & care' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'dog_health_care.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Learn about grooming, nutrition,
+                    preventive care and general health basics.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "behavior" in home_guides %}
+            <a href="{% url 'guide-behavior' %}" title="{% trans 'Dog behavior' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'dog_behavior.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Dog behavior{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Discover how dogs communicate,
+                    express emotions and react to the world around them.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "living" in home_guides %}
+            <a href="{% url 'guide-living' %}" title="{% trans 'Living with a dog' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'living_with_a_dog.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Daily routines, home adaptation
+                    and long-term lifestyle organization with a dog.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "feeding" in home_guides %}
+            <a href="{% url 'guide-feeding' %}" title="{% trans 'Feeding your dog' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'feeding_your_dog.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Learn how to choose food, feed by age
+                    and build a healthy drinking regime.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+            {% if "games" in home_guides %}
+            <a href="{% url 'guide-games' %}" title="{% trans 'Games & activities' %}" class="home-guide">
+                <span class="home-guide__img">
+                    <img src="{% static 'games_activities.webp' %}" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </span>
+                <span class="guide-title">{% blocktranslate trimmed %}Games & activities{% endblocktranslate %}</span>
+                <p>{% blocktranslate trimmed %}Discover safe games and activities
+                    that keep your dog active, engaged and happy.{% endblocktranslate %}</p>
+                <span class="guide-more">{% trans "Read" %}</span>
+            </a>
+            {% endif %}
+
+        </div>
+
+        <div class="home-guides__more">
+            <a href="{% url 'guides' %}" class="guide-more home-guides__all">{% trans "All guides" %}</a>
+        </div>
+
+    </section>
 
     <!-- Garden photo note -->
     <div class="garden-note-wrap">
@@ -359,24 +518,115 @@
 
         <p class="homepage-subsubtitle garden-note__sub">{% trans "Only the best for the best." %}</p>
 
-        <div class="garden-note__frame">
+        <!-- Seven photos in two rows; inside a row every photo has the same
+             height and its width follows its shape -->
+        <div class="enjoy-photos">
 
-            <picture>
-                <source type="image/webp"
-                        srcset="{% static 'woof/img/hero-dog-1-1000.webp' %} 1000w,
-                                {% static 'woof/img/hero-dog-1-1600.webp' %} 1600w,
-                                {% static 'woof/img/hero-dog-1-2000.webp' %} 2000w"
-                        sizes="(min-width: 1080px) 1000px, 92vw">
-                <img class="garden-note__img"
-                     src="{% static 'woof/img/hero-dog-1.jpg' %}"
-                     alt="{% trans 'Four dogs in a garden' %}"
-                     width="1600"
-                     height="1067"
-                     loading="lazy"
-                     decoding="async">
-            </picture>
+            <div class="enjoy-row">
+            <figure class="enjoy-photo enjoy-photo--meeting">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/enjoy-meeting-600.webp' %} 600w,
+                                        {% static 'woof/img/enjoy-meeting-900.webp' %} 900w"
+                                sizes="(min-width: 1025px) 360px, 50vw">
+                        <img src="{% static 'woof/img/enjoy-meeting-600.webp' %}"
+                             alt="{% trans 'Three dogs greeting each other' %}"
+                             width="600" height="800"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "Meeting new friends" %}</figcaption>
+                    <div class="post-photo-author">Trương Tuyết Ly / Unsplash</div>
+                </div>
+            </figure>
 
-            <div class="post-photo-author">Elina Volkova / Pexels</div>
+            <figure class="enjoy-photo enjoy-photo--left">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/enjoy-dachshunds-700.webp' %} 700w,
+                                        {% static 'woof/img/enjoy-dachshunds-1100.webp' %} 1100w"
+                                sizes="(min-width: 1025px) 560px, 50vw">
+                        <img src="{% static 'woof/img/enjoy-dachshunds-700.webp' %}"
+                             alt="{% trans 'Two dachshunds sniffing each other' %}"
+                             width="700" height="467"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "Best friends" %}</figcaption>
+                    <div class="post-photo-author">Gundula Vogel / Pexels</div>
+                </div>
+            </figure>
+
+            <figure class="enjoy-photo enjoy-photo--listening">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/enjoy-listening-600.webp' %} 600w,
+                                        {% static 'woof/img/enjoy-listening-900.webp' %} 900w"
+                                sizes="(min-width: 1025px) 320px, 50vw">
+                        <img src="{% static 'woof/img/enjoy-listening-600.webp' %}"
+                             alt="{% trans 'Three dogs sitting and looking up' %}"
+                             width="600" height="900"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "Listening closely" %}</figcaption>
+                    <div class="post-photo-author">Blue Bird / Pexels</div>
+                </div>
+            </figure>
+            </div>
+
+            <div class="enjoy-row">
+            <figure class="enjoy-photo enjoy-photo--sea">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/enjoy-sea-600.webp' %} 600w,
+                                        {% static 'woof/img/enjoy-sea-900.webp' %} 900w"
+                                sizes="(min-width: 1025px) 360px, 50vw">
+                        <img src="{% static 'woof/img/enjoy-sea-600.webp' %}"
+                             alt="{% trans 'Three dogs running on the sand by the sea' %}"
+                             width="600" height="800"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "Beach day" %}</figcaption>
+                    <div class="post-photo-author">Alby / Pexels</div>
+                </div>
+            </figure>
+
+            <figure class="enjoy-photo enjoy-photo--playing">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/enjoy-playing-700.webp' %} 700w,
+                                        {% static 'woof/img/enjoy-playing-1100.webp' %} 1100w"
+                                sizes="(min-width: 1025px) 520px, 92vw">
+                        <img src="{% static 'woof/img/enjoy-playing-700.webp' %}"
+                             alt="{% trans 'Two Weimaraners and a dachshund' %}"
+                             width="700" height="467"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "At rest" %}</figcaption>
+                    <div class="post-photo-author">Silvo / Pixabay</div>
+                </div>
+            </figure>
+
+            <figure class="enjoy-photo enjoy-photo--main">
+                <div class="enjoy-photo__frame">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{% static 'woof/img/hero-dog-3-700.webp' %} 700w,
+                                        {% static 'woof/img/hero-dog-3-1100.webp' %} 1100w"
+                                sizes="(min-width: 1025px) 400px, 92vw">
+                        <img src="{% static 'woof/img/hero-dog-3.jpg' %}"
+                             alt="{% trans 'A happy dog' %}"
+                             width="1400" height="1700"
+                             loading="lazy" decoding="async">
+                    </picture>
+                    <figcaption class="enjoy-photo__cap">{% trans "Pure joy" %}</figcaption>
+                    <div class="post-photo-author">Xie Heguo / Unsplash</div>
+                </div>
+            </figure>
+            </div>
 
         </div>
 
@@ -385,5 +635,14 @@
     </div>
 
 </div>
+
+{% comment %} ---- Enjoy photos: one photo at a time, only a close button ---- {% endcomment %}
+<dialog class="enjoy-lightbox" aria-label="{% trans 'Photo' %}" data-enjoy-lightbox>
+    <button type="button" class="enjoy-lightbox__close" data-enjoy-close aria-label="{% trans 'Close' %}"><svg width="18" height="18" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></button>
+    <img class="enjoy-lightbox__img" src="" alt="" data-enjoy-img>
+    <p class="enjoy-lightbox__credit" data-enjoy-credit></p>
+</dialog>
+
+{% include "woof/includes/quiz_dialog.html" %}
 
 {% endblock %}

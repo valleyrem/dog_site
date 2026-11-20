@@ -1,7 +1,16 @@
 from django.db import migrations
 
 from woof.migrations import (
-    _en_1, _en_2, _en_3, _en_5, _en_6, _en_7, _en_8, _en_9, _en_11, _en_12,
+    _en_1,
+    _en_2,
+    _en_3,
+    _en_5,
+    _en_6,
+    _en_7,
+    _en_8,
+    _en_9,
+    _en_11,
+    _en_12,
 )
 
 PARTS = (_en_1, _en_2, _en_3, _en_5, _en_6, _en_7, _en_8, _en_9, _en_11, _en_12)

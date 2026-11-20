@@ -2,9 +2,28 @@ import re
 
 from django.db import migrations
 
-from woof.migrations import _fix_g1, _fix_g2, _fix_g3, _fix_g45, _fix_g6, _fix_x1, _fix_x2
+from woof.migrations import (
+    _fix_g1,
+    _fix_g2,
+    _fix_g3,
+    _fix_g45,
+    _fix_g6,
+    _fix_x1,
+    _fix_x2,
+)
 
-FIELDS = ("title", "colors", "varieties", "summary", "history", "care", "good_fit", "think_twice", "daily_life", "quirks")
+FIELDS = (
+    "title",
+    "colors",
+    "varieties",
+    "summary",
+    "history",
+    "care",
+    "good_fit",
+    "think_twice",
+    "daily_life",
+    "quirks",
+)
 LANGS = ("ru", "en", "de", "it", "es", "sr_latn")
 
 

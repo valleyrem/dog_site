@@ -1,0 +1,5 @@
+{% load i18n %}
+<p class="page-dates">
+    {% if created %}<span>{{ created|date:"j E Y" }}</span>{% endif %}
+    {% if updated %}<span>{% trans "Updated" %}: {{ updated|date:"j E Y" }}</span>{% endif %}
+</p>

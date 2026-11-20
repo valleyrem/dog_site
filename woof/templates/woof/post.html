@@ -46,15 +46,16 @@
             data-copied="{% trans 'Link copied' %}">
         <svg class="post-copy-icon" width="20" height="20" viewBox="0 0 24 24"
              fill="none" aria-hidden="true">
-            <path d="M10.5 13.5a4.6 4.6 0 0 0 6.6 0l2.4-2.4a4.67 4.67 0 0 0-6.6-6.6l-1.2 1.2"
-                  stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M13.5 10.5a4.6 4.6 0 0 0-6.6 0l-2.4 2.4a4.67 4.67 0 0 0 6.6 6.6l1.2-1.2"
-                  stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="18" cy="5.5" r="2.6" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="18" cy="18.5" r="2.6" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M8.3 10.7 15.7 6.800M8.3 13.300 15.700 17.200"
+                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
         <svg class="post-copy-check" width="20" height="20" viewBox="0 0 24 24"
              fill="none" aria-hidden="true">
             <path d="M4.5 12.5 9.5 17.5 19.5 6.5" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="post-copy-label">{% trans 'Share' %}</span>
         <span class="post-copy-toast" aria-hidden="true"></span>
@@ -70,6 +71,8 @@
     <h1 class="post-title">
         <span class="post-title-text">{{ post.title }}</span>
     </h1>
+
+    {% include "woof/includes/page_dates.html" with created=post.time_create updated=post.time_update %}
 
     <div class="post-media" id="overview">
 
@@ -105,11 +108,7 @@
             aria-label="{% trans 'Next' %}"></button>
     {% endif %}
 
-    <div class="post-photo-author" id="post-photo-author">
-        {% if post.photo_author %}
-            {{ post.photo_author }}
-        {% endif %}
-    </div>
+    <div class="post-photo-author" id="post-photo-author">{% if post.photo_author %}{{ post.photo_author }}{% endif %}</div>
 
 </div>
 {% endif %}
@@ -165,7 +164,7 @@
         {% if post.temperament.all %}
         <div class="param-card wide">
             <div class="top">
-                <span class="icon">🎭</span>
+                <span class="icon pi pi--character" aria-hidden="true"></span>
                 <span>{% trans "Character" %}</span>
             </div>
             {# first trait capitalised, the rest in lower case after a comma #}
@@ -175,19 +174,23 @@
 
         <div class="param-card wide">
             <div class="top">
-                <span class="icon">🐾</span>
+                <span class="icon pi pi--group" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Group, section{% endblocktranslate %}</span>
             </div>
-            <strong>{{ post.cat }}{% if post.section %}, {{ post.section }}{% endif %}</strong>
+            <strong>{{ post.cat }}{% if post.section %}; {{ post.section }}{% endif %}{% if post.fci_standard %}, №&nbsp;{{ post.fci_standard }}{% endif %}</strong>
         </div>
 
         <div class="param-card wide">
             <div class="top">
-                <span class="icon">🧬</span>
+                <span class="icon pi pi--varieties" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Varieties{% endblocktranslate %}</span>
                 <span class="param-info" tabindex="0">
                     ⓘ<span class="param-tooltip">
-                        {% blocktranslate trimmed %}Varieties within one breed are officially recognized variants of dogs that share a single breed standard and breed number but differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties.{% endblocktranslate %}
+                        {% if post.cat.slug == 'breeds-outside-fci-classification' %}
+                        {% blocktranslate trimmed %}Varieties within one breed are variants of dogs recognized by another kennel club that recognizes the breed. They are described in that club's breed standard and differ in key traits: coat type, size, weight, or colour. If the breed is not recognized by any kennel club, the information is taken from open sources on the internet.{% endblocktranslate %}
+                        {% else %}
+                        {% blocktranslate trimmed %}Varieties within one breed are variants of dogs officially recognized by the FCI (Fédération Cynologique Internationale). They are described in the breed's FCI standard, which covers all of them under a single breed number, and differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties.{% endblocktranslate %}
+                        {% endif %}
                     </span>
                 </span>
             </div>
@@ -196,23 +199,24 @@
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">🌍</span>
+                <span class="icon pi pi--origin" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Origin{% endblocktranslate %}</span>
             </div>
             <strong>{{ post.country.name }}</strong>
         </div>
 
+        {% if post.native_name %}
         <div class="param-card">
             <div class="top">
-                <span class="icon">🐕</span>
-                <span>{% blocktranslate trimmed %}Size{% endblocktranslate %}</span>
+                <span class="icon pi pi--native" aria-hidden="true"></span>
+                <span>{% blocktranslate trimmed %}Native name{% endblocktranslate %}</span>
             </div>
-            <strong>{{ post.get_size_display }}</strong>
+            <strong>{{ post.native_name }}{% if post.native_language %} ({{ post.native_language.name }}){% endif %}</strong>
         </div>
-
+        {% endif %}
         <div class="param-card">
             <div class="top">
-                <span class="icon">❤️</span>
+                <span class="icon pi pi--life" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Life expectancy{% endblocktranslate %}</span>
             </div>
             <strong>{% blocktranslate trimmed with years=post.life_expectancy %}{{ years }} years{% endblocktranslate %}</strong>
@@ -220,24 +224,32 @@
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">↕️</span>
+                <span class="icon pi pi--size" aria-hidden="true"></span>
+                <span>{% blocktranslate trimmed %}Size{% endblocktranslate %}</span>
+            </div>
+            <strong>{{ post.get_size_display }}</strong>
+        </div>
+
+        <div class="param-card">
+            <div class="top">
+                <span class="icon pi pi--height" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Height{% endblocktranslate %}</span>
             </div>
-            <strong><span class="sex-mark">♂</span>&nbsp;{{ post.height_male|nobreak_range }}&nbsp;{% trans "cm" %}, <br class="sex-break"><span class="sex-mark">♀</span>&nbsp;{{ post.height_female|nobreak_range }}&nbsp;{% trans "cm" %}</strong>
+            <strong><span class="sex-mark sex-mark--m">♂</span>&nbsp;{{ post.height_male|nobreak_range }}&nbsp;{% trans "cm" %}, <br class="sex-break"><span class="sex-mark sex-mark--f">♀</span>&nbsp;{{ post.height_female|nobreak_range }}&nbsp;{% trans "cm" %}</strong>
         </div>
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">⚖️</span>
+                <span class="icon pi pi--weight" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Weight{% endblocktranslate %}</span>
             </div>
-            <strong><span class="sex-mark">♂</span>&nbsp;{{ post.weight_male|nobreak_range }}&nbsp;{% trans "kg" %}, <br class="sex-break"><span class="sex-mark">♀</span>&nbsp;{{ post.weight_female|nobreak_range }}&nbsp;{% trans "kg" %}</strong>
+            <strong><span class="sex-mark sex-mark--m">♂</span>&nbsp;{{ post.weight_male|nobreak_range }}&nbsp;{% trans "kg" %}, <br class="sex-break"><span class="sex-mark sex-mark--f">♀</span>&nbsp;{{ post.weight_female|nobreak_range }}&nbsp;{% trans "kg" %}</strong>
         </div>
 
         <div class="param-card">
 
             <div class="top">
-                <span class="icon">🐩</span>
+                <span class="icon pi pi--cointype" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Coat type{% endblocktranslate %}</span>
             </div>
             <strong>{{ post.coat_type.all|join:" / " }}</strong>
@@ -245,7 +257,7 @@
 
         <div class="param-card">
             <div class="top">
-                <span class="icon">🐩</span>
+                <span class="icon pi pi--coatlen" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Coat length{% endblocktranslate %}</span>
             </div>
             <strong>{{ post.coat_length.all|join:" / " }}</strong>
@@ -263,7 +275,7 @@
 
         <div class="param-card wide">
             <div class="top">
-                <span class="icon">🎨</span>
+                <span class="icon pi pi--colors" aria-hidden="true"></span>
                 <span>{% blocktranslate trimmed %}Colors{% endblocktranslate %}</span>
             </div>
             <strong>{{ post.colors }}</strong>
@@ -278,7 +290,7 @@
 
     </div>
 
-    <p class="images-rule">{% blocktranslate trimmed %}This website is non-commercial. All images are used with attribution. If you believe any content violates your rights, your credit is incorrect, or you would like an image removed —{% endblocktranslate %}
+    <p class="images-rule">{% blocktranslate trimmed %}This website is non-commercial. All images are used with attribution. If you would like an image removed —{% endblocktranslate %}
         <a href="{% url 'contact' %}" class="link-policies">{% trans "contact us" %}</a>.</p>
 
     <!-- Breed texts: three columns under the media block -->
@@ -339,23 +351,23 @@
         <p class="section-title" id="faq">{% trans "FAQ" %}</p>
         <div class="post-faq">
             {% if post.good_fit %}
-            <details class="post-faq__item">
+            <details class="post-faq__item post-faq__item--fit">
                 <summary>{% trans "This breed is a great fit if you" %}</summary>
                 <ul>{% for line in post.good_fit.splitlines %}{% if line.strip %}<li>{{ line }}</li>{% endif %}{% endfor %}</ul>
             </details>
             {% endif %}
             {% if post.think_twice %}
-            <details class="post-faq__item">
+            <details class="post-faq__item post-faq__item--notfit">
                 <summary>{% trans "It may not be a fit if you" %}</summary>
                 <ul>{% for line in post.think_twice.splitlines %}{% if line.strip %}<li>{{ line }}</li>{% endif %}{% endfor %}</ul>
             </details>
             {% endif %}
-            <details class="post-faq__item">
+            <details class="post-faq__item post-faq__item--allergy">
                 <summary>{% trans "Is it suitable for allergy sufferers?" %}</summary>
                 <p>{% if post.hypoallergenic %}<strong>{{ post.get_hypoallergenic_display }}.</strong> {% endif %}{% trans "No dog is completely hypoallergenic: allergens come from saliva, skin and dander, not only from hair. Reactions are individual, so spend time with the dog before you decide and talk to an allergist if you are unsure." %}</p>
             </details>
             {% if similar_dogs %}
-            <details class="post-faq__item" id="similar">
+            <details class="post-faq__item post-faq__item--similar" id="similar">
                 <summary>{% blocktranslate trimmed with name=post.title %}Which breeds are similar to {{ name }}?{% endblocktranslate %}</summary>
                 <p class="post-similar-note">{% blocktranslate trimmed %}Chosen from all groups: breeds of the same size, ordered by how closely their coat length, coat type and activity level match. The notes show how each breed differs from this one.{% endblocktranslate %}</p>
                 <ul class="post-similar">
@@ -365,11 +377,11 @@
                 </ul>
             </details>
             {% endif %}
-            <details class="post-faq__item">
+            <details class="post-faq__item post-faq__item--compare">
                 <summary>{% blocktranslate trimmed with name=post.title %}Compare {{ name }} with another breed{% endblocktranslate %}</summary>
                 {% include "woof/includes/compare_panel.html" %}
             </details>
-            <details class="post-faq__item">
+            <details class="post-faq__item post-faq__item--other">
                 <summary>{% trans "Which other breeds might suit me?" %}</summary>
                 {% url 'breeds' as breeds_url %}
                 <p>{% blocktranslate trimmed %}Visit the <a href="{{ breeds_url }}" class="link-policies">Breeds</a> page: with the filters and the quiz there you can get to know the breeds better.{% endblocktranslate %}</p>
@@ -379,9 +391,70 @@
 
 </div>
 
+<!-- Prev / next breed navigation (after the FAQ) -->
+<nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
+
+    {% if prev_post %}
+        <a href="{{ prev_post.get_absolute_url }}"
+           class="post-media-arrow post-media-prev"
+           title="{% trans 'Previous' %}">
+            <span class="post-media-caption">{% trans "Previous breed" %}</span>
+            <span class="post-media-arrow-body">
+                {% if prev_post.photo %}
+                    <span class="post-media-arrow-photo">
+                        <img src="{{ prev_post.photo_card.url }}"
+                             class="post-media-arrow-img"
+                             alt=""
+                             loading="lazy"
+                             decoding="async">
+                        <span class="post-media-arrow-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 14 14"
+                                 fill="none" aria-hidden="true">
+                                <path d="M9 3 L5 7 L9 11" stroke="#fff"
+                                      stroke-width="1.1" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                {% endif %}
+                <span class="post-media-arrow-title">{{ prev_post.title }}</span>
+            </span>
+        </a>
+    {% endif %}
+
+    {% if next_post %}
+        <a href="{{ next_post.get_absolute_url }}"
+           class="post-media-arrow post-media-next"
+           title="{% trans 'Next' %}">
+            <span class="post-media-caption">{% trans "Next breed" %}</span>
+            <span class="post-media-arrow-body">
+                <span class="post-media-arrow-title">{{ next_post.title }}</span>
+                {% if next_post.photo %}
+                    <span class="post-media-arrow-photo">
+                        <img src="{{ next_post.photo_card.url }}"
+                             class="post-media-arrow-img"
+                             alt=""
+                             loading="lazy"
+                             decoding="async">
+                        <span class="post-media-arrow-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 14 14"
+                                 fill="none" aria-hidden="true">
+                                <path d="M5 3 L9 7 L5 11" stroke="#fff"
+                                      stroke-width="1.1" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </span>
+                {% endif %}
+            </span>
+        </a>
+    {% endif %}
+
+</nav>
+
 <!-- Image modal -->
 <div id="modal" class="modal">
-    <span class="close">&times;</span>
+    <button type="button" class="close" aria-label="{% trans 'Close' %}"><svg width="18" height="18" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></button>
 
     <span class="modal-arrow prev">
         <img src="{% static 'left.svg' %}"
@@ -471,69 +544,10 @@ title="{% trans 'Next' %}"
     <div class="recent-grid" id="recent-grid"></div>
 </div>
 
-<!-- Prev / next breed navigation (closing the page) -->
-<nav class="post-media-nav" aria-label="{% trans 'Breed navigation' %}">
-
-    {% if prev_post %}
-        <a href="{{ prev_post.get_absolute_url }}"
-           class="post-media-arrow post-media-prev"
-           title="{% trans 'Previous' %}">
-            <span class="post-media-caption">{% trans "Previous breed" %}</span>
-            <span class="post-media-arrow-body">
-                {% if prev_post.photo %}
-                    <span class="post-media-arrow-photo">
-                        <img src="{{ prev_post.photo_card.url }}"
-                             class="post-media-arrow-img"
-                             alt=""
-                             loading="lazy"
-                             decoding="async">
-                        <span class="post-media-arrow-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 14 14"
-                                 fill="none" aria-hidden="true">
-                                <path d="M9 3 L5 7 L9 11" stroke="#fff"
-                                      stroke-width="1.6" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </span>
-                {% endif %}
-                <span class="post-media-arrow-title">{{ prev_post.title }}</span>
-            </span>
-        </a>
-    {% endif %}
-
-    {% if next_post %}
-        <a href="{{ next_post.get_absolute_url }}"
-           class="post-media-arrow post-media-next"
-           title="{% trans 'Next' %}">
-            <span class="post-media-caption">{% trans "Next breed" %}</span>
-            <span class="post-media-arrow-body">
-                <span class="post-media-arrow-title">{{ next_post.title }}</span>
-                {% if next_post.photo %}
-                    <span class="post-media-arrow-photo">
-                        <img src="{{ next_post.photo_card.url }}"
-                             class="post-media-arrow-img"
-                             alt=""
-                             loading="lazy"
-                             decoding="async">
-                        <span class="post-media-arrow-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 14 14"
-                                 fill="none" aria-hidden="true">
-                                <path d="M5 3 L9 7 L5 11" stroke="#fff"
-                                      stroke-width="1.6" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </span>
-                {% endif %}
-            </span>
-        </a>
-    {% endif %}
-
-</nav>
-
 <p class="post-updated">{% blocktranslate trimmed with date=post.time_update|date:"j E Y" %}Breed classification follows the <a href="https://www.fci.be/" target="_blank" rel="noopener" class="link-policies">FCI</a> nomenclature. Last updated: {{ date }}.{% endblocktranslate %}</p>
 
 {% include "woof/includes/quiz_dialog.html" %}
+
+{% include "woof/includes/compare_dialog.html" %}
 
 {% endblock %}

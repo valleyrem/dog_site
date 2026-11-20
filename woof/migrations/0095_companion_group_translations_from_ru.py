@@ -19,7 +19,8 @@ def apply(apps, schema_editor):
                 values[f"good_fit_{lang}"] = "\n".join(block["good_fit"])
                 values[f"think_twice_{lang}"] = "\n".join(block["think_twice"])
                 values[f"daily_life_{lang}"] = "\n\n".join(
-                    f"{label}: {text}" for label, text in zip(TR_LABELS[lang], block["daily"])
+                    f"{label}: {text}"
+                    for label, text in zip(TR_LABELS[lang], block["daily"])
                 )
                 values[f"quirks_{lang}"] = "\n".join(block["quirks"])
             Dogs.objects.filter(slug=slug).update(**values)
@@ -27,7 +28,9 @@ def apply(apps, schema_editor):
         dog = Dogs.objects.filter(slug=slug).first()
         value = getattr(dog, f"{field}_{lang}") if dog else ""
         if value and old in value:
-            Dogs.objects.filter(pk=dog.pk).update(**{f"{field}_{lang}": value.replace(old, new)})
+            Dogs.objects.filter(pk=dog.pk).update(
+                **{f"{field}_{lang}": value.replace(old, new)}
+            )
 
 
 class Migration(migrations.Migration):

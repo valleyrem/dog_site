@@ -118,7 +118,9 @@ class Command(BaseCommand):
 
             if mapped != current:
                 changed += 1
-                self.stdout.write(f"  {dog.slug}: {', '.join(current)} -> {', '.join(mapped)}")
+                self.stdout.write(
+                    f"  {dog.slug}: {', '.join(current)} -> {', '.join(mapped)}"
+                )
                 if not dry:
                     dog.temperament.set([by_name[name] for name in mapped[:5]])
 

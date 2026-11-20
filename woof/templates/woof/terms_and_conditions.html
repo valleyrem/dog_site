@@ -11,28 +11,16 @@
 </div>
 
 <!-- Terms of Use content -->
-<div class="post-container">
+<div class="post-container hyphenate">
 
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Terms of Use{% endblocktranslate %}</h1>
 
     <div class="post-text-explore">
 
-        <p>{% blocktranslate trimmed %}Last updated: November 3, 2026{% endblocktranslate %}</p>
+        {% include "woof/includes/page_dates.html" with updated=page_updated %}
 
-        <!-- Table of Contents -->
-        <h2 class="section-title">{% blocktranslate trimmed %}Table of Contents{% endblocktranslate %}</h2>
-
-        <div class="num-list">
-            <a href="#consent-to-terms">{% blocktranslate trimmed %}1. Consent to Terms{% endblocktranslate %}</a>
-            <a href="#intellectual-property-rights">{% blocktranslate trimmed %}2. Intellectual Property Rights{% endblocktranslate %}</a>
-            <a href="#prohibited-activities">{% blocktranslate trimmed %}3. Prohibited Activities{% endblocktranslate %}</a>
-            <a href="#license-to-use">{% blocktranslate trimmed %}4. License to Use{% endblocktranslate %}</a>
-            <a href="#privacy-policy">{% blocktranslate trimmed %}5. Privacy Policy{% endblocktranslate %}</a>
-            <a href="#changes-and-availability">{% blocktranslate trimmed %}6. Changes and Availability{% endblocktranslate %}</a>
-            <a href="#disclaimer">{% blocktranslate trimmed %}7. Disclaimer and Limitation of Liability{% endblocktranslate %}</a>
-            <a href="#governing-law">{% blocktranslate trimmed %}8. Governing Law and Disputes{% endblocktranslate %}</a>
-            <a href="#contact-us">{% blocktranslate trimmed %}9. Contact Us{% endblocktranslate %}</a>
-        </div>
+        <!-- Contents -->
+        {% include "woof/includes/guide_toc.html" with all=True %}
 
         <!-- Sections -->
 

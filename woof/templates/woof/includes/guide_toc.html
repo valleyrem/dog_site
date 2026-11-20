@@ -2,7 +2,7 @@
 
 <!-- Contents of the guide: links are added from the section titles already
      on the page, so the list can never drift away from the text. -->
-<nav class="guide-toc{% if short %} guide-toc--short{% endif %} is-collapsed" aria-label="{% trans 'Contents' %}">
+<nav class="guide-toc{% if short %} guide-toc--short{% endif %}{% if all %} guide-toc--all{% endif %} is-collapsed" aria-label="{% trans 'Contents' %}">
     <p class="guide-toc__title">{% trans "Contents" %}</p>
     <div class="guide-toc__list" data-guide-toc-list></div>
     <button type="button" class="guide-toc__toggle" aria-expanded="false" data-guide-toc-toggle hidden>

@@ -4,13 +4,13 @@ EN = {
     "shih-tzu": {
         "summary": "A small dog with a long silky coat, a short muzzle and expressive eyes. A sociable, affectionate and self-assured companion that loves attention and the company of people.",
         "care": [
-            "Coat: Brush the long silky coat every day or give it a short \"puppy\" clip every six to eight weeks. Gather the hair on the top of the head with a band so it does not get in the eyes. It must be brushed before a bath.",
+            'Coat: Brush the long silky coat every day or give it a short "puppy" clip every six to eight weeks. Gather the hair on the top of the head with a band so it does not get in the eyes. It must be brushed before a bath.',
             "Ears, paws and teeth: Wipe the face and eyes every day and clean the ears.",
             BRACHY,
         ],
         "quirks": [
-            "The Chinese name of the breed translates as \"lion dog\".",
-            "In China the Shih Tzu is sometimes called the \"chrysanthemum dog\": the hair on the face grows in different directions and looks like flower petals.",
+            'The Chinese name of the breed translates as "lion dog".',
+            'In China the Shih Tzu is sometimes called the "chrysanthemum dog": the hair on the face grows in different directions and looks like flower petals.',
             "The Shih Tzu's coat hardly sheds but needs regular brushing, otherwise it mats.",
         ],
     },
@@ -25,7 +25,7 @@ EN = {
         "quirks": [
             "The Cavalier King Charles Spaniel comes in four colours: Blenheim (chestnut and white), tricolour, ruby and black and tan.",
             "The Cavalier has a silky coat with feathering on the ears, chest and legs, and long drooping ears.",
-            "Blenheim dogs often have a round chestnut mark on the forehead. It is called the \"Blenheim spot\" or \"lozenge\"; according to legend, it came from the thumbprint of the Duchess of Marlborough, who was waiting for her husband to return.",
+            'Blenheim dogs often have a round chestnut mark on the forehead. It is called the "Blenheim spot" or "lozenge"; according to legend, it came from the thumbprint of the Duchess of Marlborough, who was waiting for her husband to return.',
         ],
     },
     "pug": {
@@ -37,7 +37,7 @@ EN = {
             BRACHY,
         ],
         "quirks": [
-            "In English a group of Pugs is sometimes called a \"grumble\". This unusual collective noun goes well with the characteristic sounds these dogs make.",
+            'In English a group of Pugs is sometimes called a "grumble". This unusual collective noun goes well with the characteristic sounds these dogs make.',
             "The breed's old motto is multum in parvo, which translates from Latin as \"much in little\". It reflects the Pug's combination of compact size, sturdy build and bright character.",
             "Pugs were favourites of the European nobility. In the 18th century they were kept at courts and painted in portraits, and in the Netherlands the Pug even became a symbol of the House of Orange after, according to legend, a dog called Pompey warned Prince William of Orange of danger.",
         ],
@@ -52,7 +52,7 @@ EN = {
         ],
         "quirks": [
             "The large upright ears, which look like a bat's, are one of the breed's main features. In this the French Bulldog differs markedly from the English Bulldog, whose ears are usually folded.",
-            "In the early days of the breed, rose-shaped ears were preferred in Europe, and upright \"bat\" ears in America. In the end the American version became fixed in the breed standard.",
+            'In the early days of the breed, rose-shaped ears were preferred in Europe, and upright "bat" ears in America. In the end the American version became fixed in the breed standard.',
             "According to one account, the ancestors of the French Bulldog were small bulldogs that English lacemakers took with them to France from Nottingham in the 19th century. There the dogs became popular with the locals, and over time a separate breed took shape.",
         ],
     },
@@ -64,7 +64,7 @@ EN = {
             KNEES,
         ],
         "quirks": [
-            "The breed's name comes from the French bichon à poil frisé, meaning \"curly lapdog\".",
+            'The breed\'s name comes from the French bichon à poil frisé, meaning "curly lapdog".',
             "The ancestors of the Bichons travelled on ships with sailors: they were kept as companions and traded for goods. That is how the dogs spread around the Mediterranean and Europe.",
             "In the 19th century Bichons performed on the streets and in circuses. They entertained the public with small tricks and received coins for their performances.",
         ],
@@ -92,8 +92,8 @@ EN = {
             BRACHY,
         ],
         "quirks": [
-            "The Pekingese's look, with its thick mane and flat face, recalls a lion; no wonder it is called the \"lion dog\".",
-            "The most miniature Pekingese were called \"sleeve dogs\": according to tradition, they were carried in the wide sleeves of clothing. Such dogs were especially prized for their tiny size.",
+            'The Pekingese\'s look, with its thick mane and flat face, recalls a lion; no wonder it is called the "lion dog".',
+            'The most miniature Pekingese were called "sleeve dogs": according to tradition, they were carried in the wide sleeves of clothing. Such dogs were especially prized for their tiny size.',
             "A slow, rolling gait is characteristic of the Pekingese.",
         ],
     },
@@ -106,7 +106,7 @@ EN = {
             BRACHY,
         ],
         "quirks": [
-            "A Brussels Griffon played the dog Verdell in the film \"As Good as It Gets\" (1997) with Jack Nicholson. After the film's release, interest in the breed rose noticeably.",
+            'A Brussels Griffon played the dog Verdell in the film "As Good as It Gets" (1997) with Jack Nicholson. After the film\'s release, interest in the breed rose noticeably.',
             "The breed appeared in Belgium as a stable dog. Griffons caught rats and other rodents in stables and carriage houses.",
             "Brussels Griffons were so used to horses that they could accompany coachmen, sitting beside them on the box of the carriage.",
         ],
@@ -118,7 +118,7 @@ EN = {
             "Ears, paws and teeth: Clean the ears and remove tear tracks.",
         ],
         "quirks": [
-            "The breed's name is linked to the German word pudeln, meaning \"to splash in water\". Poodles were originally used to retrieve shot waterfowl from the water.",
+            'The breed\'s name is linked to the German word pudeln, meaning "to splash in water". Poodles were originally used to retrieve shot waterfowl from the water.',
             "The Poodle's famous clip did not appear only for beauty. The hair on the chest and around the joints was left longer to protect the body from cold water, while the other areas were clipped shorter to make swimming easier for the dog.",
             "In the psychologist Stanley Coren's ranking of dog intelligence, the Poodle comes second, behind only the Border Collie. The ranking took into account above all the dogs' ability to learn commands and carry them out.",
         ],

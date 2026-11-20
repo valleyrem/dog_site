@@ -24,19 +24,19 @@ dog_site/
 │   ├── quotes.py          # цитаты для бегущей строки на главной
 │   ├── content/           # ВЕСЬ контент: breeds.py + vocabulary.py (см. «Контент»)
 │   ├── admin.py           # Админка: галереи-инлайны, фильтры, превью
-│   ├── tests.py           # 12 smoke-тестов
+│   ├── tests.py           # 43 теста
 │   ├── templatetags/      # cards.py: фильтры цвета FCI, nobreak_range
-│   ├── templates/woof/    # 25 шаблонов (8 гайдов + includes/)
+│   ├── templates/woof/    # 27 шаблонов (8 гайдов + includes/)
 │   ├── management/commands/ # fill_content, fill_sex_params, prune_temperament,
 │   │                        # warm_thumbnails, purge_consent_log,
 │   │                        # purge_contact_messages
-│   └── migrations/        # 35 миграций
+│   └── migrations/        # 98 миграций
 │
 ├── templates/admin/       # Переопределение шаблона админки Django
 │
 ├── static/                # ВСЯ статика-исходники (в git)
 │   ├── fonts/             # Nunito-Variable-*.woff2 (+ og/ — шрифты для OG-картинок)
-│   ├── woof/css/          # styles.css, mobile.css, admin.css
+│   ├── woof/css/          # styles.css (комп), tablet.css, mobile.css, admin.css
 │   ├── woof/js/           # scripts.js
 │   └── *.png, favicon.ico # Иллюстрации главной, слайдер (1–20.png), логотип
 │
@@ -182,7 +182,7 @@ DJANGO_SETTINGS_MODULE=config.settings_test SECRET_KEY=test \
     .venv/bin/python manage.py test woof
 ```
 
-32 теста: модели, API породы, страницы, фильтры Breeds (строка кнопок,
+43 теста: модели, API породы, страницы, фильтры Breeds (строка кнопок,
 один фильтр за раз, матрица ключей у карточек, пустое состояние, canonical),
 навигация «предыдущая/следующая», кэш и инвалидация sitemap (включая картинки
 и дату контента), одноразовая капча, `/consent-log/` (дедупликация, обновление
@@ -221,6 +221,7 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 | `SECRET_KEY` | ключ Django |
 | `DEBUG` | True/False (по умолчанию False) |
 | `ALLOWED_HOSTS` | список через запятую |
+| `INDEXABLE_HOSTS` | хосты, которые можно индексировать (по умолчанию `woofdogs.world`, `www.woofdogs.world`); на остальных — `noindex` и `Disallow: /` в robots.txt |
 | `DATABASE_NAME/USER/PASS` | PostgreSQL |
 | `DB_HOST/PORT` | PostgreSQL |
 | `TOKEN`, `CHAT_ID` | Telegram-бот: только уведомления (о сообщении из формы и о выборе в cookie-баннере), без текста сообщений |
@@ -235,7 +236,7 @@ Dockerfile: `python:3.13-slim`, при сборке образа выполня�
 
 При шаринге ссылки Telegram/WhatsApp/VK/FB читают OG-теги из `base.html`:
 
-- страницы пород — фото породы (`photo_medium`, приоритетно)
+- страницы пород, групп и гайдов — своя карточка 1200×630 (фото слева, название на панели с сердечками), рисуется в `woof/og_card.py`, кэшируется: `/og/breed/<slug>.jpg`, `/og/group/<slug>.jpg`, `/og/guide/<key>.jpg`
 - все остальные страницы — дефолтная обложка `static/og-cover.jpg`
 
 Требования к обложке: **1200×630** (универсальный стандарт FB/Telegram/WhatsApp),

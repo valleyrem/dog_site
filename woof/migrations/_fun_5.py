@@ -43,7 +43,7 @@ FACTS = {
             "Mnogi haskiji imaju oči različitih boja, jedno plavo i jedno smeđe, a plave oči su česte u rasi.",
         ),
         (
-            "Huskies rarely bark, but they \"talk\" with howls, woo-woos and grumbles that sound almost like words.",
+            'Huskies rarely bark, but they "talk" with howls, woo-woos and grumbles that sound almost like words.',
             "Хаски редко лают, зато «разговаривают» воем, «ву-ву» и ворчанием, которое звучит почти как слова.",
             "Huskys bellen selten, aber sie „sprechen“ mit Heulen, Wu-wus und Grummeln, die fast wie Worte klingen.",
             "Gli husky abbaiano di rado, ma «parlano» con ululati, «woo-woo» e borbottii che sembrano quasi parole.",
@@ -79,7 +79,7 @@ FACTS = {
     ],
     "samoyed": [
         (
-            "The upturned corners of its mouth give it the famous \"Sammy smile\", and are said to keep it from drooling and dripping icicles.",
+            'The upturned corners of its mouth give it the famous "Sammy smile", and are said to keep it from drooling and dripping icicles.',
             "Приподнятые уголки рта дают знаменитую «улыбку самоеда» и, как считается, не дают слюне капать и превращаться в сосульки.",
             "Die hochgezogenen Mundwinkel ergeben das berühmte „Sammy-Lächeln“ und sollen verhindern, dass er sabbert und Eiszapfen bildet.",
             "Gli angoli della bocca all'insù regalano il famoso «sorriso del Sammy» e si dice che evitino la sbavatura e la formazione di ghiaccioli.",

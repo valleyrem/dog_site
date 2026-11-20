@@ -17,7 +17,9 @@
     <!-- Page title -->
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Cookie Policy{% endblocktranslate %}</h1>
 
-    <p>{% blocktranslate trimmed %}Last updated: November 3, 2026{% endblocktranslate %}</p>
+    {% include "woof/includes/page_dates.html" with updated=page_updated %}
+
+    {% include "woof/includes/guide_toc.html" with all=True %}
 
 
     <!-- Cookie declaration -->

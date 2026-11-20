@@ -2,7 +2,6 @@
 
 from django.db import migrations
 
-
 EN = (
     "Two or three walks add up to about an hour a day, with a sniff-heavy route rather than a sprint. It is happy in a flat as long as it gets that time and your company.\n"
     "Alone for a few hours is fine once it is used to it, but a bored Dachshund digs, chews and barks. Expect a surprisingly big voice for a small dog, so neighbours are worth a thought.\n"

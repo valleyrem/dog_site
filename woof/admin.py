@@ -10,6 +10,7 @@ from .models import (
     Dogs,
     Category,
     Country,
+    NativeLanguage,
     DogImage,
     Section,
     CoatType,
@@ -28,6 +29,7 @@ class DogImageInline(admin.TabularInline):
         # a new breed gets four empty slots; an existing one only needs a
         # single slot for the next photo
         return 1 if obj and obj.pk else self.extra
+
     readonly_fields = ("preview",)
     fields = ("image", "author", "preview")
 
@@ -40,12 +42,60 @@ class DogImageInline(admin.TabularInline):
 
 
 LIFE_TOPICS = {
-    "en": ["Walks", "Being alone", "At home", "Children", "Other animals", "Play and activities", "Daily routine"],
-    "ru": ["Прогулки", "Одиночество", "Дома", "Дети", "Другие животные", "Игры и занятия", "Распорядок дня"],
-    "de": ["Spaziergänge", "Alleinsein", "Zu Hause", "Kinder", "Andere Tiere", "Spiel und Beschäftigung", "Tagesablauf"],
-    "it": ["Passeggiate", "Da solo", "In casa", "Bambini", "Altri animali", "Gioco e attività", "Routine quotidiana"],
-    "es": ["Paseos", "Quedarse solo", "En casa", "Niños", "Otros animales", "Juegos y actividades", "Rutina diaria"],
-    "sr_latn": ["Šetnje", "Boravak sam", "Kod kuće", "Deca", "Druge životinje", "Igra i aktivnosti", "Dnevna rutina"],
+    "en": [
+        "Walks",
+        "Being alone",
+        "At home",
+        "Children",
+        "Other animals",
+        "Play and activities",
+        "Daily routine",
+    ],
+    "ru": [
+        "Прогулки",
+        "Одиночество",
+        "Дома",
+        "Дети",
+        "Другие животные",
+        "Игры и занятия",
+        "Распорядок дня",
+    ],
+    "de": [
+        "Spaziergänge",
+        "Alleinsein",
+        "Zu Hause",
+        "Kinder",
+        "Andere Tiere",
+        "Spiel und Beschäftigung",
+        "Tagesablauf",
+    ],
+    "it": [
+        "Passeggiate",
+        "Da solo",
+        "In casa",
+        "Bambini",
+        "Altri animali",
+        "Gioco e attività",
+        "Routine quotidiana",
+    ],
+    "es": [
+        "Paseos",
+        "Quedarse solo",
+        "En casa",
+        "Niños",
+        "Otros animales",
+        "Juegos y actividades",
+        "Rutina diaria",
+    ],
+    "sr_latn": [
+        "Šetnje",
+        "Boravak sam",
+        "Kod kuće",
+        "Deca",
+        "Druge životinje",
+        "Igra i aktivnosti",
+        "Dnevna rutina",
+    ],
 }
 
 
@@ -69,7 +119,7 @@ class DogsAdminForm(forms.ModelForm):
             field.label_from_instance = lambda obj: obj.name_en or obj.name
         for name, life in self.fields.items():
             if name == "daily_life" or name.startswith("daily_life_"):
-                lang = name[len("daily_life_"):] or "en"
+                lang = name[len("daily_life_") :] or "en"
                 life.widget.attrs["placeholder"] = life_placeholder(lang)
 
     class Meta:
@@ -137,6 +187,9 @@ class DogsAdmin(TabbedTranslationAdmin):
                     "section",
                     "varieties",
                     "country",
+                    "native_name",
+                    "native_language",
+                    "fci_standard",
                     "is_published",
                 ),
             },
@@ -207,7 +260,9 @@ class DogsAdmin(TabbedTranslationAdmin):
         found = Dogs.objects.in_bulk([i for i in (prev_id, next_id) if i])
         return found.get(prev_id), found.get(next_id)
 
-    def render_change_form(self, request, context, add=False, change=False, form_url="", obj=None):
+    def render_change_form(
+        self, request, context, add=False, change=False, form_url="", obj=None
+    ):
         context["show_save_and_add_another"] = False
         context["show_save_and_continue"] = False
         if change and obj is not None:
@@ -233,6 +288,30 @@ class DogsAdmin(TabbedTranslationAdmin):
         return "No image"
 
     get_html_photo.short_description = "Cover"
+
+
+@admin.register(NativeLanguage)
+class NativeLanguageAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "name_ru",
+        "name_de",
+        "name_it",
+        "name_es",
+        "name_sr_latn",
+    )
+    search_fields = ("name", "name_ru")
+    ordering = ("name",)
+
+    fields = (
+        "name",
+        "name_en",
+        "name_ru",
+        "name_de",
+        "name_it",
+        "name_es",
+        "name_sr_latn",
+    )
 
 
 @admin.register(Country)
@@ -290,7 +369,15 @@ class SectionAdmin(admin.ModelAdmin):
     list_filter = ("category",)
     search_fields = ("name",)
 
-    fields = ("name", "name_ru", "name_de", "name_it", "name_sr_latn", "name_es", "category")
+    fields = (
+        "name",
+        "name_ru",
+        "name_de",
+        "name_it",
+        "name_sr_latn",
+        "name_es",
+        "category",
+    )
 
 
 @admin.register(CoatType)
@@ -322,6 +409,7 @@ CONTENT_MODELS = [
     "Category",
     "Section",
     "Country",
+    "NativeLanguage",
     "CoatType",
     "CoatLength",
     "Temperament",
@@ -337,7 +425,10 @@ def get_app_list(request, app_label=None):
         if app["app_label"] != "woof":
             continue
         by_name = {m["object_name"]: m for m in app["models"]}
-        for title, names in (("Dog catalogue", CONTENT_MODELS), ("Visitors", VISITOR_MODELS)):
+        for title, names in (
+            ("Dog catalogue", CONTENT_MODELS),
+            ("Visitors", VISITOR_MODELS),
+        ):
             models = [by_name.pop(n) for n in names if n in by_name]
             if models:
                 result.append({**app, "name": title, "models": models})

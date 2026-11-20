@@ -33,6 +33,7 @@ SUFFIX = {
     "sr_latn": "_sr_latn",
 }
 
+
 def active_languages():
     """Languages the site serves right now.
 
@@ -152,7 +153,9 @@ class Command(BaseCommand):
             for name_en, translations in VOCABULARY[key].items():
                 obj = model.objects.filter(name_en=name_en).first()
                 if obj is None:
-                    self.stdout.write(self.style.WARNING(f"  {key} {name_en}: not found"))
+                    self.stdout.write(
+                        self.style.WARNING(f"  {key} {name_en}: not found")
+                    )
                     continue
                 fields = self._apply(obj, (field,), translations, langs)
                 self._save(obj, fields)

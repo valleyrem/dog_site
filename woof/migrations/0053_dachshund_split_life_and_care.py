@@ -23,7 +23,11 @@ def forwards(apps, schema_editor):
         return
 
     def without_coat(text):
-        lines = [l for l in (text or "").splitlines() if not l.startswith(("Coat care", "Уход зависит"))]
+        lines = [
+            l
+            for l in (text or "").splitlines()
+            if not l.startswith(("Coat care", "Уход зависит"))
+        ]
         return "\n".join(lines)
 
     Dogs.objects.filter(pk=dog.pk).update(

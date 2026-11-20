@@ -3,21 +3,42 @@ from django.db import migrations
 CHANGES = {
     "old-english-sheepdog": {
         "summary": {
-            "en": ("Shaggy, cheerful and a little clownish.", "Warm, cheerful and friendly."),
-            "ru": ("Лохматый, жизнерадостный и немного клоун.", "Тёплый, жизнерадостный и дружелюбный."),
+            "en": (
+                "Shaggy, cheerful and a little clownish.",
+                "Warm, cheerful and friendly.",
+            ),
+            "ru": (
+                "Лохматый, жизнерадостный и немного клоун.",
+                "Тёплый, жизнерадостный и дружелюбный.",
+            ),
         },
         "good_fit": {
-            "en": ("Want a cheerful, goofy family dog", "Want a cheerful, friendly family dog"),
-            "ru": ("Хотите весёлую забавную семейную собаку", "Хотите весёлую дружелюбную семейную собаку"),
+            "en": (
+                "Want a cheerful, goofy family dog",
+                "Want a cheerful, friendly family dog",
+            ),
+            "ru": (
+                "Хотите весёлую забавную семейную собаку",
+                "Хотите весёлую дружелюбную семейную собаку",
+            ),
         },
         "daily_life": {
-            "en": ("A big, clumsy dog needs room to play.", "A big dog needs room to play."),
-            "ru": ("Большой неуклюжей собаке нужно место для игр.", "Большой собаке нужно место для игр."),
+            "en": (
+                "A big, clumsy dog needs room to play.",
+                "A big dog needs room to play.",
+            ),
+            "ru": (
+                "Большой неуклюжей собаке нужно место для игр.",
+                "Большой собаке нужно место для игр.",
+            ),
         },
     },
     "pembroke-welsh-corgi": {
         "daily_life": {
-            "en": ("though it can be strong-willed.", "though it has a mind of its own."),
+            "en": (
+                "though it can be strong-willed.",
+                "though it has a mind of its own.",
+            ),
             "ru": ("хотя бывает упрямой.", "хотя у неё свой характер."),
         },
     },

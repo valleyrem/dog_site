@@ -5,6 +5,7 @@ from .models import (
     CoatLength,
     CoatType,
     Country,
+    NativeLanguage,
     Dogs,
     Section,
     Temperament,
@@ -30,6 +31,10 @@ class CountryTranslationOptions(TranslationOptions):
     fields = ("name",)
 
 
+class NativeLanguageTranslationOptions(TranslationOptions):
+    fields = ("name",)
+
+
 class CategoryTranslationOptions(TranslationOptions):
     fields = ("name", "desc", "short_desc")
 
@@ -52,6 +57,7 @@ class TemperamentTranslationOptions(TranslationOptions):
 
 translator.register(Dogs, DogsTranslationOptions)
 translator.register(Country, CountryTranslationOptions)
+translator.register(NativeLanguage, NativeLanguageTranslationOptions)
 translator.register(Category, CategoryTranslationOptions)
 translator.register(Section, SectionTranslationOptions)
 translator.register(CoatType, CoatTypeTranslationOptions)

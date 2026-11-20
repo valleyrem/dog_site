@@ -53,7 +53,7 @@ FACTS = {
     ],
     "whippet": [
         (
-            "The Whippet was nicknamed the \"poor man's racehorse\" because miners in northern England raced them on Sundays.",
+            'The Whippet was nicknamed the "poor man\'s racehorse" because miners in northern England raced them on Sundays.',
             "Уиппета прозвали «скаковой лошадью бедняка»: шахтёры севера Англии устраивали с ними бега по воскресеньям.",
             "Der Whippet hieß das „Rennpferd des armen Mannes“, weil Bergleute in Nordengland sonntags Rennen mit ihnen veranstalteten.",
             "Il whippet era chiamato «il cavallo da corsa dei poveri» perché i minatori del nord dell'Inghilterra li facevano correre la domenica.",
@@ -69,7 +69,7 @@ FACTS = {
             "Vipet za nekoliko skokova dostigne oko 56 km/h.",
         ),
         (
-            "Its small \"rose\" ears fold back along the neck when the dog is relaxed and perk up when it is alert.",
+            'Its small "rose" ears fold back along the neck when the dog is relaxed and perk up when it is alert.',
             "Маленькие «розовидные» уши откинуты вдоль шеи, когда собака расслаблена, и приподнимаются, когда она насторожена.",
             "Seine kleinen „Rosenohren“ liegen im entspannten Zustand am Hals zurückgelegt und stellen sich bei Aufmerksamkeit auf.",
             "Le piccole orecchie «a rosa» si ripiegano lungo il collo quando il cane è rilassato e si drizzano quando è attento.",
@@ -79,7 +79,7 @@ FACTS = {
     ],
     "borzoi": [
         (
-            "Its Russian name means \"fast\", and Russian nobles hunted wolves with packs of borzoi.",
+            'Its Russian name means "fast", and Russian nobles hunted wolves with packs of borzoi.',
             "Русское название означает «быстрый», а русская знать охотилась с борзыми на волков целыми сворами.",
             "Sein russischer Name bedeutet „schnell“, und russische Adlige jagten mit Meuten von Barsois Wölfe.",
             "Il nome russo significa «veloce» e i nobili russi cacciavano il lupo con mute di borzoi.",
@@ -113,7 +113,7 @@ FACTS = {
             "To je najviša rasa pasa na svetu: mužjaci imaju najmanje 79 cm u grebenu, a mnogi su viši.",
         ),
         (
-            "The breed's motto is \"gentle when stroked, fierce when provoked\", though at home it is a calm, quiet giant.",
+            'The breed\'s motto is "gentle when stroked, fierce when provoked", though at home it is a calm, quiet giant.',
             "Девиз породы — «ласков, когда гладят, и грозен, когда дразнят», но дома это спокойный и тихий великан.",
             "Das Motto der Rasse lautet „sanft, wenn man ihn streichelt, wild, wenn man ihn reizt“, doch zu Hause ist er ein ruhiger, stiller Riese.",
             "Il motto della razza è «dolce se accarezzato, fiero se provocato», ma in casa è un gigante calmo e tranquillo.",
@@ -191,7 +191,7 @@ FACTS = {
             "Saluki je jedna od najstarijih rasa na svetu, a slični psi pojavljuju se u egipatskim grobnicama i sumerskim reljefima starim hiljadama godina.",
         ),
         (
-            "Bedouin people called it \"el hor\", the noble one, and would not sell it, only give it as a gift of honour.",
+            'Bedouin people called it "el hor", the noble one, and would not sell it, only give it as a gift of honour.',
             "Бедуины называли его «эль-хор», то есть «благородный», и не продавали, а только дарили в знак уважения.",
             "Beduinen nannten ihn „el hor“, den Edlen, und verkauften ihn nie, sondern schenkten ihn nur als Ehrengabe.",
             "I beduini lo chiamavano «el hor», il nobile, e non lo vendevano mai, lo regalavano soltanto come dono d'onore.",
@@ -217,7 +217,7 @@ FACTS = {
             "Grejhaund je najbrži pas i u sprintu dostiže oko 70 km/h.",
         ),
         (
-            "Despite the speed, it sleeps 16 to 18 hours a day and is nicknamed the \"45-mph couch potato\".",
+            'Despite the speed, it sleeps 16 to 18 hours a day and is nicknamed the "45-mph couch potato".',
             "Несмотря на скорость, он спит по 16–18 часов в сутки, и его называют «диванным лентяем на скорости 70 км/ч».",
             "Trotz seiner Geschwindigkeit schläft er 16 bis 18 Stunden am Tag und trägt den Spitznamen „45-mph-Couch-Potato“.",
             "Nonostante la velocità, dorme da 16 a 18 ore al giorno ed è soprannominato «il divanista a 70 all'ora».",
@@ -251,7 +251,7 @@ FACTS = {
             "U poređenju sa drugim hrtovima galgo ima više izdržljivosti i može dugo da održava brzo trčanje na velikim razdaljinama.",
         ),
         (
-            "Many Galgos sleep on their backs with their legs in the air, a pose owners call \"roaching\".",
+            'Many Galgos sleep on their backs with their legs in the air, a pose owners call "roaching".',
             "Многие гальго спят на спине, задрав лапы вверх, эту позу владельцы называют «тараканом».",
             "Viele Galgos schlafen auf dem Rücken mit den Beinen in der Luft, eine Pose, die Besitzer „Kakerlake“ nennen.",
             "Molti Galgo dormono sulla schiena con le zampe all'aria, una posa che i proprietari chiamano «roaching», cioè da scarafaggio.",

@@ -30,7 +30,9 @@ def breadcrumbs_schema(
     items = [{"name": str(_("Home")), "url": home_url}]
 
     if section == "guides":
-        items.append({"name": str(_("Dog guides")), "url": f"{base}{reverse('guides')}"})
+        items.append(
+            {"name": str(_("Dog guides")), "url": f"{base}{reverse('guides')}"}
+        )
 
     if parent_label:
         items.append({"name": parent_label, "url": f"{base}{parent_url}"})

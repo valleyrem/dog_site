@@ -1,8 +1,24 @@
 from django.db import migrations
 
 LABELS = {
-    "en": ["Walks", "Being alone", "At home", "Children", "Other animals", "Play and activities", "Daily routine"],
-    "ru": ["Прогулки", "Одиночество", "Дома", "Дети", "Другие животные", "Игры и занятия", "Распорядок дня"],
+    "en": [
+        "Walks",
+        "Being alone",
+        "At home",
+        "Children",
+        "Other animals",
+        "Play and activities",
+        "Daily routine",
+    ],
+    "ru": [
+        "Прогулки",
+        "Одиночество",
+        "Дома",
+        "Дети",
+        "Другие животные",
+        "Игры и занятия",
+        "Распорядок дня",
+    ],
 }
 
 DAILY = {
@@ -50,7 +66,7 @@ DAILY = {
         "en": [
             "Two hours or more, with running and a task. Short, repetitive walks are not enough for this brain. Add a ball, a frisbee or a bit of training on the way, and vary the route so it keeps finding things to figure out.",
             "It does not do well alone for long. A bored Border Collie may bark, dig or invent herding games with the sofa, the cat or the vacuum. If you must be away, give it exercise first and something to chew or solve.",
-            "Needs to settle between activities, which usually has to be taught: practise a \"place\" or a mat from puppyhood. In a flat it can work if exercise is generous, but it will watch you and the window constantly.",
+            'Needs to settle between activities, which usually has to be taught: practise a "place" or a mat from puppyhood. In a flat it can work if exercise is generous, but it will watch you and the window constantly.',
             "Gentle and playful with respectful children, and happy to run with them. It may try to herd running kids, nipping at heels, so teach it manners and teach children not to run screaming around it.",
             "Often fine with other dogs. It may fixate on cats, joggers, bikes and cars and try to control them by stalking and staring, so work on calm when something moves quickly.",
             "Agility, flyball, frisbee, obedience, scent work and trick training suit it well. It loves to solve problems and can learn the names of dozens of objects, so give it new challenges regularly.",

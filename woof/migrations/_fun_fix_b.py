@@ -1,7 +1,7 @@
 FIX = {
     "bloodhound": {
         0: (
-            "The name means \"blooded hound\", a hound of pure, noble blood.",
+            'The name means "blooded hound", a hound of pure, noble blood.',
             "Название означает «гончая благородной крови» — то есть чистокровная гончая.",
             "Der Name bedeutet „Hund von edlem Blut“, also ein reinblütiger Jagdhund.",
             "Il nome significa «segugio di sangue nobile», cioè un segugio di razza pura.",
@@ -87,7 +87,7 @@ FIX = {
     },
     "beagle": {
         2: (
-            "Queen Elizabeth I is said to have kept tiny \"pocket beagles\" small enough to fit in a glove.",
+            'Queen Elizabeth I is said to have kept tiny "pocket beagles" small enough to fit in a glove.',
             "Говорят, у королевы Елизаветы I были крошечные «карманные бигли», помещавшиеся в перчатку.",
             "Königin Elisabeth I. soll winzige „Taschenbeagles“ gehalten haben, die in einen Handschuh passten.",
             "Si dice che la regina Elisabetta I tenesse minuscoli «beagle tascabili» che entravano in un guanto.",
@@ -125,7 +125,7 @@ FIX = {
             "Rasa je u SAD stigla dvadesetih godina, a u matičnu knjigu AKC upisana je 1930.",
         ),
         2: (
-            "It has a distinctive \"ticked\" coat: a base colour speckled with small flecks of another.",
+            'It has a distinctive "ticked" coat: a base colour speckled with small flecks of another.',
             "У неё характерная «крапчатая» шерсть: основной цвет усеян мелкими пятнышками другого оттенка.",
             "Es hat ein charakteristisches „getupftes“ Fell: eine Grundfarbe, übersät mit kleinen Tupfen einer anderen Farbe.",
             "Ha un caratteristico mantello «roanato»: un colore di base punteggiato da piccole macchioline di un altro colore.",
@@ -191,7 +191,7 @@ FIX = {
     },
     "english-pointer": {
         0: (
-            "The name comes from the \"point\": the dog freezes with its nose pointing toward the game.",
+            'The name comes from the "point": the dog freezes with its nose pointing toward the game.',
             "Название происходит от «стойки»: собака замирает, направив нос в сторону дичи.",
             "Der Name kommt vom „Vorstehen“: Der Hund erstarrt mit der Nase in Richtung des Wildes.",
             "Il nome deriva dalla «punta»: il cane si blocca con il naso rivolto verso la selvaggina.",
@@ -303,7 +303,7 @@ FIX = {
     },
     "shih-tzu": {
         1: (
-            "In China it is sometimes also called the \"chrysanthemum dog\", after the flower-like look of its face.",
+            'In China it is sometimes also called the "chrysanthemum dog", after the flower-like look of its face.',
             "В Китае его иногда называют ещё «собакой-хризантемой» — за лицо, похожее на цветок.",
             "In China heißt er manchmal auch „Chrysanthemen-Hund“, wegen seines blumenartigen Gesichts.",
             "In Cina è talvolta chiamato anche «cane crisantemo», per il muso che ricorda un fiore.",
@@ -337,7 +337,7 @@ FIX = {
             "Na čuvenoj slici Van Dajka mladi princ Čarls pozira sa dve sestre i parom crveno-belih španijela.",
         ),
         2: (
-            "The chestnut-and-white Blenheim variety often has a round chestnut mark in the middle of the forehead, called the \"lozenge\" or \"Blenheim spot\".",
+            'The chestnut-and-white Blenheim variety often has a round chestnut mark in the middle of the forehead, called the "lozenge" or "Blenheim spot".',
             "У каштаново-белого бленхейма на лбу часто есть круглая каштановая отметина, её называют «ромбом» или «бленхеймским пятном».",
             "Die kastanienbraun-weiße Blenheim-Variante hat oft ein rundes kastanienbraunes Mal mitten auf der Stirn, den „Rhombus“ oder „Blenheim-Fleck“.",
             "La varietà Blenheim marrone e bianca ha spesso una macchia tonda castana in mezzo alla fronte, detta «losanga» o «macchia Blenheim».",
@@ -375,7 +375,7 @@ FIX = {
     },
     "bichon-frise": {
         0: (
-            "The name means \"curly lap dog\" in French, and King Henry III of France is said to have carried his bichons in a basket hung on ribbons.",
+            'The name means "curly lap dog" in French, and King Henry III of France is said to have carried his bichons in a basket hung on ribbons.',
             "Название по-французски означает «кудрявая комнатная собачка», а король Генрих III, как говорят, носил своих бишонов в корзинке на лентах.",
             "Der Name bedeutet auf Französisch „gelockter Schoßhund“, und König Heinrich III. von Frankreich soll seine Bichons in einem Korb an Bändern getragen haben.",
             "Il nome significa «cagnolino riccio da grembo» in francese e si dice che re Enrico III di Francia portasse i suoi bichon in un cestino appeso a dei nastri.",
@@ -451,7 +451,7 @@ FIX = {
     },
     "whippet": {
         1: (
-            "In northern England miners held \"rag races\", where Whippets raced down a track toward a cloth waved at the far end.",
+            'In northern England miners held "rag races", where Whippets raced down a track toward a cloth waved at the far end.',
             "На севере Англии шахтёры устраивали «гонки за тряпкой»: уиппеты бежали по дорожке к тряпке, которой размахивали на финише.",
             "In Nordengland veranstalteten Bergleute „Lumpenrennen“, bei denen Whippets auf einer Bahn einem am Ende geschwenkten Tuch entgegenliefen.",
             "Nel nord dell'Inghilterra i minatori organizzavano le «rag races», in cui i whippet correvano lungo una pista verso uno straccio agitato in fondo.",
@@ -551,7 +551,7 @@ FIX = {
     },
     "greyhound": {
         1: (
-            "Despite the speed, it sleeps most of the day and is nicknamed the \"45-mph couch potato\".",
+            'Despite the speed, it sleeps most of the day and is nicknamed the "45-mph couch potato".',
             "Несмотря на скорость, он спит большую часть суток, и его называют «диванным лентяем на скорости 70 км/ч».",
             "Trotz seiner Geschwindigkeit schläft er den Großteil des Tages und trägt den Spitznamen „45-mph-Couch-Potato“.",
             "Nonostante la velocità, dorme gran parte della giornata ed è soprannominato «il divanista a 70 all'ora».",
@@ -659,7 +659,7 @@ FIX = {
             "Sredinom 20. veka rasa je bila blizu izumiranja, a obnovljena je od farmerskih buldoga sa američkog juga.",
         ),
         2: (
-            "There are two main types: the larger, heavier \"classic\" or \"bully\" type and the lighter, more athletic \"standard\" or \"performance\" type.",
+            'There are two main types: the larger, heavier "classic" or "bully" type and the lighter, more athletic "standard" or "performance" type.',
             "Есть два основных типа: более крупный и тяжёлый «классический» (буллий) и более лёгкий и атлетичный «стандартный» (рабочий).",
             "Es gibt zwei Haupttypen: den größeren, schwereren „klassischen“ oder „Bully“-Typ und den leichteren, athletischeren „Standard“- oder „Performance“-Typ.",
             "Esistono due tipi principali: quello più grande e pesante «classico» o «bully» e quello più leggero e atletico «standard» o «performance».",

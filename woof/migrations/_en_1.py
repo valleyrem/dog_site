@@ -4,13 +4,13 @@ EN = {
     "collie-rough": {
         "summary": "An elegant Scottish herding dog with a narrow head, an expressive muzzle and a thick coat. Clever, gentle by nature and strongly attached to its family.",
         "care": [
-            "Coat: Brush the long coat two or three times a week, and every day when it sheds, paying attention to the area behind the ears and the \"trousers\". Always brush the coat before a bath, otherwise the tangles only tighten once it is wet.",
-            "Worth knowing: Check the \"collar\" and the \"trousers\" after every walk.",
+            'Coat: Brush the long coat two or three times a week, and every day when it sheds, paying attention to the area behind the ears and the "trousers". Always brush the coat before a bath, otherwise the tangles only tighten once it is wet.',
+            'Worth knowing: Check the "collar" and the "trousers" after every walk.',
             "Medication: " + MDR1,
         ],
         "quirks": [
             "Lassie on film and television has always been played by male dogs. Males usually have a fuller coat, which looks more striking on screen.",
-            "The Rough Collie comes in sable, tricolour, blue merle and white; most have a white \"collar\" and shirt-front.",
+            'The Rough Collie comes in sable, tricolour, blue merle and white; most have a white "collar" and shirt-front.',
             "A Collie's ears have a characteristic shape: about two thirds of the ear stands upright, while the top third folds forward. This \"broken\" tip is considered an important part of the breed's expression.",
         ],
     },
@@ -22,7 +22,7 @@ EN = {
             "Medication: " + MDR1,
         ],
         "quirks": [
-            "From 1961 the Old English Sheepdog, known as the Bobtail, became the \"face\" of British Dulux paint advertising. Its fluffy look was so loved by the public that the dog became a recognisable image of the brand.",
+            'From 1961 the Old English Sheepdog, known as the Bobtail, became the "face" of British Dulux paint advertising. Its fluffy look was so loved by the public that the dog became a recognisable image of the brand.',
             "The Old English Sheepdog moves with a characteristic unhurried, rolling gait that looks like a bear's.",
             "Almost all the dogs that appeared in Dulux advertisements were show champions. The one exception was a dog without such a title.",
         ],
@@ -87,7 +87,7 @@ EN = {
         ],
         "quirks": [
             "A Border Collie called Chaser knew the names of 1,022 toys. Scientists confirmed that she could find the right object by name and learn new words.",
-            "When herding sheep, the Border Collie uses a special intense stare known as \"the eye\". Never taking its eyes off the flock, the dog steers the animals with its body movement, hardly resorting to barking or nipping.",
+            'When herding sheep, the Border Collie uses a special intense stare known as "the eye". Never taking its eyes off the flock, the dog steers the animals with its body movement, hardly resorting to barking or nipping.',
             "One of the main ancestors of the modern Border Collie is considered to be Old Hemp, a herding dog born in Northumberland in 1893. His working qualities had a great influence on the development of the breed.",
         ],
     },

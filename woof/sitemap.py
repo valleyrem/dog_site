@@ -18,6 +18,7 @@ from .models import Category, Dogs
 from .utils import SITEMAP_CACHE_TIMEOUT, sitemap_cache_key
 from django.core.cache import cache
 
+
 @require_GET
 def sitemap_xml(request):
     """Serve the sitemap from the cache; it only changes when content does."""
@@ -147,9 +148,7 @@ def _build_sitemap_xml(request):
 
     # categories
     for cat in Category.objects.all():
-        add_bilingual(
-            cat.get_absolute_url(), lastmod=content_updated, priority="0.7"
-        )
+        add_bilingual(cat.get_absolute_url(), lastmod=content_updated, priority="0.7")
 
     # breeds, with their photos
     for dog in (
@@ -178,10 +177,18 @@ def _build_sitemap_xml(request):
 
 @require_GET
 def robots_txt(request):
-    lines = [
-        "User-agent: *",
-        "Allow: /",
-        "",
-        f"Sitemap: {request.scheme}://{request.get_host()}{reverse('sitemap')}",
-    ]
+    host = request.get_host()
+    if host.split(":")[0] not in settings.INDEXABLE_HOSTS:
+        lines = ["User-agent: *", "Disallow: /"]
+    else:
+        lines = [
+            "User-agent: *",
+            "Allow: /",
+            "Disallow: /admin/",
+            "Disallow: /i18n/",
+            "Disallow: /consent-log/",
+            "Disallow: /chaining/",
+            "",
+            f"Sitemap: {request.scheme}://{host}{reverse('sitemap')}",
+        ]
     return HttpResponse("\n".join(lines), content_type="text/plain; charset=utf-8")

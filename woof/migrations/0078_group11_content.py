@@ -7,9 +7,22 @@ DOGS = {
         "prey": "high",
         "en": {
             "summary": "Elegant, independent and affectionate in its own way. The Afghan Hound is a sighthound with a long silky coat and a dignified, cat-like personality that loves to run.",
-            "care": ["The long silky coat needs thorough brushing down to the skin every other day and regular bathing to stay free of mats. Many owners book professional grooming.", "Plan for one and a half to two hours of exercise a day, including a safe place to run."],
-            "good_fit": ["Love grooming and a dramatic coat", "Have a very secure garden and a high fence", "Want an independent, dignified companion", "Are patient trainers"],
-            "think_twice": ["Dislike grooming time or costs", "Want a dog that obeys quickly", "Have small pets", "Want a dog that is always eager to please"],
+            "care": [
+                "The long silky coat needs thorough brushing down to the skin every other day and regular bathing to stay free of mats. Many owners book professional grooming.",
+                "Plan for one and a half to two hours of exercise a day, including a safe place to run.",
+            ],
+            "good_fit": [
+                "Love grooming and a dramatic coat",
+                "Have a very secure garden and a high fence",
+                "Want an independent, dignified companion",
+                "Are patient trainers",
+            ],
+            "think_twice": [
+                "Dislike grooming time or costs",
+                "Want a dog that obeys quickly",
+                "Have small pets",
+                "Want a dog that is always eager to please",
+            ],
             "daily": [
                 "One and a half to two hours a day, with a chance to sprint in a fully enclosed area. On walks keep it on a lead: it chases anything that moves.",
                 "It is independent but dislikes being alone all day. Bored, it may chew or become destructive.",
@@ -19,13 +32,30 @@ DOGS = {
                 "Sprinting, lure coursing and relaxed walks. It is independent in training, so keep sessions short and rewarding.",
                 "A good run morning and evening, with long rests and grooming time.",
             ],
-            "quirks": ["Sighthounds are sensitive to some anaesthetics, so always tell your vet the breed before any operation.", "The thin skin and long coat mean it feels the cold, so a coat is useful for winter walks.", "Its long silky coat needs brushing down to the skin to prevent mats."],
+            "quirks": [
+                "Sighthounds are sensitive to some anaesthetics, so always tell your vet the breed before any operation.",
+                "The thin skin and long coat mean it feels the cold, so a coat is useful for winter walks.",
+                "Its long silky coat needs brushing down to the skin to prevent mats.",
+            ],
         },
         "ru": {
             "summary": "Элегантная, самостоятельная и по-своему ласковая собака. Афганская борзая — борзая с длинной шелковистой шерстью и достойным, кошачьим характером, которая любит бегать.",
-            "care": ["Длинную шелковистую шерсть тщательно расчёсывайте до кожи через день и регулярно мойте, чтобы не было колтунов. Многие хозяева записываются на профессиональный груминг.", "Рассчитывайте на полтора–два часа нагрузки в день, включая безопасное место для бега."],
-            "good_fit": ["Любите уход за эффектной шерстью", "Есть очень надёжный сад и высокий забор", "Хотите самостоятельного достойного компаньона", "Готовы терпеливо дрессировать"],
-            "think_twice": ["Не любите уход за шерстью и расходы на него", "Хотите собаку, которая быстро слушается", "Дома мелкие животные", "Хотите собаку, которая всегда старается угодить"],
+            "care": [
+                "Длинную шелковистую шерсть тщательно расчёсывайте до кожи через день и регулярно мойте, чтобы не было колтунов. Многие хозяева записываются на профессиональный груминг.",
+                "Рассчитывайте на полтора–два часа нагрузки в день, включая безопасное место для бега.",
+            ],
+            "good_fit": [
+                "Любите уход за эффектной шерстью",
+                "Есть очень надёжный сад и высокий забор",
+                "Хотите самостоятельного достойного компаньона",
+                "Готовы терпеливо дрессировать",
+            ],
+            "think_twice": [
+                "Не любите уход за шерстью и расходы на него",
+                "Хотите собаку, которая быстро слушается",
+                "Дома мелкие животные",
+                "Хотите собаку, которая всегда старается угодить",
+            ],
             "daily": [
                 "Полтора–два часа в день с возможностью рвануть в полностью огороженном месте. На прогулке держите на поводке: она гонится за всем, что движется.",
                 "Она самостоятельна, но не любит целый день оставаться одна. От скуки может грызть вещи и разрушать.",
@@ -35,16 +65,33 @@ DOGS = {
                 "Спринты, курсинг и спокойные прогулки. В дрессировке она самостоятельна, поэтому занятия делайте короткими и с поощрением.",
                 "Хорошая пробежка утром и вечером, долгий отдых и время на уход за шерстью.",
             ],
-            "quirks": ["Борзые чувствительны к некоторым наркозным препаратам, поэтому перед любой операцией обязательно сообщайте ветеринару породу.", "Тонкая кожа и длинная шерсть делают собаку чувствительной к холоду, поэтому на зимние прогулки полезна одежда.", "Длинную шелковистую шерсть нужно расчёсывать до кожи, чтобы не было колтунов."],
+            "quirks": [
+                "Борзые чувствительны к некоторым наркозным препаратам, поэтому перед любой операцией обязательно сообщайте ветеринару породу.",
+                "Тонкая кожа и длинная шерсть делают собаку чувствительной к холоду, поэтому на зимние прогулки полезна одежда.",
+                "Длинную шелковистую шерсть нужно расчёсывать до кожи, чтобы не было колтунов.",
+            ],
         },
     },
     "azawakh": {
         "prey": "high",
         "en": {
             "summary": "Slender, swift and fiercely loyal. The Azawakh is a tall African sighthound with a lean body that bonds deeply with its family and stays reserved with strangers.",
-            "care": ["The very short, fine coat needs only a weekly rub with a hound glove. Check the nails and teeth.", "Plan for one and a half to two hours a day with a secure place to sprint. It has little body fat and feels the cold, so give it a coat."],
-            "good_fit": ["Want an athletic, loyal and watchful dog", "Have a very high secure fence", "Have experience with sighthounds", "Can give early socialisation"],
-            "think_twice": ["Want a dog that welcomes strangers", "Have small pets or cats", "Live in a cold climate and do not want coats", "Are a first-time owner"],
+            "care": [
+                "The very short, fine coat needs only a weekly rub with a hound glove. Check the nails and teeth.",
+                "Plan for one and a half to two hours a day with a secure place to sprint. It has little body fat and feels the cold, so give it a coat.",
+            ],
+            "good_fit": [
+                "Want an athletic, loyal and watchful dog",
+                "Have a very high secure fence",
+                "Have experience with sighthounds",
+                "Can give early socialisation",
+            ],
+            "think_twice": [
+                "Want a dog that welcomes strangers",
+                "Have small pets or cats",
+                "Live in a cold climate and do not want coats",
+                "Are a first-time owner",
+            ],
             "daily": [
                 "One and a half to two hours a day with a chance to sprint in a fully enclosed area. On walks keep it on a lead.",
                 "It bonds closely with its family and does not like being left alone for long hours.",
@@ -54,13 +101,30 @@ DOGS = {
                 "Sprinting, lure coursing and long walks. Training needs patience, short sessions and rewards.",
                 "A good run morning and evening and long rests between.",
             ],
-            "quirks": ["It is one of the leanest sighthounds, with long legs and little body fat, so it needs a coat in cold weather.", "Sighthounds can react to some anaesthetics, so tell the vet the breed in advance.", "It often watches over its family and is reserved with strangers, which suits a calm, watchful household."],
+            "quirks": [
+                "It is one of the leanest sighthounds, with long legs and little body fat, so it needs a coat in cold weather.",
+                "Sighthounds can react to some anaesthetics, so tell the vet the breed in advance.",
+                "It often watches over its family and is reserved with strangers, which suits a calm, watchful household.",
+            ],
         },
         "ru": {
             "summary": "Стройная, быстрая и очень преданная собака. Азавак — высокая африканская борзая с поджарым телом, которая глубоко привязывается к семье и остаётся сдержанной с чужими.",
-            "care": ["Очень короткую тонкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы.", "Рассчитывайте на полтора–два часа в день с безопасным местом для спринта. Жира у неё мало, она мёрзнет, поэтому нужна одежда."],
-            "good_fit": ["Хотите спортивную преданную бдительную собаку", "Есть очень высокий надёжный забор", "Есть опыт с борзыми", "Можете заниматься ранней социализацией"],
-            "think_twice": ["Хотите собаку, которая рада чужим", "Дома мелкие животные или кошки", "Живёте в холодном климате и не хотите одевать собаку", "Это ваша первая собака"],
+            "care": [
+                "Очень короткую тонкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы.",
+                "Рассчитывайте на полтора–два часа в день с безопасным местом для спринта. Жира у неё мало, она мёрзнет, поэтому нужна одежда.",
+            ],
+            "good_fit": [
+                "Хотите спортивную преданную бдительную собаку",
+                "Есть очень высокий надёжный забор",
+                "Есть опыт с борзыми",
+                "Можете заниматься ранней социализацией",
+            ],
+            "think_twice": [
+                "Хотите собаку, которая рада чужим",
+                "Дома мелкие животные или кошки",
+                "Живёте в холодном климате и не хотите одевать собаку",
+                "Это ваша первая собака",
+            ],
             "daily": [
                 "Полтора–два часа в день с возможностью бежать в полностью огороженном месте. На прогулках держите на поводке.",
                 "Она тесно привязана к семье и не любит надолго оставаться одна.",
@@ -70,16 +134,33 @@ DOGS = {
                 "Спринты, курсинг и долгие прогулки. Дрессировке нужны терпение, короткие занятия и поощрение.",
                 "Хорошая пробежка утром и вечером и долгий отдых между ними.",
             ],
-            "quirks": ["Это одна из самых поджарых борзых: длинные ноги и мало жира, поэтому в холод ей нужна одежда.", "Борзые могут реагировать на некоторые наркозные препараты, поэтому заранее сообщайте ветеринару породу.", "Она охраняет семью и сдержанна с чужими, что подходит спокойному бдительному дому."],
+            "quirks": [
+                "Это одна из самых поджарых борзых: длинные ноги и мало жира, поэтому в холод ей нужна одежда.",
+                "Борзые могут реагировать на некоторые наркозные препараты, поэтому заранее сообщайте ветеринару породу.",
+                "Она охраняет семью и сдержанна с чужими, что подходит спокойному бдительному дому.",
+            ],
         },
     },
     "borzoi": {
         "prey": "high",
         "en": {
             "summary": "Graceful, quiet and gentle. The Borzoi is a tall, silky-coated sighthound that is calm indoors, deeply attached to its family and a fast runner outdoors.",
-            "care": ["The silky coat needs brushing two or three times a week, and more during the shed, with attention to the feathering. Check the nails and teeth.", "Plan for an hour and a half of exercise a day, with a secure place to sprint."],
-            "good_fit": ["Want a calm, quiet and elegant dog indoors", "Have a very high, secure fence", "Have room for a large dog", "Are patient trainers"],
-            "think_twice": ["Want a dog that obeys quickly off lead", "Have small pets", "Live in a small flat", "Want a very sociable dog that loves strangers"],
+            "care": [
+                "The silky coat needs brushing two or three times a week, and more during the shed, with attention to the feathering. Check the nails and teeth.",
+                "Plan for an hour and a half of exercise a day, with a secure place to sprint.",
+            ],
+            "good_fit": [
+                "Want a calm, quiet and elegant dog indoors",
+                "Have a very high, secure fence",
+                "Have room for a large dog",
+                "Are patient trainers",
+            ],
+            "think_twice": [
+                "Want a dog that obeys quickly off lead",
+                "Have small pets",
+                "Live in a small flat",
+                "Want a very sociable dog that loves strangers",
+            ],
             "daily": [
                 "An hour and a half a day, including a sprint in a fully enclosed area. On walks keep it on a lead: it chases small animals at great speed.",
                 "It dislikes being alone for long, but it is quiet and calm when it has had its exercise.",
@@ -89,13 +170,30 @@ DOGS = {
                 "Sprinting, lure coursing and relaxed walks. Training needs patience and short sessions.",
                 "A good run morning and evening and long rests.",
             ],
-            "quirks": ["Borzois are usually quiet and rarely bark, so they are low-key indoors.", "The thin skin and silky coat mean it feels the cold, so a coat helps in winter.", "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed."],
+            "quirks": [
+                "Borzois are usually quiet and rarely bark, so they are low-key indoors.",
+                "The thin skin and silky coat mean it feels the cold, so a coat helps in winter.",
+                "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed.",
+            ],
         },
         "ru": {
             "summary": "Грациозная, тихая и мягкая собака. Русская борзая — высокая борзая с шелковистой шерстью, спокойная дома, очень привязанная к семье и быстрая на улице.",
-            "care": ["Шелковистую шерсть расчёсывайте два–три раза в неделю, а во время линьки чаще, особенно оперение. Проверяйте когти и зубы.", "Рассчитывайте на полтора часа нагрузки в день с безопасным местом для спринта."],
-            "good_fit": ["Хотите спокойную тихую элегантную собаку дома", "Есть очень высокий надёжный забор", "Есть место для крупной собаки", "Готовы терпеливо дрессировать"],
-            "think_twice": ["Хотите собаку, которая быстро слушается без поводка", "Дома мелкие животные", "Живёте в маленькой квартире", "Хотите очень общительную собаку, любящую чужих"],
+            "care": [
+                "Шелковистую шерсть расчёсывайте два–три раза в неделю, а во время линьки чаще, особенно оперение. Проверяйте когти и зубы.",
+                "Рассчитывайте на полтора часа нагрузки в день с безопасным местом для спринта.",
+            ],
+            "good_fit": [
+                "Хотите спокойную тихую элегантную собаку дома",
+                "Есть очень высокий надёжный забор",
+                "Есть место для крупной собаки",
+                "Готовы терпеливо дрессировать",
+            ],
+            "think_twice": [
+                "Хотите собаку, которая быстро слушается без поводка",
+                "Дома мелкие животные",
+                "Живёте в маленькой квартире",
+                "Хотите очень общительную собаку, любящую чужих",
+            ],
             "daily": [
                 "Полтора часа в день, включая спринт в полностью огороженном месте. На прогулках держите на поводке: она на большой скорости гонится за мелкими животными.",
                 "Надолго оставаться одной не любит, но после нагрузки тихая и спокойная.",
@@ -105,16 +203,33 @@ DOGS = {
                 "Спринты, курсинг и неспешные прогулки. Дрессировке нужны терпение и короткие занятия.",
                 "Хорошая пробежка утром и вечером и долгий отдых.",
             ],
-            "quirks": ["Борзые обычно тихие и редко лают, поэтому дома они почти незаметны.", "Тонкая кожа и шелковистая шерсть делают собаку чувствительной к холоду, поэтому зимой помогает одежда.", "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу."],
+            "quirks": [
+                "Борзые обычно тихие и редко лают, поэтому дома они почти незаметны.",
+                "Тонкая кожа и шелковистая шерсть делают собаку чувствительной к холоду, поэтому зимой помогает одежда.",
+                "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу.",
+            ],
         },
     },
     "greyhound": {
         "prey": "high",
         "en": {
             "summary": "Gentle, quiet and surprisingly relaxed. The Greyhound is the fastest dog, yet most are calm couch companions that love a short sprint and a very long nap.",
-            "care": ["The short smooth coat needs only a weekly rub with a mitt. Check the nails and teeth, and watch the thin skin for scrapes.", "Plan for one or two good walks a day and a safe place to sprint. It feels the cold, so give it a coat."],
-            "good_fit": ["Want a gentle, quiet and clean dog", "Can offer a secure place for sprints", "Like the idea of a retired racing dog", "Prefer a calm house companion"],
-            "think_twice": ["Have small pets such as cats or rabbits", "Want a dog that can run off lead in open areas", "Are away from home most of the day", "Live in a cold climate and do not want coats"],
+            "care": [
+                "The short smooth coat needs only a weekly rub with a mitt. Check the nails and teeth, and watch the thin skin for scrapes.",
+                "Plan for one or two good walks a day and a safe place to sprint. It feels the cold, so give it a coat.",
+            ],
+            "good_fit": [
+                "Want a gentle, quiet and clean dog",
+                "Can offer a secure place for sprints",
+                "Like the idea of a retired racing dog",
+                "Prefer a calm house companion",
+            ],
+            "think_twice": [
+                "Have small pets such as cats or rabbits",
+                "Want a dog that can run off lead in open areas",
+                "Are away from home most of the day",
+                "Live in a cold climate and do not want coats",
+            ],
             "daily": [
                 "One or two walks a day, plus a chance to sprint in a fully enclosed area. In open areas keep it on a lead, as it follows anything that moves.",
                 "Many Greyhounds cope with a few hours alone, but they do not like being alone all day. Build up gradually.",
@@ -124,13 +239,30 @@ DOGS = {
                 "Short sprints, lure coursing and relaxed walks. Retired racers often need to learn about stairs, glass doors and a home.",
                 "A walk morning and evening and long rests. They love a regular routine.",
             ],
-            "quirks": ["Greyhounds reach speeds of up to about 45 mph (72 km/h), but they are known as \"45-mph couch potatoes\" because they sleep most of the day.", "Retired racing Greyhounds are widely adopted as pets and often settle into family life within weeks.", "The thin coat and low body fat mean it feels the cold, and the breed needs special anaesthetic care, so tell the vet its breed."],
+            "quirks": [
+                'Greyhounds reach speeds of up to about 45 mph (72 km/h), but they are known as "45-mph couch potatoes" because they sleep most of the day.',
+                "Retired racing Greyhounds are widely adopted as pets and often settle into family life within weeks.",
+                "The thin coat and low body fat mean it feels the cold, and the breed needs special anaesthetic care, so tell the vet its breed.",
+            ],
         },
         "ru": {
             "summary": "Мягкая, тихая и удивительно спокойная собака. Грейхаунд — самая быстрая собака, но большинство грейхаундов — спокойные домашние друзья, которые любят короткий спринт и очень долгий сон.",
-            "care": ["Короткую гладкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы, следите за тонкой кожей: на ней легко появляются царапины.", "Рассчитывайте на одну–две хорошие прогулки в день и безопасное место для спринта. Она мёрзнет, поэтому нужна одежда."],
-            "good_fit": ["Хотите мягкую тихую чистоплотную собаку", "Можете предложить безопасное место для спринта", "Нравится идея взять бывшего гоночного пса", "Предпочитаете спокойного домашнего друга"],
-            "think_twice": ["Дома мелкие животные, например кошки или кролики", "Хотите собаку, которая бегает без поводка на открытых местах", "Большую часть дня не бываете дома", "Живёте в холодном климате и не хотите одевать собаку"],
+            "care": [
+                "Короткую гладкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы, следите за тонкой кожей: на ней легко появляются царапины.",
+                "Рассчитывайте на одну–две хорошие прогулки в день и безопасное место для спринта. Она мёрзнет, поэтому нужна одежда.",
+            ],
+            "good_fit": [
+                "Хотите мягкую тихую чистоплотную собаку",
+                "Можете предложить безопасное место для спринта",
+                "Нравится идея взять бывшего гоночного пса",
+                "Предпочитаете спокойного домашнего друга",
+            ],
+            "think_twice": [
+                "Дома мелкие животные, например кошки или кролики",
+                "Хотите собаку, которая бегает без поводка на открытых местах",
+                "Большую часть дня не бываете дома",
+                "Живёте в холодном климате и не хотите одевать собаку",
+            ],
             "daily": [
                 "Одна–две прогулки в день и возможность рвануть в полностью огороженном месте. На открытых местах держите на поводке: она бежит за всем, что движется.",
                 "Многие грейхаунды справляются с несколькими часами одиночества, но целый день одни быть не любят. Приучайте постепенно.",
@@ -140,16 +272,33 @@ DOGS = {
                 "Короткие спринты, курсинг и неспешные прогулки. Бывшим гоночным собакам часто нужно привыкнуть к лестницам, стеклянным дверям и дому.",
                 "Прогулка утром и вечером и долгий отдых. Они любят постоянный распорядок.",
             ],
-            "quirks": ["Грейхаунды развивают скорость примерно до 72 км/ч, но их называют «диванными картофелинами», ведь они спят большую часть дня.", "Бывших гоночных грейхаундов часто берут домой, и они обычно приживаются в семье за несколько недель.", "Тонкая шерсть и мало жира делают собаку чувствительной к холоду, а порода требует особой осторожности с наркозом, поэтому сообщайте ветеринару породу."],
+            "quirks": [
+                "Грейхаунды развивают скорость примерно до 72 км/ч, но их называют «диванными картофелинами», ведь они спят большую часть дня.",
+                "Бывших гоночных грейхаундов часто берут домой, и они обычно приживаются в семье за несколько недель.",
+                "Тонкая шерсть и мало жира делают собаку чувствительной к холоду, а порода требует особой осторожности с наркозом, поэтому сообщайте ветеринару породу.",
+            ],
         },
     },
     "irish-wolfhound": {
         "prey": "high",
         "en": {
             "summary": "Gentle, patient and enormous. The Irish Wolfhound is the tallest dog breed: a calm, dignified giant that is kind to its family and needs space.",
-            "care": ["The wiry coat needs brushing once or twice a week and hand-stripping a couple of times a year. Check the nails and teeth.", "Plan for an hour and a half of exercise a day, with a space to stretch out. Its size means high food and vet costs, and the breed has a short life, usually six to eight years."],
-            "good_fit": ["Have a large home and a garden", "Want a gentle, calm giant", "Can afford the costs of a giant breed", "Accept a shorter lifespan"],
-            "think_twice": ["Live in a small flat", "Have toddlers who might be knocked over", "Have small pets", "Cannot afford the food and vet costs of a giant dog"],
+            "care": [
+                "The wiry coat needs brushing once or twice a week and hand-stripping a couple of times a year. Check the nails and teeth.",
+                "Plan for an hour and a half of exercise a day, with a space to stretch out. Its size means high food and vet costs, and the breed has a short life, usually six to eight years.",
+            ],
+            "good_fit": [
+                "Have a large home and a garden",
+                "Want a gentle, calm giant",
+                "Can afford the costs of a giant breed",
+                "Accept a shorter lifespan",
+            ],
+            "think_twice": [
+                "Live in a small flat",
+                "Have toddlers who might be knocked over",
+                "Have small pets",
+                "Cannot afford the food and vet costs of a giant dog",
+            ],
             "daily": [
                 "An hour and a half a day of walking, with a chance to stretch its legs in a secure area. Do not over-exercise puppies, as their joints are still growing.",
                 "It does not like long hours alone. It needs space and company, and it may chew if bored.",
@@ -159,13 +308,30 @@ DOGS = {
                 "Walking, lure coursing and relaxed play. Training is easy-going, but keep it kind and gentle.",
                 "A steady walk morning and evening and a lot of sleeping.",
             ],
-            "quirks": ["The Irish Wolfhound is the tallest dog breed, with males at least about 80 cm (32 in) at the shoulder.", "Like many giant breeds, it has a shorter life span, typically around six to eight years.", "Because the chest is deep, the breed can suffer from bloat, so feed small meals and avoid exercise just after eating."],
+            "quirks": [
+                "The Irish Wolfhound is the tallest dog breed, with males at least about 80 cm (32 in) at the shoulder.",
+                "Like many giant breeds, it has a shorter life span, typically around six to eight years.",
+                "Because the chest is deep, the breed can suffer from bloat, so feed small meals and avoid exercise just after eating.",
+            ],
         },
         "ru": {
             "summary": "Мягкий, терпеливый и огромный. Ирландский волкодав — самая высокая порода собак: спокойный достойный великан, добрый к семье и требующий много места.",
-            "care": ["Жёсткую шерсть расчёсывайте один–два раза в неделю и пару раз в год тримминговать. Проверяйте когти и зубы.", "Рассчитывайте на полтора часа нагрузки в день и на место, где можно вытянуться. Из-за размера высоки расходы на корм и ветеринара, а жизнь у породы короткая, обычно шесть–восемь лет."],
-            "good_fit": ["Есть большой дом и двор", "Хотите мягкого спокойного великана", "Можете позволить себе расходы на гигантскую породу", "Принимаете более короткую жизнь собаки"],
-            "think_twice": ["Живёте в маленькой квартире", "Есть малыши, которых можно случайно сбить с ног", "Дома мелкие животные", "Не можете позволить расходы на корм и ветеринара для гигантской собаки"],
+            "care": [
+                "Жёсткую шерсть расчёсывайте один–два раза в неделю и пару раз в год тримминговать. Проверяйте когти и зубы.",
+                "Рассчитывайте на полтора часа нагрузки в день и на место, где можно вытянуться. Из-за размера высоки расходы на корм и ветеринара, а жизнь у породы короткая, обычно шесть–восемь лет.",
+            ],
+            "good_fit": [
+                "Есть большой дом и двор",
+                "Хотите мягкого спокойного великана",
+                "Можете позволить себе расходы на гигантскую породу",
+                "Принимаете более короткую жизнь собаки",
+            ],
+            "think_twice": [
+                "Живёте в маленькой квартире",
+                "Есть малыши, которых можно случайно сбить с ног",
+                "Дома мелкие животные",
+                "Не можете позволить расходы на корм и ветеринара для гигантской собаки",
+            ],
             "daily": [
                 "Полтора часа ходьбы в день с возможностью размяться в безопасном месте. Щенков не перегружайте: суставы ещё растут.",
                 "Долгое одиночество ему не нравится. Ему нужны место и компания, от скуки он может грызть вещи.",
@@ -175,16 +341,33 @@ DOGS = {
                 "Ходьба, курсинг и спокойные игры. Обучение идёт ровно, но должно быть мягким и добрым.",
                 "Ровная прогулка утром и вечером и много сна.",
             ],
-            "quirks": ["Ирландский волкодав — самая высокая порода собак, кобели не ниже примерно 80 см (32 дюймов) в холке.", "Как и многие гиганты, живёт недолго, обычно около шести–восьми лет.", "Грудная клетка глубокая, поэтому порода склонна к заворотам желудка: кормите небольшими порциями и не нагружайте сразу после еды."],
+            "quirks": [
+                "Ирландский волкодав — самая высокая порода собак, кобели не ниже примерно 80 см (32 дюймов) в холке.",
+                "Как и многие гиганты, живёт недолго, обычно около шести–восьми лет.",
+                "Грудная клетка глубокая, поэтому порода склонна к заворотам желудка: кормите небольшими порциями и не нагружайте сразу после еды.",
+            ],
         },
     },
     "italian-sighthound": {
         "prey": "high",
         "en": {
             "summary": "Delicate, affectionate and quick. The Italian Greyhound is a tiny sighthound that adores its people, loves warmth and loves to sprint.",
-            "care": ["The short fine coat needs a weekly rub. Brush the teeth daily, as the breed is prone to dental problems.", "Plan for about 45 minutes to an hour of walks and sprinting a day. It feels the cold, so give it a coat and a warm bed."],
-            "good_fit": ["Want a small, affectionate, clean companion", "Are home often", "Can offer a warm bed and coats", "Can handle a fragile dog gently"],
-            "think_twice": ["Have young children who may handle it roughly", "Live in a cold climate and don't want coats", "Want a dog that is easy to house-train", "Cannot offer a fully fenced place"],
+            "care": [
+                "The short fine coat needs a weekly rub. Brush the teeth daily, as the breed is prone to dental problems.",
+                "Plan for about 45 minutes to an hour of walks and sprinting a day. It feels the cold, so give it a coat and a warm bed.",
+            ],
+            "good_fit": [
+                "Want a small, affectionate, clean companion",
+                "Are home often",
+                "Can offer a warm bed and coats",
+                "Can handle a fragile dog gently",
+            ],
+            "think_twice": [
+                "Have young children who may handle it roughly",
+                "Live in a cold climate and don't want coats",
+                "Want a dog that is easy to house-train",
+                "Cannot offer a fully fenced place",
+            ],
             "daily": [
                 "About 45 minutes to an hour, with short sprints in a fully enclosed area. On walks keep it on a lead: it chases everything.",
                 "It bonds closely and dislikes being left alone. It may fret or chew without company.",
@@ -194,13 +377,30 @@ DOGS = {
                 "Short sprints, tricks and gentle games. It is sensitive, so use praise and treats.",
                 "Short walks, play and long naps in a warm spot.",
             ],
-            "quirks": ["It loves warmth and often burrows under blankets or sits in a sunny patch.", "The legs are thin and delicate, so avoid jumps from high furniture.", "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed."],
+            "quirks": [
+                "It loves warmth and often burrows under blankets or sits in a sunny patch.",
+                "The legs are thin and delicate, so avoid jumps from high furniture.",
+                "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed.",
+            ],
         },
         "ru": {
             "summary": "Нежная, ласковая и быстрая собака. Левретка — крошечная борзая, которая обожает людей, тепло и короткие спринты.",
-            "care": ["Короткую тонкую шерсть достаточно протирать раз в неделю. Ежедневно чистите зубы: у породы часто бывают проблемы с зубами.", "Рассчитывайте примерно на 45 минут–час прогулок и бега в день. Она мёрзнет, поэтому нужны одежда и тёплая лежанка."],
-            "good_fit": ["Хотите маленького ласкового чистоплотного компаньона", "Часто бываете дома", "Можете предложить тёплую лежанку и одежду", "Умеете бережно обращаться с хрупкой собакой"],
-            "think_twice": ["Есть маленькие дети, которые могут грубо обращаться с собакой", "Живёте в холодном климате и не хотите одевать собаку", "Хотите собаку, которую легко приучить к туалету", "Нет полностью огороженного места"],
+            "care": [
+                "Короткую тонкую шерсть достаточно протирать раз в неделю. Ежедневно чистите зубы: у породы часто бывают проблемы с зубами.",
+                "Рассчитывайте примерно на 45 минут–час прогулок и бега в день. Она мёрзнет, поэтому нужны одежда и тёплая лежанка.",
+            ],
+            "good_fit": [
+                "Хотите маленького ласкового чистоплотного компаньона",
+                "Часто бываете дома",
+                "Можете предложить тёплую лежанку и одежду",
+                "Умеете бережно обращаться с хрупкой собакой",
+            ],
+            "think_twice": [
+                "Есть маленькие дети, которые могут грубо обращаться с собакой",
+                "Живёте в холодном климате и не хотите одевать собаку",
+                "Хотите собаку, которую легко приучить к туалету",
+                "Нет полностью огороженного места",
+            ],
             "daily": [
                 "Около 45 минут–часа, с короткими спринтами в полностью огороженном месте. На прогулке держите на поводке: она гонится за всем.",
                 "Она тесно привязана и не любит оставаться одна. Без компании может тревожиться и грызть вещи.",
@@ -210,16 +410,33 @@ DOGS = {
                 "Короткие спринты, трюки и мягкие игры. Она чувствительна, поэтому используйте похвалу и лакомства.",
                 "Короткие прогулки, игры и долгий сон в тёплом месте.",
             ],
-            "quirks": ["Она любит тепло и часто зарывается в одеяла или лежит на солнечном пятне.", "Лапы тонкие и хрупкие, поэтому не позволяйте ей прыгать с высокой мебели.", "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу."],
+            "quirks": [
+                "Она любит тепло и часто зарывается в одеяла или лежит на солнечном пятне.",
+                "Лапы тонкие и хрупкие, поэтому не позволяйте ей прыгать с высокой мебели.",
+                "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу.",
+            ],
         },
     },
     "saluki": {
         "prey": "high",
         "en": {
             "summary": "Graceful, reserved and independent. The Saluki is an elegant desert sighthound with a feathered coat, a gentle nature and the stamina to run for miles.",
-            "care": ["The silky coat with feathering needs brushing once or twice a week. Check the ears and nails.", "Plan for one and a half to two hours a day, including a safe place to sprint. It has little body fat and feels the cold."],
-            "good_fit": ["Want a calm, elegant and independent dog", "Have a very secure garden and high fence", "Have experience with sighthounds", "Can offer a soft bed and a coat"],
-            "think_twice": ["Have small pets", "Want a dog that obeys immediately", "Want a very sociable dog", "Cannot offer a fully enclosed place"],
+            "care": [
+                "The silky coat with feathering needs brushing once or twice a week. Check the ears and nails.",
+                "Plan for one and a half to two hours a day, including a safe place to sprint. It has little body fat and feels the cold.",
+            ],
+            "good_fit": [
+                "Want a calm, elegant and independent dog",
+                "Have a very secure garden and high fence",
+                "Have experience with sighthounds",
+                "Can offer a soft bed and a coat",
+            ],
+            "think_twice": [
+                "Have small pets",
+                "Want a dog that obeys immediately",
+                "Want a very sociable dog",
+                "Cannot offer a fully enclosed place",
+            ],
             "daily": [
                 "One and a half to two hours a day with a chance to run in a fully enclosed area. In open areas keep it on a lead, as it will chase and go far.",
                 "It bonds closely with its family and dislikes long hours alone. It can become destructive when bored.",
@@ -229,13 +446,30 @@ DOGS = {
                 "Lure coursing, long runs and relaxed walks. It is independent, so train with short sessions and rewards.",
                 "A good run morning and evening, with long rests in between.",
             ],
-            "quirks": ["The Saluki has the stamina to run for miles, so it is a wonderful running partner for experienced owners with safe, enclosed spaces.", "It needs special care with some anaesthetics, so tell the vet the breed before any operation.", "It can be reserved with strangers but affectionate and loyal with its own family."],
+            "quirks": [
+                "The Saluki has the stamina to run for miles, so it is a wonderful running partner for experienced owners with safe, enclosed spaces.",
+                "It needs special care with some anaesthetics, so tell the vet the breed before any operation.",
+                "It can be reserved with strangers but affectionate and loyal with its own family.",
+            ],
         },
         "ru": {
             "summary": "Грациозная, сдержанная и самостоятельная собака. Салюки — элегантная пустынная борзая с оперением, мягким характером и выносливостью, позволяющей бежать километры.",
-            "care": ["Шелковистую шерсть с оперением расчёсывайте один–два раза в неделю. Проверяйте уши и когти.", "Рассчитывайте на полтора–два часа в день, включая безопасное место для спринта. Жира у неё мало, она мёрзнет."],
-            "good_fit": ["Хотите спокойную элегантную самостоятельную собаку", "Есть очень надёжный сад и высокий забор", "Есть опыт с борзыми", "Можете предложить мягкую лежанку и одежду"],
-            "think_twice": ["Дома мелкие животные", "Хотите собаку, которая слушается сразу", "Хотите очень общительную собаку", "Нет полностью огороженного места"],
+            "care": [
+                "Шелковистую шерсть с оперением расчёсывайте один–два раза в неделю. Проверяйте уши и когти.",
+                "Рассчитывайте на полтора–два часа в день, включая безопасное место для спринта. Жира у неё мало, она мёрзнет.",
+            ],
+            "good_fit": [
+                "Хотите спокойную элегантную самостоятельную собаку",
+                "Есть очень надёжный сад и высокий забор",
+                "Есть опыт с борзыми",
+                "Можете предложить мягкую лежанку и одежду",
+            ],
+            "think_twice": [
+                "Дома мелкие животные",
+                "Хотите собаку, которая слушается сразу",
+                "Хотите очень общительную собаку",
+                "Нет полностью огороженного места",
+            ],
             "daily": [
                 "Полтора–два часа в день с возможностью бежать в полностью огороженном месте. На открытых местах держите на поводке: она гонится и убегает далеко.",
                 "Она тесно привязана к семье и не любит долгого одиночества. От скуки может разрушать вещи.",
@@ -245,16 +479,33 @@ DOGS = {
                 "Курсинг, долгий бег и неспешные прогулки. Она самостоятельна, поэтому дрессируйте короткими занятиями с поощрением.",
                 "Хорошая пробежка утром и вечером и долгий отдых между ними.",
             ],
-            "quirks": ["Выносливость салюки позволяет бежать километры, поэтому она прекрасный партнёр по бегу для опытных хозяев с безопасными огороженными местами.", "Ей нужна особая осторожность с некоторыми наркозными препаратами, поэтому перед любой операцией сообщайте ветеринару породу.", "С чужими она может быть сдержанна, но со своей семьёй ласкова и предана."],
+            "quirks": [
+                "Выносливость салюки позволяет бежать километры, поэтому она прекрасный партнёр по бегу для опытных хозяев с безопасными огороженными местами.",
+                "Ей нужна особая осторожность с некоторыми наркозными препаратами, поэтому перед любой операцией сообщайте ветеринару породу.",
+                "С чужими она может быть сдержанна, но со своей семьёй ласкова и предана.",
+            ],
         },
     },
     "sloughi": {
         "prey": "high",
         "en": {
             "summary": "Noble, loyal and reserved. The Sloughi is a slim North African sighthound that is devoted to its family, gentle at home and very fast outdoors.",
-            "care": ["The short smooth coat needs a weekly rub with a mitt. Check the nails and teeth.", "Plan for one and a half hours a day, including a safe place to sprint. It feels the cold, so give it a coat."],
-            "good_fit": ["Want a calm, loyal and clean dog", "Have a very high secure fence", "Can give early socialisation", "Have experience with sighthounds"],
-            "think_twice": ["Want a dog that welcomes strangers", "Have small pets", "Live in a cold climate and don't want coats", "Cannot offer a fully enclosed place"],
+            "care": [
+                "The short smooth coat needs a weekly rub with a mitt. Check the nails and teeth.",
+                "Plan for one and a half hours a day, including a safe place to sprint. It feels the cold, so give it a coat.",
+            ],
+            "good_fit": [
+                "Want a calm, loyal and clean dog",
+                "Have a very high secure fence",
+                "Can give early socialisation",
+                "Have experience with sighthounds",
+            ],
+            "think_twice": [
+                "Want a dog that welcomes strangers",
+                "Have small pets",
+                "Live in a cold climate and don't want coats",
+                "Cannot offer a fully enclosed place",
+            ],
             "daily": [
                 "One and a half hours a day, with a chance to sprint in a fully enclosed area. Keep it on a lead in open places.",
                 "It bonds closely and dislikes long hours alone.",
@@ -264,13 +515,30 @@ DOGS = {
                 "Sprinting, lure coursing and long walks. Train gently, with short sessions.",
                 "A good run morning and evening and long rests.",
             ],
-            "quirks": ["The Sloughi is a sensitive, reserved dog that often takes time to warm up to visitors, so early, gentle socialisation helps.", "Its short coat and lean body mean it needs a coat in cold weather.", "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed."],
+            "quirks": [
+                "The Sloughi is a sensitive, reserved dog that often takes time to warm up to visitors, so early, gentle socialisation helps.",
+                "Its short coat and lean body mean it needs a coat in cold weather.",
+                "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed.",
+            ],
         },
         "ru": {
             "summary": "Благородная, преданная и сдержанная собака. Слюги — стройная североафриканская борзая, преданная семье, мягкая дома и очень быстрая на улице.",
-            "care": ["Короткую гладкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы.", "Рассчитывайте на полтора часа в день, включая безопасное место для спринта. Она мёрзнет, поэтому нужна одежда."],
-            "good_fit": ["Хотите спокойную преданную чистоплотную собаку", "Есть очень высокий надёжный забор", "Можете заниматься ранней социализацией", "Есть опыт с борзыми"],
-            "think_twice": ["Хотите собаку, которая рада чужим", "Дома мелкие животные", "Живёте в холодном климате и не хотите одевать собаку", "Нет полностью огороженного места"],
+            "care": [
+                "Короткую гладкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы.",
+                "Рассчитывайте на полтора часа в день, включая безопасное место для спринта. Она мёрзнет, поэтому нужна одежда.",
+            ],
+            "good_fit": [
+                "Хотите спокойную преданную чистоплотную собаку",
+                "Есть очень высокий надёжный забор",
+                "Можете заниматься ранней социализацией",
+                "Есть опыт с борзыми",
+            ],
+            "think_twice": [
+                "Хотите собаку, которая рада чужим",
+                "Дома мелкие животные",
+                "Живёте в холодном климате и не хотите одевать собаку",
+                "Нет полностью огороженного места",
+            ],
             "daily": [
                 "Полтора часа в день с возможностью рвануть в полностью огороженном месте. В открытых местах держите на поводке.",
                 "Она тесно привязана и не любит долгого одиночества.",
@@ -280,16 +548,33 @@ DOGS = {
                 "Спринты, курсинг и долгие прогулки. Дрессируйте мягко, короткими занятиями.",
                 "Хорошая пробежка утром и вечером и долгий отдых.",
             ],
-            "quirks": ["Слюги — чуткая сдержанная собака, которой часто нужно время, чтобы привыкнуть к гостям, поэтому помогает ранняя мягкая социализация.", "Короткая шерсть и поджарое тело означают, что в холод ей нужна одежда.", "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу."],
+            "quirks": [
+                "Слюги — чуткая сдержанная собака, которой часто нужно время, чтобы привыкнуть к гостям, поэтому помогает ранняя мягкая социализация.",
+                "Короткая шерсть и поджарое тело означают, что в холод ей нужна одежда.",
+                "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу.",
+            ],
         },
     },
     "spanish-greyhound": {
         "prey": "high",
         "en": {
             "summary": "Gentle, quiet and sensitive. The Galgo Español is a slim Spanish sighthound with a calm temperament indoors, a love of running and a close bond with its family.",
-            "care": ["The coat is short (or wire-haired) and needs a weekly brush. Check the nails and teeth.", "Plan for an hour and a half a day, including a safe place to sprint. It feels the cold, so give it a coat."],
-            "good_fit": ["Want a calm, quiet and clean dog", "Have a very high secure fence", "Like the idea of adopting a rescued Galgo", "Can be patient with a sensitive dog"],
-            "think_twice": ["Have small pets", "Want a dog that obeys quickly", "Live in a cold climate and don't want coats", "Cannot offer a fully enclosed place"],
+            "care": [
+                "The coat is short (or wire-haired) and needs a weekly brush. Check the nails and teeth.",
+                "Plan for an hour and a half a day, including a safe place to sprint. It feels the cold, so give it a coat.",
+            ],
+            "good_fit": [
+                "Want a calm, quiet and clean dog",
+                "Have a very high secure fence",
+                "Like the idea of adopting a rescued Galgo",
+                "Can be patient with a sensitive dog",
+            ],
+            "think_twice": [
+                "Have small pets",
+                "Want a dog that obeys quickly",
+                "Live in a cold climate and don't want coats",
+                "Cannot offer a fully enclosed place",
+            ],
             "daily": [
                 "An hour and a half a day, with a chance to sprint in a fully enclosed area. In open areas keep it on a lead.",
                 "It bonds closely and dislikes long hours alone. Rescued dogs may need time to feel safe at home.",
@@ -299,13 +584,30 @@ DOGS = {
                 "Sprinting, lure coursing and relaxed walks. Positive, gentle training works best.",
                 "A good run morning and evening and long rests.",
             ],
-            "quirks": ["Many Galgos are adopted from rescue groups, and they often turn into calm, affectionate house companions after a settling-in period.", "It is sensitive and gentle, and it may need time to learn about stairs, glass doors and home life.", "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed."],
+            "quirks": [
+                "Many Galgos are adopted from rescue groups, and they often turn into calm, affectionate house companions after a settling-in period.",
+                "It is sensitive and gentle, and it may need time to learn about stairs, glass doors and home life.",
+                "Like other sighthounds, it needs special care with anaesthetics, so tell the vet its breed.",
+            ],
         },
         "ru": {
             "summary": "Мягкая, тихая и чуткая собака. Галго эспаньол — стройная испанская борзая со спокойным характером дома, любовью к бегу и тесной привязанностью к семье.",
-            "care": ["Шерсть короткая (или жёсткая), расчёсывайте раз в неделю. Проверяйте когти и зубы.", "Рассчитывайте на полтора часа в день, включая безопасное место для спринта. Она мёрзнет, поэтому нужна одежда."],
-            "good_fit": ["Хотите спокойную тихую чистоплотную собаку", "Есть очень высокий надёжный забор", "Нравится идея взять спасённого галго", "Готовы терпеливо относиться к чуткой собаке"],
-            "think_twice": ["Дома мелкие животные", "Хотите собаку, которая быстро слушается", "Живёте в холодном климате и не хотите одевать собаку", "Нет полностью огороженного места"],
+            "care": [
+                "Шерсть короткая (или жёсткая), расчёсывайте раз в неделю. Проверяйте когти и зубы.",
+                "Рассчитывайте на полтора часа в день, включая безопасное место для спринта. Она мёрзнет, поэтому нужна одежда.",
+            ],
+            "good_fit": [
+                "Хотите спокойную тихую чистоплотную собаку",
+                "Есть очень высокий надёжный забор",
+                "Нравится идея взять спасённого галго",
+                "Готовы терпеливо относиться к чуткой собаке",
+            ],
+            "think_twice": [
+                "Дома мелкие животные",
+                "Хотите собаку, которая быстро слушается",
+                "Живёте в холодном климате и не хотите одевать собаку",
+                "Нет полностью огороженного места",
+            ],
             "daily": [
                 "Полтора часа в день с возможностью рвануть в полностью огороженном месте. В открытых местах держите на поводке.",
                 "Она тесно привязана и не любит долгого одиночества. Спасённым собакам может понадобиться время, чтобы почувствовать себя дома в безопасности.",
@@ -315,16 +617,33 @@ DOGS = {
                 "Спринты, курсинг и неспешные прогулки. Лучше всего работает мягкая дрессировка на поощрении.",
                 "Хорошая пробежка утром и вечером и долгий отдых.",
             ],
-            "quirks": ["Многих галго берут из приютов, и после периода привыкания они часто становятся спокойными ласковыми домашними друзьями.", "Она чувствительна и мягка и может не сразу освоить лестницы, стеклянные двери и домашнюю жизнь.", "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу."],
+            "quirks": [
+                "Многих галго берут из приютов, и после периода привыкания они часто становятся спокойными ласковыми домашними друзьями.",
+                "Она чувствительна и мягка и может не сразу освоить лестницы, стеклянные двери и домашнюю жизнь.",
+                "Как и другим борзым, ей нужна особая осторожность с наркозом, поэтому сообщайте ветеринару породу.",
+            ],
         },
     },
     "whippet": {
         "prey": "high",
         "en": {
             "summary": "Gentle, affectionate and quick. The Whippet is a medium-sized sighthound that is calm and cuddly at home, and a joyful sprinter outdoors.",
-            "care": ["The short fine coat needs a weekly rub with a mitt. Check the nails and teeth. It feels the cold, so give it a coat and a warm bed.", "Plan for an hour a day, including a sprint in a safe place."],
-            "good_fit": ["Want a gentle, clean and quiet dog", "Can offer a safe place for sprints", "Enjoy lure coursing or racing games", "Are home often"],
-            "think_twice": ["Have small pets such as cats or rabbits", "Want a dog that recalls reliably off lead", "Live in a cold climate and don't want coats", "Are away from home most of the day"],
+            "care": [
+                "The short fine coat needs a weekly rub with a mitt. Check the nails and teeth. It feels the cold, so give it a coat and a warm bed.",
+                "Plan for an hour a day, including a sprint in a safe place.",
+            ],
+            "good_fit": [
+                "Want a gentle, clean and quiet dog",
+                "Can offer a safe place for sprints",
+                "Enjoy lure coursing or racing games",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Have small pets such as cats or rabbits",
+                "Want a dog that recalls reliably off lead",
+                "Live in a cold climate and don't want coats",
+                "Are away from home most of the day",
+            ],
             "daily": [
                 "About an hour a day, including a sprint in a fully enclosed area. In open areas keep it on a lead, as it chases anything that moves.",
                 "It dislikes being left alone for long hours and may fret or chew. Company helps.",
@@ -334,13 +653,30 @@ DOGS = {
                 "Sprinting, lure coursing, agility and long walks. It learns well with praise and treats.",
                 "A good run morning and evening and long, warm naps.",
             ],
-            "quirks": ["Whippets are sometimes called \"the poor man's racehorse\" and can reach 35 mph, yet most spend the day asleep on the sofa.", "Their thin coat and low body fat mean they feel the cold, so winter coats are the norm.", "Like other sighthounds, they need special care with anaesthetics, so tell the vet the breed in advance."],
+            "quirks": [
+                'Whippets are sometimes called "the poor man\'s racehorse" and can reach 35 mph, yet most spend the day asleep on the sofa.',
+                "Their thin coat and low body fat mean they feel the cold, so winter coats are the norm.",
+                "Like other sighthounds, they need special care with anaesthetics, so tell the vet the breed in advance.",
+            ],
         },
         "ru": {
             "summary": "Мягкая, ласковая и быстрая собака. Уиппет — борзая среднего размера, спокойная и нежная дома и радостный спринтер на улице.",
-            "care": ["Короткую тонкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы. Она мёрзнет, поэтому нужны одежда и тёплая лежанка.", "Рассчитывайте на час в день, включая спринт в безопасном месте."],
-            "good_fit": ["Хотите мягкую чистоплотную тихую собаку", "Можете предложить безопасное место для спринтов", "Любите курсинг или игры в гонки", "Часто бываете дома"],
-            "think_twice": ["Дома мелкие животные, например кошки или кролики", "Хотите собаку, которая надёжно возвращается без поводка", "Живёте в холодном климате и не хотите одевать собаку", "Большую часть дня не бываете дома"],
+            "care": [
+                "Короткую тонкую шерсть достаточно раз в неделю протирать рукавицей. Проверяйте когти и зубы. Она мёрзнет, поэтому нужны одежда и тёплая лежанка.",
+                "Рассчитывайте на час в день, включая спринт в безопасном месте.",
+            ],
+            "good_fit": [
+                "Хотите мягкую чистоплотную тихую собаку",
+                "Можете предложить безопасное место для спринтов",
+                "Любите курсинг или игры в гонки",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Дома мелкие животные, например кошки или кролики",
+                "Хотите собаку, которая надёжно возвращается без поводка",
+                "Живёте в холодном климате и не хотите одевать собаку",
+                "Большую часть дня не бываете дома",
+            ],
             "daily": [
                 "Около часа в день, включая спринт в полностью огороженном месте. В открытых местах держите на поводке: она гонится за всем, что движется.",
                 "Надолго оставаться одной не любит, может тревожиться и грызть вещи. Помогает компания.",
@@ -350,7 +686,11 @@ DOGS = {
                 "Спринты, курсинг, аджилити и долгие прогулки. Она хорошо учится на похвале и лакомствах.",
                 "Хорошая пробежка утром и вечером и долгий тёплый сон.",
             ],
-            "quirks": ["Уиппетов иногда называют «скаковой лошадью бедняка», они развивают скорость до 56 км/ч, но большую часть дня спят на диване.", "Тонкая шерсть и мало жира означают, что собака мёрзнет, поэтому зимой нужна одежда.", "Как и другим борзым, им нужна особая осторожность с наркозом, поэтому заранее сообщайте ветеринару породу."],
+            "quirks": [
+                "Уиппетов иногда называют «скаковой лошадью бедняка», они развивают скорость до 56 км/ч, но большую часть дня спят на диване.",
+                "Тонкая шерсть и мало жира означают, что собака мёрзнет, поэтому зимой нужна одежда.",
+                "Как и другим борзым, им нужна особая осторожность с наркозом, поэтому заранее сообщайте ветеринару породу.",
+            ],
         },
     },
 }

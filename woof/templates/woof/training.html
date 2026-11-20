@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Breadcrumbs -->
-{% blocktranslate trimmed asvar crumb_current %}Dog training fundamentals{% endblocktranslate %}
+{% blocktranslate trimmed asvar crumb_current %}Training{% endblocktranslate %}
 <div class="breadcrumbs-wrapper">
     {% include "woof/includes/breadcrumbs.html" with section="guides" current=crumb_current %}
 </div>
@@ -13,15 +13,16 @@
 <!-- Dog training guide content -->
 <div class="post-container">
 
-    <h1 class="post-title-cat">{% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}</h1>
+    <h1 class="post-title-cat">{% blocktranslate trimmed %}Training{% endblocktranslate %}</h1>
 
-{% include 'woof/includes/guide_disclaimer.html' %}
+    {% include "woof/includes/page_dates.html" with created=page_created updated=page_updated %}
+
 
     <div class="post-text-explore">
 
         <img
             src="{% static 'dog_training_fundamentals.webp' %}"
-            alt="{% trans 'Dog training fundamentals' %}"
+            alt="{% trans 'Training' %}"
             class="guide-image guide-image-6"
             width="260"
             height="230"
@@ -30,6 +31,8 @@
         >
 
     {% include "woof/includes/guide_toc.html" %}
+
+    {% include 'woof/includes/guide_disclaimer.html' %}
 
         <p class="section-title">{% blocktranslate trimmed %}What training actually is{% endblocktranslate %}</p>
 

@@ -31,7 +31,7 @@ FIXES = {
     },
     "stabijhoun": {
         0: {
-            "en": "The name comes from the Frisian for \"stand by me\", which suits a dog that stays close to its people.",
+            "en": 'The name comes from the Frisian for "stand by me", which suits a dog that stays close to its people.',
             "ru": "Название породы происходит от фризского выражения «стой рядом со мной», и это подходит собаке, которая держится рядом с людьми.",
             "de": "Der Name stammt vom friesischen „steh mir bei“, was zu einem Hund passt, der nah bei seinen Menschen bleibt.",
             "it": "Il nome deriva dal frisone per “stammi vicino”, il che si addice a un cane che resta vicino alle sue persone.",
@@ -61,7 +61,7 @@ FIXES = {
     },
     "barbado-da-terceira": {
         0: {
-            "en": "Its name means \"bearded\" in Portuguese, after the long hair around its face.",
+            "en": 'Its name means "bearded" in Portuguese, after the long hair around its face.',
             "ru": "Название породы по-португальски означает «бородатый» — из-за длинной шерсти вокруг морды.",
             "de": "Sein Name bedeutet auf Portugiesisch „bärtig“, nach dem langen Haar um sein Gesicht.",
             "it": "Il suo nome significa “barbuto” in portoghese, per il lungo pelo attorno al muso.",

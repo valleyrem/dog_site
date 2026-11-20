@@ -23,45 +23,69 @@
 
     <div class="post-text-explore">
 
+        <div class="groups-intro">
+
         <p class="cat-desc">
             {% blocktranslate trimmed %}We chose the FCI classification as a convenient basis: below are ten groups that bring together breeds of similar origin and purpose. The list is still incomplete — new breeds will be added.{% endblocktranslate %}
         </p>
 
-        <p class="cat-desc">
-            {% blocktranslate trimmed %}The FCI groups dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour.</p><p class="cat-desc">Within groups there are <strong>sections</strong>, which may differ by origin or coat type. Size, colour and other outward traits are taken into account in breed standards, but they do not determine the group. That is why a small and a large terrier can belong to one group, while dogs of similar size can belong to different ones.{% endblocktranslate %}
-        </p>
+            <div class="groups-intro__more">
+
+                <p class="cat-desc">{% blocktranslate trimmed %}The FCI sorts dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour.{% endblocktranslate %}</p>
+
+                <p class="cat-desc">{% blocktranslate trimmed %}Each group is divided into <strong>sections</strong> that refine the purpose, origin or traits of the breeds. Some sections are further divided into breeds with and without a working trial, as well as into subsections. We do not separate the latter in our classification.{% endblocktranslate %}</p>
+
+                <p class="cat-desc">{% blocktranslate trimmed %}Each recognized breed has an official standard, prepared by its country of origin and approved by the FCI, as well as its own number.{% endblocktranslate %}</p>
+
+            </div>
+
+            <button type="button" class="guide-toc__toggle groups-intro__toggle" aria-expanded="false" data-groups-intro-toggle>
+                <span class="guide-toc__more">{% trans "More about FCI classification" %}</span>
+                <span class="guide-toc__less">{% trans "Collapse" %}</span>
+                <span class="guide-toc__arrow" aria-hidden="true"></span>
+            </button>
+
+        </div>
 
 
         <!-- Main groups -->
-        <div class="catalog-structure">
+        <div class="catalog-structure catalog-structure--tiles">
 
             {% for category in cats|dictsort:"fci_number" %}
 
                 {% if category.slug != 'breeds-outside-fci-classification' %}
 
+                    {% with fci=category.fci_number|stringformat:"s" %}
+                    {% with img='group'|add:fci|add:'.webp' %}
                     <a href="{{ category.get_absolute_url }}"
-                       class="group-row"
+                       class="group-card"
                        title="{{ category.name }}">
-<!-- Right content -->
-                        <div class="group-sections">
+
+                        <span class="group-card__media">
+                            <img class="group-card__img"
+                             src="{% static img %}"
+                             alt=""
+                             width="300"
+                             height="300"
+                             loading="lazy"
+                             decoding="async">
+                        </span>
+
+                        <div class="group-card__body">
 
                             <span class="group-number">({{ category.fci_number }})</span>
 
-                            <div class="group-body">
+                            <span class="groups-link">{{ category.name }}</span>
 
-                                <span class="groups-link">
-                                    {{ category.name }}
-                                </span>
+                            <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
 
-                                <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
-
-                            </div>
-
-                            <span class="group-more">{% trans "Look more" %}</span>
+                            <span class="group-more">{% trans "Learn more" %}</span>
 
                         </div>
 
                     </a>
+                    {% endwith %}
+                    {% endwith %}
 
                 {% endif %}
 
@@ -71,7 +95,7 @@
 
 
         <!-- Other breeds -->
-        <p class="section-title">{% blocktranslate trimmed %}Breeds outside the current FCI structure{% endblocktranslate %}</p>
+        <p class="section-title">{% blocktranslate trimmed %}Other breeds{% endblocktranslate %}</p>
 
         <p>{% blocktranslate trimmed %}Some breeds on the site are not currently placed inside
             the official FCI classification.
@@ -79,36 +103,39 @@
             browse and compare them easily.{% endblocktranslate %}</p>
 
 
-        <div class="catalog-structure">
+        <div class="catalog-structure catalog-structure--tiles">
 
             {% for category in cats %}
 
                 {% if category.slug == 'breeds-outside-fci-classification' %}
 
                     <a href="{{ category.get_absolute_url }}"
-                       class="group-row"
+                       class="group-card"
                        title="{{ category.name }}">
-<!-- Right content -->
-                        <div class="group-sections">
+
+                        <span class="group-card__media">
+                            <img class="group-card__img"
+                             src="{% static 'nofci.webp' %}"
+                             alt=""
+                             width="300"
+                             height="300"
+                             loading="lazy"
+                             decoding="async">
+                        </span>
+
+                        <div class="group-card__body">
 
                             <span class="group-number">
                                 <span class="label-short">{% blocktranslate trimmed %}Oth.{% endblocktranslate %}</span>
                             </span>
 
-                            <div class="group-body">
+                            <span class="groups-link">{{ category.name }}</span>
 
-                                <span class="groups-link">
-                                    {{ category.name }}
-                                </span>
+                            <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
 
-                                <span class="group-desc">{% if category.short_desc %}{{ category.short_desc }}{% else %}{{ category.desc|truncatechars:150 }}{% endif %}</span>
-
-                            </div>
-
-                            <span class="group-more">{% trans "Look more" %}</span>
+                            <span class="group-more">{% trans "Learn more" %}</span>
 
                         </div>
-
 
                     </a>
 

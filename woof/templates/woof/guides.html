@@ -28,23 +28,35 @@
 
 
         <!-- Guides list -->
-        <div class="guides-list">
+        <div class="catalog-structure catalog-structure--tiles">
 
             <!-- Choosing the dog -->
             <a href="{% url 'guide-choosing-dog' %}"
                title="{% trans 'Choosing the dog' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(1)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Choosing the dog{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'choosing_a_dog.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Learn how to choose a breed that matches your lifestyle,
-                    activity level and living space.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(1)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Choosing the dog{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Learn how to choose a breed that matches your lifestyle,
+                    activity level and living space.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -52,37 +64,61 @@
             <!-- Raising a puppy -->
             <a href="{% url 'guide-puppy' %}"
                title="{% trans 'Raising a puppy' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(2)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'raising_a_puppy.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Learn about early puppy development,
-                    socialization, routines and first-life stages.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(2)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Learn about early puppy development,
+                    socialization, routines and first-life stages.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
 
-            <!-- Dog training fundamentals -->
+            <!-- Training -->
             <a href="{% url 'guide-training' %}"
-               title="{% trans 'Dog training fundamentals' %}"
-               class="guide-card">
+               title="{% trans 'Training' %}"
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(3)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Dog training fundamentals{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'dog_training_fundamentals.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Understand basic training principles,
-                    communication and learning consistency.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(3)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Training{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Understand basic training principles,
+                    communication and learning consistency.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -90,18 +126,30 @@
             <!-- Dog health & care -->
             <a href="{% url 'guide-health' %}"
                title="{% trans 'Dog health & care' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(4)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'dog_health_care.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Learn about grooming, nutrition,
-                    preventive care and general health basics.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(4)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Dog health & care{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Learn about grooming, nutrition,
+                    preventive care and general health basics.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -109,18 +157,30 @@
             <!-- Dog behavior -->
             <a href="{% url 'guide-behavior' %}"
                title="{% trans 'Dog behavior' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(5)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Dog behavior{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'dog_behavior.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Discover how dogs communicate,
-                    express emotions and react to the world around them.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(5)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Dog behavior{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Discover how dogs communicate,
+                    express emotions and react to the world around them.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -128,18 +188,30 @@
             <!-- Living with a dog -->
             <a href="{% url 'guide-living' %}"
                title="{% trans 'Living with a dog' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(6)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'living_with_a_dog.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Daily routines, home adaptation
-                    and long-term lifestyle organization with a dog.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(6)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Living with a dog{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Daily routines, home adaptation
+                    and long-term lifestyle organization with a dog.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -147,18 +219,30 @@
             <!-- Feeding your dog -->
             <a href="{% url 'guide-feeding' %}"
                title="{% trans 'Feeding your dog' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(7)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'feeding_your_dog.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Learn how to choose food, feed by age
-                    and build a healthy drinking regime.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(7)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Feeding your dog{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Learn how to choose food, feed by age
+                    and build a healthy drinking regime.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 
@@ -166,18 +250,30 @@
             <!-- Games & activities -->
             <a href="{% url 'guide-games' %}"
                title="{% trans 'Games & activities' %}"
-               class="guide-card">
+               class="group-card group-card--wide">
 
-                <span class="guide-number">(8)</span>
-
-                <span class="guide-title">
-                    {% blocktranslate trimmed %}Games & activities{% endblocktranslate %}
+                <span class="group-card__media">
+                    <img class="group-card__img"
+                     src="{% static 'games_activities.webp' %}"
+                     alt=""
+                     width="1536"
+                     height="1024"
+                     loading="lazy"
+                     decoding="async">
                 </span>
 
-                <p>{% blocktranslate trimmed %}Discover safe games and activities
-                    that keep your dog active, engaged and happy.{% endblocktranslate %}</p>
+                <div class="group-card__body">
 
-                <span class="guide-more">{% trans "Read" %}</span>
+                    <span class="group-number">(8)</span>
+
+                    <span class="groups-link">{% blocktranslate trimmed %}Games & activities{% endblocktranslate %}</span>
+
+                    <span class="group-desc">{% blocktranslate trimmed %}Discover safe games and activities
+                    that keep your dog active, engaged and happy.{% endblocktranslate %}</span>
+
+                    <span class="group-more">{% trans "Read" %}</span>
+
+                </div>
 
             </a>
 

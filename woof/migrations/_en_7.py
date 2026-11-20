@@ -10,7 +10,7 @@ EN = {
             STOMACH,
         ],
         "quirks": [
-            "The Weimaraner's silvery-grey colour earned it the nickname \"the grey ghost\". In the sun its short coat takes on a characteristic metallic sheen.",
+            'The Weimaraner\'s silvery-grey colour earned it the nickname "the grey ghost". In the sun its short coat takes on a characteristic metallic sheen.',
             "Weimaraner puppies are born with blue eyes, which change colour as they grow up to amber, light amber or blue-grey.",
             "The American artist William Wegman became famous for photographs and video works featuring his Weimaraners. Images of his dogs also decorate mosaic panels in a New York subway station.",
         ],
@@ -22,8 +22,8 @@ EN = {
             "Ears, paws and teeth: Clean the ears once a week, and bathe as needed.",
         ],
         "quirks": [
-            "The breed's name comes from the English word \"set\", meaning to crouch or freeze. On finding a bird, the setter drops to the ground and freezes, showing the hunter where it is.",
-            "The English Setter's flecked colouring is called \"belton\". The name appeared in the 19th century and came to mean the characteristic pattern of small coloured flecks on a white background.",
+            'The breed\'s name comes from the English word "set", meaning to crouch or freeze. On finding a bird, the setter drops to the ground and freezes, showing the hunter where it is.',
+            'The English Setter\'s flecked colouring is called "belton". The name appeared in the 19th century and came to mean the characteristic pattern of small coloured flecks on a white background.',
             "Before firearms became widespread, setters were used in hunting with nets. The dog would freeze near the birds so that the hunters could carefully cast a net over them.",
         ],
     },
@@ -48,7 +48,7 @@ EN = {
         "quirks": [
             "The Small and the Large Munsterlander are two separate breeds, not varieties of one dog. They differ in origin, breeding history and standards.",
             "The Small Munsterlander is usually brown and white, sometimes ticked or patched. The Large Munsterlander is black and white, as well as roan and patched.",
-            "The modern breed took shape in Germany in the early 20th century from the old long-haired pointing dogs that local hunters used to find and retrieve game. Such dogs were called Heidewachtel, \"quail dogs of the heath\".",
+            'The modern breed took shape in Germany in the early 20th century from the old long-haired pointing dogs that local hunters used to find and retrieve game. Such dogs were called Heidewachtel, "quail dogs of the heath".',
         ],
     },
     "italian-spinone": {
@@ -58,7 +58,7 @@ EN = {
             "Ears, paws and teeth: After meals, wipe the beard and moustache and clean the ears. The thick eyebrows and moustache sometimes need cleaning of crumbs and dirt.",
         ],
         "quirks": [
-            "The breed's name is probably linked to the Italian word spino, meaning \"thorn bush\". The Spinone was bred for hunting in dense thickets, where stamina and the ability to push through thorny undergrowth were needed.",
+            'The breed\'s name is probably linked to the Italian word spino, meaning "thorn bush". The Spinone was bred for hunting in dense thickets, where stamina and the ability to push through thorny undergrowth were needed.',
             "The Spinone has unusually thick, elastic skin, which together with the wiry coat helps protect the body from branches, thorns and brambles.",
             "Unlike many gundogs, the Spinone often moves at a broad, measured trot. This gait allows it to work for a long time over rough terrain without using up its strength too quickly.",
         ],
@@ -135,7 +135,7 @@ EN = {
         "quirks": [
             "The Wirehaired Vizsla is a separate breed, created from the Short-haired Vizsla with the help of the German Wirehaired Pointer. It was developed in Hungary in the 1930s to produce a dog better suited to cold weather and difficult terrain.",
             "In Britain the breed was officially recognised much later than in Hungary: the Kennel Club recognised it in the 1980s.",
-            "Like the Short-haired Vizsla, it is often called a \"Velcro dog\": it likes to follow its owner from room to room and to stay close at all times.",
+            'Like the Short-haired Vizsla, it is often called a "Velcro dog": it likes to follow its owner from room to room and to stay close at all times.',
         ],
     },
     "hungarian-short-haired-pointer-vizsla": {
@@ -146,7 +146,7 @@ EN = {
             "Worth knowing: A soft bed will help protect the thin skin. It has little fat, so put clothes on it in the cold.",
         ],
         "quirks": [
-            "The Vizsla is often called a \"Velcro dog\": it loves physical contact with its owner, tries to stay close at all times and finds a lack of attention hard to bear.",
+            'The Vizsla is often called a "Velcro dog": it loves physical contact with its owner, tries to stay close at all times and finds a lack of attention hard to bear.',
             "For centuries Vizslas were companions of the Hungarian nobility. They were valued for their hunting ability, stamina and skill at working in close contact with a person.",
             "The Vizsla's ancestors took part in falconry: they helped find and point out birds, after which the hunters released the falcons. This work demanded a good nose from the dogs and close cooperation with people.",
         ],

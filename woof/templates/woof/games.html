@@ -17,7 +17,8 @@
     <!-- Page title -->
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Games & activities{% endblocktranslate %}</h1>
 
-{% include 'woof/includes/guide_disclaimer.html' %}
+    {% include "woof/includes/page_dates.html" with created=page_created updated=page_updated %}
+
 
 
     <div class="post-text-explore">
@@ -35,6 +36,8 @@
 
 
     {% include "woof/includes/guide_toc.html" %}
+
+    {% include 'woof/includes/guide_disclaimer.html' %}
 
         <!-- What this guide covers -->
         <p class="section-title">{% blocktranslate trimmed %}What this guide covers{% endblocktranslate %}</p>

@@ -182,35 +182,179 @@ EXAM_ROUTINE = T(
 )
 
 EXAM = {
-    "hip": T("hip X-rays with an official hip score", "рентген тазобедренных суставов с официальной оценкой", "Röntgen der Hüften mit offizieller Auswertung", "radiografie delle anche con valutazione ufficiale", "radiografías de cadera con valoración oficial", "rendgen kukova sa zvaničnom ocenom"),
-    "elbow": T("elbow X-rays", "рентген локтевых суставов", "Röntgen der Ellbogen", "radiografie dei gomiti", "radiografías de codos", "rendgen laktova"),
-    "patella": T("a vet's check of the kneecaps", "осмотр коленных чашечек у ветеринара", "eine tierärztliche Kontrolle der Kniescheiben", "un controllo veterinario delle rotule", "una revisión veterinaria de las rótulas", "veterinarski pregled kolenih čašica"),
-    "eye": T("an eye exam by a veterinary ophthalmologist", "осмотр глаз у ветеринарного офтальмолога", "eine Augenuntersuchung beim tierärztlichen Augenspezialisten", "una visita oculistica veterinaria", "una revisión oftalmológica veterinaria", "pregled očiju kod veterinara oftalmologa"),
-    "heart": T("a heart check, with an ultrasound when advised", "осмотр сердца, при необходимости с УЗИ", "eine Herzuntersuchung, bei Bedarf mit Ultraschall", "una visita cardiologica, con ecografia se consigliata", "una revisión cardíaca, con ecografía si se aconseja", "pregled srca, po potrebi sa ultrazvukom"),
-    "thyroid": T("a thyroid blood test", "анализ крови на гормоны щитовидной железы", "ein Schilddrüsen-Bluttest", "un esame del sangue per la tiroide", "un análisis de sangre de la tiroides", "analiza krvi za štitnu žlezdu"),
-    "lab": T("routine blood and urine tests", "плановые анализы крови и мочи", "regelmäßige Blut- und Urinuntersuchungen", "esami del sangue e delle urine di routine", "análisis de sangre y orina de rutina", "redovne analize krvi i mokraće"),
-    "hear": T("a hearing test (BAER)", "тест слуха (BAER)", "ein Hörtest (BAER)", "un test dell'udito (BAER)", "una prueba de audición (BAER)", "test sluha (BAER)"),
-    "dna": T("the DNA tests that are available for the breed", "доступные для породы ДНК-тесты", "die für die Rasse verfügbaren DNA-Tests", "i test del DNA disponibili per la razza", "las pruebas de ADN disponibles para la raza", "DNK testovi dostupni za rasu"),
-    "dermoid": T("a check of the puppy's back for a dermoid sinus", "осмотр спины щенка на дермоидный синус", "eine Kontrolle des Welpenrückens auf einen Dermoidsinus", "un controllo della schiena del cucciolo per il seno dermoide", "una revisión del lomo del cachorro por si hay seno dermoide", "pregled leđa štenceta zbog dermoidnog sinusa"),
-    "neuro": T("a neurological exam if there are signs of back pain, weakness or seizures", "неврологический осмотр при болях в спине, слабости или судорогах", "eine neurologische Untersuchung bei Rückenschmerzen, Schwäche oder Krampfanfällen", "una visita neurologica in caso di dolore alla schiena, debolezza o convulsioni", "una revisión neurológica si hay dolor de espalda, debilidad o convulsiones", "neurološki pregled kod bolova u leđima, slabosti ili napada"),
-    "dental": T("regular dental checks", "регулярный осмотр зубов", "regelmäßige Zahnkontrollen", "controlli dentali regolari", "revisiones dentales regulares", "redovni pregledi zuba"),
-    "ear": T("regular ear checks", "регулярный осмотр ушей", "regelmäßige Ohrenkontrollen", "controlli regolari delle orecchie", "revisiones regulares de los oídos", "redovni pregledi ušiju"),
-    "skin": T("regular skin checks", "регулярный осмотр кожи", "regelmäßige Hautkontrollen", "controlli regolari della pelle", "revisiones regulares de la piel", "redovni pregledi kože"),
-    "airway": T("an assessment of the nostrils and airways", "оценка носовых ходов и дыхательных путей", "eine Beurteilung von Nasenlöchern und Atemwegen", "una valutazione di narici e vie respiratorie", "una valoración de las fosas nasales y las vías respiratorias", "procena nozdrva i disajnih puteva"),
-    "weight": T("regular weigh-ins and body condition checks", "регулярное взвешивание и оценка упитанности", "regelmäßiges Wiegen und Kontrolle des Ernährungszustands", "pesate regolari e valutazione della condizione fisica", "pesajes regulares y valoración de la condición corporal", "redovno merenje i procena telesne kondicije"),
-    "lump": T("regular checks of the body for lumps", "регулярный осмотр тела на наличие уплотнений", "regelmäßiges Abtasten des Körpers auf Knoten", "controlli regolari del corpo alla ricerca di noduli", "revisiones regulares del cuerpo en busca de bultos", "redovno pregledanje tela zbog kvržica"),
+    "hip": T(
+        "hip X-rays with an official hip score",
+        "рентген тазобедренных суставов с официальной оценкой",
+        "Röntgen der Hüften mit offizieller Auswertung",
+        "radiografie delle anche con valutazione ufficiale",
+        "radiografías de cadera con valoración oficial",
+        "rendgen kukova sa zvaničnom ocenom",
+    ),
+    "elbow": T(
+        "elbow X-rays",
+        "рентген локтевых суставов",
+        "Röntgen der Ellbogen",
+        "radiografie dei gomiti",
+        "radiografías de codos",
+        "rendgen laktova",
+    ),
+    "patella": T(
+        "a vet's check of the kneecaps",
+        "осмотр коленных чашечек у ветеринара",
+        "eine tierärztliche Kontrolle der Kniescheiben",
+        "un controllo veterinario delle rotule",
+        "una revisión veterinaria de las rótulas",
+        "veterinarski pregled kolenih čašica",
+    ),
+    "eye": T(
+        "an eye exam by a veterinary ophthalmologist",
+        "осмотр глаз у ветеринарного офтальмолога",
+        "eine Augenuntersuchung beim tierärztlichen Augenspezialisten",
+        "una visita oculistica veterinaria",
+        "una revisión oftalmológica veterinaria",
+        "pregled očiju kod veterinara oftalmologa",
+    ),
+    "heart": T(
+        "a heart check, with an ultrasound when advised",
+        "осмотр сердца, при необходимости с УЗИ",
+        "eine Herzuntersuchung, bei Bedarf mit Ultraschall",
+        "una visita cardiologica, con ecografia se consigliata",
+        "una revisión cardíaca, con ecografía si se aconseja",
+        "pregled srca, po potrebi sa ultrazvukom",
+    ),
+    "thyroid": T(
+        "a thyroid blood test",
+        "анализ крови на гормоны щитовидной железы",
+        "ein Schilddrüsen-Bluttest",
+        "un esame del sangue per la tiroide",
+        "un análisis de sangre de la tiroides",
+        "analiza krvi za štitnu žlezdu",
+    ),
+    "lab": T(
+        "routine blood and urine tests",
+        "плановые анализы крови и мочи",
+        "regelmäßige Blut- und Urinuntersuchungen",
+        "esami del sangue e delle urine di routine",
+        "análisis de sangre y orina de rutina",
+        "redovne analize krvi i mokraće",
+    ),
+    "hear": T(
+        "a hearing test (BAER)",
+        "тест слуха (BAER)",
+        "ein Hörtest (BAER)",
+        "un test dell'udito (BAER)",
+        "una prueba de audición (BAER)",
+        "test sluha (BAER)",
+    ),
+    "dna": T(
+        "the DNA tests that are available for the breed",
+        "доступные для породы ДНК-тесты",
+        "die für die Rasse verfügbaren DNA-Tests",
+        "i test del DNA disponibili per la razza",
+        "las pruebas de ADN disponibles para la raza",
+        "DNK testovi dostupni za rasu",
+    ),
+    "dermoid": T(
+        "a check of the puppy's back for a dermoid sinus",
+        "осмотр спины щенка на дермоидный синус",
+        "eine Kontrolle des Welpenrückens auf einen Dermoidsinus",
+        "un controllo della schiena del cucciolo per il seno dermoide",
+        "una revisión del lomo del cachorro por si hay seno dermoide",
+        "pregled leđa štenceta zbog dermoidnog sinusa",
+    ),
+    "neuro": T(
+        "a neurological exam if there are signs of back pain, weakness or seizures",
+        "неврологический осмотр при болях в спине, слабости или судорогах",
+        "eine neurologische Untersuchung bei Rückenschmerzen, Schwäche oder Krampfanfällen",
+        "una visita neurologica in caso di dolore alla schiena, debolezza o convulsioni",
+        "una revisión neurológica si hay dolor de espalda, debilidad o convulsiones",
+        "neurološki pregled kod bolova u leđima, slabosti ili napada",
+    ),
+    "dental": T(
+        "regular dental checks",
+        "регулярный осмотр зубов",
+        "regelmäßige Zahnkontrollen",
+        "controlli dentali regolari",
+        "revisiones dentales regulares",
+        "redovni pregledi zuba",
+    ),
+    "ear": T(
+        "regular ear checks",
+        "регулярный осмотр ушей",
+        "regelmäßige Ohrenkontrollen",
+        "controlli regolari delle orecchie",
+        "revisiones regulares de los oídos",
+        "redovni pregledi ušiju",
+    ),
+    "skin": T(
+        "regular skin checks",
+        "регулярный осмотр кожи",
+        "regelmäßige Hautkontrollen",
+        "controlli regolari della pelle",
+        "revisiones regulares de la piel",
+        "redovni pregledi kože",
+    ),
+    "airway": T(
+        "an assessment of the nostrils and airways",
+        "оценка носовых ходов и дыхательных путей",
+        "eine Beurteilung von Nasenlöchern und Atemwegen",
+        "una valutazione di narici e vie respiratorie",
+        "una valoración de las fosas nasales y las vías respiratorias",
+        "procena nozdrva i disajnih puteva",
+    ),
+    "weight": T(
+        "regular weigh-ins and body condition checks",
+        "регулярное взвешивание и оценка упитанности",
+        "regelmäßiges Wiegen und Kontrolle des Ernährungszustands",
+        "pesate regolari e valutazione della condizione fisica",
+        "pesajes regulares y valoración de la condición corporal",
+        "redovno merenje i procena telesne kondicije",
+    ),
+    "lump": T(
+        "regular checks of the body for lumps",
+        "регулярный осмотр тела на наличие уплотнений",
+        "regelmäßiges Abtasten des Körpers auf Knoten",
+        "controlli regolari del corpo alla ricerca di noduli",
+        "revisiones regulares del cuerpo en busca de bultos",
+        "redovno pregledanje tela zbog kvržica",
+    ),
 }
 
 EXAM_OF = {
-    "hip": "hip", "legg": "hip", "elbow": "elbow", "patella": "patella",
-    "pra": "eye", "cataract": "eye", "glaucoma": "eye", "cea": "eye",
-    "dryeye": "eye", "eyelid": "eye", "heart": "heart", "mitral": "heart",
-    "dcm": "heart", "thyroid": "thyroid", "vwd": "lab", "copper": "lab",
-    "kidney": "lab", "stones": "lab", "addison": "lab", "deaf": "hear",
-    "dm": "dna", "mdr1": "dna", "dermoid": "dermoid", "ivdd": "neuro",
-    "epilepsy": "neuro", "dental": "dental", "ear": "ear", "allergy": "skin",
-    "folds": "skin", "sun": "skin", "brachy": "airway", "trachea": "airway",
-    "obesity": "weight", "cancer": "lump",
+    "hip": "hip",
+    "legg": "hip",
+    "elbow": "elbow",
+    "patella": "patella",
+    "pra": "eye",
+    "cataract": "eye",
+    "glaucoma": "eye",
+    "cea": "eye",
+    "dryeye": "eye",
+    "eyelid": "eye",
+    "heart": "heart",
+    "mitral": "heart",
+    "dcm": "heart",
+    "thyroid": "thyroid",
+    "vwd": "lab",
+    "copper": "lab",
+    "kidney": "lab",
+    "stones": "lab",
+    "addison": "lab",
+    "deaf": "hear",
+    "dm": "dna",
+    "mdr1": "dna",
+    "dermoid": "dermoid",
+    "ivdd": "neuro",
+    "epilepsy": "neuro",
+    "dental": "dental",
+    "ear": "ear",
+    "allergy": "skin",
+    "folds": "skin",
+    "sun": "skin",
+    "brachy": "airway",
+    "trachea": "airway",
+    "obesity": "weight",
+    "cancer": "lump",
 }
 
 # names that keep their capital letter inside a sentence in English
@@ -227,9 +371,17 @@ def inline_name(key, lang):
 def join(items, lang):
     if len(items) == 1:
         return items[0]
-    word = {"en": "and", "ru": "и", "de": "und", "it": "e", "es": "y", "sr_latn": "i"}[lang]
-    if lang == "es" and items[-1][:1].lower() == "i" or (
-        lang == "es" and items[-1].lower().startswith("hi") and not items[-1].lower().startswith("hie")
+    word = {"en": "and", "ru": "и", "de": "und", "it": "e", "es": "y", "sr_latn": "i"}[
+        lang
+    ]
+    if (
+        lang == "es"
+        and items[-1][:1].lower() == "i"
+        or (
+            lang == "es"
+            and items[-1].lower().startswith("hi")
+            and not items[-1].lower().startswith("hie")
+        )
     ):
         word = "e"
     return ", ".join(items[:-1]) + f" {word} " + items[-1]

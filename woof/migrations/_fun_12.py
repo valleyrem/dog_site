@@ -9,7 +9,7 @@ FACTS = {
             "Potiče od engleskih foksaundova donetih u Ameriku i poznat je kao jedan od najbržih i najglasnijih kunhaundova.",
         ),
         (
-            "\"Treeing\" means that after the chase it stays under the tree where the raccoon climbed and barks until the hunter comes.",
+            '"Treeing" means that after the chase it stays under the tree where the raccoon climbed and barks until the hunter comes.',
             "«Treeing» означает, что после погони собака остаётся под деревом, на которое залез енот, и лает, пока не подойдёт охотник.",
             "„Treeing“ heißt, dass er nach der Hetze unter dem Baum bleibt, auf den der Waschbär geklettert ist, und bellt, bis der Jäger kommt.",
             "«Treeing» significa che dopo l'inseguimento resta sotto l'albero su cui è salito il procione e abbaia finché arriva il cacciatore.",
@@ -61,7 +61,7 @@ FACTS = {
             "Katahula leopard dog je zvanični pas savezne države Luizijane.",
         ),
         (
-            "Many have \"glass\" pale blue eyes, and some have two eyes of different colours, even in the same dog.",
+            'Many have "glass" pale blue eyes, and some have two eyes of different colours, even in the same dog.',
             "У многих «стеклянные» светло-голубые глаза, а у некоторых — глаза разного цвета у одной собаки.",
             "Viele haben „gläserne“ hellblaue Augen, und manche haben zwei verschiedenfarbige Augen im selben Hund.",
             "Molti hanno occhi azzurro chiaro «di vetro» e alcuni hanno due occhi di colore diverso nello stesso cane.",
@@ -131,7 +131,7 @@ FACTS = {
     ],
     "barbado-da-terceira": [
         (
-            "Its name means \"bearded\" in Portuguese, after the long hair around its face.",
+            'Its name means "bearded" in Portuguese, after the long hair around its face.',
             "Название породы по-португальски означает «бородатый» — из-за длинной шерсти вокруг морды.",
             "Sein Name bedeutet auf Portugiesisch „bärtig“, nach dem langen Haar um sein Gesicht.",
             "Il suo nome significa “barbuto” in portoghese, per il lungo pelo attorno al muso.",
@@ -173,7 +173,7 @@ FACTS = {
             "Farmeri su ga koristili kao psa hvatača koji je zadržavao polu-divlju stoku i svinje dok farmer ne stigne.",
         ),
         (
-            "There are two body types, a lighter, more athletic build and a heavier, broad-headed \"bully\" build.",
+            'There are two body types, a lighter, more athletic build and a heavier, broad-headed "bully" build.',
             "Бывает два типа сложения: более лёгкий и атлетичный и более тяжёлый, с широкой головой, «буллий».",
             "Es gibt zwei Körpertypen, einen leichteren, athletischeren und einen schwereren „Bully“-Typ mit breitem Kopf.",
             "Esistono due tipi di struttura, uno più leggero e atletico e uno più pesante, a testa larga, detto «bully».",
@@ -199,7 +199,7 @@ FACTS = {
             "Vučenje tereta je zvaničan sport za rasu: psi u pojasu vuku natovarene sanke ili kolica na kratku razdaljinu.",
         ),
         (
-            "When happy, many pit bulls wag their whole back half and wiggle in circles in what owners call a \"happy dance\".",
+            'When happy, many pit bulls wag their whole back half and wiggle in circles in what owners call a "happy dance".',
             "Когда питбули рады, многие виляют всей задней частью тела и крутятся на месте в том, что владельцы называют «танцем радости».",
             "Wenn sie sich freuen, wedeln viele Pitbulls mit der ganzen Hinterhand und wackeln im Kreis, was Besitzer „Freudentanz“ nennen.",
             "Quando sono felici, molti pit bull scodinzolano con tutta la parte posteriore e si agitano in cerchio in quella che i proprietari chiamano «danza della felicità».",
@@ -225,7 +225,7 @@ FACTS = {
             "Prema predanju, rasa je počela od malog psa lutalice pronađenog ispred crkve u Spartanburgu u Južnoj Karolini.",
         ),
         (
-            "It is known as \"the little brown dog that doesn't rock the boat\", because it is small enough to ride quietly in a duck boat.",
+            'It is known as "the little brown dog that doesn\'t rock the boat", because it is small enough to ride quietly in a duck boat.',
             "Его называют «маленькой коричневой собакой, которая не раскачивает лодку»: он достаточно мал, чтобы спокойно сидеть в охотничьей лодке.",
             "Er heißt „der kleine braune Hund, der das Boot nicht zum Schaukeln bringt“, denn er ist klein genug, um ruhig im Entenboot zu sitzen.",
             "È detto «il piccolo cane marrone che non fa dondolare la barca», perché è abbastanza piccolo da stare tranquillo in una barca da caccia alle anatre.",
@@ -261,7 +261,7 @@ FACTS = {
     ],
     "boerboel": [
         (
-            "The name means \"farmer's dog\" in Afrikaans, and it guarded South African farms against predators such as leopards and baboons.",
+            'The name means "farmer\'s dog" in Afrikaans, and it guarded South African farms against predators such as leopards and baboons.',
             "Название на африкаанс означает «собака фермера», и она охраняла фермы Южной Африки от хищников вроде леопардов и бабуинов.",
             "Der Name bedeutet auf Afrikaans „Farmerhund“, und er bewachte südafrikanische Farmen vor Raubtieren wie Leoparden und Pavianen.",
             "Il nome significa «cane del contadino» in afrikaans e proteggeva le fattorie sudafricane da predatori come leopardi e babbuini.",

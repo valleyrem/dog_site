@@ -1,7 +1,7 @@
 FACTS = {
     "weimaraner": [
         (
-            "Its silver-grey coat earned it the nickname \"Grey Ghost\".",
+            'Its silver-grey coat earned it the nickname "Grey Ghost".',
             "Серебристо-серая шерсть принесла ему прозвище «серый призрак».",
             "Sein silbergraues Fell brachte ihm den Spitznamen „Grauer Geist“ ein.",
             "Il mantello grigio argento gli è valso il soprannome di «fantasma grigio».",
@@ -27,7 +27,7 @@ FACTS = {
     ],
     "english-setter": [
         (
-            "The name comes from the way it \"sets\": it crouches low when it finds birds.",
+            'The name comes from the way it "sets": it crouches low when it finds birds.',
             "Название происходит от слова «set»: найдя птиц, собака приседает и замирает.",
             "Der Name kommt vom „Setzen“: Wenn er Vögel findet, duckt er sich tief nieder.",
             "Il nome deriva dal modo in cui «si sistema»: quando trova gli uccelli si accovaccia e resta immobile.",
@@ -157,7 +157,7 @@ FACTS = {
     ],
     "stabijhoun": [
         (
-            "The name comes from the Frisian for \"stand by me\", which suits a dog that stays close to its people.",
+            'The name comes from the Frisian for "stand by me", which suits a dog that stays close to its people.',
             "Название породы происходит от фризского выражения «стой рядом со мной», и это подходит собаке, которая держится рядом с людьми.",
             "Der Name stammt vom friesischen „steh mir bei“, was zu einem Hund passt, der nah bei seinen Menschen bleibt.",
             "Il nome deriva dal frisone per “stammi vicino”, il che si addice a un cane che resta vicino alle sue persone.",
@@ -235,7 +235,7 @@ FACTS = {
     ],
     "english-pointer": [
         (
-            "The name comes from the \"point\": the dog freezes with its nose, body and tail in a straight line, often with one front paw raised.",
+            'The name comes from the "point": the dog freezes with its nose, body and tail in a straight line, often with one front paw raised.',
             "Название происходит от «стойки»: собака замирает, вытянув нос, корпус и хвост в одну линию, часто подняв переднюю лапу.",
             "Der Name kommt vom „Vorstehen“: Der Hund erstarrt mit Nase, Körper und Rute in einer geraden Linie, oft mit angehobener Vorderpfote.",
             "Il nome deriva dalla «punta»: il cane si blocca con naso, corpo e coda in linea retta, spesso con una zampa anteriore sollevata.",
@@ -277,7 +277,7 @@ FACTS = {
             "Gusta, oštra dlaka sa mekom podlakom, uz obrve i bradu, štiti ga od trnja, vode i hladnoće.",
         ),
         (
-            "Like the short-haired Vizsla it is known as a \"velcro dog\" that follows its person from room to room.",
+            'Like the short-haired Vizsla it is known as a "velcro dog" that follows its person from room to room.',
             "Как и короткошёрстную выжлу, его называют «собакой-липучкой»: он ходит за хозяином из комнаты в комнату.",
             "Wie der Kurzhaar-Vizsla gilt er als „Klettenhund“, der seinem Menschen von Zimmer zu Zimmer folgt.",
             "Come il Vizsla a pelo corto è noto come «cane velcro» che segue la sua persona di stanza in stanza.",
@@ -287,7 +287,7 @@ FACTS = {
     ],
     "hungarian-short-haired-pointer-vizsla": [
         (
-            "The Vizsla is nicknamed the \"velcro dog\" because it presses against its person and hates being left out.",
+            'The Vizsla is nicknamed the "velcro dog" because it presses against its person and hates being left out.',
             "Выжлу зовут «собакой-липучкой»: она прижимается к хозяину и терпеть не может быть в стороне.",
             "Der Vizsla heißt „Klettenhund“, weil er sich an seinen Menschen drückt und es hasst, ausgeschlossen zu sein.",
             "Il Vizsla è soprannominato «cane velcro» perché si schiaccia contro la sua persona e odia essere lasciato fuori.",

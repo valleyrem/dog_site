@@ -33,6 +33,13 @@ CSRF_TRUSTED_ORIGINS = env.list(
     default=["https://woofdogs.world", "https://dev.woofdogs.world"],
 )
 
+# Hosts that search engines may index. Any other host (dev.woofdogs.world,
+# a preview, an IP) answers with a noindex header and "Disallow: /" in
+# robots.txt, so a test copy can never compete with the real site.
+INDEXABLE_HOSTS = env.list(
+    "INDEXABLE_HOSTS", default=["woofdogs.world", "www.woofdogs.world"]
+)
+
 # Enable when running behind an HTTPS reverse proxy (nginx, traefik, caddy).
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -283,7 +290,7 @@ IMAGEKIT_CACHEFILE_STRATEGY = "imagekit.cachefiles.strategies.Optimistic"
 # The guides and the static pages have no timestamps in the database: they are
 # templates. One honest date is used for sitemap <lastmod> and for the Article
 # markup — bump it when the texts change.
-SITE_CONTENT_UPDATED = "2026-11-03"
+SITE_CONTENT_UPDATED = "2026-11-11"
 
 
 # Default primary key field type

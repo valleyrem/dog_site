@@ -8,18 +8,9 @@
 
         <div class="compare-controls">
 
-            <div id="breedA"
-                 class="current-post-dog"
-                 data-id="{{ post.id }}">
-                 <img class="control-dog-image"
-                      src="{% if post.photo %}{{ post.photo_thumb.url }}{% endif %}"
-                      alt="{{ post.title }}"
-                      loading="lazy"
-                      decoding="async">
-                 <span class="control-dog-name">{{ post.title }}</span>
-            </div>
+            <div id="breedA" data-id="{{ post.id }}" hidden></div>
 
-            <span class="vs">{% trans "and" %}</span>
+            <span class="compare-with">{% trans "Compare with" %}</span>
 
             <div id="breedBCustom" class="custom-select">
                 <button type="button"
@@ -38,8 +29,19 @@
                     <span class="custom-select-caret" aria-hidden="true"></span>
                 </button>
 
+                <button type="button"
+                        id="breedBClear"
+                        class="custom-select-clear"
+                        title="{% trans 'Clear' %}"
+                        aria-label="{% trans 'Clear' %}"
+                        hidden>
+                    <svg width="11" height="11" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1.5 1.5 L13.5 13.5 M13.5 1.5 L1.5 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </button>
+
                 {# Filled by scripts.js from the <select> below (one list, not two). #}
                 <ul id="breedBList"
+                    data-list-search="{% trans 'Search' %}"
+                    data-list-empty="{% trans 'No breeds match these filters' %}"
                     class="custom-select-list"
                     role="listbox"
                     tabindex="-1"
@@ -64,21 +66,7 @@
 
         </div>
 
-        <div id="compareTableWrapper"
-             data-i18n-varieties="{% trans 'Varieties' %}"
-             data-i18n-origin="{% trans 'Origin' %}"
-             data-i18n-size="{% trans 'Size' %}"
-             data-i18n-height="{% trans 'Height' %}"
-             data-i18n-weight="{% trans 'Weight' %}"
-             data-i18n-coat-type="{% trans 'Coat type' %}"
-             data-i18n-coat-length="{% trans 'Coat length' %}"
-             data-i18n-life="{% trans 'Life expectancy' %}"
-             data-i18n-trainability="{% trans 'Trainability' %}"
-             data-i18n-activity="{% trans 'Activity' %}"
-             data-i18n-barking="{% trans 'Barking' %}"
-             data-i18n-allergy="{% trans 'Shedding' %}"
-             data-i18n-family="{% trans 'Family friendly' %}"
-             data-i18n-years="{% trans 'years' %}"></div>
+        <button type="button" class="guide-more compare-open" data-compare-open disabled>{% trans "Compare" %}</button>
 
         </div>
 

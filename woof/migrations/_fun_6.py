@@ -35,7 +35,7 @@ FACTS = {
             "Blodhaund može da prati trag star nekoliko dana, a njegovi nalazi se u nekim sudovima prihvataju kao dokaz.",
         ),
         (
-            "The name means \"blooded hound\", a dog of pure, noble blood, and monks in Belgian abbeys kept the line for centuries.",
+            'The name means "blooded hound", a dog of pure, noble blood, and monks in Belgian abbeys kept the line for centuries.',
             "Название означает «породистая гончая» — собака чистой, благородной крови, а монахи бельгийских аббатств веками поддерживали линию.",
             "Der Name bedeutet „Hund von edlem Blut“, und Mönche in belgischen Abteien pflegten die Linie jahrhundertelang.",
             "Il nome significa «cane di sangue puro» e i monaci delle abbazie belghe ne conservarono la linea per secoli.",
@@ -53,7 +53,7 @@ FACTS = {
     ],
     "basset-hound": [
         (
-            "The name comes from the French \"bas\", meaning low, because of its short legs.",
+            'The name comes from the French "bas", meaning low, because of its short legs.',
             "Название происходит от французского «bas», то есть «низкий», из-за коротких лап.",
             "Der Name kommt vom französischen „bas“, niedrig, wegen der kurzen Beine.",
             "Il nome deriva dal francese «bas», basso, a causa delle zampe corte.",
@@ -79,7 +79,7 @@ FACTS = {
     ],
     "drever": [
         (
-            "The name comes from the Swedish \"drev\", a hunt in which hounds drive game toward the hunters.",
+            'The name comes from the Swedish "drev", a hunt in which hounds drive game toward the hunters.',
             "Название происходит от шведского «drev» — охоты, при которой гончие гонят дичь на охотников.",
             "Der Name kommt vom schwedischen „drev“, einer Jagd, bei der Hunde das Wild auf die Jäger zutreiben.",
             "Il nome deriva dallo svedese «drev», una caccia in cui i segugi spingono la selvaggina verso i cacciatori.",
@@ -105,7 +105,7 @@ FACTS = {
     ],
     "black-and-tan-coonhound": [
         (
-            "It hunts raccoons at night and \"trees\" them: it follows the scent and bays at the tree where the animal has climbed.",
+            'It hunts raccoons at night and "trees" them: it follows the scent and bays at the tree where the animal has climbed.',
             "Он охотится на енотов ночью и «загоняет на дерево»: идёт по следу и лает у ствола, на который залез зверь.",
             "Er jagt nachts Waschbären und „stellt“ sie am Baum: Er folgt der Fährte und verbellt den Baum, auf den das Tier geklettert ist.",
             "Caccia i procioni di notte e li «mette sull'albero»: segue l'odore e abbaia ai piedi dell'albero su cui l'animale si è arrampicato.",
@@ -191,7 +191,7 @@ FACTS = {
             "Greben dlake duž leđa raste u suprotnom smeru od ostatka dlake.",
         ),
         (
-            "In southern Africa it was nicknamed the \"African Lion Hound\", because packs of these dogs kept a lion at bay until the hunter arrived.",
+            'In southern Africa it was nicknamed the "African Lion Hound", because packs of these dogs kept a lion at bay until the hunter arrived.',
             "В южной Африке его прозвали «африканской львиной собакой»: стаи таких собак удерживали льва на месте, пока не подойдёт охотник.",
             "Im südlichen Afrika hieß er „Afrikanischer Löwenhund“, weil Rudel dieser Hunde einen Löwen in Schach hielten, bis der Jäger kam.",
             "Nell'Africa australe era chiamato «cane da leoni africano», perché i branchi di questi cani tenevano a bada un leone finché arrivava il cacciatore.",
@@ -217,7 +217,7 @@ FACTS = {
             "Snupi iz stripa „Kikiriki“ je bigl.",
         ),
         (
-            "At US airports, beagles in green jackets, the \"Beagle Brigade\", sniff out fruit and meat that travellers try to bring in.",
+            'At US airports, beagles in green jackets, the "Beagle Brigade", sniff out fruit and meat that travellers try to bring in.',
             "В американских аэропортах бигли в зелёных жилетках, «бригада бигля», вынюхивают фрукты и мясо, которые пытаются провезти пассажиры.",
             "Auf US-Flughäfen schnüffeln Beagles in grünen Westen, die „Beagle Brigade“, Obst und Fleisch auf, die Reisende einführen wollen.",
             "Negli aeroporti americani i beagle con la pettorina verde, la «Beagle Brigade», fiutano la frutta e la carne che i viaggiatori cercano di introdurre.",
@@ -225,7 +225,7 @@ FACTS = {
             "Na američkim aerodromima bigli u zelenim prslucima, „Bigl brigada“, njuše voće i meso koje putnici pokušavaju da unesu.",
         ),
         (
-            "Queen Elizabeth I kept tiny \"pocket beagles\" that, as the story goes, could fit in a glove.",
+            'Queen Elizabeth I kept tiny "pocket beagles" that, as the story goes, could fit in a glove.',
             "У королевы Елизаветы I были крошечные «карманные бигли», которые, по преданию, помещались в перчатку.",
             "Königin Elisabeth I. hielt winzige „Taschenbeagles“, die der Überlieferung nach in einen Handschuh passten.",
             "La regina Elisabetta I teneva minuscoli «beagle tascabili» che, secondo la tradizione, entravano in un guanto.",

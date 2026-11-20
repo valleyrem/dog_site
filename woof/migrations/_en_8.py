@@ -12,7 +12,7 @@ EN = {
         "quirks": [
             "The Labrador Retriever was first in the ranking of the most popular breeds in the United States, according to the American Kennel Club, for 31 years in a row, from 1991 to 2021. In 2022 it was overtaken for the first time, by the French Bulldog.",
             "Labradors are among the most sought-after assistance dogs. Thanks to their intelligence, calm temperament and trainability, they work as guide dogs, help people with disabilities and take part in search-and-rescue operations.",
-            "The Labrador's thick tail is called an \"otter tail\". It helps the dog keep its balance and change direction while swimming. Small webs between the toes also make the Labrador an excellent swimmer.",
+            'The Labrador\'s thick tail is called an "otter tail". It helps the dog keep its balance and change direction while swimming. Small webs between the toes also make the Labrador an excellent swimmer.',
         ],
     },
     "golden-retriever": {
@@ -24,7 +24,7 @@ EN = {
         ],
         "quirks": [
             "A Golden Retriever called Augie set a record in 2003 by holding five tennis balls in his mouth at once. In 2020 another retriever, Finley, beat his achievement by fitting in six balls.",
-            "In 1997 a Golden Retriever called Buddy became the star of the family film \"Air Bud\", where he showed an unusual talent: playing basketball.",
+            'In 1997 a Golden Retriever called Buddy became the star of the family film "Air Bud", where he showed an unusual talent: playing basketball.',
             "Thanks to their friendly, sociable nature, Golden Retrievers often work as therapy dogs: they help people cope with anxiety and loneliness by visiting hospitals, care homes and rehabilitation centres.",
         ],
     },
@@ -37,7 +37,7 @@ EN = {
         "quirks": [
             "The Kooikerhondje historically helped hunters lure ducks into special traps called eendenkooi. The dog ran along the bank, attracting the birds' attention with its movements and the white tip of its tail, and curious ducks swam closer.",
             "Dogs of this breed appear in Dutch paintings of the 17th century, including works by the painter Jan Steen.",
-            "The long black hairs at the tips of the Kooikerhondje's ears are called \"earrings\". This characteristic feature is mentioned separately in the breed standard.",
+            'The long black hairs at the tips of the Kooikerhondje\'s ears are called "earrings". This characteristic feature is mentioned separately in the breed standard.',
         ],
     },
     "romagna-water-dog": {
@@ -61,7 +61,7 @@ EN = {
         ],
         "quirks": [
             "The American Cocker Spaniel is the smallest of the sporting breeds recognised by the American Kennel Club (AKC).",
-            "The breed became especially popular after Disney's \"Lady and the Tramp\": the character of Lady was modelled on an American Cocker Spaniel.",
+            'The breed became especially popular after Disney\'s "Lady and the Tramp": the character of Lady was modelled on an American Cocker Spaniel.',
             "Despite its smart appearance, the Cocker Spaniel was originally a gundog. It was used to find and flush woodcock and other game birds.",
         ],
     },
@@ -73,7 +73,7 @@ EN = {
         ],
         "quirks": [
             "The Toller gets its name from its unusual way of hunting: it plays and leaps along the shore in full view of the ducks, attracting their attention. Interested birds swim closer, and the hunter gets a chance to take a shot.",
-            "On spotting a bird, or when very excited, a Toller may let out a piercing scream. Fans of the breed call this characteristic sound the \"Toller scream\".",
+            'On spotting a bird, or when very excited, a Toller may let out a piercing scream. Fans of the breed call this characteristic sound the "Toller scream".',
             "The red-orange coat and white markings give the Toller a resemblance to a fox. This colouring is especially noticeable as it moves along the shore.",
         ],
     },
@@ -83,7 +83,7 @@ EN = {
             "Coat: Brush the harsh curly coat once a week, and clean and dry the ears. Do not bathe too often. After swimming, rinse and dry the coat. Trim the hair on the ears and paws as needed.",
         ],
         "quirks": [
-            "The breed's name translates from Frisian as \"water dog\". Wetterhouns were used to hunt otters in the canals and waters of the Dutch province of Friesland.",
+            'The breed\'s name translates from Frisian as "water dog". Wetterhouns were used to hunt otters in the canals and waters of the Dutch province of Friesland.',
             "Dense curls with a natural oily coating help the coat repel water and protect the dog from cold while swimming.",
             "The Wetterhoun's tail is tightly curled in a ring over the back. This shape is one of the breed's characteristic features.",
         ],
@@ -97,7 +97,7 @@ EN = {
         "quirks": [
             "Portuguese Water Dogs were used for centuries by fishermen on the coast of Portugal. They helped drive fish into nets, bring tackle and pass messages between boats and the shore.",
             "The breed has webs between the toes, which help the dog paddle more efficiently. Together with its strong build and water-repellent coat, this makes these dogs excellent swimmers.",
-            "The Portuguese Water Dog has two main kinds of clip: the \"lion\" clip, in which the back half of the body is clipped short, and the working clip, with a more even coat length.",
+            'The Portuguese Water Dog has two main kinds of clip: the "lion" clip, in which the back half of the body is clipped short, and the working clip, with a more even coat length.',
         ],
     },
     "german-spaniel": {

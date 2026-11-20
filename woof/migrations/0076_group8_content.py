@@ -7,9 +7,22 @@ DOGS = {
         "prey": "moderate",
         "en": {
             "summary": "Merry, gentle and affectionate. The American Cocker Spaniel is a small, silky-coated companion that loves people, loves a walk and wants to be part of everything the family does.",
-            "care": ["The long coat needs brushing several times a week and professional grooming every six to eight weeks. Clean and dry the ears weekly, especially after swimming or baths.", "Plan for about an hour of walks and play a day."],
-            "good_fit": ["Want a cheerful, affectionate small to medium dog", "Do not mind regular grooming", "Are home often", "Enjoy gentle training and walks"],
-            "think_twice": ["Dislike grooming costs and brushing", "Are away from home most of the day", "Want a low-maintenance coat", "Want a dog that is not sensitive to harsh voices"],
+            "care": [
+                "The long coat needs brushing several times a week and professional grooming every six to eight weeks. Clean and dry the ears weekly, especially after swimming or baths.",
+                "Plan for about an hour of walks and play a day.",
+            ],
+            "good_fit": [
+                "Want a cheerful, affectionate small to medium dog",
+                "Do not mind regular grooming",
+                "Are home often",
+                "Enjoy gentle training and walks",
+            ],
+            "think_twice": [
+                "Dislike grooming costs and brushing",
+                "Are away from home most of the day",
+                "Want a low-maintenance coat",
+                "Want a dog that is not sensitive to harsh voices",
+            ],
             "daily": [
                 "About an hour a day, split into two walks, with sniffing and a chance to run. It loves exploring and splashing in water.",
                 "It bonds closely with its family and dislikes long hours alone. It may bark or fret if left.",
@@ -19,13 +32,30 @@ DOGS = {
                 "Walks, fetch, scent games, swimming and trick training. It is sensitive, so use praise and treats.",
                 "Two walks and playtime with company between. Regular grooming sessions are part of the routine.",
             ],
-            "quirks": ["The long, droopy ears trap moisture, so ear cleaning is a regular task for every owner.", "The silky coat grows long, and many owners choose a shorter \"sport clip\" to make care easier.", "Its merry, wagging tail is one of the breed's hallmarks, and a Cocker wiggles its whole back end when happy."],
+            "quirks": [
+                "The long, droopy ears trap moisture, so ear cleaning is a regular task for every owner.",
+                'The silky coat grows long, and many owners choose a shorter "sport clip" to make care easier.',
+                "Its merry, wagging tail is one of the breed's hallmarks, and a Cocker wiggles its whole back end when happy.",
+            ],
         },
         "ru": {
             "summary": "Весёлый, мягкий и ласковый. Американский кокер-спаниель — небольшой компаньон с шелковистой шерстью, который любит людей, прогулки и хочет участвовать во всех делах семьи.",
-            "care": ["Длинную шерсть расчёсывайте несколько раз в неделю и стригите у груммера раз в шесть–восемь недель. Раз в неделю чистите и просушивайте уши, особенно после купания.", "Рассчитывайте примерно на час прогулок и игр в день."],
-            "good_fit": ["Хотите весёлую ласковую собаку небольшого или среднего размера", "Не против регулярного ухода за шерстью", "Часто бываете дома", "Любите мягкую дрессировку и прогулки"],
-            "think_twice": ["Не хотите тратить на груминг и расчёсывать", "Большую часть дня не бываете дома", "Хотите шерсть без сложного ухода", "Хотите собаку, равнодушную к резкому голосу"],
+            "care": [
+                "Длинную шерсть расчёсывайте несколько раз в неделю и стригите у груммера раз в шесть–восемь недель. Раз в неделю чистите и просушивайте уши, особенно после купания.",
+                "Рассчитывайте примерно на час прогулок и игр в день.",
+            ],
+            "good_fit": [
+                "Хотите весёлую ласковую собаку небольшого или среднего размера",
+                "Не против регулярного ухода за шерстью",
+                "Часто бываете дома",
+                "Любите мягкую дрессировку и прогулки",
+            ],
+            "think_twice": [
+                "Не хотите тратить на груминг и расчёсывать",
+                "Большую часть дня не бываете дома",
+                "Хотите шерсть без сложного ухода",
+                "Хотите собаку, равнодушную к резкому голосу",
+            ],
             "daily": [
                 "Около часа в день в две прогулки, с обнюхиванием и возможностью побегать. Любит исследовать и плескаться в воде.",
                 "Она тесно привязана к семье и не любит долгого одиночества. Оставшись, может лаять и тревожиться.",
@@ -35,16 +65,33 @@ DOGS = {
                 "Прогулки, апорт, игры на поиск, плавание и трюки. Он чувствителен, поэтому используйте похвалу и лакомства.",
                 "Две прогулки и игры, между ними компания. Регулярный груминг входит в распорядок.",
             ],
-            "quirks": ["Длинные висячие уши задерживают влагу, поэтому чистка ушей — регулярная задача каждого хозяина.", "Шелковистая шерсть отрастает длинной, и многие хозяева выбирают короткую спортивную стрижку, чтобы упростить уход.", "Весёлый виляющий хвост — одна из примет породы, а от радости кокер виляет всей задней частью."],
+            "quirks": [
+                "Длинные висячие уши задерживают влагу, поэтому чистка ушей — регулярная задача каждого хозяина.",
+                "Шелковистая шерсть отрастает длинной, и многие хозяева выбирают короткую спортивную стрижку, чтобы упростить уход.",
+                "Весёлый виляющий хвост — одна из примет породы, а от радости кокер виляет всей задней частью.",
+            ],
         },
     },
     "chesapeake-bay-retriever": {
         "prey": "moderate",
         "en": {
             "summary": "Strong, loyal and hardworking. The Chesapeake Bay Retriever is a sturdy water retriever with a thick, oily coat that loves swimming and is devoted to its family.",
-            "care": ["The harsh, oily coat needs brushing once a week and does not need frequent bathing, which would remove its natural oils. Dry it well after swimming.", "Plan for two hours or more of exercise a day, including swimming and retrieving."],
-            "good_fit": ["Are active and love water and the outdoors", "Want a loyal, protective family dog", "Can offer calm, consistent training", "Have experience with strong dogs"],
-            "think_twice": ["Are a first-time owner", "Want a dog that welcomes everyone", "Live in a small flat", "Cannot give two hours of exercise a day"],
+            "care": [
+                "The harsh, oily coat needs brushing once a week and does not need frequent bathing, which would remove its natural oils. Dry it well after swimming.",
+                "Plan for two hours or more of exercise a day, including swimming and retrieving.",
+            ],
+            "good_fit": [
+                "Are active and love water and the outdoors",
+                "Want a loyal, protective family dog",
+                "Can offer calm, consistent training",
+                "Have experience with strong dogs",
+            ],
+            "think_twice": [
+                "Are a first-time owner",
+                "Want a dog that welcomes everyone",
+                "Live in a small flat",
+                "Cannot give two hours of exercise a day",
+            ],
             "daily": [
                 "Two hours or more a day, with fetching and swimming. It is happiest near water, in any weather.",
                 "It bonds closely with its family and does not like long hours alone. Bored, it may dig or chew.",
@@ -54,13 +101,30 @@ DOGS = {
                 "Retrieving, swimming, dock diving, field work and obedience. Training should be calm, fair and consistent.",
                 "Active outdoor time morning and evening and calm rest between.",
             ],
-            "quirks": ["The oily outer coat sheds water, so a wet Chesapeake shakes and is almost dry in minutes.", "The coat colour, called \"sedge\" or \"dead grass\", blends into reeds and marshes.", "Frequent baths are not needed and can strip the coat's natural oils."],
+            "quirks": [
+                "The oily outer coat sheds water, so a wet Chesapeake shakes and is almost dry in minutes.",
+                'The coat colour, called "sedge" or "dead grass", blends into reeds and marshes.',
+                "Frequent baths are not needed and can strip the coat's natural oils.",
+            ],
         },
         "ru": {
             "summary": "Сильный, преданный и трудолюбивый ретривер. Чесапик-бей-ретривер — крепкий водный ретривер с густой жирной шерстью, который любит плавать и предан своей семье.",
-            "care": ["Жёсткую жирную шерсть расчёсывайте раз в неделю, а мыть часто не нужно: так смывается естественная смазка. После плавания хорошо просушивайте.", "Рассчитывайте на два часа и больше нагрузки в день, включая плавание и апорт."],
-            "good_fit": ["Активны и любите воду и природу", "Хотите преданную защищающую семью собаку", "Можете спокойно и последовательно дрессировать", "Есть опыт с сильными собаками"],
-            "think_twice": ["Это ваша первая собака", "Хотите собаку, которая рада всем", "Живёте в маленькой квартире", "Не можете давать два часа нагрузки в день"],
+            "care": [
+                "Жёсткую жирную шерсть расчёсывайте раз в неделю, а мыть часто не нужно: так смывается естественная смазка. После плавания хорошо просушивайте.",
+                "Рассчитывайте на два часа и больше нагрузки в день, включая плавание и апорт.",
+            ],
+            "good_fit": [
+                "Активны и любите воду и природу",
+                "Хотите преданную защищающую семью собаку",
+                "Можете спокойно и последовательно дрессировать",
+                "Есть опыт с сильными собаками",
+            ],
+            "think_twice": [
+                "Это ваша первая собака",
+                "Хотите собаку, которая рада всем",
+                "Живёте в маленькой квартире",
+                "Не можете давать два часа нагрузки в день",
+            ],
             "daily": [
                 "Два часа и больше в день с апортом и плаванием. Больше всего он любит воду и любую погоду.",
                 "Он тесно привязан к семье и не любит долгого одиночества. От скуки может рыть землю и грызть вещи.",
@@ -70,16 +134,33 @@ DOGS = {
                 "Апорт, плавание, догдайвинг, полевая работа и послушание. Дрессировка должна быть спокойной, справедливой и последовательной.",
                 "Активное время на улице утром и вечером и спокойный отдых между ними.",
             ],
-            "quirks": ["Жирная верхняя шерсть отталкивает воду, поэтому мокрый чесапик отряхивается и через несколько минут почти сухой.", "Цвет шерсти, который называют «осоковый» или «цвет сухой травы», сливается с камышами и болотом.", "Частые купания не нужны и могут смыть естественную защитную смазку шерсти."],
+            "quirks": [
+                "Жирная верхняя шерсть отталкивает воду, поэтому мокрый чесапик отряхивается и через несколько минут почти сухой.",
+                "Цвет шерсти, который называют «осоковый» или «цвет сухой травы», сливается с камышами и болотом.",
+                "Частые купания не нужны и могут смыть естественную защитную смазку шерсти.",
+            ],
         },
     },
     "german-spaniel": {
         "prey": "high",
         "en": {
             "summary": "Keen, hardy and devoted. The German Spaniel (Deutscher Wachtelhund) is a rare, medium-sized all-round hunting dog with a wavy brown coat and a very good nose.",
-            "care": ["The long wavy coat needs brushing two or three times a week and a check for burrs after walks. Clean the ears weekly.", "Plan for two hours or more of work and exercise a day."],
-            "good_fit": ["Are very active and love the outdoors", "Want a loyal, trainable working dog", "Have a garden and a secure fence", "Enjoy scent work or field activity"],
-            "think_twice": ["Want a pet for a flat and a quiet life", "Are away from home most of the day", "Have small pets", "Cannot give a daily job to the dog"],
+            "care": [
+                "The long wavy coat needs brushing two or three times a week and a check for burrs after walks. Clean the ears weekly.",
+                "Plan for two hours or more of work and exercise a day.",
+            ],
+            "good_fit": [
+                "Are very active and love the outdoors",
+                "Want a loyal, trainable working dog",
+                "Have a garden and a secure fence",
+                "Enjoy scent work or field activity",
+            ],
+            "think_twice": [
+                "Want a pet for a flat and a quiet life",
+                "Are away from home most of the day",
+                "Have small pets",
+                "Cannot give a daily job to the dog",
+            ],
             "daily": [
                 "Two hours or more a day, including real scent and field work. It follows a trail with great determination.",
                 "It bonds closely and dislikes long hours alone. Without a job it may become bored and noisy.",
@@ -89,13 +170,30 @@ DOGS = {
                 "Scent work, tracking, retrieving, swimming and field work. It learns quickly and enjoys a job.",
                 "Active outings morning and evening and company in between.",
             ],
-            "quirks": ["The name Wachtelhund means \"quail dog\" in German, and the breed is known for its very good nose.", "It is rare outside Germany, so finding a puppy usually means contacting a specialised breeder.", "It has a long, wavy brown coat with feathering that protects it in thick undergrowth."],
+            "quirks": [
+                'The name Wachtelhund means "quail dog" in German, and the breed is known for its very good nose.',
+                "It is rare outside Germany, so finding a puppy usually means contacting a specialised breeder.",
+                "It has a long, wavy brown coat with feathering that protects it in thick undergrowth.",
+            ],
         },
         "ru": {
             "summary": "Увлечённая, выносливая и преданная собака. Немецкий вахтельхунд (немецкий спаниель) — редкая охотничья собака среднего размера с волнистой коричневой шерстью и очень хорошим чутьём.",
-            "care": ["Длинную волнистую шерсть расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулок. Раз в неделю чистите уши.", "Рассчитывайте на два часа и больше работы и нагрузки в день."],
-            "good_fit": ["Очень активны и любите природу", "Хотите преданную обучаемую рабочую собаку", "Есть двор и надёжный забор", "Любите работу по запаху или полевые занятия"],
-            "think_twice": ["Хотите питомца для квартиры и спокойной жизни", "Большую часть дня не бываете дома", "Дома мелкие животные", "Не можете ежедневно давать собаке дело"],
+            "care": [
+                "Длинную волнистую шерсть расчёсывайте два–три раза в неделю и проверяйте на репьи после прогулок. Раз в неделю чистите уши.",
+                "Рассчитывайте на два часа и больше работы и нагрузки в день.",
+            ],
+            "good_fit": [
+                "Очень активны и любите природу",
+                "Хотите преданную обучаемую рабочую собаку",
+                "Есть двор и надёжный забор",
+                "Любите работу по запаху или полевые занятия",
+            ],
+            "think_twice": [
+                "Хотите питомца для квартиры и спокойной жизни",
+                "Большую часть дня не бываете дома",
+                "Дома мелкие животные",
+                "Не можете ежедневно давать собаке дело",
+            ],
             "daily": [
                 "Два часа и больше в день, включая настоящую работу по запаху и в поле. Она идёт по следу очень упорно.",
                 "Она тесно привязана и не любит долгого одиночества. Без дела может заскучать и шуметь.",
@@ -105,16 +203,33 @@ DOGS = {
                 "Работа по запаху, следу, апорт, плавание и полевая работа. Она быстро учится и любит дело.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["Название «вахтельхунд» по-немецки означает «собака для перепелов», а порода известна очень хорошим чутьём.", "За пределами Германии она редка, поэтому за щенком обычно приходится обращаться к специализированному заводчику.", "Длинная волнистая коричневая шерсть с оперением защищает собаку в густом подлеске."],
+            "quirks": [
+                "Название «вахтельхунд» по-немецки означает «собака для перепелов», а порода известна очень хорошим чутьём.",
+                "За пределами Германии она редка, поэтому за щенком обычно приходится обращаться к специализированному заводчику.",
+                "Длинная волнистая коричневая шерсть с оперением защищает собаку в густом подлеске.",
+            ],
         },
     },
     "golden-retriever": {
         "prey": "moderate",
         "en": {
             "summary": "Friendly, gentle and eager to please. The Golden Retriever is a warm, intelligent family dog that loves people, loves to fetch and gets on with nearly everyone.",
-            "care": ["The golden double coat needs brushing three or four times a week, and daily during the heavy shed. Clean the ears weekly.", "Plan for about two hours of walks, fetch and swimming a day."],
-            "good_fit": ["Want a friendly, family-loving dog", "Are active and enjoy walks, swimming and fetch", "Enjoy training and games with their dog", "Are home often"],
-            "think_twice": ["Want a guard dog", "Dislike hair on clothes and furniture", "Are away from home most of the day", "Want a calm, low-energy dog in the first years"],
+            "care": [
+                "The golden double coat needs brushing three or four times a week, and daily during the heavy shed. Clean the ears weekly.",
+                "Plan for about two hours of walks, fetch and swimming a day.",
+            ],
+            "good_fit": [
+                "Want a friendly, family-loving dog",
+                "Are active and enjoy walks, swimming and fetch",
+                "Enjoy training and games with their dog",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Want a guard dog",
+                "Dislike hair on clothes and furniture",
+                "Are away from home most of the day",
+                "Want a calm, low-energy dog in the first years",
+            ],
             "daily": [
                 "About two hours a day, with fetch, swimming and a chance to run. It loves carrying something in its mouth.",
                 "It does not like long hours alone and may chew or become anxious. It does best with company.",
@@ -124,13 +239,30 @@ DOGS = {
                 "Fetch, swimming, retrieving games, agility, scent work and obedience. It learns quickly and loves praise.",
                 "Active morning and evening, with rest and company between.",
             ],
-            "quirks": ["Goldens love to carry things, and many greet visitors with a toy or a shoe in their mouth.", "The gentle \"soft mouth\" lets the breed carry an egg or a bird without breaking it.", "It tends to overeat and gain weight, so measure meals and keep treats under control."],
+            "quirks": [
+                "Goldens love to carry things, and many greet visitors with a toy or a shoe in their mouth.",
+                'The gentle "soft mouth" lets the breed carry an egg or a bird without breaking it.',
+                "It tends to overeat and gain weight, so measure meals and keep treats under control.",
+            ],
         },
         "ru": {
             "summary": "Дружелюбный, мягкий и старательный. Золотистый ретривер — тёплая умная семейная собака, которая любит людей и апорт и ладит почти со всеми.",
-            "care": ["Золотистую шерсть расчёсывайте три–четыре раза в неделю, а во время сильной линьки каждый день. Раз в неделю чистите уши.", "Рассчитывайте примерно на два часа прогулок, апорта и плавания в день."],
-            "good_fit": ["Хотите дружелюбную собаку, любящую семью", "Активны и любите прогулки, плавание и апорт", "Любите дрессировку и игры с собакой", "Часто бываете дома"],
-            "think_twice": ["Хотите сторожевую собаку", "Не любите шерсть на одежде и мебели", "Большую часть дня не бываете дома", "Хотите спокойную собаку с небольшой энергией в первые годы"],
+            "care": [
+                "Золотистую шерсть расчёсывайте три–четыре раза в неделю, а во время сильной линьки каждый день. Раз в неделю чистите уши.",
+                "Рассчитывайте примерно на два часа прогулок, апорта и плавания в день.",
+            ],
+            "good_fit": [
+                "Хотите дружелюбную собаку, любящую семью",
+                "Активны и любите прогулки, плавание и апорт",
+                "Любите дрессировку и игры с собакой",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Хотите сторожевую собаку",
+                "Не любите шерсть на одежде и мебели",
+                "Большую часть дня не бываете дома",
+                "Хотите спокойную собаку с небольшой энергией в первые годы",
+            ],
             "daily": [
                 "Около двух часов в день с апортом, плаванием и возможностью побегать. Он любит носить что-нибудь в пасти.",
                 "Он не любит долгого одиночества и может грызть вещи или тревожиться. Ему лучше в компании.",
@@ -140,16 +272,33 @@ DOGS = {
                 "Апорт, плавание, игры с подачей, аджилити, работа по запаху и послушание. Он быстро учится и любит похвалу.",
                 "Активные утро и вечер, между ними отдых и компания.",
             ],
-            "quirks": ["Голдены любят носить предметы, и многие встречают гостей с игрушкой или тапком в пасти.", "Мягкая хватка позволяет породе нести яйцо или птицу, не повредив их.", "Он склонен переедать и набирать вес, поэтому отмеряйте порции и следите за лакомствами."],
+            "quirks": [
+                "Голдены любят носить предметы, и многие встречают гостей с игрушкой или тапком в пасти.",
+                "Мягкая хватка позволяет породе нести яйцо или птицу, не повредив их.",
+                "Он склонен переедать и набирать вес, поэтому отмеряйте порции и следите за лакомствами.",
+            ],
         },
     },
     "labrador-retriever": {
         "prey": "moderate",
         "en": {
             "summary": "Friendly, outgoing and eager to please. The Labrador is an energetic, good-natured all-rounder that loves people, loves water and loves food.",
-            "care": ["The short dense double coat needs brushing weekly, and more during the heavy shed. Clean the ears and keep nails short.", "Plan for about two hours of walks, fetch and swimming a day. Measure meals, because the breed gains weight easily."],
-            "good_fit": ["Want a friendly, outgoing family dog", "Are active and enjoy walks, swimming and fetch", "Enjoy training and games", "Can manage food and weight carefully"],
-            "think_twice": ["Want a guard dog", "Dislike short hair on clothes and furniture", "Are away from home most of the day", "Want a dog that is calm in the first two or three years"],
+            "care": [
+                "The short dense double coat needs brushing weekly, and more during the heavy shed. Clean the ears and keep nails short.",
+                "Plan for about two hours of walks, fetch and swimming a day. Measure meals, because the breed gains weight easily.",
+            ],
+            "good_fit": [
+                "Want a friendly, outgoing family dog",
+                "Are active and enjoy walks, swimming and fetch",
+                "Enjoy training and games",
+                "Can manage food and weight carefully",
+            ],
+            "think_twice": [
+                "Want a guard dog",
+                "Dislike short hair on clothes and furniture",
+                "Are away from home most of the day",
+                "Want a dog that is calm in the first two or three years",
+            ],
             "daily": [
                 "About two hours a day, with fetch, swimming and a chance to run. It loves water and will jump into any puddle.",
                 "It does not like long hours alone and may chew when bored. Company and exercise help.",
@@ -159,13 +308,30 @@ DOGS = {
                 "Fetch, swimming, scent work, agility, retrieving and obedience. It is very trainable and food-motivated.",
                 "Active morning and evening with rest and company in between. Regular meals keep weight in check.",
             ],
-            "quirks": ["Labradors have webbed toes and a thick, otter-like tail that act as swimming aids, and the water-resistant coat dries quickly.", "Many Labs are driven by food and prone to obesity, so measured meals and exercise matter.", "The puppy phase can last two to three years, so expect a bouncy teenager."],
+            "quirks": [
+                "Labradors have webbed toes and a thick, otter-like tail that act as swimming aids, and the water-resistant coat dries quickly.",
+                "Many Labs are driven by food and prone to obesity, so measured meals and exercise matter.",
+                "The puppy phase can last two to three years, so expect a bouncy teenager.",
+            ],
         },
         "ru": {
             "summary": "Дружелюбный, общительный и старательный. Лабрадор — энергичный добродушный универсал, который любит людей, воду и еду.",
-            "care": ["Короткую плотную шерсть расчёсывайте раз в неделю, а во время сильной линьки чаще. Чистите уши и стригите когти.", "Рассчитывайте примерно на два часа прогулок, апорта и плавания в день. Отмеряйте порции: порода легко набирает вес."],
-            "good_fit": ["Хотите дружелюбную общительную семейную собаку", "Активны и любите прогулки, плавание и апорт", "Любите дрессировку и игры", "Можете внимательно следить за питанием и весом"],
-            "think_twice": ["Хотите сторожевую собаку", "Не любите короткие волоски на одежде и мебели", "Большую часть дня не бываете дома", "Хотите спокойную собаку в первые два–три года"],
+            "care": [
+                "Короткую плотную шерсть расчёсывайте раз в неделю, а во время сильной линьки чаще. Чистите уши и стригите когти.",
+                "Рассчитывайте примерно на два часа прогулок, апорта и плавания в день. Отмеряйте порции: порода легко набирает вес.",
+            ],
+            "good_fit": [
+                "Хотите дружелюбную общительную семейную собаку",
+                "Активны и любите прогулки, плавание и апорт",
+                "Любите дрессировку и игры",
+                "Можете внимательно следить за питанием и весом",
+            ],
+            "think_twice": [
+                "Хотите сторожевую собаку",
+                "Не любите короткие волоски на одежде и мебели",
+                "Большую часть дня не бываете дома",
+                "Хотите спокойную собаку в первые два–три года",
+            ],
             "daily": [
                 "Около двух часов в день с апортом, плаванием и возможностью побегать. Он любит воду и прыгнет в любую лужу.",
                 "Он не любит долгого одиночества и от скуки может грызть вещи. Помогают компания и нагрузка.",
@@ -175,16 +341,33 @@ DOGS = {
                 "Апорт, плавание, работа по запаху, аджилити, подача и послушание. Он очень обучаем и ценит лакомства.",
                 "Активные утро и вечер, между ними отдых и компания. Регулярное кормление помогает держать вес.",
             ],
-            "quirks": ["У лабрадоров перепончатые пальцы и толстый хвост, похожий на выдриный, они помогают плавать, а водоотталкивающая шерсть быстро сохнет.", "Многие лабрадоры сильно мотивированы едой и склонны к ожирению, поэтому важны отмеренные порции и нагрузка.", "Щенячий возраст может длиться два–три года, так что готовьтесь к энергичному подростку."],
+            "quirks": [
+                "У лабрадоров перепончатые пальцы и толстый хвост, похожий на выдриный, они помогают плавать, а водоотталкивающая шерсть быстро сохнет.",
+                "Многие лабрадоры сильно мотивированы едой и склонны к ожирению, поэтому важны отмеренные порции и нагрузка.",
+                "Щенячий возраст может длиться два–три года, так что готовьтесь к энергичному подростку.",
+            ],
         },
     },
     "nederlandse-kooikerhondje": {
         "prey": "moderate",
         "en": {
             "summary": "Cheerful, alert and sensitive. The Kooikerhondje is a small, orange-and-white Dutch spaniel-type dog with a plumed tail that loves its people and is full of energy.",
-            "care": ["The silky coat needs brushing two or three times a week, with extra attention to the feathering. Check the ears and nails.", "Plan for an hour to an hour and a half of walks and play a day."],
-            "good_fit": ["Are active and enjoy outings and play", "Want a small to medium family dog with spirit", "Can use gentle positive training", "Are home often"],
-            "think_twice": ["Want a dog that is happy with strangers", "Are away from home most of the day", "Use harsh training", "Have noise-sensitive neighbours"],
+            "care": [
+                "The silky coat needs brushing two or three times a week, with extra attention to the feathering. Check the ears and nails.",
+                "Plan for an hour to an hour and a half of walks and play a day.",
+            ],
+            "good_fit": [
+                "Are active and enjoy outings and play",
+                "Want a small to medium family dog with spirit",
+                "Can use gentle positive training",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Want a dog that is happy with strangers",
+                "Are away from home most of the day",
+                "Use harsh training",
+                "Have noise-sensitive neighbours",
+            ],
             "daily": [
                 "An hour to an hour and a half a day with games and sniffing. It likes to run and has plenty of stamina.",
                 "It bonds closely and dislikes long hours alone. It may bark or fret.",
@@ -194,13 +377,30 @@ DOGS = {
                 "Agility, fetch, scent games and trick training. It learns quickly with praise and play.",
                 "Active walks morning and evening and play and company between.",
             ],
-            "quirks": ["Its tail is carried high, plumed and tipped with white, like a flag that signals its mood.", "It is sensitive and often wary of strangers, so early, gentle socialisation helps.", "It is a small dog with a lot of spirit, and it does well in agility and obedience."],
+            "quirks": [
+                "Its tail is carried high, plumed and tipped with white, like a flag that signals its mood.",
+                "It is sensitive and often wary of strangers, so early, gentle socialisation helps.",
+                "It is a small dog with a lot of spirit, and it does well in agility and obedience.",
+            ],
         },
         "ru": {
             "summary": "Весёлый, бдительный и чуткий. Кооикерхондье — небольшая рыже-белая голландская собака, похожая на спаниеля, с пушистым хвостом, которая любит своих людей и полна энергии.",
-            "care": ["Шелковистую шерсть расчёсывайте два–три раза в неделю, особенно оперение. Проверяйте уши и когти.", "Рассчитывайте на час–полтора прогулок и игр в день."],
-            "good_fit": ["Активны и любите прогулки и игры", "Хотите небольшую семейную собаку среднего размера с характером", "Готовы к мягкой дрессировке на поощрении", "Часто бываете дома"],
-            "think_twice": ["Хотите собаку, которая рада всем незнакомым", "Большую часть дня не бываете дома", "Используете жёсткую дрессировку", "Соседи чувствительны к шуму"],
+            "care": [
+                "Шелковистую шерсть расчёсывайте два–три раза в неделю, особенно оперение. Проверяйте уши и когти.",
+                "Рассчитывайте на час–полтора прогулок и игр в день.",
+            ],
+            "good_fit": [
+                "Активны и любите прогулки и игры",
+                "Хотите небольшую семейную собаку среднего размера с характером",
+                "Готовы к мягкой дрессировке на поощрении",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Хотите собаку, которая рада всем незнакомым",
+                "Большую часть дня не бываете дома",
+                "Используете жёсткую дрессировку",
+                "Соседи чувствительны к шуму",
+            ],
             "daily": [
                 "Час–полтора в день с играми и обнюхиванием. Любит бегать, выносливости хватает.",
                 "Она тесно привязана и не любит долгого одиночества. Может лаять и тревожиться.",
@@ -210,16 +410,33 @@ DOGS = {
                 "Аджилити, апорт, игры на поиск и трюки. Она быстро учится на похвале и игре.",
                 "Активные прогулки утром и вечером, а между ними игры и компания.",
             ],
-            "quirks": ["Хвост она носит высоко: пушистый, с белым кончиком, он как флаг, показывающий настроение.", "Она чувствительна и часто настороженна к чужим, поэтому помогает ранняя мягкая социализация.", "Это небольшая собака с большим характером, она хорошо проявляет себя в аджилити и послушании."],
+            "quirks": [
+                "Хвост она носит высоко: пушистый, с белым кончиком, он как флаг, показывающий настроение.",
+                "Она чувствительна и часто настороженна к чужим, поэтому помогает ранняя мягкая социализация.",
+                "Это небольшая собака с большим характером, она хорошо проявляет себя в аджилити и послушании.",
+            ],
         },
     },
     "nova-scotia-duck-tolling-retriever": {
         "prey": "high",
         "en": {
             "summary": "Playful, clever and energetic. The Toller is the smallest retriever: a red, fox-like water dog with a sharp mind and boundless enthusiasm for games.",
-            "care": ["The medium-length double coat needs brushing weekly, and more during the shed. Dry it after swimming and check the ears.", "Plan for two hours or more of play, swimming and training a day."],
-            "good_fit": ["Are very active and love games and water", "Enjoy training and dog sports", "Are home often", "Want a clever, playful medium-sized dog"],
-            "think_twice": ["Want a calm dog", "Are away from home most of the day", "Dislike a dog that talks or screams with excitement", "Cannot give two hours of exercise and play"],
+            "care": [
+                "The medium-length double coat needs brushing weekly, and more during the shed. Dry it after swimming and check the ears.",
+                "Plan for two hours or more of play, swimming and training a day.",
+            ],
+            "good_fit": [
+                "Are very active and love games and water",
+                "Enjoy training and dog sports",
+                "Are home often",
+                "Want a clever, playful medium-sized dog",
+            ],
+            "think_twice": [
+                "Want a calm dog",
+                "Are away from home most of the day",
+                "Dislike a dog that talks or screams with excitement",
+                "Cannot give two hours of exercise and play",
+            ],
             "daily": [
                 "Two hours or more a day, with fetch, swimming and brain games. A Toller never tires of retrieving.",
                 "It bonds closely and dislikes long hours alone. Bored, it may bark or invent its own games.",
@@ -229,13 +446,30 @@ DOGS = {
                 "Retrieving, swimming, agility, scent games and obedience. It learns very quickly, so keep sessions varied.",
                 "Active play morning and evening with rest in between.",
             ],
-            "quirks": ["Tolling means luring ducks with playful movement along the shore, and the Toller still does this and is often \"tolling\" at home with a toy.", "It is the smallest of the retrievers, with a red coat and white markings.", "Many Tollers give a high-pitched shriek of excitement, which can surprise visitors."],
+            "quirks": [
+                'Tolling means luring ducks with playful movement along the shore, and the Toller still does this and is often "tolling" at home with a toy.',
+                "It is the smallest of the retrievers, with a red coat and white markings.",
+                "Many Tollers give a high-pitched shriek of excitement, which can surprise visitors.",
+            ],
         },
         "ru": {
             "summary": "Игривый, умный и энергичный. Новошотландский ретривер (толлер) — самый маленький из ретриверов: рыжая, похожая на лису водная собака с острым умом и безграничным энтузиазмом к играм.",
-            "care": ["Шерсть средней длины расчёсывайте раз в неделю, а во время линьки чаще. После плавания высушивайте и проверяйте уши.", "Рассчитывайте на два часа и больше игр, плавания и занятий в день."],
-            "good_fit": ["Очень активны и любите игры и воду", "Любите дрессировку и собачий спорт", "Часто бываете дома", "Хотите умную игривую собаку среднего размера"],
-            "think_twice": ["Хотите спокойную собаку", "Большую часть дня не бываете дома", "Не любите собаку, которая визжит от радости", "Не можете давать два часа нагрузки и игр"],
+            "care": [
+                "Шерсть средней длины расчёсывайте раз в неделю, а во время линьки чаще. После плавания высушивайте и проверяйте уши.",
+                "Рассчитывайте на два часа и больше игр, плавания и занятий в день.",
+            ],
+            "good_fit": [
+                "Очень активны и любите игры и воду",
+                "Любите дрессировку и собачий спорт",
+                "Часто бываете дома",
+                "Хотите умную игривую собаку среднего размера",
+            ],
+            "think_twice": [
+                "Хотите спокойную собаку",
+                "Большую часть дня не бываете дома",
+                "Не любите собаку, которая визжит от радости",
+                "Не можете давать два часа нагрузки и игр",
+            ],
             "daily": [
                 "Два часа и больше в день с апортом, плаванием и умственными играми. Толлер не устаёт подавать.",
                 "Он тесно привязан и не любит долгого одиночества. От скуки может лаять и придумывать свои игры.",
@@ -245,16 +479,33 @@ DOGS = {
                 "Апорт, плавание, аджилити, игры на поиск и послушание. Он учится очень быстро, поэтому разнообразьте занятия.",
                 "Активные игры утром и вечером и отдых между ними.",
             ],
-            "quirks": ["«Толлинг» — приманивание уток игривыми движениями у берега: толлер делает это до сих пор и дома часто «приманивает» игрушкой.", "Это самый маленький из ретриверов, с рыжей шерстью и белыми отметинами.", "Многие толлеры издают высокий визг от возбуждения, который может удивить гостей."],
+            "quirks": [
+                "«Толлинг» — приманивание уток игривыми движениями у берега: толлер делает это до сих пор и дома часто «приманивает» игрушкой.",
+                "Это самый маленький из ретриверов, с рыжей шерстью и белыми отметинами.",
+                "Многие толлеры издают высокий визг от возбуждения, который может удивить гостей.",
+            ],
         },
     },
     "portuguese-water-dog": {
         "prey": "moderate",
         "en": {
             "summary": "Intelligent, loyal and full of energy. The Portuguese Water Dog is a curly-coated swimmer that loves to work with its person and be part of every family activity.",
-            "care": ["The curly or wavy coat sheds very little but needs brushing several times a week and a trim every six to eight weeks. Keep the ears dry and clean.", "Plan for about two hours of walks, swimming and training a day."],
-            "good_fit": ["Are active and love water and outdoor games", "Want a clever, trainable family dog", "Do not mind regular grooming", "Are home often"],
-            "think_twice": ["Are away from home most of the day", "Dislike grooming costs", "Want a calm, low-energy dog", "Want a dog that guards"],
+            "care": [
+                "The curly or wavy coat sheds very little but needs brushing several times a week and a trim every six to eight weeks. Keep the ears dry and clean.",
+                "Plan for about two hours of walks, swimming and training a day.",
+            ],
+            "good_fit": [
+                "Are active and love water and outdoor games",
+                "Want a clever, trainable family dog",
+                "Do not mind regular grooming",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Dislike grooming costs",
+                "Want a calm, low-energy dog",
+                "Want a dog that guards",
+            ],
             "daily": [
                 "About two hours a day, ideally with swimming and fetch. It is happiest working with its person.",
                 "It bonds closely and dislikes long hours alone. Company and a job help.",
@@ -264,13 +515,30 @@ DOGS = {
                 "Swimming, retrieving, agility, trick training and obedience. It learns quickly and needs variety.",
                 "Active morning and evening, with training and play in between.",
             ],
-            "quirks": ["The curly coat sheds very little, which is why the breed is often suggested for people who dislike dog hair, though no dog is allergy-proof.", "Many owners use the traditional \"lion clip\" or a simple retriever clip to keep the coat easy.", "It loves water and is happiest when it can swim."],
+            "quirks": [
+                "The curly coat sheds very little, which is why the breed is often suggested for people who dislike dog hair, though no dog is allergy-proof.",
+                'Many owners use the traditional "lion clip" or a simple retriever clip to keep the coat easy.',
+                "It loves water and is happiest when it can swim.",
+            ],
         },
         "ru": {
             "summary": "Умная, преданная и полная энергии собака. Португальская водяная собака — пловец с кудрявой шерстью, который любит работать с хозяином и участвовать во всех семейных делах.",
-            "care": ["Кудрявая или волнистая шерсть почти не линяет, но её нужно расчёсывать несколько раз в неделю и подстригать раз в шесть–восемь недель. Держите уши сухими и чистыми.", "Рассчитывайте примерно на два часа прогулок, плавания и занятий в день."],
-            "good_fit": ["Активны и любите воду и игры на улице", "Хотите умную обучаемую семейную собаку", "Не против регулярного ухода за шерстью", "Часто бываете дома"],
-            "think_twice": ["Большую часть дня не бываете дома", "Не хотите тратить на груминг", "Хотите спокойную собаку с небольшой энергией", "Хотите охранника"],
+            "care": [
+                "Кудрявая или волнистая шерсть почти не линяет, но её нужно расчёсывать несколько раз в неделю и подстригать раз в шесть–восемь недель. Держите уши сухими и чистыми.",
+                "Рассчитывайте примерно на два часа прогулок, плавания и занятий в день.",
+            ],
+            "good_fit": [
+                "Активны и любите воду и игры на улице",
+                "Хотите умную обучаемую семейную собаку",
+                "Не против регулярного ухода за шерстью",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Не хотите тратить на груминг",
+                "Хотите спокойную собаку с небольшой энергией",
+                "Хотите охранника",
+            ],
             "daily": [
                 "Около двух часов в день, лучше с плаванием и апортом. Больше всего ей нравится работать вместе с хозяином.",
                 "Она тесно привязана и не любит долгого одиночества. Помогают компания и дело.",
@@ -280,16 +548,33 @@ DOGS = {
                 "Плавание, апорт, аджилити, трюки и послушание. Она быстро учится и любит разнообразие.",
                 "Активные утро и вечер, между ними занятия и игры.",
             ],
-            "quirks": ["Кудрявая шерсть почти не линяет, поэтому породу часто советуют тем, кому не нравится собачья шерсть, хотя полностью безаллергенных собак не бывает.", "Многие хозяева выбирают традиционную стрижку «лев» или простую стрижку ретривера, чтобы упростить уход.", "Она любит воду и счастливее всего, когда может плавать."],
+            "quirks": [
+                "Кудрявая шерсть почти не линяет, поэтому породу часто советуют тем, кому не нравится собачья шерсть, хотя полностью безаллергенных собак не бывает.",
+                "Многие хозяева выбирают традиционную стрижку «лев» или простую стрижку ретривера, чтобы упростить уход.",
+                "Она любит воду и счастливее всего, когда может плавать.",
+            ],
         },
     },
     "romagna-water-dog": {
         "prey": "low",
         "en": {
             "summary": "Affectionate, bright and tireless. The Lagotto Romagnolo is a curly-coated Italian water dog and a famous truffle finder, with a cheerful nature and a keen nose.",
-            "care": ["The thick curly coat sheds very little but needs brushing weekly and a trim every two or three months, or it will mat. Keep the ears clean and dry.", "Plan for about an hour and a half of walks, scent games and play a day."],
-            "good_fit": ["Want a loyal, affectionate and trainable dog", "Enjoy scent games and outdoor time", "Do not mind regular grooming", "Are home often"],
-            "think_twice": ["Are away from home most of the day", "Dislike a dog that digs", "Want a guard dog", "Do not want to pay for grooming"],
+            "care": [
+                "The thick curly coat sheds very little but needs brushing weekly and a trim every two or three months, or it will mat. Keep the ears clean and dry.",
+                "Plan for about an hour and a half of walks, scent games and play a day.",
+            ],
+            "good_fit": [
+                "Want a loyal, affectionate and trainable dog",
+                "Enjoy scent games and outdoor time",
+                "Do not mind regular grooming",
+                "Are home often",
+            ],
+            "think_twice": [
+                "Are away from home most of the day",
+                "Dislike a dog that digs",
+                "Want a guard dog",
+                "Do not want to pay for grooming",
+            ],
             "daily": [
                 "About an hour and a half a day, including sniffing games. It loves to use its nose and work.",
                 "It bonds closely and dislikes long hours alone. It may dig or bark when bored.",
@@ -299,13 +584,30 @@ DOGS = {
                 "Scent games, truffle search, swimming, agility and obedience. It learns quickly and loves a task.",
                 "Active outings morning and evening and company in between.",
             ],
-            "quirks": ["The Lagotto is the only breed officially recognised as a specialist truffle finder, and its nose is its great talent.", "It likes to dig, so give it a place in the garden for it.", "Its thick curly coat sheds little but needs regular trimming and brushing to avoid mats."],
+            "quirks": [
+                "The Lagotto is the only breed officially recognised as a specialist truffle finder, and its nose is its great talent.",
+                "It likes to dig, so give it a place in the garden for it.",
+                "Its thick curly coat sheds little but needs regular trimming and brushing to avoid mats.",
+            ],
         },
         "ru": {
             "summary": "Ласковая, умная и неутомимая собака. Лагото-романьоло — кудрявая итальянская водяная собака и знаменитый искатель трюфелей с весёлым характером и острым чутьём.",
-            "care": ["Густая кудрявая шерсть почти не линяет, но её нужно расчёсывать раз в неделю и стричь раз в два–три месяца, иначе появятся колтуны. Держите уши чистыми и сухими.", "Рассчитывайте примерно на полтора часа прогулок, игр на поиск и игр в день."],
-            "good_fit": ["Хотите преданную ласковую обучаемую собаку", "Любите игры на поиск и время на улице", "Не против регулярного ухода за шерстью", "Часто бываете дома"],
-            "think_twice": ["Большую часть дня не бываете дома", "Не любите, когда собака роет землю", "Хотите охранника", "Не хотите платить за груминг"],
+            "care": [
+                "Густая кудрявая шерсть почти не линяет, но её нужно расчёсывать раз в неделю и стричь раз в два–три месяца, иначе появятся колтуны. Держите уши чистыми и сухими.",
+                "Рассчитывайте примерно на полтора часа прогулок, игр на поиск и игр в день.",
+            ],
+            "good_fit": [
+                "Хотите преданную ласковую обучаемую собаку",
+                "Любите игры на поиск и время на улице",
+                "Не против регулярного ухода за шерстью",
+                "Часто бываете дома",
+            ],
+            "think_twice": [
+                "Большую часть дня не бываете дома",
+                "Не любите, когда собака роет землю",
+                "Хотите охранника",
+                "Не хотите платить за груминг",
+            ],
             "daily": [
                 "Около полутора часов в день, включая игры на поиск. Она любит пользоваться носом и работать.",
                 "Она тесно привязана и не любит долгого одиночества. От скуки может рыть землю и лаять.",
@@ -315,16 +617,33 @@ DOGS = {
                 "Игры на поиск, поиск трюфелей, плавание, аджилити и послушание. Она быстро учится и любит задания.",
                 "Активные прогулки утром и вечером и компания между ними.",
             ],
-            "quirks": ["Лагото — единственная порода, официально признанная специалистом по поиску трюфелей, и нос — её главный талант.", "Она любит копать, поэтому дайте ей место в саду.", "Густая кудрявая шерсть почти не линяет, но нуждается в регулярной стрижке и расчёске, чтобы не появлялись колтуны."],
+            "quirks": [
+                "Лагото — единственная порода, официально признанная специалистом по поиску трюфелей, и нос — её главный талант.",
+                "Она любит копать, поэтому дайте ей место в саду.",
+                "Густая кудрявая шерсть почти не линяет, но нуждается в регулярной стрижке и расчёске, чтобы не появлялись колтуны.",
+            ],
         },
     },
     "wetterhoun": {
         "prey": "high",
         "en": {
             "summary": "Loyal, hardy and independent. The Wetterhoun (Frisian Water Dog) is a rare Dutch water dog with a curly coat and a protective nature, devoted to its own family.",
-            "care": ["The coarse curly coat needs brushing weekly, and the ears should be cleaned and dried. Do not over-bathe.", "Plan for about an hour and a half of exercise and swimming a day."],
-            "good_fit": ["Are active and enjoy water and the countryside", "Can offer calm, consistent training", "Want a loyal, protective dog", "Have a garden and a fence"],
-            "think_twice": ["Are a first-time owner", "Want a dog that welcomes strangers", "Have small pets", "Live in a small flat"],
+            "care": [
+                "The coarse curly coat needs brushing weekly, and the ears should be cleaned and dried. Do not over-bathe.",
+                "Plan for about an hour and a half of exercise and swimming a day.",
+            ],
+            "good_fit": [
+                "Are active and enjoy water and the countryside",
+                "Can offer calm, consistent training",
+                "Want a loyal, protective dog",
+                "Have a garden and a fence",
+            ],
+            "think_twice": [
+                "Are a first-time owner",
+                "Want a dog that welcomes strangers",
+                "Have small pets",
+                "Live in a small flat",
+            ],
             "daily": [
                 "About an hour and a half a day, including swimming. It is at its best on country walks.",
                 "It bonds closely to its family and does not like long hours alone.",
@@ -334,13 +653,30 @@ DOGS = {
                 "Swimming, retrieving, tracking and obedience. It is intelligent and independent, so train with patience.",
                 "Active outings morning and evening and calm rest between.",
             ],
-            "quirks": ["The name Wetterhoun means \"water dog\" in West Frisian, and it was used to hunt otters and retrieve waterfowl.", "It is rare outside the Netherlands, so finding a puppy takes planning.", "Its coarse curly coat sheds water well, and it loves to swim."],
+            "quirks": [
+                'The name Wetterhoun means "water dog" in West Frisian, and it was used to hunt otters and retrieve waterfowl.',
+                "It is rare outside the Netherlands, so finding a puppy takes planning.",
+                "Its coarse curly coat sheds water well, and it loves to swim.",
+            ],
         },
         "ru": {
             "summary": "Преданная, выносливая и самостоятельная собака. Веттерхун (фризская водяная собака) — редкая голландская водяная собака с кудрявой шерстью и защитным характером, преданная своей семье.",
-            "care": ["Жёсткую кудрявую шерсть расчёсывайте раз в неделю, а уши чистите и просушивайте. Не купайте слишком часто.", "Рассчитывайте примерно на полтора часа нагрузки и плавания в день."],
-            "good_fit": ["Активны и любите воду и сельскую местность", "Можете спокойно и последовательно дрессировать", "Хотите преданную охраняющую собаку", "Есть двор и забор"],
-            "think_twice": ["Это ваша первая собака", "Хотите собаку, которая рада чужим", "Дома мелкие животные", "Живёте в маленькой квартире"],
+            "care": [
+                "Жёсткую кудрявую шерсть расчёсывайте раз в неделю, а уши чистите и просушивайте. Не купайте слишком часто.",
+                "Рассчитывайте примерно на полтора часа нагрузки и плавания в день.",
+            ],
+            "good_fit": [
+                "Активны и любите воду и сельскую местность",
+                "Можете спокойно и последовательно дрессировать",
+                "Хотите преданную охраняющую собаку",
+                "Есть двор и забор",
+            ],
+            "think_twice": [
+                "Это ваша первая собака",
+                "Хотите собаку, которая рада чужим",
+                "Дома мелкие животные",
+                "Живёте в маленькой квартире",
+            ],
             "daily": [
                 "Около полутора часов в день, включая плавание. Лучше всего она чувствует себя на загородных прогулках.",
                 "Она тесно привязана к семье и не любит долгого одиночества.",
@@ -350,7 +686,11 @@ DOGS = {
                 "Плавание, апорт, поиск по следу и послушание. Она умна и самостоятельна, поэтому дрессируйте терпеливо.",
                 "Активные прогулки утром и вечером и спокойный отдых между ними.",
             ],
-            "quirks": ["Название «веттерхун» по-фризски означает «водяная собака»: её использовали для охоты на выдр и подачи водоплавающей дичи.", "За пределами Нидерландов она редка, поэтому за щенком нужно обращаться заранее.", "Жёсткая кудрявая шерсть хорошо отталкивает воду, и собака любит плавать."],
+            "quirks": [
+                "Название «веттерхун» по-фризски означает «водяная собака»: её использовали для охоты на выдр и подачи водоплавающей дичи.",
+                "За пределами Нидерландов она редка, поэтому за щенком нужно обращаться заранее.",
+                "Жёсткая кудрявая шерсть хорошо отталкивает воду, и собака любит плавать.",
+            ],
         },
     },
 }

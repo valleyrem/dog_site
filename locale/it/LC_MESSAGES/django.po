@@ -151,24 +151,17 @@ msgid "Welcome!"
 msgstr "Benvenuto!"
 
 msgid ""
-"This project started as a fun exercise: learning to tell dog breeds apart, remember their names and find out a little more about each one.\n"
+"This project started as a fun exercise: learning to tell dog breeds apart, remember their names and find out a little more about each one.<br>\n"
 "            For convenience, the <strong>FCI (Fédération Cynologique Internationale)</strong> classification was taken as the base."
 msgstr ""
-"Questo progetto è nato come un passatempo: imparare a distinguere le razze canine, ricordarne i nomi e scoprire qualcosa in più su ciascuna.\n"
+"Questo progetto è nato come un passatempo: imparare a distinguere le razze canine, ricordarne i nomi e scoprire qualcosa in più su ciascuna.<br>\n"
 "            Per comodità, come base è stata presa la classificazione della <strong>FCI (Fédération Cynologique Internationale)</strong>."
 
 msgid "What is FCI"
 msgstr "Cos'è la FCI"
 
-msgid ""
-"FCI — Fédération Cynologique Internationale (International Canine "
-"Federation) — the largest international federation of kennel clubs, which "
-"defines official breed standards and group structures worldwide."
-msgstr ""
-"FCI — Fédération Cynologique Internationale (Federazione Cinologica "
-"Internazionale) — la più grande federazione internazionale di club cinofili,"
-" che definisce gli standard ufficiali delle razze e le strutture dei gruppi "
-"in tutto il mondo."
+msgid "FCI — Fédération Cynologique Internationale (International Canine Federation) — the largest international federation of kennel clubs,<br>which defines official breed standards and group structures worldwide."
+msgstr "FCI — Fédération Cynologique Internationale (Federazione Cinologica Internazionale) — la più grande federazione internazionale di club cinofili,<br>che definisce gli standard ufficiali delle razze e le strutture dei gruppi in tutto il mondo."
 
 msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
 msgstr "Fondata il 22 maggio 1911, con sede a Thuin, in Belgio."
@@ -176,18 +169,17 @@ msgstr "Fondata il 22 maggio 1911, con sede a Thuin, in Belgio."
 msgid "98 member countries."
 msgstr "98 paesi membri."
 
-msgid ""
-"Recognizes 356 breeds; each breed belongs to its country of origin, which "
-"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
-msgstr ""
-"Riconosce 356 razze; ogni razza appartiene al proprio paese d'origine, che "
-"redige lo standard; la FCI pubblica gli standard in 4 lingue (en/fr/de/es)"
+msgid "Recognizes 356 breeds; each breed belongs to its country of origin, which writes its standard."
+msgstr "Riconosce 356 razze; ogni razza appartiene al proprio paese d'origine, che redige lo standard."
+
+msgid "FCI publishes standards in 4 languages (en/fr/de/es)."
+msgstr "La FCI pubblica gli standard in 4 lingue (en/fr/de/es)."
 
 msgid ""
-"To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.\n"
+"To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.<br>\n"
 "            As a result, the database includes not only officially recognized breeds, but also less common and developing ones."
 msgstr ""
-"Per offrire una prospettiva più ampia, il catalogo integra anche dati di altre organizzazioni cinofile e fonti indipendenti sulle razze.\n"
+"Per offrire una prospettiva più ampia, il catalogo integra anche dati di altre organizzazioni cinofile e fonti indipendenti sulle razze.<br>\n"
 "            Di conseguenza, il database comprende non solo le razze ufficialmente riconosciute, ma anche quelle meno comuni e in via di sviluppo."
 
 msgid ""
@@ -332,8 +324,8 @@ msgstr "Scegliere il cane"
 msgid "Raising a puppy"
 msgstr "Crescere un cucciolo"
 
-msgid "Dog training fundamentals"
-msgstr "Fondamenti di addestramento"
+msgid "Training"
+msgstr "Addestramento"
 
 msgid "Dog health & care"
 msgstr "Salute e cura del cane"
@@ -770,8 +762,8 @@ msgstr "Altri filtri"
 msgid "Fewer filters"
 msgstr "Meno filtri"
 
-msgid "Reset filters"
-msgstr "Reimposta i filtri"
+msgid "Reset"
+msgstr "Reimposta"
 
 msgid "Find my breed"
 msgstr "Trova la mia razza"
@@ -807,11 +799,11 @@ msgstr "*"
 msgid ""
 "If you don’t see a particular breed on this website, it may simply mean that"
 " it hasn’t been added yet, or that we haven’t found suitable images with "
-"clear attribution or free usage rights 😊"
+"clear attribution or free usage rights."
 msgstr ""
 "Se non vedi una razza particolare su questo sito, può semplicemente "
 "significare che non è ancora stata aggiunta o che non abbiamo trovato "
-"immagini adatte con attribuzione chiara o diritti di utilizzo gratuiti 😊"
+"immagini adatte con attribuzione chiara o diritti di utilizzo gratuiti."
 
 #, python-brace-format
 msgid "{n} selected"
@@ -826,8 +818,141 @@ msgstr "Chiudi"
 msgid "Varieties"
 msgstr "Varietà"
 
+msgid "Family"
+msgstr "Famiglia"
+
+msgid "Coat"
+msgstr "Pelo"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "All filters"
+msgstr "Tutti i filtri"
+
+msgid "Best friends"
+msgstr "Migliori amici"
+
+msgid "Time to relax"
+msgstr "Ora di relax"
+
+msgid "Two dachshunds sniffing each other"
+msgstr "Due bassotti si annusano"
+
+msgid "Two dogs resting on the grass"
+msgstr "Due cani riposano sull'erba"
+
+msgid "Listening closely"
+msgstr "In ascolto"
+
+msgid "Meeting new friends"
+msgstr "Nuove amicizie"
+
+msgid "Three dogs sitting and looking up"
+msgstr "Tre cani seduti guardano in alto"
+
+msgid "Three dogs greeting each other"
+msgstr "Tre cani si salutano"
+
+msgid "Two Weimaraners and a dachshund"
+msgstr "Due Weimaraner e un bassotto"
+
+msgid "Pure joy"
+msgstr "Pura gioia"
+
+msgid "At rest"
+msgstr "Rilassati"
+
+msgid "Beach day"
+msgstr "Giornata al mare"
+
+msgid "Three dogs running on the sand by the sea"
+msgstr "Tre cani corrono sulla sabbia vicino al mare"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Garden friends"
+msgstr "Amici in giardino"
+
+msgid "Dogs in a garden"
+msgstr "Cani in giardino"
+
+msgid "Did you mean:"
+msgstr "Forse cercavi:"
+
+msgid "Compare with"
+msgstr "Confronta con"
+
 msgid "Origin"
 msgstr "Origine"
+
+msgid "What you will find on this site"
+msgstr "Cosa trovi su questo sito"
+
+msgid "Our site's catalog combines:"
+msgstr "Il catalogo di questo sito comprende:"
+
+msgid "The FCI sorts dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour."
+msgstr "La FCI classifica i cani innanzitutto in base <strong>al lavoro per cui sono stati selezionati</strong>. I cani da pastore radunavano le greggi, i segugi seguivano una pista, i cani da ferma aiutavano a cacciare gli uccelli: le caratteristiche di questo lavoro hanno plasmato la loro struttura, il mantello e il comportamento."
+
+msgid "Each group is divided into <strong>sections</strong> that refine the purpose, origin or traits of the breeds. Some sections are further divided into breeds with and without a working trial, as well as into subsections. We do not separate the latter in our classification."
+msgstr "Ogni gruppo è suddiviso in <strong>sezioni</strong> che precisano lo scopo, l'origine o le caratteristiche delle razze. Alcune sezioni sono inoltre suddivise in razze con e senza prova di lavoro, nonché in sottosezioni. Queste ultime non le distinguiamo nella nostra classificazione."
+
+msgid "Each recognized breed has an official standard, prepared by its country of origin and approved by the FCI, as well as its own number."
+msgstr "Ogni razza riconosciuta ha uno standard ufficiale, preparato dal paese d'origine e approvato dalla FCI, oltre a un proprio numero."
+
+msgid "More about FCI classification"
+msgstr "Di più sulla classificazione FCI"
+
+msgid "Created"
+msgstr "Creato"
+
+msgid "Updated"
+msgstr "Aggiornato"
+
+msgid "Quick picks"
+msgstr "Selezione rapida"
+
+msgid "For apartments"
+msgstr "Per l'appartamento"
+
+msgid "Good with kids"
+msgstr "Adatti ai bambini"
+
+msgid "Low shedding"
+msgstr "Perdono poco pelo"
+
+msgid "Easy to train"
+msgstr "Facili da addestrare"
+
+msgid "For active people"
+msgstr "Per persone attive"
+
+msgid "Quiet dogs"
+msgstr "Cani silenziosi"
+
+msgid "Large breeds"
+msgstr "Razze grandi"
+
+msgid "Breed of the day"
+msgstr "Razza del giorno"
+
+msgid "Another one"
+msgstr "Un'altra"
+
+msgid "About the breed"
+msgstr "Scopri la razza"
+
+msgid "All guides"
+msgstr "Tutte le guide"
+
+msgid "Browse all breeds"
+msgstr "Vedi tutte le razze"
+
+msgid "Native name"
+msgstr "Nome originale"
+
 
 msgid "Size"
 msgstr "Taglia"
@@ -2011,33 +2136,11 @@ msgstr ""
 "dieci gruppi che riuniscono razze di origine e scopo simili. L'elenco è "
 "ancora incompleto — nuove razze verranno aggiunte."
 
-msgid ""
-"The FCI groups dogs first of all by <strong>the work they were bred "
-"for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers "
-"helped hunt birds — the nature of this work shaped their build, coat and "
-"behaviour.</p><p class=\"cat-desc\">Within groups there are "
-"<strong>sections</strong>, which may differ by origin or coat type. Size, "
-"colour and other outward traits are taken into account in breed standards, "
-"but they do not determine the group. That is why a small and a large terrier"
-" can belong to one group, while dogs of similar size can belong to different"
-" ones."
-msgstr ""
-"La FCI divide i cani in gruppi soprattutto in base al <strong>lavoro per cui"
-" sono stati selezionati</strong>. I cani da pastore radunavano le greggi, i "
-"segugi seguivano la pista, i cani da ferma aiutavano nella caccia agli "
-"uccelli: la natura di questo lavoro ha plasmato la loro struttura, il pelo e"
-" il comportamento.</p><p class=\"cat-desc\">All'interno dei gruppi ci sono "
-"le <strong>sezioni</strong>, che possono distinguersi per origine o tipo di "
-"pelo. Taglia, colore e altri tratti esteriori sono considerati negli "
-"standard di razza, ma non determinano il gruppo. Per questo un terrier "
-"piccolo e uno grande possono appartenere allo stesso gruppo, mentre cani di "
-"taglia simile possono appartenere a gruppi diversi."
+msgid "Learn more"
+msgstr "Scopri"
 
-msgid "Look more"
-msgstr "Scopri di più"
-
-msgid "Breeds outside the current FCI structure"
-msgstr "Razze al di fuori dell'attuale struttura FCI"
+msgid "Other breeds"
+msgstr "Altre razze"
 
 msgid ""
 "Some breeds on the site are not currently placed inside the official FCI "
@@ -3116,17 +3219,11 @@ msgstr "Carattere"
 msgid "Group, section"
 msgstr "Gruppo, sezione"
 
-msgid ""
-"Varieties within one breed are officially recognized variants of dogs that "
-"share a single breed standard and breed number but differ in key traits: "
-"coat type, size, weight, or colour. Sometimes colour differences are so "
-"significant that such lines are separated into distinct varieties."
-msgstr ""
-"Le varietà all'interno di una razza sono varianti di cani ufficialmente "
-"riconosciute, accomunate da un unico standard e numero di razza, ma "
-"differenti per tratti chiave: tipo di pelo, taglia, peso o colore. A volte "
-"le differenze di colore sono così rilevanti che tali linee vengono distinte "
-"in varietà separate."
+msgid "Varieties within one breed are variants of dogs recognized by another kennel club that recognizes the breed. They are described in that club's breed standard and differ in key traits: coat type, size, weight, or colour. If the breed is not recognized by any kennel club, the information is taken from open sources on the internet."
+msgstr "Le varietà all'interno di una razza sono varianti di cani riconosciute da un altro club cinofilo che riconosce la razza. Sono descritte nello standard di quel club e differiscono per tratti chiave: tipo di pelo, taglia, peso o colore. Se la razza non è riconosciuta da alcun club cinofilo, le informazioni provengono da fonti aperte su internet."
+
+msgid "Varieties within one breed are variants of dogs officially recognized by the FCI (Fédération Cynologique Internationale). They are described in the breed's FCI standard, which covers all of them under a single breed number, and differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Le varietà all'interno di una razza sono varianti di cani ufficialmente riconosciute dalla FCI (Fédération Cynologique Internationale). Sono descritte nello standard FCI della razza, che le riunisce sotto un unico numero di razza, e differiscono per tratti chiave: tipo di pelo, taglia, peso o colore. A volte le differenze di colore sono così rilevanti che tali linee vengono distinte in varietà separate."
 
 #, python-format
 msgid "%(years)s years"
@@ -3141,15 +3238,8 @@ msgstr "kg"
 msgid "Colors"
 msgstr "Colori"
 
-msgid ""
-"This website is non-commercial. All images are used with attribution. If you"
-" believe any content violates your rights, your credit is incorrect, or you "
-"would like an image removed —"
-msgstr ""
-"Questo sito non è commerciale. Tutte le immagini sono utilizzate con "
-"l'attribuzione dell'autore. Se ritieni che un contenuto violi i tuoi "
-"diritti, che l'attribuzione sia errata o desideri la rimozione di "
-"un'immagine —"
+msgid "This website is non-commercial. All images are used with attribution. If you would like an image removed —"
+msgstr "Questo sito non è commerciale. Tutte le immagini sono utilizzate con indicazione dell'autore. Se desideri che un'immagine venga rimossa —"
 
 msgid "Varieties of German Spitz (links to breeds):"
 msgstr "Varietà dello Spitz tedesco (link alle razze):"
@@ -4448,12 +4538,8 @@ msgstr "Alimentazione del cane - Woof Dogs"
 msgid "Games & activities - Woof Dogs"
 msgstr "Giochi e attività - Woof Dogs"
 
-msgid ""
-"Woof Dogs — the world's dog breeds grouped by FCI classification: "
-"temperament, size, care and more."
-msgstr ""
-"Woof Dogs — le razze canine del mondo raggruppate secondo la classificazione"
-" FCI: temperamento, taglia, cura e altro."
+msgid "Woof Dogs — a dog breed guide: breeds from around the world, care and interesting facts."
+msgstr "Woof Dogs — guida alle razze canine: razze da tutto il mondo, cura e curiosità."
 
 msgid "Dog Breeds - Woof Dogs"
 msgstr "Razze canine - Woof Dogs"
@@ -4522,11 +4608,11 @@ msgstr "Collaborativi e facili da addestrare"
 msgid "Needs More Supervision"
 msgstr "Richiedono supervisione"
 
-msgid "Quiet"
-msgstr "Silenziosi"
+msgid "Rarely bark"
+msgstr "Abbaiano poco"
 
-msgid "Talkative"
-msgstr "Chiassosi"
+msgid "Bark often"
+msgstr "Abbaiano molto"
 
 msgid "Country"
 msgstr "Paese"
@@ -4545,6 +4631,27 @@ msgstr "Razze - Woof Dogs"
 
 msgid "Groups - Woof Dogs"
 msgstr "Gruppi - Woof Dogs"
+
+msgid "Woof Dogs — Dog Breed Guide"
+msgstr "Woof Dogs — guida alle razze canine"
+
+msgid "Browse all dog breeds on one page and compare size, coat, temperament and care needs."
+msgstr "Tutte le razze canine in una pagina: confronta taglia, mantello, carattere ed esigenze di cura."
+
+msgid "Contact Woof Dogs: questions, corrections, photo credits or suggestions for new breeds."
+msgstr "Contatta Woof Dogs: domande, correzioni, crediti fotografici o proposte di nuove razze."
+
+msgid "Find a dog breed by size, coat, activity level and other traits."
+msgstr "Trova una razza canina per taglia, mantello, livello di attività e altre caratteristiche."
+
+msgid "All FCI dog groups and their sections, with the breeds that belong to each."
+msgstr "Tutti i gruppi di razze canine FCI e le loro sezioni, con le razze che ne fanno parte."
+
+msgid "About Woof Dogs: a non-commercial guide to dog breeds, how the project began and who it is for."
+msgstr "Su Woof Dogs: una guida non commerciale alle razze canine, come è nato il progetto e a chi è destinato."
+
+msgid "Guides on choosing, training, feeding and caring for a dog, from the first days with a puppy to everyday health."
+msgstr "Guide su scelta, addestramento, alimentazione e cura del cane: dai primi giorni con il cucciolo alla salute di ogni giorno."
 
 #~ msgid "XSmall"
 #~ msgstr "Molto piccola"

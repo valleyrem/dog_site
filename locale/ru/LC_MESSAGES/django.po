@@ -154,27 +154,20 @@ msgstr "Добро пожаловать!"
 
 msgid ""
 "This project started as a fun exercise: learning to tell dog breeds apart, "
-"remember their names and find out a little more about each one.\n"
+"remember their names and find out a little more about each one.<br>\n"
 "            For convenience, the <strong>FCI (Fédération Cynologique "
 "Internationale)</strong> classification was taken as the base."
 msgstr ""
 "Этот проект затевался в развлекательных целях: научиться различать породы "
-"собак, запомнить их названия и узнать побольше о каждой.\n"
+"собак, запомнить их названия и узнать побольше о каждой.<br>\n"
 "            Для удобства за основу была взята классификация <strong>FCI "
 "(Fédération Cynologique Internationale)</strong>."
 
 msgid "What is FCI"
 msgstr "Что такое FCI"
 
-msgid ""
-"FCI — Fédération Cynologique Internationale (International Canine "
-"Federation) — the largest international federation of kennel clubs, which "
-"defines official breed standards and group structures worldwide."
-msgstr ""
-"FCI — Fédération Cynologique Internationale (Международная кинологическая "
-"федерация) — крупнейшая международная федерация кинологических клубов, "
-"которая определяет официальные стандарты пород и структуру групп по всему "
-"миру."
+msgid "FCI — Fédération Cynologique Internationale (International Canine Federation) — the largest international federation of kennel clubs,<br>which defines official breed standards and group structures worldwide."
+msgstr "FCI — Fédération Cynologique Internationale (Международная кинологическая федерация) — крупнейшая международная федерация кинологических клубов,<br>которая определяет официальные стандарты пород и структуру групп по всему миру."
 
 msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
 msgstr "Основана 22 мая 1911 года, штаб-квартира — Тюэн (Thuin), Бельгия."
@@ -182,21 +175,20 @@ msgstr "Основана 22 мая 1911 года, штаб-квартира — 
 msgid "98 member countries."
 msgstr "98 стран-членов."
 
-msgid ""
-"Recognizes 356 breeds; each breed belongs to its country of origin, which "
-"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
-msgstr ""
-"Признаёт 356 пород; каждая порода принадлежит стране происхождения, которая "
-"пишет стандарт; FCI публикует стандарты на 4 языках (en/fr/de/es)"
+msgid "Recognizes 356 breeds; each breed belongs to its country of origin, which writes its standard."
+msgstr "Признаёт 356 пород; каждая порода принадлежит стране происхождения, которая пишет стандарт."
+
+msgid "FCI publishes standards in 4 languages (en/fr/de/es)."
+msgstr "FCI публикует стандарты на 4 языках (en/fr/de/es)."
 
 msgid ""
 "To provide a broader perspective, the catalog also incorporates data from "
-"other kennel organizations, as well as independent breed sources.\n"
+"other kennel organizations, as well as independent breed sources.<br>\n"
 "            As a result, the database includes not only officially "
 "recognized breeds, but also less common and developing ones."
 msgstr ""
 "Чтобы картина была более полной, мы решили так же включить в каталог данные "
-"других кинологических организаций и независимых источников о породах.\n"
+"других кинологических организаций и независимых источников о породах.<br>\n"
 "            В результате в базе представлены не только официально признанные "
 "породы, но и менее распространённые и развивающиеся."
 
@@ -345,8 +337,8 @@ msgstr "Как выбрать собаку"
 msgid "Raising a puppy"
 msgstr "Воспитание щенка"
 
-msgid "Dog training fundamentals"
-msgstr "Основы дрессировки"
+msgid "Training"
+msgstr "Дрессировка"
 
 msgid "Dog health & care"
 msgstr "Здоровье и уход"
@@ -781,8 +773,8 @@ msgstr "Больше фильтров"
 msgid "Fewer filters"
 msgstr "Меньше фильтров"
 
-msgid "Reset filters"
-msgstr "Сбросить фильтры"
+msgid "Reset"
+msgstr "Сбросить"
 
 msgid "Find my breed"
 msgstr "Подобрать породу"
@@ -818,11 +810,11 @@ msgstr "*"
 msgid ""
 "If you don’t see a particular breed on this website, it may simply mean that "
 "it hasn’t been added yet, or that we haven’t found suitable images with "
-"clear attribution or free usage rights 😊"
+"clear attribution or free usage rights."
 msgstr ""
 "Если вы не видите конкретную породу на этом сайте, это может означать, что "
 "её ещё не добавили или мы пока не нашли подходящих изображений с ясной "
-"атрибуцией или свободной лицензией 😊"
+"атрибуцией или свободной лицензией."
 
 #, python-brace-format
 msgid "{n} selected"
@@ -837,8 +829,141 @@ msgstr "Закрыть"
 msgid "Varieties"
 msgstr "Разновидности"
 
+msgid "Family"
+msgstr "Семья"
+
+msgid "Coat"
+msgstr "Шерсть"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "All filters"
+msgstr "Все фильтры"
+
+msgid "Best friends"
+msgstr "Лучшие друзья"
+
+msgid "Time to relax"
+msgstr "Время отдыха"
+
+msgid "Two dachshunds sniffing each other"
+msgstr "Две таксы обнюхивают друг друга"
+
+msgid "Two dogs resting on the grass"
+msgstr "Две собаки отдыхают на траве"
+
+msgid "Listening closely"
+msgstr "Внимательно слушают"
+
+msgid "Meeting new friends"
+msgstr "Новые знакомства"
+
+msgid "Three dogs sitting and looking up"
+msgstr "Три собаки сидят и смотрят вверх"
+
+msgid "Three dogs greeting each other"
+msgstr "Три собаки здороваются"
+
+msgid "Two Weimaraners and a dachshund"
+msgstr "Два веймаранера и такса"
+
+msgid "Pure joy"
+msgstr "Чистая радость"
+
+msgid "At rest"
+msgstr "На отдыхе"
+
+msgid "Beach day"
+msgstr "День на пляже"
+
+msgid "Three dogs running on the sand by the sea"
+msgstr "Три собаки бегут по песку у моря"
+
+msgid "Photo"
+msgstr "Фото"
+
+msgid "Garden friends"
+msgstr "Друзья в саду"
+
+msgid "Dogs in a garden"
+msgstr "Собаки в саду"
+
+msgid "Did you mean:"
+msgstr "Возможно, вы искали:"
+
+msgid "Compare with"
+msgstr "Сравнить с"
+
 msgid "Origin"
 msgstr "Происхождение"
+
+msgid "What you will find on this site"
+msgstr "Что вы найдёте на этом сайте"
+
+msgid "Our site's catalog combines:"
+msgstr "Каталог нашего сайта объединяет:"
+
+msgid "The FCI sorts dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour."
+msgstr "FCI распределяет собак прежде всего по <strong>работе, для которой их выводили</strong>. Овчарки пасли стада, гончие шли по следу, легавые помогали охотиться на птицу — особенности этой работы повлияли на их телосложение, шерсть и поведение."
+
+msgid "Each group is divided into <strong>sections</strong> that refine the purpose, origin or traits of the breeds. Some sections are further divided into breeds with and without a working trial, as well as into subsections. We do not separate the latter in our classification."
+msgstr "Каждая группа делится на <strong>секции</strong>, которые уточняют назначение, происхождение или особенности пород. Некоторые секции дополнительно делятся на породы с рабочими испытаниями и без них, а также на подсекции. Последние мы не выделяем в нашей классификации."
+
+msgid "Each recognized breed has an official standard, prepared by its country of origin and approved by the FCI, as well as its own number."
+msgstr "Каждая признанная порода имеет официальный стандарт, подготовленный страной происхождения и утверждённый FCI, а также собственный номер."
+
+msgid "More about FCI classification"
+msgstr "Подробнее о классификации FCI"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Quick picks"
+msgstr "Быстрый подбор"
+
+msgid "For apartments"
+msgstr "Для квартиры"
+
+msgid "Good with kids"
+msgstr "С детьми"
+
+msgid "Low shedding"
+msgstr "Мало линяют"
+
+msgid "Easy to train"
+msgstr "Легко обучаются"
+
+msgid "For active people"
+msgstr "Для активных"
+
+msgid "Quiet dogs"
+msgstr "Тихие"
+
+msgid "Large breeds"
+msgstr "Крупные породы"
+
+msgid "Breed of the day"
+msgstr "Порода дня"
+
+msgid "Another one"
+msgstr "Другая"
+
+msgid "About the breed"
+msgstr "О породе"
+
+msgid "All guides"
+msgstr "Все гайды"
+
+msgid "Browse all breeds"
+msgstr "Смотреть все породы"
+
+msgid "Native name"
+msgstr "Ориг. название"
+
 
 msgid "Size"
 msgstr "Размер"
@@ -856,7 +981,7 @@ msgid "Coat length"
 msgstr "Длина шерсти"
 
 msgid "Life expectancy"
-msgstr "Продолжительность жизни"
+msgstr "Продолжит. жизни"
 
 msgid "Trainability"
 msgstr "Обучаемость"
@@ -1994,35 +2119,13 @@ msgid ""
 "We chose the FCI classification as a convenient basis: below are ten groups "
 "that bring together breeds of similar origin and purpose. The list is still "
 "incomplete — new breeds will be added."
-msgstr ""
-"Мы выбрали классификацию FCI как удобную основу: ниже представлены десять "
-"групп, объединяющих породы со схожим происхождением и назначением. Список "
-"пока неполный — новые породы будут добавляться."
+msgstr "Мы выбрали классификацию FCI как удобную основу: ниже представлены десять групп, объединяющих породы со схожим происхождением и назначением. Список пока неполный — новые породы будут добавляться."
 
-msgid ""
-"The FCI groups dogs first of all by <strong>the work they were bred for</"
-"strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped "
-"hunt birds — the nature of this work shaped their build, coat and behaviour."
-"</p><p class=\"cat-desc\">Within groups there are <strong>sections</strong>, "
-"which may differ by origin or coat type. Size, colour and other outward "
-"traits are taken into account in breed standards, but they do not determine "
-"the group. That is why a small and a large terrier can belong to one group, "
-"while dogs of similar size can belong to different ones."
-msgstr ""
-"FCI распределяет собак по группам прежде всего по <strong>работе, для "
-"которой их выводили</strong>. Овчарки пасли стада, гончие шли по следу, "
-"легавые помогали охотиться на птицу — особенности этой работы повлияли на их "
-"телосложение, шерсть и поведение.</p><p class=\"cat-desc\">Внутри групп есть "
-"<strong>секции</strong>, которые могут различаться по происхождению или типу "
-"шерсти. Размер, окрас и другие внешние признаки учитываются в стандартах "
-"пород, но не определяют группу. Поэтому маленький и крупный терьеры могут "
-"входить в одну группу, а похожие по размеру собаки — в разные."
+msgid "Learn more"
+msgstr "Узнать"
 
-msgid "Look more"
-msgstr "Узнать больше"
-
-msgid "Breeds outside the current FCI structure"
-msgstr "Породы вне текущей структуры FCI"
+msgid "Other breeds"
+msgstr "Другие породы"
 
 msgid ""
 "Some breeds on the site are not currently placed inside the official FCI "
@@ -3088,17 +3191,11 @@ msgstr "Характер"
 msgid "Group, section"
 msgstr "Группа, секция"
 
-msgid ""
-"Varieties within one breed are officially recognized variants of dogs that "
-"share a single breed standard and breed number but differ in key traits: "
-"coat type, size, weight, or colour. Sometimes colour differences are so "
-"significant that such lines are separated into distinct varieties."
-msgstr ""
-"Разновидности внутри одной породы — это официально признанные варианты "
-"собак, объединённые одним стандартом и номером породы, но различающиеся по "
-"ключевым признакам: типу шерсти, размеру, весу или окрасу. Иногда различия в "
-"окрасе настолько существенны, что такие линии выделяются в отдельные "
-"разновидности."
+msgid "Varieties within one breed are variants of dogs recognized by another kennel club that recognizes the breed. They are described in that club's breed standard and differ in key traits: coat type, size, weight, or colour. If the breed is not recognized by any kennel club, the information is taken from open sources on the internet."
+msgstr "Разновидности внутри одной породы — это варианты собак, признанные другим кинологическим клубом, который признаёт породу. Они описаны в стандарте этого клуба и различаются по ключевым признакам: типу шерсти, размеру, весу или окрасу. Если порода не признана ни одним кинологическим клубом, информация взята из открытых источников в интернете."
+
+msgid "Varieties within one breed are variants of dogs officially recognized by the FCI (Fédération Cynologique Internationale). They are described in the breed's FCI standard, which covers all of them under a single breed number, and differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Разновидности внутри одной породы — это варианты собак, официально признанные FCI (Международной кинологической федерацией). Они описаны в стандарте породы FCI, который объединяет их под одним номером породы, и различаются по ключевым признакам: типу шерсти, размеру, весу или окрасу. Иногда различия в окрасе настолько существенны, что такие линии выделяются в отдельные разновидности."
 
 #, python-format
 msgid "%(years)s years"
@@ -3113,14 +3210,8 @@ msgstr "кг"
 msgid "Colors"
 msgstr "Окрас"
 
-msgid ""
-"This website is non-commercial. All images are used with attribution. If you "
-"believe any content violates your rights, your credit is incorrect, or you "
-"would like an image removed —"
-msgstr ""
-"Сайт является некоммерческим. Все изображения используются с указанием "
-"авторства. Если вы считаете, что какой-то материал нарушает ваши права, "
-"указание авторства неверно или вы хотите удалить изображение —"
+msgid "This website is non-commercial. All images are used with attribution. If you would like an image removed —"
+msgstr "Сайт является некоммерческим. Все изображения используются с указанием авторства. Если вы хотите удалить изображение —"
 
 msgid "Varieties of German Spitz (links to breeds):"
 msgstr "Разновидности немецкого шпица (ссылки на породы):"
@@ -4406,12 +4497,8 @@ msgstr "Питание собаки - Woof Dogs"
 msgid "Games & activities - Woof Dogs"
 msgstr "Игры и активности - Woof Dogs"
 
-msgid ""
-"Woof Dogs — the world's dog breeds grouped by FCI classification: "
-"temperament, size, care and more."
-msgstr ""
-"Woof Dogs — породы собак мира по классификации FCI: темперамент, размер, "
-"уход и многое другое."
+msgid "Woof Dogs — a dog breed guide: breeds from around the world, care and interesting facts."
+msgstr "Woof Dogs — справочник пород собак: породы со всего мира, уход и интересные факты."
 
 msgid "Dog Breeds - Woof Dogs"
 msgstr "Породы собак - Woof Dogs"
@@ -4480,11 +4567,11 @@ msgstr "Покладистые и легко обучаемые"
 msgid "Needs More Supervision"
 msgstr "Нужен присмотр"
 
-msgid "Quiet"
-msgstr "Тихие"
+msgid "Rarely bark"
+msgstr "Редко лают"
 
-msgid "Talkative"
-msgstr "Громкие"
+msgid "Bark often"
+msgstr "Часто лают"
 
 msgid "Country"
 msgstr "Страна"
@@ -4503,6 +4590,27 @@ msgstr "Породы - Woof Dogs"
 
 msgid "Groups - Woof Dogs"
 msgstr "Группы - Woof Dogs"
+
+msgid "Woof Dogs — Dog Breed Guide"
+msgstr "Woof Dogs — справочник пород собак"
+
+msgid "Browse all dog breeds on one page and compare size, coat, temperament and care needs."
+msgstr "Все породы собак на одной странице: сравнивайте размер, шерсть, характер и особенности ухода."
+
+msgid "Contact Woof Dogs: questions, corrections, photo credits or suggestions for new breeds."
+msgstr "Связаться с Woof Dogs: вопросы, исправления, авторство фото или предложения новых пород."
+
+msgid "Find a dog breed by size, coat, activity level and other traits."
+msgstr "Подбор породы собаки по размеру, шерсти, активности и другим признакам."
+
+msgid "All FCI dog groups and their sections, with the breeds that belong to each."
+msgstr "Все группы пород по классификации FCI и их секции, с породами, которые к ним относятся."
+
+msgid "About Woof Dogs: a non-commercial guide to dog breeds, how the project began and who it is for."
+msgstr "О Woof Dogs: некоммерческий справочник пород собак, как возник проект и для кого он."
+
+msgid "Guides on choosing, training, feeding and caring for a dog, from the first days with a puppy to everyday health."
+msgstr "Гайды о выборе, дрессировке, кормлении и уходе за собакой: от первых дней со щенком до повседневного здоровья."
 
 #~ msgid "XSmall"
 #~ msgstr "Очень маленький"

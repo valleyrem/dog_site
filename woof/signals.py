@@ -15,7 +15,7 @@ from django.core.cache import cache
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
-from woof.models import Category, Dogs
+from woof.models import Category, DogImage, Dogs
 from woof.utils import CATS_CACHE_KEY, bump_sitemap_version
 
 
@@ -37,4 +37,11 @@ def category_changed(sender, instance, **kwargs):
 def dogs_changed(sender, instance, **kwargs):
     # dog counts are embedded in the cached Category snapshot
     clear_categories_cache()
+    bump_sitemap_version()
+
+
+@receiver(post_save, sender=DogImage)
+@receiver(post_delete, sender=DogImage)
+def gallery_changed(sender, instance, **kwargs):
+    # gallery photos go into the sitemap's image entries
     bump_sitemap_version()

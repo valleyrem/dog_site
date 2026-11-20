@@ -151,23 +151,17 @@ msgid "Welcome!"
 msgstr "Dobrodošli!"
 
 msgid ""
-"This project started as a fun exercise: learning to tell dog breeds apart, remember their names and find out a little more about each one.\n"
+"This project started as a fun exercise: learning to tell dog breeds apart, remember their names and find out a little more about each one.<br>\n"
 "            For convenience, the <strong>FCI (Fédération Cynologique Internationale)</strong> classification was taken as the base."
 msgstr ""
-"Ovaj projekat je nastao kao zabava: naučiti da se razlikuju rase pasa, zapamte njihova imena i sazna nešto više o svakoj.\n"
+"Ovaj projekat je nastao kao zabava: naučiti da se razlikuju rase pasa, zapamte njihova imena i sazna nešto više o svakoj.<br>\n"
 "            Radi lakšeg snalaženja, kao osnova je uzeta klasifikacija <strong>FCI (Fédération Cynologique Internationale)</strong>."
 
 msgid "What is FCI"
 msgstr "Šta je FCI"
 
-msgid ""
-"FCI — Fédération Cynologique Internationale (International Canine "
-"Federation) — the largest international federation of kennel clubs, which "
-"defines official breed standards and group structures worldwide."
-msgstr ""
-"FCI — Fédération Cynologique Internationale (Međunarodna kinološka "
-"federacija) — najveća međunarodna federacija kinoloških saveza koja definiše"
-" zvanične standarde rasa i strukturu grupa širom sveta."
+msgid "FCI — Fédération Cynologique Internationale (International Canine Federation) — the largest international federation of kennel clubs,<br>which defines official breed standards and group structures worldwide."
+msgstr "FCI — Fédération Cynologique Internationale (Međunarodna kinološka federacija) — najveća međunarodna federacija kinoloških saveza<br>koja definiše zvanične standarde rasa i strukturu grupa širom sveta."
 
 msgid "Founded on 22 May 1911, headquartered in Thuin, Belgium."
 msgstr "Osnovana 22. maja 1911. godine, sa sedištem u Tenu (Thuin), Belgija."
@@ -175,18 +169,17 @@ msgstr "Osnovana 22. maja 1911. godine, sa sedištem u Tenu (Thuin), Belgija."
 msgid "98 member countries."
 msgstr "98 zemalja članica."
 
-msgid ""
-"Recognizes 356 breeds; each breed belongs to its country of origin, which "
-"writes its standard; FCI publishes standards in 4 languages (en/fr/de/es)"
-msgstr ""
-"Priznaje 356 rasa; svaka rasa pripada zemlji porekla, koja piše njen "
-"standard; FCI objavljuje standarde na 4 jezika (en/fr/de/es)"
+msgid "Recognizes 356 breeds; each breed belongs to its country of origin, which writes its standard."
+msgstr "Priznaje 356 rasa; svaka rasa pripada zemlji porekla, koja piše njen standard."
+
+msgid "FCI publishes standards in 4 languages (en/fr/de/es)."
+msgstr "FCI objavljuje standarde na 4 jezika (en/fr/de/es)."
 
 msgid ""
-"To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.\n"
+"To provide a broader perspective, the catalog also incorporates data from other kennel organizations, as well as independent breed sources.<br>\n"
 "            As a result, the database includes not only officially recognized breeds, but also less common and developing ones."
 msgstr ""
-"Da bi se dobila šira perspektiva, katalog obuhvata i podatke drugih kinoloških organizacija i nezavisnih izvora o rasama.\n"
+"Da bi se dobila šira perspektiva, katalog obuhvata i podatke drugih kinoloških organizacija i nezavisnih izvora o rasama.<br>\n"
 "            Kao rezultat, baza podataka uključuje ne samo zvanično priznate rase, već i manje poznate i one u razvoju."
 
 msgid ""
@@ -332,8 +325,8 @@ msgstr "Izbor psa"
 msgid "Raising a puppy"
 msgstr "Odgajanje šteneta"
 
-msgid "Dog training fundamentals"
-msgstr "Osnove obuke pasa"
+msgid "Training"
+msgstr "Obuka"
 
 msgid "Dog health & care"
 msgstr "Zdravlje i nega psa"
@@ -757,8 +750,8 @@ msgstr "Više filtera"
 msgid "Fewer filters"
 msgstr "Manje filtera"
 
-msgid "Reset filters"
-msgstr "Resetuj filtere"
+msgid "Reset"
+msgstr "Resetuj"
 
 msgid "Find my breed"
 msgstr "Pronađi moju rasu"
@@ -794,11 +787,11 @@ msgstr "*"
 msgid ""
 "If you don’t see a particular breed on this website, it may simply mean that"
 " it hasn’t been added yet, or that we haven’t found suitable images with "
-"clear attribution or free usage rights 😊"
+"clear attribution or free usage rights."
 msgstr ""
 "Ako na ovom sajtu ne vidite određenu rasu, to može jednostavno značiti da "
 "još nije dodata ili da nismo pronašli odgovarajuće fotografije sa jasnom "
-"atribucijom ili slobodnim pravima korišćenja 😊"
+"atribucijom ili slobodnim pravima korišćenja."
 
 #, python-brace-format
 msgid "{n} selected"
@@ -813,8 +806,141 @@ msgstr "Zatvori"
 msgid "Varieties"
 msgstr "Varijeteti"
 
+msgid "Family"
+msgstr "Porodica"
+
+msgid "Coat"
+msgstr "Dlaka"
+
+msgid "Search"
+msgstr "Pretraga"
+
+msgid "All filters"
+msgstr "Svi filteri"
+
+msgid "Best friends"
+msgstr "Najbolji prijatelji"
+
+msgid "Time to relax"
+msgstr "Vreme za odmor"
+
+msgid "Two dachshunds sniffing each other"
+msgstr "Dva jazavičara se njuše"
+
+msgid "Two dogs resting on the grass"
+msgstr "Dva psa odmaraju na travi"
+
+msgid "Listening closely"
+msgstr "Pažljivo slušaju"
+
+msgid "Meeting new friends"
+msgstr "Nova poznanstva"
+
+msgid "Three dogs sitting and looking up"
+msgstr "Tri psa sede i gledaju uvis"
+
+msgid "Three dogs greeting each other"
+msgstr "Tri psa se pozdravljaju"
+
+msgid "Two Weimaraners and a dachshund"
+msgstr "Dva vajmarana i jazavičar"
+
+msgid "Pure joy"
+msgstr "Čista radost"
+
+msgid "At rest"
+msgstr "Na odmoru"
+
+msgid "Beach day"
+msgstr "Dan na plaži"
+
+msgid "Three dogs running on the sand by the sea"
+msgstr "Tri psa trče po pesku pored mora"
+
+msgid "Photo"
+msgstr "Fotografija"
+
+msgid "Garden friends"
+msgstr "Prijatelji u bašti"
+
+msgid "Dogs in a garden"
+msgstr "Psi u bašti"
+
+msgid "Did you mean:"
+msgstr "Možda ste tražili:"
+
+msgid "Compare with"
+msgstr "Uporedi sa"
+
 msgid "Origin"
 msgstr "Poreklo"
+
+msgid "What you will find on this site"
+msgstr "Šta ćete pronaći na ovom sajtu"
+
+msgid "Our site's catalog combines:"
+msgstr "Katalog našeg sajta objedinjuje:"
+
+msgid "The FCI sorts dogs first of all by <strong>the work they were bred for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers helped hunt birds — the nature of this work shaped their build, coat and behaviour."
+msgstr "FCI deli pse pre svega prema <strong>poslu za koji su uzgajani</strong>. Ovčari su čuvali stada, goniči su išli tragom, ptičari su pomagali u lovu na ptice — osobenosti tog posla oblikovale su njihovu građu, dlaku i ponašanje."
+
+msgid "Each group is divided into <strong>sections</strong> that refine the purpose, origin or traits of the breeds. Some sections are further divided into breeds with and without a working trial, as well as into subsections. We do not separate the latter in our classification."
+msgstr "Svaka grupa se deli na <strong>sekcije</strong> koje preciziraju namenu, poreklo ili osobine rasa. Neke sekcije se dodatno dele na rase sa radnim ispitom i bez njega, kao i na podsekcije. Njih u našoj klasifikaciji ne izdvajamo."
+
+msgid "Each recognized breed has an official standard, prepared by its country of origin and approved by the FCI, as well as its own number."
+msgstr "Svaka priznata rasa ima zvanični standard, koji priprema zemlja porekla, a potvrđuje FCI, kao i sopstveni broj."
+
+msgid "More about FCI classification"
+msgstr "Više o FCI klasifikaciji"
+
+msgid "Created"
+msgstr "Kreirano"
+
+msgid "Updated"
+msgstr "Ažurirano"
+
+msgid "Quick picks"
+msgstr "Brzi izbor"
+
+msgid "For apartments"
+msgstr "Za stan"
+
+msgid "Good with kids"
+msgstr "Dobri sa decom"
+
+msgid "Low shedding"
+msgstr "Slabo se linjaju"
+
+msgid "Easy to train"
+msgstr "Laki za dresuru"
+
+msgid "For active people"
+msgstr "Za aktivne ljude"
+
+msgid "Quiet dogs"
+msgstr "Tihi psi"
+
+msgid "Large breeds"
+msgstr "Velike rase"
+
+msgid "Breed of the day"
+msgstr "Rasa dana"
+
+msgid "Another one"
+msgstr "Druga"
+
+msgid "About the breed"
+msgstr "O rasi"
+
+msgid "All guides"
+msgstr "Svi vodiči"
+
+msgid "Browse all breeds"
+msgstr "Pogledaj sve rase"
+
+msgid "Native name"
+msgstr "Izvorni naziv"
+
 
 msgid "Size"
 msgstr "Veličina"
@@ -1964,31 +2090,11 @@ msgstr ""
 "koje okupljaju rase sličnog porekla i namene. Spisak je za sada nepotpun — "
 "nove rase će biti dodavane."
 
-msgid ""
-"The FCI groups dogs first of all by <strong>the work they were bred "
-"for</strong>. Sheepdogs herded flocks, hounds followed a trail, pointers "
-"helped hunt birds — the nature of this work shaped their build, coat and "
-"behaviour.</p><p class=\"cat-desc\">Within groups there are "
-"<strong>sections</strong>, which may differ by origin or coat type. Size, "
-"colour and other outward traits are taken into account in breed standards, "
-"but they do not determine the group. That is why a small and a large terrier"
-" can belong to one group, while dogs of similar size can belong to different"
-" ones."
-msgstr ""
-"FCI deli pse na grupe pre svega prema <strong>poslu za koji su "
-"odgajani</strong>. Ovčari su čuvali stada, goniči su pratili trag, ptičari "
-"su pomagali u lovu na ptice – priroda tog posla oblikovala je njihovu građu,"
-" dlaku i ponašanje.</p><p class=\"cat-desc\">Unutar grupa postoje "
-"<strong>sekcije</strong>, koje se mogu razlikovati po poreklu ili vrsti "
-"dlake. Veličina, boja i druge spoljašnje osobine uzimaju se u obzir u "
-"standardima rasa, ali ne određuju grupu. Zato mali i veliki terijer mogu "
-"pripadati istoj grupi, a psi slične veličine različitim grupama."
+msgid "Learn more"
+msgstr "Saznaj"
 
-msgid "Look more"
-msgstr "Pogledaj više"
-
-msgid "Breeds outside the current FCI structure"
-msgstr "Rase izvan trenutne FCI strukture"
+msgid "Other breeds"
+msgstr "Ostale rase"
 
 msgid ""
 "Some breeds on the site are not currently placed inside the official FCI "
@@ -3034,16 +3140,11 @@ msgstr "Karakter"
 msgid "Group, section"
 msgstr "Grupa, sekcija"
 
-msgid ""
-"Varieties within one breed are officially recognized variants of dogs that "
-"share a single breed standard and breed number but differ in key traits: "
-"coat type, size, weight, or colour. Sometimes colour differences are so "
-"significant that such lines are separated into distinct varieties."
-msgstr ""
-"Varijeteti unutar jedne rase su zvanično priznate varijante pasa, "
-"objedinjene jednim standardom i brojem rase, ali se razlikuju po ključnim "
-"osobinama: tipu dlake, veličini, težini ili boji. Ponekad su razlike u boji "
-"toliko značajne da se takve linije izdvajaju u odvojene varijetete."
+msgid "Varieties within one breed are variants of dogs recognized by another kennel club that recognizes the breed. They are described in that club's breed standard and differ in key traits: coat type, size, weight, or colour. If the breed is not recognized by any kennel club, the information is taken from open sources on the internet."
+msgstr "Varijeteti unutar jedne rase su varijante pasa koje priznaje drugi kinološki klub koji priznaje rasu. Opisani su u standardu tog kluba i razlikuju se po ključnim osobinama: tipu dlake, veličini, težini ili boji. Ako rasu ne priznaje nijedan kinološki klub, podaci su preuzeti iz otvorenih izvora na internetu."
+
+msgid "Varieties within one breed are variants of dogs officially recognized by the FCI (Fédération Cynologique Internationale). They are described in the breed's FCI standard, which covers all of them under a single breed number, and differ in key traits: coat type, size, weight, or colour. Sometimes colour differences are so significant that such lines are separated into distinct varieties."
+msgstr "Varijeteti unutar jedne rase su varijante pasa koje je zvanično priznala FCI (Fédération Cynologique Internationale). Opisani su u FCI standardu rase, koji ih objedinjuje pod jednim brojem rase, a razlikuju se po ključnim osobinama: tipu dlake, veličini, težini ili boji. Ponekad su razlike u boji toliko značajne da se takve linije izdvajaju u odvojene varijetete."
 
 #, python-format
 msgid "%(years)s years"
@@ -3058,14 +3159,8 @@ msgstr "kg"
 msgid "Colors"
 msgstr "Boje"
 
-msgid ""
-"This website is non-commercial. All images are used with attribution. If you"
-" believe any content violates your rights, your credit is incorrect, or you "
-"would like an image removed —"
-msgstr ""
-"Sajt je nekomercijalan. Sve slike se koriste uz navođenje autorstva. Ako "
-"smatrate da neki sadržaj krši vaša prava, da je autorstvo pogrešno navedeno "
-"ili želite da se slika ukloni —"
+msgid "This website is non-commercial. All images are used with attribution. If you would like an image removed —"
+msgstr "Ovaj sajt nije komercijalan. Sve fotografije se koriste uz navođenje autora. Ako želite da se neka fotografija ukloni —"
 
 msgid "Varieties of German Spitz (links to breeds):"
 msgstr "Varijeteti nemačkog špica (linkovi ka rasama):"
@@ -4329,12 +4424,8 @@ msgstr "Ishrana vašeg psa - Woof Dogs"
 msgid "Games & activities - Woof Dogs"
 msgstr "Igre i aktivnosti - Woof Dogs"
 
-msgid ""
-"Woof Dogs — the world's dog breeds grouped by FCI classification: "
-"temperament, size, care and more."
-msgstr ""
-"Woof Dogs — rase pasa celog sveta grupisane po FCI klasifikaciji: "
-"temperament, veličina, nega i više."
+msgid "Woof Dogs — a dog breed guide: breeds from around the world, care and interesting facts."
+msgstr "Woof Dogs — vodič kroz rase pasa: rase iz celog sveta, nega i zanimljivosti."
 
 msgid "Dog Breeds - Woof Dogs"
 msgstr "Rase pasa - Woof Dogs"
@@ -4403,11 +4494,11 @@ msgstr "Saradljivi i laki za dresuru"
 msgid "Needs More Supervision"
 msgstr "Potreban nadzor"
 
-msgid "Quiet"
-msgstr "Tihi"
+msgid "Rarely bark"
+msgstr "Retko laju"
 
-msgid "Talkative"
-msgstr "Glasni"
+msgid "Bark often"
+msgstr "Često laju"
 
 msgid "Country"
 msgstr "Zemlja"
@@ -4426,6 +4517,27 @@ msgstr "Rase - Woof Dogs"
 
 msgid "Groups - Woof Dogs"
 msgstr "Grupe - Woof Dogs"
+
+msgid "Woof Dogs — Dog Breed Guide"
+msgstr "Woof Dogs — vodič kroz rase pasa"
+
+msgid "Browse all dog breeds on one page and compare size, coat, temperament and care needs."
+msgstr "Sve rase pasa na jednoj stranici: uporedite veličinu, dlaku, karakter i potrebe za negom."
+
+msgid "Contact Woof Dogs: questions, corrections, photo credits or suggestions for new breeds."
+msgstr "Kontaktirajte Woof Dogs: pitanja, ispravke, autorstvo fotografija ili predlozi novih rasa."
+
+msgid "Find a dog breed by size, coat, activity level and other traits."
+msgstr "Pronađite rasu psa prema veličini, dlaci, nivou aktivnosti i drugim osobinama."
+
+msgid "All FCI dog groups and their sections, with the breeds that belong to each."
+msgstr "Sve FCI grupe pasa i njihove sekcije, sa rasama koje im pripadaju."
+
+msgid "About Woof Dogs: a non-commercial guide to dog breeds, how the project began and who it is for."
+msgstr "O Woof Dogs: nekomercijalni vodič kroz rase pasa, kako je projekat nastao i kome je namenjen."
+
+msgid "Guides on choosing, training, feeding and caring for a dog, from the first days with a puppy to everyday health."
+msgstr "Vodiči o izboru, dresuri, ishrani i nezi psa: od prvih dana sa štenetom do svakodnevnog zdravlja."
 
 #~ msgid "XSmall"
 #~ msgstr "Vrlo mali"

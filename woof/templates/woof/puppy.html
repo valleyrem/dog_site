@@ -15,7 +15,8 @@
 
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Raising a puppy{% endblocktranslate %}</h1>
 
-{% include 'woof/includes/guide_disclaimer.html' %}
+    {% include "woof/includes/page_dates.html" with created=page_created updated=page_updated %}
+
 
     <div class="post-text-explore">
 
@@ -30,6 +31,8 @@
         >
 
     {% include "woof/includes/guide_toc.html" %}
+
+    {% include 'woof/includes/guide_disclaimer.html' %}
 
         <p class="section-title">{% blocktranslate trimmed %}What to expect during puppyhood{% endblocktranslate %}</p>
 

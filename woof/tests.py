@@ -3,7 +3,7 @@ import io
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.conf import settings
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from PIL import Image
 
@@ -119,9 +119,7 @@ class BreedApiTests(TestCase):
         # DB record points at a file that is not in the storage. update() is
         # used on purpose: saving the instance would make imagekit try to
         # rebuild the (nonexistent) source.
-        Dogs.objects.filter(pk=self.published.pk).update(
-            photo="photos/nonexistent.png"
-        )
+        Dogs.objects.filter(pk=self.published.pk).update(photo="photos/nonexistent.png")
         response = self.client.get(reverse("breed-api", args=[self.published.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["photo"], "")
@@ -240,17 +238,23 @@ class BreedsFilterTests(TestCase):
     def test_buttons_follow_the_model_fields(self):
         response = self.client.get(reverse("breeds"))
         filters = response.context["filters"]
-        self.assertEqual(len(filters), 11)
+        self.assertEqual(len(filters), 13)  # 11 plus quiet and talkative
         self.assertEqual(filters[0]["key"], "size-small-medium")
         self.assertEqual(filters[0]["group"], "size")
         self.assertEqual(filters[4]["key"], "low-shedding")
-        self.assertEqual(filters[10]["key"], "family")
+        self.assertEqual(filters[-1]["key"], "family")
+        # barking sits in the activity row but stays a choice of its own
+        barking = [f for f in filters if f["group"] == "barking"]
+        self.assertEqual([f["key"] for f in barking], ["quiet", "talkative"])
+        self.assertEqual({f["row"] for f in barking}, {"activity"}),
 
-    def test_row_has_buttons_including_reset(self):
+    def test_filters_have_buttons_and_reset(self):
         html = self.client.get(reverse("breeds")).content.decode()
-        self.assertIn('data-filter="all"', html)
-        # 11 filters plus the "all breeds" reset; the cross span is not a button
-        self.assertEqual(html.count('data-filter="'), 12)
+        # there is no "all breeds" button: the reset buttons clear the filters
+        self.assertNotIn('data-filter="all"', html)
+        self.assertIn("data-breeds-reset", html)
+        # 13 filters; the cross span is not a button
+        self.assertEqual(html.count('data-filter="'), 13)
         self.assertIn("filter-btn__cross", html)
         self.assertIn('data-group="size"', html)  # one choice per group
         self.assertIn("data-filters-empty" if False else "data-breeds-empty", html)
@@ -291,12 +295,12 @@ class BreedsFilterTests(TestCase):
         self.assertIn('data-search="Beagle', html)
         self.assertIn(f'data-id="{self.small_dog.pk}"', html)
 
-    def test_extra_filters_cover_barking_country_coat_type(self):
+    def test_extra_filters_cover_country_and_coat_type(self):
         groups = [
             g["group"]
             for g in self.client.get(reverse("breeds")).context["extra_filters"]
         ]
-        self.assertEqual(groups, ["country", "coattype", "barking"])
+        self.assertEqual(groups, ["country", "coattype"])
 
     def test_no_leftover_alphabet_or_dropdown(self):
         html = self.client.get(reverse("breeds")).content.decode()
@@ -311,7 +315,7 @@ class BreedsFilterTests(TestCase):
     def test_canonical_drops_the_query_string(self):
         html = self.client.get(reverse("dogs_list") + "?size=small").content.decode()
         self.assertIn('rel="canonical"', html)
-        self.assertNotIn("canonical\" href=\"http://testserver/dogs/?size", html)
+        self.assertNotIn('canonical" href="http://testserver/dogs/?size', html)
 
 
 class PostNavigationTests(TestCase):
@@ -431,7 +435,12 @@ class ConsentLogTests(TestCase):
     def test_one_row_per_consent_id_and_update_in_place(self):
         from woof.models import ConsentLog
 
-        payload = {"action": "accepted_all", "analytics": True, "id": "abc-1", "notice": 1}
+        payload = {
+            "action": "accepted_all",
+            "analytics": True,
+            "id": "abc-1",
+            "notice": 1,
+        }
         self.post(payload)
         self.assertEqual(ConsentLog.objects.count(), 1)
 
@@ -544,24 +553,35 @@ class SeoTests(TestCase):
 
     def test_breadcrumbs_schema_counts_positions(self):
         html = self.client.get(
-            reverse("post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug})
+            reverse(
+                "post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug}
+            )
         ).content.decode()
         self.assertIn('"@type": "BreadcrumbList"', html)
-        for position in ('"position": 1', '"position": 2', '"position": 3', '"position": 4'):
+        for position in (
+            '"position": 1',
+            '"position": 2',
+            '"position": 3',
+            '"position": 4',
+        ):
             self.assertIn(position, html)
 
     def test_breed_page_lists_similar_breeds_only(self):
         response = self.client.get(
-            reverse("post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug})
+            reverse(
+                "post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug}
+            )
         )
         similar = [dog.slug for dog in response.context["similar_dogs"]]
-        self.assertIn("basset-hound", similar)   # same size + activity
-        self.assertNotIn("beagle", similar)      # never itself
-        self.assertNotIn("borzoi", similar)      # different size and energy
+        self.assertIn("basset-hound", similar)  # same size + activity
+        self.assertNotIn("beagle", similar)  # never itself
+        self.assertNotIn("borzoi", similar)  # different size and energy
 
     def test_similar_breeds_put_the_shared_coat_first(self):
         response = self.client.get(
-            reverse("post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug})
+            reverse(
+                "post", kwargs={"cat_slug": self.cat.slug, "post_slug": self.dog.slug}
+            )
         )
         similar = [dog.slug for dog in response.context["similar_dogs"]]
         self.assertLess(similar.index("poodle"), similar.index("pug"))
@@ -611,12 +631,22 @@ class BreedPageExtrasTests(TestCase):
     def setUpTestData(cls):
         cat = Category.objects.create(name="Group", slug="group", fci_number=1)
         cls.dog = Dogs.objects.create(
-            title="Alpha", slug="alpha", cat=cat, size="medium",
-            activity_level="calm", weight_male="10", weight_female="12",
+            title="Alpha",
+            slug="alpha",
+            cat=cat,
+            size="medium",
+            activity_level="calm",
+            weight_male="10",
+            weight_female="12",
         )
         cls.mate = Dogs.objects.create(
-            title="Beta", slug="beta", cat=cat, size="medium",
-            activity_level="energetic", weight_male="30", weight_female="28",
+            title="Beta",
+            slug="beta",
+            cat=cat,
+            size="medium",
+            activity_level="energetic",
+            weight_male="30",
+            weight_female="28",
         )
 
     def test_updated_note(self):
@@ -653,3 +683,21 @@ class BreedPageExtrasTests(TestCase):
         notes = breed_differences(self.dog, self.mate)
         self.assertIn("more energetic", [str(n) for n in notes])
         self.assertIn("heavier", [str(n) for n in notes])
+
+
+class RobotsTests(TestCase):
+    @override_settings(ALLOWED_HOSTS=["woofdogs.world"])
+    def test_production_host_is_open_with_a_sitemap(self):
+        response = self.client.get("/robots.txt", HTTP_HOST="woofdogs.world")
+        text = response.content.decode()
+        self.assertIn("Sitemap: http://woofdogs.world/sitemap.xml", text)
+        self.assertIn("Disallow: /admin/", text)
+        self.assertNotIn("Disallow: /\n", text)
+        self.assertNotIn("X-Robots-Tag", response.headers)
+
+    @override_settings(ALLOWED_HOSTS=["dev.woofdogs.world"])
+    def test_other_hosts_are_closed_to_search_engines(self):
+        response = self.client.get("/robots.txt", HTTP_HOST="dev.woofdogs.world")
+        self.assertIn("Disallow: /", response.content.decode())
+        self.assertNotIn("Sitemap", response.content.decode())
+        self.assertEqual(response.headers["X-Robots-Tag"], "noindex, nofollow")

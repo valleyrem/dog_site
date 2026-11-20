@@ -25,7 +25,7 @@ EN = {
             STOMACH,
         ],
         "quirks": [
-            "The name Bloodhound does not mean a hound that seeks blood, but a hound of \"noble blood\": it stressed the purity of the breed's descent.",
+            'The name Bloodhound does not mean a hound that seeks blood, but a hound of "noble blood": it stressed the purity of the breed\'s descent.',
             "The ancestors of the modern Bloodhound were bred for centuries by the monks of the Abbey of Saint-Hubert in the Ardennes. That is why the breed is still called the Saint Hubert Hound in some countries.",
             "In the United States, the tracking results of specially trained and certified Bloodhounds have in some cases been accepted as evidence in court. Their sense of smell lets them tell a person's individual scent apart and follow it over long distances.",
         ],
@@ -39,7 +39,7 @@ EN = {
             STOMACH,
         ],
         "quirks": [
-            "The breed's name comes from the French word bas, meaning \"low\", which reflects its characteristic build.",
+            'The breed\'s name comes from the French word bas, meaning "low", which reflects its characteristic build.',
             "A sad-eyed Basset Hound became the mascot of the American shoe brand Hush Puppies.",
             "In its ability to follow a scent trail, the Basset Hound is second only to the Bloodhound. Its long ears and folds of skin help keep scents closer to the nose while it is tracking.",
         ],
@@ -54,7 +54,7 @@ EN = {
         "quirks": [
             "The breed's name comes from the Swedish word drev, meaning a hunt in which hounds pursue the game and drive it towards the hunters.",
             "The Drever was developed in Sweden from the German Westphalian Dachsbracke. It has proved especially good at hunting roe deer, because it can follow a trail for a long time without rushing the game.",
-            "The name \"Drever\" was chosen in 1947 as the result of a competition announced in a Swedish newspaper. Soon afterwards the breed was officially recognised as a breed in its own right.",
+            'The name "Drever" was chosen in 1947 as the result of a competition announced in a Swedish newspaper. Soon afterwards the breed was officially recognised as a breed in its own right.',
         ],
     },
     "black-and-tan-coonhound": {
@@ -89,7 +89,7 @@ EN = {
         ],
         "quirks": [
             "The Slovakian Hound is considered a national breed of Slovakia and one of the country's best-known hunting dogs.",
-            "The breed was developed to track deer and hunt wild boar. Since 1963 the FCI has recognised it under the name \"Slovakian Hound\".",
+            'The breed was developed to track deer and hunt wild boar. Since 1963 the FCI has recognised it under the name "Slovakian Hound".',
             "The rust-coloured markings above the eyes look like a second pair of eyebrows and give the dog an expressive, slightly questioning look.",
         ],
     },
@@ -102,7 +102,7 @@ EN = {
         ],
         "quirks": [
             "The characteristic ridge on the back is a strip of hair that grows in the opposite direction to the rest of the coat. This feature is so important that it gave the breed its name, Ridgeback.",
-            "In southern Africa the breed was nicknamed the \"African lion dog\". Ridgebacks worked in groups: they tracked lions and kept them at bay with barking and a show of threat until the hunter arrived.",
+            'In southern Africa the breed was nicknamed the "African lion dog". Ridgebacks worked in groups: they tracked lions and kept them at bay with barking and a show of threat until the hunter arrived.',
             "The breed's name is linked to Rhodesia, the historical name of the territory of present-day Zimbabwe. It was in southern Africa that the modern Ridgeback type took shape, adapted to a hot climate and difficult hunting conditions.",
         ],
     },
@@ -114,9 +114,9 @@ EN = {
             "Worth knowing: Keep food and treats in closed containers: it has an excellent nose. Beagles love their food and put on weight easily, so measure out portions.",
         ],
         "quirks": [
-            "Snoopy from the \"Peanuts\" comics is a Beagle. Thanks to this character the breed became recognisable all over the world.",
+            'Snoopy from the "Peanuts" comics is a Beagle. Thanks to this character the breed became recognisable all over the world.',
             "In American airports, special dog teams called the Beagle Brigade work. Beagles in green vests detect fruit, meat and other products prohibited from import in passengers' luggage.",
-            "On a trail, Beagles give voice with a special drawn-out \"hound\" bay: hunters can tell from it where the dog is.",
+            'On a trail, Beagles give voice with a special drawn-out "hound" bay: hunters can tell from it where the dog is.',
         ],
     },
 }

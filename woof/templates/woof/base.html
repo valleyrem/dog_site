@@ -41,6 +41,7 @@
     {% block styles %}{% endblock %}
 
     <link rel="stylesheet" href="{% asset 'woof/css/styles.css' %}">
+    <link rel="stylesheet" href="{% asset 'woof/css/tablet.css' %}">
     <link rel="stylesheet" href="{% asset 'woof/css/mobile.css' %}">
 
     <link
@@ -381,7 +382,7 @@
                 <!-- Main menu -->
                 <ul class="mobile-menu__list--top">
 
-                    {% for m in menu %}
+                    {% for m in menu_with_home %}
                         <li class="mobile-menu__item {% if menu_active == m.url_name %}is-active{% endif %}">
                             <a href="{% url m.url_name %}" title="{{ m.title }}">
                                 {{ m.title }}
@@ -424,7 +425,7 @@
 
             <ul>
 
-                {% for m in menu %}
+                {% for m in menu_with_home %}
                     <li>
                         <a href="{% url m.url_name %}" title="{{ m.title }}">
                             {{ m.title }}
@@ -463,8 +464,8 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'guide-training' %}" title="{% trans 'Dog training fundamentals' %}">
-                        {% trans "Dog training fundamentals" %}
+                    <a href="{% url 'guide-training' %}" title="{% trans 'Training' %}">
+                        {% trans "Training" %}
                     </a>
                 </li>
 

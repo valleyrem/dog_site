@@ -13,45 +13,15 @@
 </div>
 
 <!-- Main content -->
-<div class="policy-container">
+<div class="policy-container hyphenate">
 
     <h1 class="post-title-cat">{% blocktranslate trimmed %}Privacy Policy{% endblocktranslate %}</h1>
 
-    <p>{% blocktranslate trimmed %}Last updated: November 3, 2026{% endblocktranslate %}</p>
+    {% include "woof/includes/page_dates.html" with updated=page_updated %}
 
 
-    <!-- Table of Contents -->
-    <h2 class="section-title">{% blocktranslate trimmed %}Table of Contents{% endblocktranslate %}</h2>
-
-    <div class="num-list">
-
-        <a href="#who-we-are" title="{% trans 'Who we are' %}">{% blocktranslate trimmed %}1. Who we are{% endblocktranslate %}</a>
-
-        <a href="#no-direct-data" title="{% trans 'Personal data you provide' %}">{% blocktranslate trimmed %}2. Personal data you provide{% endblocktranslate %}</a>
-
-        <a href="#auto-data" title="{% trans 'Automatically collected information' %}">{% blocktranslate trimmed %}3. Automatically collected information{% endblocktranslate %}</a>
-
-        <a href="#purposes" title="{% trans 'Purposes of processing' %}">{% blocktranslate trimmed %}4. Purposes of processing{% endblocktranslate %}</a>
-
-        <a href="#legal-bases" title="{% trans 'Legal bases and regional laws' %}">{% blocktranslate trimmed %}5. Legal bases and regional laws{% endblocktranslate %}</a>
-
-        <a href="#cookies" title="{% trans 'Cookies and tracking technologies' %}">{% blocktranslate trimmed %}6. Cookies and tracking technologies{% endblocktranslate %}</a>
-
-        <a href="#sharing" title="{% trans 'Sharing of information' %}">{% blocktranslate trimmed %}7. Sharing of information{% endblocktranslate %}</a>
-
-        <a href="#international" title="International data transfers">{% blocktranslate trimmed %}8. International data transfers{% endblocktranslate %}</a>
-
-        <a href="#retention" title="{% trans 'Data retention' %}">{% blocktranslate trimmed %}9. Data retention{% endblocktranslate %}</a>
-
-        <a href="#rights" title="{% trans 'Your privacy rights' %}">{% blocktranslate trimmed %}10. Your privacy rights{% endblocktranslate %}</a>
-
-        <a href="#children" title="{% trans 'Children’s privacy' %}">{% blocktranslate trimmed %}11. Children’s privacy{% endblocktranslate %}</a>
-
-        <a href="#updates" title="{% trans 'Updates to this policy' %}">{% blocktranslate trimmed %}12. Updates to this policy{% endblocktranslate %}</a>
-
-        <a href="#contact" title="{% trans 'Contact information' %}">{% blocktranslate trimmed %}13. Contact information{% endblocktranslate %}</a>
-
-    </div>
+    <!-- Contents -->
+    {% include "woof/includes/guide_toc.html" with all=True %}
 
 
     <!-- Who we are -->

@@ -6,7 +6,12 @@ from woof.migrations._tr_spitz_a import NECK
 _JACK = _tr_ter_d.TR["jack-russell-terrier"]
 EYES = {
     lang: next(line for line in _JACK[lang]["care"] if line.startswith(label))
-    for lang, label in (("de", "Augen:"), ("it", "Occhi:"), ("es", "Ojos:"), ("sr_latn", "Oči:"))
+    for lang, label in (
+        ("de", "Augen:"),
+        ("it", "Occhi:"),
+        ("es", "Ojos:"),
+        ("sr_latn", "Oči:"),
+    )
 }
 
 TR = {
