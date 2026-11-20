@@ -216,7 +216,7 @@
     width: 100%;
   }
   .breeds-panel {
-    margin: 12px 0;
+    margin: 0 0 12px;
   }
   .filter-row {
     grid-template-columns: minmax(0, 1fr);
@@ -224,7 +224,7 @@
     padding: 9px 0;
   }
   .breeds-quiz {
-    margin-top: 15px;
+    margin: 6px 0;
   }
   .breeds-reset-bottom {
     display: flex;
@@ -571,6 +571,8 @@
 
   .footer-bottom p {
     text-align: center;
+    font-size: 14px;
+    letter-spacing: normal;
   }
 
   .footer-col ul li {
@@ -1037,7 +1039,8 @@
     display: none;
   }
   .page-dates .post-copy {
-    margin: -4px 5px -4px auto;
+    padding: 0;
+    margin: -4px -3px -4px auto;
   }
 
   .post-copy-label {
@@ -1388,7 +1391,7 @@
   }
 
   .bc-dialog__head {
-    padding: 10px 0 0 10px;
+    padding: 10px 0 0;
   }
 
   .custom-select-item {
@@ -1683,6 +1686,11 @@
   .cookie-item {
     flex-direction: column;
     gap: 10px;
+  }
+  .cookie-edit--wait {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
   .cookie-edit {
     left: 8px;

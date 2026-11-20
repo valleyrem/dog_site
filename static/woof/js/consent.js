@@ -228,12 +228,28 @@
     });
   }
 
-  // Button on the Cookie Policy page: reopen the same consent window
-  const policyOpenBtn = document.getElementById("cookie-policy-open");
-  if (policyOpenBtn) {
-    policyOpenBtn.addEventListener("click", () => {
+  // On phones the button waits until the visitor has scrolled a little, so it
+  // does not cover the first photo; the Cookie Policy page keeps its own button
+  if (editBtn) {
+    const phone = window.matchMedia("(max-width: 767px)");
+    const update = () =>
+      editBtn.classList.toggle(
+        "cookie-edit--wait",
+        phone.matches && window.scrollY < 80,
+      );
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    phone.addEventListener("change", update);
+  }
+
+  // Footer link and the button on the Cookie Policy page: reopen the same
+  // consent window
+  ["cookie-policy-open", "cookie-prefs-open"].forEach((id) => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener("click", () => {
       setToggleFromConsent();
       showBanner();
     });
-  }
+  });
 })();

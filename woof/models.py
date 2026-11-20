@@ -135,7 +135,9 @@ class Dogs(models.Model):
     slug = models.SlugField(
         max_length=255, unique=True, db_index=True, verbose_name="URL"
     )
-    cat = models.ForeignKey("Category", on_delete=models.PROTECT, verbose_name="Group")
+    cat = models.ForeignKey(
+        "Category", on_delete=models.PROTECT, verbose_name="FCI group"
+    )
 
     section = ChainedForeignKey(
         "Section",
@@ -333,7 +335,7 @@ class Dogs(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True, verbose_name="Category")
+    name = models.CharField(max_length=100, db_index=True, verbose_name="FCI group")
     slug = models.SlugField(
         max_length=255, unique=True, db_index=True, verbose_name="URL"
     )
@@ -353,8 +355,8 @@ class Category(models.Model):
         return reverse("category", kwargs={"cat_slug": self.slug})
 
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = "FCI group"
+        verbose_name_plural = "FCI groups"
         ordering = ["fci_number"]
 
 
@@ -365,7 +367,7 @@ class Section(models.Model):
         "Category",
         on_delete=models.CASCADE,
         related_name="sections",
-        verbose_name="Category",
+        verbose_name="FCI group",
     )
 
     position = models.PositiveSmallIntegerField(
