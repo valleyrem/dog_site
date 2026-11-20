@@ -268,24 +268,26 @@ class ShowPost(DataMixin, DetailView):
                 return HttpResponsePermanentRedirect(moved.get_absolute_url())
         return super().get(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = context["post"]
-
-        # previous/next breed in the same order the lists use (title, then
-        # id for equal names), wrapping around at the ends
+    @staticmethod
+    def _neighbours(post):
+        """Previous/next breed in the same order the lists use (title, then id
+        for equal names), wrapping around at the ends."""
         dogs_qs = Dogs.objects.filter(is_published=True).order_by("title", "id")
         earlier = Q(title__lt=post.title) | Q(title=post.title, id__lt=post.id)
         later = Q(title__gt=post.title) | Q(title=post.title, id__gt=post.id)
-        context["prev_post"] = dogs_qs.filter(earlier).last() or dogs_qs.last()
-        context["next_post"] = dogs_qs.filter(later).first() or dogs_qs.first()
+        return (
+            dogs_qs.filter(earlier).last() or dogs_qs.last(),
+            dogs_qs.filter(later).first() or dogs_qs.first(),
+        )
 
-        # Similar breeds: same size class first, then the same coat length,
-        # the same coat type and finally the same activity level. Size is the
-        # only hard requirement, so the block is never empty.
+    @staticmethod
+    def _similar(post):
+        """Same size class first, then the same coat length, the same coat type
+        and finally the same activity level. Size is the only hard requirement,
+        so the block is never empty."""
         coat_ids = list(post.coat_length.values_list("id", flat=True))
         type_ids = list(post.coat_type.values_list("id", flat=True))
-        context["similar_dogs"] = list(
+        similar = list(
             Dogs.objects.filter(is_published=True, size=post.size)
             .exclude(pk=post.pk)
             .select_related("cat")
@@ -308,11 +310,16 @@ class ShowPost(DataMixin, DetailView):
             )
             .order_by("-coat_hits", "-type_hits", "-activity_hits", "title")[:5]
         )
-
-        for mate in context["similar_dogs"]:
+        for mate in similar:
             mate.differences = breed_differences(post, mate)
+        return similar
 
-        # related breeds from the same group
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = context["post"]
+
+        context["prev_post"], context["next_post"] = self._neighbours(post)
+        context["similar_dogs"] = self._similar(post)
         context["related_dogs"] = (
             Dogs.objects.filter(cat=post.cat, is_published=True)
             .select_related("cat", "section")
@@ -320,14 +327,10 @@ class ShowPost(DataMixin, DetailView):
             .order_by("title")
         )
 
-        # SEO: page description + share image for this breed
         context["meta_description"] = post.summary or DEFAULT_META_DESCRIPTION
-
-        # Share preview (Telegram/WhatsApp/iMessage): the title and the group.
-        # Character traits are deliberately left out of the link preview.
+        # the link preview carries the title and the group, no character traits
         context["og_description"] = str(post.cat.name)
-
-        # branded share card (breed photo + "woof dogs" panel), generated on demand
+        # branded share card, generated on demand
         if post.photo:
             context["og_image"] = self.request.build_absolute_uri(
                 reverse("breed_og", kwargs={"slug": post.slug})

@@ -6209,8 +6209,8 @@ body .param-card .icon.pi {
   }
   .compare-section .compare-wrap .compare-controls .custom-select {
     flex: 0 0 320px;
-    width: 320px;
-    max-width: 320px;
+    width: 260px;
+    max-width: 260px;
   }
 }
 @media (min-width: 1033px) {
