@@ -765,8 +765,8 @@ msgstr "Meno filtri"
 msgid "Reset"
 msgstr "Reimposta"
 
-msgid "Find my breed"
-msgstr "Trova la mia razza"
+msgid "Find a breed for me"
+msgstr "Trova la razza per me"
 
 msgid "Try “dachshund”, “Germany”, etc."
 msgstr "Prova “bassotto”, “Germania”, ecc."

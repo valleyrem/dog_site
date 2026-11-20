@@ -1,4 +1,5 @@
 import logging
+import re
 
 import requests
 from django.conf import settings
@@ -52,6 +53,22 @@ DEFAULT_META_DESCRIPTION = _(
     "Woof Dogs — a dog breed guide: breeds from around the world, care "
     "and interesting facts."
 )
+
+
+META_LIMIT = 160
+
+
+def shorten_meta(text, limit=META_LIMIT):
+    """A meta description search engines show whole: cut at the last full
+    sentence that fits, or at a word with an ellipsis."""
+    text = " ".join(str(text).split())
+    if len(text) <= limit:
+        return text
+    head = text[:limit]
+    ends = [m.end() for m in re.finditer(r"[.!?](?=\s|$)", head)]
+    if ends and ends[-1] >= limit // 2:
+        return head[: ends[-1]]
+    return head[: head.rfind(" ")].rstrip(" ,;:—-") + "…"
 
 
 SITEMAP_CACHE_KEY = "sitemap"
@@ -165,7 +182,9 @@ class DataMixin:
 
         # SEO: description + hreflang alternates
         path = self.request.path
-        context.setdefault("meta_description", DEFAULT_META_DESCRIPTION)
+        context["meta_description"] = shorten_meta(
+            context.get("meta_description") or DEFAULT_META_DESCRIPTION
+        )
         # Open Graph locale: the page's own plus every other language
         context["og_locale"] = OG_LOCALES.get(
             get_language(), OG_LOCALES[settings.LANGUAGE_CODE]

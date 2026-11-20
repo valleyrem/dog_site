@@ -770,8 +770,8 @@ msgstr "Weniger Filter"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-msgid "Find my breed"
-msgstr "Meine Rasse finden"
+msgid "Find a breed for me"
+msgstr "Rasse für mich finden"
 
 msgid "Try “dachshund”, “Germany”, etc."
 msgstr "Probiere „Dackel“, „Deutschland“ usw."

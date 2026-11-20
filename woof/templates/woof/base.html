@@ -15,7 +15,7 @@
     <script>document.documentElement.classList.add("js");</script>
 
     <!-- Google Tag Manager is NOT loaded here anymore.
-         It is injected by woof/js/scripts.js ONLY after the visitor
+         It is injected by woof/js/consent.js ONLY after the visitor
          grants analytics consent through the cookie banner (GDPR). -->
 
     <!-- Meta -->
@@ -67,7 +67,11 @@
 
 
     <!-- Global scripts -->
-    <script src="{% asset 'woof/js/scripts.js' %}" defer></script>
+    <script src="{% asset 'woof/js/core.js' %}" defer></script>
+    <script src="{% asset 'woof/js/layout.js' %}" defer></script>
+    <script src="{% asset 'woof/js/sliders.js' %}" defer></script>
+    <script src="{% asset 'woof/js/content.js' %}" defer></script>
+    <script src="{% asset 'woof/js/consent.js' %}" defer></script>
 
 
     <!-- Open Graph -->

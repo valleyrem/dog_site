@@ -16,7 +16,7 @@ def asset(path):
 
     In production the manifest storage already puts a content hash into the
     file name, so a plain {% static %} is enough. Locally the names never
-    change, and a browser happily keeps an old scripts.js or styles.css — the
+    change, and a browser happily keeps an old script or stylesheet — the
     stamp makes every saved file a new URL and removes that class of
     "it doesn't work, but the code is right" confusion.
     """

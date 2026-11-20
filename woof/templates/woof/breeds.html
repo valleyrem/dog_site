@@ -1,6 +1,7 @@
 {% extends 'woof/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load assets %}
 
 {% block content %}
 
@@ -50,8 +51,8 @@
     <!-- Quiz: under the search -->
     <div class="breeds-quiz">
         <button type="button"
-                class="guide-more"
-                data-breeds-quiz-open>{% trans "Find my breed" %}</button>
+                class="guide-more guide-more--match"
+                data-breeds-quiz-open>{% trans "Find a breed for me" %}</button>
     </div>
 
     <!-- Filter panel: one line of actions, then the filters as labelled
@@ -230,7 +231,11 @@
          data-i18n-years="{% trans 'years' %}"></div>
 </dialog>
 
-{% comment %} ---- "Find my breed": every answer is one filter key ---- {% endcomment %}
+{% comment %} ---- "Find a breed for me": every answer is one filter key ---- {% endcomment %}
 {% include "woof/includes/quiz_dialog.html" %}
 
+{% endblock %}
+
+{% block body_scripts %}
+<script src="{% asset 'woof/js/breeds.js' %}" defer></script>
 {% endblock %}

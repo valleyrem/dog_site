@@ -753,8 +753,8 @@ msgstr "Manje filtera"
 msgid "Reset"
 msgstr "Resetuj"
 
-msgid "Find my breed"
-msgstr "Pronađi moju rasu"
+msgid "Find a breed for me"
+msgstr "Pronađi rasu za mene"
 
 msgid "Try “dachshund”, “Germany”, etc."
 msgstr "Probaj „jazavičar“, „Nemačka“ itd."

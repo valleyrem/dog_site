@@ -1034,17 +1034,16 @@
     gap: 15px;
   }
   .breadcrumbs-wrapper .post-copy {
-    position: absolute;
-    right: 5px;
-    top: 75px;
-    transform: translateY(-50%);
-    margin: 0;
+    display: none;
+  }
+  .page-dates .post-copy {
+    margin: -4px 5px -4px auto;
   }
 
   .post-copy-label {
     display: none;
   }
-  .breadcrumbs-wrapper .post-copy-toast {
+  .page-dates .post-copy-toast {
     left: auto;
     right: calc(100% + 8px);
     top: 50%;
@@ -1246,6 +1245,9 @@
   .page-dates {
     font-size: 10px;
     margin: 5px 0 10px;
+  }
+  .post-container .page-dates {
+    align-items: center;
   }
 
   .param-info:hover .param-tooltip,

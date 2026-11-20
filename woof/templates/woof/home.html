@@ -2,6 +2,7 @@
 
 {% block reading_progress %}{% endblock %}
 {% load static %}
+{% load assets %}
 {% load i18n %}
 {% load cards %}
 
@@ -67,6 +68,7 @@
 {% block main_class %}fullwidth-content{% endblock %}
 
 {% block body_scripts %}
+<script src="{% asset 'woof/js/home.js' %}" defer></script>
 <script>
     window.addEventListener('load', function () {
 
@@ -155,7 +157,7 @@
                                     </button>
 
                                     {% comment %}
-                                    The option list is rendered once, below: scripts.js
+                                    The option list is rendered once, below: the JS files in static/woof/js
                                     builds the visible list from these <option> tags.
                                     {% endcomment %}
                                     <ul id="groupList"
@@ -198,7 +200,7 @@
                                         <span class="custom-select-caret" aria-hidden="true"></span>
                                     </button>
 
-                                    {# Filled by scripts.js from the <select> below. #}
+                                    {# Filled by the JS files in static/woof/js from the <select> below. #}
                                     <ul id="breedList"
                                         data-list-search="{% trans 'Search' %}"
                                         data-list-empty="{% trans 'No breeds match these filters' %}"
@@ -363,7 +365,7 @@
                     <p class="home-day__summary" data-day-summary>{{ dog.summary }}</p>
                     <div class="home-day__actions">
                         <button type="button" class="guide-more guide-more--swap" data-breed-day-next hidden>{% trans "Another one" %}</button>
-                        <a href="{{ dog.get_absolute_url }}" class="guide-more" data-day-link>{% trans "Learn more" %}</a>
+                        <a href="{{ dog.get_absolute_url }}" class="guide-more" data-day-link>{% trans "Learn more" %}<span class="visually-hidden" data-day-sr> {{ dog.title }}</span></a>
                     </div>
                 </div>
             </div>

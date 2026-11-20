@@ -321,7 +321,7 @@ a {
   font-size: 12px;
   letter-spacing: 0.06em;
   text-align: center;
-  color: rgba(239, 233, 221, 0.5);
+  color: rgba(239, 233, 221, 0.72);
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding: 20px;
 }
@@ -904,7 +904,7 @@ body.cards-text .dog-card__group {
   font-weight: 300;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: color-mix(in srgb, var(--main-text) 76%, transparent);
 }
 .post-media-arrow-body {
   display: flex;
@@ -1267,7 +1267,7 @@ body.cards-text .dog-card__group {
   font-size: 12px;
   line-height: 1.5;
   text-align: left;
-  color: color-mix(in srgb, var(--main-text) 55%, transparent);
+  color: color-mix(in srgb, var(--main-text) 68%, transparent);
 }
 .post-media .images-rule {
   margin: 0;
@@ -1325,7 +1325,7 @@ body.cards-text .dog-card__group {
   align-items: center;
   gap: 6px;
   font-size: 10.5px;
-  color: color-mix(in srgb, var(--main-text) 50%, transparent);
+  color: color-mix(in srgb, var(--main-text) 68%, transparent);
   line-height: 1;
   letter-spacing: 0.2em;
   text-transform: lowercase;
@@ -1502,7 +1502,7 @@ body.cards-text .dog-card__group {
   margin: 0 0 8px;
 }
 .post-similar a {
-  color: var(--main-accent);
+  color: var(--accent-text);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
@@ -1864,7 +1864,7 @@ p strong {
 }
 .vs {
   font-weight: 400;
-  opacity: 0.4;
+  opacity: 0.65;
 }
 .custom-select {
   position: relative;
@@ -1896,7 +1896,7 @@ p strong {
   min-width: 0;
 }
 .custom-select-placeholder {
-  opacity: 0.55;
+  opacity: 0.68;
   text-align: left;
 }
 .custom-select-opt-img,
@@ -2430,7 +2430,7 @@ p strong {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--main-accent);
+  color: var(--accent-text);
 }
 @media (prefers-reduced-motion: reduce) {
   .quote-slider__slide {
@@ -2465,7 +2465,7 @@ p strong {
   opacity: 0.95;
 }
 .accent-strong {
-  color: var(--main-accent);
+  color: var(--accent-text);
   font-weight: 500;
 }
 .homepage-subsubtitle {
@@ -3158,6 +3158,13 @@ body.swal2-shown {
 .breadcrumbs .current {
   color: var(--main-text);
 }
+.breadcrumbs a {
+  display: inline-block;
+  min-width: 24px;
+  padding: 5px 0;
+  margin: -5px 0;
+  text-align: center;
+}
 .breadcrumbs-wrapper {
   display: flex;
   justify-content: space-between;
@@ -3559,7 +3566,7 @@ body.swal2-shown {
   margin: 2px 0 18px;
   font-size: 12px;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--main-text) 55%, transparent);
+  color: color-mix(in srgb, var(--main-text) 68%, transparent);
 }
 .cookie-table-intro {
   margin: 0 0 8px;
@@ -3683,7 +3690,7 @@ body.swal2-shown {
   }
 }
 .filter-btn.is-active {
-  color: var(--main-accent);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -4950,6 +4957,16 @@ ul.post-similar {
 .guide-more--filters:active::after {
   transform: none;
 }
+.guide-more--match::after {
+  width: 15px;
+  height: 15px;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 3l1.9 5.6L17.5 10.5l-5.6 1.9L10 18l-1.9-5.6L2.5 10.5l5.6-1.9z'/%3E%3Cpath d='M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 3l1.9 5.6L17.5 10.5l-5.6 1.9L10 18l-1.9-5.6L2.5 10.5l5.6-1.9z'/%3E%3Cpath d='M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z'/%3E%3C/svg%3E");
+}
+.guide-more--match:hover::after,
+.guide-more--match:active::after {
+  transform: rotate(20deg) scale(1.1);
+}
 .filter-row--all .filter-row__chips {
   min-height: 24px;
 }
@@ -5829,7 +5846,7 @@ body .quote-slider__author {
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: lowercase;
-  color: color-mix(in srgb, var(--main-text) 50%, transparent);
+  color: color-mix(in srgb, var(--main-text) 68%, transparent);
 }
 .bc-param {
   display: inline-flex;
@@ -6095,7 +6112,7 @@ body .param-card .icon.pi {
     line-height: 1;
     letter-spacing: 0.2em;
     text-transform: lowercase;
-    color: color-mix(in srgb, var(--main-text) 50%, transparent);
+    color: color-mix(in srgb, var(--main-text) 68%, transparent);
   }
 
   .home-fact__label .pi {
@@ -6223,7 +6240,8 @@ body .param-card .icon.pi {
   --color-bg: #f8f8f8;
   --surface: #ffffff;
   --main-text: #292e36;
-  --ink-soft: rgba(41, 46, 54, 0.55);
+  --ink-soft: rgba(41, 46, 54, 0.68);
+  --accent-text: #017a5b;
   --line: rgba(41, 46, 54, 0.16);
   --main-accent: #028d6a;
   --accent-deep: #0b3d31;

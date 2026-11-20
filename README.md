@@ -37,7 +37,7 @@ dog_site/
 ├── static/                # ВСЯ статика-исходники (в git)
 │   ├── fonts/             # Nunito-Variable-*.woff2 (+ og/ — шрифты для OG-картинок)
 │   ├── woof/css/          # styles.css (комп), tablet.css, mobile.css, admin.css
-│   ├── woof/js/           # scripts.js
+│   ├── woof/js/           # core, layout, sliders, content, consent (all pages); home, post, breeds (own page)
 │   └── *.png, favicon.ico # Иллюстрации главной, слайдер (1–20.png), логотип
 │
 ├── staticfiles/           # Генерится collectstatic'ом (НЕ в git)

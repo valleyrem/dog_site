@@ -776,7 +776,7 @@ msgstr "Меньше фильтров"
 msgid "Reset"
 msgstr "Сбросить"
 
-msgid "Find my breed"
+msgid "Find a breed for me"
 msgstr "Подобрать породу"
 
 msgid "Try “dachshund”, “Germany”, etc."

@@ -1,6 +1,7 @@
 {% extends 'woof/base.html' %}
 {% load i18n %}
 {% load static %}
+{% load assets %}
 {% load cards %}
 
 {# Full-width layout: no boxed container, like the homepage #}
@@ -46,11 +47,10 @@
             data-copied="{% trans 'Link copied' %}">
         <svg class="post-copy-icon" width="20" height="20" viewBox="0 0 24 24"
              fill="none" aria-hidden="true">
-            <circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="18" cy="5.5" r="2.6" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="18" cy="18.5" r="2.6" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M8.3 10.7 15.7 6.800M8.3 13.300 15.700 17.200"
-                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.4-3.4a3.6 3.6 0 0 0-5.1-5.1l-1 1"
+                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.400 3.400a3.600 3.600 0 0 0 5.100 5.100l1-1"
+                  stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <svg class="post-copy-check" width="20" height="20" viewBox="0 0 24 24"
              fill="none" aria-hidden="true">
@@ -315,7 +315,7 @@
             {% include "woof/includes/post_scales.html" %}
         </div>
 
-        <!-- Contents: built by scripts.js from the headings below, four first -->
+        <!-- Contents: built by the JS files in static/woof/js from the headings below, four first -->
         {% include "woof/includes/guide_toc.html" with short=True %}
 
         {% if post.slug == "keeshond-wolfspitz" or post.slug == "pomeranian" %}
@@ -467,7 +467,7 @@ title="{% trans 'Previous' %}"
     </span>
 
     <div class="modal-content-wrapper">
-        <img class="modal-content" id="modal-img">
+        <img class="modal-content" id="modal-img" alt="">
         <div class="modal-author" id="modal-author"></div>
     </div>
 
@@ -538,7 +538,7 @@ title="{% trans 'Next' %}"
 
 {% endif %}
 
-<!-- Recently viewed: filled by scripts.js from this tab's own history -->
+<!-- Recently viewed: filled by the JS files in static/woof/js from this tab's own history -->
 <div class="recent-block" id="recent-block" hidden>
     <h2 class="section-title" id="recent">{% trans "Recently viewed" %}</h2>
     <div class="recent-grid" id="recent-grid"></div>
@@ -550,4 +550,8 @@ title="{% trans 'Next' %}"
 
 {% include "woof/includes/compare_dialog.html" %}
 
+{% endblock %}
+
+{% block body_scripts %}
+<script src="{% asset 'woof/js/post.js' %}" defer></script>
 {% endblock %}
